@@ -1,4 +1,9 @@
-# JavaScript I
+# Webprogramozás
+
+* Sallai András
+* 2022
+
+## JavaScript I
 
 ## Futtatás konzolon
 
