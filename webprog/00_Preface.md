@@ -1,17 +1,15 @@
-# Webprogramozás
+# Webprogramozás - Előkészítés
 
-## Sallai András
-
-## 2022
-
-## Előkészítés
+* Előkészítés
+* Sallai András
+* 2022
 
 ## Chocolatey
 
 Telepítse a Chocolatey csomagkezelőt. Továbbiakban ezt a csomagkezelőt használjuk.
 
 A csomagkezelő weboldala:
-https://chocolatey.org/
+[https://chocolatey.org/](https://chocolatey.org/)
 
 Bővebb leírása:
 https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:csomagkezeles#chocolatey

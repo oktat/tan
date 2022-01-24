@@ -1,16 +1,15 @@
-# Webprogramozás
+# Webprogramozás - HTML és CSS
 
+* HTML, CSS
 * Sallai András
 * 2022
-* HTML, CSS
 
 ## Táblázat elemei és CSS
 
 A táblázat teljes leírása a következő
 helyen található:
 
-https://szit.hu/doku.php?id=oktatas:web:html:html5_nyelv#tablazat
-
+[https://szit.hu/doku.php?id=oktatas:web:html:html5_nyelv#tablazat](https://szit.hu/doku.php?id=oktatas:web:html:html5_nyelv#tablazat)
 
 ```html
 <table border="1" summary="Mi van a táblázatban">
