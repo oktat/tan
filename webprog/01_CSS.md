@@ -245,11 +245,15 @@ Több információ:
 
 A színátmenetekről bővebben:
 
-* https://szit.hu/doku.php?id=oktatas:web:css:css3#szinatmenet
+* [https://szit.hu/doku.php?id=oktatas:web:css:css3#szinatmenet](https://szit.hu/doku.php?id=oktatas:web:css:css3#szinatmenet)
 
 ### Dobozok árnyékolása
 
-box-shadow
+```css
+.egy {
+  box-shadow: 15px 15px 15px black;
+}
+```
 
 ### Körvonal
 
