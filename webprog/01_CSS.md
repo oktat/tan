@@ -233,7 +233,8 @@ Beállítás a doboz háttérszínének:
 ```
 
 Több információ:
-* https://szit.hu/doku.php?id=oktatas:web:css:css_nyelv#atlatszatlansag
+
+* [https://szit.hu/doku.php?id=oktatas:web:css:css_nyelv#atlatszatlansag](https://szit.hu/doku.php?id=oktatas:web:css:css_nyelv#atlatszatlansag)
 
 ### Színátmenet
 
@@ -366,7 +367,8 @@ a[target] {
 ```
 
 Több információ:
-* https://szit.hu/doku.php?id=oktatas:web:css:css_flex
+
+* [https://szit.hu/doku.php?id=oktatas:web:css:css_flex](https://szit.hu/doku.php?id=oktatas:web:css:css_flex)
 
 ### Grid dobozok
 
@@ -399,7 +401,8 @@ Az fr a Grid elrendezési lehetőséggel együtt
 CSS Animation és Transition
 
 Az animáció:
-* https://szit.hu/doku.php?id=oktatas:web:css:css_animacio
+
+* [https://szit.hu/doku.php?id=oktatas:web:css:css_animacio](https://szit.hu/doku.php?id=oktatas:web:css:css_animacio)
 
 Transition:
 
@@ -438,7 +441,8 @@ A dobozt az óramutató járásával ellentétes
 irányba fordítja 90°-kal.
 
 További transformációk:
-* https://szit.hu/doku.php?id=oktatas:web:css:css3#transzformaciok
+
+* [https://szit.hu/doku.php?id=oktatas:web:css:css3#transzformaciok](https://szit.hu/doku.php?id=oktatas:web:css:css3#transzformaciok)
 
 ### CSS preprocessor
 
