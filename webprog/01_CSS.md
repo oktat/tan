@@ -70,7 +70,7 @@ A médiaelemek részletes leírása:
 
 A meta elemek részletes leírása:
 
-* https://szit.hu/doku.php?id=oktatas:web:html:html5_nyelv#meta_elemek
+* [https://szit.hu/doku.php?id=oktatas:web:html:html5_nyelv#meta_elemek](https://szit.hu/doku.php?id=oktatas:web:html:html5_nyelv#meta_elemek)
 
 ### Viewport
 
@@ -102,7 +102,7 @@ cellái között megszűnik az üres hely.
 
 A táblázatokról részletesen:
 
-https://szit.hu/doku.php?id=oktatas:web:css:css_nyelv#tablazatok
+[https://szit.hu/doku.php?id=oktatas:web:css:css_nyelv#tablazatok](https://szit.hu/doku.php?id=oktatas:web:css:css_nyelv#tablazatok)
 
 ### nth-child
 
