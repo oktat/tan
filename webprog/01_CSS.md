@@ -31,16 +31,16 @@ article, aside, header, footer, section, nav
 
 * section: Összetartozó tartalmakat jelölünk vele, mint a div elemmel.
 * aside: Érintőlegesen kapcsolódó tartalom, amely általában bal vagy jobb oldalon helyezkedik el. Ha valami a fő tartalom bal vagy jobb oldalán helyezkedik el, az még nem elegendő ok arra, hogy aside elembe helyezzük. Tegye fel magának a kérdést. Ha törlöm a félreeső tartalmat, a fő tartalom jelentése változik?
-* header
-* nav
-* footer
+* header: Ez a header nem tévesztendő össze egy weboldal fejrészével, bár ott is használható. A HTML5 header elem akár többször is szerepelhet az oldalon, részeként például a section elemnek.
+* nav: Az egész webhely navigációs információinak tárolására létrehozva.
+* footer: Nem a weboldal alsó részéről van szó, bármelyik szakaszban használható.
 
 ### Médiaelemek
 
 Audio, video, source
 
 ```html
-<video  width=”300” height=”300”>
+<video  width="300" height="300">
     <source src="sample3.ogg">
     <source src="sample1.mp4">
 </video>
@@ -56,12 +56,12 @@ A böngésződ nem támogatja az audio elemet.
 
 A médiaelemek részletes leírása:
 
-* https://szit.hu/doku.php?id=oktatas:web:html:html5_nyelv#video
+* [https://szit.hu/doku.php?id=oktatas:web:html:html5_nyelv#video](https://szit.hu/doku.php?id=oktatas:web:html:html5_nyelv#video)
 
 ### Meta elemek és SEO-alapok
 
 ```html
-<meta name=“érték“ content=“érték” /> 
+<meta name="érték" content="érték" /> 
 ```
 
 ```html
@@ -80,9 +80,9 @@ A meta elemek részletes leírása:
 
 ### Konkurens stílusok
 
-* Szerzői
-* Felhasználói
-* Klines - böngésző
+* Szerzői - Webmester írja
+* Felhasználói - A böngészőben beállítható saját CSS
+* Klines - böngészőnek is van saját stílusa
 
 ### CSS - táblázatok
 
