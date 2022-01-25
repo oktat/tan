@@ -166,16 +166,16 @@ console.log(window.screen.height)
 ### A document
 
 A document objektumon keresztül érhető
-el a webolal, annak egyes részei. 
+el a weboldal, illetve annak egyes részei.
 
 A weboldal HTML elemekből épül fel.
 Az elemk egy hierachiája egy fával
-ábrázolható. Ezt a hierarchikusan 
+ábrázolható. Ezt a hierarchikusan
 felépülő szerkezetet nevezzük
 DOM-nak. Document Object Model.
 
 A document objektumon keresztül elérhetjük
-a DOM egyes részeit. 
+a DOM egyes részeit.
 
 ```javascript
 console.log(document.querySelector('.egy') )
