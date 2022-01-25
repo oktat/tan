@@ -224,3 +224,59 @@ Vagyünk fel, például egy "p" elemet,
 mentsük és figyeljük a böngészőt.
 
 A továbbikaban így fogunk weboldalakat készíteni.
+
+## Git használata
+
+Legyen egy app01 nevű projekt. Létrehozzuk a
+könyvtárat, majd belépünk:
+
+```cmd
+mkdir app01
+cd app01
+```
+
+Adjunk a projekthez git tárolót:
+
+```cmd
+git init
+```
+
+Hozzunk létre egy index.html amit szeretnénk verziókövetni.
+Tegyük fel, hogy a projekt NodeJS projekt is egyben, vagyis
+van node_modules könyvtár is. Ennek a könyvtárnak a tartalmát
+nem szeretnénk verziókövetni, ezért bele kell írni a .gitignore
+nevű fájlba. A .gitignore nevű fájlba azoknak a fájloknak és
+könyvtáraknak a nevét tesszük, amelyeket nem szeretnénk
+verziókövetni. Készítsük el a saját .gitignore nevű állományunkat,
+majd írjuk bele a node_modules könyvtár nevét.
+
+```txt
+node_modules/
+```
+
+Ellenőrizzük, hogy valóban ki van zárva a könyvtár:
+
+```bash
+git status -u
+```
+
+Ha nem látuk a kimenetben mehet verziókövetendő fájlok 
+hozzáadása:
+
+```bash
+git add .
+```
+
+A pont hatására minden az aktuális könyvtárban lévő fájl 
+verziókövetésre lesz jelölve.
+
+A verziókövetés egy git commit paranccsal történik, ahol
+leírjuk milyen változásokat valósítottunk meg a projektben.
+
+```bash
+git commit -m 'Kezdés'
+```
+
+A git verziókövető rendszerről komplett tananyag:
+
+* [https://szit.hu/doku.php?id=oktatas:programozas:verziokontroll:git](https://szit.hu/doku.php?id=oktatas:programozas:verziokontroll:git)
