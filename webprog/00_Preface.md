@@ -193,6 +193,7 @@ hozzáadása:
 ```bash
 git add .
 ```
+
 A pont hatására minden az aktuális könyvtárban lévő fájl 
 verziókövetésre lesz jelölve.
 
