@@ -27,6 +27,18 @@ helyen található:
 
 ## Szemantikus elemek
 
+A szemantikus elemek tartalma egyértelmű.
+Mint például:
+
+* table
+* form
+* figure
+* img
+* article
+* stb.
+
+### Oldalszerkezet meghatározók
+
 article, aside, header, footer, section, nav
 
 * **section**: Összetartozó tartalmakat jelölünk vele, mint a div elemmel.

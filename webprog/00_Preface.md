@@ -12,7 +12,7 @@ A csomagkezelő weboldala:
 [https://chocolatey.org/](https://chocolatey.org/)
 
 Bővebb leírása:
-https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:csomagkezeles#chocolatey
+[https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:csomagkezeles#chocolatey](https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:csomagkezeles#chocolatey)
 
 A Chocolatey weboldalán található egy hosszú Power Shell paranancs, amivel telepíthető a program. Indítsunk egy PoserShell-t rendszergazdaként, így kiadva a parancsot.
 
@@ -35,7 +35,6 @@ choco install <csomagnév>
 ```
 
 A telepítés során még rákérdez, hogy biztosan szeretnénk telepíteni a csomagot. Ekkor az összes ilyen kérdés elfogadása az "a" beírásával lehetésges. Ha telepítő parancsnak adunk egy -y kapcsolót, a kérdés elmarad és azonnal telepíte a Chocolatey.
-
 
 ```cmd
 choco install <csomagnév> -y
@@ -143,9 +142,9 @@ Indítsuk el a szervert a Visual Studio Code terminálablakában:
 yarn start
 ```
 
-A weboldal megnyílik az alapértelmezett böngészőben. 
+A weboldal megnyílik az alapértelmezett böngészőben.
 
-Végezzünk néhány javítást a webolalon. 
+Végezzünk néhány javítást a webolalon.
 Vagyünk fel, például egy "p" elemet,
 írjuk bele "Lorem ipsum dolor est amet",
 mentsük és figyeljük a böngészőt.
