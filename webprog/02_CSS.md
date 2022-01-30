@@ -1,90 +1,16 @@
-# Webprogramozás - HTML és CSS
+# Webprogramozás - CSS
 
-* HTML, CSS
+* CSS
 * Sallai András
 * 2022
 
-## Táblázat elemei és CSS
-
-A táblázat teljes leírása a következő
-helyen található:
-
-[https://szit.hu/doku.php?id=oktatas:web:html:html5_nyelv#tablazat](https://szit.hu/doku.php?id=oktatas:web:html:html5_nyelv#tablazat)
-
-```html
-<table border="1" summary="Mi van a táblázatban">
-  <caption>Költségvetés</caption>
-  <tr>
-    <th>Hónap</th>
-    <th>Spórolás</th>
-  </tr>
-  <tr>
-    <td>Január</td>
-    <td>1000 Ft</td>
-  </tr>
-</table>
-```
-
-### Szemantikus elemek
-
-article, aside, header, footer, section, nav
-
-* section: Összetartozó tartalmakat jelölünk vele, mint a div elemmel.
-* aside: Érintőlegesen kapcsolódó tartalom, amely általában bal vagy jobb oldalon helyezkedik el. Ha valami a fő tartalom bal vagy jobb oldalán helyezkedik el, az még nem elegendő ok arra, hogy aside elembe helyezzük. Tegye fel magának a kérdést. Ha törlöm a félreeső tartalmat, a fő tartalom jelentése változik?
-* header: Ez a header nem tévesztendő össze egy weboldal fejrészével, bár ott is használható. A HTML5 header elem akár többször is szerepelhet az oldalon, részeként például a section elemnek.
-* nav: Az egész webhely navigációs információinak tárolására létrehozva.
-* footer: Nem a weboldal alsó részéről van szó, bármelyik szakaszban használható.
-
-### Médiaelemek
-
-Audio, video, source
-
-```html
-<video  width="300" height="300">
-    <source src="sample3.ogg">
-    <source src="sample1.mp4">
-</video>
-```
-
-```html
-<audio controls="controls">
-  <source src="hangfajl.ogg" type="audio/ogg">
-  <source src="hangfajl.mp3" type="audio/mpeg">
-A böngésződ nem támogatja az audio elemet. 
-</audio>
-```
-
-A médiaelemek részletes leírása:
-
-* [https://szit.hu/doku.php?id=oktatas:web:html:html5_nyelv#video](https://szit.hu/doku.php?id=oktatas:web:html:html5_nyelv#video)
-
-### Meta elemek és SEO-alapok
-
-```html
-<meta name="érték" content="érték" /> 
-```
-
-```html
-<meta name="keywords" content="web, html, css">
-```
-
-A meta elemek részletes leírása:
-
-* [https://szit.hu/doku.php?id=oktatas:web:html:html5_nyelv#meta_elemek](https://szit.hu/doku.php?id=oktatas:web:html:html5_nyelv#meta_elemek)
-
-### Viewport
-
-```html
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-```
-
-### Konkurens stílusok
+## Konkurens stílusok
 
 * Szerzői - Webmester írja
 * Felhasználói - A böngészőben beállítható saját CSS
 * Klines - böngészőnek is van saját stílusa
 
-### CSS - táblázatok
+## CSS - táblázatok
 
 ```css
 .table_001 {
@@ -104,7 +30,7 @@ A táblázatokról részletesen:
 
 [https://szit.hu/doku.php?id=oktatas:web:css:css_nyelv#tablazatok](https://szit.hu/doku.php?id=oktatas:web:css:css_nyelv#tablazatok)
 
-### nth-child
+## nth-child
 
 A nth-child ál-osztály lehetővé teszi
 ismétlődő elemek esetén adott számú
@@ -139,9 +65,9 @@ tr:nth-child(3) {
 
 Több információ az nth-child állosztlyról:
 
-* https://szit.hu/doku.php?id=oktatas:web:css:css_szelektorok#az_nth-child_al-osztaly
+* [https://szit.hu/doku.php?id=oktatas:web:css:css_szelektorok#az_nth-child_al-osztaly](https://szit.hu/doku.php?id=oktatas:web:css:css_szelektorok#az_nth-child_al-osztaly)
 
-### media query
+## media query
 
 ```css
 /* A szöveg alapértelmezett színe */
@@ -164,7 +90,7 @@ body {
 }
 ```
 
-### Színek
+## Színek
 
 A színek az RGB színtér használatával vagy nevekkel adhatók meg.
 
@@ -214,7 +140,7 @@ p {
 }
 ```
 
-### Átlátszatlanság
+## Átlátszatlanság
 
 Beállítás egy doboz számára:
 
@@ -236,7 +162,7 @@ Több információ:
 
 * [https://szit.hu/doku.php?id=oktatas:web:css:css_nyelv#atlatszatlansag](https://szit.hu/doku.php?id=oktatas:web:css:css_nyelv#atlatszatlansag)
 
-### Színátmenet
+## Színátmenet
 
 ```css
 .doboz {
@@ -248,7 +174,7 @@ A színátmenetekről bővebben:
 
 * [https://szit.hu/doku.php?id=oktatas:web:css:css3#szinatmenet](https://szit.hu/doku.php?id=oktatas:web:css:css3#szinatmenet)
 
-### Dobozok árnyékolása
+## Dobozok árnyékolása
 
 ```css
 .egy {
@@ -256,7 +182,7 @@ A színátmenetekről bővebben:
 }
 ```
 
-### Körvonal
+## Körvonal
 
 A körvonal olyan vonal, amelyet a doboz köré
 húzunk, a szegélyen kívül. Egy elem
@@ -275,7 +201,7 @@ A körvonal az elemeken kívül rajzolódik,
 így átfedhet más tartalmakat. A körvonal nem
 része az elem méreteinek sem.
 
-### Szöveg árnyék
+## Szöveg árnyék
 
 ```css
 .egy {
@@ -283,7 +209,7 @@ része az elem méreteinek sem.
 }
 ```
 
-### Szegély lekerekítése
+## Szegély lekerekítése
 
 ```css
 .egy {
@@ -291,7 +217,7 @@ része az elem méreteinek sem.
 }
 ```
 
-### >, +, ~ szelektorok
+## >, +, ~ szelektorok
 
 * div > p
   * p elem, aminek szülője egy div
@@ -300,7 +226,7 @@ része az elem méreteinek sem.
 * div ~ p
   * az összes p elem, amit megelőz egy div
 
-### Attribútum szelektorok
+## Attribútum szelektorok
 
 ```html
 <a>a elem</div>
@@ -313,7 +239,7 @@ a[target] {
 }
 ```
 
-### Előtte és utána
+## Előtte és utána
 
 ::before ::after
 
@@ -337,7 +263,7 @@ a[target] {
 }
 ```
 
-### Flex doboz
+## Flex doboz
 
 ```html
 <div class="burkolo">
@@ -370,7 +296,7 @@ Több információ:
 
 * [https://szit.hu/doku.php?id=oktatas:web:css:css_flex](https://szit.hu/doku.php?id=oktatas:web:css:css_flex)
 
-### Grid dobozok
+## Grid dobozok
 
 ```html
 <div class="grid">
@@ -424,7 +350,7 @@ Transition:
 }
 ```
 
-### Transzformációk
+## Transzformációk
 
 ```css
 #egy {
@@ -444,7 +370,7 @@ További transformációk:
 
 * [https://szit.hu/doku.php?id=oktatas:web:css:css3#transzformaciok](https://szit.hu/doku.php?id=oktatas:web:css:css3#transzformaciok)
 
-### CSS preprocessor
+## CSS preprocessor
 
 A preprocessor egy előfeldolgozó program,
 amely valamilyen szintaxis szerint írt
