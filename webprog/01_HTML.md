@@ -47,6 +47,8 @@ article, aside, header, footer, section, nav
 * **nav**: Az egész webhely navigációs információinak tárolására létrehozva.
 * **footer**: Nem a weboldal alsó részéről van szó, bármelyik szakaszban használható.
 
+* [http://szit.hu/doku.php?id=oktatas:web:html:html5_nyelv#szemantikus_elemek](http://szit.hu/doku.php?id=oktatas:web:html:html5_nyelv#szemantikus_elemek)
+
 ## Médiaelemek
 
 Audio, video, source
