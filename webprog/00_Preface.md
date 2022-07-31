@@ -54,7 +54,7 @@ choco install geany -y
 
 Telepítse a NodeJS rendszert.
 
-* https://nodejs.org/
+* [https://nodejs.org/](https://nodejs.org/)
 
 ```cmd
 choco install nodejs
@@ -69,7 +69,7 @@ npm --version
 
 Bővebben:
 
-* https://szit.hu/doku.php?id=oktatas:web:nodejs:telepites
+* [https://szit.hu/doku.php?id=oktatas:web:nodejs:telepites](https://szit.hu/doku.php?id=oktatas:web:nodejs:telepites)
 
 ## NodeJS projekt
 
@@ -186,14 +186,14 @@ Ellenőrizzük, hogy valóban ki van zárva a könyvtár:
 git status -u
 ```
 
-Ha nem látuk a kimenetben mehet verziókövetendő fájlok 
+Ha nem látuk a kimenetben mehet verziókövetendő fájlok
 hozzáadása:
 
 ```bash
 git add .
 ```
 
-A pont hatására minden az aktuális könyvtárban lévő fájl 
+A pont hatására minden az aktuális könyvtárban lévő fájl
 verziókövetésre lesz jelölve.
 
 A verziókövetés egy git commit paranccsal történik, ahol
