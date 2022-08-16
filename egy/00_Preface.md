@@ -36,7 +36,6 @@ choco install <csomagnév>
 
 A telepítés során még rákérdez, hogy biztosan szeretnénk telepíteni a csomagot. Ekkor az összes ilyen kérdés elfogadása az "a" beírásával lehetésges. Ha telepítő parancsnak adunk egy -y kapcsolót, a kérdés elmarad és azonnal telepíte a Chocolatey.
 
-
 ```cmd
 choco install <csomagnév> -y
 ```

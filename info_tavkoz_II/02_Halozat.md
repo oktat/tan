@@ -1,8 +1,9 @@
-# Gépek
+# Hálózat
 
-## Gépi tanulás, neurális hálózatok, MI
-
-## Hálózat
+* **Szerző:** Sallai András
+* Copyright (c) Sallai András, 2022
+* Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
+* Web: https://szit.hu
 
 A hálózat egymással összekapcsolt számítógépek és informatikai eszközök rendszere.
 
@@ -36,7 +37,7 @@ Passzív hálózati eszközök:
 
 A hálózatok megkönnyítik az adatok átvitelét számítógpek között. A világméretű hálózat létrejötte a egész társadalmakat változtattak meg. Az internet szereplői hálózaton keresztül vásárolnak, tárgyalnak, rendelnek, csevegnek, megosztanak stb.
 
-### A fizikai és logikai topológia
+## A fizikai és logikai topológia
 
 A topológia egy olyan ábra, amely megmutatja egy hálózat felépítését. A fizikai topológia azt is megmutatja, az eszközök hol helyezkednek el. A logikai topológia esetén csak az összekötések fontosak.
 
@@ -48,20 +49,4 @@ A következő ábrán már láthatók milyen fizikai eszközök vesznek részt a
 
 ![Logikai topológia](https://szit.hu/lib/exe/fetch.php?cache=&media=oktatas:halozat:halozati_topologia_002.png)
 
-A fizikai toplógiát 
-
-## Hálózati protokollok
-
-## Ethernet-hálózatok
-
-## Hálózati réteg
-
-## Szállítási réteg
-
-## Otthoni és kisvállalati hálózat építése
-
-## IT-biztonság
-
-## Egyéb operációs rendszerek
-
-## Linux alapok
+A fizikai topológiát
