@@ -121,6 +121,8 @@ Mentés a nano programban a Ctrl+O billentyűkombinációval. A Ctrl+X billenty�
 ### Gyakorlat 2
 
 1. Készítsen egy **fa** nevű könyvtárat, majd lépjen be a könyvtárba.
+2. A fa nevű könyvtárban készítsen egy tolgy.txt fájlt.
+3. A fa nevű könyvtárban készítsen egy hars.txt fájlt is.
 
 ## Rendszergazdai üzemmód
 
