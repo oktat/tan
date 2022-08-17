@@ -79,6 +79,20 @@ Olyanokat tartalmaz mint:
 
 ## BIOS jelszó
 
+## Windows helyi házirend
+
+Alaphelyzetbe állítás:
+
+```cmd
+secedit /configure /verbose /cfg %windir%infdefltbase.inf /db defltbase.sdb
+```
+
+A helyi házirend szerkesztése:
+
+```cmd
+secpol.msc
+```
+
 ## Windows felhasználó és csoportkezelés
 
 ## Böngészők biztonsági beállításai
