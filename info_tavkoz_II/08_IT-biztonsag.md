@@ -102,12 +102,53 @@ secpol.msc
 
 ## Böngészők biztonsági beállításai
 
+### Privátböngészés
+
+Privát ablak nyitása:
+
+* Google Chrome - Ctrl + Shift + N
+* Firefox - Ctrl + Shift + P
+* Vivaldi - Ctrl + Shift + N
+
 ## Hibajavítás telepítése
 
 ## Vezeték nélküli eszközön hitelesítés
 
+### EAP hitelesítési protokoll
+
+Az EAP a **Extensible Authentication Protocol** rövidítése. Magyarul: kiterjeszthető hitelesítő protokoll.
+Valójában szállító protokoll, hitelesítésre optimalizálva.
+
+### Titkosító protokollok
+
+* WEP
+* TKIP
+* AES-CCMP
+* WPA
+
+### RADIUS
+
+A RADIUS a **Remote Authentication Dial In User Service** rövidítése. Magyarul: Távoli hitelesítő, betárcsázós felhasználói szolgáltatás. Eredetileg AAA, azaz Authentication, Authorization, and Accounting; magyarul: Hitelesítés, Hozzáférés, Naplózás. 
+
+A RADIUS egy protokoll, amit Központosított hitelesítő adatbázisnak szokás használni. UDP protokoll felett működik.
+
 ## SOHO firmware
 
-[https://emulator.tp-link.com/TL-WR702N/Index.htm](https://emulator.tp-link.com/TL-WR702N/Index.htm)
+Letöltési központ és emulátorok:
+
+* [https://www.tp-link.com/hu/support/](https://www.tp-link.com/hu/support/)
+
+* [https://www.tp-link.com/hu/support/emulator/](https://www.tp-link.com/hu/support/emulator/)
+* [https://emulator.tp-link.com/TL-WR702N/Index.htm](https://emulator.tp-link.com/TL-WR702N/Index.htm)
+
+* System Tools
+* Firmware
+* Fájl kiválasztása
+* Upgrade
 
 ## SOHO porttovábbítás
+
+* [https://emulator.tp-link.com/941_v6_v3/Index.htm](https://emulator.tp-link.com/941_v6_v3/Index.htm)
+
+* Forwarding
+* Add New...
