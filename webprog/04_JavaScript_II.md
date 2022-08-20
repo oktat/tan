@@ -98,6 +98,31 @@ Kövessük a témát a következő helyen:
 
 * [https://szit.hu/doku.php?id=oktatas:web:javascript:javascript_promise](https://szit.hu/doku.php?id=oktatas:web:javascript:javascript_promise)
 
+## JSON
+
+A JSON a JavaScript Object Notation rövidítése. Egy szabvány, amit
+adatok struktúrálására szántak egy szöveges állományban.
+
+Az RFC 4627 szabványban van leírva. Állományban kiterjesztése **.json** .
+MIME típusként **application/json** .
+
+A JSON formátumot Douglas Crockford határozta meg és népszerűsítetette.
+
+```JSON
+{
+    "név": "Nagy János",
+    "cím": {
+        "település": "Szolnok",
+        "közterület": "Fenyő utca 42."
+    },
+    "fizetés": 370
+}
+```
+
+Ha készítettünk egy JSON struktúrát online is megvizsgálhatjuk érvényeségét:
+
+* [https://jsonlint.com/](https://jsonlint.com/)
+
 ## REST API
 
 Szerveren létrehozott végpontok, amelyen keresztül kezelhetők egy adott adatbázis adatai.
