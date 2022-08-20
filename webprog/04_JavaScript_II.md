@@ -123,6 +123,10 @@ Ha készítettünk egy JSON struktúrát online is megvizsgálhatjuk érvényes�
 
 * [https://jsonlint.com/](https://jsonlint.com/)
 
+Lásd még:
+
+* [https://szit.hu/doku.php?id=oktatas:web:javascript:javascript_json](https://szit.hu/doku.php?id=oktatas:web:javascript:javascript_json)
+
 ## REST API
 
 Szerveren létrehozott végpontok, amelyen keresztül kezelhetők egy adott adatbázis adatai.
