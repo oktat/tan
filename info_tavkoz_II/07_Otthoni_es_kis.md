@@ -78,3 +78,7 @@ Nincs Internet tünet:
 * A szomszédos gép, vagy az átjáró elérhető?
 * Az Interneten a ping paranccsal elérhető bármilyen gép?
 * Működik a DNS feloldás?
+
+Hibaelhárítás Windowson:
+
+* [https://support.microsoft.com/](https://support.microsoft.com/hu-hu/windows/a-h%C3%A1l%C3%B3zati-kapcsolati-hib%C3%A1k-elh%C3%A1r%C3%ADt%C3%A1sa-a-windowsban-166a28c4-14c1-bdb1-473c-09c1571455d8#Category=Windows_10)
