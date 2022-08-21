@@ -14,3 +14,7 @@ A tantárgy teljesítéséhez szükség van a Cisco Packet Tracer nevű programr
 Hozzáférés készíthető:
 
 * [https://id.cisco.com](https://id.cisco.com)
+
+Letöltés:
+
+* [https://www.netacad.com/portal/resources/packet-tracer](https://www.netacad.com/portal/resources/packet-tracer)
