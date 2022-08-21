@@ -20,3 +20,21 @@
 ## Gépi látás
 
 * [https://szit.hu/doku.php?id=oktatas:szamitastechnika:mesterseges_intelligencia#gepi_latas](https://szit.hu/doku.php?id=oktatas:szamitastechnika:mesterseges_intelligencia#gepi_latas)
+
+## Gyakorlat
+
+1. Minek a rövidítése az MI?
+    * Mechanikus interfész
+    * Mesterséges Intelligencia
+    * Mesterséges Interfész
+    * Magyar informatika
+2. Melyik helyes állítás?
+    * Az MI célja az emberhez hasonló viselkedés gépeknél.
+    * Az MI célja az embertől különböző viselkedés gépeknél.
+    * A gépi tanulás nem tartozik az MI témakörébe.
+    * A gépi tanuláshoz nem használnak neurális hálózatokat.
+3. Az MI területéhez nem tartozik az alábbiak közül az egyik. Melyik az?
+    * robotok irányítása
+    * alakzatok rajzolása
+    * nyelvek közötti fordítás
+    * beszéd előállítása
