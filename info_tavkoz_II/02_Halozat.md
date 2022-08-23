@@ -50,3 +50,11 @@ A következő ábrán már láthatók milyen fizikai eszközök vesznek részt a
 ![Logikai topológia](https://szit.hu/lib/exe/fetch.php?cache=&media=oktatas:halozat:halozati_topologia_002.png)
 
 A fizikai topológiát
+
+Lásd tovább:
+
+* [https://szit.hu/](https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_04_-_eszkoezoek_kapcsolasa_a_halozatra#topografia-topologia)
+
+## Irodalom
+
+* [https://www.computernetworkingnotes.com/](https://www.computernetworkingnotes.com/networking-tutorials/differences-between-physical-and-logical-topology.html)
