@@ -38,3 +38,8 @@
     * alakzatok rajzolása
     * nyelvek közötti fordítás
     * beszéd előállítása
+4. Melyik MI irányzat?
+    * Racionálisan számoló rendszerek
+    * Emberi módon viselkedő állatok
+    * Racionálisan gondolkodó állatok
+    * Racionálisan cselekvő rendszerek
