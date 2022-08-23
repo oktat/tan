@@ -5,7 +5,9 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
-## Szükséges eszközök
+## Szükséges szoftverek
+
+### Cisco Packet Tracer
 
 A tantárgy teljesítéséhez szükség van a Cisco Packet Tracer nevű programra.
 
@@ -18,3 +20,13 @@ Hozzáférés készíthető:
 Letöltés:
 
 * [https://www.netacad.com/portal/resources/packet-tracer](https://www.netacad.com/portal/resources/packet-tracer)
+
+### Oracle VirtualBox
+
+* [https://www.virtualbox.org/](https://www.virtualbox.org/)
+
+### Debian telepítő
+
+Egy hálózati telepítő szükséges a következő weboldalról:
+
+* [https://www.debian.org/](https://www.debian.org/)
