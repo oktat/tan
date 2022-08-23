@@ -26,3 +26,4 @@ A csomagkezelő weboldala:
 
 Bővebb leírása:
 [https://szit.hu/](https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:csomagkezeles#chocolatey)
+
