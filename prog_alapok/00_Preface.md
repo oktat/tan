@@ -13,6 +13,8 @@
 * git
 * Total Commander
 * PyCharm Community
+* Google Chrome
+* Firefox
 
 ## Chocolatey
 
