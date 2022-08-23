@@ -7,21 +7,50 @@
 
 ## Szükséges szoftverek
 
+* Chocolatey
 * XAMPP
+* Dia
+* Total Commander
+* Geany
+
+### Chocolatey
+
+Telepítse a Chocolatey csomagkezelőt. Továbbiakban ezt a csomagkezelőt használjuk.
+
+A csomagkezelő weboldala:
+[https://chocolatey.org/](https://chocolatey.org/)
+
+Bővebb leírása:
+[https://szit.hu/](https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:csomagkezeles#chocolatey)
+
+### XAMPP
 
 Telepítés:
 
 ```cmd
-choco install xampp-80
+choco install xampp-74
 ```
 
-### Útvonabeállíáts
+Rendelkezésre áll már az xampp-80 csomag is, amiben PHP 8-van.
+Használjuk inkább a 7.4-s verziót.
+
+### Dia
+
+A Dia egy nyílt forráskódú diagrammszerkesztő program.
+
+Telepítés:
+
+```cmd
+choco install dia
+```
+
+## Útvonabeállíáts
 
 A PATH változóba:
 
 * C:\XAMPP\mysql\bin
 
-### Scriptek
+## Scriptek
 
 Ha az útvonalbeállítás nem megy,
 használjuk az alábbi scriptet:

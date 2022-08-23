@@ -7,7 +7,24 @@
 
 ## Szükséges szoftverek
 
-### Cisco Packet Tracer
+* Total Commander
+* Double Commander
+* VirtualBox
+* Cisco Packet Tracer
+* Geany
+* Dia
+
+## Chocolatey
+
+Telepítse a Chocolatey csomagkezelőt. Továbbiakban ezt a csomagkezelőt használjuk.
+
+A csomagkezelő weboldala:
+[https://chocolatey.org/](https://chocolatey.org/)
+
+Bővebb leírása:
+[https://szit.hu/](https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:csomagkezeles#chocolatey)
+
+## Cisco Packet Tracer
 
 A tantárgy teljesítéséhez szükség van a Cisco Packet Tracer nevű programra.
 
@@ -21,9 +38,13 @@ Letöltés:
 
 * [https://www.netacad.com/portal/resources/packet-tracer](https://www.netacad.com/portal/resources/packet-tracer)
 
-### Oracle VirtualBox
+## Oracle VirtualBox
 
 * [https://www.virtualbox.org/](https://www.virtualbox.org/)
+
+```cmd
+choco install virtualbox
+```
 
 ### Debian telepítő
 
