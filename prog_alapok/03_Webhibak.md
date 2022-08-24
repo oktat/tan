@@ -213,6 +213,13 @@ Az ágból elhagyott commitokat is szeretnénk látni:
 git log --reflog
 ```
 
+Automatikusan stage állapotba és commit:
+
+```cmd
+git commit -a -m 'Valami'
+git commit --all --message 'Valami'
+```
+
 ## IRC
 
 [https://webchat.freenode.net/](https://webchat.freenode.net/)
