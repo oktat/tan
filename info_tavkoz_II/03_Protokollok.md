@@ -38,6 +38,8 @@ Az OSI modell a hálózatok egy rétegmodellje:
 * Adatkapcsolati
 * Fizikai
 
+![images/OSI_modell_01.png](images/OSI_modell_01.png)
+
 A OSI modellt a Nemzetközi Szabványügyi Szervezet kezdte leírni 1977-ben, 1984-ben jelent meg.
 
 ## TCP/IP
@@ -51,10 +53,14 @@ A TCP/IP régetmodellje:
 * Internet
 * Hálózat-hozzáférés
 
+![images/TCP_IP_01.png](images/TCP_IP_01.png)
+
+Az OSI modell és a TCP/IP összehasonlítása
+
+![images/OSI_es_TCP_IP_01.png](images/OSI_es_TCP_IP_01.png)
+
 ## Továbbiak
 
 Továbbiak elérhetők a következő helyen:
 
 * [https://szit.hu/doku.php?id=oktatas:halozat:halozatok#protokollok](https://szit.hu/doku.php?id=oktatas:halozat:halozatok#protokollok)
-
-
