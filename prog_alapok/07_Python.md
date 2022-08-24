@@ -7,4 +7,4 @@
 
 ## Bevezetés a Python programozásba
 
-* [https://szit.hu/doku.php?id=oktatas:programozas:python:python_fejlesztoi_koernyezet_kialakitasa](https://szit.hu/doku.php?id=oktatas:programozas:python:python_fejlesztoi_koernyezet_kialakitasa)
+* [https://szit.hu/doku.php?id=oktatas:programozas:python](https://szit.hu/doku.php?id=oktatas:programozas:python)
