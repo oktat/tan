@@ -10,5 +10,8 @@
 Az Ethernet téma elérhető a következő helyen:
 
 * [https://szit.hu/doku.php?id=oktatas:halozat:ethernet](https://szit.hu/doku.php?id=oktatas:halozat:ethernet)
+
+## Linkek
+
 * [https://www.tutorialspoint.com/](https://www.tutorialspoint.com/what-are-the-differences-between-physical-and-logical-topology)
 * [https://www.geeksforgeeks.org/](https://www.geeksforgeeks.org/difference-between-physical-and-logical-topology/)
