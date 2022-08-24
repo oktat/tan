@@ -220,6 +220,67 @@ git commit -a -m 'Valami'
 git commit --all --message 'Valami'
 ```
 
+### Ágak használata
+
+Elágazás létrehozása:
+
+```cmd
+git branch dev
+```
+
+Átállás az elágazásra:
+
+```cmd
+git checkout dev
+```
+
+Fejlesztünk
+
+```cmd
+echo uborka >> zoldseg.txt
+git add zoldseg.txt
+git commit -m "Uborka hozzáadva"
+```
+
+Visszaállás a master ágra és összefűzés:
+
+```cmd
+git checkout master
+git merge dev
+```
+
+### Távoli munka
+
+Ha még nincs példányunk:
+
+```cmd
+git clone https://github.com/valaki/valami
+```
+
+Ha már van példányunk és szeretnék a változásokat letölteni:
+
+```cmd
+git pull origin master
+```
+
+Feltöltéshez távoli szerver beállítása:
+
+```cmd
+git remote add origin https://github.com/valaki/valahol.git
+```
+
+Ha javítani kell:
+
+```cmd
+git remote set-url origin https://github.com/valaki/valahol.git
+```
+
+Lekérdezés:
+
+```cmd
+git remote get-url origin
+```
+
 ## IRC
 
 [https://webchat.freenode.net/](https://webchat.freenode.net/)
