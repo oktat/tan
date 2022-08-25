@@ -42,7 +42,6 @@ public interface Jarmu {
 
 ```
 
-
 App.java
 ```java
 public class App {
@@ -61,6 +60,80 @@ Szemelygepkocsi.java fájl:
 public class Szemelygepkocsi implements Jarmu {
     public void halad() {
         System.out.println("x");
+    }
+}
+```
+
+## Interfésszel több lehetőség
+
+Egy programot szeretnénk írni, ahol embereket szimulálunk. Minden ember más-más nyelvet beszélhet.
+A példány létrehozása helyén dől el, milyen nyelvet fog beszélni.
+
+A projekt szerkezete:
+
+```txt
+app01/
+  |-bin/
+  |-lib/
+  |-src/
+  |  |-Angol.java
+  |  |-App.java
+  |  |-Beszed.java
+  |  |-Ember.java
+  |  `-Magyar.java
+  `-README.md
+```
+
+Angol.java fájl:
+
+```java
+public class Angol implements Beszed {
+    public void beszel() {
+        System.out.println("yes");
+    }
+}
+```
+
+App.java fájl:
+
+```java
+public class App {
+    public static void main(String[] args) throws Exception {
+        System.out.println("Interfész");
+
+        Ember dani = new Ember(new Angol());
+        dani.beszed.beszel();
+        Ember jani = new Ember(new Magyar());
+        jani.beszed.beszel();
+    }
+}
+```
+
+Beszed.java fájl:
+
+```java
+public interface Beszed {
+    public void beszel();
+}
+```
+
+Ember.java fájl:
+
+```java
+public class Ember {
+    Beszed beszed;
+    public Ember(Beszed beszed) {
+        this.beszed = beszed;
+    }
+}
+```
+
+Magyar.java fájl:
+
+```java
+public class Magyar implements Beszed {
+    public void beszel() {
+        System.out.println("igen");
     }
 }
 ```
