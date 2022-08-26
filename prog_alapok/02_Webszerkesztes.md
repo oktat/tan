@@ -19,6 +19,12 @@ A HTML fájlokat .html kiterjesztésű állományba írjuk.
 
 * [https://code.visualstudio.com/](https://code.visualstudio.com/)
 
+Telepítés Chocolatey csomagkezelővel:
+
+```cmd
+choco install vscode
+```
+
 ## Helló Világ
 
 ```html
