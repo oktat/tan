@@ -20,7 +20,7 @@ interface Jarmu {
 
 Írjunk programot, ami megvalósítja az Jarmu nevű iterfészt.
 
-```
+```txt
 app01/
   |-bin/
   |-lib/
@@ -42,7 +42,8 @@ public interface Jarmu {
 
 ```
 
-App.java
+App.java fájl
+
 ```java
 public class App {
     public static void main(String[] args) throws Exception {
