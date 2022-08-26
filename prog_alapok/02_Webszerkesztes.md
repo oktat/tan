@@ -15,6 +15,10 @@ A HTML fájlokat .html kiterjesztésű állományba írjuk.
 
 * [https://jsbin.com/](https://jsbin.com/)
 
+## Telepíthető szerkesztő
+
+* [https://code.visualstudio.com/](https://code.visualstudio.com/)
+
 ## Helló Világ
 
 ```html
