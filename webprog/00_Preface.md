@@ -51,6 +51,40 @@ choco install googlechrome -y
 choco install geany -y
 ```
 
+## Szükséges szoftverek
+
+Parancsok:
+
+* yarn
+  * Chocolatey csomag: yarn
+  * NPM csomag: yarn
+  * Webhely: [https://yarnpkg.com/](https://yarnpkg.com/)
+* node
+  * Chocolatey csomag: nodejs
+  * Webhely: [https://nodejs.org/](https://nodejs.org/)
+* npm
+  * A NodeJS része
+  * Chocolatey csomag: nodejs
+  * Webhely: [https://nodejs.org/](https://nodejs.org/)
+* git
+  * Chocolatey: git
+  * Webhely: [https://git-scm.com/](https://git-scm.com/)
+
+GUI program:
+
+* Total Commander
+  * Chocolatey csomag: totalcommander
+  * Webhely: [https://www.ghisler.com/](https://www.ghisler.com/)
+* Visusal Studio Code
+  * Chocolatey csomag: vscode
+  * Webhely: [https://code.visualstudio.com/](https://code.visualstudio.com/)
+* Insomnia
+  * Chocolatey csomag: insomnia-rest-api-client
+  * Webhely: [https://insomnia.rest/](https://insomnia.rest/)
+* Geany
+  * Chocolatey csomag: geany
+  * Webhely: [https://www.geany.org/](https://www.geany.org/)
+
 ## NodeJS
 
 Telepítse a NodeJS rendszert.
@@ -86,6 +120,26 @@ app01/
   `-yarn.lock
 ```
 
+Ebből nekünk, csak az index.html fájlt kell létrehozni, a
+többit valamilyen parancs hozza létre.
+
+A **node_modules/** könyvtárba teszi a telepített függőségeket
+az npm és a yarn parancs. A **packages.json** fájlba íródik,
+be minden telepített csomag, amiről úgy beszélünk, hogy
+függőség, mivel ezt használtuk a munánk során.
+Ha más használni akarja a projektünket, akkor megkapja
+az index.html és a package.json fájlt. Egy yarn vagy
+egy npm paranccsal telepíteni tudja ugyanazokat az
+csomagokat, amiket mi is használtunk.
+A **yarn.lock** fájlba a yarn parancs írja, hogy milyen
+csomagokat tettünk fel és szedtünk le, ez számunkra
+nem érdekes.
+
+Most elkészítjük az első NodeJS alapú projektünket.
+A projekt könyvtárát most nekünk kell létrehozni.
+Legyen a neve app01. Ha elkészült lépjünk be a
+könyvtárba.
+
 ```cmd
 mkdir app01
 npm init -y
@@ -108,6 +162,22 @@ Kapunk egy package.json fájlt. Tartalma:
 }
 ```
 
+A lite-server nevű csomagot fogjuk használni
+a fejlesztés során.
+
+Telepítsük a lit-server nevű csomagot:
+
+```cmd
+yarn add lite-server --dev
+```
+
+A csomag telepszik a node_modules könyvtárba,
+sok függőségéve együtt. Nézzünk bele a package.json
+fájba, ahol láthatjuk, hogy bejegyzésre került.
+
+A **package-json** fájlba be kell jegyezni, hogy
+szeretnénk elindítani.
+
 Egészítsük egy script részt:
 
 ```json
@@ -117,8 +187,13 @@ Egészítsük egy script részt:
   },
 ```
 
+Mentsük el.
+
 Telepítsük a lit-server nevű csomagot:
 yarn add lite-server --dev
+
+Most már, nekifoghatunk a projekt részét tartalmazó
+weboldal elkészítéséhez is.
 
 Készítsünk egy weboldalt index.html néven.
 
