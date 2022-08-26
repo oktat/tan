@@ -11,4 +11,5 @@
 
 ## Oktatási portálok
 
+* [https://scrimba.com/](https://scrimba.com/)
 * [https://www.codecademy.com/](https://www.codecademy.com/)
