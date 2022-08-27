@@ -7,9 +7,25 @@
 
 ## Módszertanok
 
+A fejlesztési módszertanok meghatározzák, hogy az egyes szoftver életciklusokat, mikor, milyen sorrendben jönnek egymás után.
+
+* Vízesés modell
+* V-modell
+* Prototípus modell
+* Inkrementális fejlesztés
+* Gyors alkalmazás fejlesztés
+* Agilis fejlesztés
+* Extrém programozás
+
 ## V-modell
 
+A V-modell olyan mint a vízesés modell, de van egy másik felfelé mutató ága, ami tesztelésről szól.
+
 ## Prototípus modell
+
+A vízesés modell kudarcai hozták életre a Prototípus modellt. A vízesés modellben, amikor elkészül a szoftver, általában mindig kiderül, hogy nem is erre gondolt a megrendelő.
+
+A prototípus modellnél számtalan prototípust kap a megrendelő, mielőtt megkapja a kész terméket.
 
 ## Iteratív és inkrementális módszertanok
 
