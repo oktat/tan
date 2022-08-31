@@ -8,3 +8,9 @@
 ## Az alkalmazási réteg
 
 * [https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_10_-_alkalmazasi_reteg](https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_10_-_alkalmazasi_reteg)
+
+* [https://szit.hu/doku.php?id=oktatas:linux:dns_szerver:elmelet](https://szit.hu/doku.php?id=oktatas:linux:dns_szerver:elmelet)
+
+* [https://szit.hu/doku.php?id=oktatas:linux:e-mail_szerver:e-mail_elmelet](https://szit.hu/doku.php?id=oktatas:linux:e-mail_szerver:e-mail_elmelet)
+
+* [https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_10_-_dhcp](https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_10_-_dhcp)
