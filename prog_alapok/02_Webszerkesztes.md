@@ -52,7 +52,7 @@ A HTML oldal szerkezetét tagekkel határozzuk meg.
 Egy tag kisebbmint jellel kezdődik és nagyobbmint jellel
 záródik:
 
-```
+```xml
 <név>
 ```
 
