@@ -65,6 +65,10 @@ public class Szemelygepkocsi implements Jarmu {
 }
 ```
 
+### Gyakorás 1
+
+1.) Írjon programot, ahol egy idegsejtet szimulál. A szimulátorban használjon interfészt, amiben meg határozza a sejt egy tevékenységét. A program valósítsa meg az interfészt. A program fő osztálya külön állományban legyen.
+
 ## Interfésszel több lehetőség
 
 Egy programot szeretnénk írni, ahol embereket szimulálunk. Minden ember más-más nyelvet beszélhet.
