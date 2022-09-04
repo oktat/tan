@@ -9,3 +9,4 @@
 
 A CMS a Content Management System rövidítése. Magyarul tartalomkezelő rendszer.
 
+* [https://szit.hu/doku.php?id=oktatas:web:cms:wordpress](https://szit.hu/doku.php?id=oktatas:web:cms:wordpress)

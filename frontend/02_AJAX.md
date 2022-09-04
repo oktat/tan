@@ -6,3 +6,10 @@
 * Web: [https://szit.hu](https://szit.hu)
 
 ## AJAX
+
+* [https://szit.hu/doku.php?id=oktatas:web:javascript:javascript_ajax](https://szit.hu/doku.php?id=oktatas:web:javascript:javascript_ajax)
+
+Fetch:
+
+* [https://szit.hu/doku.php?id=oktatas:web:javascript:javascript_fetch:egyszeru_lancolt](https://szit.hu/doku.php?id=oktatas:web:javascript:javascript_fetch:egyszeru_lancolt)
+

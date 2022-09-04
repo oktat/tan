@@ -7,4 +7,4 @@
 
 ## Projektfeladat
 
-
+A projektmunkához Git verziókövetőt használunk.

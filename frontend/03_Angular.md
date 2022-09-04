@@ -6,3 +6,5 @@
 * Web: [https://szit.hu](https://szit.hu)
 
 ## Az Angular keretrendszer
+
+* [https://szit.hu/doku.php?id=oktatas:web:angular](https://szit.hu/doku.php?id=oktatas:web:angular)

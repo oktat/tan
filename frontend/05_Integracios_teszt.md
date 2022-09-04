@@ -7,3 +7,4 @@
 
 ## Az integrációs teszt
 
+* [https://szit.hu/doku.php?id=oktatas:web:selenium](https://szit.hu/doku.php?id=oktatas:web:selenium)
