@@ -153,6 +153,7 @@ public class Dolgozo {
     double fizetes;    
 }
 ```
+
 Az interfész:
 
 ```java
