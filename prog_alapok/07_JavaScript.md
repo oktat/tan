@@ -10,3 +10,23 @@
 ```javascript
 console.log('Helló Világ');
 ```
+
+```javascript
+alert('Weblapon felugró');
+```
+
+## JavaScript külső fájlban
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript</title>
+</head>
+<body>
+    <h1>JavaScript külső fájlban</h1>
+    <script src="app.js"></script>
+</body>
+</html>
+```
