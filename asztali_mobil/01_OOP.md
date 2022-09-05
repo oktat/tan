@@ -65,7 +65,7 @@ public class Szemelygepkocsi implements Jarmu {
 }
 ```
 
-### Gyakorás 1
+### Gyakorlás 1
 
 1.) Írjon programot, ahol egy idegsejtet szimulál. A szimulátorban használjon interfészt, amiben meg határozza a sejt egy tevékenységét. A program valósítsa meg az interfészt. A program fő osztálya külön állományban legyen.
 
@@ -143,7 +143,43 @@ public class Magyar implements Beszed {
 }
 ```
 
-## Adatbázis elérés
+## Adatbázis-elérés
+
+Adatbázis (database/create.sql):
+
+```sql
+create database adaba
+collate utf8_hungarian_ci
+character set utf8;
+
+grant all privileges
+on adaba.*
+to adaba@localhost
+identified by 'titok';
+
+create table employees(
+    id int not null primary key auto_increment,
+    name varchar(50),
+    city varchar(50),
+    salary double
+);
+```
+
+database/insert.sql:
+
+```sql
+insert into employees
+(name, city, salary)
+values
+('Para Béla', 'Szolnok', 342),
+('Fele Irén', 'Szeged', 332),
+('Nora Imre', 'Szeged', 362),
+('Szal Katalin', 'Szolnok', 372),
+('Endő Lajos', 'Miskolc', 334),
+('Tengi Mária', 'Szolnok', 329);
+```
+
+Adatok:
 
 ```java
 public class Dolgozo {

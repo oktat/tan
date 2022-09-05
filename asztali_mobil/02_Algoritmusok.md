@@ -13,6 +13,85 @@
 
 ### Tömb
 
+Öt egész szám tárolására alkalmas tömb:
+
+```java
+int[] szamok = new int[5];
+a[0] = 35;
+a[1] = 22;
+a[2] = 72;
+a[3] = 14;
+a[4] = 28;
+```
+
+```java
+int[] szamok = {35, 22, 72, 14, 28};
+```
+
+```java
+import java.util.ArrayList;
+//...
+
+ArrayList<Integer> szamLista = new ArrayList<>();
+
+szamLista.add(35);
+szamLista.add(22);
+szamLista.add(72);
+szamLista.add(14);
+szamLista.add(28);
+```
+
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+//...
+
+Integer[] szamok = {35, 22, 72, 14, 28}
+ArrayList<Integer> szamLista = new ArrayList<>(Arrays.asList(b));
+
+//bejárás:
+for(Integer szam : szamLista) {
+    System.out.println(szam);
+}
+```
+
+```java
+import java.util.LinkedList;
+//...
+
+LinkedList<Integer> szamLista = new LinkedList<>();
+
+szamLista.add(35);
+szamLista.add(22);
+szamLista.add(72);
+szamLista.add(14);
+szamLista.add(28);
+```
+
+Teljeskód:
+
+```java
+import java.util.LinkedList;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        System.out.println("LinkedList használata");
+
+        LinkedList<Integer> szamLista = new LinkedList<>();
+        szamLista.add(35);
+        szamLista.add(22);
+        szamLista.add(72);
+        szamLista.add(14);
+        szamLista.add(28);
+        for(Integer szam : szamLista) {
+            System.out.println(szam);
+        }
+    }
+}
+```
+
+Még több információ:
+
 * [https://szit.hu/doku.php?id=oktatas:programozas:java:java_kollekciok#arraylist](https://szit.hu/doku.php?id=oktatas:programozas:java:java_kollekciok#arraylist)
 
 ### Elemi adatszerkezetek
