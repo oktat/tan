@@ -9,7 +9,7 @@
 
 A reszponzív tervezéshez újabban betűszavakat hoznak létre. Responsive Web Design, és RWD-ként rövidítik.
 
-A legkülönfélébb eszközkön szeretnénk a weblapot optimálisan megjeleníteni.
+A legkülönfélébb eszközökön szeretnénk a weblapot optimálisan megjeleníteni.
 
 A cél eléréshez az elemek méretét, helyét százalékban adjuk meg.
 
