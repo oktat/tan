@@ -27,3 +27,16 @@ A csomagkezelő weboldala:
 Bővebb leírása:
 [https://szit.hu/](https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:csomagkezeles#chocolatey)
 
+## Telepítések
+
+A szoftverek telepítése choco paranccsal:
+
+```cmd
+choco install vscode.install
+choco install nodejs
+choco install dia
+choco install composer
+choco install insomnia-rest-api-client
+choco install gimp
+choco install totalcommander
+```

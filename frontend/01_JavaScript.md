@@ -40,4 +40,8 @@ tsc app.ts
 ```
 
 A fordítás után, létrejön egy app.js nevű fájl, amit a
-bögészők már képesek használni.
+böngészők már képesek használni.
+
+## További anyag a témához
+
+* [https://szit.hu/doku.php?id=oktatas:web:typescript:typescript_nyelv](https://szit.hu/doku.php?id=oktatas:web:typescript:typescript_nyelv)
