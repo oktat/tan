@@ -29,7 +29,7 @@ Bővebb leírása:
 ## Telepítés
 
 ```cmd
-choco install vscode 
+choco install vscode.install 
 choco install dia
 choco install git
 choco install totalcommander

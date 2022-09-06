@@ -22,14 +22,14 @@ A HTML fájlokat .html kiterjesztésű állományba írjuk.
 Telepítés Chocolatey csomagkezelővel:
 
 ```cmd
-choco install vscode
+choco install vscode.install
 ```
 
 ## Helló Világ
 
 ```html
 <!DOCTYPE html>
-<html>
+<html lang="hu">
 <head>
     <meta charset="utf-8">
     <title>Cím</title>
@@ -85,7 +85,7 @@ A fejrészben van két minimálisan megadandó HTML elem. Az egyik a weblap
 karakterkódolását mondja meg, a másik a weboldalnak egy olyan címét határozza
 meg, amely a böngésző címsorában, vagy annak fülein jelenik meg.
 
-A karakterkódoást a meta elemmel adjuk meg. Minden HTML elem
+A karakterkódolást a meta elemmel adjuk meg. Minden HTML elem
 felvehet attribútumokat. Az attribútumoknak van mindig egy értékük.
 A meta elemmel nagyon sok dolog beállítható, a karakterkódolás csak
 az egyik dolog. Hogy a karakterkódolást állítjuk azt a charset attribútummal
@@ -190,7 +190,7 @@ A div és a span elemeknek nincs szemantikai jelentésük. A div elem az oldal s
 
 ### Blokk elemek
 
-Ha egy blokkelemet hoztok létre, az a tartalomtól függetlenül kitölti az a rendelkezésre álló helyet.
+Ha egy blokkelemet hozunk létre, az a tartalomtól függetlenül kitölti az a rendelkezésre álló helyet. A követkeő példban a div elemmel hozunk létre egy dobozt, amelynek a tartalma az "alma" szót. Minden HTML elem egy úgynevezett dobozt hoz létre a weblapon. Ezen dobozok mérete, kiterjedése, általában nem látszik.
 
 ```html
 <body>
@@ -200,9 +200,9 @@ Ha egy blokkelemet hoztok létre, az a tartalomtól függetlenül kitölti az a 
 </body>
 ```
 
-A div elem a böngészől bal szélétől a jobb széléig tart.
+A div elem a böngésző bal szélétől a jobb széléig tart.
 
-Adjunk háttérszint a doboznak és ez látható lesz:
+Hogy lássuk a div boboz kiterjedését, adjunk háttérszint a doboznak:
 
 ```html
 <body>
@@ -211,6 +211,8 @@ Adjunk háttérszint a doboznak és ez látható lesz:
    </div>
 </body>
 ```
+
+A doboznak a style attribútummal állítottunk be kék háttérszint.
 
 ![blokk elem](images/block_element.png)
 
@@ -255,7 +257,11 @@ p elemek:
 
 ![p elemek](images/p_elements.png)
 
+Láthatjuk, hogy az blokk elemek egymás után folynak lefele a weblapon, mindegyik egyetlen sort elfoglalva.
+
 ### Inline elemek
+
+Az inline elemek a tartalomhoz igazodnak.
 
 ```html
 <body>
@@ -283,10 +289,11 @@ Több inline elem:
 </body>
 ```
 
+Több inline elem egysorban jelenik meg mindaddig, amíg elfér a böngészőben. Ha egy inline elem nem fér el, akkor a következő sorba jelenik meg.
+
 ![Több inline elem](images/multi_inline_elment.png)
 
-Figyeljük meg, hogy a dobozok egymás után jelennek meg, egyetlen sorban.
-Az inline elemek körülfogják a tartalmat és nem nagyobbak.
+Figyeljük meg, hogy a dobozok egymás után jelennek meg, egyetlen sorban. Az inline elemek körülfogják a tartalmat és nem nagyobbak mint a tartalom. Egymás után egyetlen sorban folynak, ha nincs több hely, a következő sorba folynak a weblapon.
 
 ### Összefoglaló
 
@@ -316,6 +323,8 @@ Sortörést a br elemmel lehet megvalósítani. A b elemnek nincs lezáró rész
 ```
 
 ## Kiemelés
+
+A kiemelésekre többéle HTML elem áll rendelkezésre. A követkeő három fejezet, ilyen kiemelő elemeket mutat be.
 
 ### Szövegek kiemelése
 
@@ -355,6 +364,14 @@ Sortörést a br elemmel lehet megvalósítani. A b elemnek nincs lezáró rész
 | &lt;dfn&gt; | egy kifejezése meghatározása |
 
 ## Listák
+
+A listák minden dokumentumban fontos szervező elemek. A HTML oldalakon háromféle listát hozhatunk létre:
+
+* számozott
+* számozatlan
+* definíciós
+
+A számozott és számozatlan lista egymásba átalakítható a később tanulásra kerülő CSS segítségével.
 
 ### Számozatlan lista
 
@@ -441,6 +458,10 @@ Használható típusok:
 <img src="nev.png" alt="leírás">
 ```
 
+Az src és az alt attribútumok kötelezőek.
+
+A képeknek, azonban más attribútumai is lehetnek.
+
 ```html
 <img 
    src="nev.png" 
@@ -453,6 +474,8 @@ Használható típusok:
 
 ### A figure elem
 
+A figure elem segítésgével összefoghatjuk a képet és a feliratát.
+
 ```html
 <figure>
   <img src="nev.png" alt="Leírás" />
@@ -461,6 +484,8 @@ Használható típusok:
 ```
 
 ## Táblázat
+
+A táblázat elterjedt formája többféle tulajdonság megjelenítésének.
 
 ### Alap
 
@@ -477,7 +502,11 @@ Használható típusok:
 </table>
 ```
 
+A border attribútumot szegélyt határoz meg a táblázat részére. Ezt nem így fogjuk megadni később, de most jól látható ettől a táblázat kinézete.
+
 ### Táblázat felirata
+
+A caption elem segítségével feliratozható a táblázat. Böngészőtől függ, hogy ez hol jelenik meg.
 
 ```html
 <table border="1">
@@ -494,6 +523,8 @@ Használható típusok:
 ```
 
 ### Táblázat összefoglalója
+
+Ritkábban használt attribútum a summary, amiben megadhatunk egy összefoglalót, ami egyébként csak a forráskódban jelenik meg.
 
 ```html
 <table border="1" summary="A dolgozók adatai">
