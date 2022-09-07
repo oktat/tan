@@ -23,6 +23,8 @@
 
 ## Gyakorlat
 
+### Feleletválasztós kérdések
+
 1. Minek a rövidítése az MI?
     * Mechanikus interfész
     * Mesterséges Intelligencia
@@ -43,3 +45,15 @@
     * Emberi módon viselkedő állatok
     * Racionálisan gondolkodó állatok
     * Racionálisan cselekvő rendszerek
+
+### Egyszerű kérdések
+
+1. Milyen területeken alkalmazzák jelenleg az MI-t?
+2. Mire használjuk a neurális hálózatokat?
+3. Milyen veszélyei vannak a mesterséges intelligenciának?
+4. Képes az MI érzelmekre?
+5. Mikor lesz az MI-nek olyan öntudata, minta az embernek?
+6. Mi a neurális hálózat?
+7. Milyen beszélgetős MI ismert manapság?
+8. Mi a Turing-teszt
+9. Hol találkozunk MI-vel a hétköznapokban?
