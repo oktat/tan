@@ -53,7 +53,7 @@ A fizikai topológiát
 
 Lásd tovább:
 
-* [https://szit.hu/](https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_04_-_eszkoezoek_kapcsolasa_a_halozatra#topografia-topologia)
+* [https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_04_-_eszkoezoek_kapcsolasa_a_halozatra#topografia-topologia](https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_04_-_eszkoezoek_kapcsolasa_a_halozatra#topografia-topologia)
 
 ## Kérdések
 

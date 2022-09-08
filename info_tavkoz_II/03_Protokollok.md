@@ -64,3 +64,7 @@ Az OSI modell és a TCP/IP összehasonlítása
 Továbbiak elérhetők a következő helyen:
 
 * [https://szit.hu/doku.php?id=oktatas:halozat:halozatok#protokollok](https://szit.hu/doku.php?id=oktatas:halozat:halozatok#protokollok)
+
+* [https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_03_-_a_halozati_kommunikacio_es_a_protokollok](https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_03_-_a_halozati_kommunikacio_es_a_protokollok)
+
+* [https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_04_-_eszkoezoek_kapcsolasa_a_halozatra](https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_04_-_eszkoezoek_kapcsolasa_a_halozatra)
