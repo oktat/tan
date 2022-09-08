@@ -37,7 +37,7 @@
     * A gépi tanuláshoz nem használnak neurális hálózatokat.
 3. Az MI területéhez nem tartozik az alábbiak közül az egyik. Melyik az?
     * robotok irányítása
-    * alakzatok rajzolása
+    * megtervezett alakzatok megjelenítése
     * nyelvek közötti fordítás
     * beszéd előállítása
 4. Melyik MI irányzat?
