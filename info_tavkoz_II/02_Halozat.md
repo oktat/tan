@@ -57,12 +57,12 @@ Lásd tovább:
 
 ## Kérdések
 
-1.) Milyen csoportokba sorolhatók a hálózatok?
+1.) Milyen csoportokba sorolhatók a számítógépes hálózatok?
 
 * nyitott
 * mesterséges
 * aktív
-* passzív
+* reális
 
 2.) Egy hálózatban mi generálja újra a vivőjelet?
 
@@ -87,15 +87,15 @@ Lásd tovább:
 
 5.) Mi a topográfia?
 
-* megmutatja fizikailag hol helyezkedik el a hálózat
-* megmutatja az adatáramlás irányát
+* megmutatja fizikailag hol helyezkednek el a hálózat eszközei
+* mindig megmutatja az adatáramlás irányát
 * csak azt mutatja meg, milyen  eszközök vannak a hálózatban
 * megmutatja, hol hibásodnak meg a hálózatok
 
 6.) Mi jellemző a fizikai topológiára?
 
-* a hálózat felépítést adja meg
-* a kommunikációs mechanizmusokat mutatja meg
+* megmondja milyen eszközök vesznek részt a hálózatban
+* minden esetben leolvasható milyen maszkokat használunk
 * megmutatja hány IP cam van a hálózatban
 * megmutatja milyen hextettel kezdődnek a MAC címek
 
@@ -127,35 +127,35 @@ Lásd tovább:
 * egyirányú kapcsolat
 * útválasztót használó
 
-10.) Milyik közeghozzáférési módszer?
+11.) Milyik közeghozzáférési módszer?
 
 * szimplex kapcsolat
 * egyirányú kapcsolat
 * szabályozott hozzáférés
 * útválasztót használó
 
-11.) A CSMA technológiára igaz:
+12.) A CSMA technológiára igaz:
 
 * versengéses
 * szabályozott
 * egyirányú
 * egyszintű
 
-12.) Az Ethernet szabvány száma:
+13.) Az Ethernet szabvány száma:
 
 * 802.3
 * 802.4
 * 802.5
 * 802.6
 
-13.) A Wireless szabvány száma:
+14.) A Wireless szabvány száma:
 
 * 802.9
 * 802.10
 * 802.11
 * 802.12
 
-14.) Melyik nem címzési mód egy hálózatban?
+15.) Melyik nem címzési mód egy hálózatban?
 
 * unicast
 * broadcast
