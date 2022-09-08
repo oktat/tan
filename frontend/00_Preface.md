@@ -16,6 +16,7 @@
 * Insomnia (REST API client)
 * GIMP
 * Total Commander
+* XAMPP
 
 ## Chocolatey
 
@@ -39,4 +40,5 @@ choco install composer
 choco install insomnia-rest-api-client
 choco install gimp
 choco install totalcommander
+choco install xampp-74
 ```
