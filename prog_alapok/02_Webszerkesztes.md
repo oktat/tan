@@ -667,6 +667,12 @@ Ha egy weboldalon belül szeretnénk egy szöveghez ugrani, akkor ahova szeretn�
 Horgony:
 
 ```html
+<a id="név"></a>
+```
+
+vagy:
+
+```html
 <a name="név"></a>
 ```
 
@@ -694,6 +700,8 @@ A böngésződ nem támogatja az audio elemet.
 ```
 
 ## Űrlap
+
+Az űrlapok segítségével a weblap felhasználója adatokat közölhet a webszerverrel.
 
 ```html
 <form action="akcio.php" method="POST">
