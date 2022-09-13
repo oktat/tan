@@ -709,3 +709,18 @@ A böngésződ nem támogatja az audio elemet.
  
 </form>
 ```
+
+## Az oldal szerkezetét leíró elemek
+
+Az oldal szerkezetét általános célú div elemekkel,
+vagy szemantikus elemekkel írjuk le. Erre a célra
+a következő szemantikus elemek állnak rendelkezésre:
+
+* section - a weblap egy szakasza
+* aside - érintőlegesen kapcsolódó tartalom
+* header - az oldal vagy egy rész fejrésze
+* nav - navigációs sáv
+* footer - az odal vagy egy rész lábrésze
+* article - tartalmi egységek
+* main - az oldal főbb része
+
