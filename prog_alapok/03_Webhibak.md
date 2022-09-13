@@ -285,4 +285,4 @@ git remote get-url origin
 
 * [https://webchat.freenode.net/](https://webchat.freenode.net/)
 
-<a href="https://webchat.freenode.net/" target=&quot;_blank">https://webchat.freenode.net/</a>
+<a href="https://webchat.freenode.net/" target="_blank">https://webchat.freenode.net/</a>
