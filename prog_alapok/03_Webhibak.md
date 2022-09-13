@@ -283,6 +283,4 @@ git remote get-url origin
 
 ## IRC
 
-* [https://webchat.freenode.net/](https://webchat.freenode.net/)
-
-<a href="https://webchat.freenode.net/" target="_blank">https://webchat.freenode.net/</a>
+* [https://webchat.freenode.net/](https://webchat.freenode.net/){:target="_blank" rel="noopener"}
