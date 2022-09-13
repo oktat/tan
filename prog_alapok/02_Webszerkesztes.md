@@ -723,4 +723,3 @@ a következő szemantikus elemek állnak rendelkezésre:
 * footer - az odal vagy egy rész lábrésze
 * article - tartalmi egységek
 * main - az oldal főbb része
-
