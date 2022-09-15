@@ -96,6 +96,8 @@ Vállalatok átlal leggyakrabban használt nagysávszélességű kapcsolatok:
 
 A T1-t közepes szintű vállalatok szokták választani, míg a T3 a nagyvállalatok választása. A több irodával vagy telephellyel rendelkező vállalatok választása a Metro Ethernet.
 
+Az ISP hálózatán nagysebességű útválasztók és kapcsolókon keresztül jutnak el az adataink a célgéphez.
+
 ## BYOD
 
 A BYOD a Bring Your Own Device rövidítése. Magyarul: hozd a saját eszközödet. Ez olyan munkamodell, ahol a dolgozók saját eszközön dolgoznak.
