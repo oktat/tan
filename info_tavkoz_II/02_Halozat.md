@@ -127,7 +127,6 @@ Minden lehetséges esemény, ami a biztonsági célok megsértését vezet, hál
 
 A hely adminisztártorok olyan hozzáférést kapjanak, ami automatikusan lejár.
 
-
 ## Kérdések
 
 1.) Milyen csoportokba sorolhatók a számítógépes hálózatok?
