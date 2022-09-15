@@ -55,6 +55,79 @@ Lásd tovább:
 
 * [https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_04_-_eszkoezoek_kapcsolasa_a_halozatra#topografia-topologia](https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_04_-_eszkoezoek_kapcsolasa_a_halozatra#topografia-topologia)
 
+## Csatlakozás az Internethez
+
+Szükségünk van egy ISP-re. Az ISP a  Internet service provider rövidítése. Az ISP egy olyan vállalkozás, amely Internet hozzáférést biztosít más vállalkozások vagy éppen otthonok, intézmények számára.
+
+Az ISP az Internet biztosítása mellett számos más szolgáltatást is nyújthat:
+
+* webtárhely
+* IP alapú hangtovábbítás
+* technikai szolgáltatás
+* alkalmazás szolgáltatás
+* adatbázis szolgáltatás
+* FTP tárhely
+
+Az internet a végpontokon:
+
+* betárcsázós hozzáférés
+* DSL (telefonvonalat használ, de állandó kapcsolatot biztosít)
+* kábelmodem
+* műholdas
+
+A hozzáférés egyik jellemzője, az egy másodperc alatt átvihető bitek száma. A mértékegység ennek megfelelően: 
+
+* bit/s
+
+A sávszélességek megadását általában ilyen formákban szokás:
+
+* bit/s
+* Kbit/s
+* Mbit/s
+* Gbit/s
+
+## BYOD
+
+A BYOD a Bring Your Own Device rövidítése. Magyarul: hozd a saját eszközödet. Ez olyan munkamodell, ahol a dolgozók saját eszközön dolgoznak.
+
+## SDN
+
+Az SDN a Software defined networking rövidítése, magyarul szoftverál által beállított hálózat. Az SDN olyan beállításra utal, ahol a hálózatot dinamikusan programozottan szoftverek állítják be.
+
+## A hálózat fenyegetései
+
+Minden lehetséges esemény, ami a biztonsági célok megsértését vezet, hálózat fenyegetés.
+
+### Biztonsági célok
+
+* bizalmasság
+* adatintegritás
+* hozzárendelhető felelős
+* rendelkezésre állás
+* kontrollált hozzáférés
+
+### Támadási technológiák
+
+* elárasztás
+* hamisítás
+  * MAC
+  * valaki másnak adja ki magát
+* olyan hozzáférés használata, amihez nincs joga
+* más nevében üzenet előállítása
+* lehallgatás
+
+### Biztonsági szolgáltatások
+
+* azonosítás
+* letagadhatatlanság
+* integritás
+* kontrollált hozzáférés
+
+### A helyi adminisztrátorok
+
+A hely adminisztártorok olyan hozzáférést kapjanak, ami automatikusan lejár.
+
+
 ## Kérdések
 
 1.) Milyen csoportokba sorolhatók a számítógépes hálózatok?
