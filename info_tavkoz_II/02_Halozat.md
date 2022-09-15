@@ -86,6 +86,16 @@ A sávszélességek megadását általában ilyen formákban szokás:
 * Mbit/s
 * Gbit/s
 
+### Vállalatok
+
+Vállalatok átlal leggyakrabban használt nagysávszélességű kapcsolatok:
+
+* T1 - 1,544/2,048 Mbit/s
+* T3 - 44,736/34,368 Mbit/s
+* Metro - 10 Gbit/s
+
+A T1-t közepes szintű vállalatok szokták választani, míg a T3 a nagyvállalatok választása. A több irodával vagy telephellyel rendelkező vállalatok választása a Metro Ethernet.
+
 ## BYOD
 
 A BYOD a Bring Your Own Device rövidítése. Magyarul: hozd a saját eszközödet. Ez olyan munkamodell, ahol a dolgozók saját eszközön dolgoznak.
