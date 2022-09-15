@@ -96,36 +96,25 @@ Az SDN a Software defined networking rövidítése, magyarul szoftverál által 
 
 ## A hálózat fenyegetései
 
-Minden lehetséges esemény, ami a biztonsági célok megsértését vezet, hálózat fenyegetés.
+### Sérülékenységek kategóriái
 
-### Biztonsági célok
-
-* bizalmasság
-* adatintegritás
-* hozzárendelhető felelős
-* rendelkezésre állás
-* kontrollált hozzáférés
-
-### Támadási technológiák
-
+* adathalászat
+* adat-szivárgás
 * elárasztás
-* hamisítás
-  * MAC
-  * valaki másnak adja ki magát
-* olyan hozzáférés használata, amihez nincs joga
-* más nevében üzenet előállítása
-* lehallgatás
+* hozzáférési szabályok sértése
+* gyáribeállítások használata
+* ellenőrizetlen bemeneti adatok
+* hibás konfiguráció
+* jelszókezelés
 
-### Biztonsági szolgáltatások
+### Néhány megelező ötlet
 
-* azonosítás
-* letagadhatatlanság
-* integritás
-* kontrollált hozzáférés
+A helyi adminisztártorok olyan hozzáférést kapjanak, ami automatikusan lejár.
 
-### A helyi adminisztrátorok
+A jelszó nem túl egyszerű, nem túl bonyolult.
+A jelszó nem változik, amíg nem kompromitálódik.
 
-A hely adminisztártorok olyan hozzáférést kapjanak, ami automatikusan lejár.
+Folyamatos naplóelemzés ajánlott.
 
 ## Kérdések
 
