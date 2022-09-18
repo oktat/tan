@@ -736,6 +736,10 @@ a következő szemantikus elemek állnak rendelkezésre:
 
 ### Szerkesztő gyakorlat
 
+Oldjon meg feladatokat a következő gyűjteményből:
+
+* [https://szit.hu/doku.php?id=oktatas:web:html:html_feladatok](https://szit.hu/doku.php?id=oktatas:web:html:html_feladatok)
+
 ### Feleletválasztós gyakoralt
 
 1.) Melyik HTML elem a gyökérelem egy dokumentumban?
