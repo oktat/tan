@@ -112,7 +112,7 @@ echo "naplo.txt" >> .gitignore
 
 Most adjuk ki a git status parancsot. Lehetséges kimenet:
 
-```
+```cmd
 git status
 On branch master
 
