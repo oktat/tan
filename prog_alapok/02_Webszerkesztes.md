@@ -777,7 +777,7 @@ Oldjon meg feladatokat a következő gyűjteményből:
 * &lt;body charset="utf-8"&gt;
 * &lt;meta charset="utf-8"&gt;
 
-6.) Ha szeretnénk megjeleníteni a "Madár" szót elsődleges fejezetcímként, akkor azt a következő elemek közzött tesszük.
+6.) Ha szeretnénk megjeleníteni a "Madár" szót elsődleges fejezetcímként, akkor azt a következő elemek között tesszük.
 
 * body
 * head
