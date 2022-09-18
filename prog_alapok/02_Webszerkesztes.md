@@ -731,3 +731,156 @@ a következő szemantikus elemek állnak rendelkezésre:
 * footer - az odal vagy egy rész lábrésze
 * article - tartalmi egységek
 * main - az oldal főbb része
+
+## Gyakorlat
+
+### Szerkesztő gyakorlat
+
+### Feleletválasztós gyakoralt
+
+1.) Melyik HTML elem a gyökérelem egy dokumentumban?
+
+* head
+* doctype
+* html
+* body
+
+2.) Melyik HTML elemmel adjuk meg lang változót?
+
+* head
+* html
+* body
+* div
+
+3.) Melyik az a HTML elem, amelynek a tartalma a böngészőben megjelenik mint weblap?
+
+* head
+* meta
+* title
+* body
+
+4.) Mit állíthatunk be a lang attribútummal?
+
+* Az oldal készítésének dátuma.
+* A weboldal karakterkódolása.
+* A weboldal nyelvezete.
+* A weboldalhoz használt fordító program.
+
+5.) Melyik a helyes karakterkódolás beállítás?
+
+* &lt;html charset="utf-8"&gt;
+* &lt;lang charset="utf-8"&gt;
+* &lt;body charset="utf-8"&gt;
+* &lt;meta charset="utf-8"&gt;
+
+6.) Ha szeretnénk megjeleníteni a "Madár" szót elsődleges fejezetcímként, akkor azt a következő elemek közzött tesszük.
+
+* body
+* head
+* title
+* lang
+
+7.) &lt;html lang="hu"&gt;&lt;/html&gt; részletből HTML elemnek nevezzük a következőt:
+
+* lang
+* bármelyik html egyedül
+* a két html együtt
+* "hu"
+
+8.) Egy HTML elem egyik tagját így hívjuk:
+
+* log
+* tag
+* feg
+* heg
+
+9.) A title elemek célja:
+
+* A weblapon megjelenő oldal címének beállítása.
+* A weblap karakterkódolásának beállítása.
+* A weblap címe a böngésző fülön vagy a címsorában.
+* A weblap gyökéreleme.
+
+10.) A body elem célja:
+
+* A böngészőfülön cím beállítása.
+* A weboldal kódolásának beállítása.
+* A weboldalon megjelenő tartalmat ide helyezzük.
+* A weboldal nyelvét állítjuk be.
+
+11.) HTML oldalon a helyes megjegyzés:
+
+* /&lowast; szöveg &lowast;/
+* &lt;!-- szöveg --&gt;
+* &num; szöveg
+* { szöveg }
+
+12.) Ennyi féle fejezetcím állítható be a HTML elemekkel:
+
+* 4
+* 5
+* 6
+* 7
+
+13.) Kettes szintű fejezetcímet a következő HTML elemmel állítunk be:
+
+* h2
+* f2
+* head2
+* header2
+
+14.) HTML-en belül bekezdésnek a következő elemmel jelölünk szöveget:
+
+* a
+* b
+* p
+* i
+
+15.) Melyik elem általános célú a következők közül.
+
+* i
+* h1
+* div
+* em
+
+16.) Melyik elem általános célú a következők közül.
+
+* i
+* span
+* p
+* pre
+
+17.) Mitől blokkszintű egy HTML elem?
+
+* A tartalma csak utf-8 kódolású lehet.
+* Csak a tartalmat fogja körbe.
+* Nem lehet tartalma.
+* Kitölti a rendelkezésre álló helyet.
+
+18.) Mit inline egy HTML elem?
+
+* Kitölti a rendelkezésre álló helyet.
+* Nem lehet tartalma.
+* Csak a tartalmat fogja körbe.
+* A tartalma csak utf-8 kódolású lehet.
+
+19.) Melyik blokk elem?
+
+* span
+* i
+* b
+* div
+
+20.) Melyik inline elem?
+
+* i
+* div
+* p
+* h1
+
+21.) Hogyan lehet sortörést megjeleníteni a weblapon?
+
+* line
+* br
+* break
+* linebreak
