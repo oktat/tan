@@ -861,7 +861,7 @@ Oldjon meg feladatokat a következő gyűjteményből:
 * Nem lehet tartalma.
 * Kitölti a rendelkezésre álló helyet.
 
-18.) Mit inline egy HTML elem?
+18.) Mitől inline egy HTML elem?
 
 * Kitölti a rendelkezésre álló helyet.
 * Nem lehet tartalma.
