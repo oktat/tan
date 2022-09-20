@@ -780,7 +780,7 @@ Oldjon meg feladatokat a következő gyűjteményből:
 6.) Ha szeretnénk megjeleníteni a "Madár" szót elsődleges fejezetcímként, akkor azt a következő elemek között tesszük.
 
 * body
-* head
+* h1
 * title
 * lang
 
