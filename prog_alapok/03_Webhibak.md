@@ -101,11 +101,17 @@ Batch fájlok:
 
 ### Windows kulcsok
 
+Ha feltöltünk a GitHub vagy más távoli szerverre, szükség lehet kulcsok kezelésre.
+
+Kulcsok listázása:
+
 ```cmd
 cmdkey /list
 ```
 
-Kiléptetés például:
+Meg kell keresnünk azt a sort, ahol szerepel a github.com.
+
+Ezek után a kiléptetés például:
 
 ```cmd
 cmdkey /delete git:https://github.com
@@ -172,7 +178,7 @@ git status
 
 A kimenet most:
 
-```
+```txt
 On branch master
 nothing to commit, working tree clean
 ```
