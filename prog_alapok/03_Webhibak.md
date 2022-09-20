@@ -358,3 +358,9 @@ Debian vagy Debian alapú rendszeren:
 ```cmd
 apt install hexchat
 ```
+
+### Több információ
+
+Az IRC-ről több információ a következő helyen:
+
+* [https://szit.hu/doku.php?id=oktatas:halozat:irc](https://szit.hu/doku.php?id=oktatas:halozat:irc)
