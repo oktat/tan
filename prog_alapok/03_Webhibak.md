@@ -312,6 +312,24 @@ Az IRC Internet Relay Chat rövidítése. Egy szerver-kliens alapú csevegő pro
 
 Az IRC klienst és szervert Jarkko Oikarinen készítette 1988-ban. a finnországi Oului Egyetemen.
 
-A fejlesztők használhatják megbeszélésekre, segítségkérésekre, szoftverek támogatására.
+A fejlesztők használhatják megbeszélésekre, segítségkérésekre, szoftverek támogatására, hibák közös keresésére.
+
+Egy online kliens a freenode hálózathoz:
 
 * [https://webchat.freenode.net/](https://webchat.freenode.net/)
+
+### Néhány parancs
+
+Kapcsolódás egy csatornához:
+
+```irc
+/join #csatornanév
+```
+
+Kilépés:
+
+```irc
+/quit "Üzenet"
+```
+
+Nem kötelező az üzenet megadása.
