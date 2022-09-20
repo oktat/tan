@@ -55,9 +55,18 @@ Innentől kezdve a projekt fel van készítve a verziókövetésre. A projekt á
 
 Az állapotok tárolása mindig valakinek a nevében történnek. Vagy globálisan, vagy a helyi projekten belül be kell mutatkozni a git számára.
 
+Beállítás gloláblisan, minden projekthez:
+
 ```cmd
 git config --global user.name "Keresztnév Vezetéknév"
 git config --global user.email "joska@zold.and"
+```
+
+Csak az aktuális projekthez:
+
+```cmd
+git config --local user.name "Keresztnév Vezetéknév"
+git config --local user.email "joska@zold.and"
 ```
 
 Beállítások lekérdezése:
@@ -85,6 +94,10 @@ Beállítások megszüntetése:
 git config --global --unset user.email
 git config --global --unset user.name
 ```
+
+Batch fájlok:
+
+* [https://github.com/oktat/githandler](https://github.com/oktat/githandler)
 
 ### Windows kulcsok
 
