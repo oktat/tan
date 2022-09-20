@@ -342,3 +342,19 @@ Kilépés:
 ```
 
 Nem kötelező az üzenet megadása.
+
+### Windows kliens
+
+Telepítés:
+
+```cmd
+choco install hexchat
+```
+
+### Debian GNU/Linux kliens
+
+Debian vagy Debian alapú rendszeren:
+
+```cmd
+apt install hexchat
+```
