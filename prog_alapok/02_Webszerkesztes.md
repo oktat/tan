@@ -186,6 +186,16 @@ A div és a span elemeknek nincs szemantikai jelentésük. A div elem az oldal s
 </div>
 ```
 
+## Szemantikus elemek
+
+A szematikus elemek valamilyen jelentéssel bírnak. Nem szemantikus elem a span és a div. Néhány szemantikus elem:
+
+* table
+* i
+* p
+* form
+* section
+
 ## Blokk és inline szintű elemek
 
 ### Blokk elemek
