@@ -9,11 +9,15 @@
 
 ### Validátor
 
+A validátorok a HTML oldalak szabványosságát vizsgálja. A W3C konzorcium érvényeség viszgálója:
+
 * [https://validator.w3.org/](https://validator.w3.org/)
 
 ### A böngésző fejlesztői eszköze
 
-Billentyűkód:
+Ma már a népszerűbb böngészők tartalmaznak fejlesztői eszközöket, a weboldalak teszteléséhez, hibakereséshez.
+
+A fejlesztőeszköz megjelenítéséhez billentyűkód:
 
 * Ctrl + Shift + I
 
@@ -33,7 +37,7 @@ Lehetőségek:
 
 ## Git
 
-A Git egy verziókövető rendszer. Segítségével visszaállítható egy korábbi állapot hiba esetén.
+A Git egy verziókövető rendszer. Segítségével visszaállítható egy korábbi állapot hiba esetén. A fejlesztés több különálló ágra osztható, amit később összefésülhetünk.
 
 ### Kezdés
 
@@ -282,5 +286,11 @@ git remote get-url origin
 ```
 
 ## IRC
+
+Az IRC Internet Relay Chat rövidítése. Egy szerver-kliens alapú csevegő protokoll. Kommunikációt tesz lehetővé valós időben, úgynevezett csatornákon keresztül.
+
+Az IRC klienst és szervert Jarkko Oikarinen készítette 1988-ban. a finnországi Oului Egyetemen.
+
+A fejlesztők használhatják megbeszélésekre, segítségkérésekre, szoftverek támogatására.
 
 * [https://webchat.freenode.net/](https://webchat.freenode.net/)
