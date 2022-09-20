@@ -318,6 +318,13 @@ Egy online kliens a freenode hálózathoz:
 
 * [https://webchat.freenode.net/](https://webchat.freenode.net/)
 
+Néhány Freenode csatorna 2022-ben:
+
+* #web
+* #python
+* #html
+* #css
+
 ### Néhány parancs
 
 Kapcsolódás egy csatornához:
@@ -325,6 +332,8 @@ Kapcsolódás egy csatornához:
 ```irc
 /join #csatornanév
 ```
+
+Ha egy nem létező csatornába lépünk be, a csatorna létrejön automatikusan. Ekkor mi vagyunk a csatornak operátora, így a nevünk előtt egy @ jel karakter jelenik meg. Az operátor a csatornak mindenható ura.
 
 Kilépés:
 
