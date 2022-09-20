@@ -185,7 +185,7 @@ git log
 
 Lehetséges kimenet:
 
-```
+```txt
 commit 11377e55527cfa39dfad9314629d9c1cabc4aed7 (HEAD -> master)
 Author: Nagy János <janos@zold.lan>
 Date:   Wed Aug 24 20:42:50 2022 +0200
@@ -233,9 +233,11 @@ git log --reflog
 Automatikusan stage állapotba és commit:
 
 ```cmd
-git commit -a -m 'Valami'
-git commit --all --message 'Valami'
+git commit -a -m "Valami"
+git commit --all --message "Valami"
 ```
+
+A két utasítás egyező hatást vált, ki csak a második hosszú kapcsolókat haszál.
 
 ### Ágak használata
 
