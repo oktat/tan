@@ -1,4 +1,4 @@
-# Webs hibakeresés
+# Webes hibakeresés
 
 * **Szerző:** Sallai András
 * Copyright (c) Sallai András, 2022
