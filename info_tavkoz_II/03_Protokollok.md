@@ -16,6 +16,18 @@ Ki mikor adjon, vegyen jelet. Ilyen szabványokat többféle szervezet létrehoz
 * IETF - RFC
 * IANA
 
+A protokoll a kommunikációs szabályok gyűjteménye.
+
+Protokollok nélkül két hálózati eszköz nem képes kommunikálni egymással.
+
+Egy kapcsolat általában több protokollon keresztül van megvalsítva. Egy e-mail küldéséhez általában a következő protokollok szükségesek:
+
+* SMTP
+* TCP
+* IP
+* Ethernet
+* stb.
+
 ## RFC
 
 Az internetes szabványokat az IETF hozza létre és RFC nevű leírásokban teszik közzé.
