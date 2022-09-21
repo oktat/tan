@@ -312,7 +312,7 @@ Az IRC Internet Relay Chat rövidítése. Egy szerver-kliens alapú csevegő pro
 
 Az IRC klienst és szervert Jarkko Oikarinen készítette 1988-ban. a finnországi Oului Egyetemen.
 
-A fejlesztők használhatják megbeszélésekre, segítségkérésekre, szoftverek támogatására, hibák közös keresésére.
+A fejlesztők használhatják megbeszélésekre, segítségkérésekre, szoftverek támogatására, hibák közös keresésére. A közösségi oldalak csevegő felületével szemben itt olyan emberektől is kaphatunk segítséget, akivel még sosem találkoztunk.
 
 Egy online kliens a freenode hálózathoz:
 
@@ -333,7 +333,7 @@ Kapcsolódás egy csatornához:
 /join #csatornanév
 ```
 
-Ha egy nem létező csatornába lépünk be, a csatorna létrejön automatikusan. Ekkor mi vagyunk a csatornak operátora, így a nevünk előtt egy @ jel karakter jelenik meg. Az operátor a csatornak mindenható ura.
+Ha egy nem létező csatornába lépünk be, a csatorna létrejön automatikusan. Ekkor mi vagyunk a csatorna operátora, így a nevünk előtt egy @ jel karakter jelenik meg. Az operátor a csatorna mindenható ura.
 
 Kilépés:
 
