@@ -306,6 +306,10 @@ Lekérdezés:
 git remote get-url origin
 ```
 
+### További lehetőségek
+
+* [https://szit.hu/doku.php?id=oktatas:programozas:verziokontroll:git](https://szit.hu/doku.php?id=oktatas:programozas:verziokontroll:git)
+
 ## IRC
 
 Az IRC Internet Relay Chat rövidítése. Egy szerver-kliens alapú csevegő protokoll. Kommunikációt tesz lehetővé valós időben, úgynevezett csatornákon keresztül.
