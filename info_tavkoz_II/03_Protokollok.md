@@ -68,3 +68,98 @@ Továbbiak elérhetők a következő helyen:
 * [https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_03_-_a_halozati_kommunikacio_es_a_protokollok](https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_03_-_a_halozati_kommunikacio_es_a_protokollok)
 
 * [https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_04_-_eszkoezoek_kapcsolasa_a_halozatra](https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_04_-_eszkoezoek_kapcsolasa_a_halozatra)
+
+## Gyakorló
+
+### Feleletválasztós kérdések
+
+1.) Mi a protokoll a hálózatok témakörben?
+
+* Kommunikációs szabályok gyűjteménye.
+* Kizárólag a közegelérési módszerek gyűjteménye.
+* Találkozók megszervezésének íratlan szabályai.
+* Verziókövetők gyűjteménye.
+
+2.) Melyik hálózatszabványosításal foglalkozó szervezet.
+
+* IEEE
+* AAA
+* IAAA
+* EEE
+
+3.) Milyen szabványokkal foglalkozik az RFC?
+
+* internetes
+* elektronikai
+* hálózati kártya
+* domain nevek kiosztása
+
+4.) Melyik nem az OSI modell rétege?
+
+* megjelenés
+* viszony
+* szállítás
+* logisztika
+
+5.) Melyik nem az OSI modell rétege?
+
+* adatkapcsolat
+* két ember kapcsolata
+* hálózati
+* fizikai
+
+6.) Melyik az OSI modell rétege?
+
+* viszony
+* két ember kapcsolata
+* szállítási
+* logikai
+
+7.) Melyik az OSI modell rétege?
+
+* fizikai
+* adat
+* stílus
+* logikai
+
+8.) Melyik az OSI modell rétege?
+
+* megjelenés
+* fizikai
+* adatkapsolati
+* gépi
+
+9.) Melyik a TCP/IP rétege?
+
+* megjelenés
+* logikai
+* fizikai
+* hálózat-hozzáférés
+
+10.) Melyik nem a TCP/IP rétege?
+
+* alkalmazási
+* logikai
+* internet
+* szállítási
+
+11.) Melyik szervezet készít távközlési szabványokat?
+
+* ITU-T
+* RFC
+* IANA
+* IC
+
+12.) Melyik szervezet készíti az RFC-ket?
+
+* IETF
+* ITU-T
+* IEEE
+* AAA
+
+13.) Melyik szervezet foglalkozik az Interneten belüli számok kiosztásával?
+
+* IETF
+* IEEE
+* ITU-T
+* IANA

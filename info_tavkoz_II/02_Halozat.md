@@ -41,7 +41,7 @@ A hálózatok megkönnyítik az adatok átvitelét számítógpek között. A vi
 
 A topológia egy olyan ábra, amely megmutatja egy hálózat felépítését. A fizikai topológia azt is megmutatja, az eszközök hol helyezkednek el. A logikai topológia esetén csak az összekötések fontosak.
 
-A logikai topológiában ábrázolhatjuk, hogy milyen eszközök szerepelnek a hálózatban, de ez nem kötelező. Jelölhetünk kis körökkel is hálózati eszközöket. A következő ábra egy egyszerű logikai topológiát ábrázol. 
+A logikai topológiában ábrázolhatjuk, hogy milyen eszközök szerepelnek a hálózatban, de ez nem kötelező. Jelölhetünk kis körökkel is hálózati eszközöket. A következő ábra egy egyszerű logikai topológiát ábrázol.
 
 ![Egy egyszerű logikai topológia](https://szit.hu/lib/exe/fetch.php?cache=&media=oktatas:halozat:halozati_topologia_005.png)
 
@@ -75,7 +75,7 @@ Az internet a végpontokon:
 * kábelmodem
 * műholdas
 
-A hozzáférés egyik jellemzője, az egy másodperc alatt átvihető bitek száma. A mértékegység ennek megfelelően: 
+A hozzáférés egyik jellemzője, az egy másodperc alatt átvihető bitek száma. A mértékegység ennek megfelelően:
 
 * bit/s
 
@@ -129,6 +129,8 @@ A jelszó nem változik, amíg nem kompromitálódik.
 Folyamatos naplóelemzés ajánlott.
 
 ## Kérdések
+
+### Feleletválsztós
 
 1.) Milyen csoportokba sorolhatók a számítógépes hálózatok?
 
@@ -234,6 +236,19 @@ Folyamatos naplóelemzés ajánlott.
 * broadcast
 * whencast
 * multicast
+
+### Egyszerű kérdések
+
+1. ) Mi a hálózat?
+2. ) Mi a célja a hálózatnak?
+3. ) Hogyan osztályozzuk a hálózatokban résztvevő eszközöket.
+4. ) Mi a protokoll?
+5. ) Mi a különbség az analóg és a digitális átvitel között?
+6. ) Mi a TCP/IP?
+7. ) Mi az RFC?
+8. ) Mire használható a ping parancs?
+9. ) Milyen paranccsal kérdezhetjük le a hálózati kártya fizikai címét.
+10. ) Milyen paranccsal tudjunk megújítani IP cím bérlést.
 
 ## Irodalom
 
