@@ -1,19 +1,17 @@
-# Python
+# Python - Bevezetés a Python programozásba
 
 * **Szerző:** Sallai András
 * Copyright (c) Sallai András, 2022
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
-## Bevezetés a Python programozásba
-
-### A Python bemutatása
+## A Python bemutatása
 
 A Python egy népszerű és sokoldalú programozási nyelv, amit használnak a tudományos adatfeldolgozásban, webfejlesztésben, automatizálásban, és még sok más területen.
 
 A Python nagyon jó kezdők számára, mivel könnyen tanulható, olvasható és írható a kóddal dolgozunk.
 
-### Helló Világ
+## Helló Világ
 
 ```python
 print("Helló Világ!")
@@ -27,7 +25,7 @@ A programozás nem olyan nehéz mint azt egy kezdő elsőre gondolja. Foglalkozn
 
 A program segítségével kapcsolatba lépünk a számítógéppel, aminek utasításokat tudunk megadni. Ehhez meg kell tanulnunk néhány utasítást és szabályt.
 
-### Megjegyzések
+## Megjegyzések
 
 Az utasításokat, mint a print() egy állományba írjuk. Leírt utasítás sorokat forráskódnak nevezzük. A forráskódba a fejlesztő időnként megjegyzéseket ír önmagának vagy másoknak a leírt utasításokkal kapcsolatban. Ezeket a megjegyzéseket a számítógép nem próbálja meg feldolgozni. 
 
@@ -51,7 +49,7 @@ Az egysoros megjegyzések az utasítások után is írhatók:
 print(35) # a kimenet 35
 ```
 
-### Kivitel
+## Kivitel
 
 Kivitel alatt a képernyőre írást értjük. Fentebb már láttuk, hogy a Python nyelvben erre a print() függvény az egyik lehetséges utasítás. Kiírathatunk vele többféle típusú adatot, számokat, szöveget stb.
 
@@ -92,7 +90,7 @@ Próbáljuk meg futtatni a következő hibás kódot:
 print(alma)
 ```
 
-### Gyakorló feladatok a kivitelhez
+## Gyakorló feladatok a kivitelhez
 
 1.)  Milyen típusú adat a következő: 0.5
 
@@ -131,6 +129,96 @@ Az utasítás, melyik részét nem veszi figyelembe a számítógép?
 * &num; a kimenet 45
 * az előbbi mindkettő
 * egyik sem
+
+## Escape szekvenciák
+
+Ha egy karaktert kiíratok, az megjelenik a képernyőn. Vegyük a "ringló" szót:
+
+```python
+print("ringló")
+```
+
+Mindegyes karakter kiíródik. Egyes karaktereknek speciális értelmet adhatunk. Vegyük szóból az "n" betűt. Speciális jelentést adhatunk a karakternek egy "\" karakterrel:
+
+```python
+print("ri\ngló")
+```
+
+Az "n" betű már nem íródik ki képernyőre. Helyette valami más történik. Az "ri" szó után a szövegkurzor a következő sorba ugrik. Másként szólva soremelés történik.
+
+Ha egy karakternek ilyen speciális jelentést adunk, akkor escape szekvenciának hívjuk. Az alábbi táblázat esacpe szekvenciákat tartalmaz, amely használható Python nyelvben.
+
+| Escape szekvencia | Jelentés |
+|-------------------|----------|
+| \\\\ | vissza-perjel megjelenítése |
+| \\'  | aposztróf megjelenítése |
+| \\"  | idézőjel megjelenítése |
+| \a  | ASCII csengőhang |
+| \b  | ASCII visszatörlés - Backspace (BS) |
+| \f  | ASCII lapdobás (FF) |
+| \n  | ASCII soremelés (LF) |
+| \r  | ASCII kocsi vissza (CR) |
+| \t  | ASCII vízszintes tabulátor (TAB) |
+| \v  | ASCII függőleges tabulátor (VT) |
+| \ooo | oktális érték |
+| \xhh | hexadecimális érték |
+| \uxxxx | karakter kiírása Unicode alapján |
+| \Uxxxxxxxx | karakter kiírása Unicode alapján |
+| \N{name} | karakter kiírása Unicode név alapján |
+
+Példa a soremelésre:
+
+```python
+print("körbe\njár")
+```
+
+Tabulátorhasználat:
+
+```python
+print("körbe\tjár")
+```
+
+## Típusok
+
+Pythonban használható típusok:
+
+* egész - int
+* valós - float
+* karakterlánc - str
+* logikai - bool
+* None - NoneType
+
+```python
+# egész:
+num1 = 30
+
+# valós:
+num2 = 35.1234
+
+# karakterlánc:
+name = 'Árpád'
+
+# logikai típus
+meleg_van = True
+
+# None
+valami = None
+```
+
+A típusok lekérdezhetők a type() függvénnyel:
+
+```python
+num = 30
+print(type(num))
+```
+
+A kimenetben ilyen példákat láthatunk:
+
+```cmd
+<class 'int'>
+```
+
+## Tovább
 
 Továbbiak a szit.hu weblapon:
 
