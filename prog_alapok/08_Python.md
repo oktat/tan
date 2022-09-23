@@ -218,6 +218,117 @@ A kimenetben ilyen példákat láthatunk:
 <class 'int'>
 ```
 
+## Változóhasználat
+
+A memória egy helyét elnevezhetem és különböző típusú értékeket tárolhatok ezeken a helyeken. Ha számot szeretnénk tárolni:
+
+```python
+szam = 30
+nev = 'Pali'
+```
+
+A Python nyelvben a változókat használat előtt nem szükséges deklarálni, nem kell megadni milyen típust akarunk tárolni a memóriaterületen.
+
+Ha egy kifejezésbe illesztem a változót, annak értéke behelyettesítődik a kifejezésbe:
+
+```python
+szam = 30
+eredmeny = szam + 10
+print(eredmeny)
+```
+
+Minden változónak van típusa. A típus attól függ, milyen típusú értéket teszünk a változóba.
+
+Egész típusú változó
+
+```python
+num = 30
+```
+
+Valós tipusú változó:
+
+```python
+num = 30.12345
+```
+
+Karakterlánc típus:
+
+```python
+name = 'Pali'
+```
+
+Logikai típus:
+
+```python
+it_is_hot = True
+```
+
+### Nevesített állandó
+
+A Python nyelv nem támogatja a nevesített állandókat. A 3.8 Python verzióban viszont bekerült egy olyan modul, amely segíti az állandó jelenlétét.
+
+```python
+from typing import Final
+
+# Állandó létrehozása:
+max: Final[float] = 150
+```
+
+A max változó ugyan felülírható, de a kódszerkesztő figyelmeztet hibára.
+
+### Literális állandó
+
+Tegyünk egy változóba egy számot:
+
+```python
+num = 30
+```
+
+Az értékadás jobboldalán a 30 egy állandó, úgynevezett literális állandó. Állíndó mivel a program indulása után, annak leállásáig ezt a memóriaterületet nem lehet megváltoztatni. A programkódban bárhova leírunk egy értéket, az literális állandó.
+
+A következő példában szintén a 30 egy literális állandó:
+
+```python
+num = num2 + 30
+```
+
+Számliterálisokat megadhatunk alúlvonással.
+
+```python
+num = 3_450_123
+```
+
+## Formázott kimenet
+
+### Moduló használata
+
+A kiírást formátum karakterlánccal formázhatjuk.
+
+```python
+num = 30
+print('%d' % num)
+```
+
+A formátum karakterláncot, vagy formátum stringet, tehetjük aposztrófok és idézőjelek közé is. A formátum string és a kiíratandó változó közé moduló jelet teszünk.
+
+A formátum stringben minden kiíratandó értékhez szükséges egy formátumkódra a formátum stringen belül. A formátumkódot moduló karakterrel "%" kezdjük és egy betű karakterrel zárjuk. Ez a karakter a formátumkarakter. Egész számmok esetén ez egy "d" betű, amit decimális egészekhez használhatunk.
+
+Valós számok esetén a formátumkarakter "f" betű.
+
+```python
+num = 35.1234
+print('%f' % num)
+```
+
+Szöveg esetén a formátumkarakter egy "s" betű.
+
+```python
+nev = 'Tibor'
+print('%s' % nev)
+```
+
+### A format() függvény használata
+
 ## Tovább
 
 Továbbiak a szit.hu weblapon:
