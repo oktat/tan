@@ -7,7 +7,7 @@
 
 ## TypeScript
 
-A TypeScript a Microsoft alkotása. A JavaScript egy szigorított részhalmaza. A böngészők nem ismerik, ezért fordítani kell. A fordítás előnyös a programozók számára, mivel rávilgít több lehetséges hibára.
+A TypeScript a Microsoft egy nyílt forráskódú programozási nyelve, a JavaScript szuperhalmaza. A böngészők nem ismerik, ezért fordítani kell. A fordítás előnyös a programozók számára, mivel rávilgít több lehetséges hibára.
 
 A TypeScript állományokat .ts kiterjesztésű fájlba írjuk.
 
