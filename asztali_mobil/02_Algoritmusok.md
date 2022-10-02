@@ -104,9 +104,9 @@ Még több információ:
 
 ### Nevezetes algoritmusok
 
-#### Bináris keresés
+Ajánlott videók:
 
-* [https://szit.hu/doku.php?id=oktatas:programozas:programozasi_tetelek:mondatszeru_leiras#binaris_logaritmikus_vagy_felezeses_kereses](https://szit.hu/doku.php?id=oktatas:programozas:programozasi_tetelek:mondatszeru_leiras#binaris_logaritmikus_vagy_felezeses_kereses)
+* [https://www.youtube.com/user/AlgoRythmics](https://www.youtube.com/user/AlgoRythmics)
 
 #### Buborék rendezés
 
@@ -119,6 +119,10 @@ Még több információ:
 #### Gyorsrendezés
 
 * [https://szit.hu/doku.php?id=oktatas:programozas:programozasi_tetelek:mondatszeru_leiras#gyorsrendezes](https://szit.hu/doku.php?id=oktatas:programozas:programozasi_tetelek:mondatszeru_leiras#gyorsrendezes)
+
+#### Bináris keresés
+
+* [https://szit.hu/doku.php?id=oktatas:programozas:programozasi_tetelek:mondatszeru_leiras#binaris_logaritmikus_vagy_felezeses_kereses](https://szit.hu/doku.php?id=oktatas:programozas:programozasi_tetelek:mondatszeru_leiras#binaris_logaritmikus_vagy_felezeses_kereses)
 
 ### Rekurzió
 
