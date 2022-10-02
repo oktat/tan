@@ -104,10 +104,6 @@ Még több információ:
 
 ### Nevezetes algoritmusok
 
-Ajánlott videók:
-
-* [https://www.youtube.com/user/AlgoRythmics](https://www.youtube.com/user/AlgoRythmics)
-
 #### Buborék rendezés
 
 * [https://szit.hu/doku.php?id=oktatas:programozas:programozasi_tetelek:mondatszeru_leiras#buborekrendezes](https://szit.hu/doku.php?id=oktatas:programozas:programozasi_tetelek:mondatszeru_leiras#buborekrendezes)
