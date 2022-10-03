@@ -29,6 +29,12 @@ Egyetlen elem bonyolultáságnak ellenőrzése lineáris bonyolultásgú.
 
 A bonyolultságot átlagos esetben a nagy θ betűvel jelöljük.
 
+Jelölések:
+
+* legrosszabb eset: O(n)
+* legjobb eset: Ω(n)
+* átlagos eset: θ(n)
+
 ![Bonyolultság jelölése](images/bonyolultsag.png)
 
 Néhány algorimtus bonyoltsága a legrosszabb esetben:
