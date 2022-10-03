@@ -123,6 +123,8 @@ cmdkey /delete git:https://github.com
 
 ### Tárolás
 
+![Munka a git verziókövetővel](images/git/git_munka_szines_03.png)
+
 Készítsünk egy adat.txt és egy naplo.txt állományt:
 
 ```cmd
@@ -204,6 +206,12 @@ Date:   Wed Aug 24 20:42:50 2022 +0200
 ```
 
 Minden commit kap egy azonosítót, ami 40 karakterből áll, és egy hexadecimális szám.
+
+A következő képen a három commit utáni állapotot látjuk.
+
+![Git pillanatképek](images/git/git_fejlesztes.png)
+
+Egy commit egy pillanatkép a projektről. A HEAD mutatja éppen hol dolgozunk. A képen láthatjuk, hogy a master ágon dolgozunk és a harmadik pillanatképen.
 
 ### Visszaállítás
 
