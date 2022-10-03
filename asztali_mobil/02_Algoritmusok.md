@@ -9,7 +9,41 @@
 
 ### Bonyolultság
 
-* [https://szit.hu/doku.php?id=oktatas:programozas:algoritmusok:bonyolultsag](https://szit.hu/doku.php?id=oktatas:programozas:algoritmusok:bonyolultsag)
+Az algorimtus bonyolultságával azt mérjük, hogy n méretű bemenet mennyi ideig tart feldolgozni. A bonyolultságot általában időben mérjük, de néha térben is elemzünk, ahol a memóriaigény az érdeklődésünk köre.
+
+Az elméleti számítástechnika egyik ága ezzel foglalkozik, ezt nevezzük komplexitás elméletnek. Valójában az elemzések során fontosabb az algoritmus összetettségének vizsgálata, szemben az idővel.
+
+#### Példák
+
+Ha egy rendezetlen tömbben keresünk egy elemet, a keresési idő arányosan nő a lista méretével. Ekkor azt mondhatjuk, hogy a keresési idő lineáris.
+
+Ha rendezett tömbben keresünk, a keresés gyorsabb lesz. Ez egy logaritmikus bonyolultság.
+
+Ha egy tömbben az első elem a keresett érték, konstanst idő, a bonyolultság.
+
+Keressünk egy rendezetlen listában minden ismétlődés. A bonyolultság ekkor négyzetes.
+
+Egyetlen elem bonyolultáságnak ellenőrzése lineáris bonyolultásgú.
+
+#### A bonyolultságok jelölése
+
+A számításiigényt θ jelöli. Az időt O betűvel jelöljük.
+
+![Bonyolultság jelölése](images/bonyolultsag.png)
+
+Néhány algorimtus bonyoltsága a legrosszabb esetben:
+
+* beszúró rendezés Θ(n2)
+* buborék rendezés Θ(n2)
+* gyors rendezés Θ(n2)
+* shell-rendezés Θ(n log2 n) - függ a használt sorozattól
+* összefésülő rendezés Θ(n log n)
+
+A legrosszabb eset jelölőit látjuk a következő ábrán:
+
+![Legrosszab eset jelölői](images/legrosszabb.png)
+
+A bemenetet tengelyét 1000-re növeltem, amin látszik, hogy a legrosszabb esetet a faktoriális mutatja be.
 
 ### Tömb
 
@@ -90,17 +124,140 @@ public class App {
 }
 ```
 
-Még több információ:
+### Lista műveletek
 
-* [https://szit.hu/doku.php?id=oktatas:programozas:java:java_kollekciok#arraylist](https://szit.hu/doku.php?id=oktatas:programozas:java:java_kollekciok#arraylist)
+Bejárás:
+
+```java
+for(Integer szam : szamokLista) {
+    System.out.println(szam);
+}
+```
+
+Tartalmazás:
+
+```java
+boolean tartalmaz = szamokLista.contains(5);
+```
+
+Elem index alapján:
+
+```java
+Integer szam = szamokLista.get(2);
+```
+
+Index keresése:
+
+```java
+int index = szamokLista.indexOf(5);
+```
+
+Visszaadja milyen indexnél található a keresett elem. Ha az elem nincs a listában, akkor -1 értéket kapjuk.
+
+Törlés index alapján:
+
+```java
+Integer szam = szamok.remove(0);
+```
+
+Törli az adott indexű elemet, majd visszatér az elemmel.
 
 ### Elemi adatszerkezetek
 
-* [https://szit.hu/doku.php?id=oktatas:programozas:elemi_adatszerkezetek](https://szit.hu/doku.php?id=oktatas:programozas:elemi_adatszerkezetek)
+#### Verem
+
+![Verem](images/verem.png)
+
+#### Sor
+
+![Sor](images/sor.png)
+
+#### Láncolt lista
+
+![Láncolt lista](images/lancolt_lista_1.png)
+
+![Kétirányba láncolt lista](images/lancolt_lista_ketiranyban_lancolt.png)
+
+#### Fák
+
+A gráfok olyan pontok halmaza, amelyeket vonalakkal kötünk össze.
+
+![Gráf](images/graf_001.png)
+
+A fa egy speciális gráf. Fa adatszerkezetben a bejárás gyorsabb, szemben a listákkal.
+
+A gráfelmélet alapján a fák meghatározása:
+
+* körmentes (két elem között csak egyetlen út létezik)
+* összefüggő egyszerű gráfok
+
+Fa esetén létezik egy kiemelt csomópont, a gyökérelem.
+
+![Fa](images/001_fa.png)
+
+![A fa részei](images/002_fa_reszei.png)
+
+A bináris fák, sepecilis fák, mivel minden elemnek legfeljebb két gyermekeleme lehet.
+
+![Bináris fa](images/003_binarisfa.png)
+
+![Bináris fa 2](images/004_binarisfa.png)
 
 ### Hashmap
 
-* [https://szit.hu/doku.php?id=oktatas:programozas:java:java_kollekciok#hashmap](https://szit.hu/doku.php?id=oktatas:programozas:java:java_kollekciok#hashmap)
+A HashMap kulcs-értékpárok tárolására alkalmas lista.
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.Iterator;
+class Program03
+{
+    public static void main(String args[])
+    {
+        HashMap<String, String> m = new HashMap<String, String>();
+        m.put("alma", "apple");
+        m.put("asztal", "table");
+        m.put("szék", "chair");
+ 
+        System.out.println(m.get("asztal"));
+ 
+        System.out.println(m.containsKey("alma"));
+        System.out.println(m.containsValue("apple"));
+ 
+        Set<Map.Entry<String, String>> h = m.entrySet();
+        System.out.println("------------------");        
+        Iterator<Map.Entry<String, String>> i = h.iterator();
+        while(i.hasNext())
+        {
+            Map.Entry<String, String> elem = i.next();
+            System.out.println("Kulcs: "+elem.getKey()+
+                "\térték: "+ elem.getValue());
+        }
+        System.out.println("------------------");
+ 
+        System.out.println("------------------");        
+        for (Map.Entry<String, String> entry : m.entrySet())
+        {
+            System.out.println(entry.getKey() + "\t" + entry.getValue());
+        }
+        System.out.println("------------------");
+ 
+        String magyar = m.get("alma");
+        System.out.println("Az alma jelentése: " + magyar);
+ 
+        Set h2 = m.keySet();
+        System.out.println("Van-e alma: " + h2.contains("alma"));
+ 
+        String s = m.remove("asztal");
+        System.out.println("Töröleve ez: " + s); //Eredmény: table
+ 
+        m.clear();
+        System.out.println(m.size());
+    }
+}
+```
 
 ### Nevezetes algoritmusok
 
