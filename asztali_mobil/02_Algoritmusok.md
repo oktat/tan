@@ -401,8 +401,192 @@ A gyorsrendezést két módon szokták megvalósítani:
 
 A gyorsrendezést általában rekuzívan valósítják meg.
 
+##### Tömbbel megvalósított változat
+
+A következő pszeudokód tömbbel megvalósított változatot mutatja be:
+
+```txt
+function quicksort(list) 
+    if meret(list) <= 1 akkor
+        return list
+    var list less, equal, greater
+    pivot = list[meret(list)-1]
+    for each x in lista 
+        if x<pivot then append x to less
+        if x==pivot then append x to equal
+        if x>pivot then append x to greater
+    return concatenate(quicksort(less), equal, quicksort(greater))
+```
+
+A var list less, equal, greater sor azt jelenti, három listát (tömböt) hozok létre.
+
+
+A Java nyelven szimpla tömbök összefűzése nem egyszerű,
+öszetettebb kódot kapunk mint a helybenrendezés,
+ezért ArrayList használatával látunk egy példát.
+
+Java megvalósítás:
+
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class App {
+    public static ArrayList<Integer> quicksort(ArrayList<Integer> list) {
+        if (list.size() <= 1) {
+            return list;
+        }
+        ArrayList<Integer> less = new ArrayList<>();
+        ArrayList<Integer> equal = new ArrayList<>();
+        ArrayList<Integer> greater = new ArrayList<>();        
+
+        Integer pivot = list.get(list.size()-1);
+        for(Integer x: list) {
+            if (x<pivot) { less.add(x); }
+            if (x==pivot) { equal.add(x); }
+            if (x>pivot) { greater.add(x); }
+        }
+        ArrayList<Integer> fullList = new ArrayList<>();
+        fullList.addAll(quicksort(less));
+        fullList.addAll(quicksort(equal));
+        fullList.addAll(quicksort(greater));
+        return fullList;
+    }
+    public static void main(String[] args) throws Exception {
+        System.out.println("Gyors-rendezés");
+
+        Integer[] t = {4, 8, 1, 3, 5, 2, 6};
+        ArrayList<Integer> list = new ArrayList<>(Arrays.asList(t));
+        list = quicksort(list);
+
+        for(Integer num: list)
+            System.out.print(num + " ");
+        System.out.println();        
+    }
+}
+```
+
+##### Helybenrendező változat
+
+A helyben rendező változat pszeudokódja:
+
+```txt
+quicksort(array, balIndex, jobbIndex)
+    if (balindex < jobbindex>)
+        pivotIndex = partition(array, balIndex, jobbIndex)
+        quicksort(array, balindex, pivotIndex-1)
+        quicksort(array, pivotIndex, jobbIndex)
+
+partition(array, balindex, jobbindex)
+    pivot = jobbindex
+    i = balIndex - 1
+    ciklus j= balIndex .. jobbindex
+        ha (array[j] <= pivot)
+            i = i + 1
+            csere(array[i], array[j])
+    csere(array[i+1], array[jobbIndex])
+    visszatérünk i + 1
+```
+
+```java
+public class App {
+    public static int partition(int[] array, int low, int high) {
+        int pivot = array[high];
+        int i = low - 1;
+        for (int j = low; j < high; j++) {
+            if (array[j] <= pivot) {
+                i++;
+                int swap = array[i];
+                array[i] = array[j];
+                array[j] = swap;
+            }
+        }
+        int swap = array[i + 1];
+        array[i+1] = array[high];
+        array[high] = swap;
+        return i + 1;
+    }
+    public static void quicksort(int[] array, int low, int high) {
+        if (low < high) {
+            int pivot = partition(array, low, high);
+            quicksort(array, low, pivot - 1);
+            quicksort(array, pivot + 1, high);
+        }
+    }
+    public static void main(String[] args) throws Exception {
+        System.out.println("Gyors-rendezés");
+
+        int[] t = {4, 8, 1, 3, 5, 2, 6};
+        int n = 7;
+        
+        quicksort(t, 0, n-1);
+
+        for(Integer num: t)
+            System.out.print(num + " ");
+        System.out.println();        
+    }
+}
+```
+
 #### Bináris keresés
 
-* [https://szit.hu/doku.php?id=oktatas:programozas:programozasi_tetelek:mondatszeru_leiras#binaris_logaritmikus_vagy_felezeses_kereses](https://szit.hu/doku.php?id=oktatas:programozas:programozasi_tetelek:mondatszeru_leiras#binaris_logaritmikus_vagy_felezeses_kereses)
+A bináris keresés többféle néven ismert:
 
+* bináris keresés
+* logaritmikus keresés
+* felezéses keresés
 
+Ha már rendezett a tömbünk, használhatjuk a bináris keresést.
+
+Vesszük a középső elemet. Ha ez a keresett szám, vége a keresésnek. Ha nem, akkor megnézzük, hogy a keresett szám a tömb alsó vagy felső részében van-e. Amelyikben van, abban megismétlem az előbbi felosztást. A ciklus lépészáma körülbelül log(n), amit néha így írnunk: log<sub>2</sub>n.
+
+```txt
+első = 0
+utolsó = n-1
+ciklus amíg  első <= utolsó
+  Középső :=  (Első + Utolsó)  Div 2
+  Ha keresett = t[középső] akkor 
+    van := igaz
+    utolso := középső - 1
+  ellenben ha Keresett < t[középső] akkor 
+          utolsó := Középső - 1
+      Ellenben ha Keresett > t[középső] akkor 
+          Első := Középső + 1
+      Ha vége
+ciklus vége
+
+```
+
+A végén a van logikai változó mutatja, hogy van-e ilyen elem.
+
+Java megvalósítás:
+
+```java
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        System.out.println("Bináris keresés");
+
+        int[] t = {1, 2, 3, 4, 5, 6, 8};
+        int n = 7;
+        
+        int keresett = 5;
+        boolean van = false;
+        int elso = 0;
+        int utolso = n-1;
+        while(elso <= utolso) {
+            int kozep = (elso + utolso) / 2;
+            if (keresett == t[kozep]) {
+                van = true;
+                utolso = kozep - 1;
+            }else if (keresett < t[kozep]) {
+                utolso = kozep - 1;
+            }else if (keresett > t[kozep]) {
+                elso = kozep + 1;
+            }
+        }        
+
+        System.out.println(van);
+    }
+}
+```
