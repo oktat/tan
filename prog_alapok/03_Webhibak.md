@@ -88,12 +88,16 @@ git config --global user.email
 git config --global user.name
 ```
 
+Ha sajt gépünkön dolgozunk, nem szükséges törölni a bemutatkozást. Ha azonban osztott módon használ egy gépet több ember, a munkánk végeztével ajánlott törölni a bemutatkozást.
+
 Beállítások megszüntetése:
 
 ```cmd
 git config --global --unset user.email
 git config --global --unset user.name
 ```
+
+A folyamatos beállításhoz és törléshezt találunk a következő linken néhány batch fájlt.
 
 Batch fájlok:
 
