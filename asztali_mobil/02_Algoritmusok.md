@@ -27,17 +27,17 @@ Egyetlen elem bonyolultáságnak ellenőrzése lineáris bonyolultásgú.
 
 #### A bonyolultságok jelölése
 
-A számításiigényt θ jelöli. Az időt O betűvel jelöljük.
+A bonyolultságot átlagos esetben a nagy θ betűvel jelöljük.
 
 ![Bonyolultság jelölése](images/bonyolultsag.png)
 
 Néhány algorimtus bonyoltsága a legrosszabb esetben:
 
-* beszúró rendezés Θ(n2)
-* buborék rendezés Θ(n2)
-* gyors rendezés Θ(n2)
-* shell-rendezés Θ(n log2 n) - függ a használt sorozattól
-* összefésülő rendezés Θ(n log n)
+* beszúró rendezés O(n2)
+* buborék rendezés O(n2)
+* gyors rendezés O(n2)
+* shell-rendezés O(n log2 n) - függ a használt sorozattól
+* összefésülő rendezés O(n log n)
 
 A legrosszabb eset jelölőit látjuk a következő ábrán:
 
@@ -259,26 +259,150 @@ class Program03
 }
 ```
 
+* [https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html)
+
+### Rekurzió
+
+Ha egy függvény vagy egy metódus önmagát hívja, akkor rekurzióról beszélünk. Ciklikusan újra és újra önmagát hívja, ezért alkalmas ciklus kiváltására is. A rekurzió írásánál ügyelnünk arra, hogy gondskodni kell annak megszakításáról, különben végtelen ciklust kapunk.
+
+A következő példa visszafele írja ki a számokat 9-től, és minden szám után a Joe szót írja szóközzel.
+
+```java
+class Program {
+    static void ki(int i) {
+        System.out.println(i + " Joe");     
+ 
+        if(i>0)
+            ki(i-1);
+    }   
+ 
+    public static void main(String args[]) {
+        ki(9);
+    }
+}
+```
+
+A rekurzió megszakításáról az if állítás gondoskodik.
+
+A következő program bekéri a számokat 0 végjelig:
+
+```java
+import java.util.Scanner;
+ 
+class Program { 
+    static void szamok() {
+        Scanner input = new Scanner(System.in); 
+        System.out.print("Szam: ");
+        int szam = input.nextInt();
+        input = null;
+        if(szam != 0)
+            szamok();
+    }   
+ 
+    public static void main(String args[]) {
+        szamok();
+    }
+}
+```
+
 ### Nevezetes algoritmusok
 
 #### Buborék rendezés
 
-* [https://szit.hu/doku.php?id=oktatas:programozas:programozasi_tetelek:mondatszeru_leiras#buborekrendezes](https://szit.hu/doku.php?id=oktatas:programozas:programozasi_tetelek:mondatszeru_leiras#buborekrendezes)
+A buborékrendezés pszeudókódja:
+
+```txt
+ciklus i = n-1 .. 1
+  ciklus j = 0 .. i-1
+    ha t[j] > t[j+1] akkor 
+      b = t[j+1]
+      t[j+1] = t[j]
+      t[j] = b
+    ha vége
+  ciklus vége
+ciklus vége
+```
+
+Java megvalósítás:
+
+```java
+class Program
+{
+    public static void main(String args[])
+    {
+        int[] tomb = {4, 8, 1, 3, 5, 2, 6};
+        int n = 7; // A tömb elemeinek száma
+ 
+        for(int i= n-1; i>0; i--)
+            for(int j=0; j<i; j++)
+                if(tomb[j] > tomb[j+1])
+                {
+                    int tmp = tomb[j];
+                    tomb[j] = tomb[j+1];
+                    tomb[j+1] = tmp;
+                }
+ 
+        for(int i=0; i<n; i++)
+            System.out.print(tomb[i] + " ");
+        System.out.println();
+    }
+}
+```
 
 #### Rendezés beszúrással
 
-* [https://szit.hu/doku.php?id=oktatas:programozas:programozasi_tetelek:mondatszeru_leiras#rendezes_beszurassal](https://szit.hu/doku.php?id=oktatas:programozas:programozasi_tetelek:mondatszeru_leiras#rendezes_beszurassal)
+```txt
+ciklus i = 0 .. n-1
+  kulcs = t[i]
+  j = i - 1
+  ciklus amíg j >= 0 és t[j] > kulcs
+    t[j+1] = t[j]
+    j = j - 1
+  ciklus vége
+  t[j+1] = kulcs
+ciklus vége
+```
+
+Java megvalósítás:
+
+```java
+public class App {
+    public static void main(String[] args) throws Exception {
+        System.out.println("Rendezés beszúrással");
+
+        int[] t = {4, 8, 1, 3, 5, 2, 6};
+        int n = 7; // A tömb elemeinek száma
+
+        for (int i = 0; i < n; i++) {
+            int kulcs = t[i];
+            int j = i - 1;
+            while(j>=0 && t[j]>kulcs) {
+                t[j+1] = t[j];
+                j = j - 1;                
+            }
+            t[j+1] = kulcs;
+        }
+
+        for(int i=0; i<n; i++)
+            System.out.print(t[i] + " ");
+        System.out.println();        
+    }
+}
+```
 
 #### Gyorsrendezés
 
-* [https://szit.hu/doku.php?id=oktatas:programozas:programozasi_tetelek:mondatszeru_leiras#gyorsrendezes](https://szit.hu/doku.php?id=oktatas:programozas:programozasi_tetelek:mondatszeru_leiras#gyorsrendezes)
+A gyorsrendezés átlagos bonyolultsága: θ( n log n)
+
+A gyorsrendezést két módon szokták megvalósítani:
+
+* tömbbel
+* helyben (helyére vivő eljárással)
+
+A gyorsrendezést általában rekuzívan valósítják meg.
 
 #### Bináris keresés
 
 * [https://szit.hu/doku.php?id=oktatas:programozas:programozasi_tetelek:mondatszeru_leiras#binaris_logaritmikus_vagy_felezeses_kereses](https://szit.hu/doku.php?id=oktatas:programozas:programozasi_tetelek:mondatszeru_leiras#binaris_logaritmikus_vagy_felezeses_kereses)
 
-### Rekurzió
 
-* [https://szit.hu/doku.php?id=oktatas:programozas:java:java_megoldasok#rekurzio](https://szit.hu/doku.php?id=oktatas:programozas:java:java_megoldasok#rekurzio)
-
-* [https://szit.hu/doku.php?id=oktatas:programozas:programozas_elmelet:tananyag#rekurzio](https://szit.hu/doku.php?id=oktatas:programozas:programozas_elmelet:tananyag#rekurzio)
