@@ -9,7 +9,7 @@
 
 ### Bonyolultság
 
-Az algorimtus bonyolultságával azt mérjük, hogy n méretű bemenet mennyi ideig tart feldolgozni. A bonyolultságot általában időben mérjük, de néha térben is elemzünk, ahol a memóriaigény az érdeklődésünk köre.
+Az algorimtus bonyolultságával azt mérjük, hogy n méretű bemenet mennyi ideig tart feldolgozni, vagy hány utasítást kellett végrehajtani. A bonyolultságot általában időben mérjük, de néha térben is elemzünk, ahol a memóriaigény az érdeklődésünk köre.
 
 Az elméleti számítástechnika egyik ága ezzel foglalkozik, ezt nevezzük komplexitás elméletnek. Valójában az elemzések során fontosabb az algoritmus összetettségének vizsgálata, szemben az idővel.
 
