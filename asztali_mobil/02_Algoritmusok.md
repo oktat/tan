@@ -61,6 +61,10 @@ A bemenetet tengelyét 1000-re növeltem, amin látszik, hogy a legrosszabb eset
 
 Forrás: [https://www.bigocheatsheet.com/](https://www.bigocheatsheet.com/)
 
+#### Forrás
+
+* [https://devopedia.org/algorithmic-complexity](https://devopedia.org/algorithmic-complexity)
+
 ### Tömb
 
 Öt egész szám tárolására alkalmas tömb:
