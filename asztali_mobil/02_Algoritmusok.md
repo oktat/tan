@@ -13,6 +13,8 @@ Az algorimtus bonyolultságával azt mérjük, hogy n méretű bemenet mennyi id
 
 Az elméleti számítástechnika egyik ága ezzel foglalkozik, ezt nevezzük komplexitás elméletnek. Valójában az elemzések során fontosabb az algoritmus összetettségének vizsgálata, szemben az idővel.
 
+A jó bonyolultság viszgálathoz, az idő mérése helyett érdemesebb a végrehajtott utasítások számolása.
+
 #### Példák
 
 Ha egy rendezetlen tömbben keresünk egy elemet, a keresési idő arányosan nő a lista méretével. Ekkor azt mondhatjuk, hogy a keresési idő lineáris.
