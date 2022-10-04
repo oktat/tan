@@ -1,6 +1,12 @@
 # Ismeretanyag
 
-Jelenleg:
+## Bevezetés
+
+Ez az ismeretanyag **Szoftverfejlesztő és tesztelő** képzés tantárgyaihoz találunk tankönyveket.
+
+## Tantárgyak
+
+A következő tantárgyakhoz aktuálisak:
 
 * Adatbázis-kezelés I - adatbazis_I
 * Asztali alkalmazások - asztali
@@ -10,3 +16,5 @@ Jelenleg:
 * Programozás alapok
 * Szoftvertesztelés
 * Webprogramozás - webprog könyvtár
+
+Néhány tananyagban csak linket találunk a [https://szit.hu](https://szit.hu) webhelyre, némelyik helyben ki van dolgozva.
