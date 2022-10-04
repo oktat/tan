@@ -51,6 +51,14 @@ A legrosszabb eset jelölőit látjuk a következő ábrán:
 
 A bemenetet tengelyét 1000-re növeltem, amin látszik, hogy a legrosszabb esetet a faktoriális mutatja be.
 
+#### Összehasonlítás
+
+![Adatstruktúrák](images/adatstrukturak_idoigeny_hasonlit.png)
+
+![Adatstruktúrák](images/rendezesek_hasonlitasa.png)
+
+Forrás: [https://www.bigocheatsheet.com/](https://www.bigocheatsheet.com/)
+
 ### Tömb
 
 Öt egész szám tárolására alkalmas tömb:
