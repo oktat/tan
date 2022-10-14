@@ -27,7 +27,7 @@ A program segítségével kapcsolatba lépünk a számítógéppel, aminek utas�
 
 ## Megjegyzések
 
-Az utasításokat, mint a print() egy állományba írjuk. Leírt utasítás sorokat forráskódnak nevezzük. A forráskódba a fejlesztő időnként megjegyzéseket ír önmagának vagy másoknak a leírt utasításokkal kapcsolatban. Ezeket a megjegyzéseket a számítógép nem próbálja meg feldolgozni. 
+Az utasításokat, mint a print() egy állományba írjuk. Leírt utasítás sorokat forráskódnak nevezzük. A forráskódba a fejlesztő időnként megjegyzéseket ír önmagának vagy másoknak a leírt utasításokkal kapcsolatban. Ezeket a megjegyzéseket a számítógép nem próbálja meg feldolgozni.
 
 Egy soros megjegyzés:
 
@@ -112,7 +112,7 @@ print(alma)
 A négyzet egy síkidom
 ```
 
-4.) Írj egy programot, amely a következőket csinálja: 
+4.) Írj egy programot, amely a következőket csinálja:
 
 * Kiírja a A négyzet egy síkidom szöveget.
 * Kiírja 35 számot a következő sorba.

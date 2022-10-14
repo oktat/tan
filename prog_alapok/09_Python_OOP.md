@@ -46,7 +46,7 @@ print(janos.nev)
 
 ## Konstruktor
 
-Az osztályon belül létrehozhatók függvények is. Az osztályon belüli függvényeket metódusnak nevezzük, a továbbiakban így hivatkozunk rá. Van egy speciális metódus, amelynek a neve __init__. Az __init__ metódust arra, használjuk, hogy kezdőértéket adjunk az adattagok számára. Ezt a metódust hívjuk konstruktornak.
+Az osztályon belül létrehozhatók függvények is. Az osztályon belüli függvényeket metódusnak nevezzük, a továbbiakban így hivatkozunk rá. Van egy speciális metódus, amelynek a neve &#95;&#95;init&#95;&#95;. Az &#95;&#95;init&#95;&#95; metódust arra, használjuk, hogy kezdőértéket adjunk az adattagok számára. Ezt a metódust hívjuk konstruktornak. Az init szó előtt és után kettő darab alulvonás van.
 
 ```python
 class Dolgozo:
@@ -79,7 +79,7 @@ janos = Dolgozo('Nagy János', 'Szolnok', 385)
 print(janos.nev)
 ```
 
-Az __init__ metódus paraméterei a self, nev, telepules és fizetes. Ezeket metódus forális paraméterei. Nézzük az egyik utasítást, ahol felhasználjuk a nev formális paramétert:
+Az &#95;&#95;init&#95;&#95; metódus paraméterei a self, nev, telepules és fizetes. Ezeket metódus forális paraméterei. Nézzük az egyik utasítást, ahol felhasználjuk a nev formális paramétert:
 
 ```python
 self.nev = nev
