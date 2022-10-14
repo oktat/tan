@@ -37,3 +37,5 @@ choco install git
 choco install totalcommander
 choco install pycharm-community
 ```
+
+A programok telepíthetők a webhelyükről is, a choco parancs nélkül is.
