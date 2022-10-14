@@ -329,12 +329,1274 @@ print('%s' % nev)
 
 ### A format() függvény használata
 
-## Tovább
+Használjuk a format függvényt egy literális állandó kiíratására:
 
-Továbbiak a szit.hu weblapon:
+```python
+print("{}".format(30))
+```
 
-* [https://szit.hu/doku.php?id=oktatas:programozas:python:python_nyelv](https://szit.hu/doku.php?id=oktatas:programozas:python:python_nyelv)
+Elemezzük a programot. A print() függvénynek valójában egyetlen paramétert adunk át, egy karakterláncot. Azonban a karakterláncon futtatunk egy format() függvényt, amelynek paramétere az érték amit ki kell írni.
 
-Objektum Orientált programozáshoz:
+A karakterláncot nevezzük formátúm stringnek, vagy formátum karakterláncnak, vagy formátum szövegnek. A formátum string formátum kódokat tartalmaz. Egy érték kiíratásához mindig szükség van egy formátumkódra. A formátumkód nyitó kapcsoszárójellel kezdődik és záró kapcsoszárójellel végződik. A következő példában már két értéket íratunk ki, így két formátukód van a formátum stringben:
 
-* [https://szit.hu/doku.php?id=oktatas:programozas:python:python_oop](https://szit.hu/doku.php?id=oktatas:programozas:python:python_oop)
+```python
+print("{} {}".format(30, 35))
+```
+
+Három értékkel:
+
+```python
+print("{} {} {}".format(30, 35, 40))
+```
+
+Most használjuk a formátum stringet arra, hogy magyarázatot és mértékegységet adjunk meg két szám esetén:
+
+```python
+print("Tömeg: {} kg Egységár: {} Ft".format(30, 35))
+```
+
+Ebben a formában a kiíratás még format() függvény nélkül is megoldható. Most nézzünk olyan eseteket, ahol már szükség vana format() függvényre. Szeretnénk 10 szélességben kiíratni egy számot:
+
+```python
+print("{:10}".format(30))
+```
+
+A kimenet ehhez hasonló:
+
+```cmd
+        30
+```
+
+Írjunk pipe karaktert a formátumkód előtt és után, a láthatóság javítása érdekében:
+
+```python
+print("|{:10}|".format(30))
+```
+
+```cmd
+|        30|
+```
+
+Most adjunk meg 20 szélességet:
+
+```python
+print("|{:20}|".format(30))
+```
+
+```cmd
+|                  30|
+```
+
+Írassun ki négy számot egymás alatt 8 szélességben:
+
+```python
+print("|{:8}|".format(30))
+print("|{:8}|".format(368))
+print("|{:8}|".format(1272))
+print("|{:8}|".format(97))
+```
+
+```cmd
+|      30|
+|     368|
+|    1272|
+|      97|
+```
+
+Nézzük meg egy valós szám kiíratását:
+
+```python
+print("{:10}".format(30.1234567))
+```
+
+A kimenet:
+
+```cmd
+30.1234567
+```
+
+Szabályozhatjuk a tizedesjegyek számát:
+
+```python
+print("{:10.2f}".format(30.1234567))
+```
+
+A kimenet:
+
+```cmd
+     30.12
+```
+
+Az egés szám 10 szélesen jelenik meg, kettő tizedesjegy jelenik meg. Az "f" nélkül lebegőpontos formában, potosanbban tudományos alakban jelenik meg a szám:
+
+```python
+print("{:10.2}".format(30.1234567))
+```
+
+A kimenet:
+
+```cmd
+     3e+01
+```
+
+Tizedes jegyek száma, szélesség nélkül is megadható:
+
+```python
+print("{:.2f}".format(30.1234567))
+```
+
+Kimenet:
+
+```cmd
+30.12
+```
+
+Több valósszám kiíratása:
+
+```python
+print("{:14.2f}".format(30.834))
+print("{:14.2f}".format(368.12847))
+print("{:14.2f}".format(1272.184))
+print("{:14.2f}".format(97.9841234))
+```
+
+Kimenet:
+
+```cmd
+         30.83
+        368.13
+       1272.18
+         97.98
+```
+
+Nézzük meg karakterlánc kiíratását:
+
+```python
+print("{:10}".format("alma"))
+```
+
+Kimenetben ezt látjuk:
+
+```cmd
+alma
+```
+
+Tíz szélesen írattuk ki, de ez nem látszik mivel a tíz szélességen belül balra van a karakterlánc igazítva. Hogy lássuk, valóban 10 szélesen van kiírva, használjunk megint pipe karaktert:
+
+```python
+print("|{:10}|".format("alma"))
+```
+
+Kimenetben ezt látjuk:
+
+```cmd
+|alma      |
+```
+
+Most igazítsuk az alma szót jobbra:
+
+```python
+print("|{:>10}|".format("alma"))
+```
+
+Kimenetben ezt látjuk:
+
+```cmd
+|      alma|
+```
+
+Ehhez hasonlóan a számokat is igazíthatjuk balra:
+
+```python
+print("|{:<10}|".format(30))
+```
+
+Kimenetben ezt látjuk:
+
+```cmd
+|30        |
+```
+
+Az üres helyek kitöltése szöveg esetén:
+
+```python
+print("|{:_>10}|".format("alma"))
+```
+
+Kimenetben ezt látjuk:
+
+```cmd
+print("|{:_>10}|".format("alma"))
+```
+
+Számoknak szokás vezetőnullákat megadni:
+
+```python
+print("|{:010}|".format(35))
+```
+
+Kimenetben ezt látjuk:
+
+```cmd
+|0000000035|
+```
+
+Középre igazítás:
+
+```python
+print("|{:^10}|".format(35))
+```
+
+Kimenetben ezt látjuk:
+
+```cmd
+|    35    |
+```
+
+A formátumstring is tárolható változóban:
+
+```python
+kod="|{:10}|"
+print(kod.format(35))
+```
+
+Kimenetben ezt látjuk:
+
+```cmd
+|        35|
+```
+
+Ezredes tagolás:
+
+```python
+print("{:,}".format(35000000))
+```
+
+```cmd
+35,000,000
+```
+
+Szélességgel együtt:
+
+```python
+print("{:20,}".format(35000000))
+```
+
+```cmd
+          35,000,000
+```
+
+Előjel csak negatív számok esetén jelennek meg alapesetben. Pozítív számok esetén is megjeleníthetők:
+
+```python
+print("{:+}".format(35))
+print("{:+10}".format(35))
+```
+
+Kimenet:
+
+```cmd
++35
+       +35
+```
+
+Sorrend megadása:
+
+```python
+kod = "{1} a szobába ment. Ekkor {1} egy számot mondott: {0}"
+print(kod.format(27, "Kati"))
+```
+
+A kimenet:
+
+```cmd
+Kati a szobába ment. Ekkor Kati egy számot mondott: 27
+```
+
+Index és formázás együtt:
+
+```python
+print("{1:5} {0:5}".format(30, 35))
+```
+
+Kimenet:
+
+```cmd
+   35    30
+```
+
+Egész számok kiíratása, típus megadásával:
+
+```python
+print("{:d}".format(30))
+```
+
+```python
+print("{:f}".format(30))
+```
+
+Kimenet:
+
+```cmd
+30.000000
+```
+
+Az előjel pozícionálása:
+
+```python
+print("{:=5d}".format(-30))
+```
+
+```cmd
+-  30
+```
+
+A format() függvényről még több információ:
+
+* [https://pyformat.info/](https://pyformat.info/)
+
+## Matematikai eszközök
+
+### Natív függvények
+
+Néhány függvény natív Pythonban rendelkezésre áll, vagyis nem szükésges importálni hozzá egyetlen modult sem.
+
+```python
+print(pow(2, 8))
+```
+
+A hatvány érték kiíratható a ** operátorral is:
+
+```python
+print(2**8)
+```
+
+Abszolútérték az abs() függvénnyel számítható:
+
+```python
+print(abs(-9))
+```
+
+Kerekítés:
+
+```python
+print(round(3.4))
+print(round(3.5))
+```
+
+A round() függvény a kerekítés szabályait használva kerekít. A 3.4 lefelé, a 3.5 felfelé lesz kerekítve.
+
+### A math modul
+
+Importáljuk a math modult, majd használjuk az sqrt() függvényt:
+
+```python
+import math
+print(math.sqrt(9))
+```
+
+A math modul is tartalmaz hatványozó függvényt:
+
+```python
+import math
+print(math.pow(2,8))
+```
+
+Trigonometriai függvények:
+
+```python
+import math
+
+szog = 1
+rad = szog * math.pi / 180
+print(sin(rad))
+print(cos(rad))
+print(tan(rad))
+```
+
+Kerekítő függvények
+
+```python
+import math
+
+print(ceil(4.1))
+print(floor(4.9))
+```
+
+Az egyes függvények statikusan is imporátlhatók:
+
+```python
+from math import sqrt
+
+print(sqrt(9))
+```
+
+Több függvény importálása statikusan.
+
+```python
+from math import sqrt, sin, pi
+
+print(sqrt(9))
+print(1 * pi / 180)
+```
+
+Az összes függvény importálása:
+
+```python
+from math import *
+
+print(sqrt(9))
+print(1 * pi / 180
+```
+
+Szög konvertálása radiánba:
+
+```python
+import math
+
+print(math.radians(1))
+```
+
+Radián konvertálása szöggé:
+
+```python
+import math
+
+print(math.degrees(0.017453292519943295))
+```
+
+Hatványozás:
+
+```python
+import math
+
+print(math.pow(2, 8))
+```
+
+A math.pow() lebegőpontos értékekhez megfelelő. A pow() és a ** operátor egész értékekhez.
+
+## Véletlen szám
+
+### Véletlen egész
+
+```python
+import random
+
+print(random.randint(1,6))
+```
+
+1-től 6-ig kapunk egy számot.
+
+## Operátorok
+
+### Aritmetikai operátorok
+
+| Operátor | Leírás |
+|-|-|
+| + | összeadás |
+| - | kivonás |
+| * | szorzás |
+| / | valós osztás |
+| // | egész osztás |
+| % | maradékképzés (moduló) |
+| ** | hatványozás  |
+
+### Logikai operátorok
+
+| Operátor | Leírás |
+|-|-|
+| not | tagadás |
+| and | és művelet |
+| or | vagy művelet |
+
+### Relációs operátorok
+
+| Operátor | Leírás |
+|-|-|
+| > | nagyobbmint |
+| < | kisebbmint |
+| >= | nagyobb vagy egyenlő |
+| <= | kisebb vagy egyenlő |
+| == | egyenlő |
+| != | nem egyenlő |
+
+### Precedencia
+
+Egy precedencia táblával leírható, melyik operátor értékelődik ki előbb:
+
+| Operátor | Leírás |
+|-|-|
+| () | zárójelek |
+| ** | hatványozás |
+| +x, -x, ~x | unary plusz és mínusz, bitenkénti nem |
+| *, /, //, % | szorzás, osztás, egész osztás, maradék |
+| +, - | összeadás, kivonás |
+| <<, >> | bitmozgató shift operátorok |
+| & | bitmozgató AND |
+| ^ | bitmozgató XOR |
+| &vert; | bitmozgató OR |
+
+## Konvertálás
+
+### String valóssá
+
+```python
+szamStr = "343.34521"
+szam = float(szamStr)
+print("Szám: ", szam*2)
+```
+
+### String egésszé
+
+```python
+szamStr = "343"
+szam = int(szamStr)
+print("Szám: ", szam*2)
+```
+
+```python
+szamStr = "343.34521"
+szam = int(float(szamStr))
+print("Szám: ", szam*2)
+```
+
+### Egész stringgé
+
+```python
+szam = 345
+szamStr = str(szam)
+print("Szám: ", szamStr + " db")
+```
+
+### Valós stringgé
+
+```python
+szam = 324.12345
+szamStr = str(szam)
+print("Szám: ", szamStr + " kg")
+```
+
+## Bevitel
+
+Kérjünk be egy nevet:
+
+```python
+nev = input("Név: ")
+print("Üdv: ", nev)
+```
+
+Szám bekérése:
+
+```python
+szam = int(input("Szám: "))
+print("Plusz kettő: ", szam + 2)
+```
+
+Valós szám bekérése:
+
+```python
+szam = float(input("Valós szám: "))
+print("Plusz kettő: ", szam + 2)
+```
+
+## Szekvenciális tevékenység
+
+Az utasításokat egymás után írjuk.
+
+```txt
+utasítás1
+utasítás2
+utasítás3
+```
+
+Az utasítások után tehetünk pontosvesszőt, de nem kötelező.
+
+```txt
+utasítás1
+utasítás2;
+utasítás3
+```
+
+Ha teszünk pontosvesszőt, akkor viszont több utasítás is írható egy sorba.
+
+```txt
+utasítás1; utasítás2; utasítás3
+```
+
+## Szelekció
+
+### A for
+
+Öt alma kiíratása:
+
+```python
+for i in range(0, 5):
+    print("alma")
+```
+
+A számok kiíratása
+
+```python
+for i in range(0, 5):
+    print(i)
+```
+
+### A while
+
+```python
+szam = -1
+while szam != 0:
+    szam = int(input("Szám: "))
+```
+
+Most adjuk össze a számokat 0 végjelig:
+
+```python
+osszeg = 0
+szam = -1
+while szam != 0:
+    szam = int(input("Szám: "))
+    osszeg = osszeg + szam
+```
+
+## Karakterláncok kezelése
+
+### A chr() függvény
+
+Az ASCII kódtáblában a kis "a" betű kódja: 97. A kód alapján megkaphatjuk a karaktert a chr() függvény segítségével.
+
+```python
+print(chr(97))
+```
+
+Most írassuk ki a "#" karaktert:
+
+```python
+print(chr(35))
+```
+
+A karakterből kideríthető a ASCII kód, illetve a Unicode decimális alakja.
+
+```python
+print(ord('a'))
+```
+
+Az eredmény: 97
+
+```python
+print(ord('€'))
+```
+
+### Konkatenálás
+
+```python
+nev = "Antal"
+cselekves = " eszik"
+mondat = nev + cselekves
+```
+
+### Hossz
+
+```python
+mondat = "Még nyílnak a völgyben"
+print(len(mondat))
+```
+
+### Karakterlánc karakterenként
+
+```python
+szoveg = "szilva"
+print(szoveg[0])
+```
+
+![A szilva indexei](images/string_indexek.png)
+
+![A szilva negatív indexei](images/string_indexek_02.png)
+
+### Karakterlánc bejárása
+
+```python
+szoveg = "alma"
+for karakter in szoveg:
+    print(karakter)
+```
+
+```python
+karakterlanc = "alma"
+hossz = len(karakterlanc)
+for i in range(1, hossz):
+    print(karakterlanc[i])
+```
+
+### Karakterlánc szeletek
+
+```python
+kars = "szilva"
+print(kars[2:5]) # 'ilv'
+print(kars[:3])  # 'szi'
+print(kars[3:len(kars)])  # 'lva'
+```
+
+```python
+kars = "Mari, Kati, Lajos"
+print(kars[6:])          # Kati, Lajos
+print(kars[6:10])        # Kati
+```
+
+A szöveg megfordítására is használható:
+
+```python
+szoveg = "szilva"
+print(szoveg[::-1])
+```
+
+### Darabolás
+
+```python
+tomb = szoveg.split()
+```
+
+```python
+szoveg = "alma:körte:barack"
+tomb = szoveg.split(":")
+```
+
+```python
+szoveg = "alma:körte:barack"
+elso, masodik, harmadik = szoveg.split(":")
+```
+
+Whitespace karakterek esetén a split() használható paraméter nélkül is:
+
+```python
+szoveg = "alma körte barack"
+elso, masodik, harmadik = szoveg.split()
+```
+
+Újabb darabolás:
+
+```python
+dolgozo = 'Pont Ferenc:Szeged:384'
+(nev, telepules, fizetes) = dolgozo.split(':')
+```
+
+### Tartalmazás
+
+```python
+sor = "Erre jött Ferenc"
+if "Ferenc" in sor:
+    print("Ferenc benne van")
+```
+
+### Keresés
+
+A keresett szöveg indexét adja. Az indexelés 0-tól kezdődik.
+
+```python
+nevek = "Mari, Kati, Andi"
+print(nevek.find('Kati'))     # 6
+```
+
+Ha nem található a keresett szöveg, az eredmény -1.
+
+Az index ugyanezt csinálja, de ValueError kivételt dob, ha nem található a keresett szöveg.
+
+```python
+szoveg = 'Mari, Kati, Lajos'
+ 
+try:
+    print(szoveg.index('Kaati'))
+except ValueError:
+    print('A szöveg nem található!')
+else:
+    print('Találat')
+```
+
+### Új hivatkozás létrehozása
+
+```python
+kars = "szilva"
+print(id(kars))       # 140087358978224
+kars2 = kars[:]
+print(id(kars2))      # 140087358978224
+print(kars is kars2)  # True
+```
+
+Nem jött létre új karakterlánc, csak az elsőre egy hivatkozás.
+
+### Karakterek osztályozása
+
+Megnézzük, hogy számról, karakterekről vagy valami vegyeset tartalmaz egy karakterlánc.
+
+Szám?
+
+```python
+szoveg = "45"
+print(szoveg.isdigit())    # True
+```
+
+Csak szám és betű?
+
+```python
+szoveg = "45"
+print(szoveg.isalpha())    # False
+```
+
+Csak kisbetűs?
+
+```python
+szoveg = "aLma"
+print(szoveg.islower())    # False
+```
+
+Csak nagybetűs?
+
+```python
+szoveg = "ALMA"
+print(szoveg.isupper())    # True
+```
+
+Cím? Attól cím valami, higy minden szó nagybetűvel kezdődik.
+
+```python
+szoveg = "Alma Körte"
+print(szoveg.istitle())    # True
+```
+
+Whitespace karakterek?
+
+```python
+szoveg = "alma"
+print(szoveg.isspace())    # False
+```
+
+Nyomtatható karakterek?
+
+```python
+szoveg = "alma"
+print(szoveg.isprintable())    # True
+```
+
+### Csere
+
+```python
+szoveg = "alma"
+print(szoveg.replace('lm', ''))    # aa
+```
+
+### Részszöveg megszámolása
+
+```python
+szoveg = 'Kati, Lajos, Mari, Lajos'
+darab = szoveg.count('Lajos')
+print(darab)
+```
+
+### Whitespace karakterek törlése
+
+* strip()
+* rstrip()
+* lstrip()
+
+```python
+szoveg = "alma  "
+print("|", szoveg.rstrip() ,"|")     # | alma |
+```
+
+### Tömb karaktersorozattá
+
+```python
+lista1 = ['a', 'b', 'c']
+str1 = ''.join(lista1)
+
+print(str1)
+```
+
+Szeparáljuk : karakterrel:
+
+```python
+lista1 = ['a', 'b', 'c']
+str1 = ':'.join(lista1)
+ 
+print(str1)
+```
+
+```python
+lista1 = []
+lista1.append('egy')
+lista1.append('kettő')
+lista1.append('három')
+szoveg = ':'.join(lista1)
+```
+
+### Beépített függvények
+
+```python
+szoveg = "aLmA körte barack SZILVA"
+print(szoveg.capitalize())     # Alma körte barack szilva
+print(szoveg.lower())          # alma körte barack szilva
+print(szoveg.upper())          # ALMA KÖRTE BARACK SZILVA
+print(szoveg.title())          # Alma Körte Barack Szilva
+print(szoveg.swapcase())       # AlMa KÖRTE BARACK szilva
+```
+
+A swpcase() függvény, minden megfordít. Ami kicsi volt legyen nagy, ami nagy volt legyen kicsi.
+
+---
+
+## Lista
+
+### Kezdőértékek
+
+```python
+szamok = []
+```
+
+```python
+szamok = [8, 5, 2, 9, 4, 7, 1]
+print(szamok)
+```
+
+Bármely elemet átírhatunk:
+
+```python
+szamok = [8, 5, 2, 9, 4, 7, 1]
+szamok[1] = 28
+print(szamok)
+```
+
+Hivatkozás egy elemre:
+
+```python
+szamok = [8, 5, 2, 9, 4, 7, 1]
+print("Első elem: ", szamok[0])
+print("Második elem: ", szamok[1])
+```
+
+### Sorrend megfordítása
+
+```python
+szamok = [8, 5, 2, 9, 4, 7, 1]
+print(szamok[::-1])
+```
+
+### Másolat
+
+```python
+szamok = [8, 5, 2, 9, 4, 7, 1]
+masik = szamok[::]
+print(masik is szamok)     # False  különböző listák
+print(masik == szamok)     # True   értékeik megegyeznek
+```
+
+### Összefűzés
+
+```python
+listaEgy = [28, 17, 42]
+listaKetto = [2, 8, 7]
+listaHarom = listaEgy + listaKetto
+print(listaHarom)   # [28, 17, 42, 2, 8, 7]
+```
+
+```python
+lista1 = [28, 17, 42]
+lista2 = [2, 8, 7]
+for elem in lista2:
+    lista1.append(elem)
+print(lista1) # [28, 17, 42, 2, 8, 7]
+```
+
+Lista összefűzése az extend() függvénnyel
+
+```python
+lista1 = [28, 17, 42]
+lista2 = [2, 8, 7]
+lista1.extend(lista2)
+print(lista1) # [28, 17, 42, 2, 8, 7]
+```
+
+### Méret lekérdezése
+
+```python
+lista1 = [28, 17, 42]
+meret = len(lista1)
+print(meret)    # 3
+```
+
+### Feltöltés számokkal
+
+```python
+lista1 = []
+lista1.extend(range(1, 5))
+print(lista1)   # [1, 2, 3, 4]
+```
+
+### Lista bejárása
+
+```python
+szamok = [5, 2, 7, 9, 3, 4]
+for szam in szamok:
+    print(szam, end=' ')   # 5 2 7 9 3 4
+```
+
+```python
+nevek = ['Árpád', 'Mihály', 'Béla']
+for nev in nevek:
+    print(nev)
+```
+
+Bejárás indexel:
+
+```python
+nevek = ['Árpád', 'Mihály', 'Béla']
+for index in range(len(nevek)):
+    print(index, nevek[index])
+```
+
+### Lista tartalmazás
+
+```python
+nevek = ['Árpád', 'Mihály', 'Béla']
+
+if 'Béla' in nevek:
+    print('Van Béla')
+```
+
+### Elemek hozzáadása
+
+```python
+szamLista = []
+szamLista.append(28)
+szamLista.append(19)
+print(szamLista)
+```
+
+### Elem beszúrása
+
+```python
+szamLista = [2, 8, 5, 1]
+szamLista.insert(1, 34)
+print(szamLista)  # [2, 34, 8, 5, 1]
+```
+
+```python
+gyumolcsok = ['szilva', 'barack', 'körte']
+gyumolcsok.insert(1, 'alma')
+print(gyumolcsok) # ['szilva', 'alma', 'barack', 'körte']
+```
+
+### Elem törlése
+
+```python
+szamLista = [2, 8, 5, 1]
+print(szamLista)    # [2, 8, 5, 1]
+szamLista.remove(8)
+print(szamLista)    # [2, 5, 1]
+```
+
+Utolsó elem törlése:
+
+```python
+szamLista = [2, 8, 5, 1]
+szamLista.pop()
+print(szamLista)  # [2, 8, 5]
+```
+
+Elkaphatjuk a törölt elemet:
+
+```python
+szamLista = [2, 8, 5, 1]
+torolt = szamLista.pop()
+print(szamLista)  # [2, 8, 5]
+print(torolt)     # 1
+```
+
+Első elem törlése:
+
+```python
+szamLista.pop(0)
+```
+
+Az összes elem törlése:
+
+```python
+szamLista = [2, 8, 5, 1]
+szamLista.clear()
+print(szamLista)         # []
+```
+
+Törlés szeleteléssel:
+
+```python
+lista1 = [2, 8, 5, 1]
+lista2 = lista1[1:-1]
+print(lista2) # [8, 5]
+```
+
+Töröltük az első és az utolsó elemet a másolatból.
+
+### Keresés listában
+
+Index keresése:
+
+```python
+szamLista = [2, 8, 5, 1]
+index = szamLista.index(5)
+print(index)            # 2
+```
+
+### Lista másolása
+
+A másolást nem végezhetjük el egyszerű értékadással, mert úgy csak egy újabb mutatót hozunk létre az eredeti listára.
+
+```python
+lista1 = [2, 8, 5, 1]
+lista2 = lista1.copy()
+lista3 = lista1[::]
+lista4 = list(lista1)
+```
+
+### Rendezés
+
+Rendezés a sort() függvénnyel:
+
+```python
+lista1 = [5, 1, 3, 4, 2]
+lista1.sort()
+print(lista1) # [1, 2, 3, 4, 5]
+```
+
+## Függvények
+
+A függvények segítségével az utasításokat csoportosítjuk, elnevezzük, így azok újra hasznosíthatók és átláthatók lesznek.
+
+A függvényt a def kulcsszóval kezdjük:
+
+```python
+def valami()
+    pass
+```
+
+### Utasítások összefogása
+
+A pass utasítást akkor használjuk, ha szeretnénk létrehozni a függvényt, de nem szeretnék egyelőre megvalósítani.
+
+A legegyszerűbb használata az utasítások összfogása. Írjunk például egy függvényt, ami kiír egy névjegyet.
+
+```python
+def nevjegy():
+    print('--------')
+    print('Para Béla')
+    print('Szeged')
+    print('--------')
+
+nevjegy()
+```
+
+A példa utolsó sorában hívjuk a függvényt.
+
+### Paraméterek használata
+
+```python
+def szamDuplazo(szam):
+    eredmeny = szam * 2
+    print(eredmeny)
+
+szamDuplazo(45)
+```
+
+A függvény paraméterként kap egy számot. A számot megduplázzuk, majd kiírjuk a képernyőre. Egy függvénynek vannak aktuális és formális paraméterei. A szam változó a függvény formális paramétere. A hívás helyén a 45 az aktuális paraméter. A példában szereplő "eredmeny" változó a függvény helyi (lokális) paramétere.
+
+### Több paraméter
+
+```python
+def szorzas(szam1, szam2):
+    szorzat = szam1 * szam2
+    print(szorzat)
+```
+
+### Visszatérési érték
+
+A függvényeknek lehetnek visszatérési értéke. A keletkezett értéket nem írjuk ki a függvényben, helyette visszaadjuk, amit hívás helyén elkaphatunk.
+
+```python
+def osszeado(szam1, szam2):
+    osszeg = szam1 + szam2
+    return osszeg
+
+eredmeny = osszeado(30, 35)
+print(eredmeny)
+```
+
+### Kulcsparaméterek használata
+
+```python
+def haromszogTerulet(alap=0, magassag=0):
+    terulet = (alap*magassag)/2
+    return terulet
+ 
+print(haromszogTerulet(magassag=35, alap=30))
+```
+
+## Fájlkezelés
+
+| Betű | Jelentés |
+|-|-|
+| r | Megnyitás olvasásra |
+| a | Megnyitás hozzáfűzésre |
+| w | Megnyitás írásra (felülírja a meglévőt) |
+
+A fájlokat kezelhetjük szekvenciálisan vagy soronként. Az utóbbi a szöveges fájlok kezelése. Ez utóbbi fogjuk használni.
+
+### Írás fájlba
+
+```python
+f = open('adat2.txt', 'w', encoding='utf-8')
+ 
+f.write("Első")
+f.write("Második")
+ 
+f.close()
+```
+
+### Fájl olvasása
+
+```python
+fp = open('adat.txt', 'r' , encoding='utf-8')
+ 
+lines = fp.readlines()
+ 
+for line in lines:
+    line = line.rstrip()
+    print(line)
+ 
+fp.close()
+```
+
+### Modulok
+
+Legyen egy haromszog.py fájl:
+
+```python
+def szamitKerulet(a, b, c):
+    return a + b + c
+ 
+def szamitTerulet(alap, magassag):
+    return (alap*magassag)/2
+```
+
+Használjuk egy main.py fájlban:
+
+```python
+import haromszog
+ 
+print(haromszog.szamitKerulet(30, 35, 40))
+```
+
+Statikus használat:
+
+```python
+from haromszog import szamitKerulet
+ 
+print(szamitKerulet(30, 35, 40))
+```
