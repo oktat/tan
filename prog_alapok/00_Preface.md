@@ -26,6 +26,8 @@ A csomagkezelő weboldala:
 Bővebb leírása:
 [https://szit.hu/](https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:csomagkezeles#chocolatey)
 
+Chocolatey nélkül is használható a tananyag, ez csak a telepítések megkönnyítését célozza.
+
 ## Telepítés
 
 ```cmd
