@@ -7,9 +7,14 @@
 
 ## Játékos programozás
 
+Játékos programozáshoz ajánlott webhely:
+
 * [https://www.lightbot.lu/](https://www.lightbot.lu/)
 
 ## Oktatási portálok
 
+Önálló tanuláshoz ajánlott webhelyek:
+
 * [https://scrimba.com/](https://scrimba.com/)
 * [https://www.codecademy.com/](https://www.codecademy.com/)
+* [https://programiz.pro/](https://programiz.pro/)
