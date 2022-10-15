@@ -1,4 +1,4 @@
-# Bevezetés a programozásba
+# Programozás alapok - Bevezetés a programozásba
 
 * **Szerző:** Sallai András
 * Copyright (c) Sallai András, 2022
