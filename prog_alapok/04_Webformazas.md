@@ -826,3 +826,8 @@ A böngészők általában elfogadják a következő színeket:
 * WhiteSmoke
 * Yellow
 * YellowGreen
+
+## Ajánlott linkek
+
+* [https://szit.hu/doku.php?id=oktatas:web:css](https://szit.hu/doku.php?id=oktatas:web:css) (2022)
+* [https://developer.mozilla.org/en-US/docs/Learn/CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS) (2022)
