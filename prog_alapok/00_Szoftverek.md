@@ -7,14 +7,14 @@
 
 ## Szükséges szoftverek
 
-* Chocolatey
-* Visual Studio Code
-* Dia
-* git
-* Total Commander
-* PyCharm Community
-* Google Chrome
-* Firefox
+* [Chocolatey](https://chocolatey.org/)
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [Dia](http://dia-installer.de/)
+* [git](https://git-scm.com/)
+* [Total Commander](https://www.ghisler.com/)
+* [PyCharm Community](https://www.jetbrains.com/pycharm/download/)
+* [Google Chrome](https://www.google.com/intl/hu_hu/chrome/)
+* [Firefox](https://www.mozilla.org/hu/firefox/)
 
 ## Chocolatey
 
@@ -29,6 +29,8 @@ Bővebb leírása:
 Chocolatey nélkül is használható a tananyag, ez csak a telepítések megkönnyítését célozza.
 
 ## Telepítés
+
+Telepítés Chocolatey csomagkezelővel.
 
 ```cmd
 choco install vscode.install 

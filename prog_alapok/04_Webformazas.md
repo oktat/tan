@@ -454,13 +454,205 @@ Feladat: Határozza meg a h1 elem szülőelemét.
 
 ## Kerettulajdonságok
 
-<!-- 
-Folytatás innen
--->
+Minden HTML elemhez beállítható keret, vagy másként mondva szegély. A szegélyt a border tulajdonsággal állítjuk.
+
+Meg kell adnunk a keret szélességét, stílusát és színét.
+
+A keret szélességének beállítására példa egy p elemen:
+
+```css
+p {
+    border-width: 3px;
+    border-style: solid;
+    border-color: blue;
+}
+```
+
+A szélesség lehet egy érték valamilyen mértékegységgel és a következők:
+
+* thin
+* medium
+* thick
+
+A stílus a következők egyike lehet:
+
+* none
+* dotted
+* dashed
+* solid
+* double
+* groove
+* ridge
+* inset
+* outset
+
+A border-style beállításiat kipróbálhatjuk a [szit.hu webhelyen](https://szit.hu/doku.php?id=oktatas:web:css:css_nyelv#a_border-style)
+
+Csoportos használat:
+
+```css
+p {
+    border: 3px solid blue;
+}
+```
+
+A border-collapse tulajdonság használható táblázatoknál, lásd ott.
 
 ## Dobozmodell
 
-## Túlfolyás
+Minden böngészőben megjelenő HTM elemet egy doboznak tekintünk. Így beszélhetünk a dobozmodellről. Figyeljük meg a következ ábrán a dobookat. Legkülső dobozt a body elem alkotja. Abban van egy div doboz. A divben egy h1 és egy p doboz van.
+
+![Dobozmodell](images/dobozmodell.png)
+
+Minden doboz ugyanúgy épül fel, ugyanazok a tulajdonságok jellemzik. Lehet valami tartalma. A tartalma vagy egy másik doboz, vagy szöveg. A tartalom körül beállítható egy belső margó. A belső margó után állítható a szegély. A szegélyt margó veszi körül. Mindezeket állíthatjuk felül, jobbra, alul és balra. Figyeljük meg a következő ábrán:
+
+![Doboz felépítése](images/dobozfelepites.png)
+
+### Margó beállítása
+
+A margót a margin tulajdonsággal állítjuk.
+
+```css
+p {
+    margin: 20px;
+}
+```
+
+A margók állíthatók felül, jobbra, alul és balra:
+
+* margin-top
+* margin-right
+* margin-bottom
+* margin-left
+
+```css
+p {
+    margin-left: 20px;
+}
+```
+
+Minden margónak a következő tulajdonságok állíthatók be:
+
+* auto
+* hossz - px, pt, cm stb.
+* % - a tartalmazó elemhez képest százalékban
+* inherit - a szülőtől örökölt tulajdonság
+
+### Rövid változat
+
+```css
+p {
+    margin: 5% 2% 10% 15;
+}
+```
+
+A négy éréték felső, jobb, alsó és bal margót jelentik.
+
+Megadható három érték is:
+
+```css
+p {
+    margin: 5% 2% 10%;
+}
+```
+
+Ekkor a felső 5%, a jobb és a bal margó 2%, az alsó margó 10%-s.
+
+Két érték beállítása:
+
+```css
+p {
+    margin: 5% 2%;
+}
+```
+
+Az felső és alsó margó 5%-s, a bal és a jobb margó 2%-s.
+
+### Az auto éréték
+
+Az auto beállítást a dobozok vízszintes középreigazításához használjuk.
+
+## Túlcsordulás
+
+A HTML dobozok alapértelmezetten rugalmas méretűek. Ha hozzáadunk tartalmat, akkor automatikusan nő a méretük. Ha viszont fix szélességű és magasságú dobozt hozunk létre, és a tartalom nem fér el benne, a doboz túlcsordul.
+
+A példa kevéért hozzunk létre egy 100px széles és 100px magas dobozt, például div elemből, doboz osztályjelölővel:
+
+```html
+<div class="doboz">
+
+</div>
+```
+
+Legyen a doboz tartalma egy hosszabb Lorem ipsum szöveg:
+
+```html
+<div class="doboz">
+Lorem ipsum dolor sit amet consectetur 
+adipisicing elit. Voluptates aut dolorum 
+officiis ipsam ratione, est velit.
+</div>
+```
+
+Állítsuk be a doboz osztályjelölőt. Adjunk hozzá háttérszint is, hogy lássuk a túlfolyást.
+
+```css
+.doboz {
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+}
+```
+
+Az overflow tulajdonsággal megváltoztathatjuk a viselkedést:
+
+```css
+.doboz {
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+    overflow: scroll;
+}
+```
+
+A szöveg nem folyik ki, a tartalom gördíthető.
+
+Az overflow használható értékei:
+
+* hidden - a tartalom nyírva lesz, a görgetősáv elrejtve
+* scrool - a tartalom nyírva lesz, a görgetősáv megjelenik
+* none - ez az alapértelmezés
+* visible - a tartalomtól függetlenül a görgetősáv a dobozon kívül lesz
+* auto - a megjelenés a tartalomtól függ
+* clip - a tartalom nyírva, a többi része láthatatlan; letiltja a görgetést
+
+<!--- 
+TODO: Az overflow-x és overflow-y kifejtése
+-->
+
+Az **overflow-x** és **overflow-y** tulajdonság is használható.
+
+### Az overflow-y
+
+Beállítható értékek:
+
+* visible
+* hidden
+* scroll
+* auto
+* initial
+* inherit
+
+Állítsunk be csak függőleges korlátozást.
+
+```css
+.doboz {
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+    overflow-y: scroll;
+}
+```
 
 ## Lista
 
