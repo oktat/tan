@@ -626,10 +626,6 @@ Az overflow használható értékei:
 * auto - a megjelenés a tartalomtól függ
 * clip - a tartalom nyírva, a többi része láthatatlan; letiltja a görgetést
 
-<!--- 
-TODO: Az overflow-x és overflow-y kifejtése
--->
-
 Az **overflow-x** és **overflow-y** tulajdonság is használható.
 
 ### Az overflow-y
@@ -656,23 +652,466 @@ Beállítható értékek:
 
 ## Lista
 
+A definciós lista mellett a két alavető listát használunk, ez a számozott és a számozatlan. Ha CSS-t használunk, mindegy melyiket hozzuk létre, mivel a CSS segítségével bármelyikből készíthetsz, számozott vagy számozatlan listát.
+
+### A lista sítlus típusa
+
+A lista stílus típust a list-style-type tulajdonsággal állítható.
+
+A következő értékeket veheti fel:
+
+* disc
+* circle
+* square
+* decimal
+* lower-roman
+* upper-roman
+* lower-alpha
+* upper-alpha
+* none
+
+Nézzünk egy példát:
+
+```css
+ul {
+    list-style-type: circle;
+}
+```
+
+### Listpozíciók
+
+A listapozícióját a list-style-position tulajdonsággal állítjuk.
+
+Lehetséges értékek:
+
+* inside
+* outside
+
+```css
+ul {
+    list-style-position: inside;
+}
+```
+
+Készítsünk egy weblapot, amely következőt tartalamzza:
+
+```html
+<ul class="egy">
+    <li>alma</li>
+    <li>barack</li>
+    <li>szilva</li>
+    <li>körte</li>
+</ul>
+<ul class="ketto">
+    <li>alma</li>
+    <li>barack</li>
+    <li>szilva</li>
+    <li>körte</li>
+</ul>
+```
+
+A hozzátartozó CSS:
+
+```css
+ul.egy {
+    list-style-position: inside;
+}
+
+ul.ketto {
+    list-style-position: outside;
+}
+
+li {
+    border: 1px solid black;
+}
+```
+
+![inline és outline lista](images/lista_inside_outside.png)
+
 ## Megjelenés
+
+A dobozok megjelenítését a visibility és a display tulajdonsággal állítható.
+
+Alapértelmezetten minden doboz látszik.
+
+Dobozok rejtése:
+
+```css
+.doboz2 {
+    visibility: hidden;
+}
+```
+
+Dobozok rejtése a dispaly tulajdonsággal:
+
+```css
+.doboz2 {
+    display: none;
+}
+```
+
+Mi a különbség a kettő között? Ha visibility segítségével rejtünk el egy dobozt, annak helye megmarad. Ha display segítségével rejtünk el valamit, annak helye sem marad meg.
+
+### A display
+
+A display tulajdonsággal a megjelenített dobozokra is hatással lehetünk. Egyes dobozok blokk, míg más dobozok inline dobozok.
+
+A display tulajdonság segítségével a blokk elemkből inline, az inlineból blokk elem állítható be. Beállítható típusok:
+
+* block
+* inline
+* inline-block
+* contents
+* flex
+* grid
+* inline-flex
+* inline-grid
+* inline-table
+* list-item
+* run-in
+* table
+* table-caption
+* table-column-group
+* table-header-group
+* table-footer-group
+* table-row-group
+* table-cell
+* table-column
+* table-row
+* none
+* initial
+* inherit
+
+```css
+div.doboz {
+    display: inline;
+}
+```
+
+```css
+span.doboz {
+    display: block;
+}
+```
 
 ## Pozicionálás
 
+A dobozok poziciónálást a position tulajdonsággal állítjuk.
+
+Lehetséges értékei:
+
+* static
+* relative
+* absolute
+* fixed
+* sticky
+
+A dobozok alapértelmezetten static elhelyzkedésűek. Ez azt jelenti, hogy a weboldalon a dobozok egymás után folynak jobbra és lefele. Az inline elemek jobbra folynak, amíg van hely. A blokk elemek lefelé folynak a weblapon és így jelennek meg.
+
+Ezen a megjelenésen tudunk változtatni.
+
+### A relative érték
+
+A relatív érték beállításával a dobozunk a helyén marad, de a tartalmat saját helyéhez képest elmozdíthatjuk jobbra, balra, fel és le.
+
+Készítsük el a következő weblapot:
+
+```html
+    <div class="container">
+        <div class="egy">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique, id reiciendis voluptatum cum ducimus dolorem.
+        </div>
+        <div class="ketto">
+            Lorem ipsum dolor sit amet.
+        </div>
+        <div class="harom">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique, id reiciendis voluptatum cum ducimus dolorem.
+        </div>
+    </div>
+```
+
+Adjunk hozzás CSS-t:
+
+```css
+.ketto {
+    background-color: navy;
+    color: white;
+    position: relative;
+    top: 30px;
+    left: 30px;
+}
+```
+
+A középső dobozt pozicionálását relative-ra állítjuk, majd kiemeljük a helyéről, a helyéhez képst.
+
+### Abszolút pozicionálás
+
+A dobozok folyamából teljesen kiemeljük az adott dobozot, és a weblap tetejéhez, aljához és széleihez igazítjuk a dobozot.
+
+Készítsük el az előző weboldalt:
+
+```html
+    <div class="container">
+        <div class="egy">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique, id reiciendis voluptatum cum ducimus dolorem.
+        </div>
+        <div class="ketto">
+            Lorem ipsum dolor sit amet.
+        </div>
+        <div class="harom">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique, id reiciendis voluptatum cum ducimus dolorem.
+        </div>
+    </div>
+```
+
+Adjunk hozzás CSS-t, egy apró változtatással:
+
+```css
+.ketto {
+    background-color: navy;
+    color: white;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+```
+
+Vegyük észre, hogy a top érték mostantól a weblap tetejétől értendő.
+
+### A fixed érték
+
+A fixed beállítás olyan minta az abszúlt. A doboz kikerül a dobzok folyamából. Az igazítás viszont nem a weblap széleihez képest értendő, hanem a böngészőablak széleihez.
+
+A kipróbáláshoz olyan hosszú szöveges tartalmat illeszünk a bekezdésekbe, hogy megjelenjenek a görgető sávok. Görgetéskor figyeljük meg a fixed pozicionálású doboz viselkedését.
+
+### A sticky érték
+
+A sticky érték esetén a doboz helyén marad mindaddig, amíg elnem éri a felső felsőrészt, 5 pixelre.
+
 ## Lebegtetés
+
+Egy doboz tartalmában úsztatunk egy másik dobozt. A tartalom általában szöveg, az úsztatott doboz pedig egy képet jelenít meg.
+
+Az úsztatást a float tulajdonsággal állítjuk be.
+
+```css
+.doboz {
+    float: left;
+}
+```
+
+Készítsünk egy HTML oldalt a következő tartalommal:
+
+```html
+<p>
+    <img src="kep" alt="képleírás">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+</p>
+```
+
+A weblaphoz illesszünk egy tetszőlges képet.
+
+Az illesztett CSS:
+
+```css
+img {
+    width: 100px;
+    float: left;
+}
+```
+
+### A clear
+
+A float beállítás után, minden tartalomban úszik a kép. Ha szeretnénk törölni az úsztatást, a clear tulajdonsággal tudjuk. Lehetséges értékek:
+
+* left
+* right
+* both
+* none
+
+![A float és a clear bemutatása](images/float_clear.png)
 
 ## Blokk elemek igazítása
 
+A blokk elemek a böngésző bal szélétől a jobb széléig érnek. Ha beállítjuk, hogy 50% legyen a szélesség, a doboz automatikusan baloldalra igazdodik. Középre igazításhoz a bal és jobb margót automatikusra kell állítani.
+
+```css
+.doboz {
+    background-color: gold;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+```
+
 ## Ál-osztályok
+
+Az ál-osztályok speciális szelektorok. Például ál-osztállyal állíthatjuk be a, linkeket, az aktivált linkek, a már meglátogatott linkeket stb.
+
+```css
+a:link {color:#FF0000;}      /* még nem látogatott linkek */
+a:visited {color:#00FF00;}  /* látogatott linkek */
+a:hover {color:#FF00FF;}  /* ha az egér felé megy */
+a:active {color:#0000FF;}  /* aktuális linkek */
+```
 
 ## Átlátszatlanság
 
+```css
+.doboz {
+    opacity: 0.6;
+}
+```
+
+```css
+.doboz {
+    height: 150px; 
+    width: 220px;
+    background-color: #ffffff;
+    opacity: 0.6;
+}
+```
+
+### Az rgba() függvény
+
+```txt
+rgba(piros, zöld, kék, alfa)
+```
+
+```css
+.doboz {
+   background-color:rgba(255, 0, 0, 0.3);
+} 
+```
+
 ## Táblázatok
+
+Szegély beállítása:
+
+```css
+table {
+    border: 1px solid black;
+}
+```
+
+A cellák számára is beállítjuk:
+
+```css
+table, th, td {
+    border: 1px solid black;
+}
+```
+
+A tábla szegélyének összeomlasztása:
+
+```css
+table {
+    border-collapse: collapse;
+}
+```
+
+A cellák közötti távolság beállítása:
+
+```css
+table {
+    border-spacing: 20px;
+}
+```
+
+A cella és tartalma közötti tér:
+
+```css
+td {
+    padding: 30px;
+}
+```
 
 ## Z-index
 
+```html
+<div id="egy" >z-index: 1</div>
+<div id="ketto">z-index: 2</div>
+<div id="harom">z-index: 3</div>
+```
+
+A hozzátartozó CSS:
+
+```css
+#egy {
+    position: relative; left: 0px; top:0px; width:100px; height:100px; 
+    background: #f00;
+    z-index:3;
+}
+ 
+#ketto {
+    position: relative; left: 50px; top:-50px; width:100px; height:100px; 
+    background: #0f0;
+    z-index:2;
+}
+ 
+#harom {
+    position: relative; left: 100px; top:-100px; width:100px; height:100px; 
+    background: #00f;
+    z-index:1;
+}
+```
+
+A z-index változtatása:
+
+```css
+#egy {
+    position: relative; left: 0px; top:0px; width:100px; height:100px; 
+    background: #f00;
+    z-index:3;
+}
+ 
+#ketto {
+    position: relative; left: 50px; top:-50px; width:100px; height:100px; 
+    background: #0f0;
+    z-index:2;
+}
+ 
+#harom {
+    position: relative; left: 100px; top:-100px; width:100px; height:100px; 
+    background: #00f;
+    z-index:1;
+}
+```
+
 ## Mértékegységek
+
+### Relatív hosszmértékek
+
+| Mértékegység | Leírás |
+|-|-|
+| em | A releváns karakter mérete |
+| ex | A televáns karakter x-magassága |
+| % | Százalék |
+| ch | A "0" (zéró) szélességhez relatívan |
+| rem | A root elem fontszélességéhez relatívan |
+
+### Abszolút és relatív
+
+Abszolút és mégis relatív hosszmértékek
+
+| Mértékegység | Leírás |
+|-|-|
+| px | képpont; eszközfüggő |
+
+### Abszolút hosszmértékek
+
+| Mértékegység | Leírás |
+|-|-|
+| in | inch; hüvelyk; 25,4 mm |
+| cm | centiméter |
+| mm | milliméter |
+| pt | pt; pont; 1/72 hüvelyk; kb.: 0,352 mm |
+| pc | pica; 12 pont, 3/18 hüvelyk; kb.: 4,23 mm |
+
+| Mértékegység | Leírás |
+|-|-|
+| px | képpont; eszközfüggő |
 
 ## Színek
 
