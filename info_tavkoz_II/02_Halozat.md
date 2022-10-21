@@ -5,6 +5,8 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## A hálózatokról
+
 A hálózat egymással összekapcsolt számítógépek és informatikai eszközök rendszere.
 
 Célja adatok átvitele egyi eszközről a másik eszközre.
@@ -35,13 +37,18 @@ Passzív hálózati eszközök:
 * kábel
 * toldó
 
-A hálózatok megkönnyítik az adatok átvitelét számítógpek között. A világméretű hálózat létrejötte a egész társadalmakat változtattak meg. Az internet szereplői hálózaton keresztül vásárolnak, tárgyalnak, rendelnek, csevegnek, megosztanak stb.
+A hálózatok megkönnyítik az adatok átvitelét számítógpek között. A világméretű hálózat létrejötte egész társadalmakat változtattak meg. Az internet szereplői hálózaton keresztül vásárolnak, tárgyalnak, rendelnek, csevegnek, megosztanak, tanulnak, ismeretet szereznek stb.
 
 ## A fizikai és logikai topológia
 
-A topológia egy olyan ábra, amely megmutatja egy hálózat felépítését. A fizikai topológia azt is megmutatja, az eszközök hol helyezkednek el. A logikai topológia esetén csak az összekötések fontosak.
+A hálózatok felépítését két módon ábrázoljuk:
 
-A logikai topológiában ábrázolhatjuk, hogy milyen eszközök szerepelnek a hálózatban, de ez nem kötelező. Jelölhetünk kis körökkel is hálózati eszközöket. A következő ábra egy egyszerű logikai topológiát ábrázol.
+* topográfia
+* topológia
+
+A topográfia leírja mit mivel kötünk össze, de az tis megmutatja hol lesznek ezek az eszközök földrajzilag. Melyik szobában, vagy melyik településen; a méret mindegy.
+
+A topológiai ábrán nem szerepel, hogy hol vannak az eszközök. Csak azt mutatja meg, mit mivel kötünk össze.
 
 ![Egy egyszerű logikai topológia](https://szit.hu/lib/exe/fetch.php?cache=&media=oktatas:halozat:halozati_topologia_005.png)
 
@@ -49,11 +56,70 @@ A következő ábrán már láthatók milyen fizikai eszközök vesznek részt a
 
 ![Logikai topológia](https://szit.hu/lib/exe/fetch.php?cache=&media=oktatas:halozat:halozati_topologia_002.png)
 
-A fizikai topológiát
+Ha a kommunikációs mechanizmust ábrázoljuk, azt is topológiának hívjuk. Így topológiát kétféle típusát szokás megkülönböztetni:
 
-Lásd tovább:
+* fizikai topológia
+* logikai topológia
 
-* [https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_04_-_eszkoezoek_kapcsolasa_a_halozatra#topografia-topologia](https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_04_-_eszkoezoek_kapcsolasa_a_halozatra#topografia-topologia)
+A **fizikai topológia**, ahol ábrázoljuk a hálózat felépítését csompontokkal, vagy konkrét eszközökkel, ahogy azt fentebb is leírtuk.
+
+A **logikai topológián** viszont a kommunikációs mechanizmust ábrázoljuk. Ez alapvetően kétféle lehet:
+
+* szórásos
+* vezérjeles
+
+### Fizikai topológia
+
+Attól függően, hogy milyen alakzatok jön létre, különböző típusokat határozhatunk meg.
+
+Topológiák:
+
+![pont-pont topológia](images/pont-pont_topologia.png)
+
+Csillag topológia:
+
+![csillag topológia](images/csillag_topologia.png)
+
+Gyűrű topológia:
+
+![gyűrű topológia](images/gyuru_topologia.png)
+
+Teljes vagy hálós topológia:
+
+![teljes topológia](images/teljes_topologia.png)
+
+Fa topológia:
+
+![fa topológia](images/fa_topologia.png)
+
+Sín topológia:
+
+![sín topológia](images/sin_topologia.png)
+
+Rádiós topológia:
+
+![rádiós topológia](images/radios_m_topologia.png)
+
+### Logikai topológia
+
+A logikai topológia ábrázoljuk, hogyan kommunikálnak egymással a hálózatok. Ez alapvetően kétféle:
+
+* szórásos
+* vezérjeles
+
+#### Szórásos topológia
+
+Megnézzük, hogy adhatunk-e és ha igen, akkor adunk.
+
+#### Vezérjeles topológia
+
+Mindig az adhat akinél a vezérjel van. A vezérjel idegen szóval token.
+
+### Megjegyzés
+
+Néhány leírás szerint a logikai topológián ábrázoljuk a az eszkzök pontos típusát is. Más leírások azt mondják, hogy a logikai topológián nincsennek eszközök, azok csak a fizikai topológián. Van ahol a logikai topológián eszközök is szerepelhetnek, de hogy hol van, az csak a fizikai topológián szerepel.
+
+A logikai topológiát arra is használják, hogy megmutassák, hogy két eszköz között kapcsolat van, de hogy ténylegesen milyen eszközökön keresztül épül fel a kapcsolat az lényegtelen.
 
 ## Csatlakozás az Internethez
 
@@ -100,11 +166,11 @@ Az ISP hálózatán nagysebességű útválasztók és kapcsolókon keresztül j
 
 ## BYOD
 
-A BYOD a Bring Your Own Device rövidítése. Magyarul: hozd a saját eszközödet. Ez olyan munkamodell, ahol a dolgozók saját eszközön dolgoznak.
+A BYOD a Bring Your Own Device rövidítése. Magyarul: hozd a saját eszközödet. Ez olyan munkamodell, ahol a dolgozók saját eszközön dolgoznak a munkahelyükön.
 
 ## SDN
 
-Az SDN a Software defined networking rövidítése, magyarul szoftverál által beállított hálózat. Az SDN olyan beállításra utal, ahol a hálózatot dinamikusan programozottan szoftverek állítják be.
+Az SDN a Software defined networking rövidítése, magyarul szoftver által beállított hálózat. Az SDN olyan beállításra utal, ahol a hálózatot dinamikusan programozottan szoftverek állítják be.
 
 ## A hálózat fenyegetései
 
