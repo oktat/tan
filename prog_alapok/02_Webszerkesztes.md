@@ -27,6 +27,15 @@ choco install vscode.install
 
 ## Helló Világ
 
+Készítsünk egy hello nevű projektet. Ez legyen egy hello nevű könyvtár, amelyben egy index.html fájl van:
+
+```txt
+hello/
+  `-index.html
+```
+
+Az index.html fájl tartalma a következő legyen:
+
 ```html
 <!DOCTYPE html>
 <html lang="hu">
@@ -41,11 +50,13 @@ choco install vscode.install
 </html>
 ```
 
+Nyissuk meg böngészőben az index.html oldalt. Erre az egyik módszer: böngészőben Ctrl+O, kikeresem az index.html-t, majd a "Select" vagy "Megnyitás" gombra kattintva megnyitom.
+
 ## Elemzés
 
 Minden HTML fájlt DOCTYPE sorral kezdjük. Ez megmondja
 a böngészőnek, hogy a HTML melyik verzióját használjuk.
-A példában szereplő DOCTYPE-sor, azt jelenti, HTML5
+A példában szereplő &lt;!DOCTYPE html&gt; sor, azt jelenti, HTML5
 verziót használunk.
 
 A HTML oldal szerkezetét tagekkel határozzuk meg.
@@ -63,12 +74,12 @@ Kétféle tag van:
 * záró
 
 A tartalmat ezek tagek fogják közre. Egy nyitó és egy záró taget
-együtt elemenk nevezünk, HTML elem.
+együtt elemnek nevezünk, HTML elem.
 
 A weboldalak ilyen szervezése az SGML, majd később ebből kialakult
 XML dokumentumleírónyelvből jött létre.
 
-A HTML elemek lehetséges neveit szabvány határozza meg.
+A HTML elemek lehetséges neveit szabvány határozza meg, amit [W3C](https://www.w3.org/) konzorcium készít.
 
 Az egész HTML dokumentumot html elemek közzé tesszük, a DOCTYPE sor
 után.
@@ -81,22 +92,19 @@ között:
 
 A fejrészt a head elemek között adjuk meg, a törzsrészt a body elemek között.
 
-A fejrészben van két minimálisan megadandó HTML elem. Az egyik a weblap
-karakterkódolását mondja meg, a másik a weboldalnak egy olyan címét határozza
-meg, amely a böngésző címsorában, vagy annak fülein jelenik meg.
+A fejrészben a megjelenő weblaphoz háttérinformációkat adunk.
+A megjelenő részt a törzs részben helyezzük el. A fejrészben van két minimálisan megadandó HTML elem. Az egyik a weblap karakterkódolását mondja meg, a másik a weboldalnak egy olyan címét határozza meg, amely a böngésző címsorában, vagy annak fülein jelenik meg.
 
 A karakterkódolást a meta elemmel adjuk meg. Minden HTML elem
 felvehet attribútumokat. Az attribútumoknak van mindig egy értékük.
 A meta elemmel nagyon sok dolog beállítható, a karakterkódolás csak
-az egyik dolog. Hogy a karakterkódolást állítjuk azt a charset attribútummal
-mondjuk meg. Ennek értéke adj a kódolást:
+az egyik dolog. A karakterkódolást a charset attribútummal adjuk meg. Ennek értéke a kódolás:
 
 ```html
 <meta charset="utf-8">
 ```
 
-Az értéket mindig az attribútum és egy egyenlőség jel után adjuk meg,
-idézőjelek között.
+Az értéket mindig az attribútum és egy egyenlőség jel után adjuk meg, idézőjelek között.
 
 A head elemek között az oldal címét a title taggel adjuk meg.
 
@@ -130,7 +138,13 @@ Object Model rövidítése.
 Megjegyzéseket a következő módon készíthetünk:
 
 ```html
-<!-- szöveg -->
+<!-- egy sorban -->
+<!-- 
+  több
+  soros
+  megjegyzés
+  szöveg 
+-->
 ```
 
 A HTML megjegyzések nem ágyazhatók egymásba.
@@ -138,7 +152,7 @@ A HTML megjegyzések nem ágyazhatók egymásba.
 ## Fejezetcímek
 
 A fejezet címek a h1, h2, h3, h4, h5, h6 elemekkel határozhatók meg.
-Alapértelmezetten a h1 elem adja a legmagasabb betűtípust.
+Alapértelmezetten a h1 elem jelenik meg a legmagasabb betűmérettel.
 
 ```html
 <h1>H1 fejezetcím</h1>
@@ -152,7 +166,7 @@ Alapértelmezetten a h1 elem adja a legmagasabb betűtípust.
 ## Bekezdések
 
 A szövegeket bekezdésekre szokás tagolni. A HTML nyelven a
-bekezdést a "b" elemmel készíthető:
+bekezdés a "p" elemmel készíthető:
 
 ```html
 <p>
@@ -160,7 +174,7 @@ Lorem ipsum dolor sit amet.
 </p>
 ```
 
-A contenteditable attribútummal szerkeszhető bekezdés hozható létre.
+A contenteditable attribútummal böngészőben a weblapról szerkeszhető bekezdés hozható létre.
 
 ```html
 <p contenteditable="true">
@@ -168,9 +182,13 @@ Lorem ipsum
 </p>
 ```
 
+Ritkán van rá szükség.
+
 ## Általános elemek
 
 A div és a span elemeknek nincs szemantikai jelentésük. A div elem az oldal szerkezetének meghatározására lett létrehozva. A span elem segítségével a szöveg egyes részei eltérően formázhatók.
+
+A következő példa a div elemek használatára mutat egy lehetséges megoldást:
 
 ```html
 <div class="container">
@@ -186,21 +204,29 @@ A div és a span elemeknek nincs szemantikai jelentésük. A div elem az oldal s
 </div>
 ```
 
+A span elem használatára példa:
+
+```html
+Lorem <span class="egy">ipsum</span> dolor sit amet
+consectetur, <span class="ketto">adipisicing</span> elit. 
+Numquam, rem.
+```
+
 ## Szemantikus elemek
 
 A szematikus elemek valamilyen jelentéssel bírnak. Nem szemantikus elem a span és a div. Néhány szemantikus elem:
 
-* table
-* i
-* p
-* form
-* section
+* table - táblázatok létrehozása
+* i - dőlt szöveg jelölése
+* p - bekezdés jelölése
+* form - űrlap készítítése
+* section - egy rész jelölése
 
 ## Blokk és inline szintű elemek
 
-### Blokk elemek
+### Blokkelemek
 
-Ha egy blokkelemet hozunk létre, az a tartalomtól függetlenül kitölti az a rendelkezésre álló helyet. A követkeő példban a div elemmel hozunk létre egy dobozt, amelynek a tartalma az "alma" szót. Minden HTML elem egy úgynevezett dobozt hoz létre a weblapon. Ezen dobozok mérete, kiterjedése, általában nem látszik.
+Ha egy blokkelemet hozunk létre, az a tartalomtól függetlenül kitölti a rendelkezésre álló helyet. A követkeő példban a div elemmel hozunk létre egy dobozt, amelynek a tartalmazza az "alma" szót. Minden HTML elem egy úgynevezett dobozt hoz létre a weblapon. Ezen dobozok mérete, kiterjedése, általában nem látszik.
 
 ```html
 <body>
@@ -226,7 +252,7 @@ A doboznak a style attribútummal állítottunk be kék háttérszint.
 
 ![blokk elem](images/block_element.png)
 
-Több div elem egymás után:
+Készítsünk több div elemet egymás után:
 
 ```html
 <body>
@@ -245,13 +271,13 @@ Több div elem egymás után:
 
 ![több div elem](images/tobb_div.png)
 
-Fejezetcímek:
+Kettes szintű fejezetcímek egymás után:
 
 ```html
-<h2>alma</h2>
-<h2>körte</h2>
-<h2>barack</h2>
-<h2>szilva</h2>
+<h2 style="background-color: blue">alma</h2>
+<h2 style="background-color: red">körte</h2>
+<h2 style="background-color: green">barack</h2>
+<h2 style="background-color: yellow">szilva</h2>
 ```
 
 ![H2 elemek](images/h2_elements.png)
@@ -267,11 +293,11 @@ p elemek:
 
 ![p elemek](images/p_elements.png)
 
-Láthatjuk, hogy az blokk elemek egymás után folynak lefele a weblapon, mindegyik egyetlen sort elfoglalva.
+Láthatjuk, hogy a blokkelemek egymás után folynak lefele a weblapon, mindegyik egyetlen sort elfoglalva.
 
 ### Inline elemek
 
-Az inline elemek a tartalomhoz igazodnak.
+Az inline elemek mérete a tartalomhoz igazodnak. Nézzünk egy span elemet, ami inline elem. A style attribútummal megszínezzük:
 
 ```html
 <body>
@@ -283,7 +309,9 @@ Az inline elemek a tartalomhoz igazodnak.
 
 ![Inline elem](images/inline_element.png)
 
-Több inline elem:
+Láthatjuk a háttérszín alapján, hogy a doboz csak a szöveg körül létezik.
+
+Most tegyünk több inline elemet egymás után:
 
 ```html
 <body>
@@ -299,7 +327,7 @@ Több inline elem:
 </body>
 ```
 
-Több inline elem egysorban jelenik meg mindaddig, amíg elfér a böngészőben. Ha egy inline elem nem fér el, akkor a következő sorba jelenik meg.
+Több inline elem egysorban jelenik meg mindaddig, amíg elfér a sorban. Ha egy inline elem nem fér el, akkor a következő sorba jelenik meg.
 
 ![Több inline elem](images/multi_inline_elment.png)
 
@@ -309,14 +337,14 @@ Figyeljük meg, hogy a dobozok egymás után jelennek meg, egyetlen sorban. Az i
 
 Egyes elemek blokk szintűek, egyes elemek inline szintűk:
 
-Blokk elemek:
+Blokkelemek:
 
 * div
 * p
 * h1 - h6
 * stb.
 
-Inline elemek:
+Inlineelemek:
 
 * span
 * b
@@ -326,11 +354,34 @@ Inline elemek:
 
 ## Sortörés
 
-Sortörést a br elemmel lehet megvalósítani. A b elemnek nincs lezáró része, a lezárást az elem neve után írt szóköz, majd a / karakter jelöli.
+Sortörést a br elemmel lehet megvalósítani. A b elemnek nincs lezáró része, a lezárást az elem neve után írt szóköz, majd a / karakter jelölheti, de ez nem kötelező.
 
 ```html
 <br />
 ```
+
+Próbáljuk meg egy bekezdésben:
+
+```html
+<p>
+Lorem ipsum dolor sit amet consectetur, 
+
+
+adipisicing elit. Numquam, rem.
+</p>
+```
+
+Így önmagában, hiába teszek sortöréseket, a weblapn az nem látszik. Használjunk helyette br elemet:
+
+```html
+<p>
+Lorem ipsum dolor sit amet consectetur, 
+<br><br>
+adipisicing elit. Numquam, rem.
+</p>
+```
+
+A háromsor akár egyetlen sorban is megadható.
 
 ## Kiemelés
 
@@ -381,9 +432,11 @@ A listák minden dokumentumban fontos szervező elemek. A HTML oldalakon háromf
 * számozatlan
 * definíciós
 
-A számozott és számozatlan lista egymásba átalakítható a később tanulásra kerülő CSS segítségével.
+A számozott és számozatlan lista egymásba átalakítható CSS segítségével, amit később fogunk megtanulni.
 
 ### Számozatlan lista
+
+A számozatlan lista angolul "unordered list". Ha a két szónak vesszük az első betűtit, az ul-t kapjuk. Az ul elemmel hozhatunk létre számozatlan listákat. A lista elemeit az li elemmel adjuk meg. Lássunk egy példát:
 
 ```html
 <ul>
@@ -395,6 +448,8 @@ A számozott és számozatlan lista egymásba átalakítható a később tanulá
 ```
 
 ### Számozott lista
+
+Az angol "odered list" szavak első betű ol. Az ol elemmel hozhatunk létre számozott listát.
 
 ```html
 <ol>
@@ -416,6 +471,8 @@ A számozás szabályozása:
 </ol>
 ```
 
+Ebben a példában a számozás 40-től indul.
+
 A számozás megfordítása:
 
 ```html
@@ -427,7 +484,11 @@ A számozás megfordítása:
 </ol>
 ```
 
+Használhatjuk két attribútumot együtt is.
+
 ### Egymásbaágyazás
+
+Az li elemen belül megadható akár egy másik lista is.
 
 ```html
 <ol>
@@ -445,6 +506,8 @@ A számozás megfordítása:
 
 ### Definíciós lista
 
+Valamilyen fogalom definiálásra használható a definíciós lista:
+
 ```html
 <dl>
   <dt>fogalom</dt>
@@ -458,11 +521,17 @@ A számozás megfordítása:
 
 ## Képek beillesztése
 
-Használható típusok:
+Használható fájltípusok:
 
-* .jpg
-* .gif
-* .png
+|  Rövidítés  |  Formátum  | Kiterjesztés |
+|-|-|-|
+| JPEG | Joint Photographics Expert Group | .jpg, .jpeg |
+| GIF | Graphics Interchange Format | .gif |
+| PNG | Portable Network Graphics | .png |
+| SVG | Scalable Vector Graphics | .svg |
+| WebP | Web Picture | .webp |
+
+Az [MDN](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types) a dokumentációjában ide sorolja az APNG és az AVIF formátumokat is.
 
 ```html
 <img src="nev.png" alt="leírás">
@@ -512,7 +581,7 @@ A táblázat elterjedt formája többféle tulajdonság megjelenítésének.
 </table>
 ```
 
-A border attribútumot szegélyt határoz meg a táblázat részére. Ezt nem így fogjuk megadni később, de most jól látható ettől a táblázat kinézete.
+A border attribútum szegélyt határoz meg a táblázat részére. Ezt nem így fogjuk megadni később, de most jól látható ettől a táblázat kinézete.
 
 ### Táblázat felirata
 
