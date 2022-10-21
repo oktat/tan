@@ -619,7 +619,7 @@ Ritkábban használt attribútum a summary, amiben megadhatunk egy összefoglal�
 </table>
 ```
 
-### Cellanyúlás
+### Oszlopnyúlás
 
 ```html
 <table border="1">
@@ -637,6 +637,8 @@ Ritkábban használt attribútum a summary, amiben megadhatunk egy összefoglal�
 </table>
 ```
 
+![Cellanyúlás](images/tabla_oszlopnyulas.png)
+
 ### Sornyúlás
 
 ```html
@@ -653,7 +655,9 @@ Ritkábban használt attribútum a summary, amiben megadhatunk egy összefoglal�
 </table>
 ```
 
-### Sor- és cellanyúlás
+![sornyúlás](images/tabla_sornyulas.png)
+
+### Sor- és oszlopnyúlás
 
 ```html
 <table border="1">
@@ -672,7 +676,11 @@ Ritkábban használt attribútum a summary, amiben megadhatunk egy összefoglal�
 </table>
 ```
 
+![Cella- és sornyúlás](images/tabla_oszlop_es_sornyulas.png)
+
 ### Táblázat részeinek csoportosítása
+
+A táblázat sorait felbontjuk fejrészre, törzs és lábrészre. A fejrészt a thead elemmel adjuk meg, a törzs részt a tbody elemmel, míg a lábrészt a tfoot elemmel.
 
 ```html
 <table>
@@ -703,6 +711,8 @@ Ritkábban használt attribútum a summary, amiben megadhatunk egy összefoglal�
 
 ### Oszlopok csoportosítása
 
+Az oszlopok is csoportosíthatók a colgorup és col HTML elemekkel.
+
 ```html
 <table>
   <colgroup>
@@ -728,6 +738,8 @@ Ritkábban használt attribútum a summary, amiben megadhatunk egy összefoglal�
 ```
 
 ## Hiperhivatkozás
+
+Hiperhivatkozást az "a" elemmel hozunk létre. Maga a hivatkozás a href attribútum értéke. Az "a" elem tartalma pedig ami a weblapon megjelenik.
 
 ```html
 <a href="hivatkozas">Leírás</a>
@@ -757,9 +769,13 @@ vagy:
 
 ## Videó
 
+Videókat a video elemmel teszünk közzé.
+
 ```html
 <video src="fajlnev.ogg" width=”300” height=”300”></video>
 ```
+
+Több formátumban is feltölhetünk videót. Ha egy böngésző nem ismeri az egyik formátumot, a másikat jó eséllyel már igen.
 
 ```html
 <video  width=”300” height=”300”>
@@ -769,6 +785,8 @@ vagy:
 ```
 
 ## Hang
+
+Hangot az audio elemmel tehetünk közzé.
 
 ```html
 <audio controls="controls">
