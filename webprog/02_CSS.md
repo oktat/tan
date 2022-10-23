@@ -496,7 +496,7 @@ Több információ:
 Az fr a Grid elrendezési lehetőséggel együtt
 érkezett. Az fr a „fractional unit” rövidítése, ami töredék résznek fordítható. **1fr** a **rendelkezésre álló résznek az egyszerese**.
 
-CSS Animation és Transition
+## CSS Animation és Transition
 
 Az animáció:
 
@@ -549,7 +549,7 @@ amely valamilyen szintaxis szerint írt
 CSS-t lefordít a böngészők által ismert
 CSS-re.
 
-Céljuk az olvashatóbb, könnyebb 
+Céljuk az olvashatóbb, könnyebb
 karbantartás, plusz funkciók (beágyazás,
 keverés).
 
@@ -562,3 +562,68 @@ Néhány népszerű előfeldolgozó:
 * LESS
 * Stylus
 * PostCSS
+
+## A Sass
+
+A Sass a Syntactically Awesome Stylesheets rövidítése. A Sass egy stíluskészítő scriptnyelv, fordítóval. Előfeldolgozó nyelvnek is mondjuk.
+
+Webhely: [https://sass-lang.com/](https://sass-lang.com/)
+
+Más előfeldolgozó nyelvek:
+
+* LESS
+* Stylus
+
+A Sass két szintaxissal használható:
+
+* behúzott szintaxis
+* SCSS (Sassy CSS) szintaxis
+
+A különbség a tagolásban van. A behúzott szintaxisnál a behúzásokból ered a tagolás, míg a SCSS esetén a {} kapcsoszárójelekből.
+
+|  Szintaxis | Kiterjesztés |
+|-|-|
+| behúzott | .sass |
+| SCSS (Sassy CSS) | .scss |
+
+### Fordító
+
+A NodeJS csomagkezelőjével telepíthető a fordító:
+
+```cmd
+npm install -g sass
+```
+
+Ellenőrizzük:
+
+```cmd
+sass --version
+```
+
+### Első Sass fájl
+
+Készítsünk egy app.scss fájlt a következő tartalommmal:
+
+```scss
+$primary-color: #333;
+$background: skyblue;
+
+body {
+  color: $primary-color;
+  background-color: $background;
+}
+```
+
+Fordítás:
+
+```cmd
+sass app.scss app.css
+```
+
+Figyelhetjük a változásokat és a fordítás azonnal megtörténhet:
+
+```cmd
+sass --watch app.scss app.css
+```
+
+Ebben a rövid feladatban a változókat használtunk Sass nyelven.

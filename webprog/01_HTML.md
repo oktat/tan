@@ -289,6 +289,10 @@ A táblázatoknak megadható összefoglaló attribútum és felirat.
 </table>
 ```
 
+Link:
+
+* [https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics](https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics)
+
 ## Szemantikus elemek
 
 A szemantikus elemek tartalma egyértelmű.
