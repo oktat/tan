@@ -27,9 +27,180 @@
 A collapse hatására a táblázat
 cellái között megszűnik az üres hely.
 
-A táblázatokról részletesen:
+Legyen egy táblázat:
 
-[https://szit.hu/doku.php?id=oktatas:web:css:css_nyelv#tablazatok](https://szit.hu/doku.php?id=oktatas:web:css:css_nyelv#tablazatok)
+```html
+<table>
+  <tr>
+     <th>#</th>
+     <th>Név</th>
+  </tr>
+  <tr>
+     <td>1</td>
+     <td>Pali</td>
+  </tr>
+  <tr>
+     <td>2</td>
+     <td>Mari</td>
+  </tr>
+</table>
+```
+
+```css
+.table {
+  border: 1px solid white;
+}
+.table th, .table td{
+  border: 1px solid white;
+  background-color: navy;
+  color: white;
+}
+```
+
+<style>
+.table83438 {
+  border: 1px solid white;
+}
+.table83438 th, .table83438 td{
+  border: 1px solid white;
+  background-color: navy;
+  color: white;
+}
+</style>
+<table class="table83438">
+  <tr>
+     <th>#</th>
+     <th>Név</th>
+  </tr>
+  <tr>
+     <td>1</td>
+     <td>Pali</td>
+  </tr>
+  <tr>
+     <td>2</td>
+     <td>Mari</td>
+  </tr>
+</table>
+
+### Lekerekített táblaszegélyek
+
+```html
+<table class="table">
+  <tr>
+     <th>#</th>
+     <th>Név</th>
+  </tr>
+  <tr>
+     <td>1</td>
+     <td>Pali</td>
+  </tr>
+  <tr>
+     <td>2</td>
+     <td>Mari</td>
+  </tr>
+</table>
+```
+
+```css
+.table {
+  border-collapse: separate;
+  border-spacing: 5px;
+}
+.table th, .table td{
+  border: 1px solid black;
+  background-color: nav;
+  color: white;
+  border-radius: 10px;
+}
+```
+
+<style>
+.table883492 {
+  border-collapse: separate;
+  border-spacing: 5px;
+}
+.table883492 th, .table883492 td{
+  border: 1px solid black;
+  background-color: nav;
+  color: white;
+  border-radius: 10px;
+}
+</style>
+<table class="table883492">
+  <tr>
+     <th>#</th>
+     <th>Név</th>
+  </tr>
+  <tr>
+     <td>1</td>
+     <td>Pali</td>
+  </tr>
+  <tr>
+     <td>2</td>
+     <td>Mari</td>
+  </tr>
+</table>
+
+### Táblázat méretezése
+
+```html
+<table class="table">
+  <tr>
+     <th>#</th>
+     <th style="width:70%">Név</th>
+     <th>Település</th>
+  </tr>
+  <tr>
+     <td>1</td>
+     <td>Pali</td>
+     <td>Szeged</td>
+  </tr>
+  <tr>
+     <td>2</td>
+     <td>Mari</td>
+     <td>Szolnok</td>
+  </tr>
+</table>
+```
+
+```css
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.table th, .table td{
+  border: 1px solid black;
+
+}
+```
+
+<style>
+.table234824 {
+  border-collapse: collapse;
+  width: 100%;
+}
+.table234824 th, .table234824 td{
+  border: 1px solid black;
+
+}
+</style>
+<table class="table234824">
+  <tr>
+     <th>#</th>
+     <th style="width:70%">Név</th>
+     <th>Település</th>
+  </tr>
+  <tr>
+     <td>1</td>
+     <td>Pali</td>
+     <td>Szeged</td>
+  </tr>
+  <tr>
+     <td>2</td>
+     <td>Mari</td>
+     <td>Szolnok</td>
+  </tr>
+</table>
 
 ## nth-child
 
