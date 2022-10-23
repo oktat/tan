@@ -542,6 +542,17 @@ További transformációk:
 
 * [https://szit.hu/doku.php?id=oktatas:web:css:css3#transzformaciok](https://szit.hu/doku.php?id=oktatas:web:css:css3#transzformaciok)
 
+## CSS változók
+
+```css
+:root {
+  --main-bg-color: navy;
+}
+.valami {
+  background-color: var(--main-bg-color);
+}
+```
+
 ## CSS preprocessor
 
 A preprocessor egy előfeldolgozó program,
