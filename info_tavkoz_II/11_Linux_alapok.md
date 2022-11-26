@@ -11,6 +11,47 @@ A Linux kezdetben szerverek kedvenc operációs rendszere. Manapság a fejlesző
 
 A Google kezdetben (2012) Ubuntu Linux alapokon készített saját Linuxot Goobuntu néven, amit akkor csak ajánlott a fejlesztőinek. Később már csak ezt lehetett választani, Windows külön kellett kérni. 2018-ban a cég Ubuntu helyett Debian GNU/Linux alapokra váltott, a neve [gLinux](https://en.wikipedia.org/wiki/GLinux).
 
+## Telepítés
+
+Szerezzünk be egy Linuxot. Ajánlott Linux terjesztések:
+
+* [Debian GNU/Linux](https://debian.org)
+* [Linux Mint](https://linuxmint.com/)
+
+A továbbiakban Debian GNU/Linuxal foglalkozunk.
+
+Keressük fel a [https://debian.org](https://debian.org) weboldalt. Töltsünk le egy "netinstall" típusú telepítőt. A Debian webhely főoldalán, jobb oldalon találunk egy "Letöltés" gombot. Ez átvisz a letöltőoldalra: [https://www.debian.org/download](https://www.debian.org/download). 2022-11-16-án a letölthető képfájl:
+
+* debian-11.5.0-amd64-netinst.iso
+
+A Linuxot telepíthetjük virtuális vagy valódi gépre.
+
+### Valódi gép
+
+Ha valós fizikai gépre szeretnénk telepíteni a Linuxot, ki kell írni a letöltött lemezképet CD/DVD-re vagy pendrive-ra. Betesszük CD/DVD-t a meghajtóba, a pendrive-t valamelyik USB aljaztba. A gép bekapcsolásakor gondoskodunk arról, hogy a behelyezett médiáról induljon a rendszer.
+
+Kövessük a telepítő utasításait.
+
+### Virtuálisgép
+
+Virtuális gépnek ajánlott:
+
+* [https://virtualbox.org](https://virtualbox.org)
+
+Telepítsük a Virtualboxot a gépünkre. A virtuális gépre ugyanusz behelyezhető a tárolóknál a letöltött .iso fájl, mint ha az valóban kiírtuk volna egy CD vagy DVD lemezre.
+
+### Telepítés folyamata
+
+Ha valós gépre telepítünk, előbb készítsünk mentést az adatainkról.
+
+A telepítés kezdete során válasszuk a magyar nyelvet, időzónát és billentyűzetet. A particionálásnál lehet telepítővel segített. A GRUB rendszerbetöltőre kérdez a végén. Ezt az MBR-be kell telepíteni:
+
+```cmd
+/dev/sda
+```
+
+Ki kell választani.
+
 ## Parancssor
 
 A parancssor a parancs nevéből és argumentumokból áll. Az argumentumok két részre oszthatók:
