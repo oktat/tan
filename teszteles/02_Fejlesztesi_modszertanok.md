@@ -33,4 +33,33 @@ A prototípus modellnél számtalan prototípust kap a megrendelő, mielőtt meg
 
 ## Agilis szoftverfejlesztés
 
+A fejlesztők szorosan együttműködnek a megrendelőkkel. Folyamatosan egyeztetnek, hogy mire is van szükség. Minden folyamat ciklusban ismétlődik.
+
 ## Scrum
+
+Az Agilis módszertanban is használt fejlesztési módszer. 6-8 fős fejlesztői csapatokkal dolgozunk, ebben általában két tesztelő van.
+
+Szerepek:
+
+* Scrum master - csapat összetartása
+* vezető fejlesztő - operatív irányítás
+* üzleti elemező - nem minden esetben van
+* tesztmenedzser - folyamatok előrehaladására figyel
+* product owner
+* projektmenedzser
+
+Ciklusok:
+  
+* napi ciklus
+* heti ciklus - sprint
+* havi ciklus
+
+### Napi ciklus
+
+A reggeli napindító megbeszélést állva kell tartani, amin csak a fejlesztők vesznek részt elsősorban, másodsorban a vezetőség is részt vehet. Ezt nevezik daily standup meetingnek.
+
+Megbeszélendő:
+
+* mivel foglalkoztam tegnap
+* mivel szeretnék ma foglalkozni
+* milyen problémákba ütkztem
