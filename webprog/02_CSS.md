@@ -149,33 +149,8 @@ Legyen egy táblázat:
 }
 ```
 
-<style>
-.table234824 {
-  border-collapse: collapse;
-  width: 100%;
-}
-.table234824 th, .table234824 td{
-  border: 1px solid black;
+![images/table-resize.png](images/table-resize.png)
 
-}
-</style>
-<table class="table234824">
-  <tr>
-     <th>#</th>
-     <th style="width:70%">Név</th>
-     <th>Település</th>
-  </tr>
-  <tr>
-     <td>1</td>
-     <td>Pali</td>
-     <td>Szeged</td>
-  </tr>
-  <tr>
-     <td>2</td>
-     <td>Mari</td>
-     <td>Szolnok</td>
-  </tr>
-</table>
 
 ## nth-child
 
