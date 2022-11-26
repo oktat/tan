@@ -114,32 +114,7 @@ Legyen egy táblázat:
 }
 ```
 
-<style>
-.table883492 {
-  border-collapse: separate;
-  border-spacing: 5px;
-}
-.table883492 th, .table883492 td{
-  border: 1px solid black;
-  background-color: nav;
-  color: white;
-  border-radius: 10px;
-}
-</style>
-<table class="table883492">
-  <tr>
-     <th>#</th>
-     <th>Név</th>
-  </tr>
-  <tr>
-     <td>1</td>
-     <td>Pali</td>
-  </tr>
-  <tr>
-     <td>2</td>
-     <td>Mari</td>
-  </tr>
-</table>
+![images/table-corner-round.png](images/table-corner-round.png)
 
 ### Táblázat méretezése
 
