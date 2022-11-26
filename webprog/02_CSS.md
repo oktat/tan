@@ -57,30 +57,7 @@ Legyen egy táblázat:
 }
 ```
 
-<style>
-.table83438 {
-  border: 1px solid white;
-}
-.table83438 th, .table83438 td{
-  border: 1px solid white;
-  background-color: navy;
-  color: white;
-}
-</style>
-<table class="table83438">
-  <tr>
-     <th>#</th>
-     <th>Név</th>
-  </tr>
-  <tr>
-     <td>1</td>
-     <td>Pali</td>
-  </tr>
-  <tr>
-     <td>2</td>
-     <td>Mari</td>
-  </tr>
-</table>
+![images/table-collapse.png](images/table-collapse.png)
 
 ### Lekerekített táblaszegélyek
 
