@@ -7,6 +7,8 @@
 
 ## Integrációs teszt
 
+A komponensek együttműködését teszteljük.
+
 ## Elfogadási teszt
 
 ## Biztonsági teszt
