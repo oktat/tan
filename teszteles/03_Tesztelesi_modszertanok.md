@@ -11,6 +11,11 @@ A komponensek együttműködését teszteljük.
 
 ## Elfogadási teszt
 
+A szoftver valóban képes elvégezni a neki szánt munkát. Kik végeznek ilyen munkát?
+
+* megrendelő
+* külső hivatásos tesztelők
+
 ## Biztonsági teszt
 
 ## Teljesítmény- és terhelés teszt
