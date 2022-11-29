@@ -11,7 +11,7 @@ A globális attribútmok az összes HTML elemhez hozzárendelhetők.
 
 | Attribútum | Leírás |
 |-|-|
-| accesskey | Billentyűkombináció megadása, amivel egy elem fokuszba kerülhet |
+| accesskey | Billentyűkombináció megadása, amivel egy elem fokuszba kerülhet. Egy karaktert kell megadni. Chrome böngészőben az Alt billentyűvel működik. Firefoxban Alt+Shift mellett működik |
 | class | Egy vagy több osztálynév adható egy elemnek. Ezekre hivaktozhatunk a stíluslapokban. |
 | contenteditable | Az elem tartalma szerkeszhető vagy nem. |
 | data-* | Egyéni adatok megadása |
