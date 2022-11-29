@@ -11,7 +11,7 @@ A globális attribútmok az összes HTML elemhez hozzárendelhetők.
 
 | Attribútum | Leírás |
 |-|-|
-| accesskey | Billentyűkombináció megadása, amivel egy elem fokuszba kerülhet. Egy karaktert kell megadni. Chrome böngészőben az Alt billentyűvel működik. Firefoxban Alt+Shift mellett működik |
+| accesskey | Billentyűkombináció megadása, amivel egy elem fokuszba kerülhet. Egy karaktert kell megadni. Chrome böngészőben az Alt billentyűvel működik. Firefoxban Alt+Shift mellett működik. &lt;input accesskey="c"&gt; esetén: alt+c |
 | class | Egy vagy több osztálynév adható egy elemnek. Ezekre hivaktozhatunk a stíluslapokban. |
 | contenteditable | Az elem tartalma szerkeszhető vagy nem. |
 | data-* | Egyéni adatok megadása |
@@ -316,11 +316,13 @@ Az oldal szerkezetét meghatározó szemantikus elemek a következők:
 * section
 * nav
 
+Lássuk mire valók:
+
 * **section**: Összetartozó tartalmakat jelölünk vele, mint a div elemmel.
 * **aside**: Érintőlegesen kapcsolódó tartalom, amely általában bal vagy jobb oldalon helyezkedik el. Ha valami a fő tartalom bal vagy jobb oldalán helyezkedik el, az még nem elegendő ok arra, hogy aside elembe helyezzük. Tegye fel magának a kérdést. Ha törlöm a félreeső tartalmat, a fő tartalom jelentése változik?
-* **header**: Ez a header nem tévesztendő össze egy weboldal fejrészével, bár ott is használható. A HTML5 header elem akár többször is szerepelhet az oldalon, részeként például a section elemnek.
-* **nav**: Az egész webhely navigációs információinak tárolására létrehozva.
-* **footer**: Nem a weboldal alsó részéről van szó, bármelyik szakaszban használható.
+* **header**: Ez a header nem tévesztendő össze egy weboldal fejrészével, bár ott is használható. A HTML5 header elem akár többször is szerepelhet egy weblap részeként, például a section elemen belül.
+* **nav**: Az egész webhely navigációs információit helyezzük el benne.
+* **footer**: Nem a weboldal alsó részéről van szó, bármelyik szakaszban használható. De jelölhetjük vele a weblap alját is.
 
 * [http://szit.hu/doku.php?id=oktatas:web:html:html5_nyelv#szemantikus_elemek](http://szit.hu/doku.php?id=oktatas:web:html:html5_nyelv#szemantikus_elemek)
 
@@ -398,10 +400,12 @@ Jelentésük:
 * A weboldal tulajdonosának elérhetősége (A spammerek botjai figyelik!)
 * Utolsó módosítás
 * Az oldal legyen tárolva a böngésző tárolójában (cache).
-* A content-language a tartalma a ISO 639-1 alapján meghatározott két betű.
+* A content-language tartalma az ISO 639-1 alapján meghatározott két betű.
 * A pragma csak egy másik lehetőség a weblap tárolásának megakadályozására.
 
 ### Keresőrobotok
+
+A kereső webhelyek automatizált programokat használnak más webhelyek feltérképezésére. Ezeket a programokat nevezzük keresőrobotoknak. A keresőrobotokat vezérelhetjük egy meta elemmel:
 
 ```html
 <meta name="robots" content="NOINDEX, NOFOLLOW">
@@ -423,14 +427,16 @@ A SEO a Search Engine Optimization rövidítése. Magyarul keresőoptimalizálá
 
 Általában azt szeretnénk, ha a közzétett webhelyünk a keresőkben minél előreébb szerepeljenek a találatokban.
 
-A keresőnek ehhez megfelelő kulcsszavakat és leírást kell társítanunk a weblapunkhoz.
+A keresőnek ehhez megfelelő kulcsszavakat és leírást kell társítanunk a weblapunkhoz. Példa:
 
 ```html
 <meta name="keywords" content="web, html, css">
 <meta name="description" content="Weboldal készítése">
 ```
 
-A keywords értékei olyan kulcsszavak legyenek, amik valóban szereplnek a weblapon. A description szintén szavai, vagy az egész mondat szintén szerepeljen a weblapon is.
+A keywords content részében szerepeltetjük, milyen szavakra keresve találjanak rá az oldalunkra. A description content részében írjuk le mi van az oldalunkon. Vigyázzunk mit írunk ezekbe a content értékeknek. Ha az ide beírt tartalom nem egyezik a weboldal látható tartalmával, a keresők nem fogják szerepeltetni a találatok között.
+
+A keywords értékei olyan kulcsszavak legyenek, amik valóban szereplnek a weblapon. A description szavai, vagy az egész mondat szintén szerepeljen a weblapon is.
 
 ## Viewport
 
