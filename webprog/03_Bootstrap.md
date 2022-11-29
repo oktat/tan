@@ -46,3 +46,11 @@ Példa:
 </body>
 </html>
 ```
+
+## Bootstrap NodeJS-el
+
+Van bootstrap csomag, telepítsük:
+
+```bash
+npm install bootstrap
+```

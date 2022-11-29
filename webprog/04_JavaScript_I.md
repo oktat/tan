@@ -78,17 +78,25 @@ if (a > 5) {
 
 ### Névjegy
 
+A függvényeket a "function" kulcsszóval vezetjük be. Ezt követi a függvény neve. A függvény törzse kapcsoszárójelek között, akár egyetlen sorban is szerepelhet.
+
 ```javascript
 function nevjegy() {
     console.log('Nagy János');
 }
 ```
 
+A függvény neve meghatározható értékadással is:
+
 ```javascript
 var nevjegy = function() {
     console.log('Nagy János');
 }
 ```
+
+Az egyenlőség jel jobb oldalán egy névtelen függvény van.
+
+Névtelen függvényt másként is létrehozhatunk:
 
 ```javascript
 var nevjegy = () => {
@@ -98,17 +106,23 @@ var nevjegy = () => {
 
 ### Duplázó
 
+Nézzünk egy olyan függvényt, ami paramétert fogad:
+
 ```javascript
 function kiDupla(num) {
     console.log(num * 2);
 }
 ```
 
+Értékadással, ugyanaz:
+
 ```javascript
 var kiDupla = function(num) {
     console.log(num * 2);
 }
 ```
+
+Lambda kifejezéssel:
 
 ```javascript
 var kiDupla = (num) => {
@@ -117,6 +131,8 @@ var kiDupla = (num) => {
 ```
 
 ### Érték visszaadása
+
+Az érték visszaadását a return utasítással határozzuk meg:
 
 ```javascript
 var kerDupla = (num) => {
@@ -128,10 +144,7 @@ console.log(kerDupla(25))
 
 ## Szabályos kifejezések
 
-A szabályos kifejezéseket perjel
-"/" karakterek közzé írjuk.
-Használható néhány függvénybe,
-ilyen a replace().
+A szabályos kifejezéseket perjel "/" karakterek közzé írjuk. Használható néhány függvénybe, ilyen a replace().
 
 ```javascript
 var noSpace = kar => {
@@ -187,9 +200,7 @@ A böngészők fejlesztői felületén elérhető
 rész. Általában F12 billentyűkombinációval
 nyitható meg a fejlesztői felület.
 
-A console-ra a fejlesztő ír üzenetek
-saját maga számára, például a log() 
-függvénnyel. Néhány függvény:
+A console-ra a fejlesztő ír üzenetek saját maga számára, például a log() függvénnyel. Néhány függvény:
 
 * log()
 * error()
