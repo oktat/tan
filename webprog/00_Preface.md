@@ -35,13 +35,13 @@ Telepítés általánosan:
 choco install <csomagnév>
 ```
 
-A telepítés során még rákérdez, hogy biztosan szeretnénk telepíteni a csomagot. Ekkor az összes ilyen kérdés elfogadása az "a" beírásával lehetésges. Ha telepítő parancsnak adunk egy -y kapcsolót, a kérdés elmarad és azonnal telepíte a Chocolatey.
+A telepítés során még rákérdez, hogy biztosan szeretnénk telepíteni a csomagot. Ekkor az összes ilyen kérdés elfogadása az "a" beírásával, majd egy "Enter" nyugtázással lehetésges. Ha telepítő parancsnak adunk egy -y kapcsolót, a kérdés elmarad és azonnal telepíti a megadott fájlt a Chocolatey.
 
 ```cmd
 choco install <csomagnév> -y
 ```
 
-Telepítsük a következő csomagokat:
+Gyorskezdés:
 
 ```cmd
 choco install yarn -y
@@ -49,11 +49,12 @@ choco install totalcommander -y
 choco install vscode git insomnia-rest-api-client -y
 choco install googlechrome -y
 choco install geany -y
+choco install nodejs -y
 ```
 
 ## Szükséges szoftverek
 
-Parancsok:
+Parancssorban a következőkre van szükség:
 
 * yarn
   * Chocolatey csomag: yarn
@@ -70,7 +71,7 @@ Parancsok:
   * Chocolatey: git
   * Webhely: [https://git-scm.com/](https://git-scm.com/)
 
-GUI program:
+Szükséges GUI program:
 
 * Total Commander
   * Chocolatey csomag: totalcommander
@@ -87,19 +88,24 @@ GUI program:
 
 ## NodeJS
 
-Telepítse a NodeJS rendszert.
+A NodeJS egy JavaScript futtató környezet.
+
+Telepítse a NodeJS rendszert. Letölthető a weboldalról is:
 
 * [https://nodejs.org/](https://nodejs.org/)
+
+Vagy használjuk a choco parancsot.
 
 ```cmd
 choco install nodejs
 ```
 
-Telepítés után lenni kell egy node és egy npm parancsnak. Ellenőrizzük:
+Telepítés után lenni kell egy node, egy npm és egy npx parancsnak. Ellenőrizzük:
 
 ```cmd
 node --version
 npm --version
+npx --version
 ```
 
 Bővebben:
@@ -108,16 +114,16 @@ Bővebben:
 
 ## NodeJS projekt
 
-Az alábbiakban elkészítünk egy NodeJS projektet, a jövőben mindig ilyen projektekkel fogunk dolgozni.
+Az alábbiakban elkészítünk egy NodeJS projektet, a jövőben mindig ilyen projektekkel fogunk dolgozni. Ilyen projektet az npm és a yarn paranccsal is létrehozható.
 
-A tervek szerint a következő könyvtárszerkezetet hozzuk létre
+A tervek szerint a következő könyvtárszerkezetet hozzuk létre:
 
 ```txt
 app01/
   |-node_modules/
   |-index.html
   |-package.json
-  `-yarn.lock
+  `-package-lock.json
 ```
 
 Ebből nekünk, csak az index.html fájlt kell létrehozni, a
@@ -131,17 +137,22 @@ Ha más használni akarja a projektünket, akkor megkapja
 az index.html és a package.json fájlt. Egy yarn vagy
 egy npm paranccsal telepíteni tudja ugyanazokat az
 csomagokat, amiket mi is használtunk.
-A **yarn.lock** fájlba a yarn parancs írja, hogy milyen
-csomagokat tettünk fel és szedtünk le, ez számunkra
-nem érdekes.
+A **package-lock.json** fájlba az npm parancs írja le, milyen
+csomagokat tettünk fel és szedtünk le, ezt általában nem nézegetjük.
 
-Most elkészítjük az első NodeJS alapú projektünket.
+Elkészítjük az első NodeJS alapú projektünket.
 A projekt könyvtárát most nekünk kell létrehozni.
 Legyen a neve app01. Ha elkészült lépjünk be a
 könyvtárba.
 
 ```cmd
 mkdir app01
+cd app01
+```
+
+Csináljunk NodeJS projektet a könyvtárunkból:
+
+```cmd
 npm init -y
 ```
 
@@ -163,20 +174,34 @@ Kapunk egy package.json fájlt. Tartalma:
 ```
 
 A lite-server nevű csomagot fogjuk használni
-a fejlesztés során.
+a fejlesztés során, webszervernek.
 
 Telepítsük a lit-server nevű csomagot:
+
+```cmd
+npm install lite-server --save-dev
+```
+
+Ha van yarn parancsunk:
 
 ```cmd
 yarn add lite-server --dev
 ```
 
 A csomag telepszik a node_modules könyvtárba,
-sok függőségéve együtt. Nézzünk bele a package.json
+sok függőségével együtt. Nézzünk bele a package.json
 fájba, ahol láthatjuk, hogy bejegyzésre került.
 
-A **package-json** fájlba be kell jegyezni, hogy
-szeretnénk elindítani.
+A projekt könyvtárában készítsünk egy index.html fájlt.
+Indítsuk el a lite-servert:
+
+```cmd
+npx lite-server
+```
+
+Ügyeljünk arra, hogy a parancsot a projekt gyökérkönyvtárában indítsuk, és ott legyen az index.html állomány is.
+
+A **package-json** fájlba, bejegyzhetünk feladatokat, vagy másnéven scripteket. Ezzel rövidíthetünk az indításon.
 
 Egészítsük egy script részt:
 
@@ -187,15 +212,11 @@ Egészítsük egy script részt:
   },
 ```
 
-Mentsük el.
+Vegyük észre a "test" sor végén a vesszőt. Mentsük el.
 
-Telepítsük a lit-server nevű csomagot:
-yarn add lite-server --dev
+Most már, nekifoghatunk a projekt részét tartalmazó weboldal elkészítéséhez is.
 
-Most már, nekifoghatunk a projekt részét tartalmazó
-weboldal elkészítéséhez is.
-
-Készítsünk egy weboldalt index.html néven.
+Készítsünk egy weboldalt index.html néven, ha még nem létezik. Tartalma:
 
 ```html
 <!DOCTYPE html>
@@ -212,7 +233,14 @@ Készítsünk egy weboldalt index.html néven.
 </html>
 ```
 
-Indítsuk el a szervert a Visual Studio Code terminálablakában:
+A projekt indításhoz, most használjuk a megírt scriptet.
+Visual Studio Code terminálablakában, vagy parancssorban, a projekt gyökrékönyvtárában:
+
+```cmd
+npm start
+```
+
+Ha van yarn parancsunk, így is indíthatjuk:
 
 ```cmd
 yarn start
@@ -243,6 +271,8 @@ Adjunk a projekthez git tárolót:
 git init
 ```
 
+Keressük meg a projekt gyökérkönyvtárában a .git könyvtárat. Ez lesz a git tároló. Visual Studio Code alatt ez nem látszik. Nézzük meg fájlkezelővel. Fájlkezelőben is csak akkor látszik, ha a rejtett fájlok láthatósága be van kapcsolva.
+
 Hozzunk létre egy index.html amit szeretnénk verziókövetni.
 Tegyük fel, hogy a projekt NodeJS projekt is egyben, vagyis
 van node_modules könyvtár is. Ennek a könyvtárnak a tartalmát
@@ -262,7 +292,7 @@ Ellenőrizzük, hogy valóban ki van zárva a könyvtár:
 git status -u
 ```
 
-Ha nem látuk a kimenetben mehet verziókövetendő fájlok
+Ha nem látjuk a kimenetben mehet verziókövetendő fájlok
 hozzáadása:
 
 ```bash
@@ -270,13 +300,47 @@ git add .
 ```
 
 A pont hatására minden az aktuális könyvtárban lévő fájl
-verziókövetésre lesz jelölve.
+verziókövetésre lesz jelölve. Vigyázzunk ezzel a paranccsal! Ha nincs megadva a node_modules könyvtár, vagy rosszul van megadva, a pont hatására az egész könyvtár tartalma tárolásra kerül feleslegesen. Ezért azt szokták ajánlani, hogy egyenkét adjuk meg a követendő fájlokat. Például:
 
-A verziókövetés egy git commit paranccsal történik, ahol
+```bash
+git add .gitignore
+git add index.html
+git add package.json
+```
+
+A tényleges követés a "git commit" paranccsal történik, ahol
 leírjuk milyen változásokat valósítottunk meg a projektben.
 
 ```bash
-git commit -m 'Kezdés'
+git commit -m "Kezdés"
+```
+
+A -m kapcosló nélkül egy szövegszerkesztő nyílna meg, ahova beírhatjuk a commit szövegét. A -m kapcsoló után megadhatjuk ezt a szöveget. A -m kapcsoló nélkül csak akkor indítsuk "git commit" parancsot, ha van tapasztalatunk a vi szövegszerkesztővel, vagy beállítottunk más szövegszerkesztőt.
+
+Az idézőjelben írjuk le, milyen változtatásokat végeztünk a projektünkbe. Kezdésnek lehet "Init" vagy "Kezdés".
+
+Használjuk a tájékozódáshoz a "git status" parancsot:
+
+```bash
+git status
+```
+
+Változtassunk valamit az index.html oldalon, madj nézzük meg újra a státuszt. Változtatások után, használuk mindig a -u kapcsolót:
+
+```bash
+git status -u
+```
+
+Nézzük meg a létrehozott commitokat:
+
+```bash
+git log
+```
+
+Használhatunk GUI felületet is a napló megtekintéséhez:
+
+```bash
+gitk
 ```
 
 A git verziókövető rendszerről komplett tananyag:
