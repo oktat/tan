@@ -381,6 +381,20 @@ Ezzel megmondtuk, hova fogunk feltölteni. Most jöhet a feltöltés:
 git push origin master
 ```
 
+Az első feltöltés során, ha azt Visual Studio Code-ban végezzük, az lehetőséget ad számunkra, hogy böngészőből azonosítsuk magunkat a github.com webhelyen. A következő képernyők jelennek meg:
+
+![Azonosítás lehetőségek](images/vscode_githublogin.png)
+
+Ha a "Sign in with your browser" lehetőséget választottuk, a következő képernyő jelenik meg:
+
+![Azonosítás böngészővel](images/vscode_auth-with-browser.png)
+
+Sikeres azonosítást a következő képernyő jelzi.
+
+![Sikeres azonosítás](images/vscode_login_success-in-bowser.png)
+
+Térjünk vissza a Visual Studio Code-ba.
+
 A git verziókövető rendszerről komplett tananyag:
 
 * [https://szit.hu/doku.php?id=oktatas:programozas:verziokontroll:git](https://szit.hu/doku.php?id=oktatas:programozas:verziokontroll:git)
