@@ -257,8 +257,30 @@ A továbbikaban így fogunk weboldalakat készíteni.
 
 ## Git használata
 
-Legyen egy app01 nevű projekt. Létrehozzuk a
-könyvtárat, majd belépünk:
+### Bemutatkozás
+
+Használat előtt, először mutatkozzunk be a git számára. Adjuk meg a teljes nevünket és az e-mail címünket. Ezt kétféle módon tehetjük meg:
+
+* lokálisan a projektbe
+* globálisan a felhasználói profilba
+
+Ha csak a projekt számára mutatkozunk be, akkor minden új projektben meg kell ezt tennünk. Ha globálisan mutatkozunk be, osztott használatnál, amikor végeztünk, érdemes törölnünk a nevünket és az e-mail címünket.
+
+```bash
+git config --global user.name "Nagy János"
+git config --global user.email "nagyj@zold.lan"
+```
+
+Osztott használat esetén adatink törlése:
+
+```bash
+git config --global --unset user.name
+git config --global --unset user.email
+```
+
+### Használat
+
+Legyen egy app01 nevű projekt. Létrehozzuk a könyvtárat, majd belépünk:
 
 ```cmd
 mkdir app01
@@ -271,15 +293,15 @@ Adjunk a projekthez git tárolót:
 git init
 ```
 
-Keressük meg a projekt gyökérkönyvtárában a .git könyvtárat. Ez lesz a git tároló. Visual Studio Code alatt ez nem látszik. Nézzük meg fájlkezelővel. Fájlkezelőben is csak akkor látszik, ha a rejtett fájlok láthatósága be van kapcsolva.
+Keressük meg a projekt gyökérkönyvtárában a **.git** könyvtárat. Ez lesz a git tároló. Visual Studio Code alatt ez nem látszik, mivel **rejtett könyvtár**. Nézzük meg fájlkezelővel. Fájlkezelőben is csak akkor látszik, ha a rejtett fájlok láthatósága be van kapcsolva.
 
 Hozzunk létre egy index.html amit szeretnénk verziókövetni.
 Tegyük fel, hogy a projekt NodeJS projekt is egyben, vagyis
 van node_modules könyvtár is. Ennek a könyvtárnak a tartalmát
-nem szeretnénk verziókövetni, ezért bele kell írni a .gitignore
+nem szeretnénk verziókövetni, ezért bele kell írni a **.gitignore**
 nevű fájlba. A .gitignore nevű fájlba azoknak a fájloknak és
-könyvtáraknak a nevét tesszük, amelyeket nem szeretnénk
-verziókövetni. Készítsük el a saját .gitignore nevű állományunkat,
+könyvtáraknak a nevét tesszük, amelyeket **nem szeretnénk
+verziókövetni**. Készítsük el a saját .gitignore nevű állományunkat,
 majd írjuk bele a node_modules könyvtár nevét.
 
 ```txt
@@ -300,7 +322,7 @@ git add .
 ```
 
 A pont hatására minden az aktuális könyvtárban lévő fájl
-verziókövetésre lesz jelölve. Vigyázzunk ezzel a paranccsal! Ha nincs megadva a node_modules könyvtár, vagy rosszul van megadva, a pont hatására az egész könyvtár tartalma tárolásra kerül feleslegesen. Ezért azt szokták ajánlani, hogy egyenkét adjuk meg a követendő fájlokat. Például:
+verziókövetésre lesz jelölve. Vigyázzunk ezzel a paranccsal! Ha nincs megadva a node_modules könyvtár a .gitignore fájlban, vagy rosszul van megadva, a pont hatására az egész könyvtár tartalma tárolásra kerül feleslegesen. Ezért azt szokták ajánlani, hogy egyenkét adjuk meg a követendő fájlokat. Például:
 
 ```bash
 git add .gitignore
@@ -325,7 +347,7 @@ Használjuk a tájékozódáshoz a "git status" parancsot:
 git status
 ```
 
-Változtassunk valamit az index.html oldalon, madj nézzük meg újra a státuszt. Változtatások után, használuk mindig a -u kapcsolót:
+Változtassunk valamit az index.html oldalon, majd nézzük meg újra a státuszt. Változtatások után, használjuk mindig a -u kapcsolót:
 
 ```bash
 git status -u
