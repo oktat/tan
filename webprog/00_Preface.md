@@ -337,7 +337,7 @@ leírjuk milyen változásokat valósítottunk meg a projektben.
 git commit -m "Kezdés"
 ```
 
-A -m kapcosló nélkül egy szövegszerkesztő nyílna meg, ahova beírhatjuk a commit szövegét. A -m kapcsoló után megadhatjuk ezt a szöveget. A -m kapcsoló nélkül csak akkor indítsuk "git commit" parancsot, ha van tapasztalatunk a vi szövegszerkesztővel, vagy beállítottunk más szövegszerkesztőt.
+A -m kapcosló nélkül egy szövegszerkesztő nyílna meg, ahova beírhatjuk a commit szövegét. A -m kapcsoló után megadhatjuk ezt a szöveget. A -m kapcsoló nélkül csak akkor indítsuk "git commit" parancsot, ha van tapasztalatunk a **vi szövegszerkesztővel**, vagy beállítottunk más szövegszerkesztőt.
 
 Az idézőjelben írjuk le, milyen változtatásokat végeztünk a projektünkbe. Kezdésnek lehet "Init" vagy "Kezdés".
 
