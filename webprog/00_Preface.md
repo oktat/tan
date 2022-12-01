@@ -368,3 +368,68 @@ gitk
 A git verziókövető rendszerről komplett tananyag:
 
 * [https://szit.hu/doku.php?id=oktatas:programozas:verziokontroll:git](https://szit.hu/doku.php?id=oktatas:programozas:verziokontroll:git)
+
+## Osztott használat
+
+### Git bemutatkozás
+
+```bash
+git config --global user.name "Nagy János"
+git config --global user.email "nagyj@zold.lan"
+```
+
+Osztott használat esetén adatink törlése:
+
+```bash
+git config --global --unset user.name
+git config --global --unset user.email
+```
+
+### Windows kulcsok kezelése
+
+#### Parancssor
+
+A Visual Studo Code git push parancs hatására, a hitelesítéskezelőben bejegyzi a hitelesítő adatokat. Ez segítség lehet, ha újból használjuk a parancsot. Osztott használat esetén, viszont ki kell jelentkeznünk.
+
+Nézzük meg milyen hitelesítő kulcsok vannak:
+
+```cmd
+cmdkey /list
+```
+
+![cmdkey /list kiemenete](images/cmdkey_list.png)
+
+Keressük a kimenetben olyen sort, ahol github.com szerepel. Általában ilyen sort találunk:
+
+```cmd
+Target: LegacyGeneric:target=git:https://github.com
+```
+
+A terget= utáni részre van szükségünk. Esetünkben ez:
+
+```txt
+git:https://github.com
+```
+
+Tegyük a /delete kapcsoló után:
+
+```cmd
+cmdkey /delete git:https://github.com
+```
+
+#### GUI hitelesítő adatok
+
+A törlés elvégezhető GUI felületen is. Ebben az esetben a következőt kell keresni:
+
+* Windows rendszerbeli hitelesítő adatok
+
+Itt is keressünk olyat, hogy github.com.
+Kattintás után lesz "Eltávolítás" link.
+
+![Windows rendszerbeli hitelesítő adatok](images/windows_rendszerbeli_hitelesito_adatok.png)
+
+#### Batch fájlok
+
+A következő helyről letölthető néhány Batch fájl, ami segíti az osztott használatot:
+
+* [https://github.com/oktat/githandler](https://github.com/oktat/githandler)
