@@ -365,6 +365,22 @@ Használhatunk GUI felületet is a napló megtekintéséhez:
 gitk
 ```
 
+### Feltöltés GitHubra
+
+A GitHub webes felületén létre kell hozni egy tárolót.
+
+Másoljuk a tárólóban megjelenő git remote parncsot, majd hajtsuk végre a projekten belül. Például:
+
+```bash
+git remote add origin https://github.com/valaki/app01.git
+```
+
+Ezzel megmondtuk, hova fogunk feltölteni. Most jöhet a feltöltés:
+
+```bash
+git push origin master
+```
+
 A git verziókövető rendszerről komplett tananyag:
 
 * [https://szit.hu/doku.php?id=oktatas:programozas:verziokontroll:git](https://szit.hu/doku.php?id=oktatas:programozas:verziokontroll:git)
