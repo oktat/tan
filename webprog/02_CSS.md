@@ -585,3 +585,17 @@ sass --watch app.scss app.css
 ```
 
 Ebben a rövid feladatban a változókat használtunk Sass nyelven.
+
+## Gyakorlás
+
+### Kérdések
+
+1. Kitől származhatnak stíluslapok?
+2. Melyik stílusnak van nagyobb súlya? A később vagy az előbb berírt stíluslapnak?
+3. Hogyan kell egy táblázat cellái közötti helyet megszüntetni CSS-sel?
+4. Hogyan tudjuk beállítani a cellák közötti tér méretét?
+5. Hogyan állítjuk be "para" osztályba tartozó táblázat celláinak szegélyét lekerekítettre?
+6. Mire jó az nth-child ál-osztály?
+7. Mire való a CSS-ben az rgba() függvényben a negyedik paraméter?
+8. Mire való a CSS-ben az rgba() függvényben a harmadik paraméter?
+9. Hogyan állíthatom be a "deres" osztályba tartozó doboz átlátszatlanságát, 0.5 értékre?
