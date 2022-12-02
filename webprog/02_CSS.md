@@ -148,7 +148,6 @@ Legyen egy táblázat:
 
 ![images/table-resize.png](images/table-resize.png)
 
-
 ## nth-child
 
 A nth-child ál-osztály lehetővé teszi
@@ -178,6 +177,19 @@ elem külön formázását.
 
 ```css
 tr:nth-child(3) {
+    background-color: orange;
+}
+```
+
+Megadható paraméterek:
+
+* tr:nth-child(odd) vagy tr:nth-child(2n+1)
+* tr:nth-child(even) vagy tr:nth-child(2n)
+* nth-child(7)
+* nth-child(5n) - 5, 10, 15, stb.
+
+```css
+tr:nth-child(odd) {
     background-color: orange;
 }
 ```
