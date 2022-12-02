@@ -5,7 +5,9 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
-## Konkurens stílusok
+## Stíluslapok eredete
+
+Stíluslap származhat szerzőtől, felhasználótól és böngészőtől:
 
 * Szerzői - Webmester írja
 * Felhasználói - A böngészőben beállítható saját CSS
