@@ -13,6 +13,24 @@ Stíluslap származhat szerzőtől, felhasználótól és böngészőtől:
 * Felhasználói - A böngészőben beállítható saját CSS
 * Klines - böngészőnek is van saját stílusa
 
+A stíluslapok ettől is lépcsőzetesek.
+
+### A stílusok sorrendje
+
+A bönésző beállít egy tulajdonságot a következők alapján:
+
+I. Megekeresi az egyező deklarációkat és alkalmazza.
+II. Második szinten a böngésző sorrendet állít fel fontosság és az eredet alapján:
+
+1. böngézső stílus
+2. a felhasználó normál stílusai
+3. a fejlesztő normál stílusai
+4. a fejlesztő fontos stílusai
+5. a felhasználó fontos stílusai
+
+III. A szelektorok specifikussága a következő szint.
+IV. A sorrend az utolsó szint. Ami később van megadva, annak nagyobb a súlyozása.
+
 ## CSS - táblázatok
 
 ```css
