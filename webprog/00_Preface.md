@@ -489,154 +489,155 @@ A következő helyről letölthető néhány Batch fájl, ami segíti az osztott
 1.)
 Mire használható a Chocolatey?
 
-Fájlkezelő program
-Csomagkezelő program
-Szövegszerkesztő program
-Verziókezelő program
+* Fájlkezelő program
+* Csomagkezelő program
+* Szövegszerkesztő program
+* Verziókezelő program
 
-2.) Adott a következő parancs: choco install yarn -y
+2.)
+Adott a következő parancs: choco install yarn -y
 Mit csinál a -y kapcsoló?
 
-Távoli letöltésre utasít
-Erőltetett letöltés
-Letiltja a számlálást.
-A kérdésekre automatikusan igen a válasz.
+* Távoli letöltésre utasít
+* Erőltetett letöltés
+* Letiltja a számlálást.
+* A kérdésekre automatikusan igen a válasz.
 
 3.)
 Mire való yarn parancs?
 
-Csomag és projekt kezelő
-Verziókezelés
-Könyvtárak kezelése fájlrendszeren
-Ez egy programozási nyelv
+* Csomag és projekt kezelő
+* Verziókezelés
+* Könyvtárak kezelése fájlrendszeren
+* Ez egy programozási nyelv
 
 4.)
 Mire való az npm parancs?
 
-Csomag és projekt kezelő
-Terelő program
-Verziókövető program
-Kivételkezelő program
+* Csomag és projekt kezelő
+* Terelő program
+* Verziókövető program
+* Kivételkezelő program
 
 5.)
 Mire jó a git parancs?
 
-Csomagkezelés
-Könyvtárkezelő parancs
-Kézikönyvek megjelenítése
-Verziók követése
+* Csomagkezelés
+* Könyvtárkezelő parancs
+* Kézikönyvek megjelenítése
+* Verziók követése
 
 6.)
 Mi a Total Commander? Válasszon.
 
-Kódszerkesztő
-Fejlesztői környezet
-Fájlkezelő
-Grafikai program
+* Kódszerkesztő
+* Fejlesztői környezet
+* Fájlkezelő
+* Grafikai program
 
 7.)
 Milyen rendszer része az npm parancs.
 
-Angular
-NodeJS
-Insomnia
-Chocolatey
+* Angular
+* NodeJS
+* Insomnia
+* Chocolatey
 
 8.)
 Mire való az Insomnia?
 
-Csomagkezelés
-REST API kliens
-Verziókezelés
-Fájlkezelés
+* Csomagkezelés
+* REST API kliens
+* Verziókezelés
+* Fájlkezelés
 
 9.)
 Mire való a Geany?
 
-Kódszerkesztő
-Verziókezelő
-REST API kliens
-Csomagkezelő
+* Kódszerkesztő
+* Verziókezelő
+* REST API kliens
+* Csomagkezelő
 
 10.)
 Mire való az npx parancs?
 
-Verziók meghatározása
-A projektben telepített parancsok futtatása
-Globálisan telepített parancsok futtatása
-Könyvtárak létrehozása
+* Verziók meghatározása
+* A projektben telepített parancsok futtatása
+* Globálisan telepített parancsok futtatása
+* Könyvtárak létrehozása
 
 11.)
 Van egy NodeJS programunk pr.js néven. Hogyan tudjuk futtatni?
 
-node pr.js
-git pr.js
-rest pr.js
-npm pr.js
+* node pr.js
+* git pr.js
+* rest pr.js
+* npm pr.js
 
 12.)
 A NodeJS projekt függőségei milyen fájlban vannak leírva?
 
-dependencies.json
-index.json
-bs-config.json
-package.json
+* dependencies.json
+* index.json
+* bs-config.json
+* package.json
 
 13.)
 A projektbe telepített függőségek milyen könyvtárba töltődnek le?
 
-packages
-mods
-node_modules
-nodes
+* packages
+* mods
+* node_modules
+* nodes
 
 14.)
 Mire jó a package-lock.json fájl?
 
-A futtatható feladatokat ide írjuk
-Az npm műveletek ide kerülnek
-A szerzők nevei kerülnek ide
-Az adatbázis elérése ide kerül
+* A futtatható feladatokat ide írjuk
+* Az npm műveletek ide kerülnek
+* A szerzők nevei kerülnek ide
+* Az adatbázis elérése ide kerül
 
 15.)
 Mire való a package.json fájlban a script sor?
 
-Feladatok írása
-Függőségek leírása
-Verzió leírása
-A projekt neve
+* Feladatok írása
+* Függőségek leírása
+* Verzió leírása
+* A projekt neve
 
 16.)
 Mit csinál a --sav-dev kapcsoló npm parancs estén?
 
-A függőség nem kötelező
-A függőséget fejlesztési időhöz köti
-A függőség feltöltésre kerül
-A függőség ideiglenes
+* A függőség nem kötelező
+* A függőséget fejlesztési időhöz köti
+* A függőség feltöltésre kerül
+* A függőség ideiglenes
 
 17.)
 Milyen licenc a ISC?
 
-nyílt forráskódú
-nincs ilyen nevezetes licenc
-zárt forráskódú
-adott napig használható ingyen
+* nyílt forráskódú
+* nincs ilyen nevezetes licenc
+* zárt forráskódú
+* adott napig használható ingyen
 
 18.)
 A yarn parancs milyen kapcsolóval jelöli a fejlesztési időben használt függőségeket?
 
---dev
---save-dev
---save
---devel
+* --dev
+* --save-dev
+* --save
+* --devel
 
 19.)
 A yarn paranccsal hogyan telepíthető a bootstrap függőség?
 
-yarn install bootstrap
-yarn add bootstrap
-yarn dep bootstrap
-yarn in bootstrap
+* yarn install bootstrap
+* yarn add bootstrap
+* yarn dep bootstrap
+* yarn in bootstrap
 
 20.)
 Milyen parancsablakba kell bemásolni a Chocolatey telepítő parancsát?
@@ -673,10 +674,10 @@ Milyen paranccsal kell beállítani a Git felhasználó nevét?
 24.)
 Milyen paranccsal kell beállítani a Git felhasználó emailcímét?
 
-email
-git config user.email
-git config email
-git email
+* email
+* git config user.email
+* git config email
+* git email
 
 25.)
 Melyik kapcsolóval lehet megszüntetni a git config parancs után egy változó értékét?
