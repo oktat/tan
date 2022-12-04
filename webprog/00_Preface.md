@@ -481,3 +481,280 @@ Kattintás után lesz "Eltávolítás" link.
 A következő helyről letölthető néhány Batch fájl, ami segíti az osztott használatot:
 
 * [https://github.com/oktat/githandler](https://github.com/oktat/githandler)
+
+## Kérdések
+
+### Gyakorló kérdések
+
+1.)
+Mire használható a Chocolatey?
+
+Fájlkezelő program
+Csomagkezelő program
+Szövegszerkesztő program
+Verziókezelő program
+
+2.) Adott a következő parancs: choco install yarn -y
+Mit csinál a -y kapcsoló?
+
+Távoli letöltésre utasít
+Erőltetett letöltés
+Letiltja a számlálást.
+A kérdésekre automatikusan igen a válasz.
+
+3.)
+Mire való yarn parancs?
+
+Csomag és projekt kezelő
+Verziókezelés
+Könyvtárak kezelése fájlrendszeren
+Ez egy programozási nyelv
+
+4.)
+Mire való az npm parancs?
+
+Csomag és projekt kezelő
+Terelő program
+Verziókövető program
+Kivételkezelő program
+
+5.)
+Mire jó a git parancs?
+
+Csomagkezelés
+Könyvtárkezelő parancs
+Kézikönyvek megjelenítése
+Verziók követése
+
+6.)
+Mi a Total Commander? Válasszon.
+
+Kódszerkesztő
+Fejlesztői környezet
+Fájlkezelő
+Grafikai program
+
+7.)
+Milyen rendszer része az npm parancs.
+
+Angular
+NodeJS
+Insomnia
+Chocolatey
+
+8.)
+Mire való az Insomnia?
+
+Csomagkezelés
+REST API kliens
+Verziókezelés
+Fájlkezelés
+
+9.)
+Mire való a Geany?
+
+Kódszerkesztő
+Verziókezelő
+REST API kliens
+Csomagkezelő
+
+10.)
+Mire való az npx parancs?
+
+Verziók meghatározása
+A projektben telepített parancsok futtatása
+Globálisan telepített parancsok futtatása
+Könyvtárak létrehozása
+
+11.)
+Van egy NodeJS programunk pr.js néven. Hogyan tudjuk futtatni?
+
+node pr.js
+git pr.js
+rest pr.js
+npm pr.js
+
+12.)
+A NodeJS projekt függőségei milyen fájlban vannak leírva?
+
+dependencies.json
+index.json
+bs-config.json
+package.json
+
+13.)
+A projektbe telepített függőségek milyen könyvtárba töltődnek le?
+
+packages
+mods
+node_modules
+nodes
+
+14.)
+Mire jó a package-lock.json fájl?
+
+A futtatható feladatokat ide írjuk
+Az npm műveletek ide kerülnek
+A szerzők nevei kerülnek ide
+Az adatbázis elérése ide kerül
+
+15.)
+Mire való a package.json fájlban a script sor?
+
+Feladatok írása
+Függőségek leírása
+Verzió leírása
+A projekt neve
+
+16.)
+Mit csinál a --sav-dev kapcsoló npm parancs estén?
+
+A függőség nem kötelező
+A függőséget fejlesztési időhöz köti
+A függőség feltöltésre kerül
+A függőség ideiglenes
+
+17.)
+Milyen licenc a ISC?
+
+nyílt forráskódú
+nincs ilyen nevezetes licenc
+zárt forráskódú
+adott napig használható ingyen
+
+18.)
+A yarn parancs milyen kapcsolóval jelöli a fejlesztési időben használt függőségeket?
+
+--dev
+--save-dev
+--save
+--devel
+
+19.)
+A yarn paranccsal hogyan telepíthető a bootstrap függőség?
+
+yarn install bootstrap
+yarn add bootstrap
+yarn dep bootstrap
+yarn in bootstrap
+
+20.)
+Milyen parancsablakba kell bemásolni a Chocolatey telepítő parancsát?
+
+* bash
+* powershell
+* cmd
+* zsh
+
+21.)
+Melyik parancssorhoz szükséges rendszergazdai jog:
+
+* npm install yarn
+* choco install yarn
+* yarn add bootstrap
+* dir
+
+22.)
+Milyen néven telepíthető Chocolatey csomagból a NodeJS?
+
+* node
+* nodejs
+* node_javascript
+* javascript
+
+23.)
+Milyen paranccsal kell beállítani a Git felhasználó nevét?
+
+* git config user.name
+* git user.name
+* git name
+* git config name
+
+24.)
+Milyen paranccsal kell beállítani a Git felhasználó emailcímét?
+
+email
+git config user.email
+git config email
+git email
+
+25.)
+Melyik kapcsolóval lehet megszüntetni a git config parancs után egy változó értékét?
+
+* --notset
+* --unset
+* --clear
+* --break
+
+27.)
+Hogyan lehet NodeJS projektet kezdeni?
+
+* npm init -y
+* git init -y
+* choco init -y
+* yarn add -y
+
+28.)
+Hogyan készítjük elő verziókezelését egy projektben?
+
+* npm init -y
+* git init
+* mvn init
+* git start
+
+29.)
+Mi annak a könyvtárnak a neve, amiben tárolásra kerülnek
+a git verziókövetéssel tárolt pillanatképek?
+
+* .git_repository
+* .gitrepo
+* .git
+* .repository
+
+30.)
+Hogyan lehet az tarka.html fájlt stage állapotba tenni git verziókövetőnél?
+
+* add tarka.html
+* npm add tarka.html
+* git add tarka.html
+* git commit tarka.html
+
+31.)
+Hogyan lehet git tároló állapotát lekérdezni?
+
+* git face
+* git commit
+* git add
+* git status
+
+32.)
+Hogyan tekinthetjük meg a tárolt változatok bejegyzéseit?
+
+* git log
+* git add
+* npm commit
+* git commit
+
+33.)
+Milyen paranccsal indítható a program, amivel megtekinthetők a tárolt változatok bejegyzései.
+
+* git stat
+* gitk
+* git init
+* git show
+
+34.)
+Ha távoli tárolóra akarunk git-tel feltölteni, hogyan adjuk meg a feltöltés url-jét?
+
+* git push origin master
+* git remote add origin <https://github.com/valaki/valami.git>
+* git remote <https://github.com/valaki/valami.git>
+* git add <https://github.com/valaki/valami.git>
+
+35.)
+Mire való a git gui parancs?
+
+* Ilyen parancs nincs
+* Grafikus felületen kezelhető a git tároló
+* Grafikus felület létrehozása a projektben
+* Csak grafikus felületű projekt rész követése
