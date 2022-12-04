@@ -365,6 +365,24 @@ Használhatunk GUI felületet is a napló megtekintéséhez:
 gitk
 ```
 
+### GUI felületek
+
+A gitk program megmutatja a tárolt változatok bejegyzéseit. Indítás:
+
+```cmd
+gitk
+```
+
+Indítsa el a programot egy projektben, és elemezze.
+
+A git gui paranccsal egy GUI program indítható, amivel minden git művelet elvégezehtő. Indítás:
+
+```cmd
+git gui
+```
+
+Indítsa el a programot egy projektben, és elemezze.
+
 ### Feltöltés GitHubra
 
 A GitHub webes felületén létre kell hozni egy tárolót.
