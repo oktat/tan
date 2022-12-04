@@ -482,7 +482,7 @@ A következő helyről letölthető néhány Batch fájl, ami segíti az osztott
 
 * [https://github.com/oktat/githandler](https://github.com/oktat/githandler)
 
-## Kérdések
+## Gyakorlás
 
 ### Gyakorló kérdések
 
@@ -759,3 +759,14 @@ Mire való a git gui parancs?
 * Grafikus felületen kezelhető a git tároló
 * Grafikus felület létrehozása a projektben
 * Csak grafikus felületű projekt rész követése
+
+### Gyakorlatok
+
+#### Gyakorlat 01
+
+Feladatok:
+
+* Készítsen egy projektet amiben egy weblapot készít.
+* Bekezdésenként egy gyümölcs nevét írja a weblapra.
+* Minden bekezdés után készítsen pillanatképet.
+* Legyen legalább 4 pillanatkép mentve.
