@@ -61,6 +61,7 @@ A HTML tábla további elemeket tartalmazhat:
 * thead
 * tbody
 * tfoot
+* col
 
 Egy egyszerű táblázat:
 
@@ -305,6 +306,8 @@ Mint például:
 * article
 * stb.
 
+Tudjuk, hogy a table elemben táblázatot teszünk, a form elembe űrlapot, a figure elembe valamilyen doboz feliratát, az img elemmel képet jelenítünk meg, az article elembe valamilyen cikk tartalmát rakjuk.
+
 ### Oldalszerkezet meghatározók
 
 Az oldal szerkezetét meghatározó szemantikus elemek a következők:
@@ -319,8 +322,8 @@ Az oldal szerkezetét meghatározó szemantikus elemek a következők:
 Lássuk mire valók:
 
 * **section**: Összetartozó tartalmakat jelölünk vele, mint a div elemmel.
-* **aside**: Érintőlegesen kapcsolódó tartalom, amely általában bal vagy jobb oldalon helyezkedik el. Ha valami a fő tartalom bal vagy jobb oldalán helyezkedik el, az még nem elegendő ok arra, hogy aside elembe helyezzük. Tegye fel magának a kérdést. Ha törlöm a félreeső tartalmat, a fő tartalom jelentése változik?
-* **header**: Ez a header nem tévesztendő össze egy weboldal fejrészével, bár ott is használható. A HTML5 header elem akár többször is szerepelhet egy weblap részeként, például a section elemen belül.
+* **aside**: Érintőlegesen kapcsolódó tartalom, amely általában bal vagy jobb oldalon helyezkedik el. Ha valami a fő tartalom bal vagy jobb oldalán helyezkedik el, az még nem elegendő ok arra, hogy aside elembe helyezzük. Tegye fel magának a kérdést. Ha törlöm a félreeső tartalmat, a fő tartalom jelentése változik? Ha nem változik meg, akkor a megfelelő módon használjuk.
+* **header**: Ez a header nem tévesztendő össze egy weboldal fejrészével, bár ott is használható. A HTML5 header elem akár többször is szerepelhet egy weblap részeként, például a section elemen belül. A section elemnek is lehet külön header vagy footer része.
 * **nav**: Az egész webhely navigációs információit helyezzük el benne.
 * **footer**: Nem a weboldal alsó részéről van szó, bármelyik szakaszban használható. De jelölhetjük vele a weblap alját is.
 
@@ -328,7 +331,7 @@ Lássuk mire valók:
 
 ## Médiaelemek
 
-Audio, video, source
+A HTML5 óta médiák megjelenítésre szemantikus elemek állnak rendelkezdésre, úgymint audio, video, source elemek.
 
 ```html
 <video  width="300" height="300">
