@@ -454,3 +454,87 @@ A nézetablak (viewport) a felhasználó által látható terület. A mobiltelef
 A viewport segítségével a webhely készítője szabályozhatja az weblap méreteit. A width=device-width úgy állítja be az weboldal szélességét, hogy az kövesse az eszköz szélességét.
 
 Az initial-scale=1.0 a kezdeti nagyítási szintet állítja be. Kezdeti nagyítási szint alatt az oldal betöltésekor adott méretett értjük.
+
+## Gyakorlat
+
+### Gyakorló kérdések
+
+1.)
+Milyen HTML elemekhez rendelhető a class attribútum?
+
+* bármilyen
+* csak div
+* csak span
+* csak p
+
+2.)
+Mi a szerepe az id attribútumnak?
+
+* Azonosítót rendelhetünk bármelyik HTML elemnek
+* Azonosítót rendelhetünk a div elemhez, és csak ehhez
+* A tartalom nyelvét tudjuk beállítani
+* A szöveg irányát tudjuk megadni
+
+3.)
+Milyen elemhez rendelhető a lang attribútum?
+
+* Csak a html elemhez
+* Bármely elemhez
+* Csak a body elemhez
+* A text elemhez
+
+4.)
+Mire jó a style HTML attribútum?
+
+* Egyéni adatok megadására
+* Soron belül tudunk stílus rendelni az adott elemhez
+* Extra információ egy elem számára
+* Egy elem tartalmát fordítani kell vagy nem
+
+5.)
+Mire jó a table elemen belül a captain elem?
+
+* A táblázat fejrészét határozzuk meg vele
+* A táblázat számára leírást adhatunk
+* A táblázat szegélyét szabályozhatjuk vele
+* A táblázat lábrészét adhatjuk meg vele
+
+6.)
+Mire jó a colspan attribútum egy táblázatban?
+
+* A táblázat feliratát szabályozzuk vele
+* A táblázat összefoglaló szövegét adhatjuk meg vele
+* A táblázat celláit össezvonhatjuk oszlopokon keresztül
+* A táblázat celláit összevonhatjuk sorokon keresztül
+
+7.)
+Mit csinál a következ attribútum: &lt;td colspan="3"&gt;?
+
+* Három soron keresztül összevonja az adott cellát
+* Három cella jelenik meg, egy helyett
+* Három pixellel nagyobb lesz a cella mérete
+* Három oszlopon keresztül összevonja az adott cellát
+
+8.)
+Melyik HTML elemmel csoportosíthatjuk egy táblázat oszlopait?
+
+* tr
+* colgroup
+* td
+* tbody
+
+9.)
+A táblázat alsó részét csoportosíthatjuk a következő HTML elemmel:
+
+* tfoot
+* footgroup
+* groupfoot
+* footer
+
+10.)
+Milyen tartalmat adhatunk meg az aside elemmel?
+
+* Az oldal lényegi tartalma
+* Kapcsolódó tartalom
+* Az oldal fő navigációs sávja
+* Képek megjelenítésére használható
