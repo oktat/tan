@@ -600,7 +600,7 @@ Mire jó a package-lock.json fájl?
 * Az adatbázis elérése ide kerül
 
 15.)
-Mire való a package.json fájlban a script sor?
+Mire való a package.json fájlban a scripts tulajdonság?
 
 * Feladatok írása
 * Függőségek leírása
@@ -608,7 +608,7 @@ Mire való a package.json fájlban a script sor?
 * A projekt neve
 
 16.)
-Mit csinál a --sav-dev kapcsoló npm parancs estén?
+Mit csinál a --save-dev kapcsoló npm parancs estén?
 
 * A függőség nem kötelező
 * A függőséget fejlesztési időhöz köti
@@ -713,7 +713,7 @@ a git verziókövetéssel tárolt pillanatképek?
 * .repository
 
 30.)
-Hogyan lehet az tarka.html fájlt stage állapotba tenni git verziókövetőnél?
+Hogyan lehet a tarka.html fájlt stage állapotba tenni git verziókövetővel?
 
 * add tarka.html
 * npm add tarka.html
@@ -768,5 +768,8 @@ Feladatok:
 
 * Készítsen egy projektet amiben egy weblapot készít.
 * Bekezdésenként egy gyümölcs nevét írja a weblapra.
-* Minden bekezdés után készítsen pillanatképet.
-* Legyen legalább 4 pillanatkép mentve.
+* Készítsen pillanatképet (commit), írja le mit adott hozzá.
+* Készítsen újabb bekezdést, rakjon bele újabb gyümölcs nevet.
+* Készítsen pillanatképet (commit), írja le mit adott hozzá.
+* Ismételje még kétszer a bekezdések hozzáadását, újabb gyümölcsökkel.
+* Legyen legalább 4 pillanatkép (commit) mentve.
