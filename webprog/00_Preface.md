@@ -15,7 +15,7 @@ A csomagkezelő weboldala:
 Bővebb leírása:
 [https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:csomagkezeles#chocolatey](https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:csomagkezeles#chocolatey)
 
-A Chocolatey weboldalán található egy hosszú Power Shell paranancs, amivel telepíthető a program. Indítsunk egy PowerShell-t rendszergazdaként, így kiadva a parancsot.
+A Chocolatey weboldalán található egy hosszú **Power Shell** paranancs, amivel telepíthető a program. Indítsunk egy PowerShell-t **rendszergazdaként**, így kiadva a parancsot.
 
 A script másolata:
 
@@ -114,7 +114,7 @@ Bővebben:
 
 ## NodeJS projekt
 
-Az alábbiakban elkészítünk egy NodeJS projektet, a jövőben mindig ilyen projektekkel fogunk dolgozni. Ilyen projektet az npm és a yarn paranccsal is létrehozható.
+Az alábbiakban elkészítünk egy NodeJS projektet, a jövőben mindig ilyen projektekkel fogunk dolgozni. Ilyen projekt az npm és a yarn paranccsal is létrehozható.
 
 A tervek szerint a következő könyvtárszerkezetet hozzuk létre:
 
@@ -182,7 +182,7 @@ Telepítsük a lit-server nevű csomagot:
 npm install lite-server --save-dev
 ```
 
-Ha van yarn parancsunk:
+Ha van yarn parancsunk, a telepítés azzal is megoldható:
 
 ```cmd
 yarn add lite-server --dev
@@ -203,7 +203,7 @@ npx lite-server
 
 A **package-json** fájlba, bejegyzhetünk feladatokat, vagy másnéven scripteket. Ezzel rövidíthetünk az indításon.
 
-Egészítsük egy script részt:
+Írjunk egy feladatot (scriptet):
 
 ```json
   "scripts": {
@@ -248,10 +248,7 @@ yarn start
 
 A weboldal megnyílik az alapértelmezett böngészőben.
 
-Végezzünk néhány javítást a webolalon.
-Vagyünk fel, például egy "p" elemet,
-írjuk bele "Lorem ipsum dolor est amet",
-mentsük és figyeljük a böngészőt.
+Végezzünk néhány javítást a webolalon. Vagyünk fel, például egy "p" elemet, írjuk bele "Lorem ipsum dolor est amet" szöveget, mentsük és figyeljük a böngészőt.
 
 A továbbikaban így fogunk weboldalakat készíteni.
 
@@ -262,9 +259,11 @@ A továbbikaban így fogunk weboldalakat készíteni.
 Használat előtt, először mutatkozzunk be a git számára. Adjuk meg a teljes nevünket és az e-mail címünket. Ezt kétféle módon tehetjük meg:
 
 * lokálisan a projektbe
-* globálisan a felhasználói profilba
+* globálisan a felhasználói profilba (~/.gitconfig)
 
-Ha csak a projekt számára mutatkozunk be, akkor minden új projektben meg kell ezt tennünk. Ha globálisan mutatkozunk be, osztott használatnál, amikor végeztünk, érdemes törölnünk a nevünket és az e-mail címünket.
+Ha csak a projekt számára mutatkozunk be, akkor minden új projektben meg kell ezt tennünk. Ha globálisan mutatkozunk be, osztott használatnál - amikor végeztünk - érdemes törölnünk a nevünket és az e-mail címünket.
+
+A bemutatkozás, vagyis a név és e-mail cím beállítása:
 
 ```bash
 git config --global user.name "Nagy János"
@@ -295,14 +294,7 @@ git init
 
 Keressük meg a projekt gyökérkönyvtárában a **.git** könyvtárat. Ez lesz a git tároló. Visual Studio Code alatt ez nem látszik, mivel **rejtett könyvtár**. Nézzük meg fájlkezelővel. Fájlkezelőben is csak akkor látszik, ha a rejtett fájlok láthatósága be van kapcsolva.
 
-Hozzunk létre egy index.html amit szeretnénk verziókövetni.
-Tegyük fel, hogy a projekt NodeJS projekt is egyben, vagyis
-van node_modules könyvtár is. Ennek a könyvtárnak a tartalmát
-nem szeretnénk verziókövetni, ezért bele kell írni a **.gitignore**
-nevű fájlba. A .gitignore nevű fájlba azoknak a fájloknak és
-könyvtáraknak a nevét tesszük, amelyeket **nem szeretnénk
-verziókövetni**. Készítsük el a saját .gitignore nevű állományunkat,
-majd írjuk bele a node_modules könyvtár nevét.
+Hozzunk létre egy index.html fájlt, amit szeretnénk verziókövetni. Tegyük fel, hogy a projekt NodeJS projekt is egyben, vagyis van node_modules könyvtár is. Ennek a könyvtárnak a tartalmát nem szeretnénk verziókövetni, ezért bele kell írni a **.gitignore** nevű fájlba. A .gitignore nevű fájlba azoknak a fájloknak és könyvtáraknak a nevét tesszük, amelyeket **nem szeretnénk verziókövetni**. Készítsük el a saját .gitignore nevű állományunkat, majd írjuk bele a node_modules könyvtár nevét.
 
 ```txt
 node_modules/
@@ -314,15 +306,14 @@ Ellenőrizzük, hogy valóban ki van zárva a könyvtár:
 git status -u
 ```
 
-Ha nem látjuk a kimenetben mehet verziókövetendő fájlok
+Ha nem látjuk a kimenetben  a node_modules könyvtárat, mehet verziókövetendő fájlok
 hozzáadása:
 
 ```bash
 git add .
 ```
 
-A pont hatására minden az aktuális könyvtárban lévő fájl
-verziókövetésre lesz jelölve. Vigyázzunk ezzel a paranccsal! Ha nincs megadva a node_modules könyvtár a .gitignore fájlban, vagy rosszul van megadva, a pont hatására az egész könyvtár tartalma tárolásra kerül feleslegesen. Ezért azt szokták ajánlani, hogy egyenkét adjuk meg a követendő fájlokat. Például:
+A pont hatására minden az aktuális könyvtárban lévő fájl verziókövetésre lesz jelölve. Vigyázzunk ezzel a paranccsal! Ha nincs megadva a node_modules könyvtár a .gitignore fájlban, vagy rosszul van megadva, a pont hatására az egész könyvtár tartalma tárolásra kerül feleslegesen. Ezért azt szokták ajánlani, hogy egyenkét adjuk meg a követendő fájlokat a (.) pont használata helyett, a következő módon:
 
 ```bash
 git add .gitignore
@@ -330,8 +321,9 @@ git add index.html
 git add package.json
 ```
 
-A tényleges követés a "git commit" paranccsal történik, ahol
-leírjuk milyen változásokat valósítottunk meg a projektben.
+Így biztonságos, csak azok a fájlok lesznek követve, amiket megadtunk.
+
+A tényleges tárolás a "git commit" paranccsal történik, ahol leírjuk milyen változásokat valósítottunk meg a projektben.
 
 ```bash
 git commit -m "Kezdés"
@@ -353,7 +345,7 @@ Változtassunk valamit az index.html oldalon, majd nézzük meg újra a státusz
 git status -u
 ```
 
-Nézzük meg a létrehozott commitokat:
+Nézzük meg a létrehozott commitok naplóját:
 
 ```bash
 git log
@@ -375,19 +367,21 @@ gitk
 
 Indítsa el a programot egy projektben, és elemezze.
 
-A git gui paranccsal egy GUI program indítható, amivel minden git művelet elvégezehtő. Indítás:
+A git gui paranccsal egy GUI program indítható, amivel elvégezhetők a git műveletek. Indítás:
 
 ```cmd
 git gui
 ```
 
-Indítsa el a programot egy projektben, és elemezze.
+Indítsa el a programot egy projektben, végezzen változtatásokat, az add és commit parancs helyett, használja a "git gui" parnacsot gyakorlásként.
 
 ### Feltöltés GitHubra
 
+A GitHub egy git szerver. Szabadon elérhető git szerver több is van az Interneten, és helyben magunk is készíthetünk egyet. Itt most a GitHub szerver webes felületét fogjuk használni.
+
 A GitHub webes felületén létre kell hozni egy tárolót.
 
-Másoljuk a tárólóban megjelenő git remote parncsot, majd hajtsuk végre a projekten belül. Például:
+Másoljuk a tárólóban megjelenő "git remote" parncsot, majd hajtsuk végre a projekten belül. Például:
 
 ```bash
 git remote add origin https://github.com/valaki/app01.git
@@ -426,7 +420,7 @@ git config --global user.name "Nagy János"
 git config --global user.email "nagyj@zold.lan"
 ```
 
-Osztott használat esetén adatink törlése:
+Osztott használat esetén, ha végeztünk a gép kikapcsolása előtt, ne felejtsük el adatink törlését:
 
 ```bash
 git config --global --unset user.name
@@ -435,9 +429,9 @@ git config --global --unset user.email
 
 ### Windows kulcsok kezelése
 
-#### Parancssor
+#### Hitelesítő adatok parancssorból
 
-A Visual Studo Code git push parancs hatására, a hitelesítéskezelőben bejegyzi a hitelesítő adatokat. Ez segítség lehet, ha újból használjuk a parancsot. Osztott használat esetén, viszont ki kell jelentkeznünk.
+A Visual Studo Code git push parancs hatására, a hitelesítéskezelőben bejegyzi a hitelesítő adatokat. Ez segítség lehet, ha újból használjuk a parancsot, nem kell folyton azonosítani magunkat. Osztott használat esetén, viszont ki kell jelentkeznünk, ha befejeztük a munkát.
 
 Nézzük meg milyen hitelesítő kulcsok vannak:
 
@@ -464,6 +458,8 @@ Tegyük a /delete kapcsoló után:
 ```cmd
 cmdkey /delete git:https://github.com
 ```
+
+A kiléptetés megtörtént.
 
 #### GUI hitelesítő adatok
 
