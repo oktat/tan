@@ -31,6 +31,14 @@ A kézi tesztelés során olyan hibákra is fényderülhet, amire a teszt szoftv
 * fehér dobozos - a tesztelőnek rendelkezésre áll a kód
 * fekete dobozos - a tesztelőnek nem áll rendelkezésre a kód
 
+#### Típusok
+
+* funkcionális tesztek - adott funkció működik?
+* nem funkciónális teszek - például teljesítmény, kinézet
+* regresszíós teszt - újratesztelés
+
+Ha javítunk valamit egy szoftveren, az újratesztelést regressziós tesztelésnek hívjuk.
+
 ### Tesztpiramis
 
 ![images/tesztpiramis.png](images/tesztpiramis.png)
