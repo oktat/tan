@@ -148,3 +148,15 @@ Terhelésvizsgálat:
 Azt vizsgáljuk, mi az a mennyiség, amit a rendsezr összeomlás nélkül tud még kezelni.
 
 ## TDD
+
+A TDD a Test-driven development rövidítése. Magyarul tesztvezérlt fejlesztésnek hívjuk. A szoftverfejlesztést egy minimális teszt írásával kezdjük. Ezt követően annyit fejlesztünk, hogy a teszt teljesüljön. Refaktorálunk ha szükséges, majd ismételjük az elejétől. Fejlesztjük a tesztet minimálisan. Annyit fejlesztünk a kódon, hogy teljesítse a tesztet. Ha szükséges refaktorálunk. Ezt ismételjük.
+
+Lépések:
+
+* Készítünk egy tesztet
+* Futtatjuk a teszteket
+* Annyi kódot írunk, hogy teljesítse a tesztet
+* Futtatjuk a teszteket
+* Ha szükséges refaktorálunk
+
+![TDD](images/TDD_3_resz.png)
