@@ -39,12 +39,18 @@ A RAD a Rapid Application Development rövidíétse. Magyarul gyors alkalmazásf
 
 Alapja:
 
+* iterációk
 * prototípus készítés
 * gyors visszacsatolás
 * kisebb hangsúly a konkrét tervezésen
+* fejlesztés támogató IDE használata
 
 ![RAD fejlesztéis modell](images/RAD_fejlesztesi_modell.png)
 
+Bírálata:
+
+* futtatható program nagy méretű
+* futtatható program lassú
 
 ## Agilis szoftverfejlesztés
 
