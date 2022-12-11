@@ -7,6 +7,30 @@
 
 ## A szoftvertesztelés alapjai
 
+### Fogalmak
+
+* verifikáció: ami elkészült, az jól működik?
+* validáció: amit készítünk, megfelel az ügyfél elvárásainak?
+
+A validáció már a tervezési fázisban is használható.
+
+#### Atomatikus és kézi
+
+* automatikus - szoftver végzi
+* kézi - ember végzi
+
+A kézi tesztelés során olyan hibákra is fényderülhet, amire a teszt szoftver írásakor nem gondoltunk.
+
+#### Szisztematikus és ad-hoc
+
+* szisztematikus - előre meghatározott
+* nincs utasítás
+
+#### Fekete és fehérdobozos
+
+* fehér dobozos - a tesztelőnek rendelkezésre áll a kód
+* fekete dobozos - a tesztelőnek nem áll rendelkezésre a kód
+
 ### Tesztpiramis
 
 ![images/tesztpiramis.png](images/tesztpiramis.png)

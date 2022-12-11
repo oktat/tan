@@ -22,7 +22,14 @@ Megközelítések:
 
 ## Rendszerteszt
 
-Általában külső tesztelő csapat végzi.
+* Általában külső tesztelő csapat végzi.
+* Általában fekete dobozos teszt.
+
+Mit vizsgálnak?
+
+* A specifikációnak megfelel a program?
+
+Például: Specifikáció szerint jelentés kell tudnia generálni valamiről a programnak. Ennek ellenőrzése.
 
 ## Elfogadási teszt
 
