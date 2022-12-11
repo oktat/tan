@@ -35,6 +35,17 @@ Fontos az egyszerűség és a működő szoftver létrehozása.
 
 ## Gyors alkalmazásfejlesztés - RAD
 
+A RAD a Rapid Application Development rövidíétse. Magyarul gyors alkalmazásfejlesztés.
+
+Alapja:
+
+* prototípus készítés
+* gyors visszacsatolás
+* kisebb hangsúly a konkrét tervezésen
+
+![RAD fejlesztéis modell](images/RAD_fejlesztesi_modell.png)
+
+
 ## Agilis szoftverfejlesztés
 
 A fejlesztők szorosan együttműködnek a megrendelőkkel. Folyamatosan egyeztetnek, hogy mire is van szükség. Minden folyamat ciklusban ismétlődik.
