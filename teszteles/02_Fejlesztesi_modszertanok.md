@@ -17,9 +17,17 @@ A fejlesztési módszertanok meghatározzák, hogy az egyes szoftver életciklus
 * Agilis fejlesztés
 * Extrém programozás
 
+## Vízessés modell
+
+Meghatározzuk a követelményeket, tervezünk, fejlesztünk, tesztelünk és átadjuk a kész projektet.
+
+![Vízesés modell](images/vizeses_modell.png)
+
 ## V-modell
 
 A V-modell olyan mint a vízesés modell, de van egy másik felfelé mutató ága, ami tesztelésről szól.
+
+![V-modell](images/v-modell.png)
 
 ## Prototípus modell
 
