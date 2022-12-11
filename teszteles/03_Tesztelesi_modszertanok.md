@@ -130,4 +130,21 @@ Kockázatértékelés
 
 ## Teljesítmény- és terhelés teszt
 
+A teljesítménytesztek a nem funkcionális tesztekhez tartoznak.
+
+Teljesítmény:
+
+* megbízhatóság
+* erőforráshasználat
+* méretezhetőség
+
+Terhelésvizsgálat:
+
+* többfelhasználós rendszereknél relevánsabb
+* gyakran atomatizált
+* nagy dokumentum
+* sok adat
+
+Azt vizsgáljuk, mi az a mennyiség, amit a rendsezr összeomlás nélkül tud még kezelni.
+
 ## TDD
