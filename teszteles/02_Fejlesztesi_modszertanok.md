@@ -29,6 +29,10 @@ A prototípus modellnél számtalan prototípust kap a megrendelő, mielőtt meg
 
 ## Iteratív és inkrementális módszertanok
 
+A szoftvert folyamatosan fejlesztjük és kiadjuk.
+
+Fontos az egyszerűség és a működő szoftver létrehozása.
+
 ## Gyors alkalmazásfejlesztés - RAD
 
 ## Agilis szoftverfejlesztés

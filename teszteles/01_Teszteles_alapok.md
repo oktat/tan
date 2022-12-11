@@ -64,3 +64,13 @@ A megírt programkódokat mérjük, általában sorok alapján.
 SI prefixumokat is szokás használni:
 
 1000 LOC egyenlő 1 kLOC
+
+### A tesztelés szintjei
+
+* egységteszt
+* integrációs teszt
+* rendszerteszt
+* elfogadási teszt
+
+Az első három tesztet az IT végzi. Az utolsó tesztet a
+megrendelő, illetve annak tesztelői.
