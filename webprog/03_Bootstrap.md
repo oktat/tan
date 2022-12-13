@@ -54,3 +54,101 @@ Van bootstrap csomag, telepítsük:
 ```bash
 npm install bootstrap
 ```
+
+## Színek
+
+### Szöveg
+
+* .text-primary
+* .text-secondary
+* .text-success
+* .text-danger
+* .text-warning
+* .text-info
+* .text-light
+* .text-dark
+* .text-body
+* .text-muted
+* .text-white
+* .text-black-50
+* .text-white-50
+
+### Háttér
+
+* bg-primary
+* bg-secondary
+* bg-success
+* bg-danger
+* bg-warning
+* bg-info
+
+
+## Konténerek
+
+```html
+<div class="container">
+
+</div>
+```
+
+## Rácsok
+
+Maximum 12 darab oszlop hozható létre.
+
+```html
+<div class="row">
+    <div class="col">
+    
+    </div>
+    <div class="col">
+    
+    </div>
+</div>
+```
+
+## Eszközök
+
+* font-weight-bold
+* font-weight-normal
+* font-italic
+
+### Igazítás
+
+* text-start
+* text-justify
+* text-end
+* text-center
+
+### Helyek
+
+* m - margin
+* p - padding
+
+Melyik oldal?
+
+* t - margin-top
+* b - margin-bottom
+* s - margin-left
+* e - margin-right
+* x - -left és -right
+* y - -top és -bottom
+
+Méretek:
+
+* 0
+* 1 - $spacer * .25
+* 2 - $spacer * .5
+* 3 - $spacer
+* 4 - $spacer * 1.5
+* 5 - $spacer * 3
+* auto - margin: auto
+
+A $spacer értéke 1rem, azaz 16px alapértelmezetten.
+
+Példa:
+
+```html
+<div class="mx-auto">
+Valami
+</div>
+```

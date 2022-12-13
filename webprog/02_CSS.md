@@ -603,7 +603,7 @@ Ebben a rövid feladatban a változókat használtunk Sass nyelven.
 ### Kérdések
 
 1. Kitől származhatnak stíluslapok?
-2. Melyik stílusnak van nagyobb súlya? A később vagy az előbb berírt stíluslapnak?
+2. Melyik stílusnak van nagyobb súlya? A később vagy az előbb beírt stíluslapnak?
 3. Hogyan kell egy táblázat cellái közötti helyet megszüntetni CSS-sel?
 4. Hogyan tudjuk beállítani a cellák közötti tér méretét?
 5. Hogyan állítjuk be "para" osztályba tartozó táblázat celláinak szegélyét lekerekítettre?
@@ -611,3 +611,43 @@ Ebben a rövid feladatban a változókat használtunk Sass nyelven.
 7. Mire való a CSS-ben az rgba() függvényben a negyedik paraméter?
 8. Mire való a CSS-ben az rgba() függvényben a harmadik paraméter?
 9. Hogyan állíthatom be a "deres" osztályba tartozó doboz átlátszatlanságát, 0.5 értékre?
+
+10.)
+Milyen kiterjesztése lehet egy Sass stílusfájlnak?
+
+* .scss
+* .ssas
+* .sas
+* .s
+
+11.)
+Melyik nem CSS előfeldolgozó?
+
+* LESS
+* Stylus
+* Sass
+* Permede
+
+12.)
+Melyik szintaxis használható Sass előfeldolgozóval?
+
+* behúzott
+* tömörített
+* terheléses
+* fontosabb elöl
+
+13.)
+Mi a CSS preprocessor?
+
+* Egy CSS szerkesztő program.
+* Egy CSS gyártó.
+* Egy CSS futtató rendszer.
+* Egy CSS előfeldolgozó.
+
+14.)
+Jelölje a helyes állítást:
+
+* A CSS-ben nem használható változó.
+* A CSS-ben csak akkor használható változó, ha előfeldolgozót használunk.
+* A CSS-ben a var() függvénnyel hivatkozunk a változó tartalmára.
+* A CSS-ben a get() függvénnyel hivatkozuk a változó tartalmára.
