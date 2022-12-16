@@ -17,9 +17,10 @@ A stíluslapok ettől is lépcsőzetesek.
 
 ### A stílusok sorrendje
 
-A bönésző beállít egy tulajdonságot a következők alapján:
+A böngésző beállít egy tulajdonságot a következők alapján:
 
 I. Megekeresi az egyező deklarációkat és alkalmazza.
+
 II. Második szinten a böngésző sorrendet állít fel fontosság és az eredet alapján:
 
 1. böngézső stílus
@@ -29,6 +30,7 @@ II. Második szinten a böngésző sorrendet állít fel fontosság és az erede
 5. a felhasználó fontos stílusai
 
 III. A szelektorok specifikussága a következő szint.
+
 IV. A sorrend az utolsó szint. Ami később van megadva, annak nagyobb a súlyozása.
 
 ## CSS - táblázatok
