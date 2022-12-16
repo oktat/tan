@@ -17,7 +17,17 @@ A stíluslapok ettől is lépcsőzetesek.
 
 ### A stílusok sorrendje
 
-A böngésző beállít egy tulajdonságot a következők alapján:
+A stílusmeghatározásoknál fontosnak jelölhetünk egy-egy beállított tulajdonságot:
+
+```css
+.valami {
+  background-color: blue !important;
+}
+```
+
+Ez felülbírálhatja a mástól származó beállítáoka.
+
+De lássuk hogyan jár el a böngésző, milyen sorrendet állít ha több stílusmeghatározással találkozik:
 
 I. Megekeresi az egyező deklarációkat és alkalmazza.
 
@@ -46,8 +56,7 @@ IV. A sorrend az utolsó szint. Ami később van megadva, annak nagyobb a súlyo
 }
 ```
 
-A collapse hatására a táblázat
-cellái között megszűnik az üres hely.
+A collapse hatására a táblázat cellái között megszűnik az üres hely.
 
 Legyen egy táblázat:
 
@@ -68,6 +77,8 @@ Legyen egy táblázat:
 </table>
 ```
 
+Adjuk hozzáa a következő CSS-t:
+
 ```css
 .table {
   border: 1px solid white;
@@ -79,9 +90,13 @@ Legyen egy táblázat:
 }
 ```
 
+Az eredmény a következő ábrán látható.
+
 ![images/table-collapse.png](images/table-collapse.png)
 
 ### Lekerekített táblaszegélyek
+
+Ha táblázat celláinak szegélyét megjelenítjük, azok akár lekerekítve is megjelenhetnek.
 
 ```html
 <table class="table">
@@ -113,9 +128,13 @@ Legyen egy táblázat:
 }
 ```
 
+Az eredmény a következő ábrán:
+
 ![images/table-corner-round.png](images/table-corner-round.png)
 
 ### Táblázat méretezése
+
+A táblázatok a tartalomhoz igazítják a méreteiket. A szélesség beállításával felülbírálhatjuk ezt a viselkedesét.
 
 ```html
 <table class="table">
