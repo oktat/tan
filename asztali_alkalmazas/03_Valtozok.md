@@ -7,7 +7,7 @@
 
 ## Megjegyzések
 
-A megjegyzések néha zavaróak, néha segítenek. A fordítók az ilyen sorokat nem veszik figyelembe. A Java nyelvben megjegyzések lehetnek egy vagy több sorosak.
+A forráskódban megjegyzéseket írhatunk, amiket a fordító nem vesz figyelembe. A Java nyelvben megjegyzések lehetnek egy vagy több sorosak.
 
 Egy soros megjegyzéseket két darab perjel segítségével állíthatunk be:
 
@@ -394,7 +394,6 @@ A program a végrehajtás utána a következőt írja a képernyőre:
 Egységár:                   45 Ft
 ```
 
-
 ```java
 int szam1 = 45;
 int szam2 = 25;
@@ -406,3 +405,119 @@ Kimenet:
 ```cmd
 Egységár:   45 Ft Tömeg:   25 kg
 ```
+
+### Pontosság
+
+Valós számok esetén beállíthatjuk a pontosságot. Vegyük szemügyre újból a szintaxist:
+
+```text
+%[argumentum_index$][jelzők][szélesség][.pontosság]konverziós_karakter
+```
+
+A pontosságot megadását mindig egy "." karakter vezeti, be ezt követi egy a pontosság, számmal megadva.
+
+```java
+double valos1 = 45.12345678;
+System.out.printf("%.2f\n", valos1);
+```
+
+Kimenet:
+
+```cmd
+45.12
+```
+
+A szélesség és pontosság használható együtt. A szélességet, mindig a pontosság elé írjuk:
+
+```java
+double valos1 = 45.12345678;
+System.out.printf("%10.2f\n", valos1);
+```
+
+Kimenet:
+
+```cmd
+     45.12
+```
+
+### Jelzők
+
+A szélesség előtt megadhatunk jelzőket. A következő táblázat mutatja milyen jelzők használhatók.
+
+| Jelző | Leírás (milyen konverziós karakter esetén) |
+|-|-|
+| + | előjel előírása |
+| - | balra igazítás |
+| 0 | vezető nullák megjelenítése |
+| , | ezeredes elválasztás |
+| # | alternatív formátum megjelenítése (csak o, x és X konverziós karakternél) |
+| ' ' | egy vezető szóköz pozitív számok számára (csak d, o, x és X esetén ) |
+| ( | negatív számok zárójelbe kerülnek csak e, E , f, g, és G esetén |
+
+### Előjel előrírása
+
+```java
+System.out.printf("%,2d\n", 45);
+```
+
+Kimenet:
+
+```cmd
++5
+```
+
+### Balra igazítás
+
+```java
+System.out.printf("|%-10d|\n", 45);
+```
+
+Kimenet:
+
+```cmd
+|45        |
+```
+
+### Vezető nullák
+
+```java
+System.out.printf("|%010d|\n", 45);
+```
+
+Kimenet:
+
+```cmd
+|0000000045|
+```
+
+### Ezredes elválasztás
+
+```java
+System.out.printf("%,d\n", 2247589824);
+```
+
+Kimenet:
+
+```cmd
+2 247 589 824
+```
+
+### Konverziós karakterek
+
+| Konverziós karakter | Leírás |
+|-|-|
+| B, B | Ha az argumentum null, akkor visszatérés „false”. Az argumentum boolden vagy Booldan, akkor a visszatérés String.valueOf(). Ellenkező esetben a vissztérés „false”. |
+| h, H | Ha az argumentum null, akkor a visszatérés is null. Egyébként a visszatérés Integer.toHexString(arg.hashCode(). |
+| s, S | Ha az argumentum null, akkor a visszatérés is null. Ha az argumentum formázást valósít meg akkor a formázás érvényesül. Minden más esetben az argumentumon karaktersorozattá alakul toString(). |
+| c, C | Visszatér egy Unicode karaterrel. |
+| d | Visszatér egy formázott decimális egésszel. |
+| o | Visszatér egy formázott oktális egésszel. |
+| x, X | Visszatér egy formázott hexadecimlási egésszel. |
+| e, E | Visszatér egy formázott decimális számmal, todmányos alakban. |
+| f | Visszatér egy formázott decimális számmal. |
+| g, G | Visszatér egy formázott tudományos formával vagy decimális formával, a kerekítési érték pontosságától függően. |
+| a, A | Visszatér egy formázott hexadecimális lebegőpontos számmal, alappal és kitevővel. |
+| t, T | Dátum és konverziós karakterek előtagja. Lásd a dátum és időkonverziót. |
+| % | Visszad egy % literálist (\u0025). |
+| n | Visszatér egy platformspecifikus sortöréssel. |
+
