@@ -7,4 +7,40 @@
 
 ## Szelekció
 
+### if
+
+```java
+int num = 30;
+if (num > 30) {
+    System.out.prinln("nagyobb");
+}
+```
+
+```java
+int num = 30;
+if (num > 30) {
+    System.out.prinln("nagyobb");
+}else {
+    System.out.prinln("kisebb vagy egyenlő");
+}
+```
+
 ## Iteráció
+
+### for
+
+```java
+for(int i=0; i<5; i++) {
+    System.out.println(i);
+}
+```
+
+### while
+
+```java
+int i=0;
+while(i<5) {
+    System.out.println(i);
+    i++;
+}
+```
