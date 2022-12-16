@@ -333,6 +333,33 @@ final int szam1 = 45;
 szam1 = 70; //Hiba!
 ```
 
+## Típuskonverzió
+
+### Konverzió szélesítéssel
+
+Ha létrehozok egy byte típusú változót, bele tehetem egy short típusú változóba. Ezt nevezik szélesítésnek, angolul: automatic promotion.
+
+```java
+byte num1 = 30;
+short num2 = num1;
+```
+
+### Konverzió szűkítéssel
+
+Ha létrehozunk egy short típusú változót, egyszerű értékadással nem tudjuk egy byte típusúba tenni.
+
+```java
+short num1 = 30;
+byte num2 = num1; //Hiba!
+```
+
+A megoldás a típus kasztolás (type casting):
+
+```java
+short num1 = 30;
+byte num2 = (byte) num1;
+```
+
 ## Formázott kivitel
 
 A formázott kimenetet a printf() metódussal készíthetünk. Nézzük egy egyszerű változó kiíratást:
@@ -521,3 +548,9 @@ Kimenet:
 | % | Visszad egy % literálist (\u0025). |
 | n | Visszatér egy platformspecifikus sortöréssel. |
 
+## Gyakorlatok Változók témakörben
+
+### Kérdések
+
+* Írjon egy lebegőpontos típust
+* Írjon két egész típust

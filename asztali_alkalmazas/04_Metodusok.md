@@ -7,9 +7,89 @@
 
 ## A metódusokról
 
-Az osztályok tartalmazhatnak adattagokat és metódusokat. A metódusok írják le egy osztály viselkedését.
-
 A metódusok létrehozásával egy utasításnak újabb nevet adhatok, vagy összefognak vele több utasítást, amit egyetlen néven futtatok.
+
+## Metódusok definiálása
+
+Az osztályon belül több létrehozhatunk több metódust is. Legyen egy print() metódus, ami bármit kiír, hasonlóan a System.out.println() metódushoz.
+
+```java
+class App {
+    static void print(obj) { 
+        System.out.println(Object obj) 
+    }
+    public static void main(String[] args) {
+        print("Valami");
+    }
+}
+```
+
+Több utasítást is összefoghatok egy metódussal:
+
+```java
+class App {
+    static void about() {
+        System.out.println("-------------");
+        System.out.println("Nagy János");
+        System.out.println("Valahol");
+        System.out.println("-------------");
+    }
+    public static void main(String[] args) throws Exception {
+        about();
+    }
+}
+```
+
+## Kód struktúrálása
+
+A metódusokat használjuk arra is, hogy több részre szervezzük az osztályunk utasításait.
+
+```java
+class App {
+    static void calcTriangleArea() {
+        double base = 30;
+        double height = 35;
+        double area = base * height / 2;
+        System.out.println("Terület: " + area);
+    }
+    static void about() {
+        System.out.println("-------------");
+        System.out.println("Nagy János");
+        System.out.println("Valahol");
+        System.out.println("-------------");
+    }
+    public static void main(String[] args) throws Exception {
+        about();
+        calcTriangleArea();
+    }
+}
+```
+
+## Osztályváltozó elérése
+
+```java
+class App {
+    static double base = 30;
+    static double height = 35;
+    static double area;
+    static void calcTriangleArea() {
+        area = base * height / 2;     
+    }
+    static void writeArea() {
+        System.out.println("Terület: " + area);        
+    }
+    static void about() {
+        System.out.println("-------------");
+        System.out.println("Nagy János");
+        System.out.println("Valahol");
+        System.out.println("-------------");
+    }
+    public static void main(String[] args) throws Exception {
+        about();
+        calcTriangleArea();
+    }
+}
+```
 
 ## Statikus metódusok
 
@@ -88,6 +168,70 @@ class App {
 
 ```
 
+## Scope
+
+```java
+class Triangle {
+    double base = 30;
+    double height = 35;
+    double area;
+    void calcArea() {
+        area = base * height / 2;     
+    }
+    void writeArea() {
+        System.out.println("Terület: " + area);        
+    }
+}
+
+class App {
+    public static void main(String[] args) throws Exception {
+        Triangle tri = new Triangle();
+        tri.calcArea();
+        tri.writeArea();
+    }
+}
+```
+
+```java
+public class Triangle {
+    double base = 30;
+    double height = 35;
+    double area;
+    void calcArea() {
+        double area = base * height / 2;;
+        this.area = area; // osztályváltozó és helyi változó!
+    }
+    void writeArea() {
+        System.out.println("Terület: " + area);        
+    }    
+}
+```
+
 ## Paraméterátadás
 
+```java
+void doubleNumber(int num) {
+    System.out.println(num * 2);
+}
+```
+
+```java
+void sumNumbers(int num1, int num2) {
+    System.out.println(num1 + num2);
+}
+```
+
 ## Visszatérésiérték
+
+```java
+void doubleNumber(int num) {
+    int result = num * 2;
+    retrun result;
+}
+```
+
+```java
+void doubleNumber(int num) {
+    retrun num * 2;
+}
+```
