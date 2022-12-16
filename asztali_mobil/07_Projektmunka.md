@@ -8,3 +8,8 @@
 ## A projektmunka eszközei
 
 * Git
+* Git szerverből egy:
+  * GitHub
+  * GitLab
+  * Bitbucket
+* Trello
