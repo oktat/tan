@@ -5,7 +5,7 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
-## A testelés szintjei
+## A tesztelés szintjei
 
 * komponensteszt
 * integrációs teszt
