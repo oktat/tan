@@ -28,10 +28,12 @@ try {
 
 ### Szöveges fájlok olvasása
 
+A Fájl olvasása ellenőrzött kivételt dobhat, ezért try catch szerkezetbe írjuk.
+
 ```java
 try {
     File file = new File("adat.txt");
-    Scanner scanner = new Scanner(file);
+    Scanner scanner = new Scanner(file, "utf-8");
     while(scanner.hasNextLine()) {
         System.out.println(scanner.nextLine());
     }
