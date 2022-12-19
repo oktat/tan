@@ -204,3 +204,20 @@ public class Employee {
     
 }
 ```
+
+## Osztály tömbben
+
+```java
+Dolgozo[] dolgozok = new Dolgozo[5];
+Dolgozo dolgozo = new Dolgozo("Park Béla", "Pécs", 345);
+dolgozok[0] = dolgozo;
+```
+
+## Osztály listában
+
+```java
+ArrayList<Dolgozo> dolgozoLista = new ArrayList<>();
+Dolgozo dolgozo = new Dolgozo("Park Béla", "Pécs", 345);
+dolgozoLista.add(dolgozo);
+System.out.println(dolgozoLista.get(0).name);
+```

@@ -167,9 +167,11 @@ public class App extends Application {
 * Color.BLANCHEDALMOND
 * stb.
 
+Próbáljk ki több színnel az előző programot.
+
 ### RGBA színkód
 
-A számok 0.0 - 1.0 közötti értékek lehetnek.
+Színek megadhatók számokkal is RGBA színkódolással. A számok 0.0 - 1.0 közötti értékek lehetnek.
 
 Piros szín:
 
@@ -177,9 +179,29 @@ Piros szín:
 Color color = new Color(1.0, 0.0, 0.0, 1.0);
 ```
 
+Zöld szín:
+
+```java
+Color color = new Color(0.0, 1.0, 0.0, 1.0);
+```
+
+Kék szín:
+
+```java
+Color color = new Color(0.0, 0.0, 1.0, 1.0);
+```
+
 ## JavaFX alakzatok
 
 ### Szöveg
+
+A szöveg vagy más alakzat elhelyezése x, y koordinátával hatástalan StackPane komponensen. Helyette használjuk a Group osztályt:
+
+```java
+Group group = new Group();
+```
+
+A szövegnek állíthatjuk a fontméretét, az elhelyezését, a vonalvastagságát, a szöveg színét.
 
 ```java
 Text text = new Text("alma");
@@ -190,18 +212,22 @@ text.setStrokeWidth(4);
 text.setStroke(Color.BLUE);
 ```
 
-```java
-Group group = new Group(text);
-```
-
-Vagy lehet így is:
+A text objektum a group objektumhoz adható getChilcren() metóduson keresztül:
 
 ```java
 Group group = new Group();
 group.getChildren().add(text);
 ```
 
+Vagy paraméterként megadható a csoport számára:
+
+```java
+Group group = new Group(text);
+```
+
 ### Vonal
+
+Vonal esetén a kezdőpontot és a végpontot kell megadni, x, y koordinátával.
 
 ```java
 import javafx.scene.shape.Line;
@@ -315,6 +341,29 @@ Group group = new Group();
 group.getChildren().add(imageView);
 ```
 
+## JavaFX Label
+
+```java
+import javafx.scene.control.Label;
+//...
+
+Label label1 = new Label();
+```
+
+Háttérszín:
+
+```java
+this.label1.setBackground(
+    new Background(new BackgroundFill(Color.BLUE, null, null))        
+);
+```
+
+Szöveg színe:
+
+```java
+this.label1.setTextFill(Color.WHITE);
+```
+
 ## JavaFX gomb és bevitelimező
 
 ```java
@@ -364,6 +413,8 @@ public class App extends Application {
 ```
 
 ## Eseményfigyelés
+
+Az eseményfigyelést a nyomógombon egy setOnAction() metódussal állítható be. Lambad kifejezés használatával csak meg kell hívni a metódust, ami reagál az eseményre.
 
 ```java
 button.setOnAction(e -> onClickButton());
