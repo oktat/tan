@@ -107,3 +107,100 @@ Emplyoee employee = new Emplyoee();
 //Így is hívható:
 Emplyoee employee = new Emplyoee("Tenge Albert");
 ```
+
+## Öröklés
+
+Az öröklés segítségével a már elkészült osztályokat újrafelhasználhatjuk és bővíthetjük. A következő példában készítünk egy Employee osztályt, aminek két adattagja van, a name és a city. Ha most szükségünk van egy Engineer osztályra, amiben szintén van name és city adattag, nem kell újra felvenem ezeket a mezőket, egyszerűen átörökítem azokat az extends utasítással:
+
+```java
+class Employee {
+    String name;
+    String city;
+}
+
+class Engineer extends Emplyee {
+    String diploma;
+}
+```
+
+A metódusok szintén öröklödnek.
+
+Employee.java
+
+```java
+package models;
+
+public class Employee {
+    public String name;
+    public String city;
+    public Employee() {
+        this.name = "Névtelen";
+        this.city = "ismeretlen";
+    }
+    public void pihen() {
+        System.out.println("prrrr");
+    }
+    public void lapatol() {
+        System.out.println("pram, param");
+    }    
+}
+```
+
+Engineer.java
+
+```java
+package models;
+
+public class Engineer extends Employee {
+    public String diploma;
+    public Engineer() {
+        diploma = "AB-284382";
+    }    
+}
+```
+
+App.java
+
+```java
+import models.Engineer;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        
+        Engineer engineer = new Engineer();
+        System.out.println(engineer.name);
+        engineer.pihen();
+    }
+}
+```
+
+A kimenet:
+
+```cmd
+Névtelen
+prrrr
+```
+
+## Beállító lekérdező metódusok
+
+Az osztályok adattagjait nem szokás nyilvánossá tenni. Helyette beállító lekérdező metódusokat használunk:
+
+```java
+public class Employee {
+    private String name;
+    private String city;
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getCity() {
+        return city;
+    }
+    public void setCity(String city) {
+        this.city = city;
+    }
+    
+}
+```
