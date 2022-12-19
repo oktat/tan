@@ -93,11 +93,65 @@ public class App extends Application {
 * TreeView
 * WebView
 
+### Text komponens elhelyezése
+
+```java
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class App extends Application {
+    public static void main(String[] args) throws Exception {
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        StackPane root = new StackPane();
+        Text text = new Text("alma");
+        root.getChildren().add(text);
+        primaryStage.setTitle("Text komponens");
+        primaryStage.setScene(new Scene(root, 400, 300));
+        primaryStage.show();
+    }
+}
+```
+
 ## JavaFX színkezelés
 
 ```java
 Text text = new Text("alma");
 text.setStroke(Color.BLUE);
+```
+
+Teljes program App.java:
+
+```java
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class App extends Application {
+    public static void main(String[] args) throws Exception {
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        StackPane root = new StackPane();
+        Text text = new Text("alma");
+        text.setStroke(Color.BLUE);
+        root.getChildren().add(text);
+        primaryStage.setTitle("Text komponens");
+        primaryStage.setScene(new Scene(root, 400, 300));
+        primaryStage.show();
+    }
+}
 ```
 
 ### Beépített színek
