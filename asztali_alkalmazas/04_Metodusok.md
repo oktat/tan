@@ -7,11 +7,11 @@
 
 ## A metódusokról
 
-A metódusok létrehozásával egy utasításnak újabb nevet adhatok, vagy összefognak vele több utasítást, amit egyetlen néven futtatok.
+A metódusok létrehozásával egy utasításnak újabb nevet adhatunk, vagy összefogunk vele több utasítást, amit egyetlen néven futtatok.
 
 ## Metódusok definiálása
 
-Az osztályon belül több létrehozhatunk több metódust is. Legyen egy print() metódus, ami bármit kiír, hasonlóan a System.out.println() metódushoz.
+Az osztályon belül létrehozhatunk több metódust is. Legyen egy print() metódus, ami bármit kiír, hasonlóan a System.out.println() metódushoz:
 
 ```java
 class App {
@@ -42,7 +42,7 @@ class App {
 
 ## Kód struktúrálása
 
-A metódusokat használjuk arra is, hogy több részre szervezzük az osztályunk utasításait.
+A metódusokat használjuk arra is, hogy több részre bontsuk az osztályunkat. A következő példában a main() metóduson kívül, a calcTriangleArea() metódusban végzem el számításokat. A névjegy is külön about() nevű metódusban kapott helyet.
 
 ```java
 class App {
@@ -66,6 +66,8 @@ class App {
 ```
 
 ## Osztályváltozó elérése
+
+A következő példában az osztály változói statikusak, így hivaktozhatunk rájuk statikus környezetből.
 
 ```java
 class App {
@@ -93,7 +95,7 @@ class App {
 
 ## Statikus metódusok
 
-Az osztály céljától függően a metódusaik lehetnek statikus és példánymetódusok. Az osztályok a világunkat reprezentálják. Ha egy osztály olyan dolgot reprezentál, amiből csak egy van, akkor statikus metódusokat szoktunk létrehozni.
+Az osztály céljától függően a metódusaik lehetnek statikus és példánymetódusok. Az osztályok a világunkat reprezentálják. Ha egy osztály olyan dolgot reprezentál, amiből csak egy van, akkor statikus metódusokat szoktunk létrehozni. Egy alkalmazásból csak egy van világon, és annak egy tulajdonsoba van. Most eltekintünk a hasonló alkalmazásoktól. Ennek következtében célszerű statikus metódusokat használni.
 
 ```java
 class App {
@@ -105,6 +107,8 @@ class App {
     }
 }
 ```
+
+Matematikából is csak egy van, így azt is felesleges lenne példányosítani.
 
 ```java
 class ExtraMath {
@@ -129,6 +133,8 @@ public class App {
 }
 ```
 
+A Földből is csak egy van. Ha bolygóról lenne szó, az más lenne.
+
 ```java
 class Earth {
     public static double getRadius() {
@@ -147,6 +153,8 @@ class App {
 ```
 
 ## Példánymetódusok
+
+Dolgozóból több is van, ezért egy Dolgozo vagy angolul Employee osztályt úgy használjuk, hogy abból példányokat hozunk létre.
 
 ```java
 class Employee {
@@ -170,6 +178,8 @@ class App {
 
 ## Scope
 
+A metóduson belül létrehozott változók és objektumok csak a változón belül érhetők el. Az osztály adattagjai az összes metódusból elérhetők.
+
 ```java
 class Triangle {
     double base = 30;
@@ -191,6 +201,8 @@ class App {
     }
 }
 ```
+
+Újabb példa a helyi és osztályváltozóra:
 
 ```java
 public class Triangle {
