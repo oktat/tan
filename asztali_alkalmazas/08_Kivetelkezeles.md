@@ -7,14 +7,14 @@
 
 ## Kivételkezelés
 
-A kivételek abnormális állapotok amiket kezelünk. Ha fellép egy abnormális állapot, a program kivételt dob.
+A kivételek abnormális állapotok, amiket kezelünk. Ha fellép egy abnormális állapot, a program kivételt dob.
 
 Kétféle kivétel van a Java nyelvben:
 
 * ellenőrzött - kötelező kezelni
 * futási idejű (ellenőrizetlen) - nem kötelező kezelni
 
-A kivételetk a try catch utasításokkal kaphatjuk el.
+A kivételek a try catch utasításokkal kaphatjuk el.
 
 ```java
 try {
