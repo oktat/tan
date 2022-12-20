@@ -135,10 +135,8 @@ Elemi adattípusok:
 
 Összetett adattípusok:
 
-* array
 * object
-* map
-* set
+* function
 
 A number típusban tárolhatók egész és valós számok egyaránt. Egész szám például:
 
@@ -193,9 +191,34 @@ false
 
 A null speciális mivel, azt jelenti nincs érték. Ennek típusa object. Az undefined is speciális és ez is a nem megadott értékre utal.
 
-Az array, object, map, set összetett adattípusok, vagyis több értéket is tartalmazhatnak.
+Az **object**, összetett adattípusok, vagyis több értéket is tartalmazhatnak. A JavaScriptben készíthetünk néhány típust, ami mind objektumként jelenik meg:
+
+* object
+* map
+* set
+
+```javascript
+//object:
+console.log(typeof {name: 'Pali', city: 'Pécs'});
+```
+
+A tömb, a map és a set is object típusként jelennek meg:
+
+```javascript
+console.log(typeof [2, 5, 3]);
+console.log(typeof ['Pali', 'Tibi', 'Dani']);
+```
+
+A függvények function típusként jelennek meg:
+
+```javascript
+console.log(typeof function() {});
+console.log(typeof (() => {}));
+```
 
 ## Változók
+
+A változókban eltárolhatjuk az értékeket. A változók bevezetésénél nem szükséges megadni a típust, csak a var vagy a let kulcsszót. A const is használható, de azzal állandót vezetünk be, nem változót. Ha a változót blokkon kívül vezetjük be, akkor a var-t szokás használni, ha blokkon belül vagyun, használhatjuk a let kulcsszót.
 
 ```javascript
 var a = 30;
