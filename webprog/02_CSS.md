@@ -623,15 +623,77 @@ Ebben a rövid feladatban a változókat használtunk Sass nyelven.
 
 ### Kérdések
 
-1. Kitől származhatnak stíluslapok?
-2. Melyik stílusnak van nagyobb súlya? A később vagy az előbb beírt stíluslapnak?
-3. Hogyan kell egy táblázat cellái közötti helyet megszüntetni CSS-sel?
-4. Hogyan tudjuk beállítani a cellák közötti tér méretét?
-5. Hogyan állítjuk be "para" osztályba tartozó táblázat celláinak szegélyét lekerekítettre?
-6. Mire jó az nth-child ál-osztály?
-7. Mire való a CSS-ben az rgba() függvényben a negyedik paraméter?
-8. Mire való a CSS-ben az rgba() függvényben a harmadik paraméter?
-9. Hogyan állíthatom be a "deres" osztályba tartozó doboz átlátszatlanságát, 0.5 értékre?
+1.)
+Kitől származhatnak stíluslapok? Több jó válasz is lehetséges.
+
+* szerző
+* jogi személyiség
+* kliens
+* felhasználó
+
+2.)
+Melyik stílusnak van nagyobb súlya? A később vagy az előbb beírt stíluslapnak?
+
+* az előbb beírt, ha háttérformásáról van szó
+* az előbb beírt, ha szövegformázásról van szó
+* mindig az előbb beírt
+* mindig az utóbb beírt
+
+3.)
+Hogyan kell egy táblázat cellái közötti helyet megszüntetni CSS-sel? Válasszon.
+
+* border-collapse: collapse;
+* border-spacing: none;
+* border-spacing: collapse;
+* border-collapse: yes;
+
+4.)
+Hogyan tudjuk beállítani a cellák közötti tér méretét?
+
+* border-collapse: 30px;
+* border-width: 30px;
+* border-spacing: 30px;
+* cell-spacing: 30px;
+
+5.)
+Hogyan állítjuk be "para" osztályba tartozó táblázat celláinak szegélyét lekerekítettre?
+
+* .para { border-round: 5px; }
+* .para { border-radius: 5px; }
+* .para { border-rad: 5px; }
+* .para { border-square: 5px; }
+
+6.)
+Mire jó az nth-child ál-osztály?
+
+* Csak a háttérszín beállítására.
+* Ismétlődő elemeknél n-dik elem kiválasztása.
+* Egy elem ismétlése n-szer.
+* A háttérszín szorzása n-szer.
+
+7.)
+Mire való a CSS-ben az rgba() függvényben a negyedik paraméter?
+
+* Append, azaz hozzáfűést állíthatunk be vele.
+* A színek váltogatják egymást.
+* A szín átlátszatlanságát állíthatjuk vele.
+* Az elem tartalmának beállítása.
+
+8.)
+Mire való a CSS-ben az rgba() függvényben a harmadik paraméter?
+
+* Az elem tartalmának beállítása.
+* Az elem átlátszatlanságát állíthatjuk be.
+* A kék szín arányát adhatjuk meg.
+* A kiválasztott elem margójának mérete.
+
+9.)
+Hogyan állíthatom be a "deres" osztályba tartozó doboz átlátszatlanságát, 0.5 értékre?
+
+* .deres { deres: 0.5 }
+* .deres { color: 0.5 }
+* .deres { dendrit: 0.5 }
+* .deres { opacity: 0.5 }
 
 10.)
 Milyen kiterjesztése lehet egy Sass stílusfájlnak?
