@@ -167,7 +167,7 @@ public class App extends Application {
 * Color.BLANCHEDALMOND
 * stb.
 
-Próbáljk ki több színnel az előző programot.
+Próbáljuk ki több színnel az előző programot.
 
 ### RGBA színkód
 
