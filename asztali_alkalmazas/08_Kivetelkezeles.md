@@ -7,14 +7,14 @@
 
 ## Kivételkezelés
 
-A kivételek abnormális állapotok amiket kezelünk. Ha fellép egy abnormális állapot, a program kivételt dob.
+A kivételek abnormális állapotok, amiket kezelünk. Ha fellép egy abnormális állapot, a program kivételt dob.
 
 Kétféle kivétel van a Java nyelvben:
 
 * ellenőrzött - kötelező kezelni
 * futási idejű (ellenőrizetlen) - nem kötelező kezelni
 
-A kivételetk a try catch utasításokkal kaphatjuk el.
+A kivételek a try catch utasításokkal kaphatjuk el.
 
 ```java
 try {
@@ -28,10 +28,12 @@ try {
 
 ### Szöveges fájlok olvasása
 
+A Fájl olvasása ellenőrzött kivételt dobhat, ezért try catch szerkezetbe írjuk.
+
 ```java
 try {
     File file = new File("adat.txt");
-    Scanner scanner = new Scanner(file);
+    Scanner scanner = new Scanner(file, "utf-8");
     while(scanner.hasNextLine()) {
         System.out.println(scanner.nextLine());
     }

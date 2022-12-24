@@ -5,6 +5,42 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## A JavaScript nyelv
+
+1995-ben létrehoztak egy Mocha nevű nyelvet. Néha Netscape Scripting Language néven is említették. A C és Java nyelv is hatással volt rá, de azoktól független nyelv. A Mocha később LiveScript-re lett átnevezve, majd megint később lett JavaScript.
+
+A Mocha óta a JavaScript sok változáson ment keresztül. Szintaktikája a Java nyelvhez hasonlóságot a JavaScript név felvétele idején kezdett mutatni.
+
+A JavaScript szabványt az ECMA szabványügyi szervezet tartja karban. Az ECMAScript szabványt a JavaScript (Netscape) és a JScript (Microsoft) nyelvek alapján hozták létre. A szabványosítást a Netscape vállalat kezdeményezte. Az első szabvány 1997-ben jelent meg. 1998-ban és 1999-ben újabb verziója jelent meg a szabványnak. A következő, a negyedik szabványig hoszzabb idő telt el, de nem készült el. Az ötödik szabvány 2011-ben jelent meg 5.1 verzószámmal. A hatódik szabvány 2016-ban jelent meg. Ettől a szabványtól évente jelent meg újabb [szabványok](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/).
+
+* 1 - 1997
+* 2 - 1998
+* 3 - 1999
+* 4 - nem készült el
+* 5 - 2009
+* 5.1 - 2011
+* 6 - 2015
+* 7 - 2016
+* 8 - 2017
+* 9 - 2018
+* 10 - 2019
+* 11 - 2020
+* 12 - 2021
+* 13 - 2022
+
+A szabványokra rövidítéssel szokás hivatkozni. Például:
+
+| Verzió | Kiadás dátuma | Rövidítés |
+|-|-|-|
+| 6 | 2015 | ES6 |
+| 7 | 2016 | ES7 |
+| 8 | 2017 | ES8 |
+| 9 | 2018 | ES9 |
+| 10 | 2019 | ES10 |
+| 11 | 2020 | ES11 |
+| 12 | 2022 | ES12 |
+| 13 | 2022 | ES13 |
+
 ## Futtatás konzolon
 
 ```javascript
@@ -17,24 +53,172 @@ Futtatás:
 node index.js
 ```
 
+### JavaScript böngészőben
+
+Készítenünk kell egy index.html nevű fájlt:
+
+#### Inline
+
+```html
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+ 
+</head>
+<body onload="alert('Helló Világ');">
+ 
+</body>
+</html>
+```
+
+#### Internal
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<script>
+alert("Helló Világ");
+</script>
+ 
+</head>
+<body>
+ 
+</body>
+</html>
+```
+
+#### External
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<script src="index.js"></script>
+ 
+</head>
+<body>
+ 
+</body>
+</html>
+```
+
+index.js fájl tartalma:
+
+```javascript
+alert("Helló Világ");
+```
+
+### A console a böngészőben
+
+A böngészőkben a konzolt a fejlesztői felületen találjuk. A fejlesztői felületet általában a Ctrl+Shift+i billentyűkombinációval jeleníthetjük meg. Újabban az F12 is működik.
+
+A böngésző konzoljára írás is:
+
+```javascript
+console.log('működik');
+```
+
 ## Típusok
 
 Elemi adattípusok:
 
-* Number
-* String
-* Boolean
+* number
+* string
+* boolean
 * null
 * undefined
 
 Összetett adattípusok:
 
-* Array
-* Object
-* Map
-* Set
+* object
+* function
+
+A number típusban tárolhatók egész és valós számok egyaránt. Egész szám például:
+
+```txt
+30
+```
+
+Készítsünk egy index.js nevű fájlt a következő tartalommal:
+
+```javascript
+console.log(typeof 30);
+```
+
+Futtassuk a következő parancsot:
+
+```cmd
+node index.js
+```
+
+Valós szám:
+
+```txt
+35.7
+```
+
+Az index.js áttírásával teszteljük valós szám vizsgálatát.
+
+```javascript
+console.log(typeof 35.7);
+```
+
+A string típusban karakterláncokat tárolhatunk:
+
+```txt
+"alma"
+'körte'
+`szilva`
+```
+
+Az index.js fájlban nézzük meg a karakterláncok típusát:
+
+```javascript
+console.log(typeof "alma");
+```
+
+A boolean típusok:
+
+```txt
+true
+false
+```
+
+A null speciális mivel, azt jelenti nincs érték. Ennek típusa object. Az undefined is speciális és ez is a nem megadott értékre utal.
+
+Az **object**, összetett adattípusok, vagyis több értéket is tartalmazhatnak. A JavaScriptben készíthetünk néhány típust, ami mind objektumként jelenik meg:
+
+* object
+* map
+* set
+
+```javascript
+//object:
+console.log(typeof {name: 'Pali', city: 'Pécs'});
+```
+
+A tömb, a map és a set is object típusként jelennek meg:
+
+```javascript
+console.log(typeof [2, 5, 3]);
+console.log(typeof ['Pali', 'Tibi', 'Dani']);
+```
+
+A függvények function típusként jelennek meg:
+
+```javascript
+console.log(typeof function() {});
+console.log(typeof (() => {}));
+```
 
 ## Változók
+
+A változókban eltárolhatjuk az értékeket. A változók bevezetésénél nem szükséges megadni a típust, csak a var vagy a let kulcsszót. A const is használható, de azzal állandót vezetünk be, nem változót. Ha a változót blokkon kívül vezetjük be, akkor a var-t szokás használni, ha blokkon belül vagyun, használhatjuk a let kulcsszót.
 
 ```javascript
 var a = 30;
@@ -56,6 +240,13 @@ var csianl = () => {
 ```javascript
 const a = document.getElementById('vmi');
 const b = 25;
+```
+
+A typeof operátorral lekérdezhetők a változók típusai:
+
+```javascript
+var a = 30;
+console.log(typeof a);
 ```
 
 ## Vezérlési szerkezetek

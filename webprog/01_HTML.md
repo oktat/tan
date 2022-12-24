@@ -508,7 +508,7 @@ Mire jó a colspan attribútum egy táblázatban?
 * A táblázat celláit összevonhatjuk sorokon keresztül
 
 7.)
-Mit csinál a következ attribútum: &lt;td colspan="3"&gt;?
+Mit csinál a következő attribútum: &lt;td colspan="3"&gt;?
 
 * Három soron keresztül összevonja az adott cellát
 * Három cella jelenik meg, egy helyett

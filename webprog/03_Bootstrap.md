@@ -82,7 +82,6 @@ npm install bootstrap
 * bg-warning
 * bg-info
 
-
 ## Konténerek
 
 ```html
@@ -152,3 +151,23 @@ Példa:
 Valami
 </div>
 ```
+
+## Bootstrap gyakorlat
+
+### Kérdések
+
+1.)
+Hogyan állítható be Bootstrap segítségével egy doboz körül 3-as szintű margó körbe.
+
+* m-3
+* margin-3
+* mar-3
+* p-3
+
+2.)
+Hogyan állítható be Bootstrap segítségével egy doboz körül 3-as szintű felső-margó.
+
+* m-3
+* mt-3
+* mar-3
+* top-margin-3
