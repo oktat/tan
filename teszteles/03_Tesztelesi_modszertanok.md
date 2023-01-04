@@ -15,7 +15,7 @@ A komponensek együttműködését teszteljük.
 
 Megközelítések:
 
-* Big-Bang - az összes mdoult összerakjuk
+* Big-Bang - az összes modult összerakjuk
 * Alulról felfelé - magasabb modullal teszteljük az alacsonyabb szintű modulokat
 * Felülről lefelé - először a magasszintű modulok tesztelése
 * Vegyes - alulról felfelé, felülről lefelé kombinálva
@@ -29,7 +29,7 @@ Mit vizsgálnak?
 
 * A specifikációnak megfelel a program?
 
-Például: Specifikáció szerint jelentés kell tudnia generálni valamiről a programnak. Ennek ellenőrzése.
+Például: Specifikáció szerint jelentést kell tudnia generálni valamiről a programnak. Ennek ellenőrzése.
 
 ## Elfogadási teszt
 
@@ -66,7 +66,7 @@ A szoftver valóban képes elvégezni a neki szánt munkát. Kik végeznek ilyen
 
 * Fekete dobozos teszt.
 * A tesztelőnek nincs jogosultsága.
-* Nehezn automatizálható.
+* Nehezen automatizálható.
 * Kétféle:
   * Blue teaming (a tesztelő ismeri az infrastruktúrát)
   * Red teaming (a tesztelő nem ismeri az infrastruktúrát)
@@ -74,7 +74,7 @@ A szoftver valóban képes elvégezni a neki szánt munkát. Kik végeznek ilyen
 #### Etikus hackelés
 
 * Előzetes ismeretek nélküli teszt.
-* Akár pszichológiai manipulációval (social engineering)
+* Akár pszichológiai manipulációval (social engineering).
 
 ### Tesztelési "szabványok"
 
@@ -120,7 +120,7 @@ Kockázatértékelés
 * kockázatértékelés
 * adatkezelés
 
-### Szfotverek
+### Szoftverek
 
 * Wapiti
   * [https://wapiti-scanner.github.io/](https://wapiti-scanner.github.io/)
@@ -145,11 +145,11 @@ Terhelésvizsgálat:
 * nagy dokumentum
 * sok adat
 
-Azt vizsgáljuk, mi az a mennyiség, amit a rendsezr összeomlás nélkül tud még kezelni.
+Azt vizsgáljuk, mi az a mennyiség, amit a rendszer összeomlás nélkül tud még kezelni.
 
 ## TDD
 
-A TDD a Test-driven development rövidítése. Magyarul tesztvezérlt fejlesztésnek hívjuk. A szoftverfejlesztést egy minimális teszt írásával kezdjük. Ezt követően annyit fejlesztünk, hogy a teszt teljesüljön. Refaktorálunk ha szükséges, majd ismételjük az elejétől. Fejlesztjük a tesztet minimálisan. Annyit fejlesztünk a kódon, hogy teljesítse a tesztet. Ha szükséges refaktorálunk. Ezt ismételjük.
+A TDD a Test-driven development rövidítése. Magyarul tesztvezérelt fejlesztésnek hívjuk. A szoftverfejlesztést egy minimális teszt írásával kezdjük. Ezt követően annyit fejlesztünk, hogy a teszt teljesüljön. Refaktorálunk ha szükséges, majd ismételjük az elejétől. Fejlesztjük a tesztet minimálisan. Annyit fejlesztünk a kódon, hogy teljesítse a tesztet. Ha szükséges refaktorálunk. Ezt ismételjük.
 
 Lépések:
 
