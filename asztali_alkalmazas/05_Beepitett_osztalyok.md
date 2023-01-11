@@ -7,8 +7,18 @@
 
 ## Matematikai osztály
 
+A Math osztály matematikai kifejezések írását segíti.
+
+### A pí értéke
+
 ```java
 System.out.println(Math.PI);
+```
+
+### A gyökvonás
+
+```java
+System.out.println(Math.sqrt(9));
 ```
 
 ## Véletlen szám generálás

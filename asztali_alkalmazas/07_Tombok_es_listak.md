@@ -7,7 +7,7 @@
 
 ## Tömbök
 
-A tömbökben azonos típusokat tárolhatunk. A tömbök létrehozása során meg kell adni hány elemet szeretnénk tárolni. Bármely típusbó készíthetünk tömböt. A tömbök méret fix.
+A tömbökben azonos típusokat tárolhatunk. A tömbök létrehozása során meg kell adni hány elemet szeretnénk tárolni. Bármely típusból készíthetünk tömböt. A tömbök méret fix.
 
 Néhány ötelemű tömb:
 
