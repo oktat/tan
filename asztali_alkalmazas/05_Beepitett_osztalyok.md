@@ -79,3 +79,19 @@ int kor = scanner.nextInt();
 String szo = "alma";
 System.out.println(szo.length());
 ```
+
+### Karakterláncok összefűzése
+
+A karakterláncok összefűzését konkatenálás néven ismerjük. Java nyelven a konkatenálás lehetséges a "+" operátorral és a concat() metódussal.
+
+```java
+String szoveg = "alma";
+String eredmeny = szoveg + " szilva";
+```
+
+```java
+String szoveg = "alma";
+String eredmeny = szoveg.concat(" szilva");
+```
+
+Mindkét konkatenálás esetén az eredményt egy új változóban tároltuk.
