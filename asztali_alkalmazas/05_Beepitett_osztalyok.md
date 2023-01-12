@@ -73,6 +73,21 @@ int kor = scanner.nextInt();
 
 ## Karakterláncok
 
+### A karakterláncokról
+
+A karakterlácok, angolul string néven ismert. A magyar nyelvben is kezd meghonosodni a "sztring" megfelelője. A Java nyelvben nincs string primitív típus, azt csak a String osztállyal hozható létre. Mivel gyakran használt osztály, ezért new hívása nélkül is létrehozható String objektum, a konstruktor ilyenkor automatikusan hívódik. A String objektumokat úgy hozhatunk létre mint primitív típusokat.
+
+```java
+String szoveg;
+String gyumolcs = "alma";
+```
+
+A new operátor ettől függetlenül használható, de így hosszabb utasítást kapunk:
+
+```java
+String gyumolcs = new String("alma");
+```
+
 ### Stringek hossza
 
 ```java
@@ -94,4 +109,29 @@ String szoveg = "alma";
 String eredmeny = szoveg.concat(" szilva");
 ```
 
-Mindkét konkatenálás esetén az eredményt egy új változóban tároltuk.
+Mindkét konkatenálás esetén az eredményt egy új változóban tároltuk. A concat() metódus nem változtatja meg az eredeti szoveg nevű változó tartalmát. A String változók, láthatjuk, hogy megváltoztathatatlanok, angolul immutable.
+
+### Adott indexen a karakter lekérdezése
+
+```java
+String gyumolcs = "alma";
+char ch = gyumolcs.charAt(2); // eredménye m betű
+```
+
+### Karakterlánc összehasonlítása
+
+Karakterláncot az equals() metódussal hasonlítunk össze, eredménye egy logikai típus. Az "==" operátor nem vezet eredményre, mert a két objektum címét hasonlítja össze.
+
+```java
+String gyumolcs1 = "alma";
+boolean eredmeny = gyumolcs.equals("alma");
+```
+
+### Karakterláncok tartalma
+
+A contains() metódussal megvizsgálhatjuk, hogy egy sztring objektum tartalma-e egy bizonyos karakterláncot.
+
+```java
+String gyumolcsok = "alma körte barack";
+boolean eredmeny = gyumolcsok.contains("körte");
+```
