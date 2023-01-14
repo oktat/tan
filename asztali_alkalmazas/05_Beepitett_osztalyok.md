@@ -88,7 +88,7 @@ A new operátor ettől függetlenül használható, de így hosszabb utasítást
 String gyumolcs = new String("alma");
 ```
 
-### Stringek hossza
+### Sztringek hossza
 
 ```java
 String szo = "alma";
@@ -135,3 +135,121 @@ A contains() metódussal megvizsgálhatjuk, hogy egy sztring objektum tartalma-e
 String gyumolcsok = "alma körte barack";
 boolean eredmeny = gyumolcsok.contains("körte");
 ```
+
+### Hol található a sztring
+
+Az első előfordulás helyét mutatja az indexOf() metódus.
+
+```java
+String gyumolcs = "alma körte barack";
+int index = gyumolcs.indexOf("körte");
+System.out.println(index);
+```
+
+Az utolsó előfordulás:
+
+```java
+String gyumolcs = "alma körte barack körte";
+int index = gyumolcs.lastIndexOf("körte");
+System.out.println(index);
+```
+
+Ha a sztring nem található az eredmény -1.
+
+Adott szóval kezdődik egy sztring?
+
+```java
+String gyumolcs = "alma körte barack körte";
+boolean igykezdodik = gyumolcs.startsWith("körte");
+System.out.println(igykezdodik);
+```
+
+Hogyan végződik?
+
+```java
+String gyumolcs = "alma körte barack körte";
+boolean igykezdodik = gyumolcs.endsWith("körte");
+System.out.println(igykezdodik);
+```
+
+### Részsztring
+
+Az 5-dik karaktertől:
+
+```java
+String szoveg = "kereszteződés";
+String resz = szoveg.substring(5);
+System.out.println(resz);
+```
+
+Az 5-s indextől a 8-s indexig:
+
+```java
+String szoveg = "kereszteződés";
+String resz = szoveg.substring(5, 8);
+System.out.println(resz);
+```
+
+### Szöveg csere
+
+Cseréljünk egy szövegrészt.
+
+```java
+String szoveg = "kereszteződés";
+String ujszoveg = szoveg.replace("eződés", "utak");
+System.out.println(ujszoveg);
+```
+
+### Kis- és nagybetűs
+
+A nagybetűs szövegből készítsünk kisbetűset:
+
+```java
+String szoveg = "KERESZTEZŐDÉS";
+String ujszoveg = szoveg.toLowerCase();
+System.out.println(ujszoveg);
+```
+
+A kis betűs szöveget nagybetűssé a toUpperCase() függvény alkalmas.
+
+```java
+String szoveg = "kereszteződés";
+String ujszoveg = szoveg.toUpperCase();
+System.out.println(ujszoveg);
+```
+
+### Whitespace karakterek
+
+A whitespace karakterek a nem látható karakterek. A sztring elejéről és végéről a trim() függvénnyel törölhetjük a whitespace karaktereket.
+
+```java
+String szoveg = "   kereszteződés    ";
+String ujszoveg = szoveg.trim();
+System.out.println(ujszoveg);
+```
+
+### Darabolás
+
+```java
+String szoveg = "1:Para Béla:Szeged:878";
+String[] szavak = szoveg.split(":");
+System.out.printf("Név: %s\n", szavak[1]);
+```
+
+### A StringBuilder és a StringBuffer
+
+A StringBuilder módosítható objektumot biztosít a porgramozó számára.
+
+```java
+StringBuilder szoveg = new StringBuilder("kereszteződés");
+System.out.println(szoveg);
+```
+
+```java
+StringBuffer szoveg = new StringBuffer("kereszteződés");
+System.out.println(szoveg);
+```
+
+A StringBuffer szálbiztos, a StringBuilder nem. A StringBuffer használata ezért mindig lassabb. Többszálas programozás esetén a StringBuffer objektumok nem lép fel probléma, de ez többlet munkát igényel, de ezért nevezzük szálbiztosnak.
+
+A StringBuffer és a StringBuilder osztályoknak van egy append() és egy insert() függvénye.
