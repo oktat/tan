@@ -21,6 +21,34 @@ System.out.println(Math.PI);
 System.out.println(Math.sqrt(9));
 ```
 
+### Hatványozás
+
+```java
+System.out.println(Math.pow(2, 8));
+```
+
+### Kerekítés
+
+```java
+System.out.println(Math.round(1.4));
+System.out.println(Math.round(1.5));
+```
+
+```java
+System.out.println(Math.ceil(1.1));
+System.out.println(Math.floor(1.9));
+```
+
+### Trigonometria
+
+```java
+double szog = 1;
+double rad = szog * Math.PI / 180;
+System.out.println(Math.sin(rad));
+System.out.println(Math.tan(rad));
+System.out.println(Math.cos(rad));
+```
+
 ## Véletlen szám generálás
 
 ```java
@@ -63,12 +91,22 @@ Scanner scanner = new Scanner(System.in);
 String nev = scanner.nextLine();
 ```
 
-```java
-import java.util.Scanner;
-//...
+Ajánlott a számok bekérése inkább szövegként, a nextInt() vagy a nextDouble() metódus helyett.
 
+Egész számok bekérése:
+
+```java
 Scanner scanner = new Scanner(System.in);
-int kor = scanner.nextInt();
+String korStr = scanner.nextLine();
+int kor = Integer.parseInt(korStr);
+```
+
+Valós szám bekérése:
+
+```java
+Scanner scanner = new Scanner(System.in);
+String hoStr = scanner.nextLine();
+double kor = Double.parseDouble(hoStr);
 ```
 
 ## Karakterláncok
