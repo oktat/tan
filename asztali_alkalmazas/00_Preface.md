@@ -15,7 +15,7 @@ A csomagkezelő weboldala:
 Bővebb leírása:
 [https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:csomagkezeles#chocolatey](https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:csomagkezeles#chocolatey)
 
-A Chocolatey weboldalán található egy hosszú Power Shell paranancs, amivel telepíthető a program. Indítsunk egy PoserShell-t rendszergazdaként, így kiadva a parancsot.
+A Chocolatey weboldalán található egy hosszú Power Shell parancs, amivel telepíthető a program. Indítsunk egy PowerShell-t rendszergazdaként, így kiadva a parancsot.
 
 A script másolata:
 
@@ -35,7 +35,7 @@ Telepítés általánosan:
 choco install <csomagnév>
 ```
 
-A telepítés során még rákérdez, hogy biztosan szeretnénk telepíteni a csomagot. Ekkor az összes ilyen kérdés elfogadása az "a" beírásával lehetésges. Ha telepítő parancsnak adunk egy -y kapcsolót, a kérdés elmarad és azonnal telepíte a Chocolatey.
+A telepítés során még rákérdez, hogy biztosan szeretnénk-e telepíteni a csomagot. Ekkor az összes ilyen kérdés elfogadása az "a" beírásával lehetésges. Ha telepítő parancsnak adunk egy -y kapcsolót, a kérdés elmarad és azonnal telepíti a Chocolatey.
 
 ```cmd
 choco install <csomagnév> -y

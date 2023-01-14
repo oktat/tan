@@ -7,8 +7,12 @@
 
 ## A Java története
 
+A Java nyelvet a Sun Microsystem programozói kezdték fejleszteni 1991-ben, fordítóval, futtató keretrendszerrel. Később az Oracle felvásárolta a céget, így a Java eszközök fejlesztője a jelenleg az Oracle.
+
 * Sun Microsystem
 * Oracle
+
+A Java az 1-s főverziónál tart. Amikor azt mondjuk 17 Java, akkor valójában a 1.17-ről van szó. Az főverziót a 1-t elszokás hagyni.
 
 Verziók:
 
@@ -32,13 +36,17 @@ Verziók:
 
 Technológiák:
 
+A Java keretrendszer, kétféle technológiával jelenik meg:
+
 * Java SE
 * Java EE
 
-Kiadások:
+A Java Standard Edition és a Java Enterprise Edition. A Standard Edition egyszerűbb alkalmazások fejlesztésére használható, amíg az Enterprise Edition megkönnyíti az összetettebb alkalmazások írását.
 
-* Java JRE - csak futtatás
-* Java JDK - fejlesztés
+A két technolóigából is kétféle kiadás létezik:
+
+* Java JRE - csak futtatásra alkalmas
+* Java JDK - fejlesztés és futtatásra alkalmas
 
 Dokumentáció:
 
