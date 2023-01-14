@@ -44,7 +44,7 @@ Telepítés:
 choco install dia
 ```
 
-## Útvonabeállíáts
+## Útvonalbeállítás
 
 A PATH változóba:
 
