@@ -206,7 +206,7 @@ Ezeket nevezzük összehasonlító operátoroknak. Összes:
 
 ## Különleges karakterek
 
-Néhány karakternek lehet különleges viselkedése. Ezt a viselkedést a "\" visszaperjel karakter segítségével válthatjuk ki. Vegyük például az "n" betüt, és írassuk ki egy szóban:
+Néhány karakternek lehet különleges viselkedése. Ezt a viselkedést a "\\" visszaperjel karakter segítségével válthatjuk ki. Vegyük például az "n" betüt, és írassuk ki egy szóban:
 
 ```java
 System.out.println("banán");
