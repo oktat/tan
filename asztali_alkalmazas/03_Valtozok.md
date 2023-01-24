@@ -162,7 +162,7 @@ Eredmény:
 
 ### Összehasonlítás
 
-Megvizsgálhatjuk, hogy egyik szám nagyobb-e a másiknál. 
+Megvizsgálhatjuk, hogy egyik szám nagyobb-e a másiknál.
 
 ```java
 System.out.println(5 > 3);
