@@ -7,8 +7,8 @@
 
 ## Procedurális fejlesztés
 
-A program egyes részeit eljárásokba,
-függvényekbe szervezzük. Nézzünk erre példát Python nyelven.
+A program egyes részeit **eljárásokba,
+függvényekbe** szervezzük. Nézzünk erre példát Python nyelven.
 
 ```python
 def calcPerimeter(aSide, bSide, cSide):
@@ -25,7 +25,7 @@ print('Terület:', area)
 
 ## Objektum Orientál fejlesztés
 
-A programokat osztályokba szervezzük. A következő példa Python nyelven mutatja ezt be:
+A programokat **osztályokba** szervezzük. A következő példa Python nyelven mutatja ezt be:
 
 ```python
 class Triangle:
@@ -101,7 +101,7 @@ class Program01 {
 ```
 
 * A blokkokat kapcsoszárójelekkel jelezzük.
-* Kötelező egy main() metódus.
+* Kötelező egy main() metódus, ez lesz a program belépési pontja.
 
 Az adattagok típusát előre meg kell adni:
 

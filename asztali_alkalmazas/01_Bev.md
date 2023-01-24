@@ -7,12 +7,12 @@
 
 ## A Java története
 
-A Java nyelvet a Sun Microsystem programozói kezdték fejleszteni 1991-ben, fordítóval, futtató keretrendszerrel. Később az Oracle felvásárolta a céget, így a Java eszközök fejlesztője a jelenleg az Oracle.
+A Java nyelvet a **Sun Microsystem** programozói kezdték fejleszteni 1991-ben, fordítóval, futtató keretrendszerrel. Később az Oracle felvásárolta a céget, így a Java eszközök fejlesztője jelenleg az Oracle.
 
 * Sun Microsystem
 * Oracle
 
-A Java az 1-s főverziónál tart. Amikor azt mondjuk 17 Java, akkor valójában a 1.17-ről van szó. Az főverziót a 1-t elszokás hagyni.
+A Java az 1-s főverziónál tart. Amikor azt mondjuk 17 Java, akkor valójában a 1.17-ről van szó. A főverziót a 1-t elszokás hagyni.
 
 Verziók:
 
@@ -41,7 +41,7 @@ A Java keretrendszer, kétféle technológiával jelenik meg:
 * Java SE
 * Java EE
 
-A Java Standard Edition és a Java Enterprise Edition. A Standard Edition egyszerűbb alkalmazások fejlesztésére használható, amíg az Enterprise Edition megkönnyíti az összetettebb alkalmazások írását.
+A **Java Standard Edition** és a **Java Enterprise Edition**. A Standard Edition egyszerűbb alkalmazások fejlesztésére használható, amíg az Enterprise Edition megkönnyíti az összetettebb alkalmazások írását.
 
 A két technolóigából is kétféle kiadás létezik:
 
@@ -64,7 +64,7 @@ class App {
 }
 ```
 
-A Java fájlok .java kiterjesztésű állományba kerülnek.
+A Java fájlok **.java** kiterjesztésű állományba kerülnek.
 A Java nyelvben mindig osztályokkal dolgozunk.
 A program főosztálya meg kell egyezzen a fájl nevével.
 
@@ -75,7 +75,7 @@ javac App.java
 ```
 
 A dir paranccsal listázzuk az aktuális könyvtárat, nézzük meg
-milyen állományt jött létre.
+milyen állomány jött létre.
 
 Futtatás:
 
