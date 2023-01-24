@@ -50,6 +50,160 @@ Ha a println() metódust szeretnénk a képernyőre írni, így rakjuk össze:
 System.out.println("bármi");
 ```
 
+## Operátorok és kifejezések
+
+Ha leírom 3, ez önmagában egy állandó. Ha leírom 3 + 4, van két állandónk és egy operátorunk, a "+". A 3-s és 4-s számokat operandusnak hívjuk. Ha van legalább egy operandus és egy operátor, akkor kifejezésről beszélünk. A println() metódus megadott kifejezéseket kiértékeli:
+
+```java
+System.out.println(3 + 4);
+```
+
+A kimenet:
+
+```cmd
+7
+```
+
+Most nézzünk egy kivonást:
+
+```java
+System.out.println(3 - 4);
+```
+
+A kimenet:
+
+```cmd
+-1
+```
+
+A szorzást a "*" karakter jelképezi:
+
+```java
+System.out.println(3 * 4);
+```
+
+A kimenet:
+
+```cmd
+12
+```
+
+Osztás esetén "/" karakter használható:
+
+```java
+System.out.println(4 / 3);
+```
+
+A kimenet:
+
+```cmd
+1
+```
+
+Mivel az operandusok egész számok, egész osztás történik. Ha az egyik operandus valós szám, akkor valós osztás történik:
+
+```java
+System.out.println(4.0 / 3);
+```
+
+A kimenet:
+
+```cmd
+1.3333333333333333
+```
+
+A 4.0 esetén a "0" elhagyható.
+
+```java
+System.out.println(4. / 3);
+```
+
+Néha, szeretnénk az egész osztás maradékát megkapni. Erre a "%" operátor használható:
+
+```java
+System.out.println( 5 % 3);
+```
+
+Eredmény:
+
+```cmd
+2
+```
+
+A +, -, *, / és a % aritmetikai operátorok.
+
+### Zárójelek
+
+A kifejezések tartalmazhatnak zárójel operátort is.
+
+Vegyük a következő kifejezést:
+
+```java
+System.out.println( 3 * 4 + 2);
+```
+
+Eredmény:
+
+```cmd
+14
+```
+
+Ha szeretnénk előbb az összeadást elvégezni, akkor zárójelbe tesszük:
+
+```java
+System.out.println( 3 * (4 + 2));
+```
+
+Eredmény:
+
+```cmd
+18
+```
+
+### Összehasonlítás
+
+Megvizsgálhatjuk, hogy egyik szám nagyobb-e a másiknál. 
+
+```java
+System.out.println(5 > 3);
+```
+
+Az eredmény true, mivel igaz az állítás:
+
+```cmd
+true
+```
+
+Most fordítsuk meg a relációs jelet:
+
+```java
+System.out.println(5 < 3);
+```
+
+Mivel az állítás hamis, fals íródik a képernyőre:
+
+```cmd
+false
+```
+
+Egyelőség vizsgálata:
+
+```java
+System.out.println(5 == 3);
+```
+
+Azt vizsgáljuk: "nem egyenlő?":
+
+```java
+System.out.println(5 != 3);
+```
+
+Ezeket nevezzük összehasonlító operátoroknak. Összes:
+
+```txt
+>, <, >=, <=, ==, !=
+```
+
 ## Különleges karakterek
 
 Néhány karakternek lehet különleges viselkedése. Ezt a viselkedést a "\" visszaperjel karakter segítségével válthatjuk ki. Vegyük például az "n" betüt, és írassuk ki egy szóban:
