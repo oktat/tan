@@ -44,9 +44,8 @@ choco install <csomagnév> -y
 Telepítsük a következő csomagokat:
 
 ```cmd
-choco install yarn -y
 choco install totalcommander -y
-choco install vscode git insomnia-rest-api-client -y
+choco install vscode git -y
 choco install googlechrome -y
 choco install geany -y
 ```

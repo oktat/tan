@@ -18,7 +18,8 @@ Egy soros megjegyzéseket két darab perjel segítségével állíthatunk be:
 Több soros megjeygzések
 
 ```java
-/* több
+/* 
+több
 soros
 megjegyzés
 */
@@ -26,7 +27,7 @@ megjegyzés
 
 ## Kivitel
 
-A képernyőre a System osztállyon keresztül szokás írni. A System osztálynak van két mezőjét használjuk a kiíratásra:
+A képernyőre a System osztályon keresztül szokás írni. A System osztálynak két mezőjét használjuk a kiíratásra:
 
 * out
 * err
@@ -39,7 +40,9 @@ A kiíratásra következő metódusokat használhatjuk:
 * println()
 * printf()
 
-Ezeknek a metódusoknak többféle alírása is olvashatóa dokumentációban.
+Ezeknek a metódusoknak többféle aláírása [^1] is olvashatóa dokumentációban.
+
+[^1]: Az aláírás alatt egy függvény bemenő paramétereit értjük. A bemenőparamétereket szokás még formális paramétereknek is nevezni.
 
 Ha a println() metódust szeretnénk a képernyőre írni, így rakjuk össze:
 
@@ -55,7 +58,7 @@ Néhány karakternek lehet különleges viselkedése. Ezt a viselkedést a "\" v
 System.out.println("banán");
 ```
 
-A képernyőn megjeleni a banán szó:
+A képernyőn megjelenik a banán szó:
 
 ```cmd
 banán
@@ -67,7 +70,7 @@ Most adjuk az első "n" betűnek speciálist jelentést:
 System.out.println("ba\nán");
 ```
 
-A speciálist jelentést a "\" jel karakter elé írásával váltjuk ki. A "\" perjel mindig az utána következő karakterrel vonatkozik.
+A speciális jelentést a "\" jel karakter elé írásával váltjuk ki. A "\" perjel mindig az utána következő karakterre vonatkozik.
 
 Készítsünk egy programot, futtassuk és nézzük meg az eredményt. Az eredmény ehhez hasonló lesz:
 
@@ -76,7 +79,7 @@ ba
 án
 ```
 
-Az "n" betű sortörésként viselkedik. Ilyen betű a "t" betű is. Nézzük meg ugyanezt "t" betűvel. Javítsuk a szót "mentés"-re:
+Az "n" betű sortörésként viselkedik. Ilyen speciális viselkedése lehet a "t" betűnek is. Nézzük meg ugyanezt "t" betűvel. Javítsuk a szót "mentés"-re:
 
 ```java
 System.out.println("mentés");
@@ -97,7 +100,6 @@ men        és
 A "t" betű helyett egy tabulátor hely íródik a képernyőre.
 
 Ezeket a speciális karaktereket escape szekvenciáknak is nevezzük. Az Java nyelvben használható escape szekvenciák táblázatát látjuk:
-
 
 | Escape szekvencia | Leírás  |
 |-|-|
@@ -137,7 +139,7 @@ Mindegyik egész típus más méretű helyet foglal a memóriában:
 * int - 4 byte
 * long - 8 byte
 
-Ennek megfelelően a byte típusban tárolhatjuk a legkisebb számot, a longban a legnagyobbat. A következő táblázat megmutatja, melyik típus esetén melyik számtartományból tárolhatunk számokat:
+Ennek megfelelően a byte típusban tárolhatjuk a legkisebb számot, a longban a legnagyobbat. A következő táblázat megmutatja, melyik típus esetén milyen számtartományból tárolhatunk számokat:
 
 | Típus | Méret | Tartomány |
 |-|-|-|
@@ -162,9 +164,29 @@ szam1 = 128; //Hibás!
 System.out.println(szam1);
 ```
 
+Az egyenlőség jel jobboldalára írt számnak mindig int méretű hely lesz lefoglalva. A legnagyobb méret int esetén: 2 147 483 647.
+
+```java
+long szam;
+szam = 2_147_483_647;
+System.out.println(szam);
+```
+
+Így a következő kód hibás:
+
+```java
+long szam;
+szam = 2_147_483_648; //Hibás!
+System.out.println(szam);
+```
+
+A megoldás, ha a szám végén jelezzük egy "L" betűvel, hogy long típus számára foglaljon helyet. Lehet kis "l" vagy nagy "L".
+
+Vegyük észre, hogy a forráskódban ezredest tagolást használtunk a alsóvonással, amit a Java nyelv megenged.
+
 ### Valós típusok
 
-Valós számok esetén az double típust használhatjuk:
+Valós számok esetén a double típust használhatjuk:
 
 ```java
 double szam2;
@@ -187,9 +209,25 @@ Nézzük mekkora számok tárolhatók:
 | float | 4 byte | 1.4e-45 – 3.4028235e+38 |
 | double | 8 byte | 4.9e-324 – 1.7976931348623157e+308 |
 
-Mivel nagy számokról van szó, a tartományt tudományos alakban [^1] írtam fel.
+Mivel nagy számokról van szó, a tartományt tudományos alakban [^2] írtam fel.
 
-[^1]: A tudományos alak, a számábrázolás lebegőpontos alakja egyszerűsítve. A lebegőpotos számábrázolásról a következő helyen olvashat: [https://szit.hu/doku.php?id=oktatas:szamitastechnika:szamabrazolas](https://szit.hu/doku.php?id=oktatas:szamitastechnika:szamabrazolas)
+[^2]: A tudományos alak, a számábrázolás lebegőpontos alakja egyszerűsítve. A lebegőpontos számábrázolásról a következő helyen olvashat: [https://szit.hu/doku.php?id=oktatas:szamitastechnika:szamabrazolas](https://szit.hu/doku.php?id=oktatas:szamitastechnika:szamabrazolas)
+
+Példa a valós számra:
+
+```java
+double szam;
+szam = 45.123;
+```
+
+A float típus használatával:
+
+```java
+float szam;
+szam = 45.123F;
+```
+
+Az adott szám végére egy "F" betűvel jeleztük, hogy csak egy float típus szeretnénk leírni.
 
 ### Karakterek
 
@@ -216,7 +254,7 @@ boolean van_hely = true;
 
 ### Primitív típusok és burkolóosztályok
 
-Minden primitív típusuhoz tartozik egy burkoló osztály. Ez annyit jelent, hogy a típusokat osztállyal is létrehozhatom. Például egy egész típus burkolóosztállyal:
+Az int, byte, short, long, float, double, boolean, char, mind primitív típus. Minden primitív típusuhoz tartozik egy burkoló osztály. Ez annyit jelent, hogy a típusokat osztállyal is létrehozhatom. Például egy egész típus burkolóosztállyal:
 
 ```java
 Integer szam1 = 45;
@@ -243,11 +281,11 @@ Nézzük meg a primítv típusok helyett milyen osztályokat használhatunk, a k
 
 A Java nyelvben csak előjeles típusok vannak, angolul signed. Nincs előjel nélküli, angolul unsigned típus.
 
-A primitív és burkoló osztállyal létrehozott változók esetén különbség, hogy a burkoló osztállyal létrehozott változókon futtathatók metódusokat, de több helyet is foglalnak.
+A primitív és burkoló osztállyal létrehozott változók esetén különbség, hogy a burkoló osztállyal létrehozott változókon futtathatók metódusok, de több helyet is foglalnak a memóriában.
 
 ### Karakterláncok
 
-Karakterláncokat számára nincs primitív típus, ezeket a String osztállyal hozzuk létre:
+Karakterláncok számára nincs primitív típus, ezeket a String osztállyal hozzuk létre:
 
 ```java
 String nev = "Pala Ferenc";
@@ -286,7 +324,7 @@ int szam2 = szam1;
 System.out.println(szam1);
 ```
 
-A kiíratás során nem változó neve, hanem annak értéke íródik ki.
+A kiíratás során nem a változó neve, hanem annak értéke íródik ki.
 
 A változók, később kaphatnak új értéket, ezért változók:
 
@@ -299,24 +337,26 @@ System.out.println(szam1);
 
 ## Állandók
 
+Vegyük a szam1 nevű egész típusú változót:
+
 ```java
 int szam1 = 45;
 ```
 
-Amikor leírom ezt az utasítást, futtatáskor a memóriában tárolásra kerül ez az utasítás, ahol szerepel a 45, és egy másik memória helyen is tárolódik a 45 érték. Az első az utasítások memóriaterületér kerül, utóbbi a változók memóraterületére.
+Amikor leírom ezt az utasítást, futtatáskor a memóriában tárolásra kerül ez az utasítás, ahol szerepel a 45, és egy másik memória helyen is tárolódik a 45 érték. Az első az utasítások memóriaterületére kerül, utóbbi a változók memóraterületére.
 
 Java nyelvben kétféle állandó van:
 
 * literális
 * nevesített
 
-Vegyünk egy egész típust:
+Vegyünk egy egész típust újra:
 
 ```java
 int szam1 = 45;
 ```
 
-Amikor leírom, hogy 45, ez is egy állandó. Állandó, mert azt a memóriahelyet ahol ez az utasítás tárolódik, ahol a 45 is szerepl, a program futása során nem tudom megváltoztatni. Most csak az egyenlőség jel jobboldaláról beszéltünk. Az egyenlőségjel bal oldalán egy változó van, azon a memóriaterületen is megjelenik a 45.
+Amikor leírom, hogy 45, ez is egy állandó. Állandó, mert azt a memóriahelyet ahol ez az utasítás tárolódik, ahol a 45 is szerepl, a program futása során nem tudom megváltoztatni. Most csak az egyenlőség jel jobboldaláról beszéltünk. Az egyenlőségjel bal oldalán egy változó van, azon a memóriaterületen is megjelenik a 45, ez a változó memóriaterülete.
 
 Az egyenlőségjel jobb oldalán szerplő 45-t **literális állandó**nak nevezem.
 
@@ -346,7 +386,7 @@ short num2 = num1;
 
 ### Konverzió szűkítéssel
 
-Ha létrehozunk egy short típusú változót, egyszerű értékadással nem tudjuk egy byte típusúba tenni.
+Ha létrehozunk egy short típusú változót, egyszerű értékadással nem tudjuk egy byte típusú változóba tenni.
 
 ```java
 short num1 = 30;
@@ -360,6 +400,8 @@ short num1 = 30;
 byte num2 = (byte) num1;
 ```
 
+A num1 nevű változó elé zárójelbe írtam milyen típussá szeretném "erőltetni".
+
 ## Formázott kivitel
 
 A formázott kimenetet a printf() metódussal készíthetünk. Nézzük egy egyszerű változó kiíratást:
@@ -371,9 +413,9 @@ System.out.printf("%d\n", szam1);
 
 A printf() metódusnak az első paramétere a formátumstring. A formátumstring írja le, hogy a következő paramétereket milyen formában jelenítsük meg. Ha futtatjuk a fenti utasítást, egyszerűen kiíródik a 45, ezt megtehettük volna egy println() utasítással is.
 
-Nézzük meg a formátumstringet. Egy formátumstring egy vagy több formátumkódot tartalmazhat. Minden formátum string utáni paraméternek szükség van egy formátumkódra. A fenti program a formátumstring után egyetlen változót szerepeltet a "szam1". Az ehhez tartozó formátukód %d. A formátumkódot mindig "%" százalékjellel kezdjük, és egy konverziós karakterrel zárjuk. A konverziós karakter mindig függ a kiíratni kívánt típustól. A "szam1" változó jelenleg egész típusú, ilyen esetben a konverziós karakter egy "d" betű.
+Nézzük meg a formátumstringet közelebbről. Egy formátumsztring egy vagy több formátumkódot tartalmazhat. Minden formátumsztring utáni paraméternek szükség van egy formátumkódra. A fenti program a formátumsztring után egyetlen változót szerepeltet a "szam1". Az ehhez tartozó formátukód %d. A formátumkódot mindig "%" százalékjellel kezdjük, és egy konverziós karakterrel zárjuk. A konverziós karakter mindig függ a kiíratni kívánt típustól. A "szam1" változó jelenleg egész típusú, ilyen esetben a konverziós karakter egy "d" betű.
 
-A "d" betű után a "\n" csak a sortörést miatt van, mivel a print() utasítás nem tesz ki sörtörést, ellentétben a println() metódussal.
+A "d" betű után a "\n" csak a sortörést miatt van, mivel a print() utasítás nem ír sörtörést, ellentétben a println() metódussal.
 
 ![formátumstring](images/printf_formatstring.png)
 
@@ -408,14 +450,14 @@ A program a számot 20 szélességben írja ki:
                   45
 ```
 
-A formátumstring a kiírt értékhez tartalmazhat egyéb információkat:
+A formátumstring a kiírt értékhez tartalmazhat egyéb információkat, mint például a mértékegység, pénznem, bármi:
 
 ```java
 int szam1 = 45;
 System.out.printf("Egységár: %20d Ft\n", szam1);
 ```
 
-A program a végrehajtás utána a következőt írja a képernyőre:
+A program a végrehajtás után a következőt írja a képernyőre:
 
 ```cmd
 Egységár:                   45 Ft
@@ -441,7 +483,7 @@ Valós számok esetén beállíthatjuk a pontosságot. Vegyük szemügyre újbó
 %[argumentum_index$][jelzők][szélesség][.pontosság]konverziós_karakter
 ```
 
-A pontosságot megadását mindig egy "." karakter vezeti, be ezt követi egy a pontosság, számmal megadva.
+A pontosság megadását mindig egy "." karakter vezeti, be ezt követi a pontosság, számmal megadva.
 
 ```java
 double valos1 = 45.12345678;
@@ -483,17 +525,33 @@ A szélesség előtt megadhatunk jelzőket. A következő táblázat mutatja mil
 
 ### Előjel előrírása
 
+Alapestben az előjel csak negatív számok esetén jelenik meg. A "+" jelzővel, előírhatjuk pozitív számok számára is.
+
 ```java
-System.out.printf("%,2d\n", 45);
+System.out.printf("%+d\n", 45);
 ```
 
 Kimenet:
 
 ```cmd
-+5
++45
+```
+
+Ha szélességet is megadjuk, a "+" jelző a szélesség baloldalán szerepel:
+
+```java
+System.out.printf("%+5d\n", 45);
+```
+
+A kimenet így:
+
+```cmd
+  +45
 ```
 
 ### Balra igazítás
+
+A "-" jelzővel adott szélességen belül balra igazíthatom az érték megjelenítését. A következő példában "|" pipe karaktert írunk a formátumkód elé és utuán, hogy jól látható legyen a megadott szélesség.
 
 ```java
 System.out.printf("|%-10d|\n", 45);
@@ -507,6 +565,8 @@ Kimenet:
 
 ### Vezető nullák
 
+Ha az üres helyeket szeretnénk 0 értékkel feltölteni a "0" jelzővel tehetjük meg:
+
 ```java
 System.out.printf("|%010d|\n", 45);
 ```
@@ -519,15 +579,27 @@ Kimenet:
 
 ### Ezredes elválasztás
 
+Hosszú számokat könnyebb olvasni, ha ezredeselválasztást használunk a kiíratás során:
+
 ```java
-System.out.printf("%,d\n", 2247589824);
+System.out.printf("%,d\n", 2247589824L);
 ```
+
+Nagyobb számok esetén egy kicsi vagy egy nagy "L" betűt kell a szám után írnunk.
 
 Kimenet:
 
 ```cmd
 2 247 589 824
 ```
+
+Nagy számokat a forráskóban is tagolhatunk alsóvonallal:
+
+```java
+System.out.printf("%,d\n", 2_247_589_824L);
+```
+
+Az "L" betű nélkül a Java a leírt számot int típusúnak gondolja. A memóriában csak egy int típus számára foglal helyet, de ebbe a szám nem fére bele, ezért megmondtuk, hogy kezelje long típusként.
 
 ### Konverziós karakterek
 
