@@ -277,6 +277,28 @@ git config --global --unset user.name
 git config --global --unset user.email
 ```
 
+### Bemutatkozás csak a projekt számára
+
+Osztott használat esetén ez az ajánlott használat.
+
+A projekt könyvtárát fel kell készíteni a Git számára.
+
+```bash
+git init
+```
+
+```bash
+git config --local user.name "Nagy János"
+git config --local user.email "nagyj@zold.lan"
+```
+
+Ha nem adunk meg kapcsolót, az alapértelmezés a <nowiki>--local</nowiki>:
+
+```bash
+git config user.name "Nagy János"
+git config user.email "nagyj@zold.lan"
+```
+
 ### Használat
 
 Legyen egy app01 nevű projekt. Létrehozzuk a könyvtárat, majd belépünk:
