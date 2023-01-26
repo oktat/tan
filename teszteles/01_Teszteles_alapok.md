@@ -14,7 +14,7 @@
 
 A validáció már a tervezési fázisban is használható.
 
-#### Atomatikus és kézi
+#### Automatikus és kézi
 
 * automatikus - szoftver végzi
 * kézi - ember végzi
