@@ -106,3 +106,30 @@ SI prefixumokat is szokás használni:
 
 Az első három tesztet az IT végzi. Az utolsó tesztet a
 megrendelő, illetve annak tesztelői.
+
+## Gyakorlat
+
+### Kérdések
+
+1.)
+Mit jelenet a LOC mértékegység?
+
+* A kifogható halak mérete
+* A szilícium tartalom mértékegysége
+* A kódsorok száma
+* A helyi változók száma
+
+2.)
+Mit jelent a release candidate? Válasszon.
+
+* hosszú ideig támogatott kiadás
+* kiadásra jelölt
+* nem lesz továbbfejlesztve
+* vizsgát kell tennie
+
+3.) Milyen tesztről beszélünk, ha újratesztelünk egy szoftvert?
+
+* előtesztelés
+* egyszer tesztelünk csak
+* visszatérünk egy korábbi verziószámhoz
+* regressziós
