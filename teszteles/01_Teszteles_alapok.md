@@ -24,7 +24,7 @@ A kézi tesztelés során olyan hibákra is fényderülhet, amire a teszt szoftv
 #### Szisztematikus és ad-hoc
 
 * szisztematikus - előre meghatározott
-* nincs utasítás
+* ad-hoc - nincs előre meghatározva
 
 #### Fekete és fehérdobozos
 
@@ -35,7 +35,7 @@ A kézi tesztelés során olyan hibákra is fényderülhet, amire a teszt szoftv
 
 * funkcionális tesztek - adott funkció működik?
 * nem funkciónális teszek - például teljesítmény, kinézet
-* regresszíós teszt - újratesztelés
+* regressziós teszt - újratesztelés
 
 Ha javítunk valamit egy szoftveren, az újratesztelést regressziós tesztelésnek hívjuk.
 
