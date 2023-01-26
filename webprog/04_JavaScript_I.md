@@ -349,18 +349,17 @@ További információk:
 
 ## Objektumok és a DOM
 
-A böngészőbő elérhető néhány alapobjektum:
+A böngészőből elérhető néhány alapobjektum:
 
 * window
 * document
 * console
 
+A JavaScript így olyan környzetben fut, ahol eleve adott egy környezet, ami valójában a böngésző.
+
 ### A window
 
-A window a böngészőablakot jelképezi.
-A bőngészőn belül a felület, ahol megjelenik
-a webolal "screen". A screen tulajdonságai
-lekérdezhetők. Például szélesség:
+A window a böngészőablakot jelképezi. A bőngészőn belül a felület, ahol megjelenik a webolal a "screen". A screen tulajdonságai lekérdezhetők. Például szélesség:
 
 ```javascript
 console.log(window.screen.width)
@@ -369,17 +368,12 @@ console.log(window.screen.height)
 
 ### A document
 
-A document objektumon keresztül érhető
-el a webolal, annak egyes részei.
+A document objektumon keresztül érhető el a webolal, annak egyes részei.
 
-A weboldal HTML elemekből épül fel.
-Az elemk egy hierachiája egy fával
-ábrázolható. Ezt a hierarchikusan
-felépülő szerkezetet nevezzük
-DOM-nak. Document Object Model.
+A weboldal HTML elemekből épül fel. Az elemk egy hierachiája egy fával ábrázolható. Ezt a hierarchikusan felépülő szerkezetet nevezzük
+DOM-nak. Angolul: Document Object Model.
 
-A document objektumon keresztül elérhetjük
-a DOM egyes részeit.
+A document objektumon keresztül elérhetjük a DOM egyes részeit.
 
 ```javascript
 console.log(document.querySelector('.egy') )
@@ -397,6 +391,209 @@ A console-ra a fejlesztő ír üzenetek saját maga számára, például a log()
 * error()
 * warn()
 * clear()
+
+## A DOM elérése
+
+### Egy elem elérése
+
+Legyen egy egyszerű weblap:
+
+```html
+<div>
+Lorem ipsum dolor sit amet.
+<div>
+```
+
+Az első div elemre így hivatkozhatunk:
+
+```javascript
+document.querySelector('div');
+```
+
+Állítsunk be egy háttérsznít és egy szövegszínt:
+
+```javascript
+document.querySelector('div').style.backgroundColor = 'blue';
+document.querySelector('div').style.color = 'white';
+```
+
+A rövidebb sorok érdekében egy állandóhoz szokás kötni a div elemet:
+
+```javascript
+const div = document.querySelector('div');
+```
+
+A szín beállítása ezek után:
+
+```javascript
+const div = document.querySelector('div');
+div.style.backgroundColor = 'blue';
+div.style.color = 'white';
+```
+
+Minden DOM elemnek van "style" tulajdonsága. A style-on keresztül hivatkozhatunk a CSS-ből már ismert tulajdonságokra. Ha egy tulajdonság a CSS-ben több részből áll és kötőjellel kötjük azokat egymáshoz, a JavaScriptben a részeket egybe kell írni, **lowerCamelCase** stílusban. Ahogy a példában láttuk háttérszínt beállítást. CSS-ben: background-color. JavaScriptben: backgroundColor. Az első szó mindig kisbetűs, a következő szavak nagybetűvel kezdődnek.
+
+### Több elem elérése
+
+```html
+<div>
+Lorem ipsum dolor sit amet.
+<div>
+<div>
+Lorem ipsum dolor sit amet.
+<div>
+<div>
+Lorem ipsum dolor sit amet.
+<div>
+```
+
+A querySelector() függvény csak az első elemet éri el. Ha az összes elemet szeretnénk elérni, használjuk a querySelectorAll() függvényt. A querySelectorAll() egy tömböt ad vissza. Az első elem szövegméretének beállítása:
+
+```javascript
+const tomb = document.querySelectorAll('div');
+tomb[0].style.fontSize = '20px';
+```
+
+Elemek bejárása:
+
+```javascript
+const tomb = document.querySelectorAll('div');
+tomb.forEach(elem => {
+    elem.style.backgroundColor = 'navy';
+    elem.style.color = 'white';
+    elem.style.padding = '5px';
+})
+```
+
+### Osztályjelölők és azonosítók bejárása
+
+```html
+<div class="doboz">alma</div>
+<div class="doboz">körte</div>
+<div class="doboz">barac</div>
+
+<button id="button1">Mehet</button>
+```
+
+```javascript
+const divs = document.querySelectorAll('.doboz');
+const button = document.querySelector('#button1');
+
+button.addEventListener('click', () => {
+    divs.forEach(div => {
+        div.style.backgroundColor = 'yellow';
+    });
+});
+```
+
+### Űrlap bejárása
+
+```html
+<form>
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <button type="button">Mehet</button>
+</form>
+```
+
+```javascript
+const inputs = document.querySelectorAll('form input')
+const button = document.querySelector('button')
+
+button.addEventListener('click', () => {
+    inputs.forEach(input => {
+        console.log(input.value);
+    })
+})
+```
+
+## Elemek létrehozása a DOM-ban
+
+Legyen egy ul elem, amiben li elemeket szeretnénk létrehozni:
+
+```html
+<ul id='lista'></ul>
+```
+
+```javascript
+const lista = document.querySelector('#lista');
+var li = document.createElement('li');
+li.textContent = 'alma';
+lista.append(li);
+```
+
+### Lista renderelése
+
+```javascript
+const lista = document.querySelector('#lista');
+
+const gyumolcsok = ['alma', 'körte', 'barack'];
+
+gyumolcsok.forEach(gyumolcs => {
+    var li = document.createElement('li');
+    li.textContent = gyumolcs;
+    lista.append(li);
+});
+```
+
+### Hozzáadás listához
+
+```javascript
+const fruitList = document.querySelector('#fruitList');
+const addButton = document.querySelector('#addButton');
+var fruits = [];
+
+addButton.addEventListener('click', () => {
+    fruits.push('alma');
+    fruitList.append(makeLi('alma'))
+});
+
+function makeLi(text) {
+    var li = document.createElement('li');
+    li.textContent = text;
+    return li;
+}
+```
+
+### Táblázat renderelése
+
+```html
+<table id="empTable">
+    <thead>
+        <tr>
+            <th>Név</th>
+            <th>Település</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+```
+
+```javascript
+const tableBody = document.querySelector('#empTable tbody');
+const addButton = document.querySelector('#addButton');
+var employees = [
+    { name: 'Pali', city: 'Szeged' },
+    { name: 'Mari', city: 'Pécs' },
+    { name: 'Kati', city: 'Szeged' }
+];
+
+employees.forEach(emp => {
+    tableBody.append(makeRow(emp));
+});
+
+function makeRow(emp) {
+    var tr = document.createElement('tr');
+    var tdName = document.createElement('td');
+    var tdCity = document.createElement('td');
+    tdName.textContent = emp.name;
+    tdCity.textContent = emp.city;
+    tr.append(tdName);
+    tr.append(tdCity);
+    return tr;
+}
+```
 
 ## Gyakorlat
 
@@ -455,7 +652,5 @@ addButton.addEventListener('click', () => {
     dolgozo.salary = Number(salaryElem.value);
     
     console.log(dolgozo.salary)
-
-    
 });
 ```
