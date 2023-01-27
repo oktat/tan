@@ -44,22 +44,21 @@ choco install <csomagnév> -y
 Gyorskezdés:
 
 ```cmd
-choco install yarn -y
+choco install nodejs -y
+choco install vscode git  -y
 choco install totalcommander -y
-choco install vscode git insomnia-rest-api-client -y
 choco install googlechrome -y
 choco install geany -y
-choco install nodejs -y
+choco install yarn -y
+choco install insomnia-rest-api-client -y
 ```
+
+A második sorban láthatjuk, hogy egyszerre több csomag is megadható, a példában a vscode és a git csomag is telepítésre kerül.
 
 ## Szükséges szoftverek
 
-Parancssorban a következőkre van szükség:
+Parancssorban a következő paranancsokra van szükség (CLI):
 
-* yarn
-  * Chocolatey csomag: yarn
-  * NPM csomag: yarn
-  * Webhely: [https://yarnpkg.com/](https://yarnpkg.com/)
 * node
   * Chocolatey csomag: nodejs
   * Webhely: [https://nodejs.org/](https://nodejs.org/)
@@ -70,6 +69,10 @@ Parancssorban a következőkre van szükség:
 * git
   * Chocolatey: git
   * Webhely: [https://git-scm.com/](https://git-scm.com/)
+* yarn
+  * Chocolatey csomag: yarn
+  * NPM csomag: yarn
+  * Webhely: [https://yarnpkg.com/](https://yarnpkg.com/)
 
 Szükséges GUI program:
 
@@ -79,12 +82,12 @@ Szükséges GUI program:
 * Visusal Studio Code
   * Chocolatey csomag: vscode
   * Webhely: [https://code.visualstudio.com/](https://code.visualstudio.com/)
-* Insomnia
-  * Chocolatey csomag: insomnia-rest-api-client
-  * Webhely: [https://insomnia.rest/](https://insomnia.rest/)
 * Geany
   * Chocolatey csomag: geany
   * Webhely: [https://www.geany.org/](https://www.geany.org/)
+* Insomnia
+  * Chocolatey csomag: insomnia-rest-api-client
+  * Webhely: [https://insomnia.rest/](https://insomnia.rest/)
 
 ## NodeJS
 
@@ -94,7 +97,7 @@ Telepítse a NodeJS rendszert. Letölthető a weboldalról is:
 
 * [https://nodejs.org/](https://nodejs.org/)
 
-Vagy használjuk a choco parancsot.
+Vagy használjuk a choco parancsot:
 
 ```cmd
 choco install nodejs
@@ -129,20 +132,11 @@ app01/
 Ebből nekünk, csak az index.html fájlt kell létrehozni, a
 többit valamilyen parancs hozza létre.
 
-A **node_modules/** könyvtárba teszi a telepített függőségeket
-az npm és a yarn parancs. A **packages.json** fájlba íródik,
-be minden telepített csomag, amiről úgy beszélünk, hogy
-függőség, mivel ezt használtuk a munánk során.
-Ha más használni akarja a projektünket, akkor megkapja
-az index.html és a package.json fájlt. Egy yarn vagy
-egy npm paranccsal telepíteni tudja ugyanazokat az
-csomagokat, amiket mi is használtunk.
-A **package-lock.json** fájlba az npm parancs írja le, milyen
-csomagokat tettünk fel és szedtünk le, ezt általában nem nézegetjük.
+Az **npm** és a **yarn** parancs a függőségeket a **node_modules/** könyvtárba tölti le. A **packages.json** fájlba íródik, be minden telepített csomag, amiről úgy beszélünk, hogy függőség, mivel ezt használtuk a munánk során. Ha más használni akarja a projektünket, akkor megkapja
+az index.html és a package.json fájlt. Egy yarn vagy egy npm paranccsal telepíteni tudja ugyanazokat az csomagokat, amiket mi is használtunk.
+A **package-lock.json** fájlban az npm parancs írja le, milyen csomagokat tettünk fel és szedtünk le, ezt általában nem nézegetjük.
 
-Elkészítjük az első NodeJS alapú projektünket.
-A projekt könyvtárát most nekünk kell létrehozni.
-Legyen a neve app01. Ha elkészült lépjünk be a
+Elkészítjük az első NodeJS alapú projektünket. A projekt könyvtárát most nekünk kell létrehozni. Legyen a neve app01. Ha elkészült lépjünk be a
 könyvtárba.
 
 ```cmd
@@ -173,8 +167,20 @@ Kapunk egy package.json fájlt. Tartalma:
 }
 ```
 
-A lite-server nevű csomagot fogjuk használni
-a fejlesztés során, webszervernek.
+A yarn parancs kevesebb tartalmat ír a fájlba:
+
+```json
+{
+  "name": "app02",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT"
+}
+```
+
+A package.json fájl akár kézzel is elkészíthető, illetve szerkeszthető. Ha a "yarn init" vagy az "npm init" parancsot használjuk, ügyeljünk arra, hogy ne legyen node_moduels könyvtár.
+
+A lite-server nevű csomagot fogjuk használni a fejlesztés során, webszervernek.
 
 Telepítsük a lit-server nevű csomagot:
 
@@ -188,22 +194,31 @@ Ha van yarn parancsunk, a telepítés azzal is megoldható:
 yarn add lite-server --dev
 ```
 
-A csomag telepszik a node_modules könyvtárba,
-sok függőségével együtt. Nézzünk bele a package.json
-fájba, ahol láthatjuk, hogy bejegyzésre került.
+A csomag telepszik a node_modules könyvtárba, sok függőségével együtt. Nézzünk bele a package.json fájlba, ahol láthatjuk, hogy bejegyzésre került.
 
-A projekt könyvtárában készítsünk egy index.html fájlt.
-Indítsuk el a lite-servert:
+A projekt könyvtárában készítsünk egy index.html fájlt. Indítsuk el a lite-servert:
 
 ```cmd
 npx lite-server
 ```
 
-Ügyeljünk arra, hogy a parancsot a projekt gyökérkönyvtárában indítsuk, és ott legyen az index.html állomány is.
+Ügyeljünk arra, hogy a parancsot a projekt gyökérkönyvtárában indítsuk, és ott legyen az index.html állomány is. 
 
-A **package-json** fájlba, bejegyzhetünk feladatokat, vagy másnéven scripteket. Ezzel rövidíthetünk az indításon.
+A lite-server ilyen formán a projektünk része. A lite-server telepíthető globálisan is:
 
-Írjunk egy feladatot (scriptet):
+```cmd
+npm install --global lite-server
+```
+
+Ebben az esetben, minden későbbi projektnek rendelkezésre áll. Indítás:
+
+```cmd
+lite-server
+```
+
+A **package-json** fájlba, bejegyzhetünk feladatokat, vagy másnéven scripteket. Ezzel rövidíthetünk az indításon. Ha az npm paranccsal hoztuk létre a package.json fájlt, akkor lesz benne egy script "test" néven.
+
+Írjunk egy feladatot (scriptet) **start** néven:
 
 ```json
   "scripts": {
@@ -234,7 +249,7 @@ Készítsünk egy weboldalt index.html néven, ha még nem létezik. Tartalma:
 ```
 
 A projekt indításhoz, most használjuk a megírt scriptet.
-Visual Studio Code terminálablakában, vagy parancssorban, a projekt gyökrékönyvtárában:
+Visual Studio Code terminálablakában, vagy parancssorban, a projekt gyökérkönyvtárában:
 
 ```cmd
 npm start
@@ -248,7 +263,7 @@ yarn start
 
 A weboldal megnyílik az alapértelmezett böngészőben.
 
-Végezzünk néhány javítást a webolalon. Vagyünk fel, például egy "p" elemet, írjuk bele "Lorem ipsum dolor est amet" szöveget, mentsük és figyeljük a böngészőt.
+Végezzünk néhány javítást a weboldalon. Vagyünk fel, például egy "p" elemet, írjuk bele "Lorem ipsum dolor est amet" szöveget, mentsük és figyeljük a böngészőt.
 
 A továbbikaban így fogunk weboldalakat készíteni.
 
@@ -258,7 +273,7 @@ A továbbikaban így fogunk weboldalakat készíteni.
 
 Használat előtt, először mutatkozzunk be a git számára. Adjuk meg a teljes nevünket és az e-mail címünket. Ezt kétféle módon tehetjük meg:
 
-* lokálisan a projektbe
+* lokálisan, csak az adott projekt számára
 * globálisan a felhasználói profilba (~/.gitconfig)
 
 Ha csak a projekt számára mutatkozunk be, akkor minden új projektben meg kell ezt tennünk. Ha globálisan mutatkozunk be, osztott használatnál - amikor végeztünk - érdemes törölnünk a nevünket és az e-mail címünket.
@@ -279,7 +294,7 @@ git config --global --unset user.email
 
 ### Bemutatkozás csak a projekt számára
 
-Osztott használat esetén ez az ajánlott használat.
+Osztott használat esetén ez az ajánlott módszer.
 
 A projekt könyvtárát fel kell készíteni a Git számára.
 
@@ -287,21 +302,23 @@ A projekt könyvtárát fel kell készíteni a Git számára.
 git init
 ```
 
+Lokálisan, csak a progekt számára addig nem tudunk bemutatkozni, amíg nem hoztunk létre Git tárolót. Ezek után jöhet a bemutatkozás:
+
 ```bash
 git config --local user.name "Nagy János"
 git config --local user.email "nagyj@zold.lan"
 ```
 
-Ha nem adunk meg kapcsolót, az alapértelmezés a <nowiki>--local</nowiki>:
+Ha nem adunk meg kapcsolót, az alapértelmezés a --local, ezért használhatjuk így is:
 
 ```bash
 git config user.name "Nagy János"
 git config user.email "nagyj@zold.lan"
 ```
 
-### Használat
+### A Git használata
 
-Legyen egy app01 nevű projekt. Létrehozzuk a könyvtárat, majd belépünk:
+Legyen egy app01 nevű projekt. Létrehozzuk a projekt könyvtárat, majd belépünk:
 
 ```cmd
 mkdir app01
@@ -316,7 +333,7 @@ git init
 
 Keressük meg a projekt gyökérkönyvtárában a **.git** könyvtárat. Ez lesz a git tároló. Visual Studio Code alatt ez nem látszik, mivel **rejtett könyvtár**. Nézzük meg fájlkezelővel. Fájlkezelőben is csak akkor látszik, ha a rejtett fájlok láthatósága be van kapcsolva.
 
-Hozzunk létre egy index.html fájlt, amit szeretnénk verziókövetni. Tegyük fel, hogy a projekt NodeJS projekt is egyben, vagyis van node_modules könyvtár is. Ennek a könyvtárnak a tartalmát nem szeretnénk verziókövetni, ezért bele kell írni a **.gitignore** nevű fájlba. A .gitignore nevű fájlba azoknak a fájloknak és könyvtáraknak a nevét tesszük, amelyeket **nem szeretnénk verziókövetni**. Készítsük el a saját .gitignore nevű állományunkat, majd írjuk bele a node_modules könyvtár nevét.
+Hozzunk létre egy index.html fájlt, amit szeretnénk verziókövetni. Tegyük fel, hogy a projekt NodeJS projekt is egyben, vagyis van node_modules könyvtár is. Ennek a könyvtárnak a tartalmát sosem szeretnénk verziókövetni, ezért bele kell írni a **.gitignore** nevű fájlba. A .gitignore nevű fájlba azoknak a fájloknak és könyvtáraknak a nevét tesszük, amelyeket **nem szeretnénk verziókövetni**. Készítsük el a saját .gitignore nevű állományunkat, majd írjuk bele a node_modules könyvtár nevét.
 
 ```txt
 node_modules/
@@ -328,8 +345,7 @@ Ellenőrizzük, hogy valóban ki van zárva a könyvtár:
 git status -u
 ```
 
-Ha nem látjuk a kimenetben  a node_modules könyvtárat, mehet verziókövetendő fájlok
-hozzáadása:
+Ha nem látjuk a kimenetben  a node_modules könyvtárat, mehet verziókövetendő fájlok hozzáadása:
 
 ```bash
 git add .
@@ -353,13 +369,21 @@ git commit -m "Kezdés"
 
 A -m kapcosló nélkül egy szövegszerkesztő nyílna meg, ahova beírhatjuk a commit szövegét. A -m kapcsoló után megadhatjuk ezt a szöveget. A -m kapcsoló nélkül csak akkor indítsuk "git commit" parancsot, ha van tapasztalatunk a **vi szövegszerkesztővel**, vagy beállítottunk más szövegszerkesztőt.
 
-Az idézőjelben írjuk le, milyen változtatásokat végeztünk a projektünkbe. Kezdésnek lehet "Init" vagy "Kezdés".
+Az idézőjelben írjuk le, milyen változtatásokat végeztünk a projektünkben. Kezdésnek lehet "Init" vagy "Kezdés".
 
-Használjuk a tájékozódáshoz a "git status" parancsot:
+Használjuk a tájékozódáshoz a "git status" és a "git log" parancsot:
 
 ```bash
 git status
 ```
+
+Tárolt állapotok megtekintése:
+
+```bash
+git log
+```
+
+Ha a "git log" parancsnak egy képernyőnél hosszabb a kimenete, egy lapozó program indul el. Ebből a **Q** billentyű lenyomásával léphetünk ki.
 
 Változtassunk valamit az index.html oldalon, majd nézzük meg újra a státuszt. Változtatások után, használjuk mindig a -u kapcsolót:
 
