@@ -11,7 +11,7 @@ A TypeScript a Microsoft egy nyílt forráskódú programozási nyelve, a JavaSc
 
 ![TypeScript és a JavaScript](images/typescript_javascript.png)
 
-A böngészők nem ismerik, ezért fordítani kell. A fordítás előnyös a programozók számára, mivel rávilgít több lehetséges hibára.
+A böngészők nem ismerik, ezért fordítani kell. A fordítás előnyös a programozók számára, mivel rávilágít több lehetséges hibára.
 
 ![TypeScript](images/typescript.png)
 
@@ -264,7 +264,7 @@ Kezdőérték használata:
 var gyumolcsok string[] = ['alma', 'körte', 'barack'];
 ```
 
-### Tuple
+### A Tuple
 
 Csak megadott számú elem adható meg.
 
@@ -576,7 +576,6 @@ printEmployee('Penge Béla');
 printEmployee('Penge Béla', 'Szolnok');
 ```
 
-
 A vizsgálat elvégezhető typeof operátorral is. Ez esetben az undefined értéket sztringként kell megadni.
 
 ```javascript
@@ -609,6 +608,76 @@ kibarat('Kati', 'Lóri', 'Erik', 'Pali');
 ```javascript
 const num1Elem = 
 document.querySelector("#num1")! as HTMLInputElement;
+```
+
+## Interfész
+
+Az interfész definiálja a megkötéseket az alkalmazásban. Az interfészt megvalósító osztályoknak követniük kell a megvalósíott interfészt.
+
+Az interfészt az interface kulcsszóval határozzuk meg. Tartalmazhat tulajdonságokat és metódusokat.
+
+```javascript
+interface Employee {
+    name: string;
+    city: string;
+    salary: number;
+    getSalary: () => number;
+    getName(): string;
+    elevateSalary(money: number): void;
+}
+```
+
+Az interfész megvalósítása:
+
+```javascript
+class EmployeeImp implements Employee {
+    name: string;
+    city: string;
+    salary: number;
+    getSalary(): number {
+        return this.salary;
+    }
+    getName(): string {
+        return this.name;
+    }
+    elevateSalary(money: number): void {
+        this.salary = this.salary + money;
+    }
+}
+```
+
+### Interfész típusként
+
+```javascript
+interface Employee {
+    name: string;
+    city: string;
+    salary: number;
+}
+
+var emp1: Employee;
+emp1 = {
+    name: 'Penge Béla', 
+    city: 'Szolnok',
+    salary: 358
+}
+console.log(emp1.name);
+```
+
+## Osztály használata
+
+```javascript
+class Employee {
+    name: string;
+    salary: number;
+    constructor(name: string, salary: number) {
+        this.name = name;
+        this.salary = salary;
+    }
+    getSalary(): number {
+        return this.salary;
+    }
+}
 ```
 
 ## Forrás
