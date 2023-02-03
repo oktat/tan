@@ -25,7 +25,7 @@ A stílusmeghatározásoknál fontosnak jelölhetünk egy-egy beállított tulaj
 }
 ```
 
-Ez felülbírálhatja a mástól származó beállítáoka.
+Ez felülbírálhatja a mástól származó beállításokat.
 
 De lássuk hogyan jár el a böngésző, milyen sorrendet állít ha több stílusmeghatározással találkozik:
 
@@ -33,7 +33,7 @@ I. Megekeresi az egyező deklarációkat és alkalmazza.
 
 II. Második szinten a böngésző sorrendet állít fel fontosság és az eredet alapján:
 
-1. böngézső stílus
+1. böngésző stílus
 2. a felhasználó normál stílusai
 3. a fejlesztő normál stílusai
 4. a fejlesztő fontos stílusai
@@ -50,7 +50,7 @@ IV. A sorrend az utolsó szint. Ami később van megadva, annak nagyobb a súlyo
    border: 1px solid black;
    border-collapse: collapse;
 }
-.table_001 tr td{
+.table_001 tr td {
    border: 1px solid black;
    padding: 10px;
 }
@@ -77,7 +77,7 @@ Legyen egy táblázat:
 </table>
 ```
 
-Adjuk hozzáa a következő CSS-t:
+Adjuk hozzá a következő CSS-t:
 
 ```css
 .table {
@@ -171,9 +171,7 @@ A táblázatok a tartalomhoz igazítják a méreteiket. A szélesség beállít�
 
 ## nth-child
 
-A nth-child ál-osztály lehetővé teszi
-ismétlődő elemek esetén adott számú
-elem külön formázását.
+A nth-child ál-osztály lehetővé teszi ismétlődő elemek esetén adott számú elem külön formázását.
 
 ```html
 <table>
@@ -215,7 +213,7 @@ tr:nth-child(odd) {
 }
 ```
 
-Több információ az nth-child állosztlyról:
+Több információ az nth-child állosztályról:
 
 * [https://szit.hu/doku.php?id=oktatas:web:css:css_szelektorok#az_nth-child_al-osztaly](https://szit.hu/doku.php?id=oktatas:web:css:css_szelektorok#az_nth-child_al-osztaly)
 
@@ -258,7 +256,7 @@ Szín RGB kóddal, hexadecimálisan:
 
 ```css
 p {
-    background-color: #8080000;
+    background-color: #808000;
 }
 ```
 
@@ -269,6 +267,8 @@ p {
     background-color: rgb(128, 128, 0);
 }
 ```
+
+Szín átlátszatlansága:
 
 ```css
 p {
@@ -734,3 +734,11 @@ Jelölje a helyes állítást:
 * A CSS-ben csak akkor használható változó, ha előfeldolgozót használunk.
 * A CSS-ben a var() függvénnyel hivatkozunk a változó tartalmára.
 * A CSS-ben a get() függvénnyel hivatkozuk a változó tartalmára.
+
+15.)
+A -o-linear-gradient() függvény milyen böngészők számára használjuk:
+
+* Internet Explorer
+* Google Chrome
+* Opera
+* Firefox
