@@ -1,7 +1,7 @@
 # Webprogramozás - CSS
 
 * **Szerző:** Sallai András
-* Copyright (c) Sallai András, 2022
+* Copyright (c) Sallai András, 2022, 2023
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
@@ -476,11 +476,30 @@ Több információ:
 Az fr a Grid elrendezési lehetőséggel együtt
 érkezett. Az fr a „fractional unit” rövidítése, ami töredék résznek fordítható. **1fr** a **rendelkezésre álló résznek az egyszerese**.
 
-## CSS Animation és Transition
+## CSS Átmenet, átalakítás és animáció
 
-Az animáció:
+### Átalakítások
 
-* [https://szit.hu/doku.php?id=oktatas:web:css:css_animacio](https://szit.hu/doku.php?id=oktatas:web:css:css_animacio)
+```css
+#egy {
+  background-color: navy;
+  color: white;
+  padding: 5px;
+  position: absolute;
+  top: 50px;
+  transform: rotate(-90deg); 
+}
+```
+
+A dobozt az óramutató járásával ellentétes
+irányba fordítja 90°-kal.
+
+További transformációk:
+
+* [https://szit.hu/doku.php?id=oktatas:web:css:css3#transzformaciok](https://szit.hu/doku.php?id=oktatas:web:css:css3#transzformaciok)
+
+
+### Átmenetek
 
 Transition:
 
@@ -502,25 +521,67 @@ Transition:
 }
 ```
 
-## Transzformációk
+### Animációk
+
+```html
+<div id="doboz1"></div>
+```
 
 ```css
-#egy {
-  background-color: navy;
-  color: white;
-  padding: 5px;
-  position: absolute;
-  top: 50px;
-  transform: rotate(-90deg); 
+#doboz1 {
+    background-color: blue;
+    width: 10px;
+    height: 150px;
+    animation: anim1 10s;
+}
+
+@keyframes anim1 {
+    from {
+        height: 0;
+    }
+    to {
+        height: 150px;
+    }
 }
 ```
 
-A dobozt az óramutató járásával ellentétes
-irányba fordítja 90°-kal.
+Az animáció indítása JavaScript segítségével:
 
-További transformációk:
+```html
+<button id="startButton">Start</button>
+<div id="doboz1"></div>
+```
 
-* [https://szit.hu/doku.php?id=oktatas:web:css:css3#transzformaciok](https://szit.hu/doku.php?id=oktatas:web:css:css3#transzformaciok)
+```css
+#doboz1 {
+    background-color: white;
+    width: 10px;
+    height: 150px;
+}
+
+@keyframes anim1 {
+    from {
+        height: 0;
+    }
+    to {
+        height: 150px;
+    }
+}
+```
+
+```javascript
+const doboz1 = document.querySelector("#doboz1");
+const startButton = document.querySelector("#startButton");
+
+startButton.addEventListener('click', () => {
+    doboz1.style.backgroundColor = "blue";
+    doboz1.style.animation = "anim1 10s";
+});
+```
+
+Az animációról több információ:
+
+* [https://szit.hu/doku.php?id=oktatas:web:css:css_animacio](https://szit.hu/doku.php?id=oktatas:web:css:css_animacio)
 
 ## CSS változók
 

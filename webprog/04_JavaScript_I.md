@@ -523,7 +523,7 @@ li.textContent = 'alma';
 lista.append(li);
 ```
 
-### Lista renderelése
+### Lista generálása
 
 ```javascript
 const lista = document.querySelector('#lista');
@@ -556,7 +556,7 @@ function makeLi(text) {
 }
 ```
 
-### Táblázat renderelése
+### Táblázat generálása
 
 ```html
 <table id="empTable">
@@ -597,7 +597,7 @@ function makeRow(emp) {
 
 ## Gyakorlat
 
-### Dolgozók adatai
+### Dolgozó adatai
 
 ```html
 <!DOCTYPE html>
@@ -653,4 +653,136 @@ addButton.addEventListener('click', () => {
     
     console.log(dolgozo.salary)
 });
+```
+
+### Több dolgozó adata
+
+```html
+    <div class="container">
+        <button id="startButton" 
+        class="btn btn-primary mt-3">
+            Start
+        </button>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Név</th>
+                    <th>Település</th>
+                    <th>Fizetés</th>
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table>
+    </div>
+```
+
+```javascript
+const tbody = document.querySelector("#tbody");
+const startButton = document.querySelector("#startButton");
+
+var employees = [
+    { name: 'Erős Pál', city: 'Szeged', salary: 345 },
+    { name: 'Lenge Irén', city: 'Szolnok', salary: 372 },
+    { name: 'Teknős Béla', city: 'Szeged', salary: 397 },
+    { name: 'Hentes Gábor', city: 'Szeged', salary: 323 }
+];
+
+startButton.addEventListener('click', () => {
+    generateTable();
+});
+
+function generateTable() {
+    employees.forEach(emp => {
+        let tr = document.createElement('tr');
+        let tdName = document.createElement('td');
+        let tdCity = document.createElement('td');
+        let tdSalary = document.createElement('td');
+        tdName.textContent = emp.name;
+        tdCity.textContent = emp.city;
+        tdSalary.textContent = emp.salary;
+        tbody.append(tr);
+        tr.append(tdName);
+        tr.append(tdCity);
+        tr.append(tdSalary);
+    });
+}
+```
+
+### Törlés és szerkesztésgomb
+
+```javascript
+const tbody = document.querySelector("#tbody");
+const addButton = document.querySelector("#addButton");
+
+var employees = [
+    { id: 1, name: 'Erős Pál', city: 'Szeged', salary: 345 },
+    { id: 2, name: 'Lenge Irén', city: 'Szolnok', salary: 372 },
+    { id: 3, name: 'Teknős Béla', city: 'Szeged', salary: 397 },
+    { id: 4, name: 'Hentes Gábor', city: 'Szeged', salary: 323 }
+];
+
+addButton.addEventListener('click', () => {
+   console.log('Hozzáadás árnyékeljárás') 
+});
+
+generateTable();
+
+function generateTable() {
+    employees.forEach(emp => {
+        let tr = document.createElement('tr');
+        let tdId = document.createElement('td');
+        let tdName = document.createElement('td');
+        let tdCity = document.createElement('td');
+        let tdSalary = document.createElement('td');
+        tdId.textContent = emp.id;
+        tdName.textContent = emp.name;
+        tdCity.textContent = emp.city;
+        tdSalary.textContent = emp.salary;
+        tbody.append(tr);
+        tr.append(tdId);
+        tr.append(tdName);
+        tr.append(tdCity);
+        tr.append(tdSalary);
+        tr.append(generateDeleteCell(emp.id));
+        tr.append(generateEditCell(emp));
+    });
+}
+
+function generateDeleteCell(id) {
+    let td = document.createElement('td');
+    let delButton = document.createElement('button');
+    delButton.textContent = 'Törlés';
+    delButton.classList = 'btn btn-primary';
+    delButton.addEventListener('click', deleteEvent);
+    delButton.setAttribute('data-id', id);
+    td.append(delButton);
+    return td;
+}
+
+function deleteEvent(event) {
+    let id = event.target.getAttribute('data-id');
+    console.log(id);
+}
+
+function generateEditCell(emp) {
+    let td = document.createElement('td');
+    let delButton = document.createElement('button');
+    delButton.textContent = 'Szerkesztés';
+    delButton.classList = 'btn btn-primary';
+    delButton.addEventListener('click', editEvent);
+    delButton.setAttribute('data-id', emp.id);
+    delButton.setAttribute('data-name', emp.name);
+    delButton.setAttribute('data-city', emp.city);
+    delButton.setAttribute('data-salary', emp.salary);
+    td.append(delButton);
+    return td;
+}
+
+function editEvent(event) {
+    let id = event.target.getAttribute('data-id');
+    let name = event.target.getAttribute('data-name');
+    let city = event.target.getAttribute('data-city');
+    let salary = event.target.getAttribute('data-salary');
+    console.log(name);
+}
 ```

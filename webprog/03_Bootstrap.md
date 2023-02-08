@@ -73,6 +73,10 @@ npm install bootstrap
 * .text-black-50
 * .text-white-50
 
+```html
+<div class="text-primary">Lorem ipsum</div>
+```
+
 ### Háttér
 
 * bg-primary
@@ -82,17 +86,51 @@ npm install bootstrap
 * bg-warning
 * bg-info
 
+```html
+<div class="bg-primary text-white">Lorem ipsum</div>
+```
+
 ## Konténerek
 
 ```html
 <div class="container">
-
+Lorem ipsum
 </div>
 ```
 
+A container osztályjelölőnek akkor láthatjuk a működését igazán, ha olyan tartalmat teszünk bele, ami nem fér bele a lap szélességébe.
+
+```html
+<div class="container">
+Lorem ipsum dolor sit, amet consectetur
+adipisicing elit. Omnis, tempora? Consequatur
+nemo, illum architecto dignissimos ab,
+deleniti incidunt porro minus delectus
+asperiores quae magni corporis ad itaque
+perspiciatis pariatur dicta animi maiores,
+exercitationem deserunt. Fugiat magni
+excepturi, tenetur quia consequatur
+odit suscipit? Vel dolorem ex sunt
+reprehenderit officia minus similique.
+</div>
+```
+
+A böngészőben mindkét oldalon 1.5 rem margó jelenik meg, az első töréspontig, ami 576 pixelnél van. Ha tovább növeljük a lap szélességét a szöveg szélessége 576 pixelnél nem nő tovább, de csak a következő töréspontig, ami 768 pixelnél van. Utána körülbelül 3 rem szélességű margó jelenik meg, a szöveg szélessége megint nem változik a következő töréspontig 992 pixelig. Ez így folytatódik az utolsó töréspontig.
+
+Töréspontok:
+
+| Töréspont | Infix osztály | Dimenzió |
+|-|-|-|
+| extra-small | nincs | <576px |
+| Small | sm | >=576px |
+| Medium | md | >=768px |
+| Large | lg | >=992px |
+| Extra large | xl | >=1200px |
+| Extra extra large | xxl | >=1400px |
+
 ## Rácsok
 
-Maximum 12 darab oszlop hozható létre.
+Maximum 12 darab oszlop hozható létre a tartalom elrendezéséhez. A rácsok **flexbox dobozokból** jönnek létre.
 
 ```html
 <div class="row">
@@ -105,11 +143,35 @@ Maximum 12 darab oszlop hozható létre.
 </div>
 ```
 
+Probáljuk ki a következő példát:
+
+```html
+<div class="row">
+    <div class="col bg-primary">
+    a
+    </div>
+    <div class="col bg-secondary">
+    a
+    </div>
+</div>
+```
+
 ## Eszközök
 
-* font-weight-bold
-* font-weight-normal
-* font-italic
+A font-weight tulajdonság a bootstrapben:
+
+* fw-bold
+* fw-normal
+* fw-light
+
+A font-italic tulajdonság:
+
+* fst-italic
+* fst-normal
+
+```html
+<div class="fw-bold">alma</div>
+```
 
 ### Igazítás
 
@@ -117,6 +179,10 @@ Maximum 12 darab oszlop hozható létre.
 * text-justify
 * text-end
 * text-center
+
+```html
+<div class="text-center">alma</div>
+```
 
 ### Helyek
 
@@ -144,7 +210,15 @@ Méretek:
 
 A $spacer értéke 1rem, azaz 16px alapértelmezetten.
 
-Példa:
+Hármas szintű margó körbe:
+
+```html
+<div class="m-3">
+Valami
+</div>
+```
+
+Automatikus margó jobb és bal oldalon:
 
 ```html
 <div class="mx-auto">
