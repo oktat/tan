@@ -11,6 +11,7 @@ A következő tantárgyakhoz találhatók tankönyvek:
 |  Tantárgy  |  Könyvtár  |
 |-|-|
 | Adatbázis-kezelés I | adatbazis_I |
+| Adatbázis-kezelés II | adatbazis_II |
 | Asztali alkalmazások | asztali_alkalmazas |
 | Asztali és mobil alkalmazások fejlesztése és tesztelése | asztali_mobil |
 | Frontend programozás és tesztelés | frontend |
