@@ -40,7 +40,7 @@ A kiíratásra következő metódusokat használhatjuk:
 * println()
 * printf()
 
-Ezeknek a metódusoknak többféle aláírása [^1] is olvashatóa dokumentációban.
+Ezeknek a metódusoknak többféle aláírása [^1] is olvasható a dokumentációban.
 
 [^1]: Az aláírás alatt egy függvény bemenő paramétereit értjük. A bemenőparamétereket szokás még formális paramétereknek is nevezni.
 
