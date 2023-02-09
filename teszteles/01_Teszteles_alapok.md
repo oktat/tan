@@ -127,9 +127,146 @@ Mit jelent a release candidate? Válasszon.
 * nem lesz továbbfejlesztve
 * vizsgát kell tennie
 
-3.) Milyen tesztről beszélünk, ha újratesztelünk egy szoftvert?
+3.)
+Milyen tesztről beszélünk, ha újratesztelünk egy szoftvert?
 
 * előtesztelés
 * egyszer tesztelünk csak
 * visszatérünk egy korábbi verziószámhoz
 * regressziós
+
+4.)
+Mi a refaktorálás
+
+* A kód újraírása.
+* A kód tesztelése.
+* A kód üres sorainak törlése.
+* A programot előlről kezdjük.
+
+5.)
+Melyik teszttel szokás egy függvényt vizsgálni, ami egy számítst végez?
+
+* átvételi
+* rendszer
+* egység
+* kerekítés
+
+6.)
+Melyik assert utasítással hasonlítjuk össze az elvárt eredményt az aktuális eredménnyel, ha az egy szám?
+
+* assertBear
+* assertLarge
+* assertEquals
+* assertTrump
+
+7.)
+Mit használunk Java nyelvhez egységteszteléshez?
+
+* GUnit
+* AUnit
+* CUnit
+* JUnit
+
+8.)
+Mi a verifikáció?
+
+* ami elkészült az megfelel az ügyfélnek?
+* amit tervezünk az megfelel az ügyfélnek?
+* az adatbázis vizsgálata
+* ami elkszült, az jól mûködik?
+
+9.)
+Mi a validáció?
+
+* ami elkészült az megfelel az ügyfélnek?
+* amit tervezünk az megfelel az ügyfélnek?
+* az adatbázis vizsgálata
+* ami elkszült, az jól mûködik?
+
+10.)
+Melyik tesztelési típus?
+
+* emberközpontú
+* sebezhetõ
+* figyelemfelkeltõ
+* kézi
+
+11.)
+Mi a fekete dobozos tesztelés?
+
+* az eredményt fekete dobozban tároljuk
+* az eredmény fekete dobozból kiolvasható
+* a tesztelõnek nem áll rendelkezésre a forráskód
+* a tesztelõnek rendelkezésre áll a forráskód
+
+12.)
+Mi a fehér dobozos tesztelés?
+
+* az eredményt fehér dobozban tároljuk
+* az eredmény fehér dobozból kiolvasható
+* a tesztelõnek nem áll rendelkezésre a forráskód
+* a tesztelõnek rendelkezésre áll a forráskód
+
+13.)
+Melyik funkciónálisteszt?
+
+* A weblapon megjelenik-e a "számít gomb".
+* A program mekkora bemenõ adat esetén mûködésképtelen.
+* A program kiszámítja a területet.
+* Újra vizsgáljuk, látszik-e már a számít gomb.
+
+14.)
+Milyen tesztek helyezkednek el a tesztpiramis alján?
+
+* GUI teszt
+* integrációs teszt
+* átvilteli teszt
+* egységteszt
+
+15.)
+A szoftverek életciklusát tekintve, melyik tevékenység van elõbb?
+
+* terjesztés
+* karbantartás
+* tervezés
+* elemzés
+
+16.)
+A szoftverek életciklusát tekintve, melyik tevékenység van utolsó helyen?
+
+* terjesztés
+* karbantartás
+* tervezés
+* elemzés
+
+17.)
+Mi a LOC?
+
+* A tesztelési sebesség mértékegysége.
+* A program készítés sebességének mértékegysége.
+* Programkód sorainak száma.
+* A látható sorok száma.
+
+18.)
+Mit jelent az LTS? Válasszon.
+
+* hosszú ideig támogatott kiadás
+* kiadásra jelölt
+* nem lesz továbbfejlesztve
+* vizsgát kell tennie
+
+19.)
+Melyik tesztet csinálja az "ügyfél"?
+
+* integrációs
+* elfogadási
+* rendszer
+* egység
+
+20.)
+1 kLOC, az hány kódsor?
+
+* 500
+* 1000
+* 2000
+* 10000
