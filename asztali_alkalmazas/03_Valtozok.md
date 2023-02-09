@@ -9,10 +9,10 @@
 
 A forráskódban megjegyzéseket írhatunk, amiket a fordító nem vesz figyelembe. A Java nyelvben megjegyzések lehetnek egy vagy több sorosak.
 
-Egy soros megjegyzéseket két darab perjel segítségével állíthatunk be:
+Egysoros megjegyzéseket két darab perjel segítségével állíthatunk be:
 
 ```java
-// egy soros megjegyzés
+// egysoros megjegyzés
 ```
 
 Több soros megjeygzések
