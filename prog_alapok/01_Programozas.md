@@ -7,6 +7,8 @@
 
 ## Játékos programozás
 
+A játékos programozás növelheti a lelkesedésünket a programozást iránt. Többféle online megoldás is létezik erre a célra. Egyik ajánlott hely a lightbot.hu, ahol egy kis robotot irányíthatunk, az általunk összerakott programjainkkal.
+
 Játékos programozáshoz ajánlott webhely:
 
 * [https://www.lightbot.lu/](https://www.lightbot.lu/)
@@ -14,6 +16,8 @@ Játékos programozáshoz ajánlott webhely:
 ## Oktatási portálok
 
 Önálló tanuláshoz ajánlott webhelyek:
+
+Nagy segítség lehet a további fejlődéshez egy online oktató webhely, mint a scriba.com, codecademy.com vagy a programiz.pro.
 
 * [https://scrimba.com/](https://scrimba.com/)
 * [https://www.codecademy.com/](https://www.codecademy.com/)
