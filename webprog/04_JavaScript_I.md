@@ -19,7 +19,7 @@ A JavaScript szabványt az ECMA szabványügyi szervezet tartja karban. Az ECMAS
 * 4 - nem készült el
 * 5 - 2009
 * 5.1 - 2011
-* 6 - 2015
+* 6 - 2015 - A class bevezetése
 * 7 - 2016
 * 8 - 2017
 * 9 - 2018
@@ -251,6 +251,10 @@ console.log(typeof a);
 
 ## Vezérlési szerkezetek
 
+### Szelekció
+
+#### Az if állítás
+
 ```javascript
 if (a > 5) {
     console.log('nagyobb');
@@ -262,6 +266,52 @@ if (a > 5) {
     console.log('nagyobb');
 }else {
     console.log('kisebb');
+}
+```
+
+```javascript
+if (num1 == 1) {
+    console.log('egy');
+}else if (num1 == 2) {
+    console.log('kettő');
+}else if (num1 == 3) {
+    console.log('három')
+}else {
+    console.log('ismeretlen');
+}
+```
+
+#### A switch utasítás
+
+```javascript
+switch(num1) {
+    case 1:
+        console.log('egy');
+        break;
+    case 2:
+        console.log('kettő');
+        break;
+    case 3:
+        console.log('három');
+        break;
+    default:
+        console.log('ismeretlen');
+}
+```
+
+### Iteráció
+
+```javascript
+for(let i=0; i<10; i++) {
+    console.log(i);
+}
+```
+
+```javascript
+var i=0;
+while(i<10) {
+    console.log(i);
+    i++;
 }
 ```
 
@@ -786,3 +836,7 @@ function editEvent(event) {
     console.log(name);
 }
 ```
+
+## Linkek
+
+* [https://www.geeksforgeeks.org/es6-classes/](https://www.geeksforgeeks.org/es6-classes/)
