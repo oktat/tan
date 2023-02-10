@@ -1,7 +1,7 @@
 # Webprogramozás - JavaScript I
 
 * **Szerző:** Sallai András
-* Copyright (c) Sallai András, 2022
+* Copyright (c) Sallai András, 2022, 2023
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
@@ -11,6 +11,22 @@
 
 A Mocha óta a JavaScript sok változáson ment keresztül. Szintaktikája a Java nyelvhez hasonlóságot a JavaScript név felvétele idején kezdett mutatni.
 
+### Történet
+
+A JavaScriptet eredetileg csak böngészőben használtuk.
+
+![JavaScript böngészőben](images/javascript_bongeszoben.png)
+
+Később szervereoldalon is elkezdték használni.
+
+![Szerveroldali JavaScript](images/javascript_szerveren.png)
+
+Manapság GUI programokat is írunk JavaScriptben.
+
+![GUI program JavaScriptben írva](images/javascript_gui-programkent.png)
+
+### ECMA szabvány
+
 A JavaScript szabványt az ECMA szabványügyi szervezet tartja karban. Az ECMAScript szabványt a JavaScript (Netscape) és a JScript (Microsoft) nyelvek alapján hozták létre. A szabványosítást a Netscape vállalat kezdeményezte. Az első szabvány 1997-ben jelent meg. 1998-ban és 1999-ben újabb verziója jelent meg a szabványnak. A következő, a negyedik szabványig hoszzabb idő telt el, de nem készült el. Az ötödik szabvány 2011-ben jelent meg 5.1 verzószámmal. A hatódik szabvány 2016-ban jelent meg. Ettől a szabványtól évente jelent meg újabb [szabványok](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/).
 
 * 1 - 1997
@@ -19,7 +35,7 @@ A JavaScript szabványt az ECMA szabványügyi szervezet tartja karban. Az ECMAS
 * 4 - nem készült el
 * 5 - 2009
 * 5.1 - 2011
-* 6 - 2015 - A class bevezetése
+* 6 - 2015 - A class, let, const, for..of bevezetése
 * 7 - 2016
 * 8 - 2017
 * 9 - 2018
@@ -47,7 +63,7 @@ A szabványokra rövidítéssel szokás hivatkozni. Például:
 console.log('működik');
 ```
 
-Futtatás:
+Futtatás parancssorból node paranccsal:
 
 ```bash
 node index.js
@@ -255,11 +271,27 @@ console.log(typeof a);
 
 #### Az if állítás
 
+Az if utasítás lehetővé teszi utasítások végrehajtását feltételtől függően. Szintaktikája:
+
+```javascript
+if (feltétel) {
+    // a szelekció törzse
+}
+```
+
+Ha feltétel igaz, végrehajtódnak a ciklus törzs részébe írt utasítások. Ha feltétel hamis, nem történik semmit.
+
+Egy konkrét példa:
+
 ```javascript
 if (a > 5) {
     console.log('nagyobb');
 }
 ```
+
+Ha az "a" változó értéke nagyobb mint 5, akkor a konzolra íródik a 'nagyobb' szó.
+
+Az előző programban, ha a feltétel hamis nem tettünk semmit. Ha szeretnénk hamis érték esetén is valamilyen tevékenységet végezni, írnunk kell egy úgynevezett "ellenben ágat", Angolul else.
 
 ```javascript
 if (a > 5) {
@@ -268,6 +300,8 @@ if (a > 5) {
     console.log('kisebb');
 }
 ```
+
+A if() .. else if() szerkezettel többágú szelekció valósítható meg:
 
 ```javascript
 if (num1 == 1) {
@@ -282,6 +316,8 @@ if (num1 == 1) {
 ```
 
 #### A switch utasítás
+
+A JavaScript nyelv tartalmaz egy switch utasítást, amit többágú szelekcióra szoktunk használni. Egy változó tartalmát vizsgáljuk. Nézzük meg a következő példát:
 
 ```javascript
 switch(num1) {
@@ -299,7 +335,11 @@ switch(num1) {
 }
 ```
 
+Ha num1 változóban "1" érték van, akkor az "egy" szó íródik a konzolra, ha "2" érték van benne, akkor "kettő" íródik a konzolra, és így tovább. Az egyes eseteket a "case" kulcsszó után kell írni. Ha az egyik esetnek sem felel meg a num1 változó, akkor a default utáni utasítások hajtódnak végre.
+
 ### Iteráció
+
+#### A for ciklus
 
 ```javascript
 for(let i=0; i<10; i++) {
@@ -307,11 +347,65 @@ for(let i=0; i<10; i++) {
 }
 ```
 
+#### A while ciklus
+
 ```javascript
 var i=0;
 while(i<10) {
     console.log(i);
     i++;
+}
+```
+
+#### A do..while ciklus
+
+A do..while ciklust olyan esetben hasznos, ha tudjuk, hogy a ciklus törzsét minimum egyszer biztosan végre kell hajtani.
+
+Szintaxis:
+
+```javascript
+do {
+    // a ciklus törzse
+}while(feltétel)
+```
+
+#### A for in ciklus
+
+A for in ciklust, objektumok esetén használhatjuk a kulcsok sorbavételére.
+
+```javascript
+for (key in object) {
+    // A ciklus törzse, ami minden ciklusban lefut.
+}
+```
+
+```javascript
+const employee = {
+    name: "Pali",
+    city: "Szeged"
+}
+for (let key in employee) {
+    console.log(employee[key]);
+}
+```
+
+#### A for of ciklus
+
+A for of ciklust, objektumok esetén használhatjuk a értékek sorbavételére.
+
+```javascript
+for (value of object) {
+    // A ciklus törzse, ami minden ciklusban lefut.
+}
+```
+
+```javascript
+const employee = {
+    name: "Pali",
+    city: "Szeged"
+}
+for (let value of employee) {
+    console.log(value);
 }
 ```
 
@@ -409,12 +503,29 @@ A JavaScript így olyan környzetben fut, ahol eleve adott egy környezet, ami v
 
 ### A window
 
-A window a böngészőablakot jelképezi. A bőngészőn belül a felület, ahol megjelenik a webolal a "screen". A screen tulajdonságai lekérdezhetők. Például szélesség:
+A window a böngészőablakot jelképezi. A window objektumon keresztül lekérdezhető a képernyőfelbontás, amiben/ahol a böngésző fut:
 
 ```javascript
 console.log(window.screen.width)
 console.log(window.screen.height)
 ```
+
+A böngésző külső mérete, az ablak szegélyén kívül:
+
+```javascript
+console.log(window.outerHeight);
+console.log(window.outerWidth);
+```
+
+A böngésző belső méretének lekrédezése, ahol weblap megjelenik.
+
+```javascript
+console.log(window.innerHeight);
+console.log(window.innerWidth);
+```
+
+A Google Chrome 108-s verziója nem a téngyleges méretet mutatja. Körülbelül 30%-kal kisebb méretet mutat.
+Firefoxban és Vivaldi böngészőkbe a valós méretek látszanak.
 
 ### A document
 
