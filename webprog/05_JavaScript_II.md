@@ -101,12 +101,12 @@ Kövessük a témát a következő helyen:
 ## JSON
 
 A JSON a JavaScript Object Notation rövidítése. Egy szabvány, amit
-adatok struktúrálására szántak egy szöveges állományban.
+adatok strukturálására szántak egy szöveges állományban.
 
 Az RFC 4627 szabványban van leírva. Állományban kiterjesztése **.json** .
 MIME típusként **application/json** .
 
-A JSON formátumot Douglas Crockford határozta meg és népszerűsítetette.
+A JSON formátumot Douglas Crockford határozta meg és népszerűsíttette.
 
 ```JSON
 {
@@ -119,7 +119,7 @@ A JSON formátumot Douglas Crockford határozta meg és népszerűsítetette.
 }
 ```
 
-Ha készítettünk egy JSON struktúrát online is megvizsgálhatjuk érvényeségét:
+Ha készítettünk egy JSON struktúrát online is megvizsgálhatjuk érvényességét:
 
 * [https://jsonlint.com/](https://jsonlint.com/)
 
