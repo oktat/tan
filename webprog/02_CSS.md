@@ -29,7 +29,7 @@ Ez felülbírálhatja a mástól származó beállításokat.
 
 De lássuk hogyan jár el a böngésző, milyen sorrendet állít fel ha több stílusmeghatározással találkozik:
 
-I. Megekeresi az egyező deklarációkat és alkalmazza.
+I. Megkeresi az egyező deklarációkat és alkalmazza.
 
 II. Második szinten a böngésző sorrendet állít fel fontosság és az eredet alapján:
 
@@ -134,7 +134,7 @@ Az eredmény a következő ábrán:
 
 ### Táblázat méretezése
 
-A táblázatok a tartalomhoz igazítják a méreteiket. A szélesség beállításával felülbírálhatjuk ezt a viselkedesét.
+A táblázatok a tartalomhoz igazítják a méreteiket. A szélesség beállításával felülbírálhatjuk ezt a viselkedését.
 
 ```html
 <table class="table">
@@ -213,7 +213,7 @@ tr:nth-child(odd) {
 }
 ```
 
-Több információ az nth-child állosztályról:
+Több információ az nth-child alosztályról:
 
 * [https://szit.hu/doku.php?id=oktatas:web:css:css_szelektorok#az_nth-child_al-osztaly](https://szit.hu/doku.php?id=oktatas:web:css:css_szelektorok#az_nth-child_al-osztaly)
 
@@ -494,7 +494,7 @@ Az fr a Grid elrendezési lehetőséggel együtt
 A dobozt az óramutató járásával ellentétes
 irányba fordítja 90°-kal.
 
-További transformációk:
+További transzformációk:
 
 * [https://szit.hu/doku.php?id=oktatas:web:css:css3#transzformaciok](https://szit.hu/doku.php?id=oktatas:web:css:css3#transzformaciok)
 
@@ -631,7 +631,7 @@ A Sass két szintaxissal használható:
 * behúzott szintaxis
 * SCSS (Sassy CSS) szintaxis
 
-A különbség a tagolásban van. A behúzott szintaxisnál a behúzásokból ered a tagolás, míg a SCSS esetén a {} kapcsoszárójelekből.
+A különbség a tagolásban van. A behúzott szintaxisnál a behúzásokból ered a tagolás, míg a SCSS esetén a {} kapcsos zárójelekből.
 
 |  Szintaxis | Kiterjesztés |
 |-|-|
@@ -654,7 +654,7 @@ sass --version
 
 ### Első Sass fájl
 
-Készítsünk egy app.scss fájlt a következő tartalommmal:
+Készítsünk egy app.scss fájlt a következő tartalommal:
 
 ```scss
 $primary-color: #333;
@@ -695,7 +695,7 @@ Kitől származhatnak stíluslapok? Több jó válasz is lehetséges.
 2.)
 Melyik stílusnak van nagyobb súlya? A később vagy az előbb beírt stíluslapnak?
 
-* az előbb beírt, ha háttérformásáról van szó
+* az előbb beírt, ha háttérformázásról van szó
 * az előbb beírt, ha szövegformázásról van szó
 * mindig az előbb beírt
 * mindig az utóbb beírt
@@ -735,7 +735,7 @@ Mire jó az nth-child ál-osztály?
 7.)
 Mire való a CSS-ben az rgba() függvényben a negyedik paraméter?
 
-* Append, azaz hozzáfűést állíthatunk be vele.
+* Append, azaz hozzáfűzést állíthatunk be vele.
 * A színek váltogatják egymást.
 * A szín átlátszatlanságát állíthatjuk vele.
 * Az elem tartalmának beállítása.
@@ -794,7 +794,7 @@ Jelölje a helyes állítást:
 * A CSS-ben nem használható változó.
 * A CSS-ben csak akkor használható változó, ha előfeldolgozót használunk.
 * A CSS-ben a var() függvénnyel hivatkozunk a változó tartalmára.
-* A CSS-ben a get() függvénnyel hivatkozuk a változó tartalmára.
+* A CSS-ben a get() függvénnyel hivatkozunk a változó tartalmára.
 
 15.)
 A -o-linear-gradient() függvény milyen böngészők számára használjuk:
