@@ -27,7 +27,7 @@ A stílusmeghatározásoknál fontosnak jelölhetünk egy-egy beállított tulaj
 
 Ez felülbírálhatja a mástól származó beállításokat.
 
-De lássuk hogyan jár el a böngésző, milyen sorrendet állít ha több stílusmeghatározással találkozik:
+De lássuk hogyan jár el a böngésző, milyen sorrendet állít fel ha több stílusmeghatározással találkozik:
 
 I. Megekeresi az egyező deklarációkat és alkalmazza.
 

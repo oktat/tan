@@ -233,17 +233,17 @@ void sumNumbers(int num1, int num2) {
 }
 ```
 
-## Visszatérésiérték
+## Visszatérési érték
 
 ```java
 void doubleNumber(int num) {
     int result = num * 2;
-    retrun result;
+    return result;
 }
 ```
 
 ```java
 void doubleNumber(int num) {
-    retrun num * 2;
+    return num * 2;
 }
 ```
