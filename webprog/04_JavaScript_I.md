@@ -17,7 +17,7 @@ A JavaScriptet eredetileg csak böngészőben használtuk.
 
 ![JavaScript böngészőben](images/javascript_bongeszoben.png)
 
-Később szervereoldalon is elkezdték használni.
+Később szerveroldalon is elkezdték használni.
 
 ![Szerveroldali JavaScript](images/javascript_szerveren.png)
 
@@ -27,7 +27,7 @@ Manapság GUI programokat is írunk JavaScriptben.
 
 ### ECMA szabvány
 
-A JavaScript szabványt az ECMA szabványügyi szervezet tartja karban. Az ECMAScript szabványt a JavaScript (Netscape) és a JScript (Microsoft) nyelvek alapján hozták létre. A szabványosítást a Netscape vállalat kezdeményezte. Az első szabvány 1997-ben jelent meg. 1998-ban és 1999-ben újabb verziója jelent meg a szabványnak. A következő, a negyedik szabványig hoszzabb idő telt el, de nem készült el. Az ötödik szabvány 2011-ben jelent meg 5.1 verzószámmal. A hatódik szabvány 2016-ban jelent meg. Ettől a szabványtól évente jelent meg újabb [szabványok](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/).
+A JavaScript szabványt az ECMA szabványügyi szervezet tartja karban. Az ECMAScript szabványt a JavaScript (Netscape) és a JScript (Microsoft) nyelvek alapján hozták létre. A szabványosítást a Netscape vállalat kezdeményezte. Az első szabvány 1997-ben jelent meg. 1998-ban és 1999-ben újabb verziója jelent meg a szabványnak. A következő, a negyedik szabványig hosszabb idő telt el, de nem készült el. Az ötödik szabvány 2011-ben jelent meg 5.1 verziószámmal. A hatódik szabvány 2016-ban jelent meg. Ettől a szabványtól évente jelent meg újabb [szabványok](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/).
 
 * 1 - 1997
 * 2 - 1998
@@ -129,7 +129,7 @@ index.js fájl tartalma:
 alert("Helló Világ");
 ```
 
-### A console a böngészőben
+### A konzol a böngészőben
 
 A böngészőkben a konzolt a fejlesztői felületen találjuk. A fejlesztői felületet általában a Ctrl+Shift+i billentyűkombinációval jeleníthetjük meg. Újabban az F12 is működik.
 
@@ -178,7 +178,7 @@ Valós szám:
 35.7
 ```
 
-Az index.js áttírásával teszteljük valós szám vizsgálatát.
+Az index.js átírásával teszteljük valós szám vizsgálatát.
 
 ```javascript
 console.log(typeof 35.7);
@@ -234,7 +234,7 @@ console.log(typeof (() => {}));
 
 ## Változók
 
-A változókban eltárolhatjuk az értékeket. A változók bevezetésénél nem szükséges megadni a típust, csak a var vagy a let kulcsszót. A const is használható, de azzal állandót vezetünk be, nem változót. Ha a változót blokkon kívül vezetjük be, akkor a var-t szokás használni, ha blokkon belül vagyun, használhatjuk a let kulcsszót.
+A változókban eltárolhatjuk az értékeket. A változók bevezetésénél nem szükséges megadni a típust, csak a var vagy a let kulcsszót. A const is használható, de azzal állandót vezetünk be, nem változót. Ha a változót blokkon kívül vezetjük be, akkor a var-t szokás használni, ha blokkon belül vagyunk, használhatjuk a let kulcsszót.
 
 ```javascript
 var a = 30;
@@ -371,7 +371,7 @@ do {
 
 #### A for in ciklus
 
-A for in ciklust, objektumok esetén használhatjuk a kulcsok sorbavételére.
+A for in ciklust, objektumok esetén használhatjuk a kulcsok sorba vételére.
 
 ```javascript
 for (key in object) {
@@ -391,7 +391,7 @@ for (let key in employee) {
 
 #### A for of ciklus
 
-A for of ciklust, objektumok esetén használhatjuk a értékek sorbavételére.
+A for of ciklust, objektumok esetén használhatjuk a értékek sorba vételére.
 
 ```javascript
 for (value of object) {
@@ -413,7 +413,7 @@ for (let value of employee) {
 
 ### Névjegy
 
-A függvényeket a "function" kulcsszóval vezetjük be. Ezt követi a függvény neve. A függvény törzse kapcsoszárójelek között, akár egyetlen sorban is szerepelhet.
+A függvényeket a "function" kulcsszóval vezetjük be. Ezt követi a függvény neve. A függvény törzse kapcsos zárójelek között, akár egyetlen sorban is szerepelhet.
 
 ```javascript
 function nevjegy() {
@@ -499,7 +499,7 @@ A böngészőből elérhető néhány alapobjektum:
 * document
 * console
 
-A JavaScript így olyan környzetben fut, ahol eleve adott egy környezet, ami valójában a böngésző.
+A JavaScript így olyan környezetben fut, ahol eleve adott egy környezet, ami valójában a böngésző.
 
 ### A window
 
@@ -517,21 +517,21 @@ console.log(window.outerHeight);
 console.log(window.outerWidth);
 ```
 
-A böngésző belső méretének lekrédezése, ahol weblap megjelenik.
+A böngésző belső méretének lekérdezése, ahol weblap megjelenik.
 
 ```javascript
 console.log(window.innerHeight);
 console.log(window.innerWidth);
 ```
 
-A Google Chrome 108-s verziója nem a téngyleges méretet mutatja. Körülbelül 30%-kal kisebb méretet mutat.
+A Google Chrome 108-s verziója nem a tényleges méretet mutatja. Körülbelül 30%-kal kisebb méretet mutat.
 Firefoxban és Vivaldi böngészőkbe a valós méretek látszanak.
 
 ### A document
 
 A document objektumon keresztül érhető el a webolal, annak egyes részei.
 
-A weboldal HTML elemekből épül fel. Az elemk egy hierachiája egy fával ábrázolható. Ezt a hierarchikusan felépülő szerkezetet nevezzük
+A weboldal HTML elemekből épül fel. Az elemek egy hierarchiája egy fával ábrázolható. Ezt a hierarchikusan felépülő szerkezetet nevezzük
 DOM-nak. Angolul: Document Object Model.
 
 A document objektumon keresztül elérhetjük a DOM egyes részeit.
@@ -571,7 +571,7 @@ Az első div elemre így hivatkozhatunk:
 document.querySelector('div');
 ```
 
-Állítsunk be egy háttérsznít és egy szövegszínt:
+Állítsunk be egy háttérszínt és egy szövegszínt:
 
 ```javascript
 document.querySelector('div').style.backgroundColor = 'blue';
