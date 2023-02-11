@@ -11,7 +11,7 @@ Stíluslap származhat szerzőtől, felhasználótól és böngészőtől:
 
 * Szerzői - Webmester írja
 * Felhasználói - A böngészőben beállítható saját CSS
-* Klines - böngészőnek is van saját stílusa
+* Kliens - böngészőnek is van saját stílusa
 
 A stíluslapok ettől is lépcsőzetesek.
 
