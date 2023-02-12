@@ -17,9 +17,26 @@ Bővebb leírása:
 
 ## Szükséges szoftverek
 
-* Chocolatey
+Szükség van a Chocolatey nevű csomagkezelőre. Több információ a csomagkezelőről:
+
+* [https://szit.hu/](https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:csomagkezeles#chocolatey)
+
+A következő szoftverek van szükség:
+
 * Visual Studio Code
 * Python
 * Google Chrome
 * Total Commander
 * Java JDK
+* NodeJS
+
+Telepítés Chocolatey csomagkezelővel:
+
+```cmd
+choco install vscode
+choco install python
+choco install googlechrome
+choco install totalcommander
+choco install oraclejdk
+choco install nodejs
+```
