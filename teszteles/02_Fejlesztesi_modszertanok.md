@@ -92,3 +92,32 @@ Megbeszélendő:
 * mivel foglalkoztam tegnap
 * mivel szeretnék ma foglalkozni
 * milyen problémákba ütkztem
+
+## Gyakorlás
+
+### Kérdések
+
+1.)
+Vízesés modell esetén, melyik az első három tevékenység?
+
+* követelmények, tervezés, megvalósítás
+* tesztelés, telepítés, karbantartás
+* követelmények, rendszertesztelés, elfogadási teszt
+* követelmények, kódolás, karbantartás
+
+2.)
+A V-modell bal oldali ága, hasonlít egy másik modellhez. Melyik az?
+
+* Prototípus
+* Vízesés
+* RAD
+* Agilis szoftverfejlesztés
+
+3.)
+Melyik fejlesztési módszert tartalmazza az Agilis
+szoftverfejlesztés?
+
+* Vízesés
+* RAD
+* Scrum
+* RAID
