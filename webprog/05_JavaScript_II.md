@@ -103,10 +103,14 @@ Kövessük a témát a következő helyen:
 A JSON a JavaScript Object Notation rövidítése. Egy szabvány, amit
 adatok strukturálására szántak egy szöveges állományban.
 
-Az RFC 4627 szabványban van leírva. Állományban kiterjesztése **.json** .
+Az RFC 4627 szabványban van leírva. A JSON állomány kiterjesztése **.json** .
 MIME típusként **application/json** .
 
+<<<<<<< HEAD
 A JSON formátumot Douglas Crockford határozta meg és népszerűsíttette.
+=======
+A JSON formátumot **Douglas Crockford** határozta meg és népszerűsítetette.
+>>>>>>> dev1
 
 ```JSON
 {
@@ -129,7 +133,7 @@ Lásd még:
 
 ## REST API
 
-Szerveren létrehozott végpontok, amelyen keresztül kezelhetők egy adott adatbázis adatai.
+Szerveren létrehozott HTTP végpontok, amelyen keresztül elérhetők, kezelhetők egy adott adatbázis adatai.
 
 Lásd:
 
@@ -142,6 +146,99 @@ Az AJAX az Asynchronous JavaScript and XML rövidítése. AJAX esetén JavaScrip
 A jelenlegi divat szerint REST API-t használunk, ahol a JSON a szokásos formátum.
 
 Az ES6 szabványban megjelent a fetch() függvény, amit Promise alapon hoztak létre. A fetch függvénnyel is adatokat hozhatunk el szerverről JavaScript kóddal.
+
+### JSON szerver
+
+A json-server egy NodeJS csomag, amivel helyettesítő a REST API szerver. Üzemeljük be a json-server-t.
+
+Késíztsünk NodeJS projektet:
+
+```cmd
+mkdir api
+cd api
+npm init -y
+```
+
+Kapunk egy package.json fájlt. Keressük meg a scripts tulajdonságot, majd vegyünk fel egy újabb értéket:
+
+```json
+{
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "json-server --watch package.json"
+    }
+}
+```
+
+Telepítsük a json-server csomagot:
+
+```cmd
+npm install --save-dev json-server
+```
+
+Készítsünk egy adatbázist:
+
+```json
+{
+    "employees": [
+        { 
+            "name": "Csete Irén",
+            "city": "Szeged",
+            "salary": 342
+        },
+        { 
+            "name": "Erős Áron",
+            "city": "Szolnok",
+            "salary": 395
+        },
+        { 
+            "name": "Csont Ernő",
+            "city": "Szeged",
+            "salary": 348
+        }
+    ]
+}
+```
+
+Indítsuk el a szervert:
+
+```cmd
+npm start
+```
+
+Szükségünk van egy REST API kliensre. Insomnia, Postman httpie, stb.
+
+A httpie telepítése rendszergazdaként Chocolatey telepítésével:
+
+```cmd
+choco install httpie
+```
+
+Ellenőrizzük a httpie klienssel a REST API működését:
+
+```cmd
+http get http://localhost:3000/employees
+```
+
+### REST API elérése JavaScripttel
+
+Írjunk egy JavaScript klienst:
+
+```javascript
+var host = 'http://localhost:3000/';
+var endpoint = 'employees';
+var url = host + endpoint;
+fetch(url)
+.then(res => res.json()
+.then(res => console.log(res))
+.catch(err => console.log(err));
+```
+
+Tegyük fel, hogy az src/app.js fájlba írtuk. A futtatás node paranccsal ekkor:
+
+```cmd
+node src/app.js
+```
 
 A fetch() függvényről lásd tovább:
 
