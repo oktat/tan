@@ -106,11 +106,7 @@ adatok strukturálására szántak egy szöveges állományban.
 Az RFC 4627 szabványban van leírva. A JSON állomány kiterjesztése **.json** .
 MIME típusként **application/json** .
 
-<<<<<<< HEAD
-A JSON formátumot Douglas Crockford határozta meg és népszerűsíttette.
-=======
 A JSON formátumot **Douglas Crockford** határozta meg és népszerűsítetette.
->>>>>>> dev1
 
 ```JSON
 {
