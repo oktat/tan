@@ -376,6 +376,369 @@ A változó nevét beírtuk dupla kapcsoszárójelek közé. Így létrehoztuk a
 ng server --open
 ```
 
-## Továbbiak
+## Életciklus események
 
-* [https://szit.hu/doku.php?id=oktatas:web:angular](https://szit.hu/doku.php?id=oktatas:web:angular)
+Olyan függvények, amelyek lehetővé teszik az alkalmazás különböző életciklusainak nyomonkövetését, azokhoz kapcsolódó műveletek végrehajtását.
+
+A következő függvények állnak rendelkezésre:
+
+* ngOnInit()
+* ngOnDestroy()
+* ngAfterViewInit()
+* ngOnChanges()
+* stb.
+
+### ngOnInit() függvény
+
+A komponens betöltésekor fut le. Általában adatok lekérésére, betöltésére használjuk, előkészítésére használjuk.
+
+Az @angular/core-ból kell importálni:
+
+```javascript
+import { Component, OnInit } from '@angular/core';
+@Component({
+  selector: 'app-example',
+  templateUrl: './example.component.html',
+  styleUrls: ['./example.component.css']
+})
+export class ExampleComponent implements OnInit {
+  ngOnInit() {
+    // Adatlekérés és betöltés
+    this.loadData();
+  }
+
+  loadData() {
+    // Adatok betöltése
+  }
+}
+
+```
+
+### Az ngOnDestroy() függvény
+
+Az ngOnDestroy() életciklus függvény akkor fut le, amikor a komponens megsemmisül. Ez a komponens eltávolítását jelenti. Eseményfigyelők, időzítők és adatfolyamok leállítására használjuk.
+
+```javascript
+import { Component, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+
+@Component({
+  selector: 'app-example',
+  templateUrl: './example.component.html',
+  styleUrls: ['./example.component.css']
+})
+export class ExampleComponent implements OnDestroy {
+  private exampleSubscription: Subscription;
+
+  constructor(private exampleService: ExampleService) {
+    this.exampleSubscription = this.exampleService.exampleObservable.subscribe({
+      next(data) {
+        // Csináld valamit az adattal
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    // Leiratkozás az observable-re az unsubscribe() metódussal
+    this.exampleSubscription.unsubscribe();
+  }
+}
+```
+
+## Szolgáltatások
+
+Az adatkezelés és a funkcionalitás bővítését teszik lehetővé a szolgáltatások. A szolgáltatások tulajdonképpen olyan osztályok, amelyeket injektálni lehet más osztályokba, vagy más szolgáltatásokba. A szolgáltatások így újrahasznosíthatók, könnyen karbantarthatók.
+
+A szolgáltatások tárolhatnak egyszerűen adatokat, vagy elérhetnek szerveren tárolt adatokat.
+
+A szolgáltatást az @Injectable dekorátorral kell használni, ahhoz hogy a szolgáltatást injektálhatónak jelöljük. A root érték azt jelenti, hogy a szolgáltatás az egész alkalmazásból elérhető.
+
+```javascript
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ExampleService {
+  private data: string[] = [
+    'Example 1', 
+    'Example 2', 
+    'Example 3'
+    ];
+
+  getData(): string[] {
+    return this.data;
+  }
+
+  addData(newData: string): void {
+    this.data.push(newData);
+  }
+
+  deleteData(index: number): void {
+    this.data.splice(index, 1);
+  }
+
+  updateData(index: number, newData: string): void {
+    this.data[index] = newData;
+  }
+}
+```
+
+## Függőségbefecskendezés
+
+Az Angular Dependency Injection, röviden DI, lehetővé teszi a direktívák, szolgáltatások, komponensek számára, hogy egyik a másikra támaszkodjon.
+
+A példa kedvéért készítsünk egy egyszerű szolgáltatást:
+
+```javascript
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class GreetingService {
+  greet(name: string): string {
+    return `Hello, ${name}!`;
+  }
+}
+
+```
+
+Készítsünk egy komponenst, amely függőségként befecskendezi az előbbi szolgáltatást:
+
+```javascript
+import { Component } from '@angular/core';
+import { GreetingService } from './greeting.service';
+
+@Component({
+  selector: 'app-greeting',
+  template: '<p>{{ greeting }}</p>',
+  styles: []
+})
+export class GreetingComponent {
+  greeting: string;
+
+  constructor(private greetingService: GreetingService) {
+    this.greeting = greetingService.greet('John');
+  }
+}
+```
+
+A komponens konstruktora egy GreetingService példányt kap a DI révén. Így az alkalmazás részévé válik és bárhol használhatjuk.
+
+Az app.module.ts fájlban a GreetingService szolgáltatást regisztárlni kell, hogy az egész alkalmazsából elérhető legyen.
+
+```javascript
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppComponent } from './app.component';
+import { GreetingComponent } from './greeting.component';
+import { GreetingService } from './greeting.service';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    GreetingComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [GreetingService],  // injektáljuk a GreetingService-t
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+## Routing és navigáció
+
+Az Angular keretrendszer lehetővé teszi, hogy egyszerűen kezeljük az alkalmazásunk navigációját és az útvonalakat. A routing használatához a Router modult kell használnunk.
+
+Az útvonalak beállításával megadhatjuk, hogy a felhasználó hogyan jusson el egyik oldalról a másikra, és milyen komponens töltődjön be.
+
+### Routing elkészítése
+
+Létre kell hozni az AppRoutingModule modult.
+
+```cmd
+ng generate module app-routing --flat --module=app
+```
+
+Az AppRoutingModule-ban be kell állítani az útvonalakat.
+
+```javascript
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'about', component: AboutComponent }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+```
+
+Ebben a példában két útvonal van. A kezdőlap és az About oldal.
+
+Mindkét útvonal egy-egy komponenshez van rendelve. A path: '' az üres útvonalat jelenti. Az alkalmazásunk első megnyitásakor az itt megadott komponens töltődik be.
+
+Navigáció:
+
+```javascript
+<nav>
+  <a routerLink="/">Kezdőlap</a>
+  <a routerLink="/about">Rólunk</a>
+</nav>
+
+<router-outlet></router-outlet>
+```
+
+A routerLink attribútum használata szükséges az SPA viselkedéshez. Ha href attribútumot használunk az oldal újratöltéssel navigál.
+
+A router-outlet direktíva azt jelzi, hogy ide kell behelyettesíteni az aktuális komponenst.
+
+## A HTTP és a Backend kommunikáció
+
+Az Angular lehetővé teszi HTTP kommunikációt a háttérben futó szerverekkel. Az Angularnak ehhez saját HTTP modulja van.
+
+### A HttpClientModule
+
+Az app.module.ts fájlban:
+
+```javascript
+import { HttpClientModule } from '@angular/common/http';
+//...
+ 
+imports: [
+    HttpClientModule
+],
+```
+
+Ahol használni szeretnénk, például egy szolgáltatásban importáljuk a HttpClient osztályt:
+
+```javascript
+import { HttpClient } from '@angular/common/http';
+```
+
+A konstruktorban injektáljuk:
+
+```javascript
+constructor(private http: HttpClient) { }
+```
+
+Ezek uátn használhatjuk a get(), post(), put(), delete() stb. metódust.
+
+Példa:
+
+```javascript
+this.http.get('https://jsonplaceholder.typicode.com/todos').subscribe(data => {
+   console.log(data);
+});
+```
+
+A http.get() metódus elküldi a kérést az URL-re, majd kapunk egy Observable objektumot, ahol a subscribe() metódussal kapjuk meg a választ.
+
+A HttpClient aszinkron kommunikációt tesz lehetővé a szerverrel, így nem kell várakoznunk a szerver válaszára.
+
+## Angular animáció
+
+Az Angularban elérhető az @angular/animations modul, ami lehetővé teszi animáció létrehozását.
+
+A használathoz importálni kell az alkalmazás számára a BrowserAnimationsModule modult.
+
+```javascript
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+@NgModule({
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule
+    ],
+    declarations: [AppComponent],
+    bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+Ez után definiálhatunk a komponenseikben animációt:
+
+```javascript
+import { trigger, state, style, animate, transition } from '@angular/animations';
+
+@Component({
+    selector: 'app-root',
+    template: `
+        <button (click)="toggle()">Toggle</button>
+        <div [@fadeInOut] *ngIf="visible">Hello World</div>
+    `,
+    animations: [
+        trigger('fadeInOut', [
+            state('void', style({
+                opacity: 0
+            })),
+            transition(':enter, :leave', [
+                animate(300)
+            ])
+        ])
+    ]
+})
+export class AppComponent {
+    visible: boolean = false;
+
+    toggle() {
+        this.visible = !this.visible;
+    }
+}
+```
+
+A fadeInOut az animáció neve. A state() függvényben megmondjuk, hogy milyen állapotok között kell váltani. A void állapot, azt jelenti az animáció nem látható. A transition() függvényben meghatározzuk, hogy az animáció milyen állapotváltozásra kell bekövetkezzen.
+
+## Az Angular egységtesztelés
+
+Az egységtesztek fontosak az alkalmazás minőségbiztosításához. Az egységtesztek esetén az alkalmazás egy elkülönített részét teszteljük, ami általában egy függvény.
+
+A teszteléshez a következő Angular szolgáltatásokra van szükség:
+
+* TestBed
+* ComponentFixture
+
+A teszteket egy spec.ts kiterjesztésű fájlba tesszük.
+
+```javascript
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { YourComponent} from './your.component';
+
+describe('YourComponent', () => {
+    let component: YourComponent;
+    let fixture: ComponentFixture<YourComponent>;
+
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [ YourComponent ]
+        }).compileComponents();
+    });
+
+    beforeEach(() => {
+        fixture = TestBed.createComponent(YourComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
+
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
+});
+```
+
+Az Angular komplexebb tesztjei a következő modulokat is használhatják:
+
+* HttpClientTestingModule
+* RouterTestingModule
+* FormsModule
