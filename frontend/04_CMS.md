@@ -115,4 +115,3 @@ Egyedi funkciókat adhatunka WordPress számára a kiegészítőkkel.
 * Van néhány alap bővítmény:
   * biztonsági
   * SEO-optimalizálás
-
