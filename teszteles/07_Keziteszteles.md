@@ -8,3 +8,13 @@
 ## A kézitesztelésről
 
 A kézitesztelés az alkalmazás próbája egérrel, billentyűzettel, aminek az eredményét egy táblázatban rögzítjük.
+
+### Táblázat
+
+Tesztelésre kész:
+
+![kézitesztelés táblázat](images/keziteszt_tablazat_01.png)
+
+Tesztelés után:
+
+![kézitesztelés táblázat](images/keziteszt_tablazat_02.png)
