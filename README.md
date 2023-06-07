@@ -14,6 +14,7 @@ A következő tantárgyakhoz találhatók tankönyvek:
 | Adatbázis-kezelés II | adatbazis_II |
 | Asztali alkalmazások | asztali_alkalmazas |
 | Asztali és mobil alkalmazások fejlesztése és tesztelése | asztali_mobil |
+| Backend programozás | backend |
 | Frontend programozás és tesztelés | frontend |
 | Informatika és távközlési alapok II | info_tavkoz_II |
 | Programozás alapok | prog_alapok |
