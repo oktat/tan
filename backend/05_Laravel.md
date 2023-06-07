@@ -1581,3 +1581,14 @@ Töltsük fel az adatábzist a szolgáltatóhoz.
 ### Kezdő felhasználó
 
 A /api/register útvonalat érdemes védelmezni. Ekkor szükség van egy kezdő felhasználóra. Ezt létrehozhatuk **tinker** eszközzel, vagy seedert készítünk hozzá.
+
+```php
+User::create(["name"=> "admin","email"=>"admin@zold.lan","password"=>bcrypt("titok")]);
+=> App\Models\User {#4290
+   name: "admin",
+   email: "admin@zold.lan",
+   updated_at: "2023-06-07 21:21:10",
+   created_at: "2023-06-07 21:21:10",
+   id: 1,
+  }
+```
