@@ -1143,7 +1143,7 @@ Az útvonak védelméhez szükség van felhasználókra. Az úvonalakt JWT token
 
 ### User model készítése
 
-Készítsünk egy User modellt az **src/models/user.js fájlban:
+Készítsünk egy User modellt az **src/models/user.js** fájlban:
 
 ```javascript
 const { DataTypes } = require('sequelize')
