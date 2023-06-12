@@ -60,7 +60,10 @@ mkdir src
 Az src könyvtárban készítsünk egy index.js fájlt, a következő tartalommal:
 
 ```javascript
+
 const express = require('express');
+
+// Express alkalmazás létrehozása:
 const app = express();
 
 // Egy /msg nevű végpont beállítása:
@@ -196,6 +199,7 @@ http localhost:8000/msg
 ```cmd
 http post localhost:8000/msg
 ```
+
 Fejlesszük tovább az alkalmazásunkat és valósítssunk meg minden metódust:
 
 ```javascript
