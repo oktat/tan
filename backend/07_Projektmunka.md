@@ -82,7 +82,7 @@ const Student = require('../models/studnet')
 const StudentController = {
     async index(req, res) {
         try {
-            UserController.tryIndex(req, res)
+            StudentController.tryIndex(req, res)
         }catch(error) {
             res.status(500)
             res.json({
@@ -149,3 +149,23 @@ Ad-hoc teszt:
 Tervezett teszt:
 
 * supertest
+
+#### Teszt kezdése
+
+_test/studentTest.js_:
+
+```javascript
+const supertest = require('supertest')
+
+describe('A students teszt', () => {
+
+    const host = 'http://localhost:8000/api' 
+
+    it('/students get teszt', (done) => {
+        supertest(host)
+            .get('/students')
+            .set('Accept', 'application/json')
+            .expect(200, done)
+    })
+})
+```
