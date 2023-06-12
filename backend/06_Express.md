@@ -13,7 +13,11 @@
 
 ## Express és a Sequelize
 
-### Adatbázis beállítása
+Az Express minimalista, rugalmas webes keretrendszer, ami NodeJS-sel van megvalósítva.
+
+Sok népszerű keretrendszer alapszik az Expressen.
+
+A Sequelize egy ORM rendszer, amit a modelleket leképezi adatbázisra.
 
 ## Első Express projekt
 
@@ -27,7 +31,7 @@ mkdir src
 
 ### Az első index.js
 
-Készítsünk egy index.js nevű fájlt az src könyvtárban. Tartalma:
+Készítsünk egy **index.js** nevű fájlt az src könyvtárban. Tartalma:
 
 ```javascript
 console.log('Helló Világ');
@@ -43,7 +47,7 @@ node src
 
 ### Az index.js végponttal
 
-Készítsünk egy új projektet "veges" néven:
+Készítsünk egy új projektet **veges** néven:
 
 ```cmd
 mkdir veges
@@ -59,14 +63,18 @@ Az src könyvtárban készítsünk egy index.js fájlt, a következő tartalomma
 const express = require('express');
 const app = express();
 
+// Egy /msg nevű végpont beállítása:
 app.get('/msg', (req, res) => {
-    res.send('Helló üzenet');
+    res.send('Helló üzenet'); // Üzenet visszaküldése
 });
 
+// A REST API szerver a 8000-s porton figyeljen:
 app.listen(8000, () => {
     console.log('listening on port: 8000');
 });
 ```
+
+Ha elkszítettük a szerverünket, futtassuk a szervert.
 
 Futtatás:
 
@@ -87,6 +95,8 @@ Használhatjuk a HTTPie alkalmazás http parancsát is:
 ```cmd
 http localhost:8000/msg
 ```
+
+Nézzük meg az eredményt az Insomnia alkalmazásban is.
 
 A futó szervert állítsuk le a Ctrl + C billentyűkombinációval.
 
@@ -125,7 +135,7 @@ Futassuk a szervert, és teszteljük curl vagy http paranccsal.
 
 Készítsünk egy **pcshop** nevű projektet.
 
-Készítsük el a következő index.js állományt:
+Készítsük el a következő **index.js** állományt:
 
 ```javascript
 const express = require('express');
@@ -177,7 +187,7 @@ app.listen(8000, () => {
 });
 ```
 
-Teszteljük mindektőtt. Használjuk a http parancsot:
+Teszteljük mindketőtt. Használjuk a HTTPie, http parancsát:
 
 ```cmd
 http localhost:8000/msg
@@ -186,8 +196,7 @@ http localhost:8000/msg
 ```cmd
 http post localhost:8000/msg
 ```
-
-Próbáljuk ki a többi metódust is:
+Fejlesszük tovább az alkalmazásunkat és valósítssunk meg minden metódust:
 
 ```javascript
 const express = require('express');
@@ -218,7 +227,7 @@ app.listen(8000, () => {
 });
 ```
 
-Teszteljük.
+Teszteljük az alkalmazást a HTTPie vagy a curl paranccsal vagy az Insomnia segítségével.
 
 ### Express router
 
@@ -226,7 +235,7 @@ Készítsünk egy **utas** nevű projektet.
 
 A Router használatával az alkalmazás egyes részei szétválaszthatók, és végpontot is bővíthetjük.
 
-Először lássuk egyetlen fájlban a használatatát. Készítsünk egy index.js fájlt az src könyvtárban:
+Először lássuk egyetlen fájlban a használatát. Készítsünk egy index.js fájlt az src könyvtárban:
 
 ```javascript
 const express = require('express');
@@ -302,7 +311,7 @@ node src
 Készítsen porjektet **rendelo** néven.
 
 * Telepítése az Express szervert.
-* Hozzon létre egy paciens nevű végpontot.
+* Hozzon létre egy **paciens** nevű végpontot.
 * A paciens végpont adjon vissza egy pac nevű JSON objektumot.
 * A pac objektumban tároljon nevet, kezelés dátumot, életkort.
 * A pac objektumban vegyen fel tetszőleges adatokat.
@@ -346,7 +355,9 @@ pnpm install express sequelize mariadb
 pnpm install --save-dev nodemon
 ```
 
-A package.json fájlban script:
+A nodemon lehetővé teszi számunkra, hogy az alkalmazás fejlesztése során minden egyes mentéskor azonnal legyen aktuális a fejlesztett rész.
+
+A package.json fájlban az indító script:
 
 ```json
   "scripts": {
@@ -368,6 +379,8 @@ router.get('/employees', (req, res) => {
 
 module.exports = router
 ```
+
+Jelenleg egytelen JSON adatot adunk vissza egy "msg" tulajdonsággal, a json() függvénnyel. A json() függvény beállítja a HTTP fejlécet is.
 
 ### Belépési pont
 
@@ -450,7 +463,9 @@ Valami%
 
 ### Az összes metódus megvalósítása
 
-src/controllers/employee.controller.js:
+Valósítsuk meg az összes metódust.
+
+_src/controllers/employee.controller.js_:
 
 ```javascript
 const EmployeeController = {
@@ -471,7 +486,7 @@ const EmployeeController = {
 module.exports = EmployeeController
 ```
 
-src/routes/api.js:
+_src/routes/api.js_:
 
 ```javascript
 const Router = require('express');
@@ -500,7 +515,9 @@ res.json({
     });
 ```
 
-A teljes employee.controller.js tartalma:
+A példában egy success és egy msg tulajdonságot adunk vissza. A success megmutatja mi az üzenet, az msg az üzenetet.
+
+_employee.controller.js_:
 
 ```javascript
 const EmployeeController = {
@@ -530,7 +547,7 @@ res.status(200)
 res.json({msg: 'Valami'});
 ```
 
-A teljes employee.controller.js tartalma:
+_employee.controller.js_:
 
 ```javascript
 const EmployeeController = {
@@ -558,6 +575,8 @@ Telepítsük a express-t:
 ```cmd
 pnpm install express
 ```
+
+_src/index.js_:
 
 ```javascript
 const express = require('express');
@@ -588,7 +607,7 @@ app.post('/msg', (req, res) => {
 
 Korábban a body-parser csomag volt használatos, de az elavult lett. Az Express már köztes szoftver formájában tartalmazza JSON értelmezőt.
 
-A teljes index.js fájl tartalma:
+_index.js_:
 
 ```javascript
 const express = require('express');
@@ -628,7 +647,7 @@ Ha fut a szerver, akkor teszteljük egy HTTP klienssel. Például HTTPie:
 http POST http://localhost:8000/msg name=Valaki
 ```
 
-A http parancs a "name" kulcsot, a "Valaki" értékkel JSON formátumban küldi el. Helyes műkdöés esetén ehhez haosnló választ kell kapjunk:
+A http parancs a "name" kulcsot, a "Valaki" értékkel JSON formátumban küldi el. Helyes műkdöés esetén ehhez hasonló választ kell kapjunk:
 
 ```txt
 HTTP/1.1 200 OK
