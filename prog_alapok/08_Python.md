@@ -25,6 +25,10 @@ A programozás nem olyan nehéz mint azt egy kezdő elsőre gondolja. Foglalkozn
 
 A program segítségével kapcsolatba lépünk a számítógéppel, aminek utasításokat tudunk megadni. Ehhez meg kell tanulnunk néhány utasítást és szabályt.
 
+Gyakorlás szintaktikához:
+
+* [https://www.w3schools.com/python/exercise.asp](https://www.w3schools.com/python/exercise.asp)
+
 ## Megjegyzések
 
 Az utasításokat, mint a print() egy állományba írjuk. Leírt utasítás sorokat forráskódnak nevezzük. A forráskódba a fejlesztő időnként megjegyzéseket ír önmagának vagy másoknak a leírt utasításokkal kapcsolatban. Ezeket a megjegyzéseket a számítógép nem próbálja meg feldolgozni.
