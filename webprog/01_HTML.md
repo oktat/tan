@@ -7,20 +7,20 @@
 
 ## Globális attribútumok
 
-A globális attribútmok az összes HTML elemhez hozzárendelhetők.
+A globális attribútumok az összes HTML elemhez hozzárendelhetők.
 
 | Attribútum | Leírás |
 |-|-|
-| accesskey | Billentyűkombináció megadása, amivel egy elem fokuszba kerülhet. Egy karaktert kell megadni. Chrome böngészőben az Alt billentyűvel működik. Firefoxban Alt+Shift mellett működik. &lt;input accesskey="c"&gt; esetén: alt+c |
+| accesskey | Billentyűkombináció megadása, amivel egy elem fókuszba kerülhet. Egy karaktert kell megadni. Chrome böngészőben az Alt billentyűvel működik. Firefoxban Alt+Shift mellett működik. &lt;input accesskey="c"&gt; esetén: alt+c |
 | class | Egy vagy több osztálynév adható egy elemnek. Ezekre hivaktozhatunk a stíluslapokban. |
-| contenteditable | Az elem tartalma szerkeszhető vagy nem. |
+| contenteditable | Az elem tartalma szerkeszthető vagy nem. |
 | data-* | Egyéni adatok megadása |
 | dir | A szöveg irányának beállítása |
 | draggable | A szöveg megragadható, vagy nem. |
 | hidden | Megmondja, hogy egy elem még nem, vagy már nem releváns |
 | id | Egyedi azonosító egy elem számára |
 | lang | Beállítható az elem tartalmának nyelve |
-| spellcheck |  Az elmnek kell-e ellenőrizni a nyeltanát |
+| spellcheck | Az elemnek kell-e ellenőrizni a nyelvtanát |
 | style | Inline CSS |
 | title | Extra információ az elem számára |
 | translate | Egy elem tartalmát le kell fordítani, vagy nem. |
@@ -422,7 +422,7 @@ Lehetséges értékek:
 * NoFollow
 * NoIndex, NoFollow
 
-A NoIndex értékkel azt mondjuk egy keresőrobotnak, hogy ne indexelje a weblapot, mert nem szeretnék a keresőkben viszontláti a weblapot.
+A NoIndex értékkel azt mondjuk egy keresőrobotnak, hogy ne indexelje a weblapot, mert nem szeretnék a keresőkben viszontlátni a weblapot.
 
 ### SEO
 
@@ -439,11 +439,11 @@ A keresőnek ehhez megfelelő kulcsszavakat és leírást kell társítanunk a w
 
 A keywords content részében szerepeltetjük, milyen szavakra keresve találjanak rá az oldalunkra. A description content részében írjuk le mi van az oldalunkon. Vigyázzunk mit írunk ezekbe a content értékeknek. Ha az ide beírt tartalom nem egyezik a weboldal látható tartalmával, a keresők nem fogják szerepeltetni a találatok között.
 
-A keywords értékei olyan kulcsszavak legyenek, amik valóban szereplnek a weblapon. A description szavai, vagy az egész mondat szintén szerepeljen a weblapon is.
+A keywords értékei olyan kulcsszavak legyenek, amik valóban szerepelnek a weblapon. A description szavai, vagy az egész mondat szintén szerepeljen a weblapon is.
 
 ## Viewport
 
-A reszponzív webhelyek nélkülönözhetetlen része a viewport beállítása:
+A reszponzív webhelyek nélkülözhetetlen része a viewport beállítása:
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -504,7 +504,7 @@ Mire jó a colspan attribútum egy táblázatban?
 
 * A táblázat feliratát szabályozzuk vele
 * A táblázat összefoglaló szövegét adhatjuk meg vele
-* A táblázat celláit össezvonhatjuk oszlopokon keresztül
+* A táblázat celláit összevonhatjuk oszlopokon keresztül
 * A táblázat celláit összevonhatjuk sorokon keresztül
 
 7.)

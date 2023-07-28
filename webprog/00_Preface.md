@@ -35,7 +35,7 @@ Telepítés általánosan:
 choco install <csomagnév>
 ```
 
-A telepítés során még rákérdez, hogy biztosan szeretnénk telepíteni a csomagot. Ekkor az összes ilyen kérdés elfogadása az "a" beírásával, majd egy "Enter" nyugtázással lehetésges. Ha telepítő parancsnak adunk egy -y kapcsolót, a kérdés elmarad és azonnal telepíti a megadott fájlt a Chocolatey.
+A telepítés során még rákérdez, hogy biztosan szeretnénk telepíteni a csomagot. Ekkor az összes ilyen kérdés elfogadása az "a" beírásával, majd egy "Enter" nyugtázással lehetséges. Ha telepítő parancsnak adunk egy -y kapcsolót, a kérdés elmarad és azonnal telepíti a megadott fájlt a Chocolatey.
 
 ```cmd
 choco install <csomagnév> -y
@@ -132,7 +132,7 @@ app01/
 Ebből nekünk, csak az index.html fájlt kell létrehozni, a
 többit valamilyen parancs hozza létre.
 
-Az **npm** és a **yarn** parancs a függőségeket a **node_modules/** könyvtárba tölti le. A **packages.json** fájlba íródik, be minden telepített csomag, amiről úgy beszélünk, hogy függőség, mivel ezt használtuk a munánk során. Ha más használni akarja a projektünket, akkor megkapja
+Az **npm** és a **yarn** parancs a függőségeket a **node_modules/** könyvtárba tölti le. A **packages.json** fájlba íródik, be minden telepített csomag, amiről úgy beszélünk, hogy függőség, mivel ezt használtuk a munkánk során. Ha más használni akarja a projektünket, akkor megkapja
 az index.html és a package.json fájlt. Egy yarn vagy egy npm paranccsal telepíteni tudja ugyanazokat az csomagokat, amiket mi is használtunk.
 A **package-lock.json** fájlban az npm parancs írja le, milyen csomagokat tettünk fel és szedtünk le, ezt általában nem nézegetjük.
 
@@ -216,7 +216,7 @@ Ebben az esetben, minden későbbi projektnek rendelkezésre áll. Indítás:
 lite-server
 ```
 
-A **package-json** fájlba, bejegyzhetünk feladatokat, vagy másnéven scripteket. Ezzel rövidíthetünk az indításon. Ha az npm paranccsal hoztuk létre a package.json fájlt, akkor lesz benne egy script "test" néven.
+A **package-json** fájlba, bejegyezhetünk feladatokat, vagy más néven scripteket. Ezzel rövidíthetünk az indításon. Ha az npm paranccsal hoztuk létre a package.json fájlt, akkor lesz benne egy script "test" néven.
 
 Írjunk egy feladatot (scriptet) **start** néven:
 
@@ -263,7 +263,7 @@ yarn start
 
 A weboldal megnyílik az alapértelmezett böngészőben.
 
-Végezzünk néhány javítást a weboldalon. Vagyünk fel, például egy "p" elemet, írjuk bele "Lorem ipsum dolor est amet" szöveget, mentsük és figyeljük a böngészőt.
+Végezzünk néhány javítást a weboldalon. Vegyünk fel, például egy "p" elemet, írjuk bele "Lorem ipsum dolor est amet" szöveget, mentsük és figyeljük a böngészőt.
 
 A továbbikaban így fogunk weboldalakat készíteni.
 
@@ -302,7 +302,7 @@ A projekt könyvtárát fel kell készíteni a Git számára.
 git init
 ```
 
-Lokálisan, csak a progekt számára addig nem tudunk bemutatkozni, amíg nem hoztunk létre Git tárolót. Ezek után jöhet a bemutatkozás:
+Lokálisan, csak a projekt számára addig nem tudunk bemutatkozni, amíg nem hoztunk létre Git tárolót. Ezek után jöhet a bemutatkozás:
 
 ```bash
 git config --local user.name "Nagy János"
@@ -487,7 +487,7 @@ cmdkey /list
 
 ![cmdkey /list kiemenete](images/cmdkey_list.png)
 
-Keressük a kimenetben olyen sort, ahol github.com szerepel. Általában ilyen sort találunk:
+Keressük a kimenetben olyan sort, ahol github.com szerepel. Általában ilyen sort találunk:
 
 ```cmd
 Target: LegacyGeneric:target=git:https://github.com

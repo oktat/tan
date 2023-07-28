@@ -53,7 +53,7 @@ A böngésző weblapján megjelenik egy léptetődoboz:
 
 ## Szinkron futtatás
 
-A JavaScript kódók egymás után sorba futnak le, szinkronban.
+A JavaScript kódok egymás után sorba futnak le, szinkronban.
 Amíg az egyik le nem fut a következő várakozik.
 
 Néhány utasítás aszinkron módon fut le, vagyis nem sorba a többi kóddal. Ilyen a setTimeout() függvény. Lássunk egy kódot:
@@ -106,7 +106,7 @@ adatok strukturálására szántak egy szöveges állományban.
 Az RFC 4627 szabványban van leírva. A JSON állomány kiterjesztése **.json** .
 MIME típusként **application/json** .
 
-A JSON formátumot **Douglas Crockford** határozta meg és népszerűsítetette.
+A JSON formátumot **Douglas Crockford** határozta meg és népszerűsítette.
 
 ```JSON
 {
@@ -147,7 +147,7 @@ Az ES6 szabványban megjelent a fetch() függvény, amit Promise alapon hoztak l
 
 A json-server egy NodeJS csomag, amivel helyettesítő a REST API szerver. Üzemeljük be a json-server-t.
 
-Késíztsünk NodeJS projektet:
+Készítsünk NodeJS projektet:
 
 ```cmd
 mkdir api

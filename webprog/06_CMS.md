@@ -7,11 +7,11 @@
 
 ## Tartalomkezelő rendszerek
 
-A CMS a Content Management System rövidítése, magyarul: Tatralomkezelő rendszer.
+A CMS a Content Management System rövidítése, magyarul: Tartalomkezelő rendszer.
 
 A CMS segítségével összeállíthatunk egy olyan webhelyet amely tartalma a webfejlesztéshez nem értő ember számára is kezelhető. Több mint 300 ilyen rendszer létezik.
 
-A CMS renszerek általában a következőket nyújták:
+A CMS rendszerek általában a következőket nyújtják:
 
 * frissítés
 * egyszerűen használható
@@ -102,7 +102,7 @@ c:\
            |-index.php
 ```
 
-Indítsuk el az XAMPP Apache szerverét. A fenti esetben a wehelyet így érjük el:
+Indítsuk el az XAMPP Apache szerverét. A fenti esetben a webhelyet így érjük el:
 
 ```txt
 http://localhost/wp/
@@ -141,7 +141,6 @@ Keresőmotor
 láthatóság     [ ] Gyenge jelszó engedélyezése
 
 [WordPress telepítése]
-
 ```
 
 ### Az új WordPress
