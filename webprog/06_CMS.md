@@ -59,3 +59,100 @@ Hátrányára írható a gyakori biztonsági frissítés, a beépülő modulok b
 Webhely: [https://hu.wordpress.org/](https://hu.wordpress.org/)
 
 Kapcsolódó webhely: [https://wphu.org/](https://wphu.org/)
+
+Kapunk egy ehhez hasonló fájlt:
+
+* wordpress-6.1.1-hu_HU.zip
+
+### Adatbázis
+
+Létre kell hozni egy adatbázist. Legyen a példa kedvéért egy "ara" nevű adatbázis.
+
+```sql
+create database aranybt 
+character set utf8
+collate utf8_hungarian_ci;
+```
+
+```sql
+grant all privileges
+on ara.*
+to ara@localhost
+identified by 'titok';
+```
+
+### Webszerver
+
+Használjuk a kipróbáláshoz az XAMPP-ot. A Wordpress-t csomagoljuk ki a következő helyre:
+
+* C:\xampp\htdocs
+
+A kicsomagolt könyvtárat átnevezhetjük például:
+
+wp-re. A könyvtárszerkezet ekkor:
+
+```txt
+c:\
+ `-xampp/
+    `-htdocs/
+        `-wp/
+           |-wp-admin/
+           |-wp-content/
+           |-wp-includes/
+           |-index.php
+```
+
+Indítsuk el az XAMPP Apache szerverét. A fenti esetben a wehelyet így érjük el:
+
+```txt
+http://localhost/wp/
+```
+
+Átirányítódik a setup.config.php fájlra:
+
+```txt
+http://localhost/wp/wp-admin/setup-config.php
+```
+
+Az alkalmazás itt tájékoztat, hogy szüksége van az adatbázisnévre, a felhasználónévre, jelszóra stb.
+
+Az információkat a wp-config.php fájl létrehozásához használja. Nyomjuk meg a [Rajta!] gombot.
+
+A következő űrlap jelenik meg:
+
+```txt
+Adatbázis neve       [         ]
+Felhasználónév       [         ]
+Jelszó               [         ]
+Adatbázis kiszolgáló [localhost]
+Tábla előtag         [wp_      ]
+
+[ Küldés ]
+```
+
+### Információs
+
+```txt
+Honlap neve    [                  ]
+Felhasználónév [                  ]
+Jelszó         [BXE9&62a0GxEKDyg^e]
+E-mail címe    [                  ]
+Keresőmotor 
+láthatóság     [ ] Gyenge jelszó engedélyezése
+
+[WordPress telepítése]
+
+```
+
+### Az új WordPress
+
+![Új WordPress](./images/new_wordpress.png)
+
+### A WordPress egységei
+
+* Főoldal
+* Bejegyzések (főoldalon)
+* Többi oldal
+* Hozzászólás
+* Média
+* Felhasználó
