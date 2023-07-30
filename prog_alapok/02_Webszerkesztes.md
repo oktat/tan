@@ -60,14 +60,14 @@ A példában szereplő &lt;!DOCTYPE html&gt; sor, azt jelenti, HTML5
 verziót használunk.
 
 A HTML oldal szerkezetét tagekkel határozzuk meg.
-Egy tag kisebbmint jellel kezdődik és nagyobbmint jellel
+Egy tag kisebb mint jellel kezdődik és nagyobb mint jellel
 záródik:
 
 ```xml
 <név>
 ```
 
-A kisebbmint és nagyobbmint jelek között adjuk meg a tag nevét.
+A kisebb mint és nagyobb mint jelek között adjuk meg a tag nevét.
 Kétféle tag van:
 
 * nyitó
@@ -77,7 +77,7 @@ A tartalmat ezek tagek fogják közre. Egy nyitó és egy záró taget
 együtt elemnek nevezünk, HTML elem.
 
 A weboldalak ilyen szervezése az SGML, majd később ebből kialakult
-XML dokumentumleírónyelvből jött létre.
+XML dokumentumleíró nyelvből jött létre.
 
 A HTML elemek lehetséges neveit szabvány határozza meg, amit [W3C](https://www.w3.org/) konzorcium készít.
 
@@ -92,7 +92,7 @@ között:
 
 A fejrészt a head elemek között adjuk meg, a törzsrészt a body elemek között.
 
-A fejrészben a megjelenő weblaphoz háttérinformációkat adunk.
+A fejrészben a megjelenő weblaphoz háttér-információkat adunk.
 A megjelenő részt a törzs részben helyezzük el. A fejrészben van két minimálisan megadandó HTML elem. Az egyik a weblap karakterkódolását mondja meg, a másik a weboldalnak egy olyan címét határozza meg, amely a böngésző címsorában, vagy annak fülein jelenik meg.
 
 A karakterkódolást a meta elemmel adjuk meg. Minden HTML elem
@@ -117,10 +117,10 @@ A head elemek között az oldal címét a title taggel adjuk meg.
 A body elemek közzé írt tartalom jelenik meg a weboldalon.
 Korábbi HTML verzióknál használtak attribútumokat a weboldal
 formázására, de a HTML5 esetén a formázást CSS nyelvvel
-véggezzük.
+végezzük.
 
 A body elemen belül újabb HTML elemeket helyezünk el a
-weboldal így egy hierachikus dokumentumfába szerveződik.
+weboldal így egy hierarchikus dokumentumfába szerveződik.
 Ezt a dokumentumfát nevezzük DOM-nak, ami a Document
 Object Model rövidítése.
 
@@ -214,7 +214,7 @@ Numquam, rem.
 
 ## Szemantikus elemek
 
-A szematikus elemek valamilyen jelentéssel bírnak. Nem szemantikus elem a span és a div. Néhány szemantikus elem:
+A szemantikus elemek valamilyen jelentéssel bírnak. Nem szemantikus elem a span és a div. Néhány szemantikus elem:
 
 * table - táblázatok létrehozása
 * i - dőlt szöveg jelölése
@@ -226,7 +226,7 @@ A szematikus elemek valamilyen jelentéssel bírnak. Nem szemantikus elem a span
 
 ### Blokkelemek
 
-Ha egy blokkelemet hozunk létre, az a tartalomtól függetlenül kitölti a rendelkezésre álló helyet. A követkeő példban a div elemmel hozunk létre egy dobozt, amelynek a tartalmazza az "alma" szót. Minden HTML elem egy úgynevezett dobozt hoz létre a weblapon. Ezen dobozok mérete, kiterjedése, általában nem látszik.
+Ha egy blokkelemet hozunk létre, az a tartalomtól függetlenül kitölti a rendelkezésre álló helyet. A következő példában a div elemmel hozunk létre egy dobozt, amelynek a tartalmazza az "alma" szót. Minden HTML elem egy úgynevezett dobozt hoz létre a weblapon. Ezen dobozok mérete, kiterjedése, általában nem látszik.
 
 ```html
 <body>
@@ -327,7 +327,7 @@ Most tegyünk több inline elemet egymás után:
 </body>
 ```
 
-Több inline elem egysorban jelenik meg mindaddig, amíg elfér a sorban. Ha egy inline elem nem fér el, akkor a következő sorba jelenik meg.
+Több inline elem egy sorban jelenik meg mindaddig, amíg elfér a sorban. Ha egy inline elem nem fér el, akkor a következő sorba jelenik meg.
 
 ![Több inline elem](images/multi_inline_elment.png)
 
@@ -335,7 +335,7 @@ Figyeljük meg, hogy a dobozok egymás után jelennek meg, egyetlen sorban. Az i
 
 ### Összefoglaló
 
-Egyes elemek blokk szintűek, egyes elemek inline szintűk:
+Egyes elemek blokk szintűek, egyes elemek inline szintűek:
 
 Blokkelemek:
 
@@ -344,7 +344,7 @@ Blokkelemek:
 * h1 - h6
 * stb.
 
-Inlineelemek:
+Inline elemek:
 
 * span
 * b
@@ -371,7 +371,7 @@ adipisicing elit. Numquam, rem.
 </p>
 ```
 
-Így önmagában, hiába teszek sortöréseket, a weblapn az nem látszik. Használjunk helyette br elemet:
+Így önmagában, hiába teszek sortöréseket, a weblapon az nem látszik. Használjunk helyette br elemet:
 
 ```html
 <p>
@@ -381,11 +381,11 @@ adipisicing elit. Numquam, rem.
 </p>
 ```
 
-A háromsor akár egyetlen sorban is megadható.
+A három sor akár egyetlen sorban is megadható.
 
 ## Kiemelés
 
-A kiemelésekre többéle HTML elem áll rendelkezésre. A követkeő három fejezet, ilyen kiemelő elemeket mutat be.
+A kiemelésekre többféle HTML elem áll rendelkezésre. A következő három fejezet, ilyen kiemelő elemeket mutat be.
 
 ### Szövegek kiemelése
 
@@ -436,7 +436,7 @@ A számozott és számozatlan lista egymásba átalakítható CSS segítségéve
 
 ### Számozatlan lista
 
-A számozatlan lista angolul "unordered list". Ha a két szónak vesszük az első betűtit, az ul-t kapjuk. Az ul elemmel hozhatunk létre számozatlan listákat. A lista elemeit az li elemmel adjuk meg. Lássunk egy példát:
+A számozatlan lista angolul "unordered list". Ha a két szónak vesszük az első betűit, az ul-t kapjuk. Az ul elemmel hozhatunk létre számozatlan listákat. A lista elemeit az li elemmel adjuk meg. Lássunk egy példát:
 
 ```html
 <ul>
@@ -449,7 +449,7 @@ A számozatlan lista angolul "unordered list". Ha a két szónak vesszük az els
 
 ### Számozott lista
 
-Az angol "odered list" szavak első betű ol. Az ol elemmel hozhatunk létre számozott listát.
+Az angol "ordered list" szavak első betű ol. Az ol elemmel hozhatunk létre számozott listát.
 
 ```html
 <ol>
@@ -486,7 +486,7 @@ A számozás megfordítása:
 
 Használhatjuk két attribútumot együtt is.
 
-### Egymásbaágyazás
+### Egymásba ágyazás
 
 Az li elemen belül megadható akár egy másik lista is.
 
@@ -553,7 +553,7 @@ A képeknek, azonban más attribútumai is lehetnek.
 
 ### A figure elem
 
-A figure elem segítésgével összefoghatjuk a képet és a feliratát.
+A figure elem segítségével összefoghatjuk a képet és a feliratát.
 
 ```html
 <figure>
@@ -775,7 +775,7 @@ Videókat a video elemmel teszünk közzé.
 <video src="fajlnev.ogg" width=”300” height=”300”></video>
 ```
 
-Több formátumban is feltölhetünk videót. Ha egy böngésző nem ismeri az egyik formátumot, a másikat jó eséllyel már igen.
+Több formátumban is feltölthetünk videót. Ha egy böngésző nem ismeri az egyik formátumot, a másikat jó eséllyel már igen.
 
 ```html
 <video  width=”300” height=”300”>
@@ -825,7 +825,7 @@ a következő szemantikus elemek állnak rendelkezésre:
 * aside - érintőlegesen kapcsolódó tartalom
 * header - az oldal vagy egy rész fejrésze
 * nav - navigációs sáv
-* footer - az odal vagy egy rész lábrésze
+* footer - az oldal vagy egy rész lábrésze
 * article - tartalmi egységek
 * main - az oldal főbb része
 
@@ -916,7 +916,7 @@ Oldjon meg feladatokat a következő gyűjteményből:
 * &num; szöveg
 * { szöveg }
 
-12.) Ennyi féle fejezetcím állítható be a HTML elemekkel:
+12.) Ennyiféle fejezetcím állítható be a HTML elemekkel:
 
 * 4
 * 5

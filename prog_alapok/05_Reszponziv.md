@@ -31,7 +31,7 @@ Az stílust és az animációt CSS-sel határozzuk meg. A JavaScript egyéb fejl
 
 A technik a Graceful degradation fejlesztés továbbgondolt változata. Ennek lényege, hogy a mobilos verziókból a lényegtelen részeket egyszerűen elhagyjuk.
 
-A Graceful degradation ellentétje, a kicsitől a nagyobbig elv, amikor elsőként kevesebb funkcióval fejlesztek kisebb eszközökre.
+A Graceful degradation ellentéte, a kicsitől a nagyobbig elv, amikor elsőként kevesebb funkcióval fejlesztek kisebb eszközökre.
 
 ## Médialekérdezések
 
@@ -92,7 +92,7 @@ A viewportot, mint tulajdonság a mobileszközök elterjedése indukálta.
 
 A viewport az a terület a böngészőben, ahol megjelenik a weboldal.
 
-Viewport beállítás nélkül, ha egy átlagos PC monitorára elkészítettünk egy szöveges tartalmat, a mobileszközön a szöveg apró és olvashatlan.
+Viewport beállítás nélkül, ha egy átlagos PC monitorára elkészítettünk egy szöveges tartalmat, a mobileszközön a szöveg apró és olvashatatlan.
 
 A viewport beállítása:
 
@@ -112,7 +112,7 @@ Eszközhöz igazított méret:
 <meta name="viewport" content="width=device-width" />
 ```
 
-Megadhatunk magásságot is, ha úgy tetszik:
+Megadhatunk magasságot is, ha úgy tetszik:
 
 ```html
 <meta name="viewport" content="width=device-height" />
@@ -171,7 +171,7 @@ Kétféle mértékegység van:
 
 ### Realatív hosszmértékek
 
-| mértékegyésg | Leírás  |
+| Mértékegység | Leírás  |
 |--------------|---------|
 | em | A releváns karakter mérete |
 | px | képpont; eszközfüggő |
@@ -180,13 +180,13 @@ Kétféle mértékegység van:
 | ch | A "0" szélességhez relatívan |
 | rem | A gyökérelem fontszélességéhez relatívan |
 | vw | A viewport szélességének 1%-hoz relatívan |
-| vh | A viewport magasságának 1%-hoz relatvan |
+| vh | A viewport magasságának 1%-hoz relatívan |
 | vmin | A viewport kisebb dimenziójához képest 1%-al |
 | vmax | A viewport nagyobb dimenziójához képest 1%-al |
 
 ### Abszolút hosszmértékek
 
-| mértékegyésg | Leírás  |
+| Mértékegység | Leírás  |
 |--------------|---------|
 | in | inch; hüvelyk; 25,4 mm |
 | cm | centiméter |

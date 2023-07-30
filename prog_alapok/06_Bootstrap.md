@@ -224,7 +224,7 @@ Igazítás, kerekítés:
 <img src="..." class="rounded float-end" alt="...">
 ```
 
-Igazítés display értékkel:
+Igazítás display értékkel:
 
 ```html
 <img src="..." class="rounded mx-auto d-block" alt="...">

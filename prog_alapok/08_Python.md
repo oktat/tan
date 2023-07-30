@@ -87,7 +87,7 @@ print('alma', 'körte')
 ```
 
 Egymás után akár több print() függvény is írható.
-Több adat esetén, azokat vesszővel tagoljuk. Szöveget idézőjel vagy apsztróf nélkül azonban nem lehet kiíratni.
+Több adat esetén, azokat vesszővel tagoljuk. Szöveget idézőjel vagy aposztróf nélkül azonban nem lehet kiíratni.
 Próbáljuk meg futtatni a következő hibás kódot:
 
 ```python
@@ -150,7 +150,7 @@ print("ri\ngló")
 
 Az "n" betű már nem íródik ki képernyőre. Helyette valami más történik. Az "ri" szó után a szövegkurzor a következő sorba ugrik. Másként szólva soremelés történik.
 
-Ha egy karakternek ilyen speciális jelentést adunk, akkor escape szekvenciának hívjuk. Az alábbi táblázat esacpe szekvenciákat tartalmaz, amely használható Python nyelvben.
+Ha egy karakternek ilyen speciális jelentést adunk, akkor escape szekvenciának hívjuk. Az alábbi táblázat escape szekvenciákat tartalmaz, amely használható Python nyelvben.
 
 | Escape szekvencia | Jelentés |
 |-------------------|----------|
@@ -288,7 +288,7 @@ Tegyünk egy változóba egy számot:
 num = 30
 ```
 
-Az értékadás jobboldalán a 30 egy állandó, úgynevezett literális állandó. Állíndó mivel a program indulása után, annak leállásáig ezt a memóriaterületet nem lehet megváltoztatni. A programkódban bárhova leírunk egy értéket, az literális állandó.
+Az értékadás jobboldalán a 30 egy állandó, úgynevezett literális állandó. Állandó mivel a program indulása után, annak leállásáig ezt a memóriaterületet nem lehet megváltoztatni. A programkódban bárhova leírunk egy értéket, az literális állandó.
 
 A következő példában szintén a 30 egy literális állandó:
 
@@ -313,9 +313,9 @@ num = 30
 print('%d' % num)
 ```
 
-A formátum karakterláncot, vagy formátum stringet, tehetjük aposztrófok és idézőjelek közé is. A formátum string és a kiíratandó változó közé moduló jelet teszünk.
+A formátum karakterláncot, vagy formátum sztringet, tehetjük aposztrófok és idézőjelek közé is. A formátum string és a kiíratandó változó közé moduló jelet teszünk.
 
-A formátum stringben minden kiíratandó értékhez szükséges egy formátumkódra a formátum stringen belül. A formátumkódot moduló karakterrel "%" kezdjük és egy betű karakterrel zárjuk. Ez a karakter a formátumkarakter. Egész számmok esetén ez egy "d" betű, amit decimális egészekhez használhatunk.
+A formátum sztringben minden kiíratandó értékhez szükséges egy formátumkódra a formátum sztringen belül. A formátumkódot moduló karakterrel "%" kezdjük és egy betű karakterrel zárjuk. Ez a karakter a formátumkarakter. Egész számok esetén ez egy "d" betű, amit decimális egészekhez használhatunk.
 
 Valós számok esetén a formátumkarakter "f" betű.
 
@@ -341,7 +341,7 @@ print("{}".format(30))
 
 Elemezzük a programot. A print() függvénynek valójában egyetlen paramétert adunk át, egy karakterláncot. Azonban a karakterláncon futtatunk egy format() függvényt, amelynek paramétere az érték amit ki kell írni.
 
-A karakterláncot nevezzük formátúm stringnek, vagy formátum karakterláncnak, vagy formátum szövegnek. A formátum string formátum kódokat tartalmaz. Egy érték kiíratásához mindig szükség van egy formátumkódra. A formátumkód nyitó kapcsoszárójellel kezdődik és záró kapcsoszárójellel végződik. A következő példában már két értéket íratunk ki, így két formátukód van a formátum stringben:
+A karakterláncot nevezzük formátum sztringnek, vagy formátum karakterláncnak, vagy formátum szövegnek. A formátum sztring formátum kódokat tartalmaz. Egy érték kiíratásához mindig szükség van egy formátumkódra. A formátumkód nyitó kapcsoszárójellel kezdődik és záró kapcsoszárójellel végződik. A következő példában már két értéket íratunk ki, így két formátumkód van a formátum stringben:
 
 ```python
 print("{} {}".format(30, 35))
@@ -353,7 +353,7 @@ Három értékkel:
 print("{} {} {}".format(30, 35, 40))
 ```
 
-Most használjuk a formátum stringet arra, hogy magyarázatot és mértékegységet adjunk meg két szám esetén:
+Most használjuk a formátum sztringet arra, hogy magyarázatot és mértékegységet adjunk meg két szám esetén:
 
 ```python
 print("Tömeg: {} kg Egységár: {} Ft".format(30, 35))
@@ -391,7 +391,7 @@ print("|{:20}|".format(30))
 |                  30|
 ```
 
-Írassun ki négy számot egymás alatt 8 szélességben:
+Írassuk ki négy számot egymás alatt 8 szélességben:
 
 ```python
 print("|{:8}|".format(30))
@@ -431,7 +431,7 @@ A kimenet:
      30.12
 ```
 
-Az egés szám 10 szélesen jelenik meg, kettő tizedesjegy jelenik meg. Az "f" nélkül lebegőpontos formában, potosanbban tudományos alakban jelenik meg a szám:
+Az egés szám 10 szélesen jelenik meg, kettő tizedesjegy jelenik meg. Az "f" nélkül lebegőpontos formában, pontosabban tudományos alakban jelenik meg a szám:
 
 ```python
 print("{:10.2}".format(30.1234567))
@@ -455,7 +455,7 @@ Kimenet:
 30.12
 ```
 
-Több valósszám kiíratása:
+Több valós szám kiíratása:
 
 ```python
 print("{:14.2f}".format(30.834))
@@ -557,7 +557,7 @@ Kimenetben ezt látjuk:
 |    35    |
 ```
 
-A formátumstring is tárolható változóban:
+A formátumsztring is tárolható változóban:
 
 ```python
 kod="|{:10}|"
@@ -590,7 +590,7 @@ print("{:20,}".format(35000000))
           35,000,000
 ```
 
-Előjel csak negatív számok esetén jelennek meg alapesetben. Pozítív számok esetén is megjeleníthetők:
+Előjel csak negatív számok esetén jelennek meg alapesetben. Pozitív számok esetén is megjeleníthetők:
 
 ```python
 print("{:+}".format(35))
@@ -645,7 +645,7 @@ Kimenet:
 30.000000
 ```
 
-Az előjel pozícionálása:
+Az előjel pozicionálása:
 
 ```python
 print("{:=5d}".format(-30))
@@ -663,7 +663,7 @@ A format() függvényről még több információ:
 
 ### Natív függvények
 
-Néhány függvény natív Pythonban rendelkezésre áll, vagyis nem szükésges importálni hozzá egyetlen modult sem.
+Néhány függvény natív Pythonban rendelkezésre áll, vagyis nem szükséges importálni hozzá egyetlen modult sem.
 
 ```python
 print(pow(2, 8))
@@ -675,7 +675,7 @@ A hatvány érték kiíratható a ** operátorral is:
 print(2**8)
 ```
 
-Abszolútérték az abs() függvénnyel számítható:
+Abszolút érték az abs() függvénnyel számítható:
 
 ```python
 print(abs(-9))
@@ -727,7 +727,7 @@ print(ceil(4.1))
 print(floor(4.9))
 ```
 
-Az egyes függvények statikusan is imporátlhatók:
+Az egyes függvények statikusan is importálhatók:
 
 ```python
 from math import sqrt
@@ -817,8 +817,8 @@ print(random.randint(1,6))
 
 | Operátor | Leírás |
 |-|-|
-| > | nagyobbmint |
-| < | kisebbmint |
+| > | nagyobb mint |
+| < | kisebb mint |
 | >= | nagyobb vagy egyenlő |
 | <= | kisebb vagy egyenlő |
 | == | egyenlő |
@@ -842,7 +842,7 @@ Egy precedencia táblával leírható, melyik operátor értékelődik ki előbb
 
 ## Konvertálás
 
-### String valóssá
+### Sztring valóssá
 
 ```python
 szamStr = "343.34521"
@@ -850,7 +850,7 @@ szam = float(szamStr)
 print("Szám: ", szam*2)
 ```
 
-### String egésszé
+### Sztring egésszé
 
 ```python
 szamStr = "343"
@@ -864,7 +864,7 @@ szam = int(float(szamStr))
 print("Szám: ", szam*2)
 ```
 
-### Egész stringgé
+### Egész sztringgé
 
 ```python
 szam = 345
@@ -872,7 +872,7 @@ szamStr = str(szam)
 print("Szám: ", szamStr + " db")
 ```
 
-### Valós stringgé
+### Valós sztringgé
 
 ```python
 szam = 324.12345

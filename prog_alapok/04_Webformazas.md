@@ -63,7 +63,7 @@ h1 {
 }
 ```
 
-Az első tulajdonságunk a background-color, amit egy blue érték követ. Vegyük észre a tulajdonság és az érték között az kettőspontot (:), az érétk után a pontosvesszőt (;)
+Az első tulajdonságunk a background-color, amit egy blue érték követ. Vegyük észre a tulajdonság és az érték között az kettőspontot (:), az érték után a pontosvesszőt (;)
 
 Egyszerre több elemet is megadhatunk:
 
@@ -133,7 +133,7 @@ Itt is elhagyható a div:
 
 ### Háttérszín beállítása
 
-A háttérszínt a background-color tulajdonsággal állítjuk. Érétéke egy szín neve, vagy RGB kód lehet hexadecimális formában vagy rgb() függvénnyel.
+A háttérszínt a background-color tulajdonsággal állítjuk. Értéke egy szín neve, vagy RGB kód lehet hexadecimális formában vagy rgb() függvénnyel.
 
 ```css
 h1 {
@@ -387,7 +387,7 @@ p {
 
 ### Szöveg igazítása
 
-A szöveg igazításáshoz a text-align tulajdonságot használjuk. Értékeik a következők lehetnek:
+A szöveg igazításához a text-align tulajdonságot használjuk. Értékeik a következők lehetnek:
 
 * left
 * right
@@ -486,7 +486,7 @@ A stílus a következők egyike lehet:
 * inset
 * outset
 
-A border-style beállításiat kipróbálhatjuk a [szit.hu webhelyen](https://szit.hu/doku.php?id=oktatas:web:css:css_nyelv#a_border-style)
+A border-style beállításait kipróbálhatjuk a [szit.hu webhelyen](https://szit.hu/doku.php?id=oktatas:web:css:css_nyelv#a_border-style)
 
 Csoportos használat:
 
@@ -500,7 +500,7 @@ A border-collapse tulajdonság használható táblázatoknál, lásd ott.
 
 ## Dobozmodell
 
-Minden böngészőben megjelenő HTM elemet egy doboznak tekintünk. Így beszélhetünk a dobozmodellről. Figyeljük meg a következ ábrán a dobookat. Legkülső dobozt a body elem alkotja. Abban van egy div doboz. A divben egy h1 és egy p doboz van.
+Minden böngészőben megjelenő HTM elemet egy doboznak tekintünk. Így beszélhetünk a dobozmodellről. Figyeljük meg a következő ábrán a dobozokat. Legkülső dobozt a body elem alkotja. Abban van egy div doboz. A divben egy h1 és egy p doboz van.
 
 ![Dobozmodell](images/dobozmodell.png)
 
@@ -546,7 +546,7 @@ p {
 }
 ```
 
-A négy éréték felső, jobb, alsó és bal margót jelentik.
+A négy érték felső, jobb, alsó és bal margót jelentik.
 
 Megadható három érték is:
 
@@ -570,13 +570,13 @@ Az felső és alsó margó 5%-s, a bal és a jobb margó 2%-s.
 
 ### Az auto éréték
 
-Az auto beállítást a dobozok vízszintes középreigazításához használjuk.
+Az auto beállítást a dobozok vízszintes középre igazításához használjuk.
 
 ## Túlcsordulás
 
 A HTML dobozok alapértelmezetten rugalmas méretűek. Ha hozzáadunk tartalmat, akkor automatikusan nő a méretük. Ha viszont fix szélességű és magasságú dobozt hozunk létre, és a tartalom nem fér el benne, a doboz túlcsordul.
 
-A példa kevéért hozzunk létre egy 100px széles és 100px magas dobozt, például div elemből, doboz osztályjelölővel:
+A példa kedvéért hozzunk létre egy 100px széles és 100px magas dobozt, például div elemből, doboz osztályjelölővel:
 
 ```html
 <div class="doboz">
@@ -652,9 +652,9 @@ Beállítható értékek:
 
 ## Lista
 
-A definciós lista mellett a két alavető listát használunk, ez a számozott és a számozatlan. Ha CSS-t használunk, mindegy melyiket hozzuk létre, mivel a CSS segítségével bármelyikből készíthetsz, számozott vagy számozatlan listát.
+A definíciós lista mellett a két alapvető listát használunk, ez a számozott és a számozatlan. Ha CSS-t használunk, mindegy melyiket hozzuk létre, mivel a CSS segítségével bármelyikből készíthetsz, számozott vagy számozatlan listát.
 
-### A lista sítlus típusa
+### A lista stílus típusa
 
 A lista stílus típust a list-style-type tulajdonsággal állítható.
 
@@ -678,7 +678,7 @@ ul {
 }
 ```
 
-### Listpozíciók
+### Listapozíciók
 
 A listapozícióját a list-style-position tulajdonsággal állítjuk.
 
@@ -693,7 +693,7 @@ ul {
 }
 ```
 
-Készítsünk egy weblapot, amely következőt tartalamzza:
+Készítsünk egy weblapot, amely következőt tartalmazza:
 
 ```html
 <ul class="egy">
@@ -806,7 +806,7 @@ Lehetséges értékei:
 * fixed
 * sticky
 
-A dobozok alapértelmezetten static elhelyzkedésűek. Ez azt jelenti, hogy a weboldalon a dobozok egymás után folynak jobbra és lefele. Az inline elemek jobbra folynak, amíg van hely. A blokk elemek lefelé folynak a weblapon és így jelennek meg.
+A dobozok alapértelmezetten static elhelyezkedésűek. Ez azt jelenti, hogy a weboldalon a dobozok egymás után folynak jobbra és lefele. Az inline elemek jobbra folynak, amíg van hely. A blokk elemek lefelé folynak a weblapon és így jelennek meg.
 
 Ezen a megjelenésen tudunk változtatni.
 
@@ -842,11 +842,11 @@ Adjunk hozzás CSS-t:
 }
 ```
 
-A középső dobozt pozicionálását relative-ra állítjuk, majd kiemeljük a helyéről, a helyéhez képst.
+A középső dobozt pozicionálását relative-ra állítjuk, majd kiemeljük a helyéről, a helyéhez képest.
 
 ### Abszolút pozicionálás
 
-A dobozok folyamából teljesen kiemeljük az adott dobozot, és a weblap tetejéhez, aljához és széleihez igazítjuk a dobozot.
+A dobozok folyamából teljesen kiemeljük az adott dobozot, és a weblap tetejéhez, aljához és széleihez igazítjuk a dobozt.
 
 Készítsük el az előző weboldalt:
 
@@ -880,13 +880,13 @@ Vegyük észre, hogy a top érték mostantól a weblap tetejétől értendő.
 
 ### A fixed érték
 
-A fixed beállítás olyan minta az abszúlt. A doboz kikerül a dobzok folyamából. Az igazítás viszont nem a weblap széleihez képest értendő, hanem a böngészőablak széleihez.
+A fixed beállítás olyan minta az abszolút. A doboz kikerül a dobozok folyamából. Az igazítás viszont nem a weblap széleihez képest értendő, hanem a böngészőablak széleihez.
 
-A kipróbáláshoz olyan hosszú szöveges tartalmat illeszünk a bekezdésekbe, hogy megjelenjenek a görgető sávok. Görgetéskor figyeljük meg a fixed pozicionálású doboz viselkedését.
+A kipróbáláshoz olyan hosszú szöveges tartalmat illesszünk a bekezdésekbe, hogy megjelenjenek a görgető sávok. Görgetéskor figyeljük meg a fixed pozicionálású doboz viselkedését.
 
 ### A sticky érték
 
-A sticky érték esetén a doboz helyén marad mindaddig, amíg elnem éri a felső felsőrészt, 5 pixelre.
+A sticky érték esetén a doboz helyén marad mindaddig, amíg el nem éri a felsőrészt, 5 pixelre.
 
 ## Lebegtetés
 
@@ -910,7 +910,7 @@ Készítsünk egy HTML oldalt a következő tartalommal:
 </p>
 ```
 
-A weblaphoz illesszünk egy tetszőlges képet.
+A weblaphoz illesszünk egy tetszőleges képet.
 
 Az illesztett CSS:
 
@@ -934,7 +934,7 @@ A float beállítás után, minden tartalomban úszik a kép. Ha szeretnénk tö
 
 ## Blokk elemek igazítása
 
-A blokk elemek a böngésző bal szélétől a jobb széléig érnek. Ha beállítjuk, hogy 50% legyen a szélesség, a doboz automatikusan baloldalra igazdodik. Középre igazításhoz a bal és jobb margót automatikusra kell állítani.
+A blokk elemek a böngésző bal szélétől a jobb széléig érnek. Ha beállítjuk, hogy 50% legyen a szélesség, a doboz automatikusan baloldalra igazodik. Középre igazításhoz a bal és jobb margót automatikusra kell állítani.
 
 ```css
 .doboz {
@@ -1086,7 +1086,7 @@ A z-index változtatása:
 | Mértékegység | Leírás |
 |-|-|
 | em | A releváns karakter mérete |
-| ex | A televáns karakter x-magassága |
+| ex | A releváns karakter x-magassága |
 | % | Százalék |
 | ch | A "0" (zéró) szélességhez relatívan |
 | rem | A root elem fontszélességéhez relatívan |

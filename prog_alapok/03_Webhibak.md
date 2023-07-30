@@ -9,7 +9,7 @@
 
 ### Validátor
 
-A validátorok a HTML oldalak szabványosságát vizsgálja. A W3C konzorcium érvényeség viszgálója:
+A validátorok a HTML oldalak szabványosságát vizsgálja. A W3C konzorcium érvényesség vizsgálója:
 
 * [https://validator.w3.org/](https://validator.w3.org/)
 
@@ -55,7 +55,7 @@ Innentől kezdve a projekt fel van készítve a verziókövetésre. A projekt á
 
 Az állapotok tárolása mindig valakinek a nevében történnek. Vagy globálisan, vagy a helyi projekten belül be kell mutatkozni a git számára.
 
-Beállítás gloláblisan, minden projekthez:
+Beállítás globálisan, minden projekthez:
 
 ```cmd
 git config --global user.name "Keresztnév Vezetéknév"
@@ -132,7 +132,7 @@ echo alma > adat.txt
 echo 2022 > naplo.txt
 ```
 
-Az adat.txt állományt szeretnénk verziókövetni, de a naplo.txt állományt nem.
+Az adat.txt állományt szeretnénk verzió-követni, de a naplo.txt állományt nem.
 A naplo.txt állomány nevét írjuk bele egy .gitignore állományba. Így a Git nem törekszik annak követésére.
 
 ```cmd
@@ -255,7 +255,7 @@ git commit -a -m "Valami"
 git commit --all --message "Valami"
 ```
 
-A két utasítás egyező hatást vált, ki csak a második hosszú kapcsolókat haszál.
+A két utasítás egyező hatást vált, ki csak a második hosszú kapcsolókat használ.
 
 ### Ágak használata
 

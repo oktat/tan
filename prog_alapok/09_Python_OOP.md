@@ -7,7 +7,7 @@
 
 ## Osztályok
 
-Az osztályokat különböző típusú adatok tárolására alkalmas adatszerkezetekre használhatjuk. Az osztályt mindig a class kulcsszóval vezetjük be. Ha szeretnék egy dolgozó adatati tárolni, hozzunk létre osztályt.
+Az osztályokat különböző típusú adatok tárolására alkalmas adatszerkezetekre használhatjuk. Az osztályt mindig a class kulcsszóval vezetjük be. Ha szeretnék egy dolgozó adatai tárolni, hozzunk létre osztályt.
 
 A következő példában egy osztályt hozunk létre, amely egyelőre üres.
 
@@ -79,7 +79,7 @@ janos = Dolgozo('Nagy János', 'Szolnok', 385)
 print(janos.nev)
 ```
 
-Az &#95;&#95;init&#95;&#95; metódus paraméterei a self, nev, telepules és fizetes. Ezeket metódus forális paraméterei. Nézzük az egyik utasítást, ahol felhasználjuk a nev formális paramétert:
+Az &#95;&#95;init&#95;&#95; metódus paraméterei a self, nev, telepules és fizetes. Ezeket metódus formális paraméterei. Nézzük az egyik utasítást, ahol felhasználjuk a nev formális paramétert:
 
 ```python
 self.nev = nev
