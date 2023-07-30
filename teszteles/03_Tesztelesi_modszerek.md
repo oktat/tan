@@ -17,7 +17,7 @@ Megközelítések:
 
 * Big-Bang - az összes modult összerakjuk
 * Alulról felfelé - magasabb modullal teszteljük az alacsonyabb szintű modulokat
-* Felülről lefelé - először a magasszintű modulok tesztelése
+* Felülről lefelé - először a magas szintű modulok tesztelése
 * Vegyes - alulról felfelé, felülről lefelé kombinálva
 
 ## Rendszerteszt
@@ -135,13 +135,13 @@ A teljesítménytesztek a nem funkcionális tesztekhez tartoznak.
 Teljesítmény:
 
 * megbízhatóság
-* erőforráshasználat
+* erőforrás-használat
 * méretezhetőség
 
 Terhelésvizsgálat:
 
 * többfelhasználós rendszereknél relevánsabb
-* gyakran atomatizált
+* gyakran automatizált
 * nagy dokumentum
 * sok adat
 

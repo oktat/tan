@@ -19,7 +19,7 @@ A validáció már a tervezési fázisban is használható.
 * automatikus - szoftver végzi
 * kézi - ember végzi
 
-A kézi tesztelés során olyan hibákra is fényderülhet, amire a teszt szoftver írásakor nem gondoltunk.
+A kézi tesztelés során olyan hibákra is fény derülhet, amire a teszt szoftver írásakor nem gondoltunk.
 
 #### Szisztematikus és ad-hoc
 
@@ -34,7 +34,7 @@ A kézi tesztelés során olyan hibákra is fényderülhet, amire a teszt szoftv
 #### Típusok
 
 * funkcionális tesztek - adott funkció működik?
-* nem funkciónális teszek - például teljesítmény, kinézet
+* nem funkcionális teszek - például teljesítmény, kinézet
 * regressziós teszt - újratesztelés
 
 Ha javítunk valamit egy szoftveren, az újratesztelést regressziós tesztelésnek hívjuk.
@@ -145,10 +145,10 @@ Mi a refaktorálás
 * A kód újraírása.
 * A kód tesztelése.
 * A kód üres sorainak törlése.
-* A programot előlről kezdjük.
+* A programot elölről kezdjük.
 
 5.)
-Melyik teszttel szokás egy függvényt vizsgálni, ami egy számítst végez?
+Melyik teszttel szokás egy függvényt vizsgálni, ami egy számítást végez?
 
 * átvételi
 * rendszer
@@ -177,7 +177,7 @@ Mi a verifikáció?
 * ami elkészült az megfelel az ügyfélnek?
 * amit tervezünk az megfelel az ügyfélnek?
 * az adatbázis vizsgálata
-* ami elkszült, az jól mûködik?
+* ami elkészült, az jól működik?
 
 9.)
 Mi a validáció?
@@ -185,14 +185,14 @@ Mi a validáció?
 * ami elkészült az megfelel az ügyfélnek?
 * amit tervezünk az megfelel az ügyfélnek?
 * az adatbázis vizsgálata
-* ami elkszült, az jól mûködik?
+* ami elkészült, az jól működik?
 
 10.)
 Melyik tesztelési típus?
 
 * emberközpontú
-* sebezhetõ
-* figyelemfelkeltõ
+* sebezhető
+* figyelemfelkeltő
 * kézi
 
 11.)
@@ -200,22 +200,22 @@ Mi a fekete dobozos tesztelés?
 
 * az eredményt fekete dobozban tároljuk
 * az eredmény fekete dobozból kiolvasható
-* a tesztelõnek nem áll rendelkezésre a forráskód
-* a tesztelõnek rendelkezésre áll a forráskód
+* a tesztelőnek nem áll rendelkezésre a forráskód
+* a tesztelőnek rendelkezésre áll a forráskód
 
 12.)
 Mi a fehér dobozos tesztelés?
 
 * az eredményt fehér dobozban tároljuk
 * az eredmény fehér dobozból kiolvasható
-* a tesztelõnek nem áll rendelkezésre a forráskód
-* a tesztelõnek rendelkezésre áll a forráskód
+* a tesztelőnek nem áll rendelkezésre a forráskód
+* a tesztelőnek rendelkezésre áll a forráskód
 
 13.)
-Melyik funkciónálisteszt?
+Melyik funkcionális teszt?
 
 * A weblapon megjelenik-e a "számít gomb".
-* A program mekkora bemenõ adat esetén mûködésképtelen.
+* A program mekkora bemenő adat esetén működésképtelen.
 * A program kiszámítja a területet.
 * Újra vizsgáljuk, látszik-e már a számít gomb.
 
@@ -224,11 +224,11 @@ Milyen tesztek helyezkednek el a tesztpiramis alján?
 
 * GUI teszt
 * integrációs teszt
-* átvilteli teszt
+* átvételi teszt
 * egységteszt
 
 15.)
-A szoftverek életciklusát tekintve, melyik tevékenység van elõbb?
+A szoftverek életciklusát tekintve, melyik tevékenység van előbb?
 
 * terjesztés
 * karbantartás

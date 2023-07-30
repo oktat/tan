@@ -17,7 +17,7 @@ A fejlesztési módszertanok meghatározzák, hogy az egyes szoftver életciklus
 * Agilis fejlesztés
 * Extrém programozás
 
-## Vízessés modell
+## Vízesés modell
 
 Meghatározzuk a követelményeket, tervezünk, fejlesztünk, tesztelünk és átadjuk a kész projektet.
 
@@ -43,7 +43,7 @@ Fontos az egyszerűség és a működő szoftver létrehozása.
 
 ## Gyors alkalmazásfejlesztés - RAD
 
-A RAD a Rapid Application Development rövidíétse. Magyarul gyors alkalmazásfejlesztés.
+A RAD a Rapid Application Development rövidítése. Magyarul gyors alkalmazásfejlesztés.
 
 Alapja:
 
@@ -53,7 +53,7 @@ Alapja:
 * kisebb hangsúly a konkrét tervezésen
 * fejlesztés támogató IDE használata
 
-![RAD fejlesztéis modell](images/RAD_fejlesztesi_modell.png)
+![RAD fejlesztési modell](images/RAD_fejlesztesi_modell.png)
 
 Bírálata:
 
@@ -91,7 +91,7 @@ Megbeszélendő:
 
 * mivel foglalkoztam tegnap
 * mivel szeretnék ma foglalkozni
-* milyen problémákba ütkztem
+* milyen problémákba ütköztem
 
 ## Gyakorlás
 

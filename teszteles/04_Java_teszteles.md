@@ -62,4 +62,4 @@ class Rhombus {
 }
 ```
 
-Készítsük el a Tombsug nevű osztályt ami használja a Rhombus osztályt. Legyen egy metódus, ami bekéri az oldal és az alfa szöget. Másik metódus végezze el a számítást. Egy harmadik metódus írja az eredményt fájlba, hozzáfűzéssel.
+Készítsük el a Tombsug nevű osztályt ami használja a Rhombus osztályt. Legyen egy metódus, ami bekéri az oldalt és az alfa szöget. Másik metódus végezze el a számítást. Egy harmadik metódus írja az eredményt fájlba, hozzáfűzéssel.
