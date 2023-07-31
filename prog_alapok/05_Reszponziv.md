@@ -329,3 +329,61 @@ A CSS keretrendszerek előre elkészített stílusok és komponensek gyűjtemén
 * Bulma
 * UIkit
 * Primer
+
+### Bootstrap rácsok
+
+A Bootstrap 12 oszlopban teszt lehetővé rácsozást.
+
+```html
+<div class="row">
+    <div class="col-lg-3 col-sm-6">Lorem1</div>
+    <div class="col-lg-3 col-sm-6">Lorem2</div>
+    <div class="col-lg-3 col-sm-6">Lorem3</div>
+    <div class="col-lg-3 col-sm-6">Lorem4</div>
+</div>
+```
+
+Szimpla felosztás összehasonlítva a nagy és kicsi beállítással:
+
+```html
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rács</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        .egy {
+            background-color: aqua;
+        }
+        .ketto {
+            background-color: burlywood;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="row egy">
+        <div class="col-3">Lorem1</div>
+        <div class="col-3">Lorem2</div>
+        <div class="col-3">Lorem3</div>
+        <div class="col-3">Lorem4</div>
+    </div>
+
+    <div class="row ketto">
+        <div class="col-lg-3 col-sm-6">Lorem1</div>
+        <div class="col-lg-3 col-sm-6">Lorem2</div>
+        <div class="col-lg-3 col-sm-6">Lorem3</div>
+        <div class="col-lg-3 col-sm-6">Lorem4</div>
+    </div>
+
+
+    
+</body>
+</html>
+```
+
+Élő példa:
+
+* [https://szit.hu/download/peldak/bootstrap/bs.html](https://szit.hu/download/peldak/bootstrap/bs.html)
