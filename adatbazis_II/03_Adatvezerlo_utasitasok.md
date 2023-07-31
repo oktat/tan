@@ -160,7 +160,7 @@ to bela@localhost;
 
 Az "all privileges" minden jogot beállít az adatbázison. Az on után adjuk meg, milyen adatbázison adjuk meg az engedélyt. A to után mindjuk meg melyik felhasználónak. Meg kell adni a host részt is egy @ jel után.
 
-Ha használjuk az identified by záradékot, és a felhasználó nem létezik, az létrejön. Így egyetlen utasítással minden létrehozható, beállítható:
+Ha használjuk az "identified by" záradékot, és a felhasználó nem létezik, az létrejön. Így egyetlen utasítással minden létrehozható, beállítható:
 
 ```sql
 grant all privileges 

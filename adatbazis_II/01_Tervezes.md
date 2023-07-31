@@ -1,7 +1,7 @@
 # Adatbázis-kezelés II - Adatbázis tervezés
 
 * **Szerző:** Sallai András
-* Copyright (c) Sallai András, 2022
+* Copyright (c) 2022, Sallai András
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
@@ -29,7 +29,7 @@ Olyan valami, amiről információt akarunk tárolni. A dolgozó például eset�
 
 ## ER-modell
 
-Az E-R modellben az E-R rész az Entity-Relationship szavakból lett rövidítve, magyarul egyed-kapcsolat diagram vagy modell. 
+Az E-R modellben az E-R rész az Entity-Relationship szavakból lett rövidítve, magyarul egyed-kapcsolat diagram vagy modell.
 
 Az E-R modellben a következő alakzatokat használjuk:
 

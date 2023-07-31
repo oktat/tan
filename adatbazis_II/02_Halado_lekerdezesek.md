@@ -1,11 +1,13 @@
 # Adatbázis-kezelés II - Haladó lekérdezés
 
 * **Szerző:** Sallai András
-* Copyright (c) Sallai András, 2022
+* Copyright (c) 2022, Sallai András
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
 ## Előzmények
+
+Hozunk létre egy adatbázist a gyakorláshoz:
 
 ```sql
 create database tend
@@ -36,6 +38,8 @@ create table reszvetelek(
 ```
 
 ### Adatok
+
+Vegyünk fel adatokat az adatbázisba:
 
 ```sql
 insert into dolgozok
@@ -82,7 +86,7 @@ values
 ## Egymásba ágyazott lekérdezések
 
 Jelenítsük meg a dolgozók neveit.
-De csak azoknak, akik 2020-ben kezdődő projektekben vettek részt.
+De csak azoknak, akik 2020-ban kezdődő projektekben vettek részt.
 
 ```sql
 select nev 
@@ -171,7 +175,9 @@ MariaDB [fer]> explain select * from dolgozok;
 1 row in set (0.000 sec)
 ```
 
-Szűréssel:
+A "rows" nevű oszlopban látjuk, hogy 9 rekord volt érintve a lekérdezés során.
+
+Most szűréssel:
 
 ```sql
 MariaDB [fer]> explain select * from dolgozok where telepules="Szeged";
@@ -183,9 +189,9 @@ MariaDB [fer]> explain select * from dolgozok where telepules="Szeged";
 1 row in set (0.000 sec)
 ```
 
-Most is végiment az összes rekordon.
+Most nincs szükség az össze rekordra, de a lekérdezés mégis mind a 9 sor érintette.
 
-Indexeljük a település oszlopot.
+Most indexeljük a település oszlopot.
 
 ```sql
 MariaDB [fer]> create index telepules_index on dolgozok(telepules);
@@ -204,3 +210,5 @@ MariaDB [fer]> explain select * from dolgozok where telepules="Szeged";
 +------+-------------+----------+------+-----------------+-----------------+---------+-------+------+-----------------------+
 1 row in set (0.001 sec)
 ```
+
+Láthatjuk, hogy most az érintett sorok száma 3.
