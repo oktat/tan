@@ -5,20 +5,20 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
-## A Jasmine
+## A Jasmine Browser Runner
 
-A Jasmine egy nyílt forráskódú tesztelő keretrendszer JavaScript számára. Első változatát 2010-ben jelentette meg a Pivotal Labs (agilis szoftverfejlesztési tanácsadó cég).
+A Jasmine egy nyílt forráskódú tesztelő keretrendszer JavaScript számára. Első változatát 2010-ben jelentette meg a Pivotal Labs (agilis szoftverfejlesztési tanácsadó cég). A Jasmine létrehozásakor a könnyen olvashatóság volt szem előtt.
 
-A Jasmine létrehozásakor a könnyen olvashatóság volt szem előtt.
+A Jasmine Browser Runner lehetővé teszi a böngészőre szánt (ECMAScript) alkalmazások futtatását változtatás nélkül.
 
-Licenc: MIT
+Jasmine licenc: MIT
 
 ## Szükséges
 
 * NodeJS
 * VSCode
 
-A VSCodehelyett használhatunk más kódszerkesztőket is.
+A VSCode helyett használhatunk más kódszerkesztőket is.
 
 ## Helló Világ
 
@@ -36,7 +36,7 @@ Alakítsuk NodeJS projektté:
 npm init -y
 ```
 
-Telepítsük a böngészőben futtatható JavaScript kód teszteléséhez a csomagokat:
+Telepítsük a teszteléséhez a csomagokat:
 
 ```bash
 npm install --save-dev jasmine-browser-runner jasmine-core
@@ -616,4 +616,4 @@ npm test
 
 Az alkalmazás forráskódja a GitHubon:
 
-* [https://github.com/oktat/extombsug_jasmine.git](https://github.com/oktat/extombsug_jasmine.git)
+* [https://github.com/oktat/extombsug_jasmine2](https://github.com/oktat/extombsug_jasmine2)
