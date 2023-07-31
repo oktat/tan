@@ -1,7 +1,7 @@
 # JavaScript tesztelés
 
 * **Szerző:** Sallai András
-* Copyright (c) Sallai András, 2023
+* Copyright (c) 2023, Sallai András
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
@@ -616,4 +616,4 @@ npm test
 
 Az alkalmazás forráskódja a GitHubon:
 
-* [https://github.com/oktat/extombsug.git](https://github.com/oktat/extombsug.git)
+* [https://github.com/oktat/extombsug_jasmine.git](https://github.com/oktat/extombsug_jasmine.git)
