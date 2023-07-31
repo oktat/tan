@@ -1,7 +1,7 @@
 # Reszponzív
 
 * **Szerző:** Sallai András
-* Copyright (c) Sallai András, 2022
+* Copyright (c) 2022-2023, Sallai András
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
@@ -200,6 +200,123 @@ Kétféle mértékegység van:
 |-------|----------|--------------|--------------|
 | Képernyő | px, em, % | ex | mm, cm, in, pt, pc |
 | Nyomtatott | mm, cm, in, pt, pc, em, % | px, ex, | |
+
+## Flex dobozok
+
+A reszponzív viselkedés egyik lehetséges módja a flex dobozok használata.
+
+Ha több dobozunk van egymás mellett, kisebb képernyőn szeretnénk kevesebb oszlopban látni.
+
+![flex dobozok](images/reszponziv_dobozok.png)
+
+Példa a flexdobozok használatára:
+
+```html
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .container div {
+            background-color: aqua;
+            width: 200px;
+            margin: 20px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+ 
+ 
+    <div class="container">
+        <div>doboz 1</div>
+        <div>doboz 2</div>
+        <div>doboz 3</div>
+        <div>doboz 4</div>
+        <div>doboz 5</div>
+        <div>doboz 6</div>
+        <div>doboz 7</div>
+        <div>doboz 8</div>
+        <div>doboz 9</div>
+        <div>doboz 10</div>
+        <div>doboz 11</div>
+        <div>doboz 12</div>
+    </div>
+ 
+</body>
+</html>
+```
+
+Megjelenés:
+
+![flex dobozok a böngészben](images/flex_boxs.png)
+
+Élő példa:
+
+* [https://szit.hu/download/peldak/css/flex.html](https://szit.hu/download/peldak/css/flex.html)
+
+## Grid dobozok
+
+A grid használata egy újabb lehetőség a különböző kijelző méretek kezelésére.
+
+Legyen 3 oszlopos grid, ahol a harmadik oszlop mérete rugalmasan változik.
+
+```html
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <style>
+        #grid {
+            display: grid;
+            column-gap: 5px;
+            row-gap: 5px;
+            grid-template-columns: 100px 100px auto;
+        }
+        .grid-item {
+            background-color: aqua;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+ 
+ 
+    <div id="grid">
+        <div class="grid-item">doboz 1</div>
+        <div class="grid-item">doboz 2</div>
+        <div class="grid-item">doboz 3</div>
+        <div class="grid-item">doboz 4</div>
+        <div class="grid-item">doboz 5</div>
+        <div class="grid-item">doboz 6</div>
+        <div class="grid-item">doboz 7</div>
+        <div class="grid-item">doboz 8</div>
+        <div class="grid-item">doboz 9</div>
+        <div class="grid-item">doboz 10</div>
+        <div class="grid-item">doboz 11</div>
+        <div class="grid-item">doboz 12</div>
+    </div>
+ 
+</body>
+</html>
+```
+
+A böngészőben:
+
+![Grid dobozo a böngészőben](images/grid_third-auto.png)
+
+Élő példa:
+
+* [https://szit.hu/download/peldak/css/grid.html](https://szit.hu/download/peldak/css/grid.html)
 
 ## CSS keretrendszerek
 
