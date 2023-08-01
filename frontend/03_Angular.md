@@ -1,7 +1,7 @@
 # Frontend - Angular keretrendszer
 
 * **Szerző:** Sallai András
-* Copyright (c) Sallai András, 2022
+* Copyright (c) 2022, Sallai András
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
@@ -27,7 +27,7 @@ ng v
 
 ### Adott verzió beszerzése
 
-A legújabb verzió helyett használjuk mindig az LTS verziót. Az LTS verzió hosszú támogatási idővel rendlkezik. Keressük meg a legújabb LTS a következő helyen:
+A legújabb verzió helyett használjuk mindig az LTS verziót. Az LTS verzió hosszú támogatási idővel rendelkezik. Keressük meg a legújabb LTS a következő helyen:
 
 * [https://angular.io/guide/releases](https://angular.io/guide/releases)
 
@@ -47,7 +47,7 @@ Windowson útvonalba kell tenni a következő könyvtárat:
 c:\Users\user\AppData\Romaing\npm
 ```
 
-A user felhasználónév helyére helyettesítse be a saját felhasználónvét.
+A user felhasználónév helyére helyettesítse be a saját felhasználónevét.
 
 ## Új projekt
 
@@ -67,7 +67,7 @@ ng new app02
 ? Would you like to add Angular routing? (y/N)
 ```
 
-A kérdésből láthatjuk, hogy válaszolhatunk "y" vagy "n" billentyűvel. Mivel az "N" betű nagybetűvel van írva, ez lesz az alapértelmezés, ha csak egy "Enter" billentyű leötését választjuk, ami első projektnél teljsen megfelelő választás.
+A kérdésből láthatjuk, hogy válaszolhatunk "y" vagy "n" billentyűvel. Mivel az "N" betű nagybetűvel van írva, ez lesz az alapértelmezés, ha csak egy "Enter" billentyű leütését választjuk, ami első projektnél teljesen megfelelő választás.
 
 Most a következő kérdést látjuk:
 
@@ -139,7 +139,7 @@ cd app01
 
 ### Projekt routinggal
 
-Később megatanuljuk használni a routingot. A routing használatát választhatjuk a kapcsolóval is:
+Később megtanuljuk használni a routingot. A routing használatát választhatjuk a kapcsolóval is:
 
 ```cmd
 ng new app01 --routing
@@ -207,7 +207,7 @@ projetk01/
      `index.html
 ```
 
-A weblap az src/index.html állomnyból indul:
+A weblap az **src/index.html** állományból indul:
 
 ```html
 <!doctype html>
@@ -227,8 +227,7 @@ A weblap az src/index.html állomnyból indul:
 
 Ez az alkalmazás váza. Tartózik hozzá egy globális stíluslap, az src/style.css.
 
-A weboldal komponensei az "app" könyvtárban találhatók.
-A weblap egy fő komponenssel indul. A fő komponens 4 darab állományból áll, mindegyik az "app" szóval kezdődik. Ez a komponens az alkalmazás gyökér (root) komponense.
+A weboldal komponensei az "app" könyvtárban találhatók. A weblap egy fő komponenssel indul. A fő komponens 4 darab állományból áll, mindegyik az "app" szóval kezdődik. Ez a komponens az alkalmazás gyökér (root) komponense.
 
 Van még egy "app" szóval kezdődő állomány ez az Angular modulok importálására való.
 
@@ -330,11 +329,11 @@ Létrehozhatunk szolgáltatásokat, amelyeket a komponensek használhatnak. A sz
 
 ### Dekorátorok
 
-A modulok, komponensek és a szolgáltatások osztályként vannak létrehozva. Minden osztályhoz tartozik egy dekorátor, ami az oszátly számára metaadatokat tartalmaz.
+A modulok, komponensek és a szolgáltatások osztályként vannak létrehozva. Minden osztályhoz tartozik egy dekorátor, ami az osztály számára metaadatokat tartalmaz.
 
 ### Routing
 
-Az Angular a routing segítségével képes választani a beltöltendő nézetek között.
+Az Angular a routing segítségével képes választani a betöltendő nézetek között.
 
 ### Modulok
 
@@ -378,7 +377,7 @@ ng server --open
 
 ## Életciklus események
 
-Olyan függvények, amelyek lehetővé teszik az alkalmazás különböző életciklusainak nyomonkövetését, azokhoz kapcsolódó műveletek végrehajtását.
+Olyan függvények, amelyek lehetővé teszik az alkalmazás különböző életciklusainak nyomon követését, azokhoz kapcsolódó műveletek végrehajtását.
 
 A következő függvények állnak rendelkezésre:
 
@@ -526,7 +525,7 @@ export class GreetingComponent {
 
 A komponens konstruktora egy GreetingService példányt kap a DI révén. Így az alkalmazás részévé válik és bárhol használhatjuk.
 
-Az app.module.ts fájlban a GreetingService szolgáltatást regisztárlni kell, hogy az egész alkalmazsából elérhető legyen.
+Az app.module.ts fájlban a GreetingService szolgáltatást regisztrálni kell, hogy az egész alkalmazásból elérhető legyen.
 
 ```javascript
 import { NgModule } from '@angular/core';

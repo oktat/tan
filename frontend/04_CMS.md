@@ -33,16 +33,16 @@
 
 ### CMS bevezetés
 
-A CMS a Content Management System rövidítése. Magyarul tartalomkezelő rendszer. Lehetővé teszik webes tartalmak könnyű és hatékony kezelését.
+A **CMS** a **Content Management System** rövidítése. Magyarul tartalomkezelő rendszer. Lehetővé teszik webes tartalmak könnyű és hatékony kezelését.
 
 Lehetőség van weboldalak létrehozására, szerkesztésére, publikálására, részletesebb webfejlesztői vagy programozói ismeretek nélkül. A CMS rendszerek felületei egyszerűen használhatók és személyre szabhatók.
 
-### A CMS rendszrek előnyei, hátrányai
+### A CMS rendszerek előnyei, hátrányai
 
 Előnyök:
 
 * egyszerű és hatékony tartalomkezelés
-* könnyen testreszabható
+* könnyen testre-szabható
 * a tartalom biztonságosan tárolható
 * beépített SEO eszközök
 * jól dokumentált
@@ -54,7 +54,7 @@ Hátrányok:
 
 * használatát megtanulni időt igényel
 * a testreszabáshoz technikai tudás
-* az egyszerűség csökkenti a testreszabhatóságot
+* az egyszerűség csökkenti a testre-szabhatóságot
 * nem minden CMS terhelhető nagy forgalommal
 
 ## CMS rendszer telepítése
@@ -94,7 +94,7 @@ Be kell jelentkeznünk adminisztrátori jogokkal.
 * "Összes felhasználó"-ra kattintunk.
 * "Felhasználó hozzáadása" új felhasználóhoz.
 * A felhasználói profilban beállítható a név, email cím, jelszó és más adatok.
-* Beállíthatun jogosultságokat, amelyek meghatározhatják mit tehet meg egy felhasználó. Például bejegyzés létrehozása, szerkesztése, törlése, oldalak szerkesztése, szerkesztések jóváhagyása.
+* Beállíthatunk jogosultságokat, amelyek meghatározhatják mit tehet meg egy felhasználó. Például bejegyzés létrehozása, szerkesztése, törlése, oldalak szerkesztése, szerkesztések jóváhagyása.
 * A felhasználók eltávolíthatók szükség esetén.
 
 ## Sablon kezelés
@@ -103,11 +103,11 @@ Be kell jelentkeznünk adminisztrátori jogokkal.
 * "Alkalmazás testreszabása" menüben találhatók a Sablonok.
 * A sablonokban találhatunk egy testreszabási lehetőséget. Szín, szöveg stílus, oldalsávok, fejléc, lábléc módosítás.
 * A sablonok akár szerkeszthetők is a teljes testreszabás érdekében.
-* Készíthetünk egyedi sablon is. Ehhez másolnunk kell az alapértelmezett sabjonfájlt.
+* Készíthetünk egyedi sablon is. Ehhez másolnunk kell az alapértelmezett sablonfájlt.
 
 ## Kiegészítők
 
-Egyedi funkciókat adhatunka WordPress számára a kiegészítőkkel.
+Egyedi funkciókat adhatunk a WordPress számára a kiegészítőkkel.
 
 * Vannak ingyenes és fizetős kiegészítők.
 * A bővítmények egymással lehetnek konfliktusban.

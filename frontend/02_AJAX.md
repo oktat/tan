@@ -7,7 +7,7 @@
 
 ## AJAX
 
-Az AJAX az Asynchronous JavaScript and XML  rövidítése. Adatok szállítás szerver és kliens között aszinkron kommunikációval, XML formátuban, JavaScript nyelven. Erre utalt az eredeti név. Gyakorlatilg azt jelenti, a weblap újra töltése nélkül mozgatunk adatokat. Az XML-t később felváltotta a JSON formátum.
+Az AJAX az Asynchronous JavaScript and XML  rövidítése. Adatok szállítás szerver és kliens között aszinkron kommunikációval, XML formátumban, JavaScript nyelven. Erre utalt az eredeti név. Gyakorlatilag azt jelenti, a weblap újra töltése nélkül mozgatunk adatokat. Az XML-t később felváltotta a JSON formátum.
 
 A JavaScript nyelvben kezdetben erre a célra az XMLHttpRequest objektum volt használható.
 
@@ -38,7 +38,7 @@ A HAI szervert használhatjuk globálisan és lokálisan telepítve. Itt most lo
 npm install --save-dev hai-server
 ```
 
-Készítsük el a JSON szervert. A projekt gyökérkönyvtárában hozzuk létre a database.json nevű fájlt. A tartalm a következő legyen:
+Készítsük el a JSON szervert. A projekt gyökérkönyvtárában hozzuk létre a **database.json** nevű fájlt. A tartalm a következő legyen:
 
 ```javascript
 {
@@ -57,7 +57,7 @@ Készítsük el a JSON szervert. A projekt gyökérkönyvtárában hozzuk létre
 }
 ```
 
-Szerkesszük a package.json fájlt. Írjun egy új scriptet:
+Szerkesszük a **package.json** fájlt. Írjunk egy új scriptet:
 
 ```json
   "scripts": {
@@ -121,7 +121,7 @@ curl -GET
 "http://localhost:3000/employee"
 ```
 
-A parancsot egysorba kell írni, csak az átláthatóság miatt lett három sorba írva.
+A parancsot egy sorba kell írni, csak az átláthatóság miatt lett három sorba írva.
 
 ## Források
 

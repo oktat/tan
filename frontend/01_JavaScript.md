@@ -1,7 +1,7 @@
 # Frontend - JavaScript
 
 * **Szerző:** Sallai András
-* Copyright (c) Sallai András, 2022
+* Copyright (c) 2022, Sallai András
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
@@ -45,8 +45,7 @@ Fordítás:
 tsc app.ts
 ```
 
-A fordítás után, létrejön egy app.js nevű fájl, amit a
-böngészők már képesek használni.
+A fordítás után, létrejön egy app.js nevű fájl, amit a böngészők már képesek használni.
 
 Készítsünk egy webolalt, majd teszteljük a programot. Készítsünk egy weboldalt, vagy futtassuk a node paranccsal.
 
@@ -80,7 +79,7 @@ Globális telepítés esetén a parancs a következő helyre kerül:
 
 Lokális telepítés esetén a projekt könyvtárában, a node_modules/.bin könyvtárba kerül.
 
-Globális telepítés esetén útvonalba kell tenni a C:\Users\janos\AppData\Roaming\npm útvonalt.
+Globális telepítés esetén útvonalba kell tenni a C:\Users\janos\AppData\Roaming\npm útvonalat.
 
 Az útvonalba állításról Windowson itt olvashat:
 
@@ -101,7 +100,7 @@ mkdir app01
 cd app01
 ```
 
-Indítsuk el a Visual Studo Code programot a projekt gyökérkönyvtárában:
+Indítsuk el a Visual Studio Code programot a projekt gyökérkönyvtárában:
 
 ```cmd
 code .
@@ -157,7 +156,7 @@ A lite-server készen áll a indításra. Teszteljük:
 npm start
 ```
 
-A böngészőben automatikusan megnyilik a gyökérkönyvtárban található index.html, ha van.
+A böngészőben automatikusan megnyílik a gyökérkönyvtárban található index.html, ha van.
 
 ## TypeScript típusok
 
@@ -273,13 +272,13 @@ var szamTomb: [number, number, number] = [27, 42, 35];
 document.write(String(szamTomb[2]));
 ```
 
-A folytonso tsc src/app.ts parans kiadása helyett, mondjuk meg a tsc parancsnak, hogy folyamatosan figyelje az src/app.ts fájlt:
+A folytonos tsc src/app.ts parans kiadása helyett, mondjuk meg a tsc parancsnak, hogy folyamatosan figyelje az src/app.ts fájlt:
 
 ```cmd
 tsc --watch src/app.ts
 ```
 
-Ennek hatására mentéskor automatikusaan megtörténik a fordítás.
+Ennek hatására mentéskor automatikusan megtörténik a fordítás.
 
 ### A void típus
 
@@ -612,7 +611,7 @@ document.querySelector("#num1")! as HTMLInputElement;
 
 ## Interfész
 
-Az interfész definiálja a megkötéseket az alkalmazásban. Az interfészt megvalósító osztályoknak követniük kell a megvalósíott interfészt.
+Az interfész definiálja a megkötéseket az alkalmazásban. Az interfészt megvalósító osztályoknak követniük kell a megvalósított interfészt.
 
 Az interfészt az interface kulcsszóval határozzuk meg. Tartalmazhat tulajdonságokat és metódusokat.
 
