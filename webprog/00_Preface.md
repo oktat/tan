@@ -132,8 +132,7 @@ app01/
 Ebből nekünk, csak az index.html fájlt kell létrehozni, a
 többit valamilyen parancs hozza létre.
 
-Az **npm** és a **yarn** parancs a függőségeket a **node_modules/** könyvtárba tölti le. A **packages.json** fájlba íródik, be minden telepített csomag, amiről úgy beszélünk, hogy függőség, mivel ezt használtuk a munkánk során. Ha más használni akarja a projektünket, akkor megkapja
-az index.html és a package.json fájlt. Egy yarn vagy egy npm paranccsal telepíteni tudja ugyanazokat az csomagokat, amiket mi is használtunk.
+Az **npm** és a **yarn** parancs a függőségeket a **node_modules/** könyvtárba tölti le. A **packages.json** fájlba íródik, be minden telepített csomag, amiről úgy beszélünk, hogy függőség, mivel ezt használtuk a munkánk során. Ha más használni akarja a projektünket, akkor megkapja az index.html és a package.json fájlt. Egy yarn vagy egy npm paranccsal telepíteni tudja ugyanazokat az csomagokat, amiket mi is használtunk.
 A **package-lock.json** fájlban az npm parancs írja le, milyen csomagokat tettünk fel és szedtünk le, ezt általában nem nézegetjük.
 
 Elkészítjük az első NodeJS alapú projektünket. A projekt könyvtárát most nekünk kell létrehozni. Legyen a neve app01. Ha elkészült lépjünk be a
@@ -178,11 +177,11 @@ A yarn parancs kevesebb tartalmat ír a fájlba:
 }
 ```
 
-A package.json fájl akár kézzel is elkészíthető, illetve szerkeszthető. Ha a "yarn init" vagy az "npm init" parancsot használjuk, ügyeljünk arra, hogy ne legyen node_moduels könyvtár.
+A package.json fájl akár kézzel is elkészíthető, illetve szerkeszthető. Ha a "yarn init" vagy az "npm init" parancsot használjuk, ügyeljünk arra, hogy ne legyen **node_moduels** könyvtár.
 
 A lite-server nevű csomagot fogjuk használni a fejlesztés során, webszervernek.
 
-Telepítsük a lit-server nevű csomagot:
+Telepítsük a lite-server nevű csomagot:
 
 ```cmd
 npm install lite-server --save-dev
@@ -231,7 +230,7 @@ Vegyük észre a "test" sor végén a vesszőt. Mentsük el.
 
 Most már, nekifoghatunk a projekt részét tartalmazó weboldal elkészítéséhez is.
 
-Készítsünk egy weboldalt index.html néven, ha még nem létezik. Tartalma:
+Készítsünk egy weboldalt **index.html** néven, ha még nem létezik. Tartalma:
 
 ```html
 <!DOCTYPE html>
@@ -333,7 +332,7 @@ git init
 
 Keressük meg a projekt gyökérkönyvtárában a **.git** könyvtárat. Ez lesz a git tároló. Visual Studio Code alatt ez nem látszik, mivel **rejtett könyvtár**. Nézzük meg fájlkezelővel. Fájlkezelőben is csak akkor látszik, ha a rejtett fájlok láthatósága be van kapcsolva.
 
-Hozzunk létre egy index.html fájlt, amit szeretnénk verziókövetni. Tegyük fel, hogy a projekt NodeJS projekt is egyben, vagyis van node_modules könyvtár is. Ennek a könyvtárnak a tartalmát sosem szeretnénk verziókövetni, ezért bele kell írni a **.gitignore** nevű fájlba. A .gitignore nevű fájlba azoknak a fájloknak és könyvtáraknak a nevét tesszük, amelyeket **nem szeretnénk verziókövetni**. Készítsük el a saját .gitignore nevű állományunkat, majd írjuk bele a node_modules könyvtár nevét.
+Hozzunk létre egy index.html fájlt, amit szeretnénk verziókövetni. Tegyük fel, hogy a projekt NodeJS projekt is egyben, vagyis van node_modules könyvtár is. Ennek a könyvtárnak a tartalmát sosem szeretnénk verziókövetni, ezért bele kell írni a **.gitignore** nevű fájlba. A .gitignore nevű fájlba azoknak a fájloknak és könyvtáraknak a nevét tesszük, amelyeket **nem szeretnénk verziókövetni**. Készítsük el a saját **.gitignore** nevű állományunkat, majd írjuk bele a **node_modules** könyvtár nevét.
 
 ```txt
 node_modules/
@@ -351,7 +350,7 @@ Ha nem látjuk a kimenetben  a node_modules könyvtárat, mehet verziókövetend
 git add .
 ```
 
-A pont hatására minden az aktuális könyvtárban lévő fájl verziókövetésre lesz jelölve. Vigyázzunk ezzel a paranccsal! Ha nincs megadva a node_modules könyvtár a .gitignore fájlban, vagy rosszul van megadva, a pont hatására az egész könyvtár tartalma tárolásra kerül feleslegesen. Ezért azt szokták ajánlani, hogy egyenkét adjuk meg a követendő fájlokat a (.) pont használata helyett, a következő módon:
+A pont hatására minden az aktuális könyvtárban lévő fájl verziókövetésre lesz jelölve. Vigyázzunk ezzel a paranccsal! Ha nincs megadva a **node_modules** könyvtár a **.gitignore** fájlban, vagy rosszul van megadva, a pont hatására az egész könyvtár tartalma tárolásra kerül feleslegesen. Ezért azt szokták ajánlani, hogy egyenként adjuk meg a követendő fájlokat a (.) pont használata helyett, a következő módon:
 
 ```bash
 git add .gitignore
@@ -367,7 +366,7 @@ A tényleges tárolás a "git commit" paranccsal történik, ahol leírjuk milye
 git commit -m "Kezdés"
 ```
 
-A -m kapcosló nélkül egy szövegszerkesztő nyílna meg, ahova beírhatjuk a commit szövegét. A -m kapcsoló után megadhatjuk ezt a szöveget. A -m kapcsoló nélkül csak akkor indítsuk "git commit" parancsot, ha van tapasztalatunk a **vi szövegszerkesztővel**, vagy beállítottunk más szövegszerkesztőt.
+A -m kapcsoló nélkül egy szövegszerkesztő nyílna meg, ahova beírhatjuk a commit szövegét. A -m kapcsoló után megadhatjuk ezt a szöveget. A -m kapcsoló nélkül csak akkor indítsuk "git commit" parancsot, ha van tapasztalatunk a **vi szövegszerkesztővel**, vagy beállítottunk más szövegszerkesztőt.
 
 Az idézőjelben írjuk le, milyen változtatásokat végeztünk a projektünkben. Kezdésnek lehet "Init" vagy "Kezdés".
 
@@ -419,7 +418,7 @@ A git gui paranccsal egy GUI program indítható, amivel elvégezhetők a git m�
 git gui
 ```
 
-Indítsa el a programot egy projektben, végezzen változtatásokat, az add és commit parancs helyett, használja a "git gui" parnacsot gyakorlásként.
+Indítsa el a programot egy projektben, végezzen változtatásokat, az add és commit parancs helyett, használja a "git gui" parancsot gyakorlásként.
 
 ### Feltöltés GitHubra
 
@@ -427,7 +426,7 @@ A GitHub egy git szerver. Szabadon elérhető git szerver több is van az Intern
 
 A GitHub webes felületén létre kell hozni egy tárolót.
 
-Másoljuk a tárólóban megjelenő "git remote" parncsot, majd hajtsuk végre a projekten belül. Például:
+Másoljuk a tárolóban megjelenő "git remote" parancsot, majd hajtsuk végre a projekten belül. Például:
 
 ```bash
 git remote add origin https://github.com/valaki/app01.git
@@ -466,7 +465,7 @@ git config --global user.name "Nagy János"
 git config --global user.email "nagyj@zold.lan"
 ```
 
-Osztott használat esetén, ha végeztünk a gép kikapcsolása előtt, ne felejtsük el adatink törlését:
+Osztott használat esetén, ha végeztünk a gép kikapcsolása előtt, ne felejtsük el adataink törlését:
 
 ```bash
 git config --global --unset user.name
