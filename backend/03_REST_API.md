@@ -7,7 +7,7 @@
 
 ## REST
 
-A REST a Representational State Transfer rövidítése, ami elosztott alkalmazásrendszert jelent, webes alapú alkalmazások számára. A REST API-k jellemzően HTTP protokollt használnak, többféle művelettel. A műveleteket a metódusok határozzák meg: GET, POST, PUT, DELETE stb. Ezek lehetővé teszik szövegek, képek lekérését, frissítését, törlését, létrehozását. 
+A **REST** a **Representational State Transfer** rövidítése, ami elosztott alkalmazásrendszert jelent, webes alapú alkalmazások számára. A REST API-k jellemzően HTTP protokollt használnak, többféle művelettel. A műveleteket a metódusok határozzák meg: GET, POST, PUT, DELETE stb. Ezek lehetővé teszik szövegek, képek lekérését, frissítését, törlését, létrehozását. 
 
 A REST architektúra jellemzői:
 
@@ -20,7 +20,7 @@ Az erőforrások egyedi URI-n keresztül érhetők el. Mivel az erőforrások el
 
 ## JSON
 
-A JSON a JavaScript Object Notation rövidítése, amely könnyű súlyú szövegalapú adatcserélő formátum. Általában webes szolgáltatásokban használjuk. A JSON formátum könnyen olvasható emberek és gépek számára is, és sok programozási nyelv támogatja.
+A **JSON** a **JavaScript Object Notation** rövidítése, amely könnyű súlyú szövegalapú adatcserélő formátum. Általában webes szolgáltatásokban használjuk. A JSON formátum könnyen olvasható emberek és gépek számára is, és sok programozási nyelv támogatja.
 
 ## URL-konvenciók
 
@@ -56,11 +56,11 @@ A kontrollerekben állítjuk be a HTTP kérések válaszait. Itt kezeljük az ad
 
 ## JSON mapping
 
-Az objektumokat JSON formátumba és JSON formátumból objektummá alakítjuk. Ezt a legtöbb programozási nyelv támogatja, vagy alapból, vagy valammilyen programozói könyvtárral.
+Az objektumokat JSON formátumba és JSON formátumból objektummá alakítjuk. Ezt a legtöbb programozási nyelv támogatja, vagy alapból, vagy valamilyen programozói könyvtárral.
 
 ## DTO
 
-A DTO a Data Transfer Object rövidítése. Ez egy olyan objektum amely nem tartalmaz üzleti logikát, csak az adatok szállítására találták ki.
+A **DTO** a **Data Transfer Object** rövidítése. Ez egy olyan objektum amely nem tartalmaz üzleti logikát, csak az adatok szállítására találták ki.
 
 ## URL-paraméterek
 
@@ -70,7 +70,7 @@ Az URL végpontjai tartalmazhatnak paramétereket is. A paramétereket egy "?" k
 
 A HTTP része a body, amely tartalmazza az átvitt adatokat szerver és kliens között.
 
-A HTTP kérésekben a body nem kötelező. A válaszban azonban kötelező, a HEAD kérséek kivételével.
+A HTTP kérésekben a body nem kötelező. A válaszban azonban kötelező, a HEAD kérések kivételével.
 
 A body szöveges vagy bináris formátumban tartalmazhat adatokat. Szöveges adatok esetén MIME típus és a karakterkódolásnak megfelelően van formázva. Ilyen például az XML, JSON, HTML, stb. Bináris adatok esetén a bájtfolyam van a body-ban, ami lehet kép, zenei fájl, vagy más.
 

@@ -1,7 +1,7 @@
 # Backend programozás - Express
 
 * **Szerző:** Sallai András
-* Copyright (c) Sallai András, 2023
+* Copyright (c) 2023, Sallai András
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
@@ -132,7 +132,7 @@ app.listen(8000, () => {
 });
 ```
 
-Futassuk a szervert, és teszteljük curl vagy http paranccsal.
+Futtassuk a szervert, és teszteljük curl vagy http paranccsal.
 
 ### Express több végponttal
 
@@ -190,7 +190,7 @@ app.listen(8000, () => {
 });
 ```
 
-Teszteljük mindketőtt. Használjuk a HTTPie, http parancsát:
+Teszteljük mindkettőt. Használjuk a HTTPie, http parancsát:
 
 ```cmd
 http localhost:8000/msg
@@ -200,7 +200,7 @@ http localhost:8000/msg
 http post localhost:8000/msg
 ```
 
-Fejlesszük tovább az alkalmazásunkat és valósítssunk meg minden metódust:
+Fejlesszük tovább az alkalmazásunkat és valósítsunk meg minden metódust:
 
 ```javascript
 const express = require('express');
@@ -312,7 +312,7 @@ node src
 
 ### Express gyakorlat
 
-Készítsen porjektet **rendelo** néven.
+Készítsen projektet **rendelo** néven.
 
 * Telepítése az Express szervert.
 * Hozzon létre egy **paciens** nevű végpontot.
@@ -359,7 +359,7 @@ pnpm install express sequelize mariadb
 pnpm install --save-dev nodemon
 ```
 
-A nodemon lehetővé teszi számunkra, hogy az alkalmazás fejlesztése során minden egyes mentéskor azonnal legyen aktuális a fejlesztett rész.
+A **nodemon** lehetővé teszi számunkra, hogy az alkalmazás fejlesztése során minden egyes mentéskor azonnal legyen aktuális a fejlesztett rész.
 
 A package.json fájlban az indító script:
 
@@ -384,7 +384,7 @@ router.get('/employees', (req, res) => {
 module.exports = router
 ```
 
-Jelenleg egytelen JSON adatot adunk vissza egy "msg" tulajdonsággal, a json() függvénnyel. A json() függvény beállítja a HTTP fejlécet is.
+Jelenleg egyetlen JSON adatot adunk vissza egy "msg" tulajdonsággal, a json() függvénnyel. A json() függvény beállítja a HTTP fejlécet is.
 
 ### Belépési pont
 
@@ -519,7 +519,7 @@ res.json({
     });
 ```
 
-A példában egy success és egy msg tulajdonságot adunk vissza. A success megmutatja mi az üzenet, az msg az üzenetet.
+A példában egy success és egy msg tulajdonságot adunk vissza. A success megmutatja az üzenet sikeress vagy nem, az msg magát az üzenetet.
 
 _employee.controller.js_:
 
@@ -538,7 +538,7 @@ module.exports = EmployeeController
 
 ### HTTP válaszkód
 
-Szabályozhatjuk milyen választkódot adunk. Láncolva:
+Szabályozhatjuk milyen válaszkódot adunk. Láncolva:
 
 ```javascript
 res.status(200).json({msg: 'Valami'});
@@ -801,7 +801,7 @@ Ha http parancsot használjuk, tegyük állományba a küldendő adatokat, péld
 http POST http://localhost:8000/api/employees < adat.txt 
 ```
 
-### Érvényesség ellenőrzée
+### Érvényesség ellenőrzése
 
 ```javascript
 store: (req, res) => {
@@ -868,15 +868,15 @@ store: (req, res, next) => {
 
 ### Paraméterek átvétele
 
-A paraméter átvéltelére az update és delete műveletnél szükséges. Nézzük meg a delete művletnél a paraméter átvételét.
+A paraméter átvételére az update és delete műveletnél szükséges. Nézzük meg a delete műveletnél a paraméter átvételét.
 
-Elsőként jelezük az api.js fájlban a útválasztásnál, hogy paramétert is érkezik:
+Elsőként jelezzük az api.js fájlban a útválasztásnál, hogy paramétert is érkezik:
 
 ```javascript
 router.delete("/employees/:id", EmployeeController.destroy);
 ```
 
-A destroy() metódusban ezek után req.params.id tulajdonságban kapjuk meg az azonsítót:
+A destroy() metódusban ezek után req.params.id tulajdonságban kapjuk meg az azonosítót:
 
 ```javascript
     destroy: (req, res, next) => {        
@@ -900,7 +900,7 @@ X-Powered-By: Express
 30
 ```
 
-Most már tudunk adatokat és paramétert átvenni, dogozhatunk adatábzissal.
+Most már tudunk adatokat és paramétert átvenni, dogozhatunk adatbázissal.
 
 ## ORM használata
 
@@ -1162,7 +1162,7 @@ http localhost:8000/api/employees
 
 ## Azonosítás
 
-Az útvonak védelméhez szükség van felhasználókra. Az úvonalakt JWT tokennel fogjuk biztosítani.
+Az útvonalak védelméhez szükség van felhasználókra. Az útvonalakat JWT tokennel fogjuk biztosítani.
 
 ### User model készítése
 
@@ -1262,7 +1262,7 @@ const AuthController = {
 module.exports = AuthController
 ```
 
-### Útválsztás a regiszterhez
+### Útválasztás a regiszterhez
 
 ```javascript
 const AuthController = require('../controllers/authcontroller')
@@ -1394,7 +1394,7 @@ exports.verifyToken = (req, res, next) => {
 };
 ```
 
-### Útvonal védeleme
+### Útvonal védelme
 
 ```javascript
 const { verifyToken } = require('../middleware/authjwt');
@@ -1519,7 +1519,7 @@ app.use(cors({
 
 #### A CORS tesztelése
 
-A CORS teszteléséhez készítsünk egy weblapot, amit egy szerverről futtatunk. Lehet példul a lite-server.
+A CORS teszteléséhez készítsünk egy weblapot, amit egy szerverről futtatunk. Lehet például a lite-server.
 
 src/index.html
 
@@ -1602,7 +1602,7 @@ Vegyük észre például a következő fejlécmezőt:
 X-Powered-By: Express
 ```
 
-#### A Helmet haszálata
+#### A Helmet használata
 
 Most használjuk a Helmetet:
 

@@ -1,7 +1,7 @@
 # Backend programozás - Rétegelt architektúra és ORM
 
 * **Szerző:** Sallai András
-* Copyright (c) Sallai András, 2022
+* Copyright (c) 2022, Sallai András
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
@@ -83,7 +83,7 @@ A példában a UserRepository osztály végzi az adatelérést. A UserService os
 
 ## ORM - Eloquent
 
-Az ORM az "Object-Relational Mapping" rövdítése, ami egy programozási paradigma, amely lehetővé teszi objektumok és az adatbázis relációs tábláinak kapcsolatát. ORM használata esetén az alkalmazás fejlesztője csak objektumokkal dolgozik, ami automatikusan leképeződik táblázatokra.
+Az ORM az "Object-Relational Mapping" rövidítése, ami egy programozási paradigma, amely lehetővé teszi objektumok és az adatbázis relációs tábláinak kapcsolatát. ORM használata esetén az alkalmazás fejlesztője csak objektumokkal dolgozik, ami automatikusan leképeződik táblázatokra.
 
 Az ORM előnye az adatbázis-rendszertől való függetlenség, könnyen, hatékonyan kezelhető adatok. Az ORM használható, Java, C#, Ruby, PHP, JavaScript, Python stb. nyelvekhez.
 
@@ -91,7 +91,7 @@ A Laravel ORM rendszere az Eloquent. Az Eloquent kifejezetten PHP-ban írt alkal
 
 ## Kapcsolatbeállítások
 
-A Laravel a lehetséges kapcsolatbeállításai a config/database.php vannak tárolva. A konkrét beállítást a gyökér könyvtárban a .env nevű fájlban tehetjük meg.
+A Laravel a lehetséges kapcsolatbeállításai a **config/database.php** vannak tárolva. A konkrét beállítást a gyökér könyvtárban a **.env** nevű fájlban tehetjük meg.
 
 ```ini
 DB_CONNECTION=mysql
@@ -117,3 +117,5 @@ Háromféle kapcsolat lehetséges a táblák között:
 * N:N
 
 ## Egyedi lekérdezések
+
+Egyedi lekérdezések esetén, nem használjuk az ORM beépített metódusait. Lehetőségünk van egyedi lekérdezésekre. Használhatunk speciális szűrési feltételeket, adatokat vonhatunk össze, vagy más specifikus lekérdezéseket készíthetünk.

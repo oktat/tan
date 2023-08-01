@@ -1,20 +1,20 @@
 # Backend programozás - Projektmunka
 
 * **Szerző:** Sallai András
-* Copyright (c) Sallai András, 2022
+* Copyright (c) 2022, Sallai András
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
 ## Egy nagyobb projekt
 
-Ebben a részben egy projektet készítünk, amely Web API-t valósít meg, és az adatokat SQL adatbázisban tárolja. A feladatban 2-3 CRUD műveletet fogunk megvalósítani, amit a Frontend tantárgyyal együtt valósítunk meg.
+Ebben a részben egy projektet készítünk, amely Web API-t valósít meg, és az adatokat SQL adatbázisban tárolja. A feladatban 2-3 CRUD műveletet fogunk megvalósítani, amit a Frontend tantárggyal együtt valósítunk meg.
 
 ### Elemezés
 
-Írjuk össze miről szeretnénk adatokat tárolni és szolgáltatani. Ezek az adatok milyen típusúak.
+Írjuk össze miről szeretnénk adatokat tárolni és szolgáltatni. Ezek az adatok milyen típusúak.
 
 * Tanulókról szeretnénk adatokat tárolni.
-* A tanulók által elvégzett dolgozatrokról is szeretnénk adatokat tárolni.
+* A tanulók által elvégzett dolgozatokról is szeretnénk adatokat tárolni.
 
 ### Tervezés
 
@@ -22,7 +22,7 @@ A tervezéshez kezdetben használhatunk papírt amire felvázolhatjuk a gondolat
 
 Elektronikus tervezéshez ajánlott a Dia nevű program.
 
-A projekte neve legyen:
+A projekt neve legyen:
 
 * **stude**
 

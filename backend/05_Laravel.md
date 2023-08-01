@@ -1,7 +1,7 @@
 # Backend programozás - Laravel
 
 * **Szerző:** Sallai András
-* Copyright (c) Sallai András, 2023
+* Copyright (c) 2023, Sallai András
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
@@ -292,7 +292,7 @@ Az alma nevű végpont adja vissza az alma szót, és 150 értéket egy sorban.
 
 Az korte nevű végpont adja vissza az alma szót, és 180 értéket egy sorban.
 
-Az barac nevű végpont adja vissza az alma szót, és 210 értéket egy sorban.
+Az barack nevű végpont adja vissza az alma szót, és 210 értéket egy sorban.
 
 ### Response használata
 
@@ -501,7 +501,7 @@ Az eredményt curl paranccsal nem igazán lehet látni, használjunk Insomniát.
 
 ### POST kérés
 
-Fogadjunk az útválasztóban POST kérést, az employees végponton, futtassuk az index() metódust az EmployeeController-ben:
+Fogadjunk az útválasztóban POST kérést, az **employees** végponton, futtassuk az index() metódust az EmployeeController-ben:
 
 ```php
 Route::post('/employees', [EmployeeController::class, 'index']);
@@ -620,7 +620,7 @@ curl -X POST http://localhost:8000/api/employees \
 
 Ha visszakapjuk a dolgozó adatait, eddig jól csináltuk.
 
-Most a visszadás mellet el kell tennünk adatbázisba is. Ehhez szükség van egy modellre is.
+Most a visszaadás mellet el kell tennünk adatbázisba is. Ehhez szükség van egy modellre is.
 
 #### Modell létrehozása
 
@@ -667,7 +667,7 @@ function store(Request $req) {
 }
 ```
 
-#### Hozzáadás teszet tárolással
+#### Hozzáadás teszt tárolással
 
 Tesztelésnél be kell állítanunk POST metódust.
 
@@ -891,7 +891,7 @@ function destroy($id) {
 
 ## Kivételkezelés a végpontokon
 
-Ha szeretnénk szerveroldali hiba esetén színvonalasabb visszajezést kapni, JSON formátumban try_catch szerkezetbe kell tennünk az adatbázis lekérdeést.
+Ha szeretnénk szerveroldali hiba esetén színvonalasabb visszajelzést kapni, JSON formátumban try_catch szerkezetbe kell tennünk az adatbázis lekérdezést.
 
 A hibajelzések mellé válasszunk megfelelő státuszkódot, az alábbi táblázat alapján.
 
@@ -1253,11 +1253,11 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
 A képek tárolására két lehetőség van:
 
-A képet a szerveren tároljuk a fájlrenszeren, az adatbázisban csak az elérésiutat. A másik lehetőség a képek tárolása ténylegesen az adatbázisban. Ez utóbbi nem ajánott, mivel az adatbázis tárhelyek mindig kisebbek és hamar betelhet az adatbázis.
+A képet a szerveren tároljuk a fájlrendszeren, az adatbázisban csak az elérési-utat. A másik lehetőség a képek tárolása ténylegesen az adatbázisban. Ez utóbbi nem ajánlott, mivel az adatbázis tárhelyek mindig kisebbek és hamar betelhet az adatbázis.
 
 ### Képek a szerveren
 
-A Laravel lehetővé teszi fájlok feltöltését a storage könyvtárba vagy tárolhatjuk adatbázisban. Ez utóbbi nem ajánlott mert gyorsan fogyasztja az adatbázisteráhelyet.
+A Laravel lehetővé teszi fájlok feltöltését a **storage** könyvtárba vagy tárolhatjuk adatbázisban. Ez utóbbi nem ajánlott mert gyorsan fogyasztja az adatbázis-tárhelyet.
 
 ### Képek adatbázisban
 
@@ -1277,7 +1277,7 @@ public function up(): void
 }
 ```
 
-### A kontrolelrben a tárolás
+### A kontrollerben a tárolás
 
 #### Tárolás
 
@@ -1371,7 +1371,7 @@ class Valami extends TestCase
 }
 ```
 
-Írjunk egy tesztet, ami lekérdezi a /api/employees végpontot GET metóudssal:
+Írjunk egy tesztet, ami lekérdezi a /api/employees végpontot GET metódussal:
 
 ```php
 <?php
@@ -1452,7 +1452,7 @@ class EmployeeTest extends TestCase
 
 A tesztek futtatásház beállíthatunk olyan adatbázist amit a memóriában tárolja az adatokat. A tesztek így gyorsak lesznek, és ideiglenesek.
 
-A **config/database.php** fájlban vegyük fel a következőt soroakat:
+A **config/database.php** fájlban vegyük fel a következőt sorokat:
 
 ```php
         'sqlite_memory' => [
@@ -1576,11 +1576,11 @@ $app = require_once __DIR__.'/../projekt01/bootstrap/app.php';
 
 Ügeljünk arra, hogy a Laravel projektenk írnia kell tudni a app01/storage könyvtárat.
 
-Töltsük fel az adatábzist a szolgáltatóhoz.
+Töltsük fel az adatbázist a szolgáltatóhoz.
 
 ### Kezdő felhasználó
 
-A /api/register útvonalat érdemes védelmezni. Ekkor szükség van egy kezdő felhasználóra. Ezt létrehozhatuk **tinker** eszközzel, vagy seedert készítünk hozzá.
+A /api/register útvonalat érdemes védelmezni. Ekkor szükség van egy kezdő felhasználóra. Ezt létrehozhatunk **tinker** eszközzel, vagy seedert készítünk hozzá.
 
 ```php
 User::create(["name"=> "admin","email"=>"admin@zold.lan","password"=>bcrypt("titok")]);

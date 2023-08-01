@@ -1,7 +1,7 @@
 # Backend programozás - Backend keretrendszerek
 
 * **Szerző:** Sallai András
-* Copyright (c) Sallai András, 2022
+* Copyright (c) 2022, Sallai András
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
@@ -16,7 +16,7 @@ Első sora tartalmazza a kérés módját, a kért tartalmat és a HTTP verziós
 * verzió - a HTTP verziója
 
 ```txt
-metódus errőforrás verzió
+metódus erőforrás verzió
 fejléc: érték
 fejléc: érték
 
@@ -31,7 +31,7 @@ Host: szit.hu
 
 ```
 
-A kérés végét egy üressorral jelezzük.
+A kérés végét egy üres sorral jelezzük.
 
 ## HTTP metódusok
 
@@ -108,7 +108,7 @@ Csak akkor alkalmazza kérést, ha egyezik az egyik ETag fejléccel.
 
 Connection
 
-Szabályozza, hogy a hálózati kapcsolat nyitvamaradjon-e, az aktuális tranzakció befejezése után.
+Szabályozza, hogy a hálózati kapcsolat nyitva maradjon-e, az aktuális tranzakció befejezése után.
 
 Keep-Alive
 
@@ -118,11 +118,11 @@ Szabályozza, hogy mennyi ideig maradjon nyitva egy kapcsolat.
 
 Accept
 
-A szervert tájékoztatjuk a visszaküdlhető adattípusról.
+A szervert tájékoztatjuk a visszaküldhető adattípusról.
 
 Accept-Encoding
 
-A visszaküldött erőforráson használahtó kódolási algoritmus.
+A visszaküldött erőforráson használható kódolási algoritmus.
 
 Accept-Language
 
@@ -132,11 +132,11 @@ A szervernek üzenet, hogy milyen emberi nyelven válaszolhat.
 
 Expect
 
-Egy elvárást jelöl, amelyeket a szervernke teljesítenie kell a kérés megfelelő kezeléshez.
+Egy elvárást jelöl, amelyeket a szervernek teljesítenie kell a kérés megfelelő kezeléshez.
 
 Max-Forwards
 
-A használat sorána a TRACE azt jelzi, hogy a kérés hány ugrását végezhet, mielőtt megjelenik a feladónak.
+A használat során a TRACE azt jelzi, hogy a kérés hány ugrását végezhet, mielőtt megjelenik a feladónak.
 
 ### Cookie
 
@@ -172,7 +172,7 @@ Jelzés, mely fejlécek jeleníthetők meg a válasz részeként.
 
 Access-Control-Max-Age
 
-Az előzvizsgálati kérés eredményét mennyi ideig lehet gyorsítótárban tárolni.
+Az elővizsgálati kérés eredményét mennyi ideig lehet gyorsítótárban tárolni.
 
 Access-Control-Request-Headers
 
@@ -190,15 +190,15 @@ Jelzi, honnan származik a kérés.
 
 Content-Length
 
-Decimális bájltokban az erőforrás mérete.
+Decimális bájtokban az erőforrás mérete.
 
 Content-Type
 
-Az erőforrás médistípusa.
+Az erőforrás médiatípusa.
 
 Content-Encoding
 
-A tömröítő algoritmus.
+A tömörítő algoritmus.
 
 Content-Language
 
@@ -228,11 +228,11 @@ Ahova az átirányítás történik
 
 From
 
-A felhsználói ügynököt felügyelő ember e-mail címe.
+A felhasználói ügynököt felügyelő ember e-mail címe.
 
 Host
 
-A kiszolgáló tartományneve. Opcionálisan az TCP portszám, ahol figyle a kiszolgáló.
+A kiszolgáló tartományneve. Opcionálisan az TCP portszám, ahol figyel a kiszolgáló.
 
 Referer
 
@@ -325,7 +325,7 @@ composer create-project laravel/laravel app01
 
 ### Az npm
 
-Az npm a NodeJS JavaScript keretrendszer csomagkezelője. Használható NodeJS projketek létrehozására és függőségek kezelésére.
+Az npm a NodeJS JavaScript keretrendszer csomagkezelője. Használható NodeJS projektek létrehozására és függőségek kezelésére.
 
 ```cmd
 npm --version
@@ -341,7 +341,7 @@ A Laravel is használ NodeJS csomagokat, így függőségkezelésnél az npm vag
 
 ## Környezet felépítése
 
-Szükségünk van egy operációsn rendszerre és azon a következő eszközökre:
+Szükségünk van egy operációs rendszerre és azon a következő eszközökre:
 
 * XAMPP
   * PHP
@@ -352,7 +352,7 @@ Szükségünk van egy operációsn rendszerre és azon a következő eszközökr
 
 ## Webes Helló Világ
 
-Ha Laravel projektet szeretnénk létrehozni a composer parancsot használjuk.
+Ha Laravel projektet szeretnénk létrehozni a **composer** parancsot használjuk.
 
 ```cmd
 composer create-project laravel/laravel app01
@@ -362,21 +362,21 @@ A composer letölti az app01 könyvtárba az induló Laravel projektet.
 
 ## MVC
 
-Az MVC a Model View Controller rövidítése. Az MVC egy szoftvertervezéis minta, amely elválasztja az üzleti logikát a felhasználói felülettől. Az alkalmazást három részre bontjuk:
+Az **MVC** a **Model View Controller** rövidítése. Az MVC egy szoftvertervezési minta, amely elválasztja az üzleti logikát a felhasználói felülettől. Az alkalmazást három részre bontjuk:
 
 * modell
 * nézet
 * vezérlés
 
-A Laravel nagyrész MVC szerkezetű.
+A Laravel nagyrészt MVC szerkezetű.
 
 ### A modell
 
-Az alkalmazás adataiért, azok kezeléséért felel. Válaszolhat információkérésekre, állapotváltásokra. A modell kezeli az állományokat, az adatábzist.
+Az alkalmazás adataiért, azok kezeléséért felel. Válaszolhat információkérésekre, állapotváltásokra. A modell kezeli az állományokat, az adatbázist.
 
 ### A nézet
 
-A felhasználói felületért felel. A modelből érkező adatokat rendereli a felhasználói felületen.
+A felhasználói felületért felel. A modellből érkező adatokat rendereli a felhasználói felületen.
 
 ### A vezérlő
 
@@ -384,13 +384,66 @@ A vezérlő fogadja a felhasználói bemenetet és utasítja az objektumok és n
 
 ## Kontrollerek
 
+A kontrollerek kezelik a HTTP kéréseket, amelyek az útválasztótól jönnek. Elkérik az adatokat az adatbázistól, általában egy ORM segítségével.
+
+A kontrollerben szokás beállítani az érvényesség ellenőrzését. 
+
 ## URL-paraméterek
+
+Az URL-paraméterek különféle paramétereket hordozhatnak a frontend és a backend között. Általában a lekérdezett adatok módosítására használjuk, például szűrésnél, keresésnél vagy oldalakra bontásnál.
+
+Az URL-paraméterek a webhelye címe után kezdődnek (?) kérdőjelet követően. A paraméterek kulcs-érték pár formájában adjuk meg, amit (=) egyenlőségjel választ el. Ha több URL-paraméter adunk meg, azokat (&) karakterrel választjuk el.
+
+Példa:
+
+```url
+https://valahol.hu/search?q=valami&category=másvalami
+```
+
+Példa paraméterek:
+
+* q=valami
+* category=másvalami
+
+A legtöbb backend keretrendszer könnyen kezelhetővé teszi az URL-paramétereket.
+
+Példa Laravelben:
+
+```php
+Route::get('/search', function () {
+    $query = request()->input('q');
+    $category = request()->input('category');
+
+    // További feldolgozás
+});
+```
+
+Típusok:
+
+* Lekérdezők
+* Adatmódosítók
+* Oldalakra bontás
 
 ## HTTP Post body
 
+A HTTP protokoll használatával az adatok utazhatnak a háttérben is. Ilyenkor az URL-ben nem látszik belőle semmit. A háttrében az adatok helyét nevezzük Post body-nak.
+
+A GET metóduson kívül a Post body-t használják a más metódusok.
+
+HTTP metódusok:
+
+* GET - adatok lekérdezése, küldése URL-ben
+* POST - Az adatokat a body-ban utaztatjuk
+* PUT - Adatok frissítése body-ban utaztatva
+* DELETE - Adatok törlése body-ban utaztatva
+
+Post body tartalmát általában JSON formátumban utaztatjuk, régebben XML volt a népszerűbb.
+
 ## Server Side Rendering - Blade
 
-## Űrlapok kezelése kontrollerben
+A **Server Side Rendering**, vagy röviden **SSR** során a weboldalakt a szerveroldalon generáljuk. Ezeket nevezzük monolitikus programnak.
+
+A Laravel keretrendszer az SSR-t a Blade sablonmotorral valósítja meg. A Blade egy PHP alapú sablonmotor, ami lehetővé teszi a dinamikus és moduláris HTML oldalak generálását.
 
 ## Alkalmazás hosztolása
 
