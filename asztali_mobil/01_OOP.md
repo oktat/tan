@@ -7,8 +7,7 @@
 
 ## Interfész
 
-Az interfészek metódusok és állandók egy halmazát adják meg. Az osztályok ha impelmentálnak egy ilyen interfészt, a benne található metódusokat kötelesek
-megvalósítani.
+Az interfészek metódusok és állandók egy halmazát adják meg. Az osztályok ha implementálnak egy ilyen interfészt, a benne található metódusokat kötelesek megvalósítani.
 
 Legyen például egy Jarmu interfész, amiben előírjuk milyen viselkedéseket kell egy járműnek megvalósítani adott programban.
 
@@ -18,7 +17,7 @@ interface Jarmu {
 }
 ```
 
-Írjunk programot, ami megvalósítja az Jarmu nevű iterfészt.
+Írjunk programot, ami megvalósítja az Jarmu nevű interfészt.
 
 ```txt
 app01/
@@ -71,8 +70,7 @@ public class Szemelygepkocsi implements Jarmu {
 
 ## Interfésszel több lehetőség
 
-Egy programot szeretnénk írni, ahol embereket szimulálunk. Minden ember más-más nyelvet beszélhet.
-A példány létrehozása helyén dől el, milyen nyelvet fog beszélni.
+Egy programot szeretnénk írni, ahol embereket szimulálunk. Minden ember más-más nyelvet beszélhet. A példány létrehozása helyén dől el, milyen nyelvet fog beszélni.
 
 A projekt szerkezete:
 

@@ -1,7 +1,7 @@
 # Algoritmusok és adatszerkezetek
 
 * **Szerző:** Sallai András
-* Copyright (c) Sallai András, 2022
+* Copyright (c) 2022, Sallai András
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
@@ -9,11 +9,11 @@
 
 ### Bonyolultság
 
-Az algorimtus bonyolultságával azt mérjük, hogy n méretű bemenet mennyi ideig tart feldolgozni, vagy hány utasítást kellett végrehajtani. A bonyolultságot általában időben vagy utasítás számban mérjük, de néha a memóriaigény az érdeklődésünk köre.
+Az algoritmus bonyolultságával azt mérjük, hogy n méretű bemenet mennyi ideig tart feldolgozni, vagy hány utasítást kellett végrehajtani. A bonyolultságot általában időben vagy utasítás számban mérjük, de néha a memóriaigény az érdeklődésünk köre.
 
 Az elméleti számítástechnika egyik ága ezzel foglalkozik, ezt nevezzük komplexitás elméletnek. Valójában az elemzések során fontosabb az algoritmus összetettségének vizsgálata, szemben az idővel.
 
-A jó bonyolultság viszgálathoz, az idő mérése helyett érdemesebb a végrehajtott utasítások számolása.
+A jó bonyolultság vizsgálathoz, az idő mérése helyett érdemesebb a végrehajtott utasítások számolása.
 
 #### Példák
 
@@ -25,7 +25,7 @@ Ha egy tömbben az első elem a keresett érték, konstanst idő, a bonyolultsá
 
 Keressünk egy rendezetlen listában minden ismétlődés. A bonyolultság ekkor négyzetes.
 
-Egyetlen elem bonyolultáságnak ellenőrzése lineáris bonyolultásgú.
+Egyetlen elem bonyolultságnak ellenőrzése lineáris bonyolultságú.
 
 #### A bonyolultságok jelölése
 
@@ -39,7 +39,7 @@ Jelölések:
 
 ![Bonyolultság jelölése](images/bonyolultsag.png)
 
-Néhány algorimtus bonyoltsága a legrosszabb esetben:
+Néhány algoritmus bonyolultsága a legrosszabb esetben:
 
 * beszúró rendezés O(n2)
 * buborék rendezés O(n2)
@@ -122,7 +122,7 @@ szamLista.add(14);
 szamLista.add(28);
 ```
 
-Teljeskód:
+Teljes kód:
 
 ```java
 import java.util.LinkedList;
@@ -217,7 +217,7 @@ Fa esetén létezik egy kiemelt csomópont, a gyökérelem.
 
 ![A fa részei](images/002_fa_reszei.png)
 
-A bináris fák, sepecilis fák, mivel minden elemnek legfeljebb két gyermekeleme lehet.
+A bináris fák, speciális fák, mivel minden elemnek legfeljebb két gyermekeleme lehet.
 
 ![Bináris fa](images/003_binarisfa.png)
 
@@ -283,7 +283,7 @@ class Program03
 
 ### Rekurzió
 
-Ha egy függvény vagy egy metódus önmagát hívja, akkor rekurzióról beszélünk. Ciklikusan újra és újra önmagát hívja, ezért alkalmas ciklus kiváltására is. A rekurzió írásánál ügyelnünk arra, hogy gondskodni kell annak megszakításáról, különben végtelen ciklust kapunk.
+Ha egy függvény vagy egy metódus önmagát hívja, akkor rekurzióról beszélünk. Ciklikusan újra és újra önmagát hívja, ezért alkalmas ciklus kiváltására is. A rekurzió írásánál ügyelnünk arra, hogy gondoskodni kell annak megszakításáról, különben végtelen ciklust kapunk.
 
 A következő példa visszafele írja ki a számokat 9-től, és minden szám után a Joe szót írja szóközzel.
 
@@ -419,7 +419,7 @@ A gyorsrendezést két módon szokták megvalósítani:
 * tömbbel
 * helyben (helyére vivő eljárással)
 
-A gyorsrendezést általában rekuzívan valósítják meg.
+A gyorsrendezést általában rekurzívan valósítják meg.
 
 ##### Tömbbel megvalósított változat
 
@@ -442,7 +442,7 @@ A var list less, equal, greater sor azt jelenti, három listát (tömböt) hozok
 
 
 A Java nyelven szimpla tömbök összefűzése nem egyszerű,
-öszetettebb kódot kapunk mint a helybenrendezés,
+öszetettebb kódot kapunk mint a helyben-rendezés,
 ezért ArrayList használatával látunk egy példát.
 
 Java megvalósítás:
@@ -558,7 +558,7 @@ A bináris keresés többféle néven ismert:
 
 Ha már rendezett a tömbünk, használhatjuk a bináris keresést.
 
-Vesszük a középső elemet. Ha ez a keresett szám, vége a keresésnek. Ha nem, akkor megnézzük, hogy a keresett szám a tömb alsó vagy felső részében van-e. Amelyikben van, abban megismétlem az előbbi felosztást. A ciklus lépészáma körülbelül log(n), amit néha így írnunk: log<sub>2</sub>n.
+Vesszük a középső elemet. Ha ez a keresett szám, vége a keresésnek. Ha nem, akkor megnézzük, hogy a keresett szám a tömb alsó vagy felső részében van-e. Amelyikben van, abban megismétlem az előbbi felosztást. A ciklus lépésszáma körülbelül log(n), amit néha így írnunk: log<sub>2</sub>n.
 
 ```txt
 első = 0
