@@ -201,7 +201,7 @@ A projekt könyvtárában készítsünk egy index.html fájlt. Indítsuk el a li
 npx lite-server
 ```
 
-Ügyeljünk arra, hogy a parancsot a projekt gyökérkönyvtárában indítsuk, és ott legyen az index.html állomány is. 
+Ügyeljünk arra, hogy a parancsot a projekt gyökérkönyvtárában indítsuk, és ott legyen az index.html állomány is.
 
 A lite-server ilyen formán a projektünk része. A lite-server telepíthető globálisan is:
 
