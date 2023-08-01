@@ -12,7 +12,7 @@ A globális attribútumok az összes HTML elemhez hozzárendelhetők.
 | Attribútum | Leírás |
 |-|-|
 | accesskey | Billentyűkombináció megadása, amivel egy elem fókuszba kerülhet. Egy karaktert kell megadni. Chrome böngészőben az Alt billentyűvel működik. Firefoxban Alt+Shift mellett működik. &lt;input accesskey="c"&gt; esetén: alt+c |
-| class | Egy vagy több osztálynév adható egy elemnek. Ezekre hivaktozhatunk a stíluslapokban. |
+| class | Egy vagy több osztálynév adható egy elemnek. Ezekre hivatkozhatunk a stíluslapokban. |
 | contenteditable | Az elem tartalma szerkeszthető vagy nem. |
 | data-* | Egyéni adatok megadása |
 | dir | A szöveg irányának beállítása |
@@ -426,9 +426,9 @@ A NoIndex értékkel azt mondjuk egy keresőrobotnak, hogy ne indexelje a weblap
 
 ### SEO
 
-A SEO a Search Engine Optimization rövidítése. Magyarul keresőoptimalizálás.
+A **SEO** a **Search Engine Optimization** rövidítése. Magyarul keresőoptimalizálás.
 
-Általában azt szeretnénk, ha a közzétett webhelyünk a keresőkben minél előreébb szerepeljenek a találatokban.
+Általában azt szeretnénk, ha a közzétett webhelyünk a keresőkben minél előrébb szerepeljenek a találatokban.
 
 A keresőnek ehhez megfelelő kulcsszavakat és leírást kell társítanunk a weblapunkhoz. Példa:
 

@@ -491,8 +491,7 @@ Az fr a Grid elrendezési lehetőséggel együtt
 }
 ```
 
-A dobozt az óramutató járásával ellentétes
-irányba fordítja 90°-kal.
+A dobozt az óramutató járásával ellentétes irányba fordítja 90°-kal.
 
 További transzformációk:
 
@@ -596,17 +595,11 @@ Az animációról több információ:
 
 ## CSS preprocessor
 
-A preprocessor egy előfeldolgozó program,
-amely valamilyen szintaxis szerint írt
-CSS-t lefordít a böngészők által ismert
-CSS-re.
+A preprocessor egy előfeldolgozó program, amely valamilyen szintaxis szerint írt CSS-t lefordít a böngészők által ismert CSS-re.
 
-Céljuk az olvashatóbb, könnyebb
-karbantartás, plusz funkciók (beágyazás,
-keverés).
+Céljuk az olvashatóbb, könnyebb karbantartás, plusz funkciók (beágyazás, keverés).
 
-Az előfeldolgozó telepíthető a webszerverre
-vagy webes fejlesztés során használjuk.
+Az előfeldolgozó telepíthető a webszerverre vagy webes fejlesztés során használjuk.
 
 Néhány népszerű előfeldolgozó:
 
@@ -617,7 +610,7 @@ Néhány népszerű előfeldolgozó:
 
 ## A Sass
 
-A Sass a Syntactically Awesome Stylesheets rövidítése. A Sass egy stíluskészítő scriptnyelv, fordítóval. Előfeldolgozó nyelvnek is mondjuk.
+A **Sass** a **Syntactically Awesome Stylesheets** rövidítése. A Sass egy stíluskészítő scriptnyelv, fordítóval. Előfeldolgozó nyelvnek is mondjuk.
 
 Webhely: [https://sass-lang.com/](https://sass-lang.com/)
 

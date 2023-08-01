@@ -100,11 +100,15 @@ Kövessük a témát a következő helyen:
 
 ## JSON
 
-A JSON a JavaScript Object Notation rövidítése. Egy szabvány, amit
-adatok strukturálására szántak egy szöveges állományban.
+A **JSON** a **JavaScript Object Notation** rövidítése. Egy szabvány, amit adatok strukturálására szántak egy szöveges állományban.
 
-Az RFC 4627 szabványban van leírva. A JSON állomány kiterjesztése **.json** .
-MIME típusként **application/json** .
+Az RFC 4627 szabványban van leírva. A JSON állomány kiterjesztése:
+
+* **.json**
+
+MIME típusként:
+
+* **application/json**
 
 A JSON formátumot **Douglas Crockford** határozta meg és népszerűsítette.
 
@@ -137,7 +141,7 @@ Lásd:
 
 ## AJAX
 
-Az AJAX az Asynchronous JavaScript and XML rövidítése. AJAX esetén JavaScript segítségével hozunk el adatokat egy szerverről. Erre az XMLHttpRequest objektumot használjuk. Az adatok elhozhatók JSON, XML, HTML vagy szöveges formában.
+Az **AJAX** az **Asynchronous JavaScript and XML** rövidítése. AJAX esetén JavaScript segítségével hozunk el adatokat egy szerverről. Erre az **XMLHttpRequest** objektumot használjuk. Az adatok elhozhatók JSON, XML, HTML vagy szöveges formában.
 
 A jelenlegi divat szerint REST API-t használunk, ahol a JSON a szokásos formátum.
 

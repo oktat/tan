@@ -143,7 +143,7 @@ Maximum 12 darab oszlop hozható létre a tartalom elrendezéséhez. A rácsok *
 </div>
 ```
 
-Probáljuk ki a következő példát:
+Próbáljuk ki a következő példát:
 
 ```html
 <div class="row">

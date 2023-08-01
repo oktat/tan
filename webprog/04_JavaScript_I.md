@@ -27,7 +27,7 @@ Manapság GUI programokat is írunk JavaScriptben.
 
 ### ECMA szabvány
 
-A JavaScript szabványt az ECMA szabványügyi szervezet tartja karban. Az ECMAScript szabványt a JavaScript (Netscape) és a JScript (Microsoft) nyelvek alapján hozták létre. A szabványosítást a Netscape vállalat kezdeményezte. Az első szabvány 1997-ben jelent meg. 1998-ban és 1999-ben újabb verziója jelent meg a szabványnak. A következő, a negyedik szabványig hosszabb idő telt el, de nem készült el. Az ötödik szabvány 2011-ben jelent meg 5.1 verziószámmal. A hatódik szabvány 2016-ban jelent meg. Ettől a szabványtól évente jelent meg újabb [szabványok](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/).
+A JavaScript szabványt az ECMA szabványügyi szervezet tartja karban. Az ECMAScript szabványt a JavaScript (Netscape) és a JScript (Microsoft) nyelvek alapján hozták létre. A szabványosítást a Netscape vállalat kezdeményezte. Az első szabvány **1997**-ben jelent meg. 1998-ban és 1999-ben újabb verziója jelent meg a szabványnak. A következő, a negyedik szabványig hosszabb idő telt el, de nem készült el. Az ötödik szabvány 2011-ben jelent meg 5.1 verziószámmal. A hatódik szabvány 2016-ban jelent meg. Ettől a szabványtól évente jelent meg újabb [szabványok](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/).
 
 * 1 - 1997
 * 2 - 1998
@@ -291,7 +291,7 @@ if (a > 5) {
 
 Ha az "a" változó értéke nagyobb mint 5, akkor a konzolra íródik a 'nagyobb' szó.
 
-Az előző programban, ha a feltétel hamis nem tettünk semmit. Ha szeretnénk hamis érték esetén is valamilyen tevékenységet végezni, írnunk kell egy úgynevezett "ellenben ágat", Angolul else.
+Az előző programban, ha a feltétel hamis nem tettünk semmit. Ha szeretnénk hamis érték esetén is valamilyen tevékenységet végezni, írnunk kell egy úgynevezett "ellenben ágat", angolul else.
 
 ```javascript
 if (a > 5) {
@@ -524,15 +524,13 @@ console.log(window.innerHeight);
 console.log(window.innerWidth);
 ```
 
-A Google Chrome 108-s verziója nem a tényleges méretet mutatja. Körülbelül 30%-kal kisebb méretet mutat.
-Firefoxban és Vivaldi böngészőkbe a valós méretek látszanak.
+A Google Chrome 108-s verziója nem a tényleges méretet mutatja. Körülbelül 30%-kal kisebb méretet mutat. Firefoxban és Vivaldi böngészőkbe a valós méretek látszanak.
 
 ### A document
 
-A document objektumon keresztül érhető el a webolal, annak egyes részei.
+A document objektumon keresztül érhető el a weboldal, annak egyes részei.
 
-A weboldal HTML elemekből épül fel. Az elemek egy hierarchiája egy fával ábrázolható. Ezt a hierarchikusan felépülő szerkezetet nevezzük
-DOM-nak. Angolul: Document Object Model.
+A weboldal HTML elemekből épül fel. Az elemek egy hierarchiája egy fával ábrázolható. Ezt a hierarchikusan felépülő szerkezetet nevezzük DOM-nak. Angolul: Document Object Model.
 
 A document objektumon keresztül elérhetjük a DOM egyes részeit.
 
@@ -542,9 +540,7 @@ console.log(document.querySelector('.egy') )
 
 ### A console
 
-A böngészők fejlesztői felületén elérhető
-rész. Általában F12 billentyűkombinációval
-nyitható meg a fejlesztői felület.
+A böngészők fejlesztői felületén elérhető rész. Általában F12 billentyűkombinációval nyitható meg a fejlesztői felület.
 
 A console-ra a fejlesztő ír üzenetek saját maga számára, például a log() függvénnyel. Néhány függvény:
 
