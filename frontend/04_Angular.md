@@ -2,6 +2,7 @@
 
 * **Szerző:** Sallai András
 * Copyright (c) 2022, Sallai András
+* Szerkesztve: 2022, 2023
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
@@ -9,11 +10,15 @@
 
 ### Telepítés
 
+Célunk, hogy legyen egy **ng** nevű parancs. Ehhez a @angular/cli csomagot kell telepíteni:
+
 ```cmd
 npm install -g @angular/cli
 ```
 
 ### Ellenőrzés
+
+Nézzük meg, hogy létezik-e az **ng** parancs:
 
 ```cmd
 ng version
@@ -24,6 +29,8 @@ vagy:
 ```cmd
 ng v
 ```
+
+Vegyük észre, hogy nem kellenek kötőjelek.
 
 ### Adott verzió beszerzése
 
@@ -133,9 +140,14 @@ hint:   git branch -m <name>
 
 ### Projekt használata
 
+Lépjünk be a projekt könyvtárába, majd indítsunk egy kódszerkesztőt. Példánkban a VSCode-t indítjuk:
+
 ```cmd
 cd app01
+code .
 ```
+
+A (.) pont az aktuális könyvtárat jelenti. A "code ." utasítás a VSCode-t úgy indítja, hogy az aktuális könyvtár lesz az alapkönyvtár.
 
 ### Projekt routinggal
 
@@ -145,21 +157,15 @@ Később megtanuljuk használni a routingot. A routing használatát választhat
 ng new app01 --routing
 ```
 
-### Kódszerkesztő
-
-Ha beléptünk a projekt könyvtárába indítsuk el a Visual Studio Code programot:
-
-```cmd
-code .
-```
-
 ### Futtatás
+
+A projekt futtatása a "serve" paranccsal lehetséges. Ha használjuk a --open kapcsolót, akkor automatikusan megnyílik böngészőben.
 
 ```cmd
 ng serve --open
 ```
 
-Vagy:
+A server és a --open is rövidíthető:
 
 ```cmd
 ng s -o
@@ -321,7 +327,7 @@ export class AppModule { }
 
 * component
 
-Az Angular alapú weblap komponensekből áll. A komponensek egy nézetet valósítanak meg.
+Az Angular alapú weblap komponensekből áll. A komponensek egy nézetet valósítanak meg, ami valójában a weboldal egy része.
 
 ### Szolgáltatás
 
