@@ -7,7 +7,7 @@
 
 ## A Python bemutatása
 
-A Python egy népszerű és sokoldalú programozási nyelv, amit használnak a tudományos adatfeldolgozásban, webfejlesztésben, automatizálásban, és még sok más területen.
+A Python egy népszerű és sokoldalú programozási nyelv, amit használnak a tudományos adatfeldolgozásban, webfejlesztésben, automatizálásban, és még sok más területen. A Python nyelvet Guido van Rossum, holland programozó kezdte fejleszteni a Centrum Wiskunde & Informatica (CWI, Matematikai és Informatikai Központ) kutatóintézetben, 1989-ben.
 
 A Python nagyon jó kezdők számára, mivel könnyen tanulható, olvasható és írható a kóddal dolgozunk.
 
@@ -17,21 +17,27 @@ A Python nagyon jó kezdők számára, mivel könnyen tanulható, olvasható és
 print("Helló Világ!")
 ```
 
-Nyissunk egy könyvtárat a Visual Studio Code programmal, amjd készítsünk egy main.py nevű fájlt. Tartalma a fenti kód legyen. Futtassuk a kódot.
+Nyissunk egy könyvtárat a **Visual Studio Code** programmal, majd készítsünk egy **main.py** nevű fájlt. Tartalma a fenti kód legyen. Futtassuk a kódot.
 
-A program a képernyőre írja, hogy "Helló Világ!", idézőjelek nélkül. A programban az idézőjelek között adunk meg szöveget. A print utasítás egy függvény, ami paraméterként megadott szöveget kiíjra. A paramétert mindig zárójelek () között adjuk meg. Később látni fogjuk, hogy a print() utasítással nem csak szöveget tudunk kiíratni.
+A program a képernyőre írja, hogy "Helló Világ!", idézőjelek nélkül. A programban az idézőjelek között adunk meg szöveget. A print utasítás egy függvény, ami paraméterként megadott szöveget kiírja a képernyőre. A paramétert mindig zárójelek () között adjuk meg. Később látni fogjuk, hogy a print() utasítással nem csak szöveget tudunk kiíratni.
 
 A programozás nem olyan nehéz mint azt egy kezdő elsőre gondolja. Foglalkozni kell vele, a befektetett idő megtérül.
 
 A program segítségével kapcsolatba lépünk a számítógéppel, aminek utasításokat tudunk megadni. Ehhez meg kell tanulnunk néhány utasítást és szabályt.
 
+### Gyakorlatok a Helló Világ fejezethez
+
 Gyakorlás szintaktikához:
 
 * [https://www.w3schools.com/python/exercise.asp](https://www.w3schools.com/python/exercise.asp)
 
+Keresse fel a webhelyet, majd írja be a megfelelő utasítást.
+
+Készítsen egy **nevjegy** nevű könyvtárat. A könyvtárban hozzon létre egy main.py nevű fájlt. Írassa ki saját nevét, és annak a településnek a nevét ahol lakik. Mentse, el az állományt, majd futtassa parancssorból.
+
 ## Megjegyzések
 
-Az utasításokat, mint a print() egy állományba írjuk. Leírt utasítás sorokat forráskódnak nevezzük. A forráskódba a fejlesztő időnként megjegyzéseket ír önmagának vagy másoknak a leírt utasításokkal kapcsolatban. Ezeket a megjegyzéseket a számítógép nem próbálja meg feldolgozni.
+Az utasításokat, mint a print(), egy állományba írjuk. Leírt utasítássorokat forráskódnak nevezzük. A forráskódba a fejlesztő időnként megjegyzéseket ír önmagának vagy másoknak a leírt utasításokkal kapcsolatban. Ezeket a megjegyzéseket a számítógép nem próbálja meg feldolgozni.
 
 Egy soros megjegyzés:
 
@@ -52,6 +58,14 @@ Az egysoros megjegyzések az utasítások után is írhatók:
 # Szám kiíratása
 print(35) # a kimenet 35
 ```
+
+### Gyakorlat a Megjegyzések fejezethez
+
+Írjon programot, amely a képernyőre írja a 145 számot.
+
+A program első soraiban megjegyzésbe írja saját nevét, a program készítésének dátumát.
+
+A 145 számot kiírató sor előtt írja oda mit csinál az utasítás.
 
 ## Kivitel
 
@@ -224,7 +238,7 @@ A kimenetben ilyen példákat láthatunk:
 
 ## Változóhasználat
 
-A memória egy helyét elnevezhetem és különböző típusú értékeket tárolhatok ezeken a helyeken. Ha számot szeretnénk tárolni:
+A memória egy helyét elnevezhetem és különböző típusú értékeket tárolhatok ezeken a helyeken. Az ilyen memóriára hivatkozást változónak nevezzük. Ha számot szeretnénk tárolni:
 
 ```python
 szam = 30
@@ -431,7 +445,7 @@ A kimenet:
      30.12
 ```
 
-Az egés szám 10 szélesen jelenik meg, kettő tizedesjegy jelenik meg. Az "f" nélkül lebegőpontos formában, pontosabban tudományos alakban jelenik meg a szám:
+Az egész szám 10 szélesen jelenik meg, kettő tizedesjegy jelenik meg. Az "f" nélkül lebegőpontos formában, pontosabban tudományos alakban jelenik meg a szám:
 
 ```python
 print("{:10.2}".format(30.1234567))
@@ -485,7 +499,7 @@ Kimenetben ezt látjuk:
 alma
 ```
 
-Tíz szélesen írattuk ki, de ez nem látszik mivel a tíz szélességen belül balra van a karakterlánc igazítva. Hogy lássuk, valóban 10 szélesen van kiírva, használjunk megint pipe karaktert:
+Tíz szélesen írattuk ki, de ez nem látszik, mivel a tíz szélességen belül balra van a karakterlánc igazítva. Hogy lássuk, valóban 10 szélesen van kiírva, használjunk megint pipe karaktert:
 
 ```python
 print("|{:10}|".format("alma"))
@@ -663,11 +677,13 @@ A format() függvényről még több információ:
 
 ### Natív függvények
 
-Néhány függvény natív Pythonban rendelkezésre áll, vagyis nem szükséges importálni hozzá egyetlen modult sem.
+Néhány függvény natív Pythonban rendelkezésre áll, vagyis nem szükséges importálni hozzá egyetlen modult sem. Ilyen a pow() függvény:
 
 ```python
 print(pow(2, 8))
 ```
+
+A példában a 2-nek vesszük a 8-dik hatványát.
 
 A hatvány érték kiíratható a ** operátorral is:
 
