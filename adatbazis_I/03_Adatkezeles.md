@@ -5,40 +5,73 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Kinduló adatbázis
+
+```sql
+create database remek
+character set utf8
+collate utf8_hungarian_ci;
+```
+
+```sql
+create table employees(
+    id int not null primary key auto_increment,
+    name varchar(50),
+    city varchar(50),
+    salary double
+);
+```
+
 ## Adatok beszúrása
 
 ```sql
-insert into dolgozok
+insert into employees
 (name)
 values
 ("Szabó János");
 ```
 
 ```sql
-insert into dolgozok
+insert into employees
 (name)
 values
 ("Erős István");
 ```
 
 ```sql
-insert into dolgozok
+insert into employees
 (name)
 values
 ("Piros Katalin"),
 ("Csendes Mária");
 ```
 
+```sql
+insert into employees
+(name, city, salary)
+values
+("Csekő Tibor", "Szeged", 342);
+```
+
+```sql
+insert into employees
+(name, city, salary)
+values
+("Rózsa Imre", "Szeged", 342),
+("Fehér Irén", "Szolnok", 357),
+("Lenti Gábor", "Szeged", 314);
+```
+
 ## Adatok frissítése
 
 ```sql
-update dolgozok
+update employees
 set name="Lantos Katalin"
 where name="Piros Katalin"
 ```
 
 ```sql
-update dolgozok
+update employees
 set name="Harmat Katalin"
 where id=3
 ```
@@ -48,7 +81,7 @@ where id=3
 Szúrjunk be egy újabb rekordot:
 
 ```sql
-insert into dolgozok
+insert into employees
 (name)
 values
 ("Erős István");
@@ -57,7 +90,7 @@ values
 Rájövünk, hogy mára az adatbázisban van. Töröljük:
 
 ```sql
-delete from dolgozok
+delete from employees
 where id=5
 ```
 

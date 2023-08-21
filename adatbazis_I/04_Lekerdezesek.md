@@ -8,16 +8,22 @@
 ## A select
 
 ```sql
-select * from dolgozok;
+show tables;
+select * from employees;
 ```
 
 ```sql
 select * 
-from dolgozok;
+from employees;
 ```
 
 ```sql
-select name from dolgozok;
+desc employees;
+select name from employees;
+```
+
+```sql
+select name, city, salary from employees;
 ```
 
 Lásd még:

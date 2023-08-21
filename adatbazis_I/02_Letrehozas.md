@@ -1,4 +1,4 @@
-# Adatbázis-kezelés I
+# Adatbázis-kezelés I - Létrehozás
 
 * **Szerző:** Sallai András
 * Copyright (c) 2022, Sallai András
@@ -63,6 +63,30 @@ create table dolgozok(
     id int not null primary key auto_increment,
     name varchar(50)
 )
+```
+
+## Tábla átnevezése
+
+```sql
+show tables;
+desc employees;
+rename table dolgozok to employees;
+desc employees;
+```
+
+## Mező hozzáadása
+
+```sql
+alter table employees add city varchar(50);
+alter table employees add salary double;
+desc employees;
+```
+
+## Mező törlése
+
+```sql
+alter table employees add valami double;
+alter table employees drop valami;
 ```
 
 Tovább a tananyaghoz:
