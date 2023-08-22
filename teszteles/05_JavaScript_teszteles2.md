@@ -638,3 +638,7 @@ npm test
 Az alkalmazás forráskódja a GitHubon:
 
 * [https://github.com/oktat/extombsug_jasmine2](https://github.com/oktat/extombsug_jasmine2)
+
+Lásd még:
+
+* [https://szit.hu/doku.php?id=oktatas:web:javascript:javascript_teszt:jasmine](https://szit.hu/doku.php?id=oktatas:web:javascript:javascript_teszt:jasmine)
