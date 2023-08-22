@@ -1,9 +1,20 @@
-# JavaScript tesztelés
+# Szoftvertesztelés - JavaScript tesztelés
 
 * **Szerző:** Sallai András
 * Copyright (c) 2023, Sallai András
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
+
+## Bevezetés
+
+A JavaScript teszteléshez két fejezet van:
+
+* 05_JavaScript_teszteles1.md
+* 05_JavaScript_teszteles2.md
+
+Ebből elég az egyiket ismerni. Ajánlott a ez a 2-s jelzésű. Ebben a fejezetben a Jasmine segítségével egységtesztek írását fogjuk megismerni.
+
+A fejezet feldolgozásához feltételezzük HTML5, CSS, JavaScript és NodeJS ismereteket.
 
 ## A Jasmine Browser Runner
 
@@ -14,6 +25,8 @@ A Jasmine Browser Runner lehetővé teszi a böngészőre szánt (ECMAScript) al
 Jasmine licenc: MIT
 
 ## Szükséges
+
+Telepítve kell legyen:
 
 * NodeJS
 * VSCode
@@ -58,6 +71,8 @@ spec/
       `-jasmine-browser.json
 ```
 
+A spec/ könyvtárba fogjuk a teszteket elhelyezni, a spec/support/jasmine-browser.json állományban a Jasmine Browser Runner beállításai vanank.
+
 A spec könyvtárban hozzuk létre test.spec.js néven egy állományt. Ebbe írjuk majd a tesztet:
 
 ```txt
@@ -77,7 +92,12 @@ describe('egyszerű teszt', () => {
 })
 ```
 
-A package.json fájlban írjunk "start" scriptet, amivel futtathatjuk a tesztet:
+A tesztek egy describe() és it() függvényekből állnak. Az it() függvényekből több is lehet és a describe() függvényen belül helyezzük el őket. Mindkét függvénynek két paramétere van, egy szöveg és egy függvény. A szövegben írjuk le, mit csinál a tesztünk, és egy
+névtelenfüggvényben valósítjuk meg a teszeket.
+
+Jelen utasításunk egy expect().toBe() láncolt függvényt tartalmaz, mindkettő paramétere true. Ez egy sikeres tesztet eredményez, a megadott leírással. Most futtatni fogjuk az egyetlen tesztünket, aminek sikerre kell futnia.
+
+A package.json fájlban írjunk "test" nevű scriptet, amivel futtathatjuk a tesztet:
 
 ```json
 {
@@ -188,8 +208,7 @@ describe('Az add() függvény tesztje', () => {
 })
 ```
 
-Ügyeljünk arra, hogy az app.spec.js fájl a spec könyvtárba legyen.
-Ha meg van a test.spec.js fájl is, állítsuk be, hogy ne fusson a benne lévő teszt. Ehhez tegyünk egy "x" karaktert a describe elé:
+Ügyeljünk arra, hogy az app.spec.js fájl a spec könyvtárba legyen. Ha meg van a test.spec.js fájl is, állítsuk be, hogy ne fusson a benne lévő teszt. Ehhez tegyünk egy "x" karaktert a describe elé:
 
 ```javascript
 xdescribe('egyszerű teszt', () => {
@@ -235,15 +254,15 @@ A tesztek futtatása regressziós teszt esetén jó ötlet. Fejlesztési időben
 
 ## A tesztek helye
 
-Alapértelmezetten a tesztek helye a **spec** könyvtárban van. A spec/supoort/jasmine-browser.json fájlban ez is megváltoztatható. Keressük meg a "specDir" tulajdonságot, és írjuk át például szokásos "test" névre.
+Alapértelmezetten a tesztek helye a **spec** könyvtárban van. A spec/support/jasmine-browser.json fájlban ez is megváltoztatható. Keressük meg a "specDir" tulajdonságot, és írjuk át például szokásos "test" névre.
 
-A Jasmine innentől a test nevű könyvtárban keresi a .spec.js kiterjesztésű fájlokat.
+A Jasmine innentől a projekt gyökérkönyvtárában található test nevű könyvtárban keresi a .spec.js kiterjesztésű fájlokat.
 
 ## Alkalmazás készítése
 
 ### Feladat
 
-Oldjunk meg egy feladatot szit.hu webhelyről, amely adatokat kér be, számítást végez, majd az eredmény kiírja. A feladatok közül 0301-től 0400-ig jöhet szóba.
+Oldjunk meg egy feladatot szit.hu webhelyről, amely adatokat kér be, számítást végez, majd az eredményt kiírja. A feladatok közül 0301-től 0400-ig jöhet szóba.
 
 Legyen a 0312-s feladat. A projekt neve "tombsug".
 
@@ -441,7 +460,7 @@ function isValidInput(input) {
 
 ### Tesztesetek felvétele
 
-Szükségünk van tesztestekre. Adott bemenetre mit kell kapnunk.
+Szükségünk van tesztestekre. Vegyünk egy számológépet és nézzük meg, adott bemenetre mit kell kapnunk. Lehetséges tesztesetek:
 
 | Oldal | Alfa szög | Sugár |
 |-|-|-|
@@ -449,6 +468,8 @@ Szükségünk van tesztestekre. Adott bemenetre mit kell kapnunk.
 | 130 | 140 | 41.78119462962506 |
 | 0 | 35 | Hiba |
 | 30 | 0 | Hiba |
+
+Ha megvannak a tesztesetek, jöehet a tesztek írása.
 
 ### Tesztelés
 
