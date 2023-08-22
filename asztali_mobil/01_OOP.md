@@ -1,7 +1,7 @@
 # Haladó Objektum Orientál Programozás
 
 * **Szerző:** Sallai András
-* Copyright (c) Sallai András, 2022
+* Copyright (c) 2022, Sallai András
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
@@ -17,7 +17,7 @@ interface Jarmu {
 }
 ```
 
-Írjunk programot, ami megvalósítja az Jarmu nevű interfészt.
+Írjunk programot, ami megvalósítja a Jarmu nevű interfészt.
 
 ```txt
 app01/

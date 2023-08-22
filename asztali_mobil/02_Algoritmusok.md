@@ -9,7 +9,7 @@
 
 ### Bonyolultság
 
-Az algoritmus bonyolultságával azt mérjük, hogy n méretű bemenet mennyi ideig tart feldolgozni, vagy hány utasítást kellett végrehajtani. A bonyolultságot általában időben vagy utasítás számban mérjük, de néha a memóriaigény az érdeklődésünk köre.
+Az algoritmus bonyolultságával azt mérjük, hogy n méretű bemenetet mennyi ideig tart feldolgozni, vagy hány utasítást kellett végrehajtani. A bonyolultságot általában időben vagy utasítás számban mérjük, de néha a memóriaigény az érdeklődésünk köre.
 
 Az elméleti számítástechnika egyik ága ezzel foglalkozik, ezt nevezzük komplexitás elméletnek. Valójában az elemzések során fontosabb az algoritmus összetettségének vizsgálata, szemben az idővel.
 
@@ -23,7 +23,7 @@ Ha rendezett tömbben keresünk, a keresés gyorsabb lesz. Ez egy logaritmikus b
 
 Ha egy tömbben az első elem a keresett érték, konstanst idő, a bonyolultság.
 
-Keressünk egy rendezetlen listában minden ismétlődés. A bonyolultság ekkor négyzetes.
+Keressünk egy rendezetlen listában minden ismétlődést. A bonyolultság ekkor négyzetes.
 
 Egyetlen elem bonyolultságnak ellenőrzése lineáris bonyolultságú.
 

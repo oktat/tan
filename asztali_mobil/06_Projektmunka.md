@@ -12,4 +12,5 @@
   * GitHub
   * GitLab
   * Bitbucket
-* Trello
+* [Trello](https://trello.com/)
+* [Slack](https://slack.com/)
