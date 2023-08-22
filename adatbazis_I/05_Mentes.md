@@ -51,6 +51,12 @@ Ha nem választunk ki adatbázist, akkor minden adatbázis exportálásra kerül
 
 A formátumnak az SQL teljesen megfelelő, mivel egy ember számára is könnyen emészthető szöveges fájlt kapunk, .sql kiterjesztéssel.
 
-Tovább a tananyaghoz:
+## Helyreállítás
+
+```cmd
+mysql -u root  dbnev < fajlnev.sql
+```
+
+Lásd még:
 
 * [https://szit.hu/doku.php?id=oktatas:adatbazis-kezeles:mariadb:mentes](https://szit.hu/doku.php?id=oktatas:adatbazis-kezeles:mariadb:mentes)
