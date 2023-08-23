@@ -12,7 +12,7 @@ A JavaScript teszteléshez két fejezet van:
 * 05_JavaScript_teszteles1.md
 * 05_JavaScript_teszteles2.md
 
-Ebből elég az egyiket ismerni. Ajánlott ez a 2-s számozású. Ebben a fejezetben a Jasmine segítségével egységtesztek írását fogjuk megismerni.
+Ebből elég az egyiket ismerni. Ajánlott ez, a 2-s számozású. Ebben a fejezetben a Jasmine segítségével egységtesztek írását fogjuk megismerni.
 
 A fejezet feldolgozásához feltételezzük HTML5, CSS, JavaScript és NodeJS ismereteket.
 
