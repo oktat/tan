@@ -246,6 +246,32 @@ Ebben az esetben csak a második teszt nem fog futni.
 
 Láthattuk, hogy a Jasmine alapértelmezetten az src könyvtárban keresi azokat az állományokat, ahol a tesztelendő függvényeink vannak. Ez megváltoztatható a spec/support/jasmine-browser.json fájlban, bár ez nem szokás.
 
+## Hibakezelés tesztelése
+
+A hibák esetén megkövetelhetjük, hogy egy függvény álljon le hibával, amit szintén teszetlhetünk.
+
+Legyen a tesztelendő függvény a következő:
+
+```javascript
+function validInput(input) {
+    if(input<1) {
+        throw new Error('Hiba! 1-nél kisebb érték!')
+    }
+    let res = input.match(/^[0-9]+$/);
+    return res;
+}
+```
+
+A teszteléshez a toThrow() függvényt használjuk, miközben az expect() függvény kap egy névtelen függvényt, amiben meghívjuk a validInput() függvényt egy hibás értékkel.
+
+```javascript
+    it('Hiba megkövetelése, ha bemenet 1-nél kisebb.', () => {        
+        expect(() => {
+            validInput('-5')
+        }).toThrow();
+    });
+```
+
 ## Véletlenszerű tesztek
 
 A teszteket alapértelmezetten véletlenszerű sorrendben veszi a futtató. Ez a viselkedés megváltoztatható a spec/supoort/jasmine-browser.json fájlban. Keressük meg az env:random tulajdonságot, majd állítsuk az értékét "false"-ra.
