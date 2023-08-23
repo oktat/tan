@@ -272,6 +272,22 @@ A teszteléshez a toThrow() függvényt használjuk, miközben az expect() függ
     });
 ```
 
+### A hiba szövegének ellenőrzése
+
+Lehetőségünk van a hibák szövegét is ellenőrizni.
+
+Elsőként lássuk toThrowError() függvénnyel:
+
+```javascript
+    it('Hiba megkövetelése, ha bemenet 1-nél kisebb.', () => {        
+        expect(() => {
+            validInput('-5')
+        }).toThrowError('Hiba! 0 vagy kisebb érték!');
+    });
+```
+
+A teszt csak akkor teljesül, ha a leálláskor a "Hiba! 0 vagy kisebb érték!" szöveget kapjuk.
+
 ## Véletlenszerű tesztek
 
 A teszteket alapértelmezetten véletlenszerű sorrendben veszi a futtató. Ez a viselkedés megváltoztatható a spec/supoort/jasmine-browser.json fájlban. Keressük meg az env:random tulajdonságot, majd állítsuk az értékét "false"-ra.
