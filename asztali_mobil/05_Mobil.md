@@ -445,6 +445,268 @@ const styles = StyleSheet.create({
 });
 ```
 
+## Bekérés gyakorlat
+
+Olyan alkalmazást szeretnénk készíteni, ami bekér egy háromszög alapját és magasságát, majd kiszámítja a területét.
+
+```javascript
+import { StatusBar } from 'expo-status-bar';
+import { useState } from 'react';
+import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import { TextInput } from 'react-native';
+ 
+function calcTriangleArea(base, height) {
+  return base * height / 2;
+}
+ 
+export default function App() {
+  const [base, setBase] = useState('');
+  const [height, setHeight] = useState('');
+  const [area, setArea] = useState('');
+  function startCalc() {
+    let result = calcTriangleArea(base, height);
+    setArea(result);
+  }
+  return (
+    <View style={styles.container}>
+      <Text>Triangle</Text>
+      <Text>Háromszög területszámítás</Text>
+ 
+      {/* Alap bekérése */}
+      <Text>Alap</Text>
+      <TextInput
+      style={styles.input}
+      onChangeText={base => setBase(base)}
+      />
+ 
+      {/* Magasság bekérése */}
+      <Text>Magasság</Text>
+      <TextInput
+      style={styles.input}
+      onChangeText={height => setHeight(height)}
+      />
+ 
+      {/* Saját nyomógomb */}
+      <TouchableHighlight
+        style={styles.button}
+        onPress={startCalc}
+      >
+        <Text style={styles.buttonText}>Számít</Text>
+      </TouchableHighlight>
+ 
+      <Text>Terület</Text>
+      {/* TERÜLET */}
+      <TextInput
+      style={styles.input}
+      onChangeText={area => setArea(area)}
+      value={area}
+      />
+ 
+      <StatusBar style="auto" />
+    </View>
+  );
+}
+ 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'aqua',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  button: {
+    backgroundColor: 'blue',
+    marginTop: 10,
+    padding: 10,
+    borderRadius: 3,
+ 
+  },
+  butotnText: {
+    color: 'white',
+    paddingLeft: 10,
+    paddingRight: 10,
+    fontSize: 22,
+  },
+  input: {
+    backgroundColor: 'white',
+    height: 30,
+  }
+});
+```
+
+## Lista megjelenítése
+
+A listák megjelenítésére a két leggyakrabban használt elm:
+
+* FlatList
+* SectionList
+
+Készítsünk egy adathalmazt, amit meg fogunk jeleníteni:
+
+```javascript
+const employees = [
+  {id: 1, name: 'Erős István', city: 'Szeged'},
+  {id: 2, name: 'Táncos Ernő', city: 'Szeged'},
+  {id: 3, name: 'Szabó Tamás', city: 'Szeged'}
+];
+```
+
+Megjelenítés FlatList elemben:
+
+```javascript
+<FlatList 
+data={employees}
+renderItem={({ item }) => (
+  <View style={styles.item}>
+    <Text>{item.name}</Text>
+    <Text>{item.city}</Text>
+  </View>
+  )}
+/>
+```
+
+A teljes kód:
+
+```javascript
+import { StatusBar } from 'expo-status-bar';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
+ 
+ 
+const employees = [
+  {id: 1, name: 'Erős István', city: 'Szeged'},
+  {id: 2, name: 'Táncos Ernő', city: 'Szeged'},
+  {id: 3, name: 'Szabó Tamás', city: 'Szeged'}
+];
+ 
+export default function App() {
+ 
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Dolgozók</Text>
+ 
+      <FlatList 
+      data={employees}
+      renderItem={({ item }) => (
+        <View style={styles.item}>
+          <Text>{item.name}</Text>
+          <Text>{item.city}</Text>
+        </View>
+        )}      
+      />
+ 
+ 
+      <StatusBar style="auto" />
+    </View>
+  );
+}
+ 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 200,
+  },
+  item: {
+    flexDirection: 'row',
+  },
+  title: {
+    marginTop: 24,
+  },
+});
+```
+
+### Lista több CSS-sel
+
+```javascript
+import { FlatList, StyleSheet, Text, View } from 'react-native';
+ 
+ 
+const employees = [
+  {id: 1, name: 'Erős István', city: 'Szeged'},
+  {id: 2, name: 'Táncos Ernő', city: 'Szeged'},
+  {id: 3, name: 'Szabó Tamásaaa', city: 'Szeged'}
+];
+ 
+export default function App() {
+ 
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Dolgozók</Text>
+ 
+      <FlatList 
+      style={styles.flat}
+      data={employees}
+      renderItem={({ item, index }) => (
+        <View style={styles.item}>
+          <Text style={[
+            styles.subItem, 
+            index % 2 === 0 ? styles.evenRow : styles.oddRow,
+          ]}>{item.name}</Text>
+          <Text style={[
+            styles.subItem, 
+            index % 2 === 0 ? styles.evenRow : styles.oddRow,
+          ]}>{item.city}</Text>
+        </View>
+        )}      
+      />
+    </View>
+  );
+}
+ 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#299dc5',
+    alignItems: 'center',
+    justifyContent: 'center',    
+  },
+  item: {
+    flexDirection: 'row',
+    width: '100%',
+    paddingTop: 1,
+  },
+  title: {
+    marginTop: 24,
+    fontSize: 34,
+  },
+  flat: {
+    width: '100%',
+  },
+  subItem: {
+    fontSize: 16,
+    flex: 1,
+    color: '#333',
+    padding: 5,    
+  },
+  evenRow: {
+    backgroundColor: '#2395c0',
+  },
+  oddRow: {
+    backgroundColor: '#2591c4',
+  },
+});
+```
+
+## Adatok REST API szerverről
+
+Adatokat a fetch() utasítással hozhatunk le REST API szerverről. A telefon folyamatos frissítése miatt a useEffect() függvényen belül hívjuk:
+
+```javascript
+  useEffect(() => {
+    fetch(dataURL)
+    .then((response) => response.json())
+    .then((data) => {
+      setName(data.name);
+      setCity(data.city);
+      setSalary(data.salary);
+    })
+    .catch((error) => alert(error))
+    .finally(()=>setLoading(false));
+  }, []);
+```
+
 ## Továbbiak
 
 * [https://szit.hu/doku.php?id=oktatas:telefon:react_native](https://szit.hu/doku.php?id=oktatas:telefon:react_native)
