@@ -65,3 +65,62 @@ A végrehajtás közben fellépő hibákat angol neve: **Run-time error**. Ehhez
 ### Hibakeresés
 
 Debugolásnak is hívjuk.
+
+## Python Shell
+
+A Python önmagában is idnítható. A 2-s vagy 3 verziótól függően:
+
+  python
+
+  python3
+
+A Python értelmez indul el. Lehetséges kimenet:
+
+```python
+python3
+Python 3.11.2 (main, Mar 13 2023, 12:18:29) [GCC 12.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+```
+
+Ezt a környzetet hívjuk Read-Eval-Print Loop-nak, röviden REPL.
+
+Használjuk a REPL-t számításokhoz:
+
+```python
+>>> 30+35
+65
+```
+
+```python
+>>> 30+35*2
+100
+```
+
+A matematikai operátorok prioritása érvényesül.
+
+Osztás:
+
+```python
+>>> 70/2
+35.0
+```
+
+Egész osztás:
+
+```python
+>>> 8//5
+1
+```
+
+Osztás:
+
+```python
+>>> 8./5
+1.6
+```
+
+```python
+>>> 5/3
+1.6666666666666667
+```
