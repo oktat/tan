@@ -124,3 +124,49 @@ Osztás:
 >>> 5/3
 1.6666666666666667
 ```
+
+### Változók
+
+```python
+>>> szam1=35
+>>> szam1
+35
+```
+
+```python
+>>> nev='Zoli'
+>>> nev
+'Zoli'
+```
+
+### Többszörös értékadás
+
+```python
+>>> alap = magassag = 30
+>>> alap
+30
+>>> magassag
+30
+```
+
+### Operátorok és kifejezések
+
+```python
+>>> res = 3*7 + 5/2
+>>> res
+23.5
+```
+
+Egész osztáls maradéka:
+
+```python
+>>> 5%3
+2
+```
+
+Hatvány:
+
+```python
+>>> 2**8
+256
+```
