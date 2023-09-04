@@ -26,3 +26,42 @@ Nagy segítség lehet a további fejlődéshez egy online oktató webhely, mint 
 * [https://scrimba.com/](https://scrimba.com/)
 * [https://www.codecademy.com/](https://www.codecademy.com/)
 * [https://programiz.pro/](https://programiz.pro/)
+
+## Fordítás és értelmezés
+
+Szükséges:
+
+* compiler - fordító
+* inpterpreter - értelmező
+
+### Értelmezett nyelv
+
+* forráskód > értelmező > gépikód
+
+### Fordítás
+
+* forráskód > fordító > gépikód
+
+A fordítás több lépésből is állhat, például tárgykód készítés.
+
+### Modern nyelvek
+
+* forráskód > fordító > bájtkód > értelmező > gépikód
+
+## Fejlesztés
+
+### Szintaktikai hibák
+
+Nem korrekt helyesírás, a program nem fordul, nem fut.
+
+### Szemantikai hibák
+
+A program fut, de logikailag hibás.
+
+### Végrehajtás közben fellépő hibák
+
+A végrehajtás közben fellépő hibákat angol neve: **Run-time error**. Ehhez a programnak speciális körülmények közzé kell kerüljenek. Például egy fájl nem létezik. Ezeket a hibákat kivételeknek hívjuk: exception. Tehát jelzik, hogy valami kivételes dolgoz történt.
+
+### Hibakeresés
+
+Debugolásnak is hívjuk.
