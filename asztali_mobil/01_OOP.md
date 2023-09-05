@@ -7,7 +7,7 @@
 
 ## Interfész
 
-Az interfészek metódusok és állandók egy halmazát adják meg. Az osztályok ha implementálnak egy ilyen interfészt, a benne található metódusokat kötelesek megvalósítani.
+Az interfészek metódusok és állandók egy halmazát adják meg. Az osztályok, amikor implementálnak egy ilyen interfészt, a benne található metódusokat kötelesek megvalósítani.
 
 Legyen például egy Jarmu interfész, amiben előírjuk milyen viselkedéseket kell egy járműnek megvalósítani adott programban.
 
@@ -66,7 +66,9 @@ public class Szemelygepkocsi implements Jarmu {
 
 ### Gyakorlás 1
 
-1.) Írjon programot, ahol egy idegsejtet szimulál. A szimulátorban használjon interfészt, amiben meg határozza a sejt egy tevékenységét. A program valósítsa meg az interfészt. A program fő osztálya külön állományban legyen.
+1.) Írjon programot, ahol egy idegsejtet szimulál. A szimulátorban használjon interfészt, amiben meghatározza a sejt egy tevékenységét. A program valósítsa meg az interfészt. A program fő osztálya külön állományban legyen.
+
+2.) Írjon programot, ami egy járművet szimulál. A szimulátorban interfésszel határozza meg a jármű mozgásait. A programban valósítsa meg az elkészített interfészt.
 
 ## Interfésszel több lehetőség
 
