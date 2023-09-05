@@ -56,6 +56,46 @@ A fordítás több lépésből is állhat, például tárgykód készítés.
 
 * forráskód > fordító > bájtkód > értelmező > gépikód
 
+## Algoritmus
+
+Az algoritmus lépésekből álló utasítások sorozata.
+
+Az algoritmusokat számítógép vagy valamilyen automata követi egy adott feladat elvégzése során.
+
+Az ételkészítés, a tea vagy kávé készítés is egy algoritmus alapján történik.
+
+### Mondatszerű leírás
+
+Az algoritmust egy természetes nyelven írom le.
+
+```txt
+A program indul
+Bekérek egy alapot
+Bekérek egy magasságot
+Területként eltárolom az alap * magasság / 2 kifejezés értéket
+Kiírom a területet
+A program vége
+```
+
+### Pszeudókód
+
+Az algoritmust előre meghatározott szabályok alapján írjuk le.
+
+```txt
+indulás
+Be alap
+Be magasság
+terület = alap * magasság / 2
+ki terület
+vége
+```
+
+### Folyamatábra
+
+Az algoritmust alakzatokban írom le
+
+[https://szit.hu/doku.php?id=oktatas:programozas:programozas_elmelet:tananyag#folyamatabra](https://szit.hu/doku.php?id=oktatas:programozas:programozas_elmelet:tananyag#folyamatabra)
+
 ## Fejlesztés
 
 ### Szintaktikai hibák
