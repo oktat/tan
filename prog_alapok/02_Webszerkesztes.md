@@ -7,9 +7,19 @@
 
 ## HTML
 
-A HTML a Hypertext Markup Language rövidítése. Magyarul: Hiperszöveg jelölő nyelv. A hiperszöveg, olyan szöveg, ahol ugrásokat végehetünk egy szöveg egyik részéből egy másik részbe.
+A HTML a **Hypertext Markup Language** rövidítése. Magyarul: **Hiperszöveg jelölő nyelv**. A hiperszöveg, olyan szöveg, ahol ugrásokat végehetünk egy szöveg egyik részéből egy másik részbe.
 
 A HTML fájlokat .html kiterjesztésű állományba írjuk.
+
+### Történet
+
+A GML nyelvet (Generalized Markup Language) az IBM alkotta meg az 1960-as években. Ezt a nyelvet használta dokumentumok leírásara. Az SGML nyelvből később szabvány lett, elét tettek egy "S" betűt, így lett SGML (Standard Generalized Markup Language). Az SGML később tovább fejlesztették, ez lett az XML.
+
+Tim Berners-Lee 1990-ben a CERN-nél dolgozott, ahol kitalálta a World Wide Web-t, azzal együtt a HTML-t.
+
+A HTML először a SGML alapján készült. Így lettek 1, 2, 3, 4, 4.1 verziók. Ezt követően XML alapokon kezdték a HTML újraírni, így lett XHTML 1, 1.1 és 2.0. A böngészőgyártok azonban nem mutattak nagy hajlandóságot a megvalósításra.
+
+2007-ben a Mozilla Foundation, Apple, és az Opera Software létrehozott egy közösséget Web Hypertext Application Technology Working Group (WHATWG) néven. Ez lett a HTML5, amit ma is használunk.
 
 ## Online szerkesztő
 
