@@ -29,10 +29,18 @@ Nagy segítség lehet a további fejlődéshez egy online oktató webhely, mint 
 
 ## Fordítás és értelmezés
 
+A számítógép a gépi kódot ismeri, mi emberek viszont nem szeretjük gépikódban megmonandi a számítógépenke mit tegyen. Ezért programozási nyelveket hozunk létre, amivel leírjuk miket csináljon a számítógép. Ehhez szükség van egy fordítóra vagy egy értelmezőre, ami számítógép számára lefordítja, azt amit írtunk.
+
 Szükséges:
 
 * compiler - fordító
 * inpterpreter - értelmező
+
+A kettő közötti különbség, hogy ha fordítót használunk, a gépikódú programot terjesztjük. Ha értelmezőt használunk, a forráskódot terjesztjük, értelmezéskor kerül fordításra.
+
+Ha adott programozási nyelven leírjuk a parancsok sorozatát, azt forráskódnak hívjuk.
+
+* forráskód > gépikód
 
 ### Értelmezett nyelv
 
@@ -60,7 +68,7 @@ A program fut, de logikailag hibás.
 
 ### Végrehajtás közben fellépő hibák
 
-A végrehajtás közben fellépő hibákat angol neve: **Run-time error**. Ehhez a programnak speciális körülmények közzé kell kerüljenek. Például egy fájl nem létezik. Ezeket a hibákat kivételeknek hívjuk: exception. Tehát jelzik, hogy valami kivételes dolgoz történt.
+A végrehajtás közben fellépő hibák angol neve: **Run-time error**. Ehhez a programnak speciális körülmények közzé kell kerüljenek. Például egy fájl nem létezik. Ezeket a hibákat **kivételeknek** hívjuk: **exception**. Tehát jelzik, hogy valami kivételes dolgoz történt.
 
 ### Hibakeresés
 
@@ -68,13 +76,13 @@ Debugolásnak is hívjuk.
 
 ## Python Shell
 
-A Python önmagában is idnítható. A 2-s vagy 3 verziótól függően:
+A Python önmagában is indítható. A 2-s vagy 3 verziótól függően:
 
   python
 
   python3
 
-A Python értelmez indul el. Lehetséges kimenet:
+A parancsot begépelve a Python értelmező indul el. Lehetséges kimenet:
 
 ```python
 python3
@@ -83,7 +91,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 ```
 
-Ezt a környzetet hívjuk Read-Eval-Print Loop-nak, röviden REPL.
+Ezt a környezetet hívjuk **Read-Eval-Print Loop**-nak, röviden **REPL**.
 
 Használjuk a REPL-t számításokhoz:
 
@@ -157,7 +165,7 @@ Osztás:
 23.5
 ```
 
-Egész osztáls maradéka:
+Egész osztás maradéka:
 
 ```python
 >>> 5%3
