@@ -5,6 +5,18 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Ismétlő gyakorlatok
+
+1. Kérdezze meg az egyik AI-t, mi a különbség a VSCode és a Netbeans között.
+
+2. Készítsen a VSCode-ban Maven projektet, amiben megold egy programozási feladatot.
+
+3. Készítsen VSCode-ban "no build tools" módban projektet, oldon meg vele egy programozási feladatot.
+
+4. Készítsen Netbeans-ben konzolos programot. Oldjon meg egy bekérős programozási feladatot.
+
+5. Készítsen Netbeans-ben GUI alkalmazást, amely egy bekérős feladatot old meg.
+
 ## Interfész
 
 Az interfészek metódusok és állandók egy halmazát adják meg. Az osztályok, amikor implementálnak egy ilyen interfészt, a benne található metódusokat kötelesek megvalósítani.
