@@ -440,7 +440,6 @@ function quicksort(list)
 
 A var list less, equal, greater sor azt jelenti, három listát (tömböt) hozok létre.
 
-
 A Java nyelven szimpla tömbök összefűzése nem egyszerű,
 öszetettebb kódot kapunk mint a helyben-rendezés,
 ezért ArrayList használatával látunk egy példát.
@@ -574,10 +573,9 @@ ciklus amíg  első <= utolsó
           Első := Középső + 1
       Ha vége
 ciklus vége
-
 ```
 
-A végén a van logikai változó mutatja, hogy van-e ilyen elem.
+A végén a "van" logikai változó mutatja, hogy van-e ilyen elem.
 
 Java megvalósítás:
 
