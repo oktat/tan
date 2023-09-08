@@ -13,6 +13,7 @@
 * [git](https://git-scm.com/)
 * [Total Commander](https://www.ghisler.com/)
 * [PyCharm Community](https://www.jetbrains.com/pycharm/download/)
+* [Python](https://www.python.org/)
 * [Google Chrome](https://www.google.com/intl/hu_hu/chrome/)
 * [Firefox](https://www.mozilla.org/hu/firefox/)
 
