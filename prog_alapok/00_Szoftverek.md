@@ -39,6 +39,8 @@ choco install git
 choco install totalcommander
 choco install pycharm-community
 choco install python
+choco install googlechrome
+choco install firefox
 ```
 
 A programok telepíthetők a webhelyükről is, a choco parancs nélkül is.
