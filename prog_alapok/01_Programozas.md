@@ -29,7 +29,7 @@ Nagy segítség lehet a további fejlődéshez egy online oktató webhely, mint 
 
 ## Fordítás és értelmezés
 
-A számítógép a gépi kódot ismeri, mi emberek viszont nem szeretjük gépikódban megmonandi a számítógépenke mit tegyen. Ezért programozási nyelveket hozunk létre, amivel leírjuk miket csináljon a számítógép. Ehhez szükség van egy fordítóra vagy egy értelmezőre, ami számítógép számára lefordítja, azt amit írtunk.
+A számítógép a gépi kódot ismeri, mi emberek viszont nem szeretjük gépikódban megmonandi a számítógépeknek mit tegyen. Ezért programozási nyelveket hozunk létre, amivel leírjuk miket csináljon a számítógép. Ehhez szükség van egy fordítóra vagy egy értelmezőre, ami számítógép számára lefordítja, azt amit írtunk.
 
 Szükséges:
 
@@ -218,3 +218,26 @@ Hatvány:
 >>> 2**8
 256
 ```
+
+## Gyakorlat
+
+1.) Hogy hívják a nyelvet amit, a számítógép beszél?
+
+* interpreter
+* gépikód
+* compiler
+* fordító
+
+2.) A szoftverfejlesztő mit állít elő fejlesztéskor?
+
+* táblázatkezelővel táblázat
+* forráskód
+* képernyő
+* billentyűzet
+
+3.) Mi igaz a compiler-re?
+
+* A forráskódból fordít köztes állapotokon keresztül gépi kódot.
+* A program futtatásakor értelmezi a forráskódot.
+* A táblázatkezelőben a képleteket értjük alatta.
+* A gépi kódból készít forráskódot.
