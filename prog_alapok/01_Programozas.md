@@ -221,6 +221,8 @@ Hatvány:
 
 ## Gyakorlat
 
+### Feleletválasztós gyakorlat
+
 1.) Hogy hívják a nyelvet amit, a számítógép beszél?
 
 * interpreter
