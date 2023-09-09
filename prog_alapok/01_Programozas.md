@@ -72,7 +72,7 @@ Az algoritmust egy természetes nyelven írom le.
 A program indul
 Bekérek egy alapot
 Bekérek egy magasságot
-Területként eltárolom az alap * magasság / 2 kifejezés értéket
+Területként eltárolom az alap és a magasság szorzatánka felét
 Kiírom a területet
 A program vége
 ```
@@ -241,3 +241,59 @@ Hatvány:
 * A program futtatásakor értelmezi a forráskódot.
 * A táblázatkezelőben a képleteket értjük alatta.
 * A gépi kódból készít forráskódot.
+
+4.) Melyik nyelven fordítunk bájtkódot a gépikód helyett?
+
+* C
+* C++
+* C#
+* Pascal
+
+5.) Melyik nyelven fordítunk bájtkódot a gépikód helyett?
+
+* JavaScript
+* Java
+* PHP
+* Pascal
+
+6.) Értelmezett nyelvre melyik igaz?
+
+* Futtatáskor az értelmező gépi kódot készít
+* A forráskódot, gépi kóddá fordítjuk.
+* Nem használunk forráskódot.
+* A programot gépi kódba írjuk.
+
+7.) Mi igaz az algoritmusokra?
+
+* Egyértelműen elírt utasítások sorozatára van szükség.
+* Nincs szükség egyértelműen előírt utasításokra.
+* Az algoritmus nem tartalmazhat ismétlődéseket.
+* Az algoritmus nem tartalmazhat elágazásokat.
+
+8.) Mi igaz a mondatszerű leírásra.
+
+* Síkidomokban írjuk le az algoritmust.
+* Természetes nyelv mondataival írjuk le az algoritmust.
+* Mondatszerű leírást csak számítógépen készíthetünk.
+* Mondatszerű leírásban nem használhatunk szorzásnak * operátort.
+
+9.) Mi igaz a REPL-re?
+
+* Adott programozási nyelvhez van egy interaktív program, ahova beírhatjuk, kipróbálhatjuk az utasításait.
+* A REPL arra utal, hogy programozási nyelvnek sokszor jelenik meg újabb verziója.
+* A REPL a Read Event Point Loop rövidítése.
+* A Python nyelvhez nem készítettek REPL-t.
+
+10.) A Python 3 nyelvre igaz:
+
+* 70/2 kifejezésben a "/" jel valós osztást jelent
+* 70/2 kifejezésben a "/" jel egész osztást jelent
+* 70/2 kifejezésben a "/" jel, nem állhat magában, kettő darab szükséges "//".
+* 70/2 kifejezésben a "/" jel az osztás maradékát kapjuk.
+
+11.) A Python 3 nyelvre igaz:
+
+* A "%" operátorként a valós osztást eredményét adja.
+* A "%" operátorként a hatványértéket számít.
+* A "%" operátor egy egész osztás, egész részét adja.
+* A "%" operátor egy egész osztás maradékát adja.
