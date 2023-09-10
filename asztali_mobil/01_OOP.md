@@ -377,3 +377,13 @@ public class Program01 {
  
 }
 ```
+
+## OOP feladat
+
+### Feladat 001
+
+Adott a következő UML ábra:
+
+![Termékek](images/product_uml_01.png)
+
+Készítse el azt a programot, ami teljesíti az UML ábrán látható osztályokat.
