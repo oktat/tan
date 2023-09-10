@@ -7,7 +7,7 @@
 
 ## HTML
 
-A HTML a **Hypertext Markup Language** rövidítése. Magyarul: **Hiperszöveg jelölő nyelv**. A hiperszöveg, olyan szöveg, ahol ugrásokat végehetünk egy szöveg egyik részéből egy másik részbe.
+A HTML a **Hypertext Markup Language** rövidítése. Magyarul: **Hiperszöveg jelölő nyelv**. A hiperszöveg, olyan szöveg, ahol ugrásokat végezhetünk egy szöveg egyik részéből egy másik részbe.
 
 A HTML fájlokat .html kiterjesztésű állományba írjuk.
 
@@ -20,6 +20,16 @@ Tim Berners-Lee 1990-ben a CERN-nél dolgozott, ahol kitalálta a World Wide Web
 A HTML először a SGML alapján készült. Így lettek 1, 2, 3, 4, 4.1 verziók. Ezt követően XML alapokon kezdték a HTML újraírni, így lett XHTML 1, 1.1 és 2.0. A böngészőgyártok azonban nem mutattak nagy hajlandóságot a megvalósításra.
 
 2007-ben a Mozilla Foundation, Apple, és az Opera Software létrehozott egy közösséget Web Hypertext Application Technology Working Group (WHATWG) néven. Ez lett a HTML5, amit ma is használunk.
+
+## HTML5 teszt
+
+A böngészőgyártók folyamatosan fejlesztik a böngészőik HTML5 képességeit. Van egy webes felület, ahol letesztelhetjük böngészőnk, milyen szinten ismeri a HTML5 oldalakt.
+
+* [https://html5test.com/](https://html5test.com/)
+
+Az oldalon kapunk egy számot, például 528 az 555-ből. Alatta pedig részletezve látjuk, hogy milyen funkciók vannak meg és mik hiányzonak.
+
+Az [other browsers] gombra kattintva több böngésző összehasonlítását látjuk verzióként.
 
 ## Online szerkesztő
 

@@ -13,6 +13,8 @@ A validátorok a HTML oldalak szabványosságát vizsgálja. A W3C konzorcium é
 
 * [https://validator.w3.org/](https://validator.w3.org/)
 
+A validátorba megadhatjuk URL segítségével a welapunk címét, vagy feltölthetjük, esetleg egyszerűen vágólapról bemásolhatjuk.
+
 ### A böngésző fejlesztői eszköze
 
 Ma már a népszerűbb böngészők tartalmaznak fejlesztői eszközöket, a weboldalak teszteléséhez, hibakereséshez.
@@ -53,7 +55,7 @@ Innentől kezdve a projekt fel van készítve a verziókövetésre. A projekt á
 
 ### Bemutatkozás
 
-Az állapotok tárolása mindig valakinek a nevében történnek. Vagy globálisan, vagy a helyi projekten belül be kell mutatkozni a git számára.
+Az állapotok tárolása mindig valakinek a nevében történnek. Vagy globálisan, vagy a helyi projekten belül be kell mutatkozni a git számára. A bemutatkozás a név és e-mail cím megadását jelenti.
 
 Beállítás globálisan, minden projekthez:
 
@@ -149,8 +151,8 @@ No commits yet
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
-	.gitignore
-	adat.txt
+  .gitignore
+  adat.txt
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
