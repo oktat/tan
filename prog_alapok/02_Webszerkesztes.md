@@ -866,11 +866,11 @@ Oldjon meg feladatokat a következő gyűjteményből:
 * html
 * body
 
-2.) Melyik HTML elemmel adjuk meg lang változót?
+2.) Melyik HTML elemmel adjuk meg lang változót, ha teljes webes dokumentumra be akarom állítani a magyar nyelvet?
 
 * head
 * html
-* body
+* table
 * div
 
 3.) Melyik az a HTML elem, amelynek a tartalma a böngészőben megjelenik mint weblap?

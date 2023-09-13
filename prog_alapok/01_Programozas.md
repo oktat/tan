@@ -261,7 +261,7 @@ Hatvány:
 6.) Értelmezett nyelvre melyik igaz?
 
 * Futtatáskor az értelmező gépi kódot készít
-* A forráskódot, gépi kóddá fordítjuk.
+* A forráskódot, még futtatás előtt gépi kóddá fordítjuk.
 * Nem használunk forráskódot.
 * A programot gépi kódba írjuk.
 
