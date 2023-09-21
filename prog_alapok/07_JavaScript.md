@@ -5,6 +5,12 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## A JavaScript
+
+A JavaScript eredetileg böngészőre szánt programozási nyelv. A JavaScript alkalmazás a weboldallal együtt letöltődik a kliensgépre, amit böngésző futtat.
+
+Ma már szerver oldalon is írhatunk alkalmazást a NodeJS segítségével, illetve kliens oldalon böngészőn kívül is lehet programokat készíteni. Itt most a böngészőben fogjuk használni.
+
 ## Kimenet
 
 A JavaScripben a kimenet a böngésző weblapja vagy böngésző konzolja lehet. A konzolt az F12 billentyűvel jeleníthető meg.
