@@ -7,13 +7,91 @@
 
 ## Kimenet
 
+A JavaScripben a kimenet a böngésző weblapja vagy böngésző konzolja lehet. A konzolt az F12 billentyűvel jeleníthető meg.
+
+A konzolra a console objektum log() függvényével írhatunk:
+
 ```javascript
 console.log('Helló Világ');
 ```
 
+Készítsük el a következő weblapot.
+
+```html
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+    content="width=device-width, 
+    initial-scale=1.0">
+    <title>Inline JavaScript</title>
+</head>
+<body onload="console.log('Helló Világ!')">    
+    
+</body>
+</html>
+```
+
+Az onload attribútum a body elemben, azt jelenti, hogy az oldalbetöltődésre szeretnénk regálni. A console.log('Helló Világ!), pedig az utasítás amit végre kell hajtani az oldal beltöltése során. Nyissuk meg egy böngészőben a weblapot. A böngészőben nyissuk meg a fejlesztőeszközt, ahol a konzolon meg kell jelenjen az üzenet.
+
+![JavaScript inline konzolra írás](images/javascript/javascript_hello_inline.png)
+
+Az alert() metódussal weblap felületén jeleníthetünk meg üzenetablakot.
+
 ```javascript
 alert('Weblapon felugró');
 ```
+
+Készítsünk egy másik weblapot:
+
+```html
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+    content="width=device-width, 
+    initial-scale=1.0">
+    <title>Inline JavaScript</title>
+</head>
+<body onload="alert('Weblapon felugró')">    
+    
+</body>
+</html>
+```
+
+Nyissuk meg a böngészben.
+
+![Az alert() felugró ablaka](images/javascript/javascript_alert.png)
+
+Az alert() függvény ablaka minden böngészőben másként néz ki.
+
+## A script elem használata
+
+A JavaScript utasítások leírására használhatunk script elemet:
+
+```html
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+    content="width=device-width, 
+    initial-scale=1.0">
+    <title>Inline JavaScript</title>
+</head>
+<body>
+
+    <script>
+        console.log('Írás script elemből')
+    </script>
+    
+</body>
+</html>
+```
+
+Az utasítás az oldal betöltése során lefut. Készítsünk egy ilyen weblapot, nyissuk meg böngészőben, majd nyissuk meg a fejlesztői felületet. A konzolon kell lássuk a "Írás script elemből' szöveget.
 
 ## JavaScript külső fájlban
 
@@ -34,6 +112,14 @@ alert('Weblapon felugró');
 ## Üdvözlő
 
 Készítsünk egy webes felületet, amely bekér egy becenevet, majd kattintásra üdvözli a bírt név alapján a felhasználót.
+
+Két állományt hozunk létre:
+
+```txt
+udvozlo/
+  |-index.html
+  `-script.js
+```
 
 Weboldal:
 
@@ -89,6 +175,14 @@ function welcome() {
 ## Háromszög területszámítás
 
 A weboldalon bekérjük az alapt és a magasságot, majd kattintásra megkapjuk a területet.
+
+Két fájlt hozunk létre, egy index.html és egy app.js fájlt:
+
+```txt
+udvozlo/
+  |-index.html
+  `-app.js
+```
 
 Az index.html fájl tartalma:
 
@@ -146,3 +240,6 @@ function calcTriangleArea() {
     areaInput.value = area;
 }
 ```
+
+## JavaScript gyakorlat
+
