@@ -243,3 +243,8 @@ function calcTriangleArea() {
 
 ## JavaScript gyakorlat
 
+Látogassuk meg az általnos programozási feladatgyűjteményt:
+
+* [https://szit.hu/doku.php?id=oktatas:programozas:feladatok:altalanos](https://szit.hu/doku.php?id=oktatas:programozas:feladatok:altalanos)
+
+Keressünk egy bekérős feladatot 0301 és 0401 között. Készítsünk weblapot, amely bekéri a megadott adatokat, majd JavaScript segítségével számítsuk ki az eredményt, majd írassuk a képernyőre.
