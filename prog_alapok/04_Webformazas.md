@@ -5,15 +5,9 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
-## Kezdés
+## A CSS
 
-A CSS rész a következő helyen található:
-
-* [https://szit.hu/doku.php?id=oktatas:web:css](https://szit.hu/doku.php?id=oktatas:web:css)
-
-## CSS
-
-A CSS a Cascading Style Sheets rövidítése. Magyarul Lépcsőzetes stíluslapok. A CSS segítségével formázzuk a weboldalakat, határozzuk meg annak stílusát.
+A **CSS** a **Cascading Style Sheets** rövidítése. Magyarul **Lépcsőzetes stíluslapok**. A CSS segítségével formázzuk a weboldalakat, meghatározzuk a weblap stílusát.
 
 ## Stíluslapok készítése
 
