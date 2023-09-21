@@ -261,6 +261,12 @@ A két utasítás egyező hatást vált, ki csak a második hosszú kapcsolókat
 
 ### Ágak használata
 
+A Git képes különálló fejlesztési folyamatokat kezelni, ehhez ágakat hozunk létre, angolul branch. A Git tároló létrehozásakor is létrejön egy fő ág "master" néven. (Mostanában szorgalmazzák, hogy ezt nevezzük át "main" ágra). Amíg nem hozunk létre másik ágat és nem lépünk át rá, addig ezen a fő ágon dolgozunk.
+
+Egy tetszőleges néven létrehozunk egy új ágat, majd átálunk az új ágra. A váltás után az eredeti ághoz nem nyúlunk, külön ágon fejlesztünk tovább.
+
+A főágra bármikor visszaválthatunk.
+
 Elágazás létrehozása:
 
 ```cmd
@@ -289,6 +295,8 @@ git merge dev
 ```
 
 ### Távoli munka
+
+A tárolóinkat feltölthetjük egy Git szerverre, vagy a szerverről letölthetjük saját gépünkre. Egy népszerű szabadon használható Git szerver a GitHub. De használhatjuk a GitLab vagy Bitbucket szervereket is. A következő példákban a GitHub szerver használjuk.
 
 Ha még nincs példányunk:
 
@@ -322,13 +330,15 @@ git remote get-url origin
 
 ### További lehetőségek
 
+Bővebb leírást találhatunk a Git használatáról a [https://szit.hu](https://szit.hu) webhelyen:
+
 * [https://szit.hu/doku.php?id=oktatas:programozas:verziokontroll:git](https://szit.hu/doku.php?id=oktatas:programozas:verziokontroll:git)
 
 ## IRC
 
-Az IRC Internet Relay Chat rövidítése. Egy szerver-kliens alapú csevegő protokoll. Kommunikációt tesz lehetővé valós időben, úgynevezett csatornákon keresztül.
+Az **IRC** az **Internet Relay Chat** rövidítése. Egy **szerver-kliens** alapú csevegő protokoll. Kommunikációt tesz lehetővé valós időben, úgynevezett csatornákon keresztül.
 
-Az IRC klienst és szervert Jarkko Oikarinen készítette 1988-ban. a finnországi Oului Egyetemen.
+Az első IRC klienst és szervert **Jarkko Oikarinen** készítette **1988**-ban. a finnországi **Oului Egyetemen**.
 
 A fejlesztők használhatják megbeszélésekre, segítségkérésekre, szoftverek támogatására, hibák közös keresésére. A közösségi oldalak csevegő felületével szemben itt olyan emberektől is kaphatunk segítséget, akivel még sosem találkoztunk.
 
