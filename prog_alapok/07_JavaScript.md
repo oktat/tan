@@ -9,6 +9,8 @@
 
 A JavaScript eredetileg böngészőre szánt programozási nyelv. A JavaScript alkalmazás a weboldallal együtt letöltődik a kliensgépre, amit böngésző futtat.
 
+![JavaScript futtatás](images/server-client_javascript.png)
+
 Ma már szerver oldalon is írhatunk alkalmazást a NodeJS segítségével, illetve kliens oldalon böngészőn kívül is lehet programokat készíteni. Itt most a böngészőben fogjuk használni.
 
 ## Kimenet
