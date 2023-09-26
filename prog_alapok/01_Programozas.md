@@ -29,32 +29,32 @@ Nagy segítség lehet a további fejlődéshez egy online oktató webhely, mint 
 
 ## Fordítás és értelmezés
 
-A számítógép a gépi kódot ismeri, mi emberek viszont nem szeretjük gépikódban megmonandi a számítógépeknek mit tegyen. Ezért programozási nyelveket hozunk létre, amivel leírjuk miket csináljon a számítógép. Ehhez szükség van egy fordítóra vagy egy értelmezőre, ami számítógép számára lefordítja, azt amit írtunk.
+A számítógép a gépi kódot ismeri, mi emberek viszont nem szeretjük gépi kódban megmonandi a számítógépeknek mit tegyen. Ezért programozási nyelveket hozunk létre, amivel leírjuk miket csináljon a számítógép. Ehhez szükség van egy fordítóra vagy egy értelmezőre, ami számítógép számára lefordítja, azt amit írtunk.
 
 Szükséges:
 
 * compiler - fordító
 * inpterpreter - értelmező
 
-A kettő közötti különbség, hogy ha fordítót használunk, a gépikódú programot terjesztjük. Ha értelmezőt használunk, a forráskódot terjesztjük, értelmezéskor kerül fordításra.
+A kettő közötti különbség, hogy ha fordítót használunk, a gépi kódú programot terjesztjük. Ha értelmezőt használunk, a forráskódot terjesztjük, értelmezéskor kerül fordításra.
 
 Ha adott programozási nyelven leírjuk a parancsok sorozatát, azt forráskódnak hívjuk.
 
-* forráskód > gépikód
+* forráskód > gépi kód
 
 ### Értelmezett nyelv
 
-* forráskód > értelmező > gépikód
+* forráskód > értelmező > gépi kód
 
 ### Fordítás
 
-* forráskód > fordító > gépikód
+* forráskód > fordító > gépi kód
 
 A fordítás több lépésből is állhat, például tárgykód készítés.
 
 ### Modern nyelvek
 
-* forráskód > fordító > bájtkód > értelmező > gépikód
+* forráskód > fordító > bájtkód > értelmező > gépi kód
 
 ## Algoritmus
 
@@ -226,7 +226,7 @@ Hatvány:
 1.) Hogy hívják a nyelvet amit, a számítógép beszél?
 
 * interpreter
-* gépikód
+* gépi kód
 * compiler
 * fordító
 
@@ -244,14 +244,14 @@ Hatvány:
 * A táblázatkezelőben a képleteket értjük alatta.
 * A gépi kódból készít forráskódot.
 
-4.) Melyik nyelven fordítunk bájtkódot a gépikód helyett?
+4.) Melyik nyelven fordítunk bájtkódot a gépi kód helyett?
 
 * C
 * C++
 * C#
 * Pascal
 
-5.) Melyik nyelven fordítunk bájtkódot a gépikód helyett?
+5.) Melyik nyelven fordítunk bájtkódot a gépi kód helyett?
 
 * JavaScript
 * Java
