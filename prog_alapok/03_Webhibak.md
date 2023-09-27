@@ -371,6 +371,10 @@ Kilépés:
 
 Nem kötelező az üzenet megadása.
 
+### Online kliens
+
+* [https://kiwiirc.com/nextclient/](https://kiwiirc.com/nextclient/)
+
 ### Windows kliens
 
 Telepítés:
