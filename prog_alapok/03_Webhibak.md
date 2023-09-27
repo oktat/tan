@@ -396,3 +396,17 @@ apt install hexchat
 Az IRC-ről több információ a következő helyen:
 
 * [https://szit.hu/doku.php?id=oktatas:halozat:irc](https://szit.hu/doku.php?id=oktatas:halozat:irc)
+
+## Fórumok
+
+Kérdéseket tehetünk fel internetes fórumokon:
+
+* [https://prog.hu/](https://prog.hu/)
+* [https://hup.hu/](https://hup.hu)
+* [https://stackoverflow.com/](https://stackoverflow.com/)
+
+## AI
+
+Kérdéseket intézhetünk mesterséges intelligenciához is.
+
+* [https://you.com/](https://you.com/)
