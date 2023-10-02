@@ -160,16 +160,16 @@ public class Magyar implements Beszed {
 Adatbázis (database/create.sql):
 
 ```sql
-create database adaba
+create database surubt
 collate utf8_hungarian_ci
 character set utf8;
 
 grant all privileges
-on adaba.*
-to adaba@localhost
+on surubt.*
+to surubt@localhost
 identified by 'titok';
 
-use adaba;
+use surubt;
 
 create table employees(
     id int not null primary key auto_increment,
