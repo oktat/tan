@@ -380,6 +380,161 @@ public class Program01 {
 }
 ```
 
+## REST API elérés
+
+Java 11-től használhatjuk a HttpClient osztályt HTTP kapcsolatokra. A HttpRequest osztályt egy objektumát használjuk egy kérés leírására. Paraméterként az URI osztály használhatjuk, a REST API elérésének megadására. A Egy HttpResponse objektumban fogadjuk a HTTP szerver válaszát, a BodyHandlers osztállyal mondjuk meg, hogy Sztringként szeretnénk kezelni a válaszban érkezett tartalmat.
+
+### Szinkron kérés
+
+Legyen egy get() nevű metódus, amelyben tetszőleges URI alapján, lekérdezzük egy teteszőleges végpontot.
+
+Legyen egy példa, ahol a src/models/Client.java fájl tartalma a következő:
+
+```java
+package models;
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.http.HttpResponse.BodyHandlers;
+
+public class Client {
+    public String get(String uri) {
+        String response = "";
+        try {
+            response = tryGet(uri);
+        } catch (IOException e) {
+            System.err.println("Hiba! A lekérés sikertelen!");
+            System.err.println(e.getMessage());
+        } catch (InterruptedException e) {
+            System.err.println("Hiba! Megszakadt lekérés!");
+            System.err.println(e.getMessage());            
+        }
+        return response;
+    }
+    public String tryGet(String uri) 
+            throws IOException, InterruptedException {
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create(uri))
+        .build();
+        HttpResponse<String> response = 
+        client.send(request, BodyHandlers.ofString());
+        return response.body();
+    }
+}
+```
+
+Ezek után a Client osztály használata az App.java fájlban:
+
+```java
+import models.Client;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        Client client = new Client();
+        String uri = "https://jsonplaceholder.typicode.com/todos";
+        System.out.println(client.get(uri));
+    }    
+}
+```
+
+A kérést a client.send() utasítással küldtük el. Ez szinkron módon fut, vagyis amíg a válasz meg nem érkezik, addig az alkalmazás mozdulatlan, nem fut tovább.
+
+### Aszinkron kérés
+
+Aszinkron kérés esetén a válasz megérkezéstől függetlenül az program tovább fut.
+
+Aszinkron módon megvalósított Client osztály:
+
+```java
+package models;
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.http.HttpResponse.BodyHandlers;
+import java.util.concurrent.CompletableFuture;
+
+public class Client {
+    public CompletableFuture<String> get(String uri) 
+            throws IOException, InterruptedException {
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create(uri))
+        .build();        
+
+        return client.sendAsync(request, BodyHandlers.ofString())
+        .thenApply(HttpResponse::body);
+    }
+}
+```
+
+Használata App.java fájlban:
+
+```java
+import models.Client;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        Client client = new Client();
+        String uri = "https://jsonplaceholder.typicode.com/todos";
+        System.out.println(client.get(uri).join());
+    }    
+}
+```
+
+### Hozzáadás
+
+Szeretnénk felvenni új elemet. Egészítsük ki a Client osztályt egy post() metódussal.
+
+```java
+    public CompletableFuture<String> post(String uri, String body, String... token) {
+        HttpClient client = HttpClient.newHttpClient();
+        List<String> headers = new ArrayList<>();
+        headers.add("Content-Type");
+        headers.add("application/json");
+
+        if(token.length > 0) {
+            headers.add("Authorizatin");
+            headers.add("Bearer " + token[0]);
+        }
+
+        HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create(uri))
+        .headers(headers.toArray(String[]::new))
+        .POST(HttpRequest.BodyPublishers.ofString(body))
+        .build();
+
+        return client.sendAsync(request, BodyHandlers.ofString())
+        .thenApply(HttpResponse::body);
+    }
+```
+
+Az App osztályban a használat:
+
+```java
+import models.Client;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        Client client = new Client();
+        String uri = "http://[::1]:8000/employees";
+        String body = "{ \"name\": \"Erős István\", " +
+         "\"city\": \"Szeged\", " +
+         "\"salary\": 389 }";
+        System.out.println(body);
+        System.out.println(client.post(uri, body).join());
+    }    
+}
+```
+
+A headers.toArray(String[]::new) utasítás a kollekció tartalmát sztring tömbbé alakítja.
+
 ## OOP feladat
 
 ### Feladat 001
