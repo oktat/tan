@@ -625,6 +625,16 @@ public class App {
 
 ```
 
+### Telejes kód
+
+A teljes kódot javítva a GitHubon megtaláljuk:
+
+* [https://github.com/oktat/empclient](https://github.com/oktat/empclient)
+
+Lehetséges REST API:
+
+* [https://github.com/oktat/empjs](https://github.com/oktat/empjs)
+
 ## OOP feladat
 
 ### Feladat 001
