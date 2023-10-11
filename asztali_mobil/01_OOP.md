@@ -535,6 +535,96 @@ public class App {
 
 A headers.toArray(String[]::new) utasítás a kollekció tartalmát sztring tömbbé alakítja.
 
+### Frissítés
+
+Frissítéshez a írjuk meg a put() metódust:
+
+```java
+    public CompletableFuture<String> put(String uri, String body, String... token) {
+        HttpClient client = HttpClient.newHttpClient();
+        List<String> headers = new ArrayList<>();
+        headers.add("Content-Type");
+        headers.add("application/json");
+
+        if(token.length > 0) {
+            headers.add("Authorization");
+            headers.add("Bearer " + token[0]);
+        }
+
+        HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create(uri))
+        .headers(headers.toArray(String[]::new))
+        .PUT(HttpRequest.BodyPublishers.ofString(body))
+        .build();
+
+        return client.sendAsync(request, BodyHandlers.ofString())
+        .thenApply(HttpResponse::body);
+    }
+```
+
+A metódus használata:
+
+```java
+import models.Client;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        Client client = new Client();
+        String uri = "http://[::1]:8000/employees/2";
+        String body = "{ \"name\": \"Csípős Valér\", " +
+         "\"city\": \"Szolnok\", " +
+         "\"salary\": 381 }";
+        System.out.println(body);
+        System.out.println(client.put(uri, body).join());
+    }    
+}
+```
+
+Vegyük észre az uri objektumbana 2-s azonosítót. A client objektumon pedig a put() metódus hívást.
+
+### Törlés
+
+Hozzuk létre a delete() metódust, ami alkalmas törlésre:
+
+```java
+    public CompletableFuture<String> delete(String uri, String... token) {
+        HttpClient client = HttpClient.newHttpClient();
+
+        List<String> headers = new ArrayList<>();
+        headers.add("Content-Type");
+        headers.add("application/json");
+
+        if(token.length > 0) {
+            headers.add("Authorization");
+            headers.add("Bearer " + token[0]);
+        }
+
+        HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create(uri))
+        .headers(headers.toArray(String[]::new))
+        .DELETE()
+        .build();
+        
+        return client.sendAsync(request, BodyHandlers.ofString())
+        .thenApply(HttpResponse::body);
+    }
+```
+
+Használata:
+
+```java
+import models.Client;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        Client client = new Client();
+        String uri = "http://[::1]:8000/employees/3";
+        System.out.println(client.delete(uri).join());
+    }    
+}
+
+```
+
 ## OOP feladat
 
 ### Feladat 001
