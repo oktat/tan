@@ -5,6 +5,8 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+[[TOC]]
+
 ## Ismétlő gyakorlatok
 
 1. Kérdezze meg az egyik AI-t, mi a különbség a VSCode és a Netbeans között.
