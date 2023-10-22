@@ -5,9 +5,36 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
-[[_TOC_]]
+## Tartalomjegyzék
+<!-- TOC tocDepth:2..3 chapterDepth:2..6 -->
 
-## Ismétlő gyakorlatok
+- [Haladó Objektum Orientál Programozás](#haladó-objektum-orientál-programozás)
+  - [Tartalomjegyzék](#tartalomjegyzék)
+  - [1. Ismétlő gyakorlatok](#1-ismétlő-gyakorlatok)
+  - [2. Interfész](#2-interfész)
+    - [2.1. Gyakorlás 1](#21-gyakorlás-1)
+  - [3. Interfésszel több lehetőség](#3-interfésszel-több-lehetőség)
+  - [4. Adatbázis-elérés](#4-adatbázis-elérés)
+  - [5. REST API elérés](#5-rest-api-elérés)
+    - [5.1. Szinkron kérés](#51-szinkron-kérés)
+    - [5.2. A get() metódus darabolása](#52-a-get-metódus-darabolása)
+    - [5.3. A POST metódus](#53-a-post-metódus)
+    - [5.4. A PUT metódus](#54-a-put-metódus)
+    - [5.5. A DELETE metódus](#55-a-delete-metódus)
+    - [5.6. Azonosítás beállítása](#56-azonosítás-beállítása)
+    - [5.7. Objektum JSON formátumba](#57-objektum-json-formátumba)
+    - [5.8. Objektumból JSON újra módosítással](#58-objektumból-json-újra-módosítással)
+    - [5.9. Aszinkron kérés](#59-aszinkron-kérés)
+    - [5.10. Hozzáadás](#510-hozzáadás)
+    - [5.11. Frissítés](#511-frissítés)
+    - [5.12. Törlés](#512-törlés)
+    - [5.13. Telejes kód](#513-telejes-kód)
+  - [6. OOP feladat](#6-oop-feladat)
+    - [6.1. Feladat 001](#61-feladat-001)
+
+<!-- /TOC -->
+
+## 1. Ismétlő gyakorlatok
 
 1. Kérdezze meg az egyik AI-t, mi a különbség a VSCode és a Netbeans között.
 
@@ -19,7 +46,7 @@
 
 5. Készítsen Netbeans-ben GUI alkalmazást, amely egy bekérős feladatot old meg.
 
-## Interfész
+## 2. Interfész
 
 Az interfészek metódusok és állandók egy halmazát adják meg. Az osztályok, amikor implementálnak egy ilyen interfészt, a benne található metódusokat kötelesek megvalósítani.
 
@@ -78,13 +105,13 @@ public class Szemelygepkocsi implements Jarmu {
 }
 ```
 
-### Gyakorlás 1
+### 2.1. Gyakorlás 1
 
 1.) Írjon programot, ahol egy idegsejtet szimulál. A szimulátorban használjon interfészt, amiben meghatározza a sejt egy tevékenységét. A program valósítsa meg az interfészt. A program fő osztálya külön állományban legyen.
 
 2.) Írjon programot, ami egy járművet szimulál. A szimulátorban interfésszel határozza meg a jármű mozgásait. A programban valósítsa meg az elkészített interfészt.
 
-## Interfésszel több lehetőség
+## 3. Interfésszel több lehetőség
 
 Egy programot szeretnénk írni, ahol embereket szimulálunk. Minden ember más-más nyelvet beszélhet. A példány létrehozása helyén dől el, milyen nyelvet fog beszélni.
 
@@ -157,7 +184,7 @@ public class Magyar implements Beszed {
 }
 ```
 
-## Adatbázis-elérés
+## 4. Adatbázis-elérés
 
 Adatbázis (database/create.sql):
 
@@ -382,11 +409,11 @@ public class Program01 {
 }
 ```
 
-## REST API elérés
+## 5. REST API elérés
 
 Java 11-től használhatjuk a HttpClient osztályt HTTP kapcsolatokra. A HttpRequest osztályt egy objektumát használjuk egy kérés leírására. Paraméterként az URI osztály használhatjuk, a REST API elérésének megadására. A Egy HttpResponse objektumban fogadjuk a HTTP szerver válaszát, a BodyHandlers osztállyal mondjuk meg, hogy Sztringként szeretnénk kezelni a válaszban érkezett tartalmat.
 
-### Szinkron kérés
+### 5.1. Szinkron kérés
 
 Legyen egy get() nevű metódus, amelyben tetszőleges URI alapján, lekérdezzük egy teteszőleges végpontot.
 
@@ -445,7 +472,7 @@ public class App {
 
 A kérést a client.send() utasítással küldtük el. Ez szinkron módon fut, vagyis amíg a válasz meg nem érkezik, addig az alkalmazás mozdulatlan, nem fut tovább.
 
-### A get() metódus darabolása
+### 5.2. A get() metódus darabolása
 
 Bontsuk fel a get() metódust több részre. Nézzük hány részre osztható fel:
 
@@ -596,7 +623,7 @@ public class Client {
 }
 ```
 
-### A POST metódus
+### 5.3. A POST metódus
 
 A kérésgeneráló metódust újra kell írnunk, mivel a kérésbe bele kell tennük egy új TODO adatatit, fejléccel együtt:
 
@@ -697,7 +724,7 @@ public class App {
 }
 ```
 
-### A PUT metódus
+### 5.4. A PUT metódus
 
 A put() és a genPutRequest() metódus:
 
@@ -818,7 +845,7 @@ public class App {
 }
 ```
 
-### A DELETE metódus
+### 5.5. A DELETE metódus
 
 Írjuk meg a delete() metódust a genDeleteRequest() metódussal együtt.
 
@@ -937,7 +964,7 @@ public class App {
 }
 ```
 
-### Azonosítás beállítása
+### 5.6. Azonosítás beállítása
 
 Client.java:
 
@@ -1070,7 +1097,7 @@ public class App {
 }
 ```
 
-### Objektum JSON formátumba
+### 5.7. Objektum JSON formátumba
 
 Készítsünk egy Todo.java nevű osztályt:
 
@@ -1136,7 +1163,7 @@ Hozzunk létre egy gson objektumot, majd alakítsuk át a todo objektumot JSON s
         System.out.println(client.post(url, newTodo));
 ```
 
-### Objektumból JSON újra módosítással
+### 5.8. Objektumból JSON újra módosítással
 
 ```java
         //...
@@ -1146,7 +1173,7 @@ Hozzunk létre egy gson objektumot, majd alakítsuk át a todo objektumot JSON s
         System.out.println(client.put(url + "/1", modifiedTodo));
 ```
 
-### Aszinkron kérés
+### 5.9. Aszinkron kérés
 
 Aszinkron kérés esetén a válasz megérkezéstől függetlenül az program tovább fut.
 
@@ -1191,7 +1218,7 @@ public class App {
 }
 ```
 
-### Hozzáadás
+### 5.10. Hozzáadás
 
 Szeretnénk felvenni új elemet. Egészítsük ki a Client osztályt egy post() metódussal.
 
@@ -1238,7 +1265,7 @@ public class App {
 
 A headers.toArray(String[]::new) utasítás a kollekció tartalmát sztring tömbbé alakítja.
 
-### Frissítés
+### 5.11. Frissítés
 
 Frissítéshez a írjuk meg a put() metódust:
 
@@ -1285,7 +1312,7 @@ public class App {
 
 Vegyük észre az uri objektumbana 2-s azonosítót. A client objektumon pedig a put() metódus hívást.
 
-### Törlés
+### 5.12. Törlés
 
 Hozzuk létre a delete() metódust, ami alkalmas törlésre:
 
@@ -1328,7 +1355,7 @@ public class App {
 
 ```
 
-### Telejes kód
+### 5.13. Telejes kód
 
 A teljes kódot javítva a GitHubon megtaláljuk:
 
@@ -1338,9 +1365,9 @@ Lehetséges REST API:
 
 * [https://github.com/oktat/empjs](https://github.com/oktat/empjs)
 
-## OOP feladat
+## 6. OOP feladat
 
-### Feladat 001
+### 6.1. Feladat 001
 
 Adott a következő UML ábra:
 
