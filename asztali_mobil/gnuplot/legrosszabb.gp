@@ -9,5 +9,10 @@ set key font ",16"
 
 set tics font "Helvetica,16"
 width = 3
+
+set title "Legrosszabb esetek jelölői" font "Helvetica,16"
+set xlabel "Elemek" font "Helvetica, 16"
+set ylabel "Műveletek" font "Helvetica, 16"
+
 plot [0:140] [0:1000] gamma(x+1) lw width,exp(x) lw width,x**3 lw width, x**2 lw width
 

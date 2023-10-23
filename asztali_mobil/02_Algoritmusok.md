@@ -72,9 +72,9 @@ Jelölések:
 
 Néhány algoritmus bonyolultsága a legrosszabb esetben:
 
-* beszúró rendezés O(n2)
-* buborék rendezés O(n2)
-* gyors rendezés O(n2)
+* beszúró rendezés O(n²)
+* buborék rendezés O(n²)
+* gyors rendezés O(n²)
 * shell-rendezés O(n log2 n) - függ a használt sorozattól
 * összefésülő rendezés O(n log n)
 
