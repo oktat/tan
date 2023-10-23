@@ -82,7 +82,7 @@ A legrosszabb eset jelölőit látjuk a következő ábrán:
 
 ![Legrosszab eset jelölői](images/legrosszabb.png)
 
-A bemenetet tengelyét 1000-re növeltem, amin látszik, hogy a legrosszabb esetet a faktoriális mutatja be.
+A művletek tengelyét 1000-re növeltem, amin látszik, hogy a legrosszabb esetet a faktoriális mutatja be.
 
 #### Összehasonlítás
 
