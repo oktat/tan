@@ -50,13 +50,19 @@ A jó bonyolultság vizsgálathoz, az idő mérése helyett érdemesebb a végre
 
 Ha egy rendezetlen tömbben keresünk egy elemet, a keresési idő arányosan nő a lista méretével. Ekkor azt mondhatjuk, hogy a keresési idő lineáris.
 
+![Szekvenciális keresés](images/szekvencialis_kereses.png)
+
 Ha rendezett tömbben keresünk, a keresés gyorsabb lesz. Ez egy logaritmikus bonyolultság.
+
+![Keresés rendezett tömbben](images/binaris_kereses.png)
 
 Ha egy tömbben az első elem a keresett érték, konstanst idő, a bonyolultság.
 
+![Az első elem a keresett elem](images/elso_keresett.png)
+
 Keressünk egy rendezetlen listában minden ismétlődést. A bonyolultság ekkor négyzetes.
 
-Egyetlen elem bonyolultságnak ellenőrzése lineáris bonyolultságú.
+![Ismétlődés keresése](images/ismetlodes_kereses.png)
 
 #### A bonyolultságok jelölése
 
