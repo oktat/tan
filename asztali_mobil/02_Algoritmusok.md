@@ -18,6 +18,7 @@
       - [Összehasonlítás](#összehasonlítás)
       - [Forrás](#forrás)
   - [Tömb](#tömb)
+  - [Lista](#lista)
   - [Lista műveletek](#lista-műveletek)
   - [Elemi adatszerkezetek](#elemi-adatszerkezetek)
     - [Verem](#verem)
@@ -124,6 +125,17 @@ a[4] = 28;
 ```java
 int[] szamok = {35, 22, 72, 14, 28};
 ```
+
+## Lista
+
+A Java nyelveben több lista létezik:
+
+* ArrayList
+* Vector
+* LinkedList
+* stb.
+
+Itt most az ArrayList osztályt használjuk.
 
 ```java
 import java.util.ArrayList;
