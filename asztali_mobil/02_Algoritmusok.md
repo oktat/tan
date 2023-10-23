@@ -284,6 +284,10 @@ class Elem {
 }
 ```
 
+Komplett példa:
+
+* [Láncolt lista megvalósítás](https://szit.hu/doku.php?id=oktatas:programozas:java:java_lancolt_lista)
+
 ### Fák
 
 A gráfok olyan pontok halmaza, amelyeket vonalakkal kötünk össze.
@@ -369,7 +373,7 @@ class Program03
 
 ## Rekurzió
 
-Ha egy függvény vagy egy metódus önmagát hívja, akkor rekurzióról beszélünk. Ciklikusan újra és újra önmagát hívja, ezért alkalmas ciklus kiváltására is. A rekurzió írásánál ügyelnünk arra, hogy gondoskodni kell annak megszakításáról, különben végtelen ciklust kapunk.
+Ha egy függvény vagy egy metódus **önmagát hívja**, akkor rekurzióról beszélünk. Ciklikusan újra és újra önmagát hívja, ezért alkalmas ciklus kiváltására is. A rekurzió írásánál ügyelnünk arra, hogy **gondoskodni** kell annak **megszakításáról**, különben végtelen ciklust kapunk.
 
 A következő példa visszafele írja ki a számokat 9-től, és minden szám után a Joe szót írja szóközzel.
 
