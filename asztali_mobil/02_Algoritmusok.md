@@ -122,6 +122,8 @@ a[3] = 14;
 a[4] = 28;
 ```
 
+Töpmb kezdőértékkel:
+
 ```java
 int[] szamok = {35, 22, 72, 14, 28};
 ```
@@ -241,17 +243,46 @@ Törli az adott indexű elemet, majd visszatér az elemmel.
 
 ### Verem
 
+A verem olyan adatszerkezet, amiből mindig az utoljára betett adatot tudjuk kivenni.
+
 ![Verem](images/verem.png)
 
 ### Sor
+
+A sor olyan adatszerkezet, ahol az elsőként betett adatot tudjuk kivenni.
 
 ![Sor](images/sor.png)
 
 ### Láncolt lista
 
+Az objektumok sorba egymás után érhetők el. Minden értékhez tartozik egy mutató is, amely a következő érték címét mutatja.
+
 ![Láncolt lista](images/lancolt_lista_1.png)
 
+Az utolsó mutató vagy a semmibe mutat, vagy vissza az első elemre. A láncolt listát az elejétől a végéig tudjuk bejárni.
+
+A láncolt lista egy elemének megvalósítása Java nyelven:
+
+```java
+class Elem {
+    Object adat;
+    Elem kovetkezo;
+}
+```
+
+A kétirányú láncolt lista bejárható visszafelé is.
+
 ![Kétirányba láncolt lista](images/lancolt_lista_ketiranyban_lancolt.png)
+
+A kétirányban láncolt lista megvalósítása Java nyelven:
+
+```java
+class Elem {
+    Object adat;
+    Elem elozo;
+    Elem kovetkezo;
+}
+```
 
 ### Fák
 
