@@ -92,9 +92,15 @@ A művletek tengelyét 1000-re növeltem, amin látszik, hogy a legrosszabb eset
 
 #### Összehasonlítás
 
-![Adatstruktúrák](images/adatstrukturak_idoigeny_hasonlit.png)
+![Adatstruktúrák táblázatban](images/adatstrukturak_idoigeny_hasonlit.png)
 
-![Adatstruktúrák](images/rendezesek_hasonlitasa.png)
+![Rendezések táblázatban](images/rendezesek_hasonlitasa.png)
+
+![Rendezések legjobb esetben](images/rendezesek_legjobb.png)
+
+![Rendezések legrosszabb esetben](images/rendezesek_legrosszabb.png)
+
+![Rendezések átlagos esetben](images/rendezesek_atlag.png)
 
 Forrás: [https://www.bigocheatsheet.com/](https://www.bigocheatsheet.com/)
 
