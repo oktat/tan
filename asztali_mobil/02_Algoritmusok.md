@@ -70,9 +70,9 @@ A bonyolultságot átlagos esetben a nagy θ betűvel jelöljük.
 
 Jelölések:
 
-* legrosszabb eset: O(n)
-* legjobb eset: Ω(n)
-* átlagos eset: θ(n)
+* legrosszabb eset: O(n) Nagy O
+* legjobb eset: Ω(n) Omega
+* átlagos eset: θ(n) Théta
 
 ![Bonyolultság jelölése](images/bonyolultsag.png)
 
