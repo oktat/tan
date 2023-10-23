@@ -9,5 +9,9 @@ set label "θ(n!)" at first 1.1, first 36 font "Helvetica,14"
 set nokey
 set tics font "Helvetica,16"
 width = 2
+set title "Algoritmusok bonyolultságának jelzése" font "Helvetica,16"
+set xlabel "Elemek" font "Helvetica, 16"
+set ylabel "Műveletek" font "Helvetica, 16"
+
 plot [1:40] [-2:40] gamma(x+1) lw width, x**2 lw width, x*log(x)/log(2) lw width,x lw width,log(x)/log(2) lw width,1 lw width
 
