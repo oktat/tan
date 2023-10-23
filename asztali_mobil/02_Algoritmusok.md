@@ -5,6 +5,37 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+<!-- TOC tocDepth:2..3 chapterDepth:2..6 -->
+
+- [Algoritmusok és adatszerkezetek](#algoritmusok-és-adatszerkezetek)
+  - [Tartalomjegyzék](#tartalomjegyzék)
+  - [Algoritmusok bonyolultsága](#algoritmusok-bonyolultsága)
+    - [Bonyolultság](#bonyolultság)
+      - [Példák](#példák)
+      - [A bonyolultságok jelölése](#a-bonyolultságok-jelölése)
+      - [Összehasonlítás](#összehasonlítás)
+      - [Forrás](#forrás)
+  - [Tömb](#tömb)
+  - [Lista műveletek](#lista-műveletek)
+  - [Elemi adatszerkezetek](#elemi-adatszerkezetek)
+    - [Verem](#verem)
+    - [Sor](#sor)
+    - [Láncolt lista](#láncolt-lista)
+    - [Fák](#fák)
+  - [Hashmap](#hashmap)
+  - [Rekurzió](#rekurzió)
+  - [Nevezetes algoritmusok](#nevezetes-algoritmusok)
+    - [Buborék rendezés](#buborék-rendezés)
+    - [Rendezés beszúrással](#rendezés-beszúrással)
+    - [Gyorsrendezés](#gyorsrendezés)
+      - [Tömbbel megvalósított változat](#tömbbel-megvalósított-változat)
+      - [Helybenrendező változat](#helybenrendező-változat)
+    - [Bináris keresés](#bináris-keresés)
+
+<!-- /TOC -->
+
 ## Algoritmusok bonyolultsága
 
 ### Bonyolultság
@@ -65,7 +96,7 @@ Forrás: [https://www.bigocheatsheet.com/](https://www.bigocheatsheet.com/)
 
 * [https://devopedia.org/algorithmic-complexity](https://devopedia.org/algorithmic-complexity)
 
-### Tömb
+## Tömb
 
 Öt egész szám tárolására alkalmas tömb:
 
@@ -144,7 +175,7 @@ public class App {
 }
 ```
 
-### Lista műveletek
+## Lista műveletek
 
 Bejárás:
 
@@ -182,23 +213,23 @@ Integer szam = szamok.remove(0);
 
 Törli az adott indexű elemet, majd visszatér az elemmel.
 
-### Elemi adatszerkezetek
+## Elemi adatszerkezetek
 
-#### Verem
+### Verem
 
 ![Verem](images/verem.png)
 
-#### Sor
+### Sor
 
 ![Sor](images/sor.png)
 
-#### Láncolt lista
+### Láncolt lista
 
 ![Láncolt lista](images/lancolt_lista_1.png)
 
 ![Kétirányba láncolt lista](images/lancolt_lista_ketiranyban_lancolt.png)
 
-#### Fák
+### Fák
 
 A gráfok olyan pontok halmaza, amelyeket vonalakkal kötünk össze.
 
@@ -223,7 +254,7 @@ A bináris fák, speciális fák, mivel minden elemnek legfeljebb két gyermekel
 
 ![Bináris fa 2](images/004_binarisfa.png)
 
-### Hashmap
+## Hashmap
 
 A HashMap kulcs-értékpárok tárolására alkalmas lista.
 
@@ -281,7 +312,7 @@ class Program03
 
 * [https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html)
 
-### Rekurzió
+## Rekurzió
 
 Ha egy függvény vagy egy metódus önmagát hívja, akkor rekurzióról beszélünk. Ciklikusan újra és újra önmagát hívja, ezért alkalmas ciklus kiváltására is. A rekurzió írásánál ügyelnünk arra, hogy gondoskodni kell annak megszakításáról, különben végtelen ciklust kapunk.
 
@@ -325,9 +356,9 @@ class Program {
 }
 ```
 
-### Nevezetes algoritmusok
+## Nevezetes algoritmusok
 
-#### Buborék rendezés
+### Buborék rendezés
 
 A buborékrendezés pszeudókódja:
 
@@ -369,7 +400,7 @@ class Program
 }
 ```
 
-#### Rendezés beszúrással
+### Rendezés beszúrással
 
 ```txt
 ciklus i = 0 .. n-1
@@ -410,7 +441,7 @@ public class App {
 }
 ```
 
-#### Gyorsrendezés
+### Gyorsrendezés
 
 A gyorsrendezés átlagos bonyolultsága: θ( n log n)
 
@@ -421,7 +452,7 @@ A gyorsrendezést két módon szokták megvalósítani:
 
 A gyorsrendezést általában rekurzívan valósítják meg.
 
-##### Tömbbel megvalósított változat
+#### Tömbbel megvalósított változat
 
 A következő pszeudokód tömbbel megvalósított változatot mutatja be:
 
@@ -485,7 +516,7 @@ public class App {
 }
 ```
 
-##### Helybenrendező változat
+#### Helybenrendező változat
 
 A helyben rendező változat pszeudokódja:
 
@@ -547,7 +578,7 @@ public class App {
 }
 ```
 
-#### Bináris keresés
+### Bináris keresés
 
 A bináris keresés többféle néven ismert:
 
