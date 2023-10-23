@@ -27,3 +27,56 @@ A csomagkezelő weboldala:
 
 Bővebb leírása:
 [https://szit.hu/](https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:csomagkezeles#chocolatey)
+
+## Csomagok telepítése Chocolatey csomagkezelővel
+
+```cmd
+choco install vscode.install
+```
+
+```cmd
+choco install scenebuilder
+```
+
+Java JDK lehet amit alapból ad, de ajánlott a 17 Java:
+
+```cmd
+choco install oraclejdk
+choco install oracle17jdk
+```
+
+A NodeJS-ből az LTS verzió szükséges:
+
+```cmd
+choco install nodejs-lts
+```
+
+Diagram szerkesztő:
+
+```cmd
+choco install dia
+```
+
+Git verziókövető:
+
+```cmd
+choco install git
+```
+
+Total Commander:
+
+```cmd
+choco install totalcommander
+```
+
+GIMP képszerkesztő:
+
+```cmd
+choco install gimp
+```
+
+Inno Setup
+
+```cmd
+choco install innosetup
+```

@@ -5,11 +5,11 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
-## Tartalomjegyzék
+## Tartalomjegyzéka
 <!-- TOC tocDepth:2..3 chapterDepth:2..6 -->
 
 - [Haladó Objektum Orientál Programozás](#haladó-objektum-orientál-programozás)
-  - [Tartalomjegyzék](#tartalomjegyzék)
+  - [Tartalomjegyzéka](#tartalomjegyzéka)
   - [1. Ismétlő gyakorlatok](#1-ismétlő-gyakorlatok)
   - [2. Interfész](#2-interfész)
     - [2.1. Gyakorlás 1](#21-gyakorlás-1)
