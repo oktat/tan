@@ -5,50 +5,21 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
-## Tartalomjegyzék
-<!-- TOC tocDepth:2..3 chapterDepth:2..6 -->
-
-- [Haladó Objektum Orientál Programozás](#haladó-objektum-orientál-programozás)
-  - [Tartalomjegyzék](#tartalomjegyzék)
-  - [1. Ismétlő gyakorlatok](#1-ismétlő-gyakorlatok)
-  - [2. Interfész](#2-interfész)
-    - [2.1. Gyakorlás 1](#21-gyakorlás-1)
-  - [3. Interfésszel több lehetőség](#3-interfésszel-több-lehetőség)
-  - [4. Adatbázis-elérés](#4-adatbázis-elérés)
-  - [5. REST API elérés](#5-rest-api-elérés)
-    - [5.1. Szinkron kérés](#51-szinkron-kérés)
-    - [5.2. A get() metódus darabolása](#52-a-get-metódus-darabolása)
-    - [5.3. A POST metódus](#53-a-post-metódus)
-    - [5.4. A PUT metódus](#54-a-put-metódus)
-    - [5.5. A DELETE metódus](#55-a-delete-metódus)
-    - [5.6. Azonosítás beállítása](#56-azonosítás-beállítása)
-    - [5.7. Objektum JSON formátumba](#57-objektum-json-formátumba)
-    - [5.8. Objektumból JSON újra módosítással](#58-objektumból-json-újra-módosítással)
-    - [5.9. Aszinkron kérés](#59-aszinkron-kérés)
-    - [5.10. Hozzáadás](#510-hozzáadás)
-    - [5.11. Frissítés](#511-frissítés)
-    - [5.12. Törlés](#512-törlés)
-    - [5.13. Telejes kód](#513-telejes-kód)
-  - [6. OOP feladat](#6-oop-feladat)
-    - [6.1. Feladat 001](#61-feladat-001)
-
-<!-- /TOC -->
-
-## 1. Ismétlő gyakorlatok
+## Ismétlő gyakorlatok
 
 1. Kérdezze meg az egyik AI-t, mi a különbség a VSCode és a Netbeans között.
 
 2. Készítsen a VSCode-ban Maven projektet, amiben megold egy programozási feladatot.
 
-3. Készítsen VSCode-ban "no build tools" módban projektet, oldon meg vele egy programozási feladatot.
+3. Készítsen VSCode-ban "no build tools" módban projektet, oldjon meg vele egy programozási feladatot. [Feladatgyűjtemény](https://szit.hu/doku.php?id=oktatas:programozas:feladatok:altalanos)
 
 4. Készítsen Netbeans-ben konzolos programot. Oldjon meg egy bekérős programozási feladatot.
 
 5. Készítsen Netbeans-ben GUI alkalmazást, amely egy bekérős feladatot old meg.
 
-## 2. Interfész
+## Interfész
 
-Az interfészek metódusok és állandók egy halmazát adják meg. Az osztályok, amikor implementálnak egy ilyen interfészt, a benne található metódusokat kötelesek megvalósítani.
+Az interfészek **metódusok és állandók egy halmazát** adják meg. Az osztályok, amikor implementálnak egy ilyen interfészt, a benne található metódusokat kötelesek megvalósítani.
 
 Legyen például egy Jarmu interfész, amiben előírjuk milyen viselkedéseket kell egy járműnek megvalósítani adott programban.
 
@@ -105,13 +76,17 @@ public class Szemelygepkocsi implements Jarmu {
 }
 ```
 
-### 2.1. Gyakorlás 1
+### Gyakorlás 1
 
 1.) Írjon programot, ahol egy idegsejtet szimulál. A szimulátorban használjon interfészt, amiben meghatározza a sejt egy tevékenységét. A program valósítsa meg az interfészt. A program fő osztálya külön állományban legyen.
 
+Vegyünk egy egyszerű esetet: Az idegsejtek ingerületet fogadnak és ingerültete küldenek.
+
 2.) Írjon programot, ami egy járművet szimulál. A szimulátorban interfésszel határozza meg a jármű mozgásait. A programban valósítsa meg az elkészített interfészt.
 
-## 3. Interfésszel több lehetőség
+## Függőség befecskendezés
+
+Egy konstruktorok paraméterként interfészt adunk meg. Így paraméterül bármilyen az interfészt megvalósító osztály megadható. Ezt függőségbefecskendezésnek hívjuk.
 
 Egy programot szeretnénk írni, ahol embereket szimulálunk. Minden ember más-más nyelvet beszélhet. A példány létrehozása helyén dől el, milyen nyelvet fog beszélni.
 
@@ -184,7 +159,7 @@ public class Magyar implements Beszed {
 }
 ```
 
-## 4. Adatbázis-elérés
+## Adatbázis-elérés
 
 Adatbázis (database/create.sql):
 
@@ -409,11 +384,11 @@ public class Program01 {
 }
 ```
 
-## 5. REST API elérés
+## REST API elérés
 
 Java 11-től használhatjuk a HttpClient osztályt HTTP kapcsolatokra. A HttpRequest osztályt egy objektumát használjuk egy kérés leírására. Paraméterként az URI osztály használhatjuk, a REST API elérésének megadására. A Egy HttpResponse objektumban fogadjuk a HTTP szerver válaszát, a BodyHandlers osztállyal mondjuk meg, hogy Sztringként szeretnénk kezelni a válaszban érkezett tartalmat.
 
-### 5.1. Szinkron kérés
+### Szinkron kérés
 
 Legyen egy get() nevű metódus, amelyben tetszőleges URI alapján, lekérdezzük egy teteszőleges végpontot.
 
@@ -472,7 +447,7 @@ public class App {
 
 A kérést a client.send() utasítással küldtük el. Ez szinkron módon fut, vagyis amíg a válasz meg nem érkezik, addig az alkalmazás mozdulatlan, nem fut tovább.
 
-### 5.2. A get() metódus darabolása
+### A get() metódus darabolása
 
 Bontsuk fel a get() metódust több részre. Nézzük hány részre osztható fel:
 
@@ -623,7 +598,7 @@ public class Client {
 }
 ```
 
-### 5.3. A POST metódus
+### A POST metódus
 
 A kérésgeneráló metódust újra kell írnunk, mivel a kérésbe bele kell tennük egy új TODO adatatit, fejléccel együtt:
 
@@ -724,7 +699,7 @@ public class App {
 }
 ```
 
-### 5.4. A PUT metódus
+### A PUT metódus
 
 A put() és a genPutRequest() metódus:
 
@@ -845,7 +820,7 @@ public class App {
 }
 ```
 
-### 5.5. A DELETE metódus
+### A DELETE metódus
 
 Írjuk meg a delete() metódust a genDeleteRequest() metódussal együtt.
 
@@ -964,7 +939,7 @@ public class App {
 }
 ```
 
-### 5.6. Azonosítás beállítása
+### Azonosítás beállítása
 
 Client.java:
 
@@ -1097,7 +1072,7 @@ public class App {
 }
 ```
 
-### 5.7. Objektum JSON formátumba
+### Objektum JSON formátumba
 
 Készítsünk egy Todo.java nevű osztályt:
 
@@ -1163,7 +1138,7 @@ Hozzunk létre egy gson objektumot, majd alakítsuk át a todo objektumot JSON s
         System.out.println(client.post(url, newTodo));
 ```
 
-### 5.8. Objektumból JSON újra módosítással
+### Objektumból JSON újra módosítással
 
 ```java
         //...
@@ -1173,7 +1148,7 @@ Hozzunk létre egy gson objektumot, majd alakítsuk át a todo objektumot JSON s
         System.out.println(client.put(url + "/1", modifiedTodo));
 ```
 
-### 5.9. Aszinkron kérés
+### Aszinkron kérés
 
 Aszinkron kérés esetén a válasz megérkezéstől függetlenül az program tovább fut.
 
@@ -1218,7 +1193,7 @@ public class App {
 }
 ```
 
-### 5.10. Hozzáadás
+### Hozzáadás
 
 Szeretnénk felvenni új elemet. Egészítsük ki a Client osztályt egy post() metódussal.
 
@@ -1265,7 +1240,7 @@ public class App {
 
 A headers.toArray(String[]::new) utasítás a kollekció tartalmát sztring tömbbé alakítja.
 
-### 5.11. Frissítés
+### Frissítés
 
 Frissítéshez a írjuk meg a put() metódust:
 
@@ -1312,7 +1287,7 @@ public class App {
 
 Vegyük észre az uri objektumbana 2-s azonosítót. A client objektumon pedig a put() metódus hívást.
 
-### 5.12. Törlés
+### Törlés
 
 Hozzuk létre a delete() metódust, ami alkalmas törlésre:
 
@@ -1355,7 +1330,7 @@ public class App {
 
 ```
 
-### 5.13. Telejes kód
+### Telejes kód
 
 A teljes kódot javítva a GitHubon megtaláljuk:
 
@@ -1365,9 +1340,9 @@ Lehetséges REST API:
 
 * [https://github.com/oktat/empjs](https://github.com/oktat/empjs)
 
-## 6. OOP feladat
+## OOP feladat
 
-### 6.1. Feladat 001
+### Feladat 001
 
 Adott a következő UML ábra:
 
