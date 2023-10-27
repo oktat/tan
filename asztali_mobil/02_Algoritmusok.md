@@ -360,7 +360,7 @@ A művletek tengelyét 1000-re növeltem, amin látszik, hogy a legrosszabb eset
 
 ![Rendezések legjobb esetben](images/rendezesek_legjobb.png)
 
-![Rendezések legrosszabb esetben](images/rendezesek_legrosszabb.png)
+![Rendezések legrosszabb esetben](images/algortimus/bonyolultsag/rendezes_legrosszabb.png)
 
 ![Rendezések átlagos esetben](images/rendezesek_atlag.png)
 
