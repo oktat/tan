@@ -34,7 +34,7 @@ Vegyük észre, hogy nem kellenek kötőjelek.
 
 ### Adott verzió beszerzése
 
-A legújabb verzió helyett használjuk mindig az LTS verziót. Az LTS verzió hosszú támogatási idővel rendelkezik. Keressük meg a legújabb LTS a következő helyen:
+A legújabb verzió helyett használjuk mindig az **LTS** verziót. Az LTS verzió hosszú támogatási idővel rendelkezik. Keressük meg a legújabb LTS a következő helyen:
 
 * [https://angular.io/guide/releases](https://angular.io/guide/releases)
 
@@ -55,6 +55,10 @@ c:\Users\user\AppData\Romaing\npm
 ```
 
 A user felhasználónév helyére helyettesítse be a saját felhasználónevét.
+
+Az útvonalba állításról a következő helyen olvashat:
+
+* [szit.hu](https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:utvonalak#gui_felueleten)
 
 ## Új projekt
 
@@ -202,15 +206,31 @@ A böngészőben megnyíló ablak:
 
 ```cmd
 projetk01/
+  |-.angular/
+  |-.vscode/
   |-node_modules/
-  `-src/
-     |-app/
-     |  |-app.components.css
-     |  |-app.component.html
-     |  |-app.component.spec.ts
-     |  |-app.components.ts
-     |  `-app.modules.ts
-     `index.html
+  |-src/
+  |  |-app/
+  |  |  |-app.components.css
+  |  |  |-app.component.html
+  |  |  |-app.component.spec.ts
+  |  |  |-app.components.ts
+  |  |  `-app.modules.ts
+  |  |-assets/
+  |  |  `-.gitkeep
+  |  |-favicon.ico
+  |  |-index.html
+  |  |-main.ts
+  |  `-style.css
+  |-.editorconfig
+  |-.gitignore
+  |-angular.json
+  |-package-lock.json
+  |-package.json
+  |-README.md
+  |-tsconfig.app.json
+  |-tsconfig.json
+  `-tsconfig.spec.json
 ```
 
 A weblap az **src/index.html** állományból indul:
@@ -220,7 +240,7 @@ A weblap az **src/index.html** állományból indul:
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>App02</title>
+  <title>App01</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
