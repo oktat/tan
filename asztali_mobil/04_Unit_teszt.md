@@ -12,7 +12,7 @@
 * rendszerteszt
 * átvételi teszt
 
-## TestNg teszt
+## TestNG teszt
 
 A TestNG a JUnit és az NUnit által inspirált tesztelő keretrendszer.
 
