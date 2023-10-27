@@ -98,6 +98,7 @@ class DataService {
     }
 }
 ```
+
 A függőség ábrázolása UML ábrán:
 
 ![Függőség ábrázolása UML ábrán](images/oop/dataservice_fuggoseg.png)
