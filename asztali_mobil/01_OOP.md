@@ -98,10 +98,17 @@ class DataService {
     }
 }
 ```
+A függőség ábrázolása UML ábrán:
 
-A DataSercie erőteljesen függ a Mariadb osztálytól, mivel más osztály nem adható meg.
+![Függőség ábrázolása UML ábrán](images/oop/dataservice_fuggoseg.png)
 
-Egy interfésszel lazafüggőséget alakíthatunk ki. A következő példákban üres interfész és osztályt használunk, mert most nem fontos mi van benne:
+A kapcsolat a két osztály között UML ábrán:
+
+![A kapcsolat a két osztály között UML ábrán](images/oop/datasource_kompozicio.png)
+
+A DataService erőteljesen függ a Mariadb osztálytól, mivel más osztály nem adható meg.
+
+Egy **interfésszel lazafüggőséget** alakíthatunk ki. A következő példákban üres interfész és osztályt használunk, mert most nem fontos mi van benne:
 
 ```java
 interface DataSource {
@@ -153,6 +160,8 @@ DataService service2 = new DataSercie(new Sqlite());
 A DataService ezért lazán függ a Mariadb és az Sqlite osztályoktól.
 
 A DataService számára befecskendztük a függőséget, ezért szokás függőség befecskendezésről beszélni a fenti példánkban.
+
+![Függőség befecskendezés](images/oop/dataservice_befecskendezes.png)
 
 ### Beszélő emberek példa
 
