@@ -84,9 +84,77 @@ Vegyünk egy egyszerű esetet: Az idegsejtek ingerületet fogadnak és ingerült
 
 2.) Írjon programot, ami egy járművet szimulál. A szimulátorban interfésszel határozza meg a jármű mozgásait. A programban valósítsa meg az elkészített interfészt.
 
-## Függőség befecskendezés
+## Laza függőség létrehozása
 
-Egy konstruktorok paraméterként interfészt adunk meg. Így paraméterül bármilyen az interfészt megvalósító osztály megadható. Ezt függőségbefecskendezésnek hívjuk.
+Vegyünk egy osztályt, ami a konstruktorán keresztül paraméterként fogadott objektumot, amivel beállítja egyik adattagját.
+
+Példánkban, a DataService osztály függ a Mariadb osztálytól:
+
+```java
+class DataService {
+    Mariadb mariadb;
+    public DataService(Mariadb mariadb) {
+        this.mariadb = mariadb;
+    }
+}
+```
+
+A DataSercie erőteljesen függ a Mariadb osztálytól, mivel más osztály nem adható meg.
+
+Egy interfésszel lazafüggőséget alakíthatunk ki. A következő példákban üres interfész és osztályt használunk, mert most nem fontos mi van benne:
+
+```java
+interface DataSource {
+
+}
+
+class Mariadb implements DataSource {
+
+}
+
+class DataService {
+    DataSource source;
+    public DataService(DataSource source) {
+        this.source = source;
+    }
+}
+```
+
+De mitől laza? Amikor példányosítjuk DataService osztályt paraméterként megadhatjuk a Mariadb osztályt:
+
+```java
+DataService service = new DataSercie(new Mariadb());
+```
+
+Azért adhatjuk meg, mert implementálta a DataSrouce osztályt, és DataService esetén ezt adtuk bemenő paraméternek. Ezzel együtt bármely osztály ami implementálja a DataSource osztályt, az megadható paraméterként. Legyen például egy Sqlite osztályt is:
+
+```java
+interface DataSource {}
+
+class Mariadb implements DataSource {}
+
+class Sqlite implements DataSource {}
+
+class DataService {
+    DataSource source;
+    public DataService(DataSource source) {
+        this.source = source;
+    }
+}
+```
+
+A DataSercie példányosítása során megadható a Mariadb osztály és az Sqlite osztály is:
+
+```java
+DataService service1 = new DataSercie(new Mariadb());
+DataService service2 = new DataSercie(new Sqlite());
+```
+
+A DataService ezért lazán függ a Mariadb és az Sqlite osztályoktól.
+
+A DataService számára befecskendztük a függőséget, ezért szokás függőség befecskendezésről beszélni a fenti példánkban.
+
+### Beszélő emberek példa
 
 Egy programot szeretnénk írni, ahol embereket szimulálunk. Minden ember más-más nyelvet beszélhet. A példány létrehozása helyén dől el, milyen nyelvet fog beszélni.
 
