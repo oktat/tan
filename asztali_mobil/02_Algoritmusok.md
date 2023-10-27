@@ -289,6 +289,15 @@ public class App {
 }
 ```
 
+### Gyakorlat
+
+1. Keressen a "sort hungarian dance" keresőszavakkal Youtube-on található videók között a buborék rendezésről szóló táncot.
+
+2. A [szit.hu](https://szit.hu) webhelyen keresse meg milyen algoritmusokról nem volt itt szót. Keresendő névterek:
+
+* oktatas » programozas » programozasi_tetelek
+* oktatas » programozas » algoritmusok
+
 ## Algoritmusok bonyolultsága
 
 ### Bonyolultság
@@ -303,19 +312,19 @@ A jó bonyolultság vizsgálathoz, az idő mérése helyett érdemesebb a végre
 
 Ha egy **rendezetlen tömbben keresünk** egy elemet, a keresési idő arányosan nő a lista méretével. Ekkor azt mondhatjuk, hogy a keresési idő lineáris.
 
-![Szekvenciális keresés](images/szekvencialis_kereses.png)
+![Szekvenciális keresés](images/algortimus/bonyolultsag/szekvencialis_kereses.png)
 
 Ha **rendezett tömbben keresünk**, a keresés gyorsabb lesz. Ez egy logaritmikus bonyolultság.
 
-![Keresés rendezett tömbben](images/binaris_kereses.png)
+![Keresés rendezett tömbben](images/algortimus/bonyolultsag/binaris_kereses.png)
 
 Ha egy tömbben **az első elem a keresett érték**, konstanst idő, a bonyolultság.
 
 ![Az első elem a keresett elem](images/elso_keresett.png)
 
-Keressünk egy **rendezetlen listában** minden **ismétlődést**. A bonyolultság ekkor négyzetes.
+Keressünk egy **rendezetlen listában** minden **ismétlődést**. A bonyolultság ekkor négyzetes, a legrosszabb esetben, de az átlagos esetben is. A legjobb esetben (n).
 
-![Ismétlődés keresése](images/ismetlodes_kereses.png)
+![Ismétlődés keresése](images/algortimus/bonyolultsag/ismetlodes_kereses.png)
 
 #### A bonyolultságok jelölése
 
