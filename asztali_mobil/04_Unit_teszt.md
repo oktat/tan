@@ -12,6 +12,121 @@
 * rendszerteszt
 * átvételi teszt
 
+## TestNg teszt
+
+A TestNG a JUnit és az NUnit által inspirált tesztelő keretrendszer.
+
+### Szükséges
+
+Szükséges programozói könyvtárak:
+
+* jcommander-x.y.jar
+* slf4j-api-x.y.z.jar
+* testng-x.y.z.jar
+
+**A 7.8.0-ás testng számára, 1.7.36-os slf4j-api szükséges.**
+
+A programozói könyvtárak a következő helyről szerezhetők be:
+
+* [https://central.sonatype.com/](https://central.sonatype.com/)  (2023)
+
+Például keresőbe írjuk be: testng.
+Uátan: testng > Versin > Browse > testng-7.8.0.jar
+
+### Projekt készítése
+
+Készítsünk egy Java projektet. No build tools választása ajánlott.
+
+```txt
+app01/
+  |-lib/
+  |-src/
+  |  `-App.java
+  `-README.md
+```
+
+### Az App.java megnyitása
+
+Meg kell nyitni az App.java fájlt. Várjuk meg, amíg a Java bővítmények aktíválódnak.
+
+### Teszt fájl létrehozása
+
+```txt
+app01/
+  |-lib/
+  |-src/
+  |  `-App.java
+  |-test/
+  |  `-TestPelda.java
+  `-README.md
+```
+
+### Testkönyvtár útvonalba
+
+A test könyvtárat tegyük útvonalba.
+
+```txt
+test/TestPelda.java
+```
+
+Az EXPLORER-ben a test könyvtáron jobb egér gomb, majd:
+
+* Add Folder to Java Source Path
+
+Ellenőrzésként az oldalsávon a JAVA PROJECTS nézetben keressük meg a test könyvtárat.
+
+### Első teszt
+
+```java
+import org.testng.Assert;
+import org.testng.annotations.Test;
+ 
+public class TestTriangle {
+ 
+    @Test
+    public void testCalcAreaGoodData1() {
+        Assert.assertTrue(true);
+    }
+    @Test
+    public void testCalcAreaGoodData2() {
+        Assert.assertTrue(true);
+    }
+}
+```
+
+### Háromszög tesztelése
+
+test/TestTriangle.java:
+
+```java
+import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+ 
+public class TestTriangle {
+ 
+    Triangle tri;
+ 
+    @BeforeTest
+    public void initTriangle() {
+        tri = new Triangle();
+    }
+ 
+    @Test
+    public void testCalcAreaGoodData1() {
+        double actual = tri.calcArea(30, 35);
+        double expected = 525;
+        Assert.assertEquals(actual, expected, 0.9, "Hiba!");
+    }
+    @Test
+    public void testCalcAreaGoodData2() {
+        double actual = tri.calcArea(100, 130);
+        double expected = 6500;
+        Assert.assertEquals(actual, expected, 0.9, "Hiba!");        
+    }
+}
+```
+
 ## JUnit teszt
 
 A JUnit egy egységtesztelő rendszer, amit programozói könyvtárak formájában érhetünk el.
