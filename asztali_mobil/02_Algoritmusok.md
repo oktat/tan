@@ -308,7 +308,7 @@ Az elméleti számítástechnika egyik ága ezzel foglalkozik, ezt nevezzük kom
 
 A jó bonyolultság vizsgálathoz, az idő mérése helyett érdemesebb a végrehajtott utasítások számolása.
 
-#### Példák
+### Példák
 
 Ha egy **rendezetlen tömbben keresünk** egy elemet, a keresési idő arányosan nő a lista méretével. Ekkor azt mondhatjuk, hogy a keresési idő lineáris.
 
@@ -326,7 +326,7 @@ Keressünk egy **rendezetlen listában** minden **ismétlődést**. A bonyolults
 
 ![Ismétlődés keresése](images/algortimus/bonyolultsag/ismetlodes_kereses.png)
 
-#### A bonyolultságok jelölése
+### A bonyolultságok jelölése
 
 A bonyolultságot átlagos esetben a nagy θ betűvel jelöljük.
 
@@ -352,7 +352,7 @@ A legrosszabb eset jelölőit látjuk a következő ábrán:
 
 A művletek tengelyét 1000-re növeltem, amin látszik, hogy a legrosszabb esetet a faktoriális mutatja be.
 
-#### Összehasonlítás
+### Összehasonlítás
 
 ![Adatstruktúrák táblázatban](images/adatstrukturak_idoigeny_hasonlit.png)
 
@@ -366,9 +366,17 @@ A művletek tengelyét 1000-re növeltem, amin látszik, hogy a legrosszabb eset
 
 Forrás: [https://www.bigocheatsheet.com/](https://www.bigocheatsheet.com/)
 
-#### Forrás
+### Forrás
 
 * [https://devopedia.org/algorithmic-complexity](https://devopedia.org/algorithmic-complexity)
+
+### Bonyolultság gyakorlat
+
+1. Milyen szimbólumot használunk bonyolultság esetén a legjobb esetek jelölésére?
+
+2. Milyen szimbólumot használunk bonyolultság esetén az átlagos esetek jelölésére?
+
+3. Derítse ki, mi a bonyolultsága az összefésülő rendezésnek legrosszabb, legjobb és átlagos esetben.
 
 ## Tömb
 
