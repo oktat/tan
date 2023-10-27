@@ -289,14 +289,26 @@ public class App {
 }
 ```
 
-### Gyakorlat
+### Algoritmusok gyakorlat
 
-1. Keressen a "sort hungarian dance" keresőszavakkal Youtube-on található videók között a buborék rendezésről szóló táncot.
+#### 1)
 
-2. A [szit.hu](https://szit.hu) webhelyen keresse meg milyen algoritmusokról nem volt itt szót. Keresendő névterek:
+Keressen a "sort hungarian dance" keresőszavakkal Youtube-on található videók között a buborék rendezésről szóló táncot.
+
+#### 2)
+
+A [szit.hu](https://szit.hu) webhelyen keresse meg milyen algoritmusokról nem volt itt szót. Keresendő névterek:
 
 * oktatas » programozas » programozasi_tetelek
 * oktatas » programozas » algoritmusok
+
+#### 3)
+
+Írjon programot **hore** néven, amely hőmérséklet adatokat kér be 0 végjelig. A bekért adatokat tegye tömbbe.
+
+Készítse el a egy függvényben a gyorsrendező algoritmust.
+
+Használja a függvényt a bekért adatok rendezésére.
 
 ## Algoritmusok bonyolultsága
 
