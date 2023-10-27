@@ -7,7 +7,9 @@
 
 ## Adatbázis létrehozása
 
-Adatbázis (database/create.sql):
+Adatbázis létrehozása táblákkal:
+
+database/mariadb_create.sql:
 
 ```sql
 create database surubt
@@ -29,6 +31,17 @@ create table employees(
 );
 ```
 
+database/sqlite_create.sql:
+
+```sql
+create table employees (
+    id integer not null primary key autoincrement,
+    name text,
+    city text,
+    salary real
+);
+```
+
 database/insert.sql:
 
 ```sql
@@ -43,18 +56,36 @@ values
 ('Tengi Mária', 'Szolnok', 329);
 ```
 
-Adatok:
+Adatok tárolásához hozzuk létre az Employee osztályt.
+
+src/Employee.java
 
 ```java
-public class Dolgozo {
-    int az;
-    String nev;
-    String telepules;
-    double fizetes;    
+public class Employee {
+    int id;
+    String name;
+    String city;
+    double salary;
+    
+    public Employee(int id, String name, String city, double salary) {
+        this.id = id;
+        this.name = name;
+        this.city = city;
+        this.salary = salary;
+    }
+    public Employee(String name, String city, double salary) {
+        this.name = name;
+        this.city = city;
+        this.salary = salary;
+    }
+    public Employee() {
+    }    
 }
 ```
 
-Az interfész:
+Hozzunk létre egy interfészt, ami megmondja mit kell tudni adatbázishoz kapcsolódás esetén.
+
+src/iDatabase.java:
 
 ```java
 import java.sql.Connection;
@@ -65,7 +96,9 @@ public interface iDatabase {
 }
 ```
 
-MariaDB kapcsolat
+MariaDB kapcsolathoz, hozzunk létre egy Mariadb osztályt.
+
+src/Mariadb.java:
 
 ```java
 import java.sql.Connection;
@@ -73,12 +106,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
  
 public class Mariadb implements iDatabase {
- 
-    private Connection tryConnectDb() throws SQLException {
-        String url = "jdbc:mariadb://localhost:3306/surubt";
-        return DriverManager.getConnection(url, 
-                "surubt", "titok");
-    }
  
     public Connection connectDb(){
         Connection conn = null;
@@ -90,11 +117,12 @@ public class Mariadb implements iDatabase {
         }
         return conn;
     }
- 
-    private void tryCloseDb(Connection conn) throws SQLException {
-        conn.close();
-    }
- 
+    private Connection tryConnectDb() throws SQLException {
+        String url = "jdbc:mariadb://localhost:3306/surubt";
+        return DriverManager.getConnection(url, 
+                "surubt", "titok");
+    }    
+
     public void closeDb(Connection conn){        
         try {
             tryCloseDb(conn);
@@ -103,13 +131,16 @@ public class Mariadb implements iDatabase {
             System.err.println(e.getMessage());
         }
     }
- 
+    private void tryCloseDb(Connection conn) throws SQLException {
+        conn.close();
+    }
+    
 }
 ```
 
-SQLite forráskódja:
+SQLite adatbázis eléréshez hozzunk létre egy Sqlite osztályt:
 
-Sqlite.java:
+src/Sqlite.java:
 
 ```java
 import java.sql.Connection;
@@ -117,33 +148,40 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
  
 public class Sqlite implements iDatabase {
-    public Connection tryConnectDb() throws SQLException {
-        String url = "jdbc:sqlite:surubt.sqlite";
-        return DriverManager.getConnection(url);
-    }
+
     public Connection connectDb() {
         Connection conn = null;
         try {
             conn = tryConnectDb();
-        }catch(SQLException ex) {
+        }catch(SQLException e) {
             System.err.println("Hiba! A kapcsolódás sikertelen!");
+            System.out.println(e.getMessage());
         }
         return conn;
+    }
+    public Connection tryConnectDb() throws SQLException {
+        String url = "jdbc:sqlite:database.sqlite";
+        return DriverManager.getConnection(url);
+    }
+
+    public void closeDb(Connection conn) {
+        try {
+            tryCloseDb(conn);
+        } catch (SQLException e) {
+            System.err.println("Hiba! A bezárás sikertelen!");
+            System.out.println(e.getMessage());
+        }
     }
     public void tryCloseDb(Connection conn) throws SQLException {
         conn.close();
     }
-    public void closeDb(Connection conn) {
-        try {
-            tryCloseDb(conn);
-        } catch (SQLException ex) {
-            System.err.println("Hiba! A bezárás sikertelen!");
-        }
-    }
+
 }
 ```
 
-Data:
+A lekérdezéseket a DataSource osztályban fogjuk megvalósítani.
+
+src/DataSource.java:
 
 ```java
 import java.sql.Connection;
@@ -154,80 +192,156 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
  
-public class Data {
+public class DataSource {
     iDatabase database;
-    public Data(iDatabase database) {
+    
+    public DataSource(iDatabase database) {
         this.database = database;
     }
-    public List<Dolgozo> getEmployees() {
-        List<Dolgozo> dolgozok = new ArrayList<>();
+
+    public List<Employee> getEmployees() {
+        List<Employee> employeeList = new ArrayList<>();
         try {
-            dolgozok = tryGetEmployees();
+            employeeList = tryGetEmployees();
         }catch(SQLException e) {
             System.err.println("Hiba! A lekérdezés sikertelen!");
             System.err.println(e.getMessage());
         }
-        return dolgozok;
+        return employeeList;
     }
-    public List<Dolgozo> tryGetEmployees() throws SQLException {
-        List<Dolgozo> dolgozok = new ArrayList<>();
-        String sql = "select az, nev, telepules, fizetes from dolgozok";
+    private List<Employee> tryGetEmployees() throws SQLException {
+        List<Employee> dolgozok = new ArrayList<>();
+        String sql = "select id, name, city, salary from employees";
         Connection conn = database.connectDb();
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery(sql);
         while(rs.next()) {
-            Dolgozo dolgozo = new Dolgozo();
-            dolgozo.az = rs.getInt("az");
-            dolgozo.nev = rs.getString("nev");
-            dolgozo.telepules = rs.getString("telepules");
-            dolgozo.fizetes = rs.getDouble("fizetes");
+            Employee dolgozo = new Employee();
+            dolgozo.id = rs.getInt("id");
+            dolgozo.name = rs.getString("name");
+            dolgozo.city = rs.getString("city");
+            dolgozo.salary = rs.getDouble("salary");
             dolgozok.add(dolgozo);
         }
         database.closeDb(conn);
         return dolgozok;
     }
- 
-    public void tryInsertEmployee(String name, String city) throws SQLException {
+
+    public Employee getEmployee(int id) {
+        Employee employee = new Employee();
+        try {
+            employee = tryGetEmployee(id);
+        } catch (SQLException e) {
+            System.err.println("Hiba! A dolgozó lekérdezése sikertelen!");
+            System.err.println(e.getMessage());
+        }
+        return employee;
+    }
+    private Employee tryGetEmployee(int id) 
+            throws SQLException {
+        Employee employee = new Employee();
         Connection conn = database.connectDb();
-        String sql = "insert into dolgozok " +
-                "(nev, telepules) values " +
-                "(?, ?)";
+        String sql = "select id, name, city, salary " +
+            "from employees where id=?";
         PreparedStatement pstmt = conn.prepareStatement(sql);
-        pstmt.setString(1, name);
-        pstmt.setString(2, city);
+        pstmt.setInt(1, id);
+        ResultSet result = pstmt.executeQuery();
+        result.next();
+        employee.id = result.getInt("id");
+        employee.name = result.getString("name");
+        employee.city = result.getString("city");
+        employee.salary = result.getDouble("salary");
+        database.closeDb(conn);
+        return employee;
+    }
+
+    public void insertEmployee(Employee employee) {
+        try {
+            tryInsertEmployee(employee);
+        } catch (SQLException e) {
+            System.err.println("Hiba! A beszúrás sikertelen!");
+            System.err.println(e.getMessage());
+        }
+    }
+    private void tryInsertEmployee(Employee employee)
+            throws SQLException {
+        Connection conn = database.connectDb();
+        String sql = "insert into employees " +
+                "(name, city, salary) values " +
+                "(?, ?, ?)";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, employee.name);
+        pstmt.setString(2, employee.city);
+        pstmt.setDouble(3, employee.salary);
         pstmt.execute();
         database.closeDb(conn);
     }
-    public void insertEmployee(String name, String city) {
+
+    public void updateEmployee(Employee employee) {
         try {
-            tryInsertEmployee(name, city);
-        } catch (SQLException ex) {
-            System.err.println("Hiba! A beszúrás sikertelen!");
+            tryUpdateEmployee(employee);
+        } catch (SQLException e) {
+            System.err.println("Hiba! A módosítás sikertelen!");
+            System.err.println(e.getMessage());
         }
     }
- 
+    private void tryUpdateEmployee(Employee employee) 
+            throws SQLException {
+        Connection conn = database.connectDb();
+        String sql = "update employees set " +
+            "name=?, " +
+            "city=?, " +
+            "salary=? " +
+            "where id=?";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, employee.name);
+        pstmt.setString(2, employee.city);
+        pstmt.setDouble(3, employee.salary);
+        pstmt.setInt(4, employee.id);
+        pstmt.execute();
+
+        database.closeDb(conn);
+    }
+    public void deleteEmployee(int id) {        
+        try {
+            tryDeleteEmployee(id);    
+        } catch (SQLException e) {
+            System.err.println("Hiba! A törlés sikertelen!");
+            System.err.println(e.getMessage());
+        }
+    }
+    private void tryDeleteEmployee(int id) 
+            throws SQLException {
+        Connection conn = database.connectDb();
+        String sql = "delete from employees where id=?";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setInt(1, id);
+        pstmt.execute();
+        database.closeDb(conn);
+    }
 }
 ```
 
-Program01:
+src/App.java:
 
 ```java
-import java.util.ArrayList;
-import java.util.List;
- 
-public class Program01 {
- 
-    public static void main(String[] args) {
-        List<Dolgozo> dolgozok = new ArrayList<>();
-        Data data = new Data(new Sqlite());
- 
-        dolgozok = data.getEmployees();
-        for(Dolgozo dolgozo : dolgozok) {            
-            System.out.println(dolgozo.nev);
-        }
-        data.insertEmployee("Park Elemér", "Szolnok");
- 
+public class App {
+    public static void main(String[] args) throws Exception {
+        
+        // DataSource data = new DataSource(new Sqlite());
+        DataSource data = new DataSource(new Mariadb());
+
+        // java.util.List<Employee> empList = data.getEmployees();        
+        // for(Employee emp : empList) {
+        //     System.out.println(emp.id + " " + emp.name);
+        // }
+
+        Employee employee = data.getEmployee(1);
+        System.out.println(employee.id + " " + employee.name);
+
+        // data.insertEmployee(new Employee("Park Elemér", "Szolnok", 397));
+        // data.updateEmployee(new Employee(3, "Csőre Tibor", "Szombathely", 358));
+        // data.deleteEmployee(4);
     }
- 
 }
 ```
