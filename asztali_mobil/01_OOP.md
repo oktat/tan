@@ -151,7 +151,7 @@ class DataService {
 }
 ```
 
-A DataSercie példányosítása során megadható a Mariadb osztály és az Sqlite osztály is:
+A DataService példányosítása során megadható a Mariadb osztály és az Sqlite osztály is:
 
 ```java
 DataService service1 = new DataSercie(new Mariadb());
