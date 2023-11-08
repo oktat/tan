@@ -715,3 +715,129 @@ class Program {
     }
 }
 ```
+
+## Algoritmusok alkalmazása gyakorlat
+
+### A buborék rendezés alkalmazása
+
+iOrganizer.java:
+
+```java
+package lan.zold;
+
+import java.util.ArrayList;
+
+public interface iOrganizer {
+    public ArrayList<Integer> bubbleSort(ArrayList<Integer> numList);
+}
+```
+
+Organizer.java:
+
+```java
+package lan.zold;
+
+import java.util.ArrayList;
+
+public class Organizer implements iOrganizer {
+
+    @Override
+    public ArrayList<Integer> bubbleSort(ArrayList<Integer> numList) {
+        int n = numList.size();
+        for(int i= n-1; i>0; i--)
+            for(int j=0; j<i; j++)
+                if(numList.get(j) > numList.get(j+1)) {
+                    int tmp = numList.get(j);
+                    numList.set(j, numList.get(j+1));
+                    numList.set(j+1, tmp);
+                }
+        return numList;
+    }
+    
+}
+```
+
+Main.java:
+
+```java
+package lan.zold;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Rendezés");
+
+        Integer[] array = {35, 12, 8, 44, 23};
+        ArrayList<Integer> nums = new ArrayList<>(Arrays.asList(array));
+
+        ArrayList<Integer> sortedNums = new Organizer().bubbleSort(nums);
+
+        for(Integer num : sortedNums) {
+            System.out.println(num);
+        }
+    }
+}
+```
+
+Írjunk a egy osztályt, ami fájlból olvassa a rendezendő számokat.
+
+Filehandler.java:
+
+```java
+package lan.zold;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Filehandler {
+    
+    final String FILENAME = "szamok.txt";
+
+    public ArrayList<Integer> readContent() {
+        ArrayList<Integer> numList = null;
+        try {
+            numList = tryReadContent();
+        } catch (FileNotFoundException e) {
+            System.err.println("Hiba! A fájl nem található!");
+            System.err.println(e.getMessage());
+        }
+        return numList;
+    }
+    public ArrayList<Integer> tryReadContent() 
+            throws FileNotFoundException {
+        ArrayList<Integer> numList = new ArrayList<>();
+        File file = new File(FILENAME);
+        Scanner scanner = new Scanner(file);
+        while(scanner.hasNext()) {
+            String numStr = scanner.nextLine();
+            Integer num = Integer.parseInt(numStr);
+            numList.add(num);
+        }
+        scanner.close();
+        return numList;
+    }
+}
+```
+
+A Main.java módosítása:
+
+```java
+package lan.zold;
+
+import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Rendezés");        
+        ArrayList<Integer> nums = new Filehandler().readContent();
+        ArrayList<Integer> sortedNums = new Organizer().bubbleSort(nums);
+        for(Integer num : sortedNums) {
+            System.out.println(num);
+        }
+    }
+}
+```
