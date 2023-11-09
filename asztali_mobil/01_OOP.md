@@ -1,4 +1,4 @@
-# Haladó Objektum Orientál Programozás
+# Haladó Objektum Orientált Programozás
 
 * **Szerző:** Sallai András
 * Copyright (c) 2022, Sallai András
