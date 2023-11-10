@@ -14,11 +14,11 @@
 
 ## TestNG teszt
 
-A TestNG a JUnit és az NUnit által inspirált tesztelő keretrendszer.
+A TestNG a **JUnit** és az **NUnit** által **inspirált** tesztelő keretrendszer.
 
 ### Szükséges
 
-Szükséges programozói könyvtárak:
+Függőségek, vagyis szükséges programozói könyvtárak:
 
 * jcommander-x.y.jar
 * slf4j-api-x.y.z.jar
