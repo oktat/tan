@@ -9,6 +9,8 @@
 
 ### Buborék rendezés
 
+A buborék rendezése, angolul bubblesort egy egyszerű rendezőalgoritmus. Megvalósítani egyszerű, de nagyon sok művelet esetén nem hatékony.
+
 A buborékrendezés pszeudókódja:
 
 ```txt
@@ -99,7 +101,7 @@ A gyorsrendezést két módon szokták megvalósítani:
 * tömbbel
 * helyben (helyére vivő eljárással)
 
-A gyorsrendezést általában rekurzívan valósítják meg.
+A gyorsrendezést általában rekurzívan valósítjuk meg.
 
 #### Tömbbel megvalósított változat
 
@@ -297,7 +299,7 @@ Keressen a "sort hungarian dance" keresőszavakkal Youtube-on található videó
 
 #### 2)
 
-A [szit.hu](https://szit.hu) webhelyen keresse meg milyen algoritmusokról nem volt itt szót. Keresendő névterek:
+A [szit.hu](https://szit.hu) webhelyen keresse meg milyen algoritmusokról nem volt itt szó. Keresendő névterek:
 
 * oktatas » programozas » programozasi_tetelek
 * oktatas » programozas » algoritmusok
@@ -306,7 +308,7 @@ A [szit.hu](https://szit.hu) webhelyen keresse meg milyen algoritmusokról nem v
 
 Írjon programot **hore** néven, amely hőmérséklet adatokat kér be 0 végjelig. A bekért adatokat tegye tömbbe.
 
-Készítse el a egy függvényben a gyorsrendező algoritmust.
+Készítsen egy függvényt ami megvalósítja az egyik gyorsrendező algoritmust.
 
 Használja a függvényt a bekért adatok rendezésére.
 
@@ -340,7 +342,7 @@ Keressünk egy **rendezetlen listában** minden **ismétlődést**. A bonyolults
 
 ### A bonyolultságok jelölése
 
-A bonyolultságot átlagos esetben a nagy θ betűvel jelöljük.
+A bonyolultságot átlagos esetben a nagy θ betűvel jelöljük, a legrosszabb esetet nagy O betűvel, a legjobb esetet pedig Ω betűvel.
 
 Jelölések:
 
