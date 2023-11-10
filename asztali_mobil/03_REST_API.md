@@ -7,7 +7,7 @@
 
 ## REST API elérésről
 
-Java 11-től használhatjuk a HttpClient osztályt HTTP kapcsolatokra. A HttpRequest osztályt egy objektumát használjuk egy kérés leírására. Paraméterként az URI osztály használhatjuk, a REST API elérésének megadására. A Egy HttpResponse objektumban fogadjuk a HTTP szerver válaszát, a BodyHandlers osztállyal mondjuk meg, hogy Sztringként szeretnénk kezelni a válaszban érkezett tartalmat.
+Java 11-től használhatjuk a **HttpClient** osztályt HTTP kapcsolatokra. A **HttpRequest** osztály egy objektumát használjuk egy kérés leírására. Paraméterként az URI osztályt használhatjuk, a REST API elérésének megadására. Egy **HttpResponse** objektumban fogadjuk a HTTP szerver válaszát, a **BodyHandlers** osztállyal mondjuk meg, hogy Sztringként szeretnénk kezelni a válaszban érkezett tartalmat.
 
 ## Szinkron kérés
 

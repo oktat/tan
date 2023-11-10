@@ -345,3 +345,7 @@ public class App {
     }
 }
 ```
+
+## Példa
+
+* [https://github.com/oktat/jemp_moredb](https://github.com/oktat/jemp_moredb)
