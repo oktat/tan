@@ -246,3 +246,133 @@ Adott a következő UML ábra:
 ![Termékek](images/product_uml_01.png)
 
 Készítse el azt a programot, ami teljesíti az UML ábrán látható osztályokat.
+
+### Feladat 002
+
+Adott a következő interfész:
+
+```java
+public interface Shape {
+    double calculateArea();
+    double calculatePerimeter();
+}
+```
+
+Készítsen osztály ami implementálj az interfészt és háromszög alakzattal dolgozik.
+
+### Feladat 003
+
+Adott a következő interfész:
+
+```java
+public interface Readable {
+    void readContent();
+}
+```
+
+Készítsen osztályt Readfile néven, ami megvalósítja az interfészt, és egy fájl tartalmát beolvass egy String típusú változóba.
+
+### Feladat 004
+
+Adott a következő interfész:
+
+```java
+public interface Writable {
+    void writeContent(String content);
+}
+```
+
+Készítsen osztályt Writer néven, ami megvalósítja az interfészt. Az osztály írja fájlba a kapott szöveget.
+
+### Feladat 005
+
+Adott a következő interfész:
+
+```java
+public interface Searchable {
+    boolean containsKeyword(String keyword);
+    int countWords();
+}
+
+```
+
+Készítsen osztályt, amely megvalósítja az interfészt. Az osztály segítségével lehessen keresni egy szövegen, és lehessen megszámolni a hány szó van a szövegben.
+
+### Feladat 006
+
+Adott a követkeő interfész:
+
+```java
+public interface Resizable {
+    void resize(int width, int height);
+}
+```
+
+Készítsen osztályt Rectangle néven, amely megvalósítja az interfészt. Az osztály egy téglalapot jelképze, amelyenek létrehozásakor meg kell adni a méreteit, de átméretezhetőnek kell lennei.
+
+### Feladat 007
+
+Adott a követkeő interfész:
+
+```java
+public interface Connectable {
+    void connectToNetwork(String networkName);
+    void disconnectFromNetwork();
+}
+```
+
+Készítsen osztályt Network néven, amely megvalósítja az interfészt. A program csak egy szöveg kiírásával szimulálja, hogy kapcsolódott a hálózathoz, a kapcsolat megszakítását is csak egy szöveg kiírásával tudjta.
+
+### Feladat 008
+
+Adott a követkeő interfész:
+
+```java
+public interface Playable {
+    void play();
+    void pause();
+    void stop();
+}
+```
+
+Készítsen osztályt Player néven, amely megvalósítja az interfészt. Az egyes metódusok, csak egy szöveg kiíratásával küldjenek üzenetet, hogy az adott funkció életbelép.
+
+### Feladat 009
+
+Adott a követkeő interfész:
+
+```java
+public interface Controllable {
+    void start();
+    void stop();
+    void restart();
+}
+
+```
+
+Készítsen osztályt Controller néven, amely megvalósítja az interfészt. Az egyes metódusok, csak egy szöveg kiíratásával küldjenek üzenetet, hogy az adott funkció elindult.
+
+### Feladat 010
+
+Adott a követkeő interfész:
+
+```java
+public interface Authenticatable {
+    boolean authenticate(String username, String password);
+}
+```
+
+Készítsen osztályt Auth néven, amely megvalósítja az interfészt. A metódus, csak a "bela" felhasználónvet és a "titok" jelszót fogadja el.
+
+### Feladat 011
+
+Adott a követkeő interfész:
+
+```java
+public interface Runnable {
+    void runTask();
+    void stopTask();
+}
+```
+
+Készítsen osztályt Runner néven, amely megvalósítja az interfészt. Az egyes metódusok, csak egy szöveg kiíratásával küldjenek üzenetet, hogy az adott funkció elindult.
