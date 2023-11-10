@@ -8,9 +8,9 @@
 
 ## A tisztakódról
 
-Robert C. Martin fogalmazta meg a tiszta kód elveit a "Tiszta kód" című könyvében.
+**Robert C. Martin** fogalmazta meg a tiszta kód elveit a **"Tiszta kód"** című könyvében.
 
-A zavaros kód a szoftverfejlesztő kedvért is elveszi a fejlesztői munkától. A fejlesztők több kódot szoktak olvasni, mint írni.
+A zavaros kód a szoftverfejlesztő kedvét is elveszi a fejlesztői munkától. A fejlesztők több kódot szoktak olvasni, mint írni, így nem mindegy milyen a kód amit olvasnak.
 
 A jó kódra kevés időt kell fordítani a megértéshez.
 
@@ -32,7 +32,7 @@ Legyen például egy változó, amiben valakinek fizetését tároljuk:
 int b; //A dolgozó fizetése
 ```
 
-Ha úgy érezzük, hogy a "b" változóhoz megjegyzést kell fűzni, az elnevezés biztosan rossz. Néhány pokoli példa:
+Ha úgy érezzük, hogy a "b" változóhoz megjegyzést kell fűzni, az elnevezés biztosan rossz. **Néhány pokoli példa**:
 
 ```java
 /* A függvénye egy rombusz területét számítja ki 
