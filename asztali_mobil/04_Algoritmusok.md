@@ -229,6 +229,14 @@ public class App {
 }
 ```
 
+A quicksort() mások és harmadik paramétere lehetővé teszi, hogy a csak a tömb egy részét rendezzük.
+
+```java
+quicksort(array, start, end)
+```
+
+Teljes tömb rendezése esetén, a start legyen 0, az end legyen n-1, ahol az n a tömbb elemeinek a száma.
+
 ### Bináris keresés
 
 A bináris keresés többféle néven ismert:
