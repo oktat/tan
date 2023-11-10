@@ -293,7 +293,6 @@ public interface Searchable {
     boolean containsKeyword(String keyword);
     int countWords();
 }
-
 ```
 
 Készítsen osztályt, amely megvalósítja az interfészt. Az osztály segítségével lehessen keresni egy szövegen, és lehessen megszámolni a hány szó van a szövegben.
@@ -347,7 +346,6 @@ public interface Controllable {
     void stop();
     void restart();
 }
-
 ```
 
 Készítsen osztályt Controller néven, amely megvalósítja az interfészt. Az egyes metódusok, csak egy szöveg kiíratásával küldjenek üzenetet, hogy az adott funkció elindult.
