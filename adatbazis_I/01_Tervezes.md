@@ -122,3 +122,192 @@ További információ és példák az adatbázis-tervezésről:
 Lásd itt:
 
 * [https://szit.hu/doku.php?id=oktatas:adatbazis-kezeles:adatbazis-diagramok](https://szit.hu/doku.php?id=oktatas:adatbazis-kezeles:adatbazis-diagramok)
+
+## Anomáliák
+
+### Bővítés anomália
+
+Tegyük fel, hogy egy Dolgozók táblában összetett kulcsunk van, a név és a nyelvtudás:
+
+![Bővítési anomálisa](images/dolgozok_anomalia_01_bovites.png)
+
+Ha fel kell venni egy új dolgozót és nem tudjuk, hogy milyen nyelvet tud, vagy nincs is idegennyelv tudása, ez problémát okozhat, mivel a kulcs egyik része hiányzik. Ez egy bővíétési anomália.
+
+### Törlési anomália
+
+Törléskor a nem hozzátartozó információk is elvesznek.
+
+Vegyük a következő dolgozók táblát:
+
+![Törlési anomália](images/dolgozok_anomalia_02_torles.png)
+
+Ha szeretnénk törölni egy dolgozót, de a telefonszámot szeretnénk megörízni, akkor törlési anomáliáról beszélünk.
+
+### Módosítási anomália
+
+A projektek táblában, ha változik a név, több helyen át kell írni, de a települést is.
+
+![Módosítási anomália](images/dolgozok_anomalia_03_modositas.png)
+
+## Normalizálás
+
+A normalizálása az adatbázis rendundanciáinak megszüntetését jelenti átalakíátssal.
+
+### Normál formák
+
+* 0NF
+* 1NF
+* 2NF
+* 3NF
+
+### Funkcionális függőség
+
+A tábla egy mezőjének értéke meghatározza egy másik mező értékét.
+
+Vegyünk egy táblát, amelyben dolgozók adatati tároljuk:
+
+![Dolgozók tábla](images/normal_01_dolgozok.png)
+
+A Település mező függ a Név mezőtől, mivel ha a név mezőt változtatjuk, a település is valószínűleg változik. Egy dolgozónak egy lakcíme lehet. Ezt a függőséget így írhatjuk fel:
+
+```txt
+Név -> Település
+```
+
+Így olvassuk: A Név meghatározza a Települést.
+
+A táblázatban a névtől függ a fizetés is, amit így írhatunk fel:
+
+```txt
+Név -> Fizetés
+```
+
+Összesítve:
+
+```txt
+Név -> Település, Fizetés
+```
+
+A fizetés és a település között nincs függés, ezt így írhatjuk fel:
+
+```txt
+Fizetés <-/-> Település
+```
+
+A kölcsönös függőséget így ábrázoljuk:
+
+```text
+<->
+```
+
+A függőség mindig egyirányú. Ha Települést meghatározza a Név, a nevet nem határozhatja meg a Település. Ezt így írhatjuk fel:
+
+```txt
+Település -/-> Név
+```
+
+#### Összetett függőség
+
+A település két vagy több tulajdonságtól is függhet:
+
+![Összetett függőség](images/normal_02_dolgozok.png)
+
+```txt
+Név + Anyja neve -> Település
+```
+
+```txt
+Név + Anyja neve -> Település, Fizetés
+```
+
+#### A függőségek osztályozása
+
+Erős függőség:
+
+Minden baloldali értékhez kell, hogy tartozzon jobboldaon is érték.
+
+Gyenge függőség:
+
+A baloldali értékhez nem kötelező, hogy tartozzon jobboldali érték.
+
+Vegyük a következő függőséget:
+
+```txt
+Név -> Település
+```
+
+Ha a Települést nem kötelező megadni, akkor gyenge függőségről beszélünk. Ha kötelező megadni, akkor erős függőségről.
+
+Teljes függés:
+
+Ha a függő a teljes összetett meghatározóból függ, akkor teljes függésről beszélünk. Vagyi, ha az egyik meghatározót megszüntetem, akkor a függés már nem áll fenn.
+
+Részleges függés:
+
+Ha az összetett meghatározó egyik részét elhagyom, és a függés továbbra is fennál, akkor részleges függésről beszélünk.
+
+### 0NF
+
+A 0NF az az állapot, amikor még nincs normalizálva a séma. Itt valójában még nem beszélünk rendundancia megszüntetésről vagy normálizálásról.
+
+![Dolgozók 0NF-ben](images/normal_03_dolgozok.png)
+
+A Telefon mezőben nem atomi értékek is szereplenek.
+
+Megoldás:
+
+![Kivetítés](images/normal_04_dolgozok.png)
+
+### 1NF
+
+Ha egy relációs séma attribútum-értékei atomiak, akkor 1NF-ben van.
+
+### 2NF
+
+Egy egyed 2NF formában van, ha minden nem-kulcs tulajdonsága teljes függőséggel függ az azonsítójától.
+
+![Dolgozók nincsennek 2NF-ben](images/normal_06_dolgozok.png)
+
+```txt
+Név -> Település, Fizetés
+Projekt név -> Projekt kezdés
+```
+
+### Tranzitív függőség
+
+Ha egy C nem-kulcs tulajdonság függ A kulcstól, de  a B kulcstól is, ami szintén az azonosítótól függ, akkor tranzitív függésről beszélünk.
+
+```txt
+Azonosító -> A, B
+A -> C
+B -> C
+```
+
+### 3NF
+
+Ha a nem-kulcs tulajdonságok függnek a teljes azonosítótól, de csakis attól függnek, akkor az egyed 3NF formában van.
+
+Vegyük a következő Dolgozók táblát:
+
+![Dolgozók tábla](images/normal_08_dolgozok.png)
+
+A Név meghatározza a Települést és az Alapfizetést. De a Beosztás önmagában is meghatározza az alapfizetést.
+
+```txt
+Név -> Alapfizetés, Beosztás
+Beosztás -> Alapfizetés
+```
+
+Ez traniztív függőség.
+
+### Logikai tervezés gyakorlat
+
+## Fizikai tervezés
+
+Dolgozók és projektek.
+
+### Típusok
+
+* egész
+* valós
+* szöveg
