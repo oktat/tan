@@ -60,3 +60,6 @@ try {
     System.err.println("Hiba! A fájlbaírása sikertelen!");
 }
 ```
+
+A FileWriter konstruktor harmadik paramétere egy logikai típus, ami megmondja, hogy
+hozzáféűzésre nyissuk meg az állományt, vagy nem.
