@@ -52,12 +52,16 @@ import java.nio.charset.Charset;
 //...
 
 try {
-    FileWriter fileWriter = new FileWriter("adat.txt", Charset.forName("utf-8"), true);
-    PrintWriter printWriter = new PrintWriter(fileWriter);
-    printWriter.println("valami");
-    fileWriter.close();            
+    FileWriter fileWriter = new FileWriter(
+        "adat.txt", 
+        Charset.forName("utf-8"), 
+        true
+    );
+    fileWriter.write("valami\n");
+    fileWriter.close();
 } catch (IOException e) {
     System.err.println("Hiba! A fájlbaírása sikertelen!");
+    System.err.println(e.getMessage());
 }
 ```
 
