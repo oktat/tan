@@ -1,4 +1,4 @@
-# Asztali alkalmazások fejlesztése - Kivételkezelés
+# Asztali alkalmazások fejlesztése - Kivétel- és állománykezelés
 
 * **Szerző:** Sallai András
 * Copyright (c) 2022, Sallai András
