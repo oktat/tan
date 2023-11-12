@@ -60,7 +60,7 @@ try {
     fileWriter.write("valami\n");
     fileWriter.close();
 } catch (IOException e) {
-    System.err.println("Hiba! A fájlbaírása sikertelen!");
+    System.err.println("Hiba! A fájlbaírás sikertelen!");
     System.err.println(e.getMessage());
 }
 ```
