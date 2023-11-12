@@ -119,9 +119,40 @@ További információ és példák az adatbázis-tervezésről:
 
 ## Adatbázis-diagramok
 
-Lásd itt:
+### Adatmodell
 
-* [https://szit.hu/doku.php?id=oktatas:adatbazis-kezeles:adatbazis-diagramok](https://szit.hu/doku.php?id=oktatas:adatbazis-kezeles:adatbazis-diagramok)
+![Adatmodell példa](images/fizikai_05_schema.png)
+
+### E-R diagram/modell
+
+Az E-R az angol Entity-Relationship rövidítése, magyarul egyed-kapcsolat, de a diagram szóval használjuk: egyed-kapcsolat digaram.
+
+Az E-r modellt, dr. Peter Chan pulikálta 1976-ban.
+
+A következő alakzatokat használjuk:
+
+* téglalap - egyedekhez
+* ellipszis - tulajdonságokhoz
+* rombusz - kapcsolatokhoz
+* vonalak - összekötéshez
+
+![E-R diagram elemei](images/E-R_diagram_elemek.png)
+
+Az egyed és a gyenge egyed közötti különbség:
+
+* egyed - van olyan tulajdonság, amely egyértelműen meghatároz egy egyedet
+* gyenge egyed - a tulajdonságai nem határozzák meg egyértelműen az egyedet
+
+#### Dolgozók és projektek E-R diagrammal
+
+![Dolgozók és projektek](images/E-R_diagram_dolgozok_projektek.png)
+
+### Relációs sémák
+
+```txt
+Dolgozók(Név, Település, Fizetés)
+Projektek(Név, Kezdés)
+```
 
 ## Anomáliák
 
@@ -151,7 +182,7 @@ A projektek táblában, ha változik a név, több helyen át kell írni, de a t
 
 ## Normalizálás
 
-A normalizálása az adatbázis rendundanciáinak megszüntetését jelenti átalakíátssal.
+A normalizálás az adatbázis rendundanciáinak megszüntetését jelenti átalakíátssal.
 
 ### Normál formák
 
