@@ -254,11 +254,11 @@ A 0NF az az állapot, amikor még nincs normalizálva a séma. Itt valójában m
 
 A Telefon mezőben nem atomi értékek is szereplenek.
 
+### 1NF
+
 Megoldás:
 
 ![Kivetítés](images/normal_04_dolgozok.png)
-
-### 1NF
 
 Ha egy relációs séma attribútum-értékei atomiak, akkor 1NF-ben van.
 
@@ -266,12 +266,22 @@ Ha egy relációs séma attribútum-értékei atomiak, akkor 1NF-ben van.
 
 Egy egyed 2NF formában van, ha minden nem-kulcs tulajdonsága teljes függőséggel függ az azonsítójától.
 
+Tegyük fel, hogy szeretnénk tárolni melyik dolgozó melyik projektben vesz részt, és mikor kezdődött a projekt. Elsőre a következő táblát hozzuk össze:
+
 ![Dolgozók nincsennek 2NF-ben](images/normal_06_dolgozok.png)
+
+Írjuk fel a függőségeket:
 
 ```txt
 Név -> Település, Fizetés
 Projekt név -> Projekt kezdés
 ```
+
+A "Projekt kezdés" mező függ a "Projekt név" mezőtől, ami nem az elődleges kulcs, így **részleges függésről** beszélünk.
+
+Megoldás:
+
+![Dolgozókból a projekt entitás kivetítve](images/normal_06_dolgozok_projektek-kivetitve.png)
 
 ### Tranzitív függőség
 
@@ -300,14 +310,85 @@ Beosztás -> Alapfizetés
 
 Ez traniztív függőség.
 
+Megoldás:
+
+![3NF megoldva](images/normal_10_dolgozok.png)
+
 ### Logikai tervezés gyakorlat
+
+#### Logikai tervezés gyakorlat 1
+
+Adott a következő táblázat:
+
+![Projektek](images/normal_07_projektek.png)
+
+A Település mező a dolgozó lakhelyét jelöli.
+
+Oldjuk meg a következő feladatokat:
+
+* Állaptísuk meg, hogy 1NF-ben van-e.
+* Állaptísuk meg, hogy 2NF-ben van-e.
+* Állaptísuk meg, hogy 3NF-ben van-e.
+* Ha szükséges oldjuk meg a problémát.
+
+#### Logikai tervezés gyakorlat 2
+
+Adott a következő táblázat:
+
+![Projektek](images/normal_11_termekek.png)
+
+A Település mező a vásárló lakhelyét jelöli.
+
+Oldjuk meg a következő feladatokat:
+
+* Állaptísuk meg, hogy 1NF-ben van-e.
+* Állaptísuk meg, hogy 2NF-ben van-e.
+* Állaptísuk meg, hogy 3NF-ben van-e.
+* Ha szükséges oldjuk meg a problémát.
+
+#### Logikai tervezés gyakorlat 3
+
+Adott a következő táblázat:
+
+![Projektek](images/normal_14_dolgozok.png)
+
+A Település mező a vásárló lakhelyét jelöli.
+
+Oldjuk meg a következő feladatokat:
+
+* Állaptísuk meg, hogy 1NF-ben van-e.
+* Állaptísuk meg, hogy 2NF-ben van-e.
+* Állaptísuk meg, hogy 3NF-ben van-e.
+* Ha szükséges oldjuk meg a problémát.
 
 ## Fizikai tervezés
 
 Dolgozók és projektek.
+
+![Dolgozók és projektek](images/fizikai_01_dolgozok_projektek.png)
+
+Azonostó hozzáadása:
+
+![Dolgozók és projektek id-val](images/fizikai_02_dolgozok_projektek_id.png)
 
 ### Típusok
 
 * egész
 * valós
 * szöveg
+* dátum
+* logikai
+
+### Mariadb típusok
+
+| Típus | Leírás |
+|-|-|
+| int | egész |
+| double | valós |
+| varchar | variálható méretű karakterlánc |
+
+![Dolgozók típusokkal](images/fizikai_03_dolgozok_tipusok.png)
+
+![Projektek típusokkal](images/fizikai_04_projektek_tipusok.png)
+
+![Adatmodell](images/fizikai_05_schema.png)
