@@ -125,9 +125,9 @@ További információ és példák az adatbázis-tervezésről:
 
 ### E-R diagram/modell
 
-Az E-R az angol Entity-Relationship rövidítése, magyarul egyed-kapcsolat, de a diagram szóval használjuk: egyed-kapcsolat digaram.
+Az **E-R** az angol **Entity-Relationship** rövidítése, magyarul **egyed-kapcsolat**, de a diagram szóval használjuk: egyed-kapcsolat digaram.
 
-Az E-r modellt, dr. Peter Chan pulikálta 1976-ban.
+Az E-R modellt, **dr. Peter Chan** pulikálta 1976-ban.
 
 A következő alakzatokat használjuk:
 
@@ -176,7 +176,7 @@ Ha szeretnénk törölni egy dolgozót, de a telefonszámot szeretnénk megörí
 
 ### Módosítási anomália
 
-A projektek táblában, ha változik a név, több helyen át kell írni, de a települést is.
+A projektek táblában, ha változik a név, több helyen át kell írni. A település is ugyanilyen, ha változik a, akkor több helyen is át kell írni.
 
 ![Módosítási anomália](images/dolgozok_anomalia_03_modositas.png)
 
@@ -195,7 +195,7 @@ A normalizálás az adatbázis rendundanciáinak megszüntetését jelenti átal
 
 A tábla egy mezőjének értéke meghatározza egy másik mező értékét.
 
-Vegyünk egy táblát, amelyben dolgozók adatati tároljuk:
+Vegyünk egy táblát, amelyben dolgozók adatait tároljuk:
 
 ![Dolgozók tábla](images/normal_01_dolgozok.png)
 
@@ -255,7 +255,7 @@ Név + Anyja neve -> Település, Fizetés
 
 Erős függőség:
 
-Minden baloldali értékhez kell, hogy tartozzon jobboldaon is érték.
+Minden baloldali értékhez kell, hogy tartozzon jobboldalon is érték.
 
 Gyenge függőség:
 
@@ -271,11 +271,11 @@ Ha a Települést nem kötelező megadni, akkor gyenge függőségről beszélü
 
 Teljes függés:
 
-Ha a függő a teljes összetett meghatározóból függ, akkor teljes függésről beszélünk. Vagyi, ha az egyik meghatározót megszüntetem, akkor a függés már nem áll fenn.
+Ha a függő a teljes összetett meghatározótól függ, akkor teljes függésről beszélünk. Vagyis, ha az egyik meghatározót megszüntetem, akkor a függés már nem áll fenn.
 
 Részleges függés:
 
-Ha az összetett meghatározó egyik részét elhagyom, és a függés továbbra is fennál, akkor részleges függésről beszélünk.
+Ha az összetett meghatározó egyik részét elhagyom, és a függés továbbra is fennáll, akkor részleges függésről beszélünk.
 
 ### 0NF
 
@@ -316,7 +316,7 @@ Megoldás:
 
 ### Tranzitív függőség
 
-Ha egy C nem-kulcs tulajdonság függ A kulcstól, de  a B kulcstól is, ami szintén az azonosítótól függ, akkor tranzitív függésről beszélünk.
+Ha egy C nem-kulcs tulajdonság függ A kulcstól, de a B kulcstól is, ami szintén az azonosítótól függ, akkor tranzitív függésről beszélünk.
 
 ```txt
 Azonosító -> A, B
