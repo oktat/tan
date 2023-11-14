@@ -26,7 +26,7 @@ A beszédes nevekhez vizsgáljuk meg a következőket:
 * Milyen szerepe van?
 * Hogyan használjuk?
 
-Legyen például egy változó, amiben valakinek fizetését tároljuk:
+Legyen például egy változó, amiben valakinek a fizetését tároljuk:
 
 ```java
 int b; //A dolgozó fizetése
@@ -53,7 +53,7 @@ public class E { //Dolgozó osztálya
 
 ### Félrevezetés
 
-Az közismert elnevezések félrevezetőek lehetnek, ha az alatt több dolgot is érhetünk.
+A közismert elnevezések félrevezetőek lehetnek, ha az alatt több dolgot is érhetünk.
 
 Ilyenek lehetnek:
 
@@ -98,7 +98,7 @@ int a;
 int ar;
 ```
 
-Az "a" és az "ar" nevű változó névre nehéz keresni. Minél nagyobb az állomány ez annál nehezebb.
+Az "a" és az "ar" nevű változó névre nehéz keresni. Minél nagyobb az állomány, annál nehezebb.
 
 ### Típuskódolás
 

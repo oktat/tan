@@ -88,7 +88,7 @@ Vegyünk egy egyszerű esetet: Az idegsejtek ingerületet fogadnak és ingerült
 
 Vegyünk egy osztályt, ami a konstruktorán keresztül paraméterként fogadott objektumot, amivel beállítja egyik adattagját.
 
-Példánkban, a DataService osztály függ a Mariadb osztálytól:
+Példánkban, a **DataService** osztály **függ a Mariadb** osztálytól:
 
 ```java
 class DataService {
@@ -107,7 +107,7 @@ A kapcsolat a két osztály között UML ábrán:
 
 ![A kapcsolat a két osztály között UML ábrán](images/oop/datasource_kompozicio.png)
 
-A DataService erőteljesen függ a Mariadb osztálytól, mivel más osztály nem adható meg.
+A DataService **erőteljesen függ** a Mariadb osztálytól, mivel más osztály nem adható meg.
 
 Egy **interfésszel lazafüggőséget** alakíthatunk ki. A következő példákban üres interfész és osztályt használunk, mert most nem fontos mi van benne:
 
@@ -134,7 +134,7 @@ De mitől laza? Amikor példányosítjuk DataService osztályt paraméterként m
 DataService service = new DataSercie(new Mariadb());
 ```
 
-Azért adhatjuk meg, mert implementálta a DataSrouce osztályt, és DataService esetén ezt adtuk bemenő paraméternek. Ezzel együtt bármely osztály ami implementálja a DataSource osztályt, az megadható paraméterként. Legyen például egy Sqlite osztályt is:
+Azért adhatjuk meg, mert implementálta a DataSrouce osztályt, és DataService esetén ezt adtuk bemenő paraméternek. Ezzel együtt bármely osztály ami implementálja a DataSource interfészt, az megadható paraméterként. Legyen például egy Sqlite osztályt is:
 
 ```java
 interface DataSource {}
@@ -151,7 +151,7 @@ class DataService {
 }
 ```
 
-A DataService példányosítása során megadható a Mariadb osztály és az Sqlite osztály is:
+A DataService példányosítása során **megadható** a **Mariadb** osztály és az **Sqlite** osztály is:
 
 ```java
 DataService service1 = new DataSercie(new Mariadb());
