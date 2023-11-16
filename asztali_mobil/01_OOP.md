@@ -258,7 +258,7 @@ public interface Shape {
 }
 ```
 
-Készítsen osztály ami implementálj az interfészt és háromszög alakzattal dolgozik.
+Készítsen osztályt ami implementálja az interfészt és háromszög alakzattal dolgozik.
 
 ### Feladat 003
 
@@ -270,7 +270,7 @@ public interface Readable {
 }
 ```
 
-Készítsen osztályt Readfile néven, ami megvalósítja az interfészt, és egy fájl tartalmát beolvass egy String típusú változóba.
+Készítsen osztályt **Readfile** néven, ami megvalósítja az interfészt, és egy fájl tartalmát beolvassa egy String típusú változóba.
 
 ### Feladat 004
 
@@ -282,7 +282,7 @@ public interface Writable {
 }
 ```
 
-Készítsen osztályt Writer néven, ami megvalósítja az interfészt. Az osztály írja fájlba a kapott szöveget.
+Készítsen osztályt **Writer** néven, ami megvalósítja az interfészt. Az osztály, írja fájlba a kapott szöveget.
 
 ### Feladat 005
 
@@ -295,7 +295,7 @@ public interface Searchable {
 }
 ```
 
-Készítsen osztályt, amely megvalósítja az interfészt. Az osztály segítségével lehessen keresni egy szövegen, és lehessen megszámolni a hány szó van a szövegben.
+Készítsen osztályt, amely megvalósítja az interfészt. Az osztály segítségével lehessen keresni egy szövegben, és lehessen megszámolni a hány szó van a szövegben.
 
 ### Feladat 006
 
@@ -307,7 +307,7 @@ public interface Resizable {
 }
 ```
 
-Készítsen osztályt Rectangle néven, amely megvalósítja az interfészt. Az osztály egy téglalapot jelképze, amelyenek létrehozásakor meg kell adni a méreteit, de átméretezhetőnek kell lennei.
+Készítsen osztályt **Rectangle** néven, amely megvalósítja az interfészt. Az osztály egy téglalapot jelképez, amelyenek létrehozásakor meg kell adni a méreteit, de átméretezhetőnek kell lennie.
 
 ### Feladat 007
 
@@ -320,7 +320,7 @@ public interface Connectable {
 }
 ```
 
-Készítsen osztályt Network néven, amely megvalósítja az interfészt. A program csak egy szöveg kiírásával szimulálja, hogy kapcsolódott a hálózathoz, a kapcsolat megszakítását is csak egy szöveg kiírásával tudjta.
+Készítsen osztályt **Network** néven, amely megvalósítja az interfészt. A program csak egy szöveg kiírásával szimulálja, hogy kapcsolódott a hálózathoz, a kapcsolat megszakítását is csak egy szöveg kiírásával tudatja.
 
 ### Feladat 008
 
@@ -334,7 +334,7 @@ public interface Playable {
 }
 ```
 
-Készítsen osztályt Player néven, amely megvalósítja az interfészt. Az egyes metódusok, csak egy szöveg kiíratásával küldjenek üzenetet, hogy az adott funkció életbelép.
+Készítsen osztályt **Player** néven, amely megvalósítja az interfészt. Az egyes metódusok, csak egy szöveg kiíratásával küldjenek üzenetet, hogy az adott funkció életbelép.
 
 ### Feladat 009
 
@@ -348,7 +348,7 @@ public interface Controllable {
 }
 ```
 
-Készítsen osztályt Controller néven, amely megvalósítja az interfészt. Az egyes metódusok, csak egy szöveg kiíratásával küldjenek üzenetet, hogy az adott funkció elindult.
+Készítsen osztályt **Controller** néven, amely megvalósítja az interfészt. Az egyes metódusok, csak egy szöveg kiíratásával küldjenek üzenetet, hogy az adott funkció elindult.
 
 ### Feladat 010
 
@@ -360,7 +360,7 @@ public interface Authenticatable {
 }
 ```
 
-Készítsen osztályt Auth néven, amely megvalósítja az interfészt. A metódus, csak a "bela" felhasználónvet és a "titok" jelszót fogadja el.
+Készítsen osztályt **Auth** néven, amely megvalósítja az interfészt. A metódus, csak a "bela" felhasználónevet és a "titok" jelszót fogadja el.
 
 ### Feladat 011
 
@@ -373,4 +373,4 @@ public interface Runnable {
 }
 ```
 
-Készítsen osztályt Runner néven, amely megvalósítja az interfészt. Az egyes metódusok, csak egy szöveg kiíratásával küldjenek üzenetet, hogy az adott funkció elindult.
+Készítsen osztályt **Runner** néven, amely megvalósítja az interfészt. Az egyes metódusok, csak egy szöveg kiíratásával küldjenek üzenetet, hogy az adott funkció elindult.
