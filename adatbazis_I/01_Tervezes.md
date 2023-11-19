@@ -423,3 +423,89 @@ Azonostó hozzáadása:
 ![Projektek típusokkal](images/fizikai_04_projektek_tipusok.png)
 
 ![Adatmodell](images/fizikai_05_schema.png)
+
+## Gyakorlás
+
+1.) Mit jelent a NULL?
+
+* Például 0 darab van valamiből.
+* Nincs adat, nem ismerjük az értéket.
+* A táblának nincs kapcsolata másik táblával.
+* A végtelen értéket jelezzük így.
+
+2.) Mi az összetett kulcs?
+
+* A kulcs több rekordból tevődik össze.
+* Az idegenkulcs szinonímája.
+* Két vagy több mezőt használunk kulcsnak.
+* Olyan mező, amely számított értéket tartalmaz.
+
+3.) Mi a rekord?
+
+* Egy függőleges oszlop.
+* Egy mező, ami egyértelműen azonosít egy egyedet.
+* Egy egyed összes tulajdonsága.
+* A tábla szinonimája.
+
+4.) Mi a mező?
+
+* A táblázat egy sora.
+* A táblázat nevét, mezőnek is nevezzük.
+* A táblázat egy oszlopa.
+* Az adatbázis-kezelésben nem használunk ilyen szót.
+
+5.) Minek kell szerepelnie egy relációs adatbázis táblájában?
+
+* objektumok, osztályok, változók, felsorolások
+* táblanév, mezők, rekordok, kulcsok, kapcsolatok
+* számított mezők, JSON formában adatok
+* számított mezők, XML formában adatok
+
+6.) Mi az egyed?
+
+* Valami, amiről információt akarunk tárolni.
+* A táblázat egy oszlopa.
+* Egy adatbázis egy állománya.
+* Az adatbázis-kezelő rendszer portja.
+
+7.) Mi az idegen kulcs?
+
+* Egy másik táblában elsődleges kulcs.
+* A tábla egy sora.
+* Az adatbázis rendszer egy állománya.
+* Csak hálózati-adatmodellekben használjuk.
+
+8.) Milyen kapcsolatok lehetnek egy relációs adatbázisban?
+
+* egy a többhöz
+* laza kapcsolatok
+* erős kapcsolatok
+* költséges kapcsolatok
+
+9.) Milyen kapcsolatra kell törekedni egy relációs adatbázis tervezése során?
+
+* egy a többhöz
+* több a többhöz
+* erős kötésű kapcsolatokra
+* stabil kötésű kapcsolatokra
+
+10.) Mit értünk az adatbázis-kezelésben attribútum alatt?
+
+* A táblázat neve.
+* Az egyed egy tulajdonsága.
+* A táblázatok közötti kapcsolat módja.
+* Az adatbázis egy állománya.
+
+11.) Mit értünk az adatbázis-kezelésben normalizálás alatt?
+
+* A rendundancia megszüntetése.
+* Egy mező nevének meghatározása.
+* Lekérdezések tervezése.
+* Lekérdezések végrehajtása.
+
+12.) Mikor van első normálformán egy adatbázis?
+
+* Ha minden táblája csak atomi értékeket tartalmaz.
+* Ha csak egyetlen táblázatot tartalmaz.
+* Ha csak egyeteln rekordot tartalmaz egy táblázat.
+* Ha csak egy az egyhez kapcsolatokat tartalmaz.
