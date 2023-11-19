@@ -83,6 +83,10 @@ A **Dolgozó azonosító** mező a táblázatban kulcsmező, mivel ez mutatja me
 
 Az idegenkulcs egy másik táblában elsődleges kulcs. Az elsődleges kuulcs mutatja a két tábla közötti kapcsolatot.
 
+## NULL érték
+
+A NULL érték azt jelenti valamiről nincs ismeretünk. Nem egyenlő a 0 számmal. Ha egy hőmérséklet 0, az egy ismert érték. Ha hőmérsékelt NULL, nem tudjuk mi az érték.
+
 ## Kapcsolatok
 
 A táblák között tehát kapcsolat van. Háromféle kapcsolat lehetséges:
@@ -509,3 +513,17 @@ Azonostó hozzáadása:
 * Ha csak egyetlen táblázatot tartalmaz.
 * Ha csak egyeteln rekordot tartalmaz egy táblázat.
 * Ha csak egy az egyhez kapcsolatokat tartalmaz.
+
+13.) Milyik típust nem tudjuk beállítani a MariaDB adatbázis-kezelőben?
+
+* double
+* varchar
+* char
+* class
+
+14.) Mire használjuk az ER diagramot?
+
+* Számított mezők ábrázolása diagramon.
+* Adatbázis táblák tervezése.
+* NULL érték meghatározása.
+* Bármilyen érték ábrázolása egy táblázatból.
