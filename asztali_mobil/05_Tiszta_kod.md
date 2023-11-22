@@ -709,6 +709,15 @@ Jog megjegyzés:
 * a megjegyzésnek homályos kapcsolat a kóddal
 * kis függvény fejléccel
 
+Felesleges megjegyzés:
+
+```java
+/* Háromszög területének számítása */
+public void calcTriangleArea(double base, double height) {
+    return base * height / 2;
+}
+```
+
 Helyzetjelző:
 
 ```java
@@ -849,14 +858,40 @@ D d = c.ker();
 ### Kivételek hibakód helyett
 
 ```java
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class App {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.print("Egész szám: ");
+            int number = scanner.nextInt();
+            System.out.println("A szám: " + number);
+        } catch (InputMismatchException e) {
+            System.err.println("Hiba! Csak egész számot adható meg!");
+            System.err.println(e.getMessage());
+        } finally {            
+            scanner.close();
+        }
+    }
+}
+```
+
+Saját kivétel használata:
+
+```java
 if(!szoveg.matches("[0-9]+")) {
    throw new InputTypeError("Hiba! A bemenet nem megfelelő");
 }
 ```
 
-### Ellenőrizetlen kivételeket használjunk
+Az InputTypeError kivételt le meg kell valósítani.
 
-A C# nyelvben csak ilyen kivételek vannak. A Java nyelvben azonban nem.
+### Ellenőrizetlen kivételek használata
+
+Mindig használjunk ellenőrizetlen kivételeket. A C# nyelvben csak ilyen kivételek vannak. A Java nyelvben azonban nem.
 
 A Java nyelvben az ellenőrizetlen kivételek a futási idejű kivételek, angolul RuntimeException.
 
@@ -920,11 +955,14 @@ throws FileNotFoundException {
 
 ### Null érték visszaadása
 
-Ne adjunk vissza null értéket. Vizsgáljuk például inkább a méretet.
+Ne adjunk vissza null értéket. Ha vizsgálunk egy visszaadott értéket, nem a null értéket vizsgáljuk, inkább vizsgáljuk például a méretet.
 
 ## Határok
 
 A külső eszközöket ne építsük rögtön bele az éles alkalmazásba. Előbb próbáljuk ki.
+
+* MariaDB Connector
+* PDF generáló
 
 ## Unit tesztek
 
