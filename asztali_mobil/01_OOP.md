@@ -17,6 +17,57 @@
 
 5. Készítsen Netbeans-ben GUI alkalmazást, amely egy bekérős feladatot old meg.
 
+## Absztrakt osztály
+
+Az absztrakt angolul abstract, elvontat, összefoglalást jelent. Az absztrak osztályok öröklésre szánt osztályok, vagyis nem hozhatók létre belőlük példány.
+
+Absztrakt osztályt az abstract kulcsszóval hozunk létre:
+
+```java
+public abstract class Dolgozo {}
+```
+
+Az absztrakt osztályokban absztrakt metódusokat hozhatunk létre:
+
+```java
+public abstract class Dolgozo {
+    public abstract void munkavegzes();
+}
+```
+
+Figyeljük meg a munkavegzes() nevű metódust. A metódus törzsét nem valósítottuk meg. Viszont előírtuk, hogy az gyermekosztályban létre kell hozni egy munkavegzes() metódust, ami public elérésű, és nincs bemenő paramétere.
+
+Használjuk örökléssel az osztályt:
+
+```java
+public class Mernok extends Dolgozo {
+    public void munkavegzes() {
+        System.out.println("munka...");
+    }
+}
+```
+
+Az absztrakt osztálynak lehetnek nem absztrakt metódusai is:
+
+```java
+public abstract class Dolgozo {
+    public abstract void munkavegzes();
+    public void pihen() {
+        System.out.println("pihenés...");
+    }
+}
+```
+
+A gyermekosztályban nem kötelező a pihen() nevű metódus osztályt megvalósítása.
+
+Az absztrakt osztály tulajdonságai:
+
+* Egy osztály metódusa csak akkor lehet absztrakt, ha maga az osztály is absztrakt.
+* Egy absztrakt osztálynak nem kötelező minden metódusának absztraknak lennie.
+* Egy absztrakt osztályt nem lehet final vagy private módosítóval ellátni.
+* Egy absztrakt osztály absztrakt metódusát nem lehet az absztrakt osztályon belül megvalósítani.
+* Az örökölt oszálytban, ha az nem absztrakt kötelező megvalósítani az ősosztály absztrakt metódusát.
+
 ## Interfész
 
 Az interfészek **metódusok és állandók egy halmazát** adják meg. Az osztályok, amikor implementálnak egy ilyen interfészt, a benne található metódusokat kötelesek megvalósítani.
