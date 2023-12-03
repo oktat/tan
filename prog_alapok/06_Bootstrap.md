@@ -242,8 +242,26 @@ Igazítás másként:
 
 ## Navigáció
 
+```html
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link" href="index.html">Főoldal</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="contact.html">Kapcsolat</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="products.html">Termékek</a>
+  </li>
+</ul>
+```
+
 * [https://getbootstrap.com/docs/5.2/components/navs-tabs/](https://getbootstrap.com/docs/5.2/components/navs-tabs/)
 
 ## Gombok
+
+```html
+<button class="btn btn-primary">Mehet</button>
+```
 
 * [https://getbootstrap.com/docs/5.2/components/buttons/](https://getbootstrap.com/docs/5.2/components/buttons/)
