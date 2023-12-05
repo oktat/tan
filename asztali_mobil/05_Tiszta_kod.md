@@ -957,6 +957,98 @@ throws FileNotFoundException {
 
 Ne adjunk vissza null értéket. Ha vizsgálunk egy visszaadott értéket, nem a null értéket vizsgáljuk, inkább vizsgáljuk például a méretet.
 
+DataService.java:
+
+```java
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class DataService {
+    String fileName = "emp.txt";
+    public ArrayList<Employee> readFile() {
+
+        // Null értékkel inicializálunk:
+        ArrayList<Employee> empList = null; //<<< null érték
+        
+        try {
+            empList = tryReadFile();
+        } catch (FileNotFoundException e) {
+            System.err.println("Hiba! A fájl nem található!");
+            System.err.println(e.getMessage());
+        }
+        return empList;
+    }
+    private ArrayList<Employee> tryReadFile() 
+            throws FileNotFoundException {
+        ArrayList<Employee> empList = new ArrayList<>();
+        File file = new File(fileName);
+        Scanner sc = new Scanner(file);
+        while(sc.hasNext()) {
+            String line = sc.nextLine();
+            String[] lineArray = line.split(":");
+            Employee emp = new Employee(
+                Integer.parseInt(lineArray[0]),
+                lineArray[1],
+                lineArray[2],
+                Double.parseDouble(lineArray[3])
+            );
+            empList.add(emp);
+        }
+        sc.close();
+        return empList;
+    }    
+}
+```
+
+App.java:
+
+```java
+import java.util.ArrayList;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        ReDataService ds = new ReDataService();
+        ArrayList<Employee> empList = ds.readFile();
+
+        // Null értéket vizsgálunk
+        if (empList != null) {
+            printEmployees(empList);
+        }        
+    }
+    private static void printEmployees(ArrayList<Employee> empList) {
+        for(Employee emp : empList) {
+            System.out.println(emp.name);
+        }
+    }
+}
+```
+
+Nulll érték helyett:
+
+```java
+ArrayList<Employee> empList = new ArrayList<>();
+```
+
+Méretet vizsgálunk az App.java fájlban:
+
+```java
+DataService ds = new DataService();        
+ArrayList<Employee> empList = ds.readFile();
+if (empList.size() > 0) {
+    printEmployees(empList);
+}
+```
+
+Minta projekt:
+
+* [https://github.com/oktat/example_readfile.git](https://github.com/oktat/example_readfile.git)
+
+Egy tisztább példa:
+
+* [https://github.com/oktat/clreadfile.git](https://github.com/oktat/clreadfile.git)
+
 ## Határok
 
 A külső eszközöket ne építsük rögtön bele az éles alkalmazásba. Előbb próbáljuk ki.
@@ -965,6 +1057,8 @@ A külső eszközöket ne építsük rögtön bele az éles alkalmazásba. Előb
 * PDF generáló
 
 ## Unit tesztek
+
+### Alapvetések
 
 Használjunk TDD-t.
 
@@ -982,6 +1076,259 @@ További szabályok:
   * Egy tesztben egyetlen assert szerepeljen.
 * egy teszt - egy elem
   * egy teszt csak egyetlen elemet teszteljen.
+
+Egyetlen állítás:
+
+```java
+import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import lan.zold.Triangle;
+
+public class TriangleTest {
+    Triangle triangle;
+    @BeforeTest
+    public void initTriangle() {
+        triangle = new Triangle();
+    }
+    @Test
+    public void calcArea_30_35() {
+        double actual = triangle.calcArea(30, 35);
+        double expected = 525.0;
+        Assert.assertEquals(actual, expected);
+    }
+    @Test
+    public void calcArea_130_135() {
+        double actual = triangle.calcArea(130, 135);
+        double expected = 8775.0;
+        Assert.assertEquals(actual, expected);
+    }
+}
+```
+
+Egyetlen elemet tesztelünk:
+
+```txt
+app01/
+  `-test/
+     |-TriangleTest.java
+     `-CircleTest.java
+```
+
+### TDD gyakorlat
+
+#### Ciklus 01
+
+##### Tesztírás 01
+
+src/test/java/TriangleTest.java:
+
+```java
+public class TriangleTest {
+    Triangle triangle;
+}
+```
+
+##### Iparikód írása 01
+
+src/main/java/lan/zold/Triangle.java:
+
+```java
+package lan.zold;
+
+public class Triangle {
+    
+}
+```
+
+##### Refaktorálás 01
+
+Most már importálhatjuk a tesztfájlban.
+
+src/test/java/TriangleTest.java:
+
+```java
+import lan.zold.Triangle;
+
+public class TriangleTest {
+    Triangle triangle;
+    @BeforeTest
+    public void initTriangle() {
+        triangle = new Triangle();
+    }    
+}
+```
+
+#### Ciklus 02
+
+##### Tesztírás 02
+
+Fejlesszük a tesztet, csak annyira, hogy hibára fusson:
+
+```java
+@Test
+public void calcArea_30_35() {
+    triangle.calcArea(30, 35);
+}
+```
+
+A teljes tesztkód:
+
+```java
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import lan.zold.Triangle;
+
+public class TriangleTest {
+    Triangle triangle;
+    @BeforeTest
+    public void initTriangle() {
+        triangle = new Triangle();
+    }
+    @Test
+    public void calcArea_30_35() {
+        triangle.calcArea(30, 35);
+    }
+}
+```
+
+##### Iparikód írása 02
+
+src/main/java/lan/zold/Triangle.java:
+
+```java
+package lan.zold;
+
+public class Triangle {
+    public void calcArea(double base, double height) {}
+}
+```
+
+##### Refaktorálás 02
+
+Megnézzük van-e mit rafaktorálni. Nem találunk semmit.
+
+#### Ciklus 03
+
+##### Tesztírás 03
+
+Fejlesszük a tesztet:
+
+```java
+@Test
+public void calcArea_30_35() {
+    double actual = triangle.calcArea(30, 35);
+}
+```
+
+Most már visszatérési értéket is várunk.
+
+##### Iparikód írása 03
+
+```java
+public double calcArea(double base, double height) {
+    return 0;
+}
+```
+
+##### Refaktorálás 03
+
+Megnézzük van-e mit rafaktorálni. Nem találunk semmit.
+
+#### Ciklus 04
+
+##### Tesztírás 04
+
+Fejlesszük a tesztet:
+
+```java
+@Test
+public void calcArea_30_35() {
+    double actual = triangle.calcArea(30, 35);
+    Assert.assertEquals(actual, 525);
+}
+```
+
+##### Iparikód írása 04
+
+```java
+public double calcArea(double base, double height) {
+    return 525;
+}
+```
+
+##### Refaktorálás 04
+
+Nézzük meg mit lehet rafaktorálni:
+
+```java
+@Test
+public void calcArea_30_35() {
+    double actual = triangle.calcArea(30, 35);
+    double expected = 525.0;
+    Assert.assertEquals(actual, expected);
+}
+```
+
+#### Ciklus 05
+
+##### Tesztírás 05
+
+Írjunk egy újabb tesztet:
+
+```java
+@Test
+public void calcArea_130_135() {
+    double actual = triangle.calcArea(130, 135);
+    double expected = 8775.0;
+    Assert.assertEquals(actual, expected);
+}
+```
+
+A teljes tesztkód most:
+
+```java
+import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import lan.zold.Triangle;
+
+public class TriangleTest {
+    Triangle triangle;
+    @BeforeTest
+    public void initTriangle() {
+        triangle = new Triangle();
+    }
+    @Test
+    public void calcArea_30_35() {
+        double actual = triangle.calcArea(30, 35);
+        double expected = 525.0;
+        Assert.assertEquals(actual, expected);
+    }
+    @Test
+    public void calcArea_130_135() {
+        double actual = triangle.calcArea(130, 135);
+        double expected = 8775.0;
+        Assert.assertEquals(actual, expected);
+    }
+}
+```
+
+##### Iparikód írása 05
+
+```java
+public double calcArea(double base, double height) {
+    return base * height / 2;
+}
+```
+
+##### Refaktorálás 05
+
+Megnézzük van-e refaktorálni való. Nincs.
+Így folytatjuk tovább.
 
 ## Osztályok
 
