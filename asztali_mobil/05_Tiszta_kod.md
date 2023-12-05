@@ -1353,6 +1353,29 @@ Egyetlen felelősségi kör elve
 
 * Az osztálynak vagy modulnak egyetlen oka legyen a változásra.
 
+A következő egy rossz példa. A printEmployees egy nézet megvalósítása, nincs helye az App osztályban.
+
+App.java:
+
+```java
+import java.util.ArrayList;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        DataService ds = new DataService();        
+        ArrayList<Employee> empList = ds.readFile();
+        if (empList.size() > 0) {
+            printEmployees(empList);
+        }
+    }
+    private static void printEmployees(ArrayList<Employee> empList) {
+        for(Employee emp : empList) {
+            System.out.println(emp.name);
+        }
+    }
+}
+```
+
 Összetartás
 
 * Az osztály minden tagfüggvénye használjon egy vagy több példányváltozót.
