@@ -288,6 +288,286 @@ public class Magyar implements Beszed {
 }
 ```
 
+## Többalakúság
+
+### Metódus túlterhelése
+
+```java
+public class Triangle {
+    public double calcArea(double base, double height) {
+        return 0.5 * base * height;
+    }
+    public double calcArea(double sideA, double sideB, double angleInDegress) {
+        double angleInRadius = angleInDegress * Math.PI / 180;
+        return 0.5 * sideA * sideB * Math.sin(angleInRadius);
+    }
+    public double calcArea(float sideA, float sideB, float sideC) {
+        double s = (sideA + sideB + sideC)/2;
+        return Math.sqrt(s*(s-sideA)*(s-sideB)*(s-sideC));
+    }
+}
+
+```
+
+### Több alak örökléssel
+
+```java
+class Animal {}
+class Dog extends Animal {}
+class Wolf extends Animal {}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal animal1 = new Dog();
+        Animal animal2 = new Wolf();
+    }    
+}
+```
+
+Például egy tömb minden tagja más alakú lehet:
+
+```java
+Animal[] animalArray = new Animal[3];
+animalArray[0] = new Dog();
+animalArray[1] = new Wolf();
+animalArray[2] = new Cat();
+```
+
+### Elvont osztályok
+
+Az alaposztályt tegyük elvonnttá, hogy ne is lehessen példányt létrehozni belöle.
+
+```java
+abstract class Animal {}
+class Dog extends Animal {}
+class Wolf extends Animal {}
+class Cat extends Animal {}
+```
+
+### Interfészek
+
+Az interfészekben nem szükséges megvalósítani a metódusokat. Így használhatjuk őket paraméterként.
+
+```java
+// Interfész számításhoz
+interface Calculable {
+    // Kerületszámítás
+    double calcPerimter();
+}
+
+// Circle, ami megvalósítja az interfészt
+class Circle implements Calculable {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public double calcPerimter() {
+        return 2 * Math.PI * radius;
+    }
+}
+
+// Rectangle, ami megvalósítja az interfészt
+class Rectangle implements Calculable {
+    private double sideA;
+    private double sideB;
+
+    public Rectangle(double sideA, double sideB) {
+        this.sideA = sideA;
+        this.sideB = sideB;
+    }
+
+    @Override
+    public double calcPerimter() {
+        return 2 * (sideA + sideB);
+    }
+}
+
+// Segédosztály: paraméterként intefészt használ
+class PerimeterCalculator {
+    public static double calcAndPrint(Calculable shape) {
+        double perimeter = shape.calcPerimter();
+        System.out.println("Az alakzat kerülete: " + perimeter);
+        return perimeter;
+    }
+}
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        Circle circle = new Circle(5);
+        Rectangle rectangle = new Rectangle(3, 4);
+
+        // Átadhatok minden ami megvalósítja az interfészt
+        PerimeterCalculator.calcAndPrint(circle);
+        PerimeterCalculator.calcAndPrint(rectangle);
+    }
+}
+```
+
+## Módosítók
+
+### Hozzáférés
+
+* public - minden osztályból elérhető
+* protected - azonos csomagból és leszármazott osztályokból érhető el
+* default (nincs módosító) - azonos csomagból érhető el
+* private - csak osztályon belül érhető el
+
+### Nem hozzáférés módosítók
+
+* static - osztályszintű tag - az osztály nevén keresztül érhető el
+* final - nem írható felül
+* abstract - a metódus nincs helyben megvalósítva
+
+### Visszatérés típusa
+
+* Valamilyen típus, amit a metódus visszaad.
+* void ha nem ad vissza értéket
+
+## Csomagok
+
+Ha VSCode-ban készítünk egy No build tools típusú Java projektet a következő könyvtárszerkezetet kapjuk:
+
+```txt
+app01/
+  |-.vscode/
+  |  `-settings.json
+  |-lib/
+  |-src/
+  |  `-App.java
+  `-README.md
+```
+
+A forássfájlok útvonala az src könyvtár.
+
+Tegyünk az src könyvtárba egy "feher" nevű újabb könyvtárat. Az App.java fájlt mozgassuk ebbe a könyvtárba.
+
+```txt
+app01/
+  |-.vscode/
+  |  `-settings.json
+  |-lib/
+  |-src/
+  |  `-feher/
+  |      `-App.java
+  `-README.md
+```
+
+Az App.java fájl most a "feher" nevű csomagon belül tudjuk használni. A VSCode felkínálja a javítást. Ha nem, akkor fel kell vegyük a fájl elejére a csomagra vonatkozó bejegyzést.
+
+```java
+package feher;
+```
+
+A teljes kód ekkor:
+
+```java
+package feher;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        System.out.println("Helló");
+    }
+}
+```
+
+A program ugyanúgy használható.
+
+### Csomagban lévő osztály importálása
+
+Valami.java:
+
+```java
+package feher;
+
+public class Valami {
+    public void print() {
+        System.out.println("Működik");
+    }
+}
+```
+
+App.java:
+
+```java
+import feher.Valami;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        Valami valami = new Valami();
+        valami.print();
+    }
+}
+```
+
+A Valami nevű osztályt most importálni kell a használathoz.
+
+## A this és a super
+
+### A this
+
+A this mindig az aktuális osztályt jelenti.
+
+```java
+class Example {
+    int adat;
+    public void setup() {
+        this.adat = 35;
+    }
+    public void print() {
+        System.out.println(this.adat);
+    }
+}
+```
+
+### A super
+
+Az ősosztály hívása:
+
+```java
+class Example {
+    public Example() {
+        System.out.println("ősosztály");
+    }
+}
+
+class Sub extends Example {
+    public Sub() {
+        super();
+    }
+}
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        new Sub();
+    }
+}
+```
+
+Ősosztály metódusának hívása, az App.java:
+
+```java
+class Example {
+    public void print() {
+        System.out.println("ősosztály");
+    }
+}
+
+class Sub extends Example {
+    public Sub() {
+        super.print();
+    }
+}
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        new Sub();
+    }
+}
+```
+
 ## OOP feladat
 
 ### Feladat 001
