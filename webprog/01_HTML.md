@@ -538,3 +538,57 @@ Milyen tartalmat adhatunk meg az aside elemmel?
 * Kapcsolódó tartalom
 * Az oldal fő navigációs sávja
 * Képek megjelenítésére használható
+
+### Gyakorló feladatok
+
+#### Feladat 01
+
+Készítsen NodeJS projektet, amelyben egy src könyvtárban létrehoz egy index.html nevű fájlt. Az index.html oldalon három nyelven kell megjelenítenie tartalmat.
+
+A "Totál gáz" című film történetét kell megjelenítenie magyarul, spanyolul és németül.
+
+Magyar szöveg.
+
+```txt
+A történet azzal indul, hogy egy átlagos francia család két gyerekkel és egy terhes feleséggel nyaralni indul a vadonatúj, ultramodern autójukkal. Előrevetíti az események árnyékát, hogy a plasztikai sebész férj kétbalkezes apja is velük utazik, a feleség ellenkezése dacára.
+
+Az autópályán az autó elektronikája elromlik, és az autó sebessége beragad 160 km/h-nál. Sem fékezni nem tudnak, sem az elektronikát kikapcsolni. Az autópálya motoros rendőrei eleinte szórakozásból száguldozónak tartják a sofőrt, azonban később próbálnak segíteni, hogy az autó akadálytalanul folytassa az útját.
+
+Még a száguldozás beindulása előtt egy benzinkútnál felvesznek egy kék hajú, stopos lányt, akit az anyja véletlenül otthagyott.
+
+Végül csak helikopterrel tudják kimenteni az utasokat a száguldó autóból.
+```
+
+Spanyol szöveg:
+
+```txt
+La historia comienza con una familia francesa promedio con dos hijos y una esposa embarazada que se va de vacaciones en su auto nuevo y ultramoderno. El hecho de que el ambidiestro padre del marido, cirujano plástico, también viaje con ellos, a pesar de la oposición de la esposa, presagia los acontecimientos.
+
+En la carretera, la electrónica del coche falla y la velocidad del coche se queda estancada en 160 km/h. No pueden frenar ni apagar la electrónica. Al principio, los policías en moto que circulan por la autopista creen que el conductor acelera por diversión, pero luego intentan ayudar al coche a continuar su viaje sin obstáculos.
+
+Incluso antes de que comience la carrera, una chica de pelo azul que hace autostop y que fue abandonada accidentalmente por su madre es recogida en una gasolinera.
+
+Al final, sólo un helicóptero puede rescatar a los pasajeros del coche que iba a toda velocidad.
+```
+
+```txt
+Die Geschichte beginnt damit, dass eine durchschnittliche französische Familie mit zwei Kindern und einer schwangeren Frau in ihrem brandneuen, hochmodernen Auto in den Urlaub fährt. Die Tatsache, dass der beidhändige Vater des Mannes des plastischen Chirurgen trotz des Widerstands der Frau ebenfalls mit ihnen reist, lässt die Ereignisse ahnen.
+
+Auf der Autobahn fällt die Elektronik des Autos aus und die Geschwindigkeit bleibt bei 160 km/h hängen. Sie können weder bremsen noch die Elektronik abschalten. Die Motorradpolizei auf der Autobahn geht zunächst davon aus, dass der Fahrer aus Spaß zu schnell fährt, doch später versucht sie, dem Auto zu helfen, seine Fahrt ungehindert fortzusetzen.
+
+Noch bevor das Rennen beginnt, wird ein blauhaariges, per Anhalter fahrendes Mädchen, das versehentlich von ihrer Mutter zurückgelassen wurde, an einer Tankstelle aufgegriffen.
+
+Am Ende kann nur ein Hubschrauber die Passagiere aus dem rasenden Auto retten.
+```
+
+* Minden szöveg több részből áll. Egy nyelvi részt tegyen szekcióba.
+* Minden nyelvri rész egy kettes szintű fejezetcímmel kezdődjön, ahol a nyelv neve szerepel.
+* Minden szekciónál jelölje megfelelő HTML attribútummal a nyelvet. Magyar nyelvet a "hu" kulccsal jelöljük.
+* Használja az Internetet annak kiderítésére, hogyan jelöljük a spanyol és a német nyelvet.
+* Írja le, milyen szabvány írja le a rövidítéseket, a weboldal forráskódjában megjegyésben.
+* Egy style.css fájlba állítson be 4%-os margót az egész oldal számára.
+* Az egész oldal számára állítson be talpatlan betűtípust.
+* Az oldalnak legyen egy fejrésze, aminek a magasságát állítsa 120 pixelre.
+* A fejrész háttérszíne antiquewhite legyen.
+* A fejrészben egyes fejezetcímmel szerepeljen a "Totál gáz" szöveg.
+* A fejrész egyes szintű fejezetcímének állítsa be a szöveg középreigazítását.

@@ -41,6 +41,13 @@ II. Második szinten a böngésző sorrendet állít fel fontosság és az erede
 
 III. A szelektorok specifikussága a következő szint.
 
+```css
+p.egy { background-color: blue; }
+p { background-color: red; }
+```
+
+A kék szín érvényesül, mivel az osztály meadása specifikusabb.
+
 IV. A sorrend az utolsó szint. Ami később van megadva, annak nagyobb a súlyozása.
 
 ## CSS - táblázatok
@@ -497,7 +504,6 @@ További transzformációk:
 
 * [https://szit.hu/doku.php?id=oktatas:web:css:css3#transzformaciok](https://szit.hu/doku.php?id=oktatas:web:css:css3#transzformaciok)
 
-
 ### Átmenetek
 
 Transition:
@@ -796,3 +802,11 @@ A -o-linear-gradient() függvény milyen böngészők számára használjuk:
 * Google Chrome
 * Opera
 * Firefox
+
+### Gyakorló feladatok
+
+#### Feladat 01
+
+* Készítsen weblapot a csikos projektnévvel.
+* Legyen az oldalnak egy 130 pixel magas fejléce.
+* A fejléc háttérszíne legyen kék színű, színátmenettel.
