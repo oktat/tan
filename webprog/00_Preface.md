@@ -117,7 +117,19 @@ Bővebben:
 
 ## NodeJS projekt
 
-Az alábbiakban elkészítünk egy NodeJS projektet, a jövőben mindig ilyen projektekkel fogunk dolgozni. Ilyen projekt az npm és a yarn paranccsal is létrehozható.
+A NodeJS-t eredetileg szerveroldali futtatókörnyezetnek szánták, JavaScript nyelven írt programok számára.
+
+Alkalmazási területek:
+
+* Webalkalmazások
+* API-k és mikroszolgáltatások
+* Real-time alkalmazások - chat
+* Build eszközök - webpack, Gulp, Grunt
+* Adatbázis-kezelés
+* Asztali alkalmazás
+* Mobil alkalmazások
+
+Az alábbiakban elkészítünk egy NodeJS projektet. Egy webes alkalmazást fogun készíteni. A jövőben mindig ilyen projektekkel fogunk dolgozni. Ilyen projekt az npm, yarn és a pnpm paranccsal is létrehozható.
 
 A tervek szerint a következő könyvtárszerkezetet hozzuk létre:
 
@@ -132,11 +144,10 @@ app01/
 Ebből nekünk, csak az index.html fájlt kell létrehozni, a
 többit valamilyen parancs hozza létre.
 
-Az **npm** és a **yarn** parancs a függőségeket a **node_modules/** könyvtárba tölti le. A **packages.json** fájlba íródik, be minden telepített csomag, amiről úgy beszélünk, hogy függőség, mivel ezt használtuk a munkánk során. Ha más használni akarja a projektünket, akkor megkapja az index.html és a package.json fájlt. Egy yarn vagy egy npm paranccsal telepíteni tudja ugyanazokat az csomagokat, amiket mi is használtunk.
+Az **npm** és a **yarn** parancs a függőségeket a **node_modules/** könyvtárba tölti le. A **packages.json** fájlba íródik, minden telepített csomag, amiről úgy beszélünk, hogy függőség, mivel ezt használtuk a munkánk során. Ha más használni akarja a projektünket, akkor megkapja az index.html és a package.json fájlt. Egy yarn vagy egy npm paranccsal telepíteni tudja ugyanazokat a csomagokat, amiket mi is használtunk.
 A **package-lock.json** fájlban az npm parancs írja le, milyen csomagokat tettünk fel és szedtünk le, ezt általában nem nézegetjük.
 
-Elkészítjük az első NodeJS alapú projektünket. A projekt könyvtárát most nekünk kell létrehozni. Legyen a neve app01. Ha elkészült lépjünk be a
-könyvtárba.
+Elkészítjük az első NodeJS alapú projektünket. A projekt könyvtárát most nekünk kell létrehozni. Legyen a neve app01. Ha elkészült lépjünk be a könyvtárba.
 
 ```cmd
 mkdir app01
@@ -153,7 +164,7 @@ Kapunk egy package.json fájlt. Tartalma:
 
 ```json
 {
-  "name": "p0",
+  "name": "app01",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

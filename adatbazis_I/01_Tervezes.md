@@ -472,7 +472,7 @@ Azonostó hozzáadása:
 * Egy adatbázis egy állománya.
 * Az adatbázis-kezelő rendszer portja.
 
-7.) Mi az idegen kulcs?
+7.) Mi az idegenkulcs?
 
 * Egy másik táblában elsődleges kulcs.
 * A tábla egy sora.

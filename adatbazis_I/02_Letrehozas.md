@@ -7,7 +7,7 @@
 
 ## A MariaDB
 
-Az alkalmazások többsége manapság webes alkalmazásként készül. Webes alkalmazások legelterjedtebb adatbázis-kezelő rendszer a MariaDB, ami egy MySQL elágazásból jött létre.
+Az alkalmazások többsége manapság webes alkalmazásként készül. Webes alkalmazások legelterjedtebb adatbázis-kezelő rendszere a MariaDB, ami egy MySQL elágazásból jött létre.
 
 A webfejlesztők egyik gyakran használt fejelsztői szervermegoldása az XAMPP. Az XAMPP már 5.5.30 és 5.6.14 verziók óta MariaDB-t csoamgagolnak a MySQL helyett.
 
@@ -41,6 +41,11 @@ A PhpMyAdmin felületen a ; pontosvesszőnek nincs sok jelentősége, de a Maria
 
 ## Adatbázis felhasználó létrehozása
 
+A grant parancsot eredetileg arra találták ki, hogy jogokat 
+biztosíthassunk egy felhasználónak. Ha a grant parnacsnak 
+van identified by záradéka, és a felhasználó még nem létezik,
+akkor az automatikusan létrejön.
+
 ```sql
 grant all privileges
 on dbnev.*
@@ -50,13 +55,15 @@ identified by 'titok';
 
 ## Tábla létrehozása
 
+Tábla létrehozása egyetlen mezővel:
+
 ```sql
 create table dolgozok(
     name varchar(50)
 )
 ```
 
-Elsődleges kulccsal:
+Tábla létrehozása elsődleges kulccsal:
 
 ```sql
 create table dolgozok(
@@ -67,12 +74,25 @@ create table dolgozok(
 
 ## Tábla átnevezése
 
+Először tájékozódjunk milyen tábláink vannak, és azoknak milyen a felépítésük:
+
 ```sql
 show tables;
-desc employees;
+desc dolgozok;
+```
+
+Táblázat átnevezése:
+
+```sql
 rename table dolgozok to employees;
+```
+
+Ellenőrzés:
+
+```sql
 desc employees;
 ```
+
 
 ## Mező hozzáadása
 
@@ -84,8 +104,16 @@ desc employees;
 
 ## Mező törlése
 
+Adjunk a táblához egy valami nevű oszlopot:
+
 ```sql
 alter table employees add valami double;
+```
+
+Most töröljük a táblát:
+
+```sql
+
 alter table employees drop valami;
 ```
 
