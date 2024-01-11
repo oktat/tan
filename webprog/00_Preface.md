@@ -117,6 +117,8 @@ Bővebben:
 
 ## NodeJS projekt
 
+### A NodeJS-ről
+
 A NodeJS-t eredetileg szerveroldali futtatókörnyezetnek szánták, JavaScript nyelven írt programok számára.
 
 Alkalmazási területek:
@@ -128,6 +130,8 @@ Alkalmazási területek:
 * Adatbázis-kezelés
 * Asztali alkalmazás
 * Mobil alkalmazások
+
+### Projekt készítése
 
 Az alábbiakban elkészítünk egy NodeJS projektet. Egy webes alkalmazást fogun készíteni. A jövőben mindig ilyen projektekkel fogunk dolgozni. Ilyen projekt az npm, yarn és a pnpm paranccsal is létrehozható.
 
@@ -189,6 +193,8 @@ A yarn parancs kevesebb tartalmat ír a fájlba:
 ```
 
 A package.json fájl akár kézzel is elkészíthető, illetve szerkeszthető. Ha a "yarn init" vagy az "npm init" parancsot használjuk, ügyeljünk arra, hogy ne legyen **node_moduels** könyvtár.
+
+### A lite-server
 
 A lite-server nevű csomagot fogjuk használni a fejlesztés során, webszervernek.
 
@@ -276,6 +282,33 @@ A weboldal megnyílik az alapértelmezett böngészőben.
 Végezzünk néhány javítást a weboldalon. Vegyünk fel, például egy "p" elemet, írjuk bele "Lorem ipsum dolor est amet" szöveget, mentsük és figyeljük a böngészőt.
 
 A továbbikaban így fogunk weboldalakat készíteni.
+
+### A lite-server konfigurálása
+
+Hozzunk létre egy NodeJS projektet. A projekt gyökérkönyvtárában hozzunk létre bs-config.json néven egy fájlt. A tartalma:
+
+bs-config.json:
+
+```json
+{
+  "server": ["src"],
+  "port": 3000
+}
+```
+
+Ha bootstrap-t is használunk:
+
+bs-config.json:
+
+```json
+{
+  "server": [
+    "src", 
+    "node_modules/bootstrap/dist/css"
+  ],
+  "port": 3000
+}
+```
 
 ## Git használata
 
