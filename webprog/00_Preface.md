@@ -858,3 +858,13 @@ Feladatok:
 * Készítsen pillanatképet (commit), írja le mit adott hozzá.
 * Ismételje még kétszer a bekezdések hozzáadását, újabb gyümölcsökkel.
 * Legyen legalább 4 pillanatkép (commit) mentve.
+
+#### Gyakorlat 02
+
+* Készítsen "dere" néven NodeJS projektet.
+* A projektkönyvtárat kövesse Git tárolóval.
+* A forrásfájlokat egy src nevű könyvtárba hozza létre.
+* Készítsen 3 weblapot:
+  * Főoldal
+  * Termékek
+  * Kapcsolat
