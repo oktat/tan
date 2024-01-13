@@ -312,20 +312,23 @@ Tudjuk, hogy a table elemben táblázatot teszünk, a form elembe űrlapot, a fi
 
 Az oldal szerkezetét meghatározó szemantikus elemek a következők:
 
-* article
-* aside
 * header
+* main
 * footer
 * section
 * nav
+* article
+* aside
 
 Lássuk mire valók:
 
-* **section**: Összetartozó tartalmakat jelölünk vele, mint a div elemmel.
-* **aside**: Érintőlegesen kapcsolódó tartalom, amely általában bal vagy jobb oldalon helyezkedik el. Ha valami a fő tartalom bal vagy jobb oldalán helyezkedik el, az még nem elegendő ok arra, hogy aside elembe helyezzük. Tegye fel magának a kérdést. Ha törlöm a félreeső tartalmat, a fő tartalom jelentése változik? Ha nem változik meg, akkor a megfelelő módon használjuk.
 * **header**: Ez a header nem tévesztendő össze egy weboldal fejrészével, bár ott is használható. A HTML5 header elem akár többször is szerepelhet egy weblap részeként, például a section elemen belül. A section elemnek is lehet külön header vagy footer része.
-* **nav**: Az egész webhely navigációs információit helyezzük el benne.
+* **main**: Az oldal fő része
 * **footer**: Nem a weboldal alsó részéről van szó, bármelyik szakaszban használható. De jelölhetjük vele a weblap alját is.
+* **section**: Összetartozó tartalmakat jelölünk vele, mint a div elemmel.
+* **nav**: Az egész webhely navigációs információit helyezzük el benne.
+* **article**: Cikkek
+* **aside**: Érintőlegesen kapcsolódó tartalom, amely általában bal vagy jobb oldalon helyezkedik el. Ha valami a fő tartalom bal vagy jobb oldalán helyezkedik el, az még nem elegendő ok arra, hogy aside elembe helyezzük. Tegye fel magának a kérdést. Ha törlöm a félreeső tartalmat, a fő tartalom jelentése változik? Ha nem változik meg, akkor a megfelelő módon használjuk.
 
 * [http://szit.hu/doku.php?id=oktatas:web:html:html5_nyelv#szemantikus_elemek](http://szit.hu/doku.php?id=oktatas:web:html:html5_nyelv#szemantikus_elemek)
 
