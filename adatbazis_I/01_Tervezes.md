@@ -19,7 +19,7 @@ Az adatbázisok a következő módon osztályozhatók:
 * relációs
 * hálós
 * hierachikus
-* objektumorientál
+* objektumorientált
 * objektumrelációs
 
 ## A relációs adatbázis
@@ -233,6 +233,12 @@ A kölcsönös függőséget így ábrázoljuk:
 
 ```text
 <->
+```
+
+például:
+
+```text
+Teljesnév <-> Becenév
 ```
 
 A függőség mindig egyirányú. Ha Települést meghatározza a Név, a nevet nem határozhatja meg a Település. Ezt így írhatjuk fel:
