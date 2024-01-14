@@ -79,8 +79,8 @@ character set utf8
 collate utf8_hungarian_ci;
  
 grant all privileges 
-on surubt.*
-to surubt@localhost
+on zoldzrt.*
+to zoldzrt@localhost
 identified by 'titok';
  
 use zoldzrt;
@@ -92,6 +92,27 @@ create table employees (
     salary double,
     birth date
 );
+```
+
+Kapcslódás:
+
+```java
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        Connection conn = null;
+        try {
+            String url = "jdbc:mariadb://localhost:3306/zoldzrt";
+            conn = DriverManager.getConnection(url, "zoldzrt", "titok");
+            System.out.println("Kapcsolat OK");
+        } catch (Exception e) {
+            System.err.println("Hiba! Az adatbázishoz kapcsolódás sikertelen!");
+            System.err.println(e.getMessage());
+        }
+    }
+}
 ```
 
 Modell készítése
@@ -131,10 +152,100 @@ public class Employee {
 }
 ```
 
-Kapcslódás:
+Dolgozó beszúrása:
 
 ```java
+import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.DriverManager;
+import java.time.LocalDate;
+ 
+class App {
+    public static void insertEmployee(Employee employee) {
+        Connection conn = null;
+        try {
+            String url = "jdbc:mariadb://localhost:3306/surubt";
+            conn = DriverManager.getConnection(url, 
+            "surubt", "titok");
+ 
+            String sql = "insert into employees" +
+                " (name, city, salary, birth) values" +
+                " (?, ?, ?, ?)";        
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, employee.name);
+            pstmt.setString(2, employee.city);
+            pstmt.setDouble(3, employee.salary);
+            pstmt.setDate(4, java.sql.Date.valueOf(employee.birth));
+            pstmt.execute();
+ 
+ 
+        }catch(SQLException ex) {
+            System.err.println("Hiba! Az SQL művelet sikertelen!");
+            System.err.println(ex.getMessage());
+        }
+    }
+ 
+    public static void main(String[] args) {
+        Employee emp = new Employee(
+            1, 
+            "Erős István", 
+            "Szeged", 
+            345, 
+            LocalDate.parse("2001-07-15")
+            );
+        insertEmployee(emp);
+    }
+}
+```
 
+Lekérdezés:
+
+```java
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.DriverManager;
+import java.util.ArrayList;
+ 
+class App {
+    public static ArrayList<Employee> getEmployees() {
+        ArrayList<Employee> employeeList = new ArrayList<>();
+        Connection conn = null;
+        try {
+            String url = "jdbc:mariadb://localhost:3306/surubt";
+            conn = DriverManager.getConnection(url, 
+            "surubt", "titok");
+ 
+            String sql = "select * from employees";        
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()) {
+                Employee emp = new Employee(
+                    rs.getInt("id"),
+                    rs.getString("name"),
+                    rs.getString("city"),
+                    rs.getDouble("salary"),
+                    rs.getDate("birth").toLocalDate()
+                    );
+                employeeList.add(emp);
+            }
+        }catch(SQLException ex) {
+            System.err.println("Hiba! Az SQL művelet sikertelen!");
+            System.err.println(ex.getMessage());
+        }
+        return employeeList;
+    }
+ 
+    public static void main(String[] args) {
+        ArrayList<Employee> employeeList;
+        employeeList = getEmployees();
+        employeeList.forEach(emp -> {
+            System.out.println(emp.name);
+        });
+    }
+}
 ```
 
 ## SQLite
