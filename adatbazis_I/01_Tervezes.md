@@ -250,7 +250,7 @@ például:
 Teljesnév <-> Becenév
 ```
 
-A függőség mindig egyirányú. Ha Települést meghatározza a Név, a nevet nem határozhatja meg a Település. Ezt így írhatjuk fel:
+A függőség mindig egyirányú. Ha Települést meghatározza a Név. Ha fordítva nem igaz, Település nem határozza meg a nevet, ezt így írhatjuk fel:
 
 ```txt
 Település -/-> Név
