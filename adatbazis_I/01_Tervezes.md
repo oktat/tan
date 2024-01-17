@@ -81,11 +81,20 @@ Projektek
 
 A **Dolgozó azonosító** mező a táblázatban kulcsmező, mivel ez mutatja meg a másik táblázatban melyik dolgozóról van szó. Úgyis mondhatnánk, ez a mező a másik táblában elsődleges kulcs. Az ilyen mezőt idegenkulcs-mezőnek nevezzük.
 
-Az idegenkulcs egy másik táblában elsődleges kulcs. Az elsődleges kuulcs mutatja a két tábla közötti kapcsolatot.
+Az idegenkulcs egy másik táblában elsődleges kulcs. Az elsődleges kulcs mutatja a két tábla közötti kapcsolatot.
 
 ## NULL érték
 
 A NULL érték azt jelenti valamiről nincs ismeretünk. Nem egyenlő a 0 számmal. Ha egy hőmérséklet 0, az egy ismert érték. Ha hőmérsékelt NULL, nem tudjuk mi az érték.
+
+Termékek
+
+| Azonosító | Termék | Egységár (ETH) |
+|-|-|-|
+| 1 | paradicsom | 0,002 |
+| 2 | paprika | 0 |
+| 3 | káposzta | NULL |
+| 4 | sárgarépa | 0,001 |
 
 ## Kapcsolatok
 
@@ -164,7 +173,7 @@ Projektek(Név, Kezdés)
 
 Tegyük fel, hogy egy Dolgozók táblában összetett kulcsunk van, a név és a nyelvtudás:
 
-![Bővítési anomálisa](images/dolgozok_anomalia_01_bovites.png)
+![Bővítési anomália](images/dolgozok_anomalia_01_bovites.png)
 
 Ha fel kell venni egy új dolgozót és nem tudjuk, hogy milyen nyelvet tud, vagy nincs is idegennyelv tudása, ez problémát okozhat, mivel a kulcs egyik része hiányzik. Ez egy bővíétési anomália.
 
@@ -318,7 +327,7 @@ Név -> Település, Fizetés
 Projekt név -> Projekt kezdés
 ```
 
-A "Projekt kezdés" mező függ a "Projekt név" mezőtől, ami nem az elődleges kulcs, így **részleges függésről** beszélünk.
+A "Projekt kezdés" mező függ a "Projekt név" mezőtől, ami nem a tábla fő kulcsmezője, így **részleges függésről** beszélünk.
 
 Megoldás:
 
