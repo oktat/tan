@@ -73,6 +73,7 @@ Projektek
 Minden dolgozó visz egy projektet. Hogyan tároljuk ezt az információt? Vegyünk fel egy újabb mezőt, ahova beírjuk a dolgozó azonosítóját:
 
 Projektek
+
 | Azonosító | Megnevezés | Befejezve | Dolgozó azonosító |
 |-|-|-|-|
 | 1 | Számlázó program | igen | 1 |
@@ -89,12 +90,14 @@ A NULL érték azt jelenti valamiről nincs ismeretünk. Nem egyenlő a 0 számm
 
 Termékek
 
-| Azonosító | Termék | Egységár (ETH) |
+| Azonosító | Termék | Egységár (SOL) |
 |-|-|-|
-| 1 | paradicsom | 0,002 |
+| 1 | paradicsom | 0,034 |
 | 2 | paprika | 0 |
 | 3 | káposzta | NULL |
-| 4 | sárgarépa | 0,001 |
+| 4 | sárgarépa | 0,032 |
+
+Megjegyzés: A SOL a Solana fő kriptovalutája.
 
 ## Kapcsolatok
 
