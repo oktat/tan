@@ -41,10 +41,7 @@ A PhpMyAdmin felületen a ; pontosvesszőnek nincs sok jelentősége, de a Maria
 
 ## Adatbázis felhasználó létrehozása
 
-A grant parancsot eredetileg arra találták ki, hogy jogokat 
-biztosíthassunk egy felhasználónak. Ha a grant parnacsnak 
-van identified by záradéka, és a felhasználó még nem létezik,
-akkor az automatikusan létrejön.
+A grant parancsot eredetileg arra találták ki, hogy jogokat biztosíthassunk egy felhasználónak. Ha a grant parnacsnak van identified by záradéka, és a felhasználó még nem létezik, akkor az automatikusan létrejön.
 
 ```sql
 grant all privileges
@@ -92,7 +89,6 @@ Ellenőrzés:
 ```sql
 desc employees;
 ```
-
 
 ## Mező hozzáadása
 
