@@ -117,10 +117,12 @@ A több a többhöz kapcsolatról akkor beszélünk, ha például minden dolgoz�
 
 Ha legalább három táblánk van, előfordulhat, hogy a táblák átrendezésével megszüntethető a több a többhöz kapcsolat. Ha ez nem működik, akkor egy kapcsolótáblát kell beszúrni. Esetünkben a kapcsolótáblában írnán le, hogy melyik dolgozó, milyen projektben van benne.
 
-| Azonosító | Dolgozó azonosító | Projekt azonosító |
-|-|-|-|
-| 1 | 1 | 1 |
-| 2 | 1 | 3 |
+Dolgozó/Projekt
+
+| Dolgozó azonosító | Projekt azonosító |
+|-|-|
+| 1 | 1 |
+| 1 | 3 |
 
 Ebbe a táblába is tehetünk más mezőket is. Például tárolhatjuk mikor kezdett a dolgozó az adott projektben dolgozni:
 
