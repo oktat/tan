@@ -129,6 +129,12 @@ Ebbe a táblába is tehetünk más mezőket is. Például tárolhatjuk mikor kez
 | 1 | 1 | 1 | 2023-03-01 |
 | 2 | 1 | 3 | 2023-05-24 |
 
+![egy az egyhez kapcsolat](images/relationships/dolgozok_becenevek.png)
+
+![több a többhöz kapcsolat](images/relationships/dolgozok_porjektek.png)
+
+![egy a többhöz kapcsolat](images/relationships/dolgozok_beosztasok.png)
+
 További információ és példák az adatbázis-tervezésről:
 
 * [https://szit.hu/doku.php?id=oktatas:adatbazis-kezeles:tananyag](https://szit.hu/doku.php?id=oktatas:adatbazis-kezeles:tananyag)
