@@ -215,7 +215,12 @@ A táblázatoknak megadható összefoglaló attribútum és felirat.
 
 ### Oszlopok külön stílusban
 
+![Oszlopok külön stílusban](images/html/colgroup_col_table.png)
+
 ```html
+<!--
+Bootstrap class="table" mellett nem működik
+-->
 <table>
   <colgroup>
     <col span="2" style="background-color:yellow">
@@ -238,28 +243,6 @@ A táblázatoknak megadható összefoglaló attribútum és felirat.
   </tr>
 </table>
 ```
-
-<table>
-  <colgroup>
-    <col span="2" style="background-color:yellow">
-    <col style="background-color:blue">
-  </colgroup>
-  <tr>
-    <th>No.</th>
-    <th>Név</th>
-    <th>Település</th>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>Nagy József</td>
-    <td>Szolnok</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>Peres Ferenc</td>
-    <td>Szeged</td>
-  </tr>
-</table>
 
 ### A táblázat részeinek csoportosítása
 
@@ -374,9 +357,12 @@ Példák:
 <meta name="copyright" content="© 2009, Sallai András">
 <meta name="keywords" content="web, html, css">
 <meta name="description" content="Weboldal készítése">
-<meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta http-equiv="expires" content="0">
+```
+
+```html
+<meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
 ```
 
 A meta elemek jelentése:
@@ -387,9 +373,10 @@ A meta elemek jelentése:
 * Terjesztési feltételek
 * Kulcsszavak
 * Leírás
-* A keresőrobotok indexeljék-e a weboldalt
 * Weboldal kódolása
-* A weblap lejár
+* A weblap mikor jár le (böngészőfüggő)
+
+* A keresőrobotok indexeljék-e a weboldalt
 
 Újabb példák:
 
