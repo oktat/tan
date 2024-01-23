@@ -7,7 +7,7 @@
 
 ## A JavaScript nyelv
 
-1995-ben létrehoztak egy Mocha nevű nyelvet. Néha Netscape Scripting Language néven is említették. A C és Java nyelv is hatással volt rá, de azoktól független nyelv. A Mocha később LiveScript-re lett átnevezve, majd megint később lett JavaScript.
+1995-ben létrehoztak egy **Mocha** nevű nyelvet. Néha **Netscape Scripting Language** néven is említették. A C és Java nyelv is hatással volt rá, de azoktól független nyelv. A Mocha később **LiveScript**-re lett átnevezve, majd megint később lett JavaScript.
 
 A Mocha óta a JavaScript sok változáson ment keresztül. Szintaktikája a Java nyelvhez hasonlóságot a JavaScript név felvétele idején kezdett mutatni.
 
