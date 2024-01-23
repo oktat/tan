@@ -55,6 +55,27 @@ Van bootstrap csomag, telepítsük:
 npm install bootstrap
 ```
 
+A bs-config.json fájban vegyük fel a bootstrap útvonalát:
+
+```json
+{
+    "server": [
+        "src",
+        "node_modules/bootstrap/dist/css",
+        "node_modules/bootstrap/dist/js"
+    ],
+    "port": 3000
+}
+```
+
+A HTML állományban ezek után a Bootstrap hivatkozása:
+
+```html
+<link res="stylesheet" href="bootstrap">
+<!-- ... -->
+<script src="bootstrap.js"></script>
+```
+
 ## Színek
 
 ### Szöveg
