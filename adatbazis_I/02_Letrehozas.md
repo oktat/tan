@@ -32,16 +32,24 @@ A kompatibilitás miatt a kliens neve mysql. A mysql egy kis parancssoros progra
 ## Adatbázis létrehozása
 
 ```sql
+create database dbnev;
+```
+
+```sql
 create database dbnev
-character set utf8
-collate utf8_hungarian_ci;
+default character set utf8
+default collate utf8_hungarian_ci;
+```
+
+```sql
+create database if not exists dbnev;
 ```
 
 A PhpMyAdmin felületen a ; pontosvesszőnek nincs sok jelentősége, de a MariaDB kliensnek fontos, mivel ez jelzi a parancs végét, mivel a parancs több sorban is bevihető.
 
 ## Adatbázis felhasználó létrehozása
 
-A grant parancsot eredetileg arra találták ki, hogy jogokat biztosíthassunk egy felhasználónak. Ha a grant parnacsnak van identified by záradéka, és a felhasználó még nem létezik, akkor az automatikusan létrejön.
+A grant parancsot eredetileg arra találták ki, hogy jogokat biztosíthassunk egy felhasználónak. Ha a grant parnacsnak van "identified by" záradéka, és a felhasználó még nem létezik, akkor az automatikusan létrejön.
 
 ```sql
 grant all privileges
@@ -56,6 +64,12 @@ Tábla létrehozása egyetlen mezővel:
 
 ```sql
 create table dolgozok(
+    name varchar(50)
+)
+```
+
+```sql
+create table if not exists dolgozok(    
     name varchar(50)
 )
 ```
@@ -93,6 +107,7 @@ desc employees;
 ## Mező hozzáadása
 
 ```sql
+alter table employees add id int first;
 alter table employees add city varchar(50);
 alter table employees add salary double;
 desc employees;
@@ -106,13 +121,180 @@ Adjunk a táblához egy valami nevű oszlopot:
 alter table employees add valami double;
 ```
 
-Most töröljük a táblát:
+Töröljük a valami nevű mezőt a táblából:
 
 ```sql
-
 alter table employees drop valami;
 ```
 
-Tovább a tananyaghoz:
+## Mező módosítás
+
+```sql
+alter table employees modify cim varchar(50);
+```
+
+## Elsődleges kulcs módosítása
+
+Ha szeretnénk törölni az elsődleges kulcsot, előbb törölni kell a auto_increment beállítást. Vegyük a következő utasítást:
+
+```sql
+alter table employees modify id int;
+```
+
+Az auto_increment beállítást törli, de megmarad a "not null", és a "primary key";
+
+Elsődleges kulcs törlése:
+
+```sql
+alter table employees drop primary key;
+```
+
+Ha most újra kiadjuk az elter módosító utasát, ahol csak "id int" van beállítva, akkor "not null" bejegyzés is törlődik.
+
+A kulcs beállítása utólag:
+
+```sql
+alter table employee
+add primary key(id);
+```
+
+## Mező átnevezése
+
+```sql
+alter table employees change cim address varchar(50);
+```
+
+## Hivatkozási integritás
+
+Hivatkozási integritást az idegenkulccsal állítunk. A következő lehetőségek vannak:
+
+* új rekord csak akkor vehető fel, ha a kapcsolt táblában létezik az azonosító
+* az elsődleges kulcs nem módosítható, ha hivatkoznak rá kapcsolt táblában
+* nem törölhetünk olyan rekordot, aminek az elsődleges kulcsa kapcsolt táblában hivatkozva van
+
+Lassunk két táblát:
+
+* employees(id, name, city, positionId)
+* positions(id, name)
+
+![employees és positions tábla összekötve](images/letrehozas/foreign_01.png)
+
+Ilyen esetben, először mindig azt a táblát hozzuk létre, amiben nincs elődleges kulcs:
+
+```sql
+create table positions(
+    id int not null primary key auto_increment,
+    name varchar(50)
+);
+```
+
+```sql
+create table employees(
+    id int not null primary key auto_increment,
+    name varchar(50),
+    city varchar(50),
+    positionId int,
+
+    foreign key(positionId)
+    references positions(id)
+);
+```
+
+Próbáljunk meg felvenni egy úgy dolgozót:
+
+```sql
+insert into employees
+set
+name="Erős István",
+city="Szeged",
+positionId=1
+;
+```
+
+Hibát kapunk, mivel egy olyan pozíciót adunk meg, ami nincs a positions táblában. Ehhez hasonló hibaüzenet kapunk:
+
+```sql
+ERROR 1452 (23000): Cannot add or update a child row:
+ a foreign key constraint fails (`test`.`employees`,
+ CONSTRAINT `employees_ibfk_1` FOREIGN KEY 
+ (`positionId`) REFERENCES `positions` (`id`))
+```
+
+Ha nem adjuk meg a positionId értékét, akkor
+a dolgozó felvehető:
+
+```sql
+insert into employees
+set
+name="Erős István",
+city="Szeged"
+;
+```
+
+Kérdezzük le a dolgozókat:
+
+```sql
+select * from employees;
+```
+
+A kimenet ehhez hasonló lesz:
+
+```txt
+MariaDB [test]> select * from employees;
++----+---------------+--------+------------+
+| id | name          | city   | positionId |
++----+---------------+--------+------------+
+|  2 | Erős István   | Szeged |       NULL |
++----+---------------+--------+------------+
+1 row in set (0,001 sec)
+```
+
+Ha szeretnénk, megtudni, hogy be van-e állítva idegen kulcs a táblában, kérdezzük le, a táblalétrehozó utasítást:
+
+```sql
+show create table employees;
+```
+
+Az idegenkulcsok kapnak egy alapértelmezettnevet. Az előbb utasítás kimenetében például ilyesmit látunk:
+
+```txt
+CONSTRAINT `employees_ibfk_1` FOREIGN KEY ...
+```
+
+Az employees_ibfk_1 az idegenkulcs neve. Az idegenkulcs létrehozásakor magunk is megadhatunk tetszőleges nevet.
+
+Most nézzük utlólag hogyan adhatunk meg idegenkulcsot:
+
+```sql
+alter table employees
+add
+foreign key(positionId)
+references positions(id);
+```
+
+## Kapcsolt frissítés
+
+A kapcsolt frissítést idegen szóval kaszkádolt frissítésnek hívjuk. A kapcsolt frissíté azt jeleni, hogy egyszerre változtatjuk a mindkét táblában az értéket. Ezt a következő kiegészítssel állíthatjuk be:
+
+```sql
+on delete cascade on update cascade
+```
+
+A beállításra egy példa:
+
+```sql
+alter table employees
+add
+foreign key(positionId)
+references positions(id)
+on delete cascade on update cascade
+;
+```
+
+Ha nem létezik a 1-es számú pozíció, továbbra sem vehető fel, de ha változtatjuk az egyszerre változik mindknt táblában. A változtatást csak az elsődleges kulcson tudjuk megtenni, vagyis a positions tábla id mezőjét kell változtatni.
+
+## Lásd még
 
 * [https://szit.hu/doku.php?id=oktatas:adatbazis-kezeles:mariadb:sql:ddl](https://szit.hu/doku.php?id=oktatas:adatbazis-kezeles:mariadb:sql:ddl)
+
+* [https://mariadb.com/kb/en/foreign-keys/](https://mariadb.com/kb/en/foreign-keys/)

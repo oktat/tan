@@ -24,6 +24,8 @@ create table employees(
 
 ## Adatok beszúrása
 
+Adatok beszúrása az "insert into" kifejezéssel kezdeményezhető. Például:
+
 ```sql
 insert into employees
 (name)
@@ -31,12 +33,17 @@ values
 ("Szabó János");
 ```
 
+A values előtt magadtuk, milyen mezőt fogunk megadni a values után.
+
+A használat egy másik módja:
+
 ```sql
 insert into employees
-(name)
-values
-("Erős István");
+set
+name="Erős István";
 ```
+
+Egyszerre több dolgozó beszúrása:
 
 ```sql
 insert into employees
@@ -46,12 +53,24 @@ values
 ("Csendes Mária");
 ```
 
+Egyszerer több adat:
+
 ```sql
 insert into employees
 (name, city, salary)
 values
 ("Csekő Tibor", "Szeged", 342);
 ```
+
+```sql
+insert into employees
+set
+name="Erős István",
+city="Szeged",
+salary=392;
+```
+
+Több rekord és több mező:
 
 ```sql
 insert into employees

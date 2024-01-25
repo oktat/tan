@@ -180,7 +180,7 @@ Projektek(Név, Kezdés)
 
 ## Anomáliák
 
-### Bővítés anomália
+### Bővítési anomália
 
 Tegyük fel, hogy egy Dolgozók táblában összetett kulcsunk van, a név és a nyelvtudás:
 
@@ -196,11 +196,11 @@ Vegyük a következő dolgozók táblát:
 
 ![Törlési anomália](images/dolgozok_anomalia_02_torles.png)
 
-Ha szeretnénk törölni egy dolgozót, de a telefonszámot szeretnénk megörízni, akkor törlési anomáliáról beszélünk.
+Ha szeretnénk törölni egy dolgozót, de a telefonszámot szeretnénk megőrízni, akkor törlési anomáliáról beszélünk.
 
 ### Módosítási anomália
 
-A projektek táblában, ha változik a név, több helyen át kell írni. A település is ugyanilyen, ha változik a, akkor több helyen is át kell írni.
+A projektek táblában, ha változik a név, több helyen át kell írni. A település is ugyanilyen, ha változik, akkor több helyen is át kell írni.
 
 ![Módosítási anomália](images/dolgozok_anomalia_03_modositas.png)
 
@@ -210,7 +210,6 @@ A normalizálás az adatbázis rendundanciáinak megszüntetését jelenti átal
 
 ### Normál formák
 
-* 0NF
 * 1NF
 * 2NF
 * 3NF
@@ -259,9 +258,11 @@ például:
 
 ```text
 Teljesnév <-> Becenév
+Felhasználónév <-> E-mail_cím
+FelhasználóId <-> Teljesnév
 ```
 
-A függőség mindig egyirányú. Ha Települést meghatározza a Név. Ha fordítva nem igaz, Település nem határozza meg a nevet, ezt így írhatjuk fel:
+A függőség általában egyirányú. Ha Települést meghatározza a Név, de fordítva nem igaz, Település nem határozza meg a nevet, ezt így írhatjuk fel:
 
 ```txt
 Település -/-> Név
@@ -307,7 +308,7 @@ Részleges függés:
 
 Ha az összetett meghatározó egyik részét elhagyom, és a függés továbbra is fennáll, akkor részleges függésről beszélünk.
 
-### 0NF
+### Kezdeti adatbázis
 
 A 0NF az az állapot, amikor még nincs normalizálva a séma. Itt valójában még nem beszélünk rendundancia megszüntetésről vagy normálizálásról.
 
@@ -447,6 +448,9 @@ Azonostó hozzáadása:
 | int | egész |
 | double | valós |
 | varchar | variálható méretű karakterlánc |
+| char | karakterlánc |
+| date | dátum |
+| boolean | logikai érték |
 
 ![Dolgozók típusokkal](images/fizikai_03_dolgozok_tipusok.png)
 
@@ -500,9 +504,9 @@ Azonostó hozzáadása:
 
 7.) Mi az idegenkulcs?
 
-* Egy másik táblában elsődleges kulcs.
 * A tábla egy sora.
 * Az adatbázis rendszer egy állománya.
+* Egy másik táblában elsődleges kulcs.
 * Csak hálózati-adatmodellekben használjuk.
 
 8.) Milyen kapcsolatok lehetnek egy relációs adatbázisban?
@@ -514,10 +518,10 @@ Azonostó hozzáadása:
 
 9.) Milyen kapcsolatra kell törekedni egy relációs adatbázis tervezése során?
 
-* egy a többhöz
 * több a többhöz
 * erős kötésű kapcsolatokra
 * stabil kötésű kapcsolatokra
+* egy a többhöz
 
 10.) Mit értünk az adatbázis-kezelésben attribútum alatt?
 
@@ -540,7 +544,7 @@ Azonostó hozzáadása:
 * Ha csak egyeteln rekordot tartalmaz egy táblázat.
 * Ha csak egy az egyhez kapcsolatokat tartalmaz.
 
-13.) Milyik típust nem tudjuk beállítani a MariaDB adatbázis-kezelőben?
+13.) Melyik típust nem tudjuk beállítani a MariaDB adatbázis-kezelőben?
 
 * double
 * varchar
@@ -553,3 +557,10 @@ Azonostó hozzáadása:
 * Adatbázis táblák tervezése.
 * NULL érték meghatározása.
 * Bármilyen érték ábrázolása egy táblázatból.
+
+15.) Adott a Termékek tábla: termekek(id, name, article_number, price). Ha az article_number mezőtől függ a price, akkor azt hogyan ábrozolom?
+
+* article_number -/-> price
+* article_number <-> price
+* article_number <- price
+* article_number -> price
