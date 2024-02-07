@@ -7,11 +7,15 @@
 
 ## Kinduló adatbázis
 
+Készítsünk egy remek nevű adatbázist.
+
 ```sql
 create database remek
 character set utf8
 collate utf8_hungarian_ci;
 ```
+
+A dolgozók számára egy employees nevű táblát:
 
 ```sql
 create table employees(
@@ -43,6 +47,8 @@ set
 name="Erős István";
 ```
 
+A "set" kulcsszó után megadom a mező nevét, és milyen értéket szeretnék felvenni.
+
 Egyszerre több dolgozó beszúrása:
 
 ```sql
@@ -53,7 +59,7 @@ values
 ("Csendes Mária");
 ```
 
-Egyszerer több adat:
+Egyszerre több adat megadása egy dolgozónak:
 
 ```sql
 insert into employees
@@ -61,6 +67,8 @@ insert into employees
 values
 ("Csekő Tibor", "Szeged", 342);
 ```
+
+Ugyanaz a "set" kulcsszóval:
 
 ```sql
 insert into employees
@@ -83,11 +91,15 @@ values
 
 ## Adatok frissítése
 
+Ha már az adatbázisban van egy adat, néha szeretnénk azt módosítani. A "where" kulcsszó után meg kell adunk melyik rekordban szeretnénk beállítani. Ha ezt nem tesszük meg a tábla összes rekordjában megtörténik a beállítás.
+
 ```sql
 update employees
 set name="Lantos Katalin"
 where name="Piros Katalin"
 ```
+
+A fenti példában, ha van több "Piros Katalin" nevű dolgozó, akkor mindegyiknek megváltoztatjuk a nevét. Ezért hivatkozzunk mindig az elsődleges kulcsra, ami a táblánkban az "id":
 
 ```sql
 update employees
@@ -97,7 +109,7 @@ where id=3
 
 ## Adatok törlése
 
-Szúrjunk be egy újabb rekordot:
+Szúrjunk be egy újabb rekordot, amit majd törölni fogunk:
 
 ```sql
 insert into employees

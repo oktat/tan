@@ -7,6 +7,8 @@
 
 ## Kiegészítő parancsok
 
+Az adatbázisok lekérdezése előtt tekintsünk meg néhány kiegészítő parancsot.
+
 Adatbázisok lekérdezése:
 
 ```sql
@@ -51,7 +53,7 @@ Vegyünk egyetlen táblát employees néven, ami dolgozók adatait tárolja. Az 
 select * from employees;
 ```
 
-A "*" az összes mezőt jelenti, vagyis az eredményben minden mező meg fogj jelenni.
+A "*" az összes mezőt jelenti, vagyis az eredményben minden mező meg fog jelenni.
 
 Tegyük fel, hogy a következő mezőket tartalmazza a tábla:
 
@@ -66,17 +68,23 @@ select name, city
 from employees;
 ```
 
+A "select" után egyszerűen felsorojuk a kívánt mezőket. A from után megadjuk milyen táblából szeretnénk lekérdezni.
+
 Csak a név megjelenítése:
 
 ```sql
 select name from employees;
 ```
 
+A név, település és fizetés lekérdezése:
+
 ```sql
 select name, city, salary from employees;
 ```
 
 ## Feltételek
+
+Ha nem adunk meg feltételeket az összes rekordot megkapjuk. Nagy mennyiségű adatnál ez, nem előnyös.
 
 Feltételeket a WHERE kulcsszó után adhatjuk meg.
 
@@ -88,6 +96,8 @@ from employees
 where city="Szeged";
 ```
 
+A "where" után, megmondtuk, hogy akkor szeretnénk látni egy rekordot, ha a település (city) "Szeged".
+
 Dolgozók, akikenek a fizetése több mint 390:
 
 ```sql
@@ -95,6 +105,8 @@ select *
 from employees
 where salary>390;
 ```
+
+Ha egy mező számokat tartalmaz, megdhatunk ">", "<", "=", "<>" operátorokat. A "<>" operátor azt jelenti, nem egyenlő.
 
 ## Aggregáló függvények
 
@@ -106,9 +118,11 @@ where salary>390;
 * min()
 * max()
 
+Az aggregáló függvények az eredményt egyetlen sorra szűkítik.
+
 ## Csoportosítás
 
-Az adatok egy vagy több oszlop alapján csoportosíthatók, így ezekre a csoportokra külön alkalmazhatók az aggregáló függvények.
+Az adatok egy vagy több oszlop alapján csoportosíthatók, így ezekre a csoportokra külön alkalmazhatók az aggregáló függvények. Így annyi sort kapunk ahány csoport van.
 
 ```sql
 select oszlop1, count(oszlop2)

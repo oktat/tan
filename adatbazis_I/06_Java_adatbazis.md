@@ -7,6 +7,8 @@
 
 ## Adatbázisok
 
+Általánosan használt adatbázis rendszer a MariaDB vagy MySQL. Ha csak egy kissebb adatmennyiségre számítunk, és nincs sok elvárás, az SQLite-tot szokás használni, ahol egy fájlban tároljuk a komplett adatbázist és az alkalmazásunk közvetlenül éri azt el, hálózati kapcsolat nélkül.
+
 * Mariadb (MySQL)
 * SQLite
 
@@ -59,7 +61,11 @@ docker-compose up
 
 ### Java illesztő program
 
+Ahhoz, hogy egy programban elérhessük az adatábzist, szükségünk van illesztőprogramra. Az XAMPP-ban található MariaDB-hez illesztőprogram a következő helyről tölthető le:
+
 * [https://mariadb.com/kb/en/about-mariadb-connector-j/](https://mariadb.com/kb/en/about-mariadb-connector-j/)
+
+Ha Maven projekttel dolgozunk az pom.xml fájlba egyszerűen vagyük fel:
 
 ```xml
         <dependency>
@@ -68,6 +74,8 @@ docker-compose up
             <version>2.7.1</version>
         </dependency>
 ```
+
+Az illesztő program letöltehtő a "maven central repository" webhelyről is. De beszerezhető onnan a fenti XML részlet is.
 
 ### Kapcsolódás Java nyelven Mariadb-hez
 
@@ -250,12 +258,38 @@ class App {
 
 ## SQLite
 
+SQLite adatbázis használatához jól jöhet a sqlite.shell telepítése:
+
 ```cmd
 choco install sqlite.shell
 ```
+
+A program indítása:
+
+```cmd
+sqlite
+```
+
+De megadható neki fájl név is. Például:
+
+```cmd
+sqlite database.db
+```
+
+Táblák lekérdezése és egy egszerű tábla létrehozása:
 
 ```cmd
 .tables
 create table szemelyek(az int, nev varchar(50));
 .tables
 ```
+
+### VSCode bővítmény
+
+Megkönnyíti az SQLite adatbázisok kezelését VSCode-ban a következő bővítmény:
+
+* SQLite3 Editor
+
+A bővítmény feltöltője: "yy0931"
+
+![SQLite3 Editor](images/java_adatbazis/vscode_sqlite3_editor.png)

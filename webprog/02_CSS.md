@@ -183,29 +183,35 @@ A nth-child ál-osztály lehetővé teszi ismétlődő elemek esetén adott szá
 ```html
 <table>
   <tr>
-    <td>termék1</td>
-    <td>termék2</td>
+    <td>1</td>
+    <td>Kovács Béla</td>
   </tr>
   <tr>
-    <td>termék1</td>
-    <td>termék2</td>
+    <td>2</td>
+    <td>Tender Áron</td>
   </tr>
   <tr>
-    <td>termék1</td>
-    <td>termék2</td>
+    <td>3</td>
+    <td>Front Irén</td>
   </tr>
   <tr>
-    <td>termék1</td>
-    <td>termék2</td>
+    <td>4</td>
+    <td>Csendes Lajos</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Hason Mária</td>
   </tr>
 </table>
 ```
 
 ```css
 tr:nth-child(3) {
-    background-color: orange;
+    background-color: aqua;
 }
 ```
+
+![nth-child példa 3-mal](images/table_tr_nth-child_3.png)
 
 Megadható paraméterek:
 
@@ -216,13 +222,35 @@ Megadható paraméterek:
 
 ```css
 tr:nth-child(odd) {
-    background-color: orange;
+    background-color: aqua;
 }
 ```
+
+![nth-child példa odd-dal](images/table_tr_nth-child_odd.png)
+
+```css
+tr:nth-child(even) {
+    background-color: aqua;
+}
+```
+
+![nth-child példa even-nel](images/table_tr_nth-child_even.png)
 
 Több információ az nth-child alosztályról:
 
 * [https://szit.hu/doku.php?id=oktatas:web:css:css_szelektorok#az_nth-child_al-osztaly](https://szit.hu/doku.php?id=oktatas:web:css:css_szelektorok#az_nth-child_al-osztaly)
+
+### nth-child gyakorlat
+
+1.) Készítsen egy 8 sorból 3 oszlopból álló táblázatot. A páros sorokat háttérszínét állítsa lightgray színre.
+
+2.) Készítsen listát 10 elemmel. Minden harmadik elem számára állítson be piros szövegszínt.
+
+3.) Készítsünk 20 darab div elemet, mindegyikben egy rövid mondattal. Állítsa be, hogy minden ötödik elem legyen formázva félkövér szöveggel, kezdve a másodiktól.
+
+4.) Készítsen egy 8 elemből álló listát. Minden páratlan sorszámú gyermekelemet formázzon az ul listán blül aláhúzott szöveggel.
+
+5.) Készítsen 16 darab p elemet rövid mondatokkal. Minden második és harmadik elemre állítson be dőlt szöveget.
 
 ## media query
 
@@ -678,6 +706,11 @@ sass --watch app.scss app.css
 ```
 
 Ebben a rövid feladatban a változókat használtunk Sass nyelven.
+
+## Fontok és ikonok
+
+* [https://fonts.google.com/](https://fonts.google.com/)
+* [https://fontawesome.com/](https://fontawesome.com/)
 
 ## Gyakorlás
 

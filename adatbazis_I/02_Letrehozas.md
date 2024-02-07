@@ -68,6 +68,20 @@ create table dolgozok(
 )
 ```
 
+Ellenőrzés:
+
+```sql
+describe dolgozok;
+```
+
+Vagy csak röviden:
+
+```sql
+desc dolgozok;
+```
+
+A táblák esetén mondhatjuk, hogy csak akkor hozza létre, ha az még nem létezik:
+
 ```sql
 create table if not exists dolgozok(    
     name varchar(50)
@@ -85,10 +99,17 @@ create table dolgozok(
 
 ## Tábla átnevezése
 
-Először tájékozódjunk milyen tábláink vannak, és azoknak milyen a felépítésük:
+Először tájékozódjunk milyen tábláink vannak, és azoknak milyen a felépítésük.
+
+Milyen táblák vannak:
 
 ```sql
 show tables;
+```
+
+A dolgozok tábla lekérdezése;
+
+```sql
 desc dolgozok;
 ```
 
@@ -101,7 +122,7 @@ rename table dolgozok to employees;
 Ellenőrzés:
 
 ```sql
-desc employees;
+show tables;
 ```
 
 ## Mező hozzáadása
@@ -133,9 +154,17 @@ alter table employees drop valami;
 alter table employees modify cim varchar(50);
 ```
 
+Ha már van elsődleges kulcs, de nincs beállítva az automatikus növekedés, állítsuk be:
+
+```sqlj
+alter table employees modify id int auto_increment;
+```
+
+Ettől a beállítástól megmarad a not null és primary key beállítás.
+
 ## Elsődleges kulcs módosítása
 
-Ha szeretnénk törölni az elsődleges kulcsot, előbb törölni kell a auto_increment beállítást. Vegyük a következő utasítást:
+Ha szeretnénk törölni az elsődleges kulcsot, előbb törölni kell az auto_increment beállítást. Vegyük a következő utasítást:
 
 ```sql
 alter table employees modify id int;
@@ -149,7 +178,7 @@ Elsődleges kulcs törlése:
 alter table employees drop primary key;
 ```
 
-Ha most újra kiadjuk az elter módosító utasát, ahol csak "id int" van beállítva, akkor "not null" bejegyzés is törlődik.
+Ha most újra kiadjuk az alter módosító utasát, ahol csak "id int" van beállítva, akkor "not null" bejegyzés is törlődik.
 
 A kulcs beállítása utólag:
 
@@ -160,9 +189,13 @@ add primary key(id);
 
 ## Mező átnevezése
 
+A "cim" nevű mezőt "address" névre módosítjuk:
+
 ```sql
 alter table employees change cim address varchar(50);
 ```
+
+Ilyenkor meg kell adni a célnévhez típust is.
 
 ## Hivatkozási integritás
 
@@ -179,7 +212,7 @@ Lassunk két táblát:
 
 ![employees és positions tábla összekötve](images/letrehozas/foreign_01.png)
 
-Ilyen esetben, először mindig azt a táblát hozzuk létre, amiben nincs elődleges kulcs:
+Ilyen esetben, először mindig azt a táblát hozzuk létre, amiben nincs idegenkulcs:
 
 ```sql
 create table positions(
@@ -187,6 +220,8 @@ create table positions(
     name varchar(50)
 );
 ```
+
+Majd jöhet az a tábla amiben idegenkulcs van.
 
 ```sql
 create table employees(
@@ -200,7 +235,7 @@ create table employees(
 );
 ```
 
-Próbáljunk meg felvenni egy úgy dolgozót:
+Próbáljunk meg felvenni egy úgy dolgozót, ahol a postionId is be van állítva 1-re, de a position táblában még nem szerepel ilyen beosztás:
 
 ```sql
 insert into employees
@@ -255,13 +290,13 @@ Ha szeretnénk, megtudni, hogy be van-e állítva idegen kulcs a táblában, ké
 show create table employees;
 ```
 
-Az idegenkulcsok kapnak egy alapértelmezettnevet. Az előbb utasítás kimenetében például ilyesmit látunk:
+Az idegenkulcsok kapnak egy alapértelmezett nevet. Az előbb utasítás kimenetében például ilyesmit látunk:
 
 ```txt
 CONSTRAINT `employees_ibfk_1` FOREIGN KEY ...
 ```
 
-Az employees_ibfk_1 az idegenkulcs neve. Az idegenkulcs létrehozásakor magunk is megadhatunk tetszőleges nevet.
+Az "employees_ibfk_1" az idegenkulcs neve. Az idegenkulcs létrehozásakor magunk is megadhatunk tetszőleges nevet.
 
 Most nézzük utlólag hogyan adhatunk meg idegenkulcsot:
 
@@ -291,7 +326,7 @@ on delete cascade on update cascade
 ;
 ```
 
-Ha nem létezik a 1-es számú pozíció, továbbra sem vehető fel, de ha változtatjuk az egyszerre változik mindknt táblában. A változtatást csak az elsődleges kulcson tudjuk megtenni, vagyis a positions tábla id mezőjét kell változtatni.
+Ha nem létezik a 1-es számú pozíció, továbbra sem vehető fel, de ha változtatjuk az egyszerre változik mindkét táblában. A változtatást csak az elsődleges kulcson tudjuk megtenni, vagyis a positions tábla id mezőjét kell változtatni.
 
 ## Lásd még
 

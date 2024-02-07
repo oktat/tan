@@ -13,7 +13,7 @@ Tegyük fel, hogy az XAMPP-t a C:\ gyökér könyvtárába telepítettük: C:\xa
 c:\xampp\mysql\bin\
 ```
 
-A mysqldump parancs használatához vagy be kell lépnünk a fenti bin könyvtárba, vagy a teljes útvonalat meg kell adni. Esetleg egy .bat vagy .cmd állományt is írhatunk.
+A **mysqldump** parancs használatához vagy be kell lépnünk a fenti bin könyvtárba, vagy a teljes útvonalat meg kell adni. Esetleg egy .bat vagy .cmd állományt is írhatunk.
 
 Egy adatbázis mentése, a mysqldump paranccsal:
 
@@ -21,19 +21,29 @@ Egy adatbázis mentése, a mysqldump paranccsal:
 mysqldump -u root dbnev > dbnev.sql
 ```
 
-Ha nincs útvonalba a mysqldump parancs, akkor egy egyszerű .cmd fájl, dump.cmd néven:
+Ha jelszót is meg kell adni és szerver portját is, akkor:
+
+```bash
+mysqldump -u root -p -P 3307 dbnev > dbnev.sql
+```
+
+A -p kapcsoló hatására a mysqldump parancs bekéri a jelszót. A -P után kell megadni a szervert portját.
+
+Ha nincs útvonalba a mysqldump parancs, akkor egy egyszerű .cmd fájl, dump.cmd-ba írjuk a következőt:
 
 ```cmd
 c:\xampp\mysql\bin\mysqldump %*
 ```
 
-Használat:
+A dump.cmd használata:
 
 ```cmd
 dump -u root dbnev > dbnev.sql
 ```
 
 ## A PhpMyAdmin
+
+A PhpMyAdmin használatához webszerverre is szükség van. Ha XAMPP-t használunk indítsuk el az "Apache" webszervert is.
 
 A böngészőbe írjuk be:
 
