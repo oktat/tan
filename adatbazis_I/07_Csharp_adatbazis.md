@@ -290,5 +290,142 @@ try {
 ### Adatok beszúrása
 
 ```C#
+using MySqlConnector;
 
+string host = "localhost";
+string name = "zoldzrt";
+string user = "zoldzrt";
+string pass = "titok";
+
+string connstr = $"Server={host};Database={name};User ID={user};Password={pass};";
+using MySqlConnection conn = new(connstr);
+try {
+    conn.Open();
+    string sql = @"
+    insert into employees 
+    (name, city, salary) 
+    values 
+    (@name, @city, @salary)
+    ";
+    using MySqlCommand cmd = new MySqlCommand(sql, conn);
+    cmd.Parameters.AddWithValue("name", "Toros Ernő");
+    cmd.Parameters.AddWithValue("city", "Szeged");
+    cmd.Parameters.AddWithValue("salary", 393);
+    int rowsAffected = cmd.ExecuteNonQuery();
+    Console.WriteLine($"Érintett sorok száma: {rowsAffected}");
+}catch(MySqlException e) {
+    Console.Error.WriteLine("Hiba! A beszúrás sikeretelen!");
+    Console.Error.WriteLine(e.Message);
+}
+```
+
+### Adatok módosítása
+
+```C#
+using MySqlConnector;
+
+string host = "localhost";
+string name = "zoldzrt";
+string user = "zoldzrt";
+string pass = "titok";
+
+string connstr = $"Server={host};Database={name};User ID={user};Password={pass};";
+using MySqlConnection conn = new(connstr);
+try {
+    conn.Open();
+    string sql = "update employees set name=@name, city=@city where id=@id";
+    using MySqlCommand cmd = new MySqlCommand(sql, conn);
+    cmd.Parameters.AddWithValue("id", 3);
+    cmd.Parameters.AddWithValue("name", "Cserép Tibor");
+    cmd.Parameters.AddWithValue("city", "Hatvan");
+    int rowsAffected = cmd.ExecuteNonQuery();
+    Console.WriteLine($"Érintett sorok száma: {rowsAffected}");
+}catch(MySqlException e) {
+    Console.Error.WriteLine("Hiba! A frissítés sikeretelen!");
+    Console.Error.WriteLine(e.Message);
+}
+```
+
+### Törlés művelete
+
+```c#
+using MySqlConnector;
+
+string host = "localhost";
+string name = "zoldzrt";
+string user = "zoldzrt";
+string pass = "titok";
+
+string connstr = $"Server={host};Database={name};User ID={user};Password={pass};";
+using MySqlConnection conn = new(connstr);
+try {
+    conn.Open();
+    string sql = "delete from employee where id=@id";
+    using MySqlCommand cmd = new MySqlCommand(sql, conn);
+    cmd.Parameters.AddWithValue("id", 4);
+    int rowsAffected = cmd.ExecuteNonQuery();
+    Console.WriteLine($"Érintett sorok száma: {rowsAffected}");
+}catch(MySqlException e) {
+    Console.Error.WriteLine("Hiba! A törlés sikeretelen!");
+    Console.Error.WriteLine(e.Message);
+}
+```
+
+### Dátum tárolása
+
+Ha dátumokkal dolgozunk, a kapcsolatsztringben fel kell vennünk a Convert Zero DateTime tulajdonságot True értékkel.
+
+```C#
+string connStr = @$"
+    Server={host};
+    Database={name};
+    User={user};
+    Password={pass};
+    Convert Zero Datetime=True
+    ";
+```
+
+A következő típusokban tárolhatunk:
+
+* DateOnly
+* DateTime
+* MySqlDateTime
+
+```C#
+public class Employee {
+    public int Id {set; get;}
+    public DateOnly Birth {get; set;}
+}
+```
+
+Ha modellben DateOnly típust használunk:
+
+```C#
+reader.GetDateOnly("Birth");
+```
+
+```C#
+public class Employee {
+    public int Id {set; get;}
+    public DateTime Birth {get; set;}
+}
+```
+
+Ha modellben DateTime típust használunk:
+
+```C#
+reader.GetDateTime("Birth");
+```
+
+```C#
+public class Employee {
+    public int Id {set; get;}
+    public MySqlDateTime Birth {get; set;}
+}
+```
+
+Ha modellben MySqlDateTime típust használunk:
+
+```C#
+reader.GetMySqlDateTime("Birth");
 ```
