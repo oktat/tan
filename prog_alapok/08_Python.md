@@ -1593,6 +1593,16 @@ for line in lines:
 fp.close()
 ```
 
+### Hozzűfűzés a fájlhoz
+
+```Python
+f = open('adat2.txt', 'a', encoding='utf-8')
+ 
+f.write("alma")
+ 
+f.close()
+```
+
 ### Modulok
 
 Legyen egy haromszog.py fájl:

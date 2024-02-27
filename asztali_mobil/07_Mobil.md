@@ -270,8 +270,22 @@ Webes előnézetben tudjuk görgetni a tartalmat, de telefonon nem. A görgetés
         </Text>
         {/* ... */}
       </View>
-    </ScrollView>
+</ScrollView>
+
+{/* ... */}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+  },
+});
+
 ```
+
+Az alignItems és justifyContent justifyContent tulajdonságok nem működnek a ScrollView-on.
 
 ## Képek megjelenítése
 
@@ -280,9 +294,15 @@ import { Image } from 'react-native';
 
 {/* ... */}
 
-<Image source={require('./assets/icon.png')}>
+<Image 
+    source={require('./assets/icon.png')}
+    style={{width: 100, height: 100 }}
+/>
 
-<Image source={require('./assets/icon.jpg')}>
+<Image 
+    source={require('./assets/valami.jpg')}
+    style={{width: 100, height: 100 }}
+/>
 ```
 
 Kép az Internetről
