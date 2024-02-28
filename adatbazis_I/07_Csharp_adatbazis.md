@@ -429,3 +429,18 @@ Ha modellben MySqlDateTime típust használunk:
 ```C#
 reader.GetMySqlDateTime("Birth");
 ```
+
+## Gyakorló feladatok
+
+### 1. feladat
+
+Készítsen egy adatbázist, ami elektronikai termékeket tart nyilván. Egy Products nevű táblát kell készítenie a következő mezőkkel:
+
+* Id: az áru neve
+* Name: az áru neve
+* Price: az áru ára
+* Quantity: az áru mennyisége
+
+Írjon programot, ami az adatbázisból megjeleníti az adatokat és lehetővé teszi új termék felvételét.
+
+A program induláskor, egy menüből lehessen választani, hogy a termékek listázását, vagy új termék felvételét szeretnénk, esetleg kilépést.
