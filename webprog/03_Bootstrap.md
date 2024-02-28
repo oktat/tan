@@ -197,9 +197,10 @@ A font-italic tulajdonság:
 ### Igazítás
 
 * text-start
-* text-justify
 * text-end
 * text-center
+
+A "text-justify" elavult lett a Bootstrap 5 verzióban.
 
 ```html
 <div class="text-center">alma</div>
