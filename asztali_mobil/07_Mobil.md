@@ -15,8 +15,15 @@
 
 ## Indulás
 
+Hozzuk létre a projektet, hello néven:
+
 ```cmd
 npx create-expo-app hello
+```
+
+Lépjünk be a könyvtárba:
+
+```cmd
 cd hello
 ```
 
