@@ -69,7 +69,7 @@ public class App {
 
 A program létrehozza a database.sqlite fájlt.
 
-## Adatbázis létrehozása
+## Tábla létrehozása
 
 ```sqlite
 create table employees(
