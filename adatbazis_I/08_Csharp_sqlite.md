@@ -41,6 +41,13 @@ Felhasználási területek:
 
 ### Kapcsolat sztirngek
 
+A kapcsolat sztringben az állomány elérését a következő kulccsal adjuk meg: Data Source.
+
+Álnevek:
+
+* DataSource
+* Filename
+
 #### Memória adatbázis
 
 ```ini
@@ -65,9 +72,10 @@ Data Source=Encrypted.db;Password=titok
 Data Source=Reference.db;Mode=ReadOnly
 ```
 
-#### Az SQLite kapcsolatsztringek leírása
+#### SQLite kapcsolatsztring hivatkozások
 
-* [https://learn.microsoft.com/hu-hu/dotnet/standard/data/sqlite/connection-strings](https://learn.microsoft.com/hu-hu/dotnet/standard/data/sqlite/connection-strings)
+* [Kapcsolatsztring](https://learn.microsoft.com/hu-hu/dotnet/standard/data/sqlite/connection-strings)
+* [Kapcsolatsztring](https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/connection-strings)
 
 ## Projekt használata
 
@@ -95,9 +103,161 @@ dotnet add package Microsoft.Data.Sqlite
 
 ### Állomány létrehozása
 
-```cmd
+```csharp
 using Microsoft.Data.Sqlite;
  
 var conn = new SqliteConnection ("Data Source=hello.db");
 conn.Open();
+```
+
+### Hibakezelés
+
+```csharp
+using Microsoft.Data.Sqlite;
+
+var conn = new SqliteConnection ("DataSource=/hello.db");
+try {
+    conn.Open();
+    Console.WriteLine("Ok");
+
+} catch (SqliteException e) {
+    Console.Error.WriteLine("Hiba! A fájl megnyitása sikertelen!");
+    Console.Error.WriteLine(e.Message);
+}
+```
+
+Lehetséges kimenet:
+
+```txt
+Hiba! A fájl megnyitása sikertelen!
+SQLite Error 14: 'unable to open database file'.
+```
+
+## Tábla létrehozása
+
+```sqlite
+create table employees(
+    id integer not null primary key autoincrement,
+    name text,
+    city text,
+    salary real    
+);
+```
+
+```sqlite
+create table positions(
+    id integer not null primary key autoincrement,
+    name text
+);
+```
+
+## Adatok beszúrása
+
+```csharp
+using Microsoft.Data.Sqlite;
+
+var conn = new SqliteConnection ("DataSource=hello.db");
+try {
+    conn.Open();
+    Console.WriteLine("Ok");
+    string sql = @"
+    insert into employees
+    (name, city, salary)
+    values
+    (@name, @city, @salary)
+    ";
+
+    var cmd = new SqliteCommand(sql, conn);
+
+    cmd.Parameters.AddWithValue("@name", "Finom Imre");
+    cmd.Parameters.AddWithValue("@city", "Hatvan");
+    cmd.Parameters.AddWithValue("@salary", 391);
+
+    cmd.ExecuteNonQuery();
+} catch (SqliteException e) {
+    Console.Error.WriteLine("Hiba! A fájl megnyitása sikertelen!");
+    Console.Error.WriteLine(e.Message);
+}
+```
+
+## Adatok olvasása
+
+```csahrp
+using Microsoft.Data.Sqlite;
+
+var conn = new SqliteConnection ("DataSource=hello.db");
+try {
+    conn.Open();
+    Console.WriteLine("Ok");
+    string sql = "select * from employees";
+
+    var cmd = new SqliteCommand(sql, conn);    
+    var data = cmd.ExecuteReader();
+    while(data.Read()) {
+        Console.WriteLine(
+            "{0,15} {1,15}",
+            data.GetString(1),
+            data.GetString(2)
+            );
+    }
+} catch (SqliteException e) {
+    Console.Error.WriteLine("Hiba! A fájl megnyitása sikertelen!");
+    Console.Error.WriteLine(e.Message);
+}
+```
+
+## Adat módosítása
+
+```csharp
+using Microsoft.Data.Sqlite;
+
+var conn = new SqliteConnection ("DataSource=hello.db");
+try {
+    conn.Open();
+    Console.WriteLine("Ok");
+    string sql = @"
+    update employees
+    set
+    name=@name,
+    city=@city,
+    salary=@salary
+    where id=@id
+    ";
+
+    var cmd = new SqliteCommand(sql, conn);
+
+    cmd.Parameters.AddWithValue("@name", "Oran Emese");
+    cmd.Parameters.AddWithValue("@city", "Sopron");
+    cmd.Parameters.AddWithValue("@salary", 365);
+    cmd.Parameters.AddWithValue("@id", 2);
+    
+    cmd.ExecuteNonQuery();
+} catch (SqliteException e) {
+    Console.Error.WriteLine("Hiba! A fájl megnyitása sikertelen!");
+    Console.Error.WriteLine(e.Message);
+}
+```
+
+## Törlés
+
+```csharp
+using Microsoft.Data.Sqlite;
+
+var conn = new SqliteConnection ("DataSource=hello.db");
+try {
+    conn.Open();
+    Console.WriteLine("Ok");
+    string sql = @"
+    delete from employees
+    where id=@id
+    ";
+
+    var cmd = new SqliteCommand(sql, conn);
+    cmd.Parameters.AddWithValue("@id", 1);
+
+    cmd.ExecuteNonQuery();    
+} catch (SqliteException e) {
+    Console.Error.WriteLine("Hiba! A fájl megnyitása sikertelen!");
+    Console.Error.WriteLine(e.Message);
+}
 ```
