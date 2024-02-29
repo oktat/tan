@@ -43,11 +43,29 @@ A bővítmény feltöltője: "yy0931"
 
 ![SQLite3 Editor](images/java_adatbazis/vscode_sqlite3_editor.png)
 
+## Java illesztő
+
+Legújabb verzió keresése.
+
+* [https://central.sonatype.com/](https://central.sonatype.com/)
+
+Maven esetén:
+
+```xml
+<dependency>
+    <groupId>org.xerial</groupId>
+    <artifactId>sqlite-jdbc</artifactId>
+    <version>3.45.1.0</version>
+</dependency>
+```
+
+Ha JAR fájlt töltünk le, ehhez hasonló fájlt kell beszerezni:
+
+* sqlite-jdbc-3.45.1.0.jar
+
 ## Kapcsolódás
 
 ```csharp
-
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -156,3 +174,4 @@ public class App {
 ## Linkek
 
 * [https://github.com/xerial/sqlite-jdbc](https://github.com/xerial/sqlite-jdbc)
+* [https://central.sonatype.com/](https://central.sonatype.com/)
