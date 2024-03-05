@@ -392,7 +392,7 @@ része az elem méreteinek sem.
 
 ```css
 .egy {
-  text-shadow: 5px 5px 5px black;
+  text-shadow: 3px 3px 4px black;
 }
 ```
 
@@ -416,8 +416,8 @@ része az elem méreteinek sem.
 ## Attribútum szelektorok
 
 ```html
-<a>a elem</div>
-<a target="_blank">a elem</div>
+<a href="https://szit.hu">a elem</a>
+<a  href="https://szit.hu" target="_blank">a elem</a>
 ```
 
 ```css
@@ -510,6 +510,10 @@ Több információ:
 
 Az fr a Grid elrendezési lehetőséggel együtt
 érkezett. Az fr a „fractional unit” rövidítése, ami töredék résznek fordítható. **1fr** a **rendelkezésre álló résznek az egyszerese**.
+
+Több információ:
+
+* [https://szit.hu/doku.php?id=oktatas:web:css:css_grid](https://szit.hu/doku.php?id=oktatas:web:css:css_grid)
 
 ## CSS Átmenet, átalakítás és animáció
 
