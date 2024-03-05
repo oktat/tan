@@ -64,14 +64,15 @@ A bs-config.json fájban vegyük fel a bootstrap útvonalát:
         "node_modules/bootstrap/dist/css",
         "node_modules/bootstrap/dist/js"
     ],
-    "port": 3000
+    "port": 3000,
+    "watch": true
 }
 ```
 
 A HTML állományban ezek után a Bootstrap hivatkozása:
 
 ```html
-<link res="stylesheet" href="bootstrap">
+<link res="stylesheet" href="bootstrap.css">
 <!-- ... -->
 <script src="bootstrap.js"></script>
 ```
