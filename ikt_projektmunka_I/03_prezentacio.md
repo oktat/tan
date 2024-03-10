@@ -76,6 +76,8 @@ Nem tervezett események típusai, kezelés, újratervezés.
 * Kérdésekre készülés
 * Környezet és technikai feltételek
 
+Seth Godin: Ne legyen egy dián 6 szónál több. Nincs olyan összetett bemutató, hogy ezt a szabályt meg kellene szegni.
+
 ### A jó előadás szabályai
 
 A jó előadás szabályai:
