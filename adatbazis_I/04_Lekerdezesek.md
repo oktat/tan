@@ -35,7 +35,7 @@ desc employees;
 
 ## A select
 
-A select adatbázisok lekérdezésére használható. Az adatokat egy vagy több táblából kérdezhetjük le. A lekérdezés során meg kell adjuk milyen mezőket szeretnénk látni, melyik táblából.
+A select adatok lekérdezésére használható. Az adatokat egy vagy több táblából kérdezhetjük le. A lekérdezés során meg kell adjuk milyen mezőket szeretnénk látni, melyik táblából.
 
 Szintaxis:
 
@@ -106,7 +106,92 @@ from employees
 where salary>390;
 ```
 
-Ha egy mező számokat tartalmaz, megdhatunk ">", "<", "=", "<>" operátorokat. A "<>" operátor azt jelenti, nem egyenlő.
+Használható opetárotok:
+
+| Operátor | Leírás |
+|-|-|
+| > | nagyobb mint |
+| < | kisebb mint |
+| = | egyenlő |
+| <> | nem egyenlő |
+| != | nem egyenlő |
+| <= | kisebb vagy egyenlő |
+| >= | nagyobb vagy egyenlő |
+| between | adott tartomány  (nem szigorúan véve) |
+| in | adott halmazban benne van |
+| like | olyan mint |
+| is null | null érték |
+| is not null | nem null érték |
+| and | és művelet |
+| or  |  vagy művelet |
+| not |  tagadás |
+
+A "^=" operátort is ide szokták sorolni, de a MySQL nem támogatja; bitenkénti XOR művelete a jelentése.
+
+A nem budapesti dolgozók:
+
+```sql
+select name as név
+from employees
+where city <> "Budapest";
+```
+
+```sql
+select last_name as név
+from employees
+where city != "Budapest";
+```
+
+Összefűzés:
+
+```sql
+select concat(first_name, " ", last_name) as teljesnév
+from employees;
+```
+
+Formázás. Jelenítsük meg 2 tizedesjegy pontossággal:
+
+```sql
+select format(salary, 2)
+from employees;
+```
+
+Milyen hosszú településneveket kapunk?
+
+```sql
+select city, length(city)
+from employees;
+```
+
+Irányítószámok:
+
+```sql
+select substr(address, 1,4) 
+as irányítószám 
+from customers;
+```
+
+A rendszergazda helyett szeretnénk a kimenetben a sysadmin szót látni.
+
+```sql
+select replace(name, 'rendszergazda', 'sysadmin')
+as pozíciók
+from positions;
+```
+
+Kerekítés:
+
+```sql
+select round(salary)
+from employees;
+```
+
+Kerekítés 2 tizedesjeggyel:
+
+```sql
+select round(salary, 2)
+from employees;
+```
 
 ## Aggregáló függvények
 
