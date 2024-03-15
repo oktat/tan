@@ -215,6 +215,34 @@ from tabla
 group by oszlop1;
 ```
 
+Településenként a dolgozók átlagfizetése.
+
+```sql
+select city, avg(salary)
+from employees
+group by city
+```
+
+A csoportosított eredmények szűrése a HAVING direktívával lehetséges.
+
+```sql
+select city, avg(salary) as atlag
+from employees
+group by city
+having atlag > 390
+```
+
+Szűrhetünk a csoportosítás előtt és utána egyszerre. Legyen például egy feladat, ahol hatvani, pécsi, szolnoki és szegedi dolgozók átlagfizetését szeretnénk látni, településenként, de csak ott, ahol
+az átlag meghaladja a 390-t.
+
+```sql
+select city, avg(salary) as atlag
+from employees
+where city in ('Hatvan', 'Pécs', 'Szolnok', 'Szeged')
+group by city
+having atlag > 390
+```
+
 ## Rendezés
 
 Az eredmények rendezését az ORDER BY kulcsszóval végezhetjük el.
@@ -224,6 +252,152 @@ select oszlop1, oszlop2, ...
 from tabla
 order by oszlop1 asc/desc, oszlop2 asc/desc, ...;
 ```
+
+## Egyéb lekérdezőfüggvények
+
+### A concat
+
+A concat() függvény a paraméterként megadott értékeket összefűzi. Legyen például egy tábla, ahol a vezetéknév és a keresztnév külön oszlopokban vannak:
+
+```sql
+create table customers(
+    id int not null primary key auto_increment,
+    first_name varchar(50),
+    last_name varchar(50),
+    address varchar(100)
+);
+```
+
+A nevek megjelenítése összefűzve:
+
+```sql
+select concat(first_name, ' ', last_name)
+from customers;
+```
+
+### A format függvény
+
+```sql
+select format(345.89243, 2);
+```
+
+Eredmény: 345.89
+
+Locale beállítása:
+
+```sql
+select format(345.89243, 2, 'hu_HU');
+```
+
+```sql
+select concat(format(345.89243, 2, 'hu_HU'), ' Ft');
+```
+
+### Hosszmérés
+
+A length() függvény bájtokat számolja:
+
+```sql
+select length('árva')
+```
+
+Eredménye: 5
+
+Ha be van állítva az Oracle mód, akkor karaktert fog számolni.
+
+Oracle mód beállítása:
+
+```sql
+set sql_mode='oracle';
+```
+
+Lekérdezés:
+
+```sql
+select @@SQL_MODE
+select @@GLOBAL.SQL_MODE
+```
+
+Az SQL módokról: [https://mariadb.com/kb/en/sql-mode/](https://mariadb.com/kb/en/sql-mode/)
+
+A char_length() a karaktereket:
+
+```sql
+select char_length('árva');
+```
+
+Eredménye: 4
+
+### A substr függvény
+
+Szöveg részét vesszük.
+
+```sql
+select substr('tetőcsomag', 5);
+```
+
+Eredmény: csomag
+
+```sql
+select substr('tetőcsomag', 5, 3);
+```
+
+Eredmény: cso
+
+* [https://mariadb.com/kb/en/substring/](https://mariadb.com/kb/en/substring/)
+
+### A replace függvény
+
+A replace() függvény lecserél egy sztringet egy másikra.
+
+```sql
+select replace(positoions.name, 'rendszergazda', 'sasadmin')
+from positions;
+```
+
+### A round függvény
+
+A raund() a kapott értéket kerekíti.
+
+```sql
+select round(1.4)
+```
+
+Eredmény: 1
+
+```sql
+select round(1.5)
+```
+
+Eredmény: 2
+
+Megadhatók a megtartandó tizedeshelyek:
+
+```sql
+select round(1.44, 1)
+```
+
+Eredmény: 1.4
+
+```sql
+select round(1.45, 1)
+```
+
+Eredmény: 1.5
+
+* [https://mariadb.com/kb/en/round/](https://mariadb.com/kb/en/round/)
+
+### A dátum időrészének dobása
+
+```sql
+select cast(date(sysdate()) as datetime);
+```
+
+Lehetséges kimenet: 2024-03-15 00:00:00
+
+Oracle adatbázis esetén a trunc() függvény végzi ezt a művelete, de MariaDB-ben nincs ilyen függvény.
+
+## Lásd még
 
 Lásd még:
 
