@@ -857,6 +857,15 @@ D d = c.ker();
 
 ### Kivételek hibakód helyett
 
+Amíg nem voltak kivételek, hiba esetén egy hibakódot dobtunk. Most hogy vannak kivételek, hasznljuk ezeket a hibakódok helyett.
+
+Kétféle kivétel van:
+
+* ellenőrzött - Exception - kötelező kezelni
+* ellenőrizettlen - RuntimeException - nem kötelező kezelni
+
+Legyen például a egy egész szám bekérése. Ha nem egész számot ad meg a felhasználó, akkor InputMismatchException hibát kapunk.
+
 ```java
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -879,7 +888,11 @@ public class App {
 }
 ```
 
-Saját kivétel használata:
+Ha bekérés sikeres a try{} blokkban, akkkor végrehajtódik a kiíratás is. Ha sikeretelen, a kiíratás már nem hajtódik végre, helyette a catch(){} ág hajtódik végre. Akár volt kivétel, akár nem, a finally {} blokkba írt rész mindenképpen végrehajtódik.
+
+Használjunk bátran saját kivételeket.
+
+Vegyünk egy példát, ahol valamilyen beérkező szövegben csak számokat fogadunk el. Szeretnénk saját hibát dobni a tisztább, érthetőbb kódért.
 
 ```java
 if(!szoveg.matches("[0-9]+")) {
@@ -887,13 +900,50 @@ if(!szoveg.matches("[0-9]+")) {
 }
 ```
 
-Az InputTypeError kivételt le meg kell valósítani.
+Az InputTypeError kivételt le meg kell valósítani. Lássunk egy lehetséges megvalósítást:
+
+InputTypeError.java
+
+```java
+public class InputTypeError extends RuntimeException {
+    public InputTypeError(String msg) {
+        super(msg);
+    }
+}
+```
+
+Használata:
+
+App.java:
+
+```java
+import java.util.Scanner;
+
+public class App {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.print("Egész szám: ");
+            String  numStr = scanner.nextLine();
+            if(!numStr.matches("[0-9]+")) {
+                throw new InputTypeError("Hiba! A bemenet hibás!");
+            }
+            int num = Integer.parseInt(numStr);
+            System.out.println("A szám: " + num);
+        } catch (InputTypeError e) {
+            System.err.println("Hiba! Csak egész számot adható meg!");
+            System.err.println(e.getMessage());
+        } finally {            
+            scanner.close();
+        }
+    }
+}
+```
 
 ### Ellenőrizetlen kivételek használata
 
-Mindig használjunk ellenőrizetlen kivételeket. A C# nyelvben csak ilyen kivételek vannak. A Java nyelvben azonban nem.
-
-A Java nyelvben az ellenőrizetlen kivételek a futási idejű kivételek, angolul RuntimeException.
+Mindig használjunk ellenőrizetlen kivételeket. A Java nyelvben az ellenőrizetlen kivételek a futási idejű kivételek, angolul RuntimeException. Az előző fejezetben is ellenőrizetlen kivételt használtunk, itt most egy újabb példát látunk rá.
 
 ```java
 import java.util.Scanner;
@@ -923,6 +973,10 @@ public class App {
 ```
 
 ### Hibakezelés leválasztása
+
+A hibákat kezelni kell. A hibák kezelését viszont bízzuk egy külön metódusra. Ha van egy readFile() metódus, azt nevezzük át tryReadFile()-ra. Ebben valósítjuk meg a fájlkezelést. A kivételeket viszont itt továbbdobjuk.
+
+Ugyanakkor írunk egy readFile() metódust, amiben csak a hibakezeléssel foglalkozunk.
 
 ```java
 public static ArrayList<Employee> readFile() {
@@ -955,7 +1009,7 @@ throws FileNotFoundException {
 
 ### Null érték visszaadása
 
-Ne adjunk vissza null értéket. Ha vizsgálunk egy visszaadott értéket, nem a null értéket vizsgáljuk, inkább vizsgáljuk például a méretet.
+Ne adjunk vissza null értéket. Ha vizsgálunk egy visszaadott értéket, ne a null értéket vizsgáljuk, inkább vizsgáljuk például a méretet.
 
 DataService.java:
 
@@ -1025,7 +1079,7 @@ public class App {
 }
 ```
 
-Nulll érték helyett:
+Null érték helyett:
 
 ```java
 ArrayList<Employee> empList = new ArrayList<>();
