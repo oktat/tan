@@ -125,6 +125,20 @@ delete from employees
 where id=5
 ```
 
-Lásd még:
+## Tábla űrítése
+
+A tábla tartalmának törlése:
+
+```sql
+truncate table employees;
+```
+
+Persze a delete parancs is megteszi, ha nem adunk meg feltételt:
+
+```sql
+delete from employees;
+```
+
+## Lásd még
 
 * [https://szit.hu/doku.php?id=oktatas:adatbazis-kezeles:mariadb:sql:dml](https://szit.hu/doku.php?id=oktatas:adatbazis-kezeles:mariadb:sql:dml)
