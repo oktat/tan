@@ -44,6 +44,7 @@ A JavaScript szabványt az ECMA szabványügyi szervezet tartja karban. Az ECMAS
 * 11 - 2020
 * 12 - 2021
 * 13 - 2022
+* 14 - 2023
 
 A szabványokra rövidítéssel szokás hivatkozni. Például:
 
@@ -57,6 +58,7 @@ A szabványokra rövidítéssel szokás hivatkozni. Például:
 | 11 | 2020 | ES11 |
 | 12 | 2022 | ES12 |
 | 13 | 2022 | ES13 |
+| 14 | 2023 | ES14 |
 
 ## Futtatás konzolon
 
@@ -366,6 +368,8 @@ for(let i=0; i<5; i++) {
 }
 ```
 
+#### Ciklus gyakorlat
+
 Kiíratjuk a ciklusváltozó tartalmát, minden ciklusban.
 
 Legyen egy példa, ahol a HTML oldalra hozunk létre újabb div elemeket.
@@ -403,6 +407,8 @@ while(i<numArray.length) {
     i++;
 }
 ```
+
+#### While ciklus gyakorlat
 
 Lássunk egy példát, ahol egy beviteli mezőben tetszőleges számú számot kérünk be a felhasználótól, vesszővel tagolva. Nem tudjuk a felhasználó hány számot fog beírni.
 
@@ -559,7 +565,12 @@ console.log(kerDupla(25))
 
 ## Szabályos kifejezések
 
-A szabályos kifejezéseket perjel "/" karakterek közzé írjuk. Használható néhány függvénybe, ilyen a replace().
+A szabályos kifejezéseket perjel "/" karakterek közzé írjuk. Használható néhány függvényben. Például:
+
+* replace()
+* match()
+
+Szóközök törlése:
 
 ```javascript
 var noSpace = kar => {
