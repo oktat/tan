@@ -341,19 +341,101 @@ Ha num1 változóban "1" érték van, akkor az "egy" szó íródik a konzolra, h
 
 #### A for ciklus
 
+Növekményes ciklusokra a for() ciklus szokás használni. Növekményes ciklusok esetén általában tudjuk a ciklus hányszor fog ismétlődni.
+
+A for ciklus fejrésze (zárójeles rész) 3 részbő áll. A három részt ";" pontosvesszővel választjuk el egymástól.
+
+```txt
+for( kezdőérték ; feltétel ; növekmény ) {
+    //ciklus törzse, magja
+}
+```
+
+Az iterációk számára általában szükség van egy ciklusváltozóra, amiben nyilvántartjuk éppen melyik ciklusnál járunk. Általában ez az "i" nevű változó szokott lenni. Ha ez már foglalt lenne, akkor leht "j". Ha az is fogalalt lehet a "k".
+
+* Kezdőérték: a ciklus változó kezedeti értékének beállítása.
+* Feltétel: a ciklus feltétele; meddig fusson.
+* Növekmény: hogyan növeljük a ciklusváltozó értékét.
+
+Lássunk egy ciklust, ami 5 ismétlést tartalmaz:
+
 ```javascript
-for(let i=0; i<10; i++) {
+for(let i=0; i<5; i++) {
     console.log(i);
+}
+```
+
+Kiíratjuk a ciklusváltozó tartalmát, minden ciklusban.
+
+Legyen egy példa, ahol a HTML oldalra hozunk létre újabb div elemeket.
+
+index.html:
+
+```html
+<div id="doboz"></div>
+//...
+<script src="app.js"></script>
+```
+
+app.js:
+
+```javascript
+const doboz = document.querySelector('#doboz');
+for(let i=0; i<5; i++) {
+    const div = document.createElement('div');
+    div.textContent = 'i: ' + i;
+    doboz.append(div);
 }
 ```
 
 #### A while ciklus
 
+A while ciklust akkor szokás használni, ha nem tudjuk hány ismétlésre van szükség.
+
+A következő példában ugyan előre meg vannak adva tömb elemei, de tegyük fel, hogy nem tudjuk mekkora lesz ez.
+
 ```javascript
+var numArray = [35, 22, 17, 48, 23];
 var i=0;
-while(i<10) {
-    console.log(i);
+while(i<numArray.length) {
+    console.log(numArray[i]);
     i++;
+}
+```
+
+Lássunk egy példát, ahol egy beviteli mezőben tetszőleges számú számot kérünk be a felhasználótól, vesszővel tagolva. Nem tudjuk a felhasználó hány számot fog beírni.
+
+index.html:
+
+```html
+<div>
+    <label for="nums">Számok vesszővel tagolva</label>
+    <input type="text" id="nums">
+</div>
+<div>
+    <button id="parseButton">Értelmezés</button>
+</div>
+```
+
+app.js:
+
+```javascript
+const numsInput = document.querySelector('#nums');
+const parseButton = document.querySelector('#parseButton');
+
+parseButton.addEventListener('click', () => {
+    startParse();
+});
+
+function startParse() {
+    const nums = numsInput.value;
+    const numArray = nums.split(',');
+    const numsCount = numArray.length;
+    let i = 0;
+    while(i<numsCount) {
+        console.log(numArray[i])
+        i++;
+    }
 }
 ```
 
@@ -391,21 +473,18 @@ for (let key in employee) {
 
 #### A for of ciklus
 
-A for of ciklust, objektumok esetén használhatjuk a értékek sorba vételére.
+A for of ciklust, objektumokra nem használhatjuk. Tömbök bejárására találták ki.
 
 ```javascript
-for (value of object) {
+for (value of array1) {
     // A ciklus törzse, ami minden ciklusban lefut.
 }
 ```
 
 ```javascript
-const employee = {
-    name: "Pali",
-    city: "Szeged"
-}
-for (let value of employee) {
-    console.log(value);
+const nums = [35, 27, 48, 12, 32]
+for (let num of nums) {
+    console.log(num);
 }
 ```
 
