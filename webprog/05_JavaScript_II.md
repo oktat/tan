@@ -217,7 +217,19 @@ choco install httpie
 Ellenőrizzük a httpie klienssel a REST API működését:
 
 ```cmd
-http get http://localhost:3000/employees
+http get http://localhost:8000/employees
+```
+
+Resen csomag használata:
+
+```cmd
+npm install --global resen
+```
+
+Ellenőrizzük a resen klienssel a REST API működését:
+
+```cmd
+res get http://localhost:8000/employees
 ```
 
 ### REST API elérése JavaScripttel
@@ -225,12 +237,12 @@ http get http://localhost:3000/employees
 Írjunk egy JavaScript klienst:
 
 ```javascript
-var host = 'http://localhost:3000/';
+var host = 'http://localhost:8000/';
 var endpoint = 'employees';
 var url = host + endpoint;
 fetch(url)
-.then(res => res.json()
-.then(res => console.log(res))
+.then(response => response.json())
+.then(result => console.log(result))
 .catch(err => console.log(err));
 ```
 
@@ -238,6 +250,23 @@ Tegyük fel, hogy az src/app.js fájlba írtuk. A futtatás node paranccsal ekko
 
 ```cmd
 node src/app.js
+```
+
+Az async és await használatával:
+
+```javascript
+(async () => {
+    try {
+        var host = 'http://localhost:8000/';
+        var endpoint = 'employees';
+        var url = host + endpoint;
+        const response = await fetch(url);
+        const result = await response.json();
+        console.log(result);
+    } catch (err) {
+        console.log(err);
+    }
+})();
 ```
 
 A fetch() függvényről lásd tovább:
