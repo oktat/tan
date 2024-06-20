@@ -22,16 +22,6 @@ Webhely:
 
 * [https://www.ganttproject.biz/](https://www.ganttproject.biz/)
 
-### Jira
-
-Jira (/ˈdʒiːrə/) zárt forráskódú (korábban nyílt) projektmenedzsment eszköz.
-
-* Hibakövetés (bug tracking)
-* Problémakövetés (issue)
-* Agilis projektmenedzsment
-
-* [https://www.atlassian.com/software/jira](https://www.atlassian.com/software/jira)
-
 ### Bugzilla
 
 Webes hibakövető rendszer és teszteszköz. 1998-ban a Netscape Communications adta ki nyílt forráskódú szoftverként.
@@ -43,3 +33,10 @@ Webes hibakövető rendszer és teszteszköz. 1998-ban a Netscape Communications
 Webes nyílt forráskódú projekt menedzsment eszköz, problémakövetéssel.
 
 * [https://www.redmine.org/](https://www.redmine.org/)
+
+### Trello
+
+Webes projekt menedzsment eszköz, kanbantáblával.
+
+* [https://trello.com/](https://trello.com/)
+
