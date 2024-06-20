@@ -16,8 +16,6 @@ A következő tantárgyakhoz találhatók tankönyvek:
 | Asztali és mobil alkalmazások fejlesztése és tesztelése | asztali_mobil |
 | Backend programozás | backend |
 | Frontend programozás és tesztelés | frontend |
-| IKT projektmuka I | IKT_projektmunka_I |
-| Informatika és távközlési alapok I | info_tavkoz_I |
 | Informatika és távközlési alapok II | info_tavkoz_II |
 | Programozás alapok | prog_alapok |
 | Szoftvertesztelés | teszteles |
