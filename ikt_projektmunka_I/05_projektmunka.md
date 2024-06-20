@@ -4,6 +4,24 @@ Szakmai tantárgyakhoz kapcsolódó projektek megvalósítása
 
 ## Projektmunka szoftverek
 
+### OpenProject
+
+**OpenProject** egy **webes** **nyílt forráskódú** **projektmenedzsment** eszköz, **problémakövetés** eszköz és **agilis projektmenedzsment**.
+
+PostgreSQL adatbázás alapokon működik.
+
+Webhely:
+
+* [https://www.openproject.org/](https://www.openproject.org/)
+
+### GanttProject
+
+GanttProject egy **webes** **nyílt forráskódú** **projektmenedzsment** eszköz, **problémakövetés** eszköz és **agilis projektmenedzsment**.
+
+Webhely:
+
+* [https://www.ganttproject.biz/](https://www.ganttproject.biz/)
+
 ### Jira
 
 Jira (/ˈdʒiːrə/) zárt forráskódú (korábban nyílt) projektmenedzsment eszköz.
