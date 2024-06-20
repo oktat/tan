@@ -39,4 +39,3 @@ Webes nyílt forráskódú projekt menedzsment eszköz, problémakövetéssel.
 Webes projekt menedzsment eszköz, kanbantáblával.
 
 * [https://trello.com/](https://trello.com/)
-
