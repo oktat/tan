@@ -15,7 +15,7 @@
 
 ### Chocolatey
 
-Telepítse a Chocolatey csomagkezelőt. Továbbiakban ezt a csomagkezelőt használjuk.
+Telepítse a Chocolatey csomagkezelőt. Továbbiakban ezt a csomagkezelőt használjuk, de a tankönyv használható nélküle is.
 
 A csomagkezelő weboldala:
 [https://chocolatey.org/](https://chocolatey.org/)
@@ -24,6 +24,8 @@ Bővebb leírása:
 [https://szit.hu/](https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:csomagkezeles#chocolatey)
 
 ### XAMPP
+
+Szükségünk van egy adatbázis-kezelő rendszerre. Egy MySQL kompatiblis rendszert fogunk használni, aminek a neve MariaDB. Telepítéshez használhatjuk a choco parancsot:
 
 Telepítés:
 
@@ -46,14 +48,19 @@ choco install dia
 
 ## Útvonabeállíáts
 
-A PATH változóba:
+A PATH környezeti változóba vegyük fel a bin könyvtárat:
 
 * C:\XAMPP\mysql\bin
 
+Ellenőrzésképpen nyissunk egy új parancsablakaot, majd kérdezzük le a verziószámot:
+
+```cmd
+mysql -V
+```
+
 ## Scriptek
 
-Ha az útvonalbeállítás nem megy,
-használjuk az alábbi scriptet:
+Ha az útvonalbeállítás nem megy, akkor használjuk az alábbi scriptet ha a mysql paranccsal szeretnénk az adatbázis-kezelőhöz kapcsolódni:
 
 ```cmd
 @echo off
@@ -63,5 +70,4 @@ c:\XAMPP\mysql\bin\mysql -u root
 pause
 ```
 
-Tegyük egy **mysql.bat** nevű fájlba, majd
-futtassuk.
+Tegyük egy **mysql.bat** nevű fájlba, majd futtassuk.
