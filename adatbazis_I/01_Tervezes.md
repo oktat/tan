@@ -14,7 +14,7 @@ A hagyományos adatbázisok, mint a könyvtárak hátránya:
 * nagy helyigény
 * a karbantartás lassú
 
-Az adatbázisok a következő módon osztályozhatók:
+Az elektronikus adatbázisok a következő módon osztályozhatók:
 
 * relációs
 * hálós
@@ -22,15 +22,23 @@ Az adatbázisok a következő módon osztályozhatók:
 * objektumorientált
 * objektumrelációs
 
+Itt a relációs adatbázissal fogunk dolgozni.
+
 ## A relációs adatbázis
 
-A relációs adatbázisokban valamilyen egyedekről szeretnénk információt tárolni. Egy egyedről többfélre információt tárolunk. A tárolás táblázatban történik. Minden táblázatnak van neve, vannak oszlopai és sorai. Minden oszlop rendelkezik egy névvel.
+A relációs adatbázisokban valamilyen egyedekről szeretnénk információt tárolni.
 
-Az oszlopokat mezőknek, a sorokat rekordoknak nevezzük. Az oszlopok neveit mezőnéven használjuk.
+Példa: Ha a Mari nevű dologozóról tárolunk adatokat, akkor a Mari egy egyed. Ha Pali nevű dolgozóról szeretnénk adatot tárolni, akkor a Pali egy másik egyed stb. Általánosítva, azt mondhatjuk, hogy dolgozó egyedekről szeretnénk adatokat tárolni. Ezért számunka a dolgozó egy egyed.
+
+Egy másik példa lehet amikor projektekről akarunk információt tárolni. Például egyik könyvelő program írása egy projekt, amiről szeretnénk eltárolni olyan adatokat, hogy mikor kezdtük a projektet, mi a projekt neve és így tovább. Akkor ez is egy egyed.
+
+Egy egyedről többfélre információt tárolunk. A tárolás táblázatban történik. Minden táblázatnak van neve, vannak oszlopai és sorai. Minden oszlop rendelkezik egy névvel.
+
+Az oszlopokat mezőknek, a sorokat rekordoknak nevezzük. Az oszlopok neveire a "mezőnév" szót is használjuk.
 
 ## Kulcsok
 
-Minden táblázatban szükség van egy olyan mezőre, ami egyértelműen azonosítja az egyedet. Legyen például dolgozókat tartalmazó tábla. Ha van két dolgozónk, és mindkettő neve Szabó János, nem tudhatjuk melyik dolgozóról van szó.
+Minden táblázatban szükség van egy olyan mezőre, ami egyértelműen azonosítja az egyedet. Legyen például dolgozókat tartalmazó tábla. Ha van két dolgozónk, és mindkettő neve Szabó János, nem tudhatjuk melyik dolgozóról van szó. Nézzük a következő táblazatot.
 
 Dolgozók
 | Név |
@@ -46,12 +54,12 @@ Dolgozók
 | Szabó János | 120050715-2324 |
 | Szabó János | 120030107-7423 |
 
-Felmerülehet a személyi igazolvány használata. Ez azonban nem alkalmas, mivel egy ember élete során ez változik. Az egyedi azonosítók követelményei:
+Felmerülehet a személyi igazolvány használata azonosításra. Ez azonban nem alkalmas, mivel egy ember élete során ez változik. Az egyedi azonosítók követelményei:
 
 * nem ismétlődhet
 * az egyed egész élete során változatlan kell legyen
 
-Az is előfordulhat, hogy nemtalálunk alkalmas mezőt egyedi azonsítónak. Ilyenkor felveszünk egy újabb mezőt, ahol egyszerűen azonosítót rendelünk minden egyedhez. A dolgozók esetén például lehet a következő:
+Az is előfordulhat, hogy nem találunk alkalmas mezőt egyedi azonsítónak. Ilyenkor felveszünk egy újabb mezőt, ahol egyszerűen azonosítót rendelünk minden egyedhez. A dolgozók esetén például lehet a következő:
 
 Dolgozók
 | Név | Azonosító |
@@ -82,7 +90,7 @@ Projektek
 
 A **Dolgozó azonosító** mező a táblázatban kulcsmező, mivel ez mutatja meg a másik táblázatban melyik dolgozóról van szó. Úgyis mondhatnánk, ez a mező a másik táblában elsődleges kulcs. Az ilyen mezőt idegenkulcs-mezőnek nevezzük.
 
-Az idegenkulcs egy másik táblában elsődleges kulcs. Az elsődleges kulcs mutatja a két tábla közötti kapcsolatot.
+Elmondhatjuk, hogy az idegenkulcs egy másik táblában elsődleges kulcs. Az elsődleges kulcs mutatja a két tábla közötti kapcsolatot.
 
 ## NULL érték
 
@@ -97,7 +105,7 @@ Termékek
 | 3 | káposzta | NULL |
 | 4 | sárgarépa | 0,032 |
 
-Megjegyzés: A SOL a Solana fő kriptovalutája.
+Megjegyzés: A SOL a Solana fő kriptovalutája, írhattam volna helyette forintot vagy más pénznemet.
 
 ## Kapcsolatok
 
@@ -107,15 +115,15 @@ A táblák között tehát kapcsolat van. Háromféle kapcsolat lehetséges:
 * egy a többhöz
 * több a többhöz
 
-Esetünkben egy dolgozóhoz több projekt is tartozhat, de egy projekt csak egy dolgozóhoz tartozik. Ilyenkor egy a többhöz kapcsolatról beszélünk. Az adatbázis tervezése során mindig ilyen kapcsolatokat keresünk.
+Esetünkben egy dolgozóhoz több projekt is tartozhat, de egy projekt csak egy dolgozóhoz tartozik. Ilyenkor egy a többhöz kapcsolatról beszélünk. Az adatbázis tervezése során mindig ilyen kapcsolatokra törekszünk.
 
-Mikor lenne egy az egyhez kapcsolat? Ha egy dolgozóhoz csakis egyetlen projekt tartozhat, és egy projekthez csak egyetlen dolgozó tartozhat, akkor egy az egyhez kapcsolatról beszélnénk.
+Mikor lenne egy az egyhez kapcsolat? Ha egy dolgozóhoz csakis egyetlen projekt tartozhat, és egy projekthez csak egyetlen dolgozó rendelhető, akkor egy az egyhez kapcsolatról beszélnénk.
 
-Ha két táblak között egy az egyhez kapcsolat van, akkor valúszínűleg az egyik tábla nem entitást ír le, vagyis a két tábla összevonható egyetlen táblává, mivel egyetlen táblában tárolható az infomráció.
+Ha két tábla között egy az egyhez kapcsolat van, akkor valúszínűleg az egyik tábla nem egyedet ír le, vagyis a két tábla összevonható egyetlen táblává, mivel egyetlen táblában tárolható az infomráció.
 
-A több a többhöz kapcsolatról akkor beszélünk, ha például minden dolgozónak több projekje is lehet, és minden projekthez több dolgozó tartozhat. Az ilyen kapcsolatokat is meg kell szüntetni. Át kell alakítani az adatbázisunkat. A több a többhöz kapcsolat általában arra utal, hogy létre kell hoznunk még egy táblát.
+A több a többhöz kapcsolatról akkor beszélünk, ha például minden dolgozónak több projektje is lehet, és minden projekthez több dolgozó tartozhat. Az ilyen kapcsolatokat is meg kell szüntetni, át kell alakítani az adatbázisunkat. A több a többhöz kapcsolat általában arra utal, hogy létre kell hoznunk még egy táblát, vagyis van még ott egyed.
 
-Ha legalább három táblánk van, előfordulhat, hogy a táblák átrendezésével megszüntethető a több a többhöz kapcsolat. Ha ez nem működik, akkor egy kapcsolótáblát kell beszúrni. Esetünkben a kapcsolótáblában írnán le, hogy melyik dolgozó, milyen projektben van benne.
+Ha legalább három táblánk van, előfordulhat, hogy a táblák átrendezésével megszüntethető a több a többhöz kapcsolat. Ha ez nem működik, akkor egy kapcsolótáblát kell beszúrni. Esetünkben a kapcsolótáblában írjuk le, hogy melyik dolgozó, milyen projektben vesz részt.
 
 ![egy az egyhez kapcsolat](images/relationships/dolgozok_becenevek.png)
 
@@ -130,7 +138,7 @@ Dolgozó/Projekt
 | 1 | 1 |
 | 1 | 3 |
 
-Ebbe a táblába is tehetünk más mezőket is. Például tárolhatjuk mikor kezdett a dolgozó az adott projektben dolgozni:
+Ebbe a táblába tehetünk más mezőket is. Például tárolhatjuk, mikor kezdett a dolgozó az adott projektben dolgozni:
 
 | Azonosító | Dolgozó azonosító | Projekt azonosító | Kezdés |
 |-|-|-|-|
@@ -173,12 +181,16 @@ Az egyed és a gyenge egyed közötti különbség:
 
 ### Relációs sémák
 
+Az egyedeket (táblákat) ábrázolhatjuk egyszerűen szövegesen is. Egy sor egy egyedet ír le. Az egyed nev után zárójelben írjuk le a tulajdonságokat (mezőket). Például:
+
 ```txt
 Dolgozók(Név, Település, Fizetés)
 Projektek(Név, Kezdés)
 ```
 
 ## Anomáliák
+
+Az anomáliák nem kívánatos jelenségek az adatbázis használata során.
 
 ### Bővítési anomália
 
@@ -210,11 +222,15 @@ A normalizálás az adatbázis rendundanciáinak megszüntetését jelenti átal
 
 ### Normál formák
 
+Az adatbázis ha normálisabb állapotba hoztuk, osztályozhatjuk. Megmondhatjuk éppen milyen állapotban van. Ezeket az állapotokat normál foráknak hívjuk. Itt most az első három normálfomrával foglalkozunk.
+
 * 1NF
 * 2NF
 * 3NF
 
 ### Funkcionális függőség
+
+A normalizáláshoz ismerkedjünk a függőségekkel.
 
 A tábla egy mezőjének értéke meghatározza egy másik mező értékét.
 
@@ -314,7 +330,7 @@ A 0NF az az állapot, amikor még nincs normalizálva a séma. Itt valójában m
 
 ![Dolgozók 0NF-ben](images/normal_03_dolgozok.png)
 
-A Telefon mezőben nem atomi értékek is szereplenek.
+Vegyük észre, hogy a Telefon mezőben nem atomi értékek is szereplenek.
 
 ### 1NF
 
