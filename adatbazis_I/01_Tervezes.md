@@ -28,9 +28,9 @@ Itt a relációs adatbázissal fogunk dolgozni.
 
 A relációs adatbázisokban valamilyen egyedekről szeretnénk információt tárolni.
 
-Példa: Ha a Mari nevű dologozóról tárolunk adatokat, akkor a Mari egy egyed. Ha Pali nevű dolgozóról szeretnénk adatot tárolni, akkor a Pali egy másik egyed stb. Általánosítva, azt mondhatjuk, hogy dolgozó egyedekről szeretnénk adatokat tárolni. Ezért számunka a dolgozó egy egyed.
+Példa: Ha a Mari nevű dologozóról tárolunk adatokat, akkor a Mari a dolgozhó egyed egyik példánya. Ha Pali nevű dolgozóról szeretnénk adatot tárolni, akkor a Pali a dolgozó egyed egy másik peldánya, és így tovább. Általánosítva, azt mondhatjuk, hogy dolgozó egyedekről szeretnénk adatokat tárolni. Ezért számunka a dolgozó egy egyed.
 
-Egy másik példa lehet amikor projektekről akarunk információt tárolni. Például egyik könyvelő program írása egy projekt, amiről szeretnénk eltárolni olyan adatokat, hogy mikor kezdtük a projektet, mi a projekt neve és így tovább. Akkor ez is egy egyed.
+Egy másik példa lehet amikor projektekről akarunk információt tárolni. Például egyik projektuünk egy "könyvelő program írása", amiről szeretnénk eltárolni olyan adatokat, hogy mikor kezdtük a projektet, mi a projekt neve és így tovább. Ekkor a projekt egy egyed, a "könyvelő program" program pedig ennek az egyednek egy példánya.
 
 Egy egyedről többfélre információt tárolunk. A tárolás táblázatban történik. Minden táblázatnak van neve, vannak oszlopai és sorai. Minden oszlop rendelkezik egy névvel.
 
@@ -38,7 +38,7 @@ Az oszlopokat mezőknek, a sorokat rekordoknak nevezzük. Az oszlopok neveire a 
 
 ## Kulcsok
 
-Minden táblázatban szükség van egy olyan mezőre, ami egyértelműen azonosítja az egyedet. Legyen például dolgozókat tartalmazó tábla. Ha van két dolgozónk, és mindkettő neve Szabó János, nem tudhatjuk melyik dolgozóról van szó. Nézzük a következő táblazatot.
+Minden táblázatban szükség van egy olyan mezőre, ami egyértelműen azonosítja a példányt. Legyen például dolgozókat tartalmazó tábla. Ha van két dolgozónk, és mindkettő neve Szabó János, nem tudhatjuk melyik dolgozóról van szó. Nézzük a következő táblazatot.
 
 Dolgozók
 | Név |
@@ -46,7 +46,7 @@ Dolgozók
 | Szabó János |
 | Szabó János |
 
-Szükség van egy olyan mezőre, ami egyértelműen azonosítja a dolgozókat. Lehet például a személyi számuk:
+Szükség van egy olyan mezőre, ami egyértelműen azonosítja a dolgozókat. Lehet például a személyi számuk. Ekkor feleveszünk egy "Személyi szám" mezőt. A táblázatunk ekkor így néz ki:
 
 Dolgozók
 | Név | Személyi szám |
@@ -54,7 +54,9 @@ Dolgozók
 | Szabó János | 120050715-2324 |
 | Szabó János | 120030107-7423 |
 
-Felmerülehet a személyi igazolvány használata azonosításra. Ez azonban nem alkalmas, mivel egy ember élete során ez változik. Az egyedi azonosítók követelményei:
+Felmerülehet a személyi igazolvány használata azonosításra. Ez azonban nem alkalmas, mivel egy ember élete során ez változik. Ez elvezet minket az azonosítokkal szemben támasztott követelményekhez.
+
+Az egyedi azonosítók követelményei:
 
 * nem ismétlődhet
 * az egyed egész élete során változatlan kell legyen
