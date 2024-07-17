@@ -74,7 +74,7 @@ Hátrányok:
 7. Permalink
    * Definíció: Egy weblapon egy bejegyzés állandó URL címe, ahol az elérhető.
 8. Content Types
-   * Definíció: A különböző típusú tartalmak: bejegyzés (post), oldal (page), csatolmány (attacments), megjegyzés (comment) stb.
+   * Definíció: A különböző típusú tartalmak: bejegyzés (post), oldal (page), csatolmány (attacments), hozzászólás (comment) stb.
 9. Taxonomy (rendszertan)
    * Definíció: A tartalom kategóriákba rendezése és címkézésnek rendszere, módja.
 10. User Roles (Felhasználói szerepek)
@@ -89,6 +89,81 @@ Hátrányok:
 * Adatbázis kell létrehozni.
 * CMS telepítése, általában URL-en keresztül.
 * Belépés és tesztelés
+
+A CMS rendszerek közül a WordPress-t fogjuk használni. Keressük fel a WordPress webhelyét:
+
+* [https://hu.wordpress.org/](https://hu.wordpress.org/)
+
+Kattintsunk a "WordPress letöltése" gombra. Egy újabb oldalon válasszuk a "Download WordPress 6.5" gombra. Egy ilyen fájlt kapunk 6.5 verzió esetén:
+
+* wordpress-6.5-hu_HU.zip
+
+Ha az XAMPP a C:\ gyökérkönyvtárába lett telepítve, akkor találunk egy ilyen könyvtárat:
+
+* C:\xampp\htdocs
+
+Ebben könyvtárba csomagoljuk ki a .zip állományt. Ha mindent jól csináltunk lesz egy ilyen könyvtárunk:
+
+* C:\xampp\htdocs\wordpress
+
+Telepítés előtt hozzunk létre egy adatbázist. Legyen például a neve wordpress.
+
+```sql
+create database wordpress;
+```
+
+```sql
+grant all privileges
+on wordpress.*
+to wordpress@localhost
+identified by 'titok';
+```
+
+A kicsomagolt wordpress könyvtárban van egy wp-config-sample.php fájl. Ebből készítsünk egy wp-config.php nevű fájlt. A wp-config.php fájlban állítsuk be az adatbázis elérését. Keressük meg a következő sorokat:
+
+```php
+/** Adatbázis neve */
+define('DB_NAME', 'adatbázis_neve');
+
+/** MySQL felhasználónév */
+define('DB_USER', 'felhasználónév');
+
+/** MySQL jelszó. */
+define('DB_PASSWORD', 'jelszó');
+```
+
+Javítsuk:
+
+```php
+/** Adatbázis neve */
+define('DB_NAME', 'wordpress');
+
+/** MySQL felhasználónév */
+define('DB_USER', 'wordpress');
+
+/** MySQL jelszó. */
+define('DB_PASSWORD', 'titok');
+```
+
+Indítsuk el az XAMPP kontrollfelületén az Apache és MySQL lehetőséget.
+
+![WordPress telepítés](images/wordpress_telepites.png)
+
+Be kell állítani webhely nevét, fel kell vennünk egy felhasználót. Adjuk meg a következő adatokat:
+
+* Honlap neve
+* Felhasználónév
+* Jelszó
+* E-mail címe
+* Keresőmotor láthatóság (bepipálva tiltjuk)
+
+Amikor sikerült telepíteni, a következő kép fogad minket:
+
+![WordPress készítés](images/wordpress_telepitve.png)
+
+Kattinthatunk a Bejelentkezés linkre. A következő képernyő fogad:
+
+![WordPress belépés](images/wordpress_login.png)
 
 ### WordPress beállítások
 
