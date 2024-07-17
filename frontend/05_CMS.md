@@ -57,6 +57,31 @@ Hátrányok:
 * az egyszerűség csökkenti a testre-szabhatóságot
 * nem minden CMS terhelhető nagy forgalommal
 
+### Alapvető terminológia
+
+1. CMS (Content Management System)
+   * Definíció: Egy szoftveralkalmazás, amely lehetővé teszi tartalom létrehozását, kezelését és publikálását.
+2. Téma (Theme)
+   * Definíció: A weboldal megjelenését és elrendezését meghatározó sablonok és sítlusok gyűjteménye.
+3. Plugin/Modul
+   * Definíció: Egy kiegészítő szoftverkomponens, ami további funkciókat és képességeket ad a CMS-hez. Például egy SEO vagy egy képgaléria.
+4. Widget
+   * Definíció: A weboldalhoz könnyen hozzáadható Kisalkalmazások, amelyek apró funkciókat látnak el. Ilyen lehet egy keresősáv, vagy egy hírlevél feliratkozási lehetőség.
+5. WYSIWYG (What-You-See-Is-What-You-Get)
+   * Definíció: Egy szerkesztőfelület, ahol a szerkesztés során a végleges megjelenést látjuk.
+6. SEO (Search Engine Optimization)
+   * Defincíció: Technikák és gyakorlatok, amelyek elősegítik, hogy egy keresőmotor találálati listáján minél jobb helyen szerepeljen a webhelyünk.
+7. Permalink
+   * Definíció: Egy weblapon egy bejegyzés állandó URL címe, ahol az elérhető.
+8. Content Types
+   * Definíció: A különböző típusú tartalmak: bejegyzés (post), oldal (page), csatolmány (attacments), megjegyzés (comment) stb.
+9. Taxonomy (rendszertan)
+   * Definíció: A tartalom kategóriákba rendezése és címkézésnek rendszere, módja.
+10. User Roles (Felhasználói szerepek)
+    * Definíció: A szerepek a felhasználók csoportjai, amelyek különböző lehetőségekkel rendelhetnek. Ilyenek az adminisztrátor, szerkesztő, látogató stb.
+11. Media Library (Média könyvtár)
+    * Definíció: A weboldalakhoz feltöltött képek, videók, hangfájlok helye.
+
 ## CMS rendszer telepítése
 
 * Telepítő fájl letöltése.
