@@ -36,14 +36,14 @@ Vegyük észre, hogy nem kellenek kötőjelek.
 
 A legújabb verzió helyett használjuk mindig az **LTS** verziót. Az LTS verzió hosszú támogatási idővel rendelkezik. Keressük meg a legújabb LTS a következő helyen:
 
-* [https://angular.io/guide/releases](https://angular.io/guide/releases)
+* [https://angular.dev/reference/releases](https://angular.dev/reference/releases)
 
-2022-10-17-én a legújabb LTS verzió a 13.0.0, ami 2023-05-04 jár le.
+2024-07-17-én a legújabb LTS verzió a 17.0.0, ami 2025-05-15 jár le.
 
 Telepítése:
 
 ```cmd
-npm install -g @angular/cli@13.0.0
+npm install -g @angular/cli@17.0.0
 ```
 
 ### Windowson
