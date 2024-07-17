@@ -46,6 +46,8 @@ Telepítése:
 npm install -g @angular/cli@17.0.0
 ```
 
+Ha valahol egy képzésen veszel részt, vedd figyelembe a képzés helyén milyen verziót használsz, és azt telepítsd.
+
 ### Windowson
 
 Windowson útvonalba kell tenni a következő könyvtárat:
