@@ -47,7 +47,7 @@ tsc app.ts
 
 A fordítás után, létrejön egy app.js nevű fájl, amit a böngészők már képesek használni.
 
-Készítsünk egy webolalt, majd teszteljük a programot. Készítsünk egy weboldalt, vagy futtassuk a node paranccsal.
+Készítsünk egy webolalt, majd teszteljük a programot, majd teszteljük böngészőben. A másik lehetőség, hogy az app.js fájlt futtassuk a node paranccsal.
 
 ```html
 <!DOCTYPE html>
@@ -88,7 +88,7 @@ Az útvonalba állításról Windowson itt olvashat:
 Ha lokálisan telepítjük megadhatjuk az útvonlat vagy használhatjuk az npx parancsot a projekt gyökérkönyvtárában:
 
 ```cmd
-npx lit-server
+npx lite-server
 ```
 
 ### NodeJS projekt készítése
@@ -150,13 +150,13 @@ A package.json fájlban megjelenik a lite-server fejlesztői függőségként:
 }
 ```
 
-A lite-server készen áll a indításra. Teszteljük:
+A lite-server készen áll az indításra. Teszteljük:
 
 ```cmd
 npm start
 ```
 
-A böngészőben automatikusan megnyílik a gyökérkönyvtárban található index.html, ha van.
+A böngészőben automatikusan megnyílik a gyökérkönyvtárban található index.html, ha van ilyen állomány.
 
 ## TypeScript típusok
 
@@ -188,7 +188,7 @@ console.log(szelesseg);
 tsc src/app.ts
 ```
 
-Létrejön az app.js, amit futtathatunk weblappa vagy a node paranccsal. A node parancs használata:
+Létrejön az app.js, amit futtathatunk böngészőben vagy a node paranccsal. A node parancs használata:
 
 ```cmd
 node app.js
