@@ -38,7 +38,7 @@ A HAI szervert használhatjuk globálisan és lokálisan telepítve. Itt most lo
 npm install --save-dev hai-server
 ```
 
-Készítsük el a JSON szervert. A projekt gyökérkönyvtárában hozzuk létre a **database.json** nevű fájlt. A tartalm a következő legyen:
+Készítsük el az adatbázisfájlt. A projekt gyökérkönyvtárában hozzuk létre a **database.json** nevű fájlt. A tartalma a következő legyen:
 
 ```javascript
 {
@@ -46,11 +46,13 @@ Készítsük el a JSON szervert. A projekt gyökérkönyvtárában hozzuk létre
         {
             "id": 1,
             "name": "Penge Béla",
+            "city": "Szeged",
             "salary": 358
         },
         {
             "id": 2,
             "name": "Csendes Irén",
+            "city": "Pécs",
             "salary": 392
         }
     ]
@@ -109,9 +111,11 @@ A többi metódus (POST, PUT, DELETE) teszteléséhez szükségünk van más kli
 
 A REST API teszteléséhez ajánlott eszközök:
 
+* HTTPie
 * Insomnia
 * curl
 * Postman
+* VSCode - Thunder client bővítmény
 
 Itt most a curl utasítást használjuk:
 

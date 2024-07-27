@@ -65,19 +65,19 @@ Készítsünk egy webolalt, majd teszteljük a programot, majd teszteljük böng
 
 Böngésző esetén nyissuk meg a fejlesztői felületet, például az F12 lenyomásával, majd kattintsunk a "Console" fülre, ha az nem aktív.
 
-## A lite-server
+## A browser-sync szerver
 
-### A lite-server-ről
+### A browser-sync szerver-ről
 
-A lite-server egy HTTP szerver fejlesztők számára. Node.js csomagként fogjuk használni, egy lite-server parancsként.
+A browser-sync egy HTTP szerver fejlesztők számára. Node.js csomagként fogjuk használni, egy browser-sync parancsként.
 
-A csomagot két módon telepíthetjük: globálisan és lokálisan csak az aktuális projekt számára. A globális telepítés Windows operációs rendszeren nem igényel rendszergazdai jogot, de nem is használhatja az a felhasználó, aki telepítette.
+A csomagot két módon telepíthetjük: globálisan és lokálisan csak az aktuális projekt számára. A globális telepítés Windows operációs rendszeren nem igényel rendszergazdai jogot, de nem is használhatja csak az a felhasználó, aki telepítette.
 
 Globális telepítés esetén a parancs a következő helyre kerül:
 
 * C:\Users\janos\AppData\Roaming\npm
 
-Lokális telepítés esetén a projekt könyvtárában, a node_modules/.bin könyvtárba kerül.
+Lokális telepítés esetén a projekt könyvtárában, a node_modules/.bin könyvtárba be lesz hivatkozva.
 
 Globális telepítés esetén útvonalba kell tenni a C:\Users\janos\AppData\Roaming\npm útvonalat.
 
@@ -88,7 +88,7 @@ Az útvonalba állításról Windowson itt olvashat:
 Ha lokálisan telepítjük megadhatjuk az útvonlat vagy használhatjuk az npx parancsot a projekt gyökérkönyvtárában:
 
 ```cmd
-npx lite-server
+npx browser-sync start --server
 ```
 
 ### Node.js projekt készítése
@@ -106,6 +106,8 @@ Indítsuk el a Visual Studio Code programot a projekt gyökérkönyvtárában:
 code .
 ```
 
+A projekt gyökérkönyvtárában készítsünk egy index.html fájlt, amelyben írjunk egy egyszerű weblapot.
+
 Indítsunk egy terminálablakot, a továbbiakban ott fogunk parancsokat kiadni.
 
 Készítsük el a Node.js projektet:
@@ -116,21 +118,21 @@ npm init -y
 
 Létrejön a package.json fájl.
 
-Telepítsük a lite-server lokálisan, fejlesztési célra:
+Telepítsük a browser-sync szervert lokálisan, fejlesztési célra:
 
 ```cmd
-npm install --save-dev lite-server
+npm install --save-dev browser-sync
 ```
 
-A package.json fájlban megjelenik a lite-server fejlesztői függőségként:
+A package.json fájlban megjelenik a browser-sync fejlesztői függőségként:
 
 ```json
     "devDependecies": {
-        "lite-server": "^2.6.1"
+        "browser-sync": "^3.0.2"
     }
 ```
 
-Írjunk scriptet a lite-server indításához a package.json fájlban:
+Írjunk scriptet a browser-sync szerver indításához a package.json fájlban:
 
 ```json
 {
@@ -140,23 +142,61 @@ A package.json fájlban megjelenik a lite-server fejlesztői függőségként:
     "main": "app.js"
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "npx lite-server"
+        "start": "browser-sync start --server"
     },
     "author": "",
     "license: "ISC",
     "devDependecies": {
-        "lite-server": "^2.6.1"
+        "browser-sync": "^3.0.2"
     }
 }
 ```
 
-A lite-server készen áll az indításra. Teszteljük:
+A browser-sync szerver készen áll az indításra. Teszteljük:
 
 ```cmd
 npm start
 ```
 
-A böngészőben automatikusan megnyílik a gyökérkönyvtárban található index.html, ha van ilyen állomány.
+A böngészőben automatikusan megnyílik a projekt gyökérkönyvtárban található index.html tartalma.
+
+### Browser-sync beállító fájl
+
+Készítsünk egy beállítófájlt bs-config.json néven, a következő tartalommal:
+
+```json
+{
+    "server": ["src"],
+    "port": 3000,
+    "watch": true
+}
+```
+
+Írjuk át az indítóscriptet:
+
+```json
+{
+  "scripts": {
+    "start": "browser-sync start --config bs-config.json"
+  }
+}
+```
+
+### Bootstrap használata
+
+Ha Bootstrap-t használunk:
+
+```json
+{
+    "server": [
+        "src",
+        "node_modules/bootstrap/dist/css",
+        "node_modules/bootstrap/dist/js"
+    ],
+    "port": 3000,
+    "watch": true
+}
+```
 
 ## TypeScript típusok
 
