@@ -23,7 +23,7 @@ cd app01
 code .
 ```
 
-A VSCode-ban indítsunk egy terminált. Készítsünk NodeJS projektet:
+A VSCode-ban indítsunk egy terminált. Készítsünk Node.js projektet:
 
 ```cmd
 npm init -y

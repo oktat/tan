@@ -20,7 +20,7 @@ A Jasmine licenc: MIT.
 
 ## Szükséges
 
-* NodeJS
+* Node.js
 * VSCode
 
 A VSCode helyett használhatunk más kódszerkesztőket is.

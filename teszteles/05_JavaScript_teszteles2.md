@@ -14,7 +14,7 @@ A JavaScript teszteléshez két fejezet van:
 
 Ebből elég az egyiket ismerni. Ajánlott ez, a 2-s számozású. Ebben a fejezetben a Jasmine segítségével egységtesztek írását fogjuk megismerni.
 
-A fejezet feldolgozásához feltételezzük HTML5, CSS, JavaScript és NodeJS ismereteket.
+A fejezet feldolgozásához feltételezzük HTML5, CSS, JavaScript és Node.js ismereteket.
 
 ## A Jasmine Browser Runner
 
@@ -28,14 +28,14 @@ Jasmine licenc: MIT
 
 Telepítve kell legyen:
 
-* NodeJS
+* Node.js
 * VSCode
 
 A VSCode helyett használhatunk más kódszerkesztőket is.
 
 ## Helló Világ
 
-Készítsünk egy app01 könyvtárat, csináljunk belőle NodeJS programot.
+Készítsünk egy app01 könyvtárat, csináljunk belőle Node.js programot.
 
 ```bash
 mkdir app01
@@ -43,7 +43,7 @@ cd app01
 code .
 ```
 
-Alakítsuk NodeJS projektté:
+Alakítsuk Node.js projektté:
 
 ```bash
 npm init -y
@@ -322,7 +322,7 @@ Hozzunk létre egy src könyvtárat a projekt forrásának.
 mkdir src
 ```
 
-Az alkalmazást NodeJS projektként kezeljük, ezért:
+Az alkalmazást Node.js projektként kezeljük, ezért:
 
 ```bash
 npm init -y
@@ -518,7 +518,7 @@ Ha megvannak a tesztesetek, jöehet a tesztek írása.
 Tesztelhetünk ECMAScriptet és CommonJS scripteket.
 
 * ECMAScript - Böngészőben futó JavaScript
-* CommonJS - Szerveroldali NodeJS alap JavaScript
+* CommonJS - Szerveroldali Node.js alap JavaScript
 
 Itt most böngészőben futó JavaScriptet fogunk tesztelni.
 

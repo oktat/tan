@@ -28,7 +28,7 @@ A következő szoftverek van szükség:
 * Google Chrome
 * Total Commander
 * Java JDK
-* NodeJS
+* Node.js
 
 Telepítés Chocolatey csomagkezelővel:
 
