@@ -7,7 +7,7 @@
 
 ## A Linux szerepe
 
-A Linux kezdetben szerverek kedvenc operációs rendszere. Manapság a fejleszők is előszeretettel választják asztali felületükhöz. 
+A Linux kezdetben szerverek kedvenc operációs rendszere. Manapság a fejleszők is előszeretettel választják asztali felületükhöz.
 
 A Google kezdetben (2012) Ubuntu Linux alapokon készített saját Linuxot Goobuntu néven, amit akkor csak ajánlott a fejlesztőinek. Később már csak ezt lehetett választani, Windows külön kellett kérni. 2018-ban a cég Ubuntu helyett Debian GNU/Linux alapokra váltott, a neve [gLinux](https://en.wikipedia.org/wiki/GLinux).
 
@@ -235,7 +235,7 @@ Módosítás: 2022-08-17 11:24:25.136436611 +0200
 
 Keressük meg a kimenetben a "Hozzáférés" feliratú sort.
 
-```
+```bash
 Hozzáférés: (0644/-rw-r--r--)  Uid: ( 1000/  andras)   Gid: ( 1000/  andras)
 ```
 
