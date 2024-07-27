@@ -9,7 +9,7 @@
 
 ## Követelmények
 
-* NodeJS LTS
+* Node.js LTS
 * Git
 * VSCode
 

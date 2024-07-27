@@ -11,7 +11,7 @@
 * Visual Studio Code
 * Scene Builder
 * Java JDK
-* NodeJS
+* Node.js
 * Dia
 * git
 * Total Commander
@@ -45,7 +45,7 @@ choco install oraclejdk
 choco install oracle17jdk
 ```
 
-A NodeJS-ből az LTS verzió szükséges:
+A Node.js-ből az LTS verzió szükséges:
 
 ```cmd
 choco install nodejs-lts
