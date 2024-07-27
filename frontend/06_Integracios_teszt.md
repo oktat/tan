@@ -25,7 +25,7 @@ A Selenium egy nyílt forráskódú rendszer integrációs és funkcionális tes
 
 ## Szükséges
 
-* NodeJS
+* Node.js
 * Visual Studio Code
 
 ## Teszt létrehozása

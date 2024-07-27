@@ -10,7 +10,7 @@
 
 * Chocolatey
 * Visual Studio Code
-* NodeJS
+* Node.js
 * Dia
 * git
 * composer (PHP script)

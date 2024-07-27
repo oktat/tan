@@ -69,7 +69,7 @@ Böngésző esetén nyissuk meg a fejlesztői felületet, például az F12 lenyo
 
 ### A lite-server-ről
 
-A lite-server egy HTTP szerver fejlesztők számára. NodeJS csomagként fogjuk használni, egy lite-server parancsként.
+A lite-server egy HTTP szerver fejlesztők számára. Node.js csomagként fogjuk használni, egy lite-server parancsként.
 
 A csomagot két módon telepíthetjük: globálisan és lokálisan csak az aktuális projekt számára. A globális telepítés Windows operációs rendszeren nem igényel rendszergazdai jogot, de nem is használhatja az a felhasználó, aki telepítette.
 
@@ -91,7 +91,7 @@ Ha lokálisan telepítjük megadhatjuk az útvonlat vagy használhatjuk az npx p
 npx lite-server
 ```
 
-### NodeJS projekt készítése
+### Node.js projekt készítése
 
 Készítsük el a projekt könyvtárát, majd lépjünk a könyvtárba, például:
 
@@ -108,7 +108,7 @@ code .
 
 Indítsunk egy terminálablakot, a továbbiakban ott fogunk parancsokat kiadni.
 
-Készítsük el a NodeJS projektet:
+Készítsük el a Node.js projektet:
 
 ```cmd
 npm init -y

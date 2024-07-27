@@ -19,14 +19,14 @@ A Fetch API felületet biztosít a erőforrások lekérésére hálózaton keres
 
 A REST API szervert a HAI szerverrel fogjuk helyettesíteni, ami egy JSON fájlt REST API-ként szolgál ki egyszerűen.
 
-Készítsünk NodeJS projektet:
+Készítsünk Node.js projektet:
 
 ```cmd
 mkdir app01
 cd app01
 ```
 
-Állítsuk be a szervert NodeJS projektnek:
+Állítsuk be a szervert Node.js projektnek:
 
 ```cmd
 npm init -y
