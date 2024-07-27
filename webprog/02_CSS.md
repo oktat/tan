@@ -671,7 +671,7 @@ A különbség a tagolásban van. A behúzott szintaxisnál a behúzásokból er
 
 ### Fordító
 
-A NodeJS csomagkezelőjével telepíthető a fordító:
+A Node.js csomagkezelőjével telepíthető a fordító:
 
 ```cmd
 npm install -g sass

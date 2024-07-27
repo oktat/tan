@@ -149,9 +149,9 @@ Az ES6 szabványban megjelent a fetch() függvény, amit Promise alapon hoztak l
 
 ### JSON szerver
 
-A json-server egy NodeJS csomag, amivel helyettesítő a REST API szerver. Üzemeljük be a json-server-t.
+A json-server egy Node.js csomag, amivel helyettesítő a REST API szerver. Üzemeljük be a json-server-t.
 
-Készítsünk NodeJS projektet:
+Készítsünk Node.js projektet:
 
 ```cmd
 mkdir api

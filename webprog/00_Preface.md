@@ -63,7 +63,7 @@ Parancssorban a következő paranancsokra van szükség (CLI):
   * Chocolatey csomag: nodejs
   * Webhely: [https://nodejs.org/](https://nodejs.org/)
 * npm
-  * A NodeJS része
+  * A Node.js része
   * Chocolatey csomag: nodejs
   * Webhely: [https://nodejs.org/](https://nodejs.org/)
 * git
@@ -89,11 +89,11 @@ Szükséges GUI program:
   * Chocolatey csomag: insomnia-rest-api-client
   * Webhely: [https://insomnia.rest/](https://insomnia.rest/)
 
-## NodeJS
+## Node.js
 
-A NodeJS egy JavaScript futtató környezet.
+A Node.js egy JavaScript futtató környezet.
 
-Telepítse a NodeJS rendszert. Letölthető a weboldalról is:
+Telepítse a Node.js rendszert. Letölthető a weboldalról is:
 
 * [https://nodejs.org/](https://nodejs.org/)
 
@@ -115,11 +115,11 @@ Bővebben:
 
 * [https://szit.hu/doku.php?id=oktatas:web:nodejs:telepites](https://szit.hu/doku.php?id=oktatas:web:nodejs:telepites)
 
-## NodeJS projekt
+## Node.js projekt
 
-### A NodeJS-ről
+### A Node.js-ről
 
-A NodeJS-t eredetileg szerveroldali futtatókörnyezetnek szánták, JavaScript nyelven írt programok számára.
+A Node.js-t eredetileg szerveroldali futtatókörnyezetnek szánták, JavaScript nyelven írt programok számára.
 
 Alkalmazási területek:
 
@@ -133,7 +133,7 @@ Alkalmazási területek:
 
 ### Projekt készítése
 
-Az alábbiakban elkészítünk egy NodeJS projektet. Egy webes alkalmazást fogun készíteni. A jövőben mindig ilyen projektekkel fogunk dolgozni. Ilyen projekt az npm, yarn és a pnpm paranccsal is létrehozható.
+Az alábbiakban elkészítünk egy Node.js projektet. Egy webes alkalmazást fogun készíteni. A jövőben mindig ilyen projektekkel fogunk dolgozni. Ilyen projekt az npm, yarn és a pnpm paranccsal is létrehozható.
 
 A tervek szerint a következő könyvtárszerkezetet hozzuk létre:
 
@@ -151,14 +151,14 @@ többit valamilyen parancs hozza létre.
 Az **npm** és a **yarn** parancs a függőségeket a **node_modules/** könyvtárba tölti le. A **packages.json** fájlba íródik, minden telepített csomag, amiről úgy beszélünk, hogy függőség, mivel ezt használtuk a munkánk során. Ha más használni akarja a projektünket, akkor megkapja az index.html és a package.json fájlt. Egy yarn vagy egy npm paranccsal telepíteni tudja ugyanazokat a csomagokat, amiket mi is használtunk.
 A **package-lock.json** fájlban az npm parancs írja le, milyen csomagokat tettünk fel és szedtünk le, ezt általában nem nézegetjük.
 
-Elkészítjük az első NodeJS alapú projektünket. A projekt könyvtárát most nekünk kell létrehozni. Legyen a neve app01. Ha elkészült lépjünk be a könyvtárba.
+Elkészítjük az első Node.js alapú projektünket. A projekt könyvtárát most nekünk kell létrehozni. Legyen a neve app01. Ha elkészült lépjünk be a könyvtárba.
 
 ```cmd
 mkdir app01
 cd app01
 ```
 
-Csináljunk NodeJS projektet a könyvtárunkból:
+Csináljunk Node.js projektet a könyvtárunkból:
 
 ```cmd
 npm init -y
@@ -285,7 +285,7 @@ A továbbikaban így fogunk weboldalakat készíteni.
 
 ### A lite-server konfigurálása
 
-Hozzunk létre egy NodeJS projektet. A projekt gyökérkönyvtárában hozzunk létre bs-config.json néven egy fájlt. A tartalma:
+Hozzunk létre egy Node.js projektet. A projekt gyökérkönyvtárában hozzunk létre bs-config.json néven egy fájlt. A tartalma:
 
 bs-config.json:
 
@@ -376,7 +376,7 @@ git init
 
 Keressük meg a projekt gyökérkönyvtárában a **.git** könyvtárat. Ez lesz a git tároló. Visual Studio Code alatt ez nem látszik, mivel **rejtett könyvtár**. Nézzük meg fájlkezelővel. Fájlkezelőben is csak akkor látszik, ha a rejtett fájlok láthatósága be van kapcsolva.
 
-Hozzunk létre egy index.html fájlt, amit szeretnénk verziókövetni. Tegyük fel, hogy a projekt NodeJS projekt is egyben, vagyis van node_modules könyvtár is. Ennek a könyvtárnak a tartalmát sosem szeretnénk verziókövetni, ezért bele kell írni a **.gitignore** nevű fájlba. A .gitignore nevű fájlba azoknak a fájloknak és könyvtáraknak a nevét tesszük, amelyeket **nem szeretnénk verziókövetni**. Készítsük el a saját **.gitignore** nevű állományunkat, majd írjuk bele a **node_modules** könyvtár nevét.
+Hozzunk létre egy index.html fájlt, amit szeretnénk verziókövetni. Tegyük fel, hogy a projekt Node.js projekt is egyben, vagyis van node_modules könyvtár is. Ennek a könyvtárnak a tartalmát sosem szeretnénk verziókövetni, ezért bele kell írni a **.gitignore** nevű fájlba. A .gitignore nevű fájlba azoknak a fájloknak és könyvtáraknak a nevét tesszük, amelyeket **nem szeretnénk verziókövetni**. Készítsük el a saját **.gitignore** nevű állományunkat, majd írjuk bele a **node_modules** könyvtár nevét.
 
 ```txt
 node_modules/
@@ -624,7 +624,7 @@ Mi a Total Commander? Válasszon.
 Milyen rendszer része az npm parancs.
 
 * Angular
-* NodeJS
+* Node.js
 * Insomnia
 * Chocolatey
 
@@ -653,7 +653,7 @@ Mire való az npx parancs?
 * Könyvtárak létrehozása
 
 11.)
-Van egy NodeJS programunk pr.js néven. Hogyan tudjuk futtatni?
+Van egy Node.js programunk pr.js néven. Hogyan tudjuk futtatni?
 
 * node pr.js
 * git pr.js
@@ -661,7 +661,7 @@ Van egy NodeJS programunk pr.js néven. Hogyan tudjuk futtatni?
 * npm pr.js
 
 12.)
-A NodeJS projekt függőségei milyen fájlban vannak leírva?
+A Node.js projekt függőségei milyen fájlban vannak leírva?
 
 * dependencies.json
 * index.json
@@ -741,7 +741,7 @@ Melyik parancssorhoz szükséges rendszergazdai jog:
 * dir
 
 22.)
-Milyen néven telepíthető Chocolatey csomagból a NodeJS?
+Milyen néven telepíthető Chocolatey csomagból a Node.js?
 
 * node
 * nodejs
@@ -773,7 +773,7 @@ Melyik kapcsolóval lehet megszüntetni a git config parancs után egy változó
 * --break
 
 27.)
-Hogyan lehet NodeJS projektet kezdeni?
+Hogyan lehet Node.js projektet kezdeni?
 
 * npm init -y
 * git init -y
@@ -861,7 +861,7 @@ Feladatok:
 
 #### Gyakorlat 02
 
-* Készítsen "dere" néven NodeJS projektet.
+* Készítsen "dere" néven Node.js projektet.
 * A projektkönyvtárat kövesse Git tárolóval.
 * A forrásfájlokat egy src nevű könyvtárba hozza létre.
 * Készítsen 3 weblapot:

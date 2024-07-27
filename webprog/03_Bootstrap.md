@@ -47,7 +47,7 @@ Példa:
 </html>
 ```
 
-## Bootstrap NodeJS-el
+## Bootstrap Node.js-el
 
 Van bootstrap csomag, telepítsük:
 

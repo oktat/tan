@@ -533,7 +533,7 @@ Milyen tartalmat adhatunk meg az aside elemmel?
 
 #### Feladat 01
 
-Készítsen NodeJS projektet, amelyben egy src könyvtárban létrehoz egy index.html nevű fájlt. Az index.html oldalon három nyelven kell megjelenítenie tartalmat.
+Készítsen Node.js projektet, amelyben egy src könyvtárban létrehoz egy index.html nevű fájlt. Az index.html oldalon három nyelven kell megjelenítenie tartalmat.
 
 A "Totál gáz" című film történetét kell megjelenítenie magyarul, spanyolul és németül.
 
