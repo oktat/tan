@@ -11,7 +11,7 @@ A következő szoftverekre van szükség:
 
 * composer - Egy parancs
 * php - A php parancsra van szükség
-* npm - Az NodeJS rendszer része
+* npm - Az Node.js rendszer része
 * MariaDB Server - MySQL elágazás
 * sqlitebrowser
 * Visual Studio Code
@@ -26,13 +26,13 @@ choco install composer
 
 A composer csomaggal együtt felkerül a PHP is, a php paranccsal együtt.
 
-A NodeJS telepítése a Chocolatey csomagkezelővel:
+A Node.js telepítése a Chocolatey csomagkezelővel:
 
 ```cmd
 choco install nodejs-lts
 ```
 
-A NodeJS csomaggal felkerül az npm parancs is.
+A Node.js csomaggal felkerül az npm parancs is.
 
 A MariaDB telepítése Chocolatey csomagkezelővel:
 

@@ -7,13 +7,13 @@
 
 ## Szükséges
 
-* NodeJS
+* Node.js
 * VSCode
 * Insomnia
 
 ## Express és a Sequelize
 
-Az Express minimalista, rugalmas webes keretrendszer, ami NodeJS-sel van megvalósítva.
+Az Express minimalista, rugalmas webes keretrendszer, ami Node.js-sel van megvalósítva.
 
 Sok népszerű keretrendszer alapszik az Expressen.
 
@@ -329,7 +329,7 @@ A következő célunk, hogy a választ egy kontrollerből adjuk.
 
 ### Új projekt
 
-Készítsünk egy új projektet **empapi** néven. NodeJS projekt:
+Készítsünk egy új projektet **empapi** néven. Node.js projekt:
 
 ```cmd
 mkdir empapi
@@ -1432,7 +1432,7 @@ app.get('/msg', (req, res) => {
 });
 ```
 
-#### NodeJS cors csomagja
+#### Node.js cors csomagja
 
 Telepítés:
 

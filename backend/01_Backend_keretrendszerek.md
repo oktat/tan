@@ -325,7 +325,7 @@ composer create-project laravel/laravel app01
 
 ### Az npm
 
-Az npm a NodeJS JavaScript keretrendszer csomagkezelője. Használható NodeJS projektek létrehozására és függőségek kezelésére.
+Az npm a Node.js JavaScript keretrendszer csomagkezelője. Használható Node.js projektek létrehozására és függőségek kezelésére.
 
 ```cmd
 npm --version
@@ -337,7 +337,7 @@ Az npm bizonytalan viselkedésre válaszul a Facebook fejlesztői létrehoztak e
 yarn --version
 ```
 
-A Laravel is használ NodeJS csomagokat, így függőségkezelésnél az npm vagy a yarn parancsot is használjuk.
+A Laravel is használ Node.js csomagokat, így függőségkezelésnél az npm vagy a yarn parancsot is használjuk.
 
 ## Környezet felépítése
 
@@ -347,7 +347,7 @@ Szükségünk van egy operációs rendszerre és azon a következő eszközökre
   * PHP
   * MariaDB (MySQL)
 * composer
-* NodeJS
+* Node.js
 * Visual Studio Code
 
 ## Webes Helló Világ
