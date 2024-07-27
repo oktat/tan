@@ -127,6 +127,38 @@ curl -GET
 
 A parancsot egy sorba kell írni, csak az átláthatóság miatt lett három sorba írva.
 
+## Kliens készítése
+
+Készítsünk egy Node.js projektet:
+
+```cmd
+mkdir app01
+cd app01
+npm init -y
+```
+
+Legyen egy ilyen projekt:
+
+```txt
+app01/
+  |-src/
+  |  |-app.js
+  |  `-index.html
+  |-bs-config.json
+  `-package.json
+```
+
+```javascript
+function getUsers() {
+    fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.log(error)) 
+}
+
+getUsers()
+```
+
 ## Források
 
 * [https://szit.hu/doku.php?id=oktatas:web:javascript:javascript_ajax](https://szit.hu/doku.php?id=oktatas:web:javascript:javascript_ajax)
