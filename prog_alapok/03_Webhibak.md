@@ -404,8 +404,10 @@ Kérdéseket tehetünk fel internetes fórumokon:
 * [https://hup.hu/](https://hup.hu)
 * [https://stackoverflow.com/](https://stackoverflow.com/)
 
-## AI
+## LLM
 
-Kérdéseket intézhetünk mesterséges intelligenciához is.
+Kérdéseket intézhetünk a nagy nyelvi modellekhez (LLM), amelyeket úgy ismerünk, hogy mesterséges intelligencia. 
+
+Például:
 
 * [https://you.com/](https://you.com/)
