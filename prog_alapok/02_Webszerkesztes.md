@@ -732,9 +732,13 @@ A táblázat elterjedt formája többféle tulajdonság megjelenítésének.
 </table>
 ```
 
-A border attribútum szegélyt határoz meg a táblázat részére. Ezt nem így fogjuk megadni később, de most jól látható ettől a táblázat kinézete.
+A style elem szükséges, hogy lássuk a táblázat szegélyét.
 
-### Táblázat felirata
+A böngészőben:
+
+![tablazat](images/html/tablazat_minta_szegellyel.png)
+
+### Táblázat felirattal
 
 A caption elem segítségével feliratozható a táblázat. Böngészőtől függ, hogy ez hol jelenik meg.
 
@@ -764,6 +768,10 @@ A caption elem segítségével feliratozható a táblázat. Böngészőtől füg
   </tr>
 </table>
 ```
+
+A böngészőben:
+
+![táblázat felirattal](images/html/tablazat_minta_felirattal.png)
 
 ### Táblázat összefoglalója
 
