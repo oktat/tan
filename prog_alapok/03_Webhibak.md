@@ -406,7 +406,7 @@ Kérdéseket tehetünk fel internetes fórumokon:
 
 ## LLM
 
-Kérdéseket intézhetünk a nagy nyelvi modellekhez (LLM), amelyeket úgy ismerünk, hogy mesterséges intelligencia. 
+Kérdéseket intézhetünk a nagy nyelvi modellekhez (LLM), amelyeket úgy ismerünk, hogy mesterséges intelligencia.
 
 Például:
 
