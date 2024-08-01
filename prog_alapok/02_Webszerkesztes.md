@@ -436,6 +436,12 @@ Sortörést a br elemmel lehet megvalósítani. A b elemnek nincs lezáró rész
 <br />
 ```
 
+vagy:
+
+```html
+<br>
+```
+
 Próbáljuk meg egy bekezdésben:
 
 ```html
@@ -447,7 +453,11 @@ adipisicing elit. Numquam, rem.
 </p>
 ```
 
-Így önmagában, hiába teszek sortöréseket, a weblapon az nem látszik. Használjunk helyette br elemet:
+Eredmény a böngészőben:
+
+![sortörés a bekezdésben](images/html/bekezdesben_sortores.png)
+
+Egyetlen sorban jelenik meg a böngészőben. Így önmagában, hiába teszek sortöréseket, a weblapon az nem látszik. Használjunk helyette br elemet:
 
 ```html
 <p>
@@ -456,6 +466,12 @@ Lorem ipsum dolor sit amet consectetur,
 adipisicing elit. Numquam, rem.
 </p>
 ```
+
+Most nézzük meg újra a böngészőben:
+
+![sortörés a bekezdésben](images/html/bekezdesben_br_elemek.png)
+
+A br elemek már a weblapon is tördelik a sorokat.
 
 A három sor akár egyetlen sorban is megadható.
 
@@ -478,6 +494,10 @@ A kiemelésekre többféle HTML elem áll rendelkezésre. A következő három f
 | &lt;del&gt; | törölt szöveg |
 | &lt;s&gt; | elavult, pontatlan, nem fontos szöveg |
 
+A következő ábrán láthatjunk néhány mintát a kiemelések használata során:
+
+![kiemelés](images/html/kiemelesek_minta.png)
+
 ### Számítógépes kiemelések
 
 | Tag | Leírás |
@@ -499,6 +519,14 @@ A kiemelésekre többféle HTML elem áll rendelkezésre. A következő három f
 | &lt;q&gt; | rövid idézet |
 | &lt;cite&gt; | cím idézése |
 | &lt;dfn&gt; | egy kifejezése meghatározása |
+
+A bdo elem esetén a szöveg irányát a dir attribútummal kell megadni:
+
+```html
+<bdo dir="rtl">szöveg irányának meghatározása</bdo><br>
+```
+
+![idézetek és definíciók](images/html/idezetek_es_definiciok_minta.png)
 
 ## Listák
 
@@ -523,6 +551,10 @@ A számozatlan lista angolul "unordered list". Ha a két szónak vesszük az els
 </ul>
 ```
 
+A böngészőben:
+
+![számozatlan lista](images/html/szamozatlan_lista_minta.png)  
+
 ### Számozott lista
 
 Az angol "ordered list" szavak első betű ol. Az ol elemmel hozhatunk létre számozott listát.
@@ -536,6 +568,8 @@ Az angol "ordered list" szavak első betű ol. Az ol elemmel hozhatunk létre sz
 </ol>
 ```
 
+![számozott lista](images/html/szamozott_lista_minta.png)
+
 A számozás szabályozása:
 
 ```html
@@ -546,6 +580,10 @@ A számozás szabályozása:
     <li>szilva</li>
 </ol>
 ```
+
+A böngészőben:
+
+![számozott lista](images/html/szamozott_lista_start_minta.png)
 
 Ebben a példában a számozás 40-től indul.
 
@@ -559,6 +597,10 @@ A számozás megfordítása:
     <li>szilva</li>
 </ol>
 ```
+
+Böngészőben:
+
+![számozott lista reversed](images/html/szamozott_lista_reversed_minta.png)
 
 Használhatjuk két attribútumot együtt is.
 
@@ -580,6 +622,10 @@ Az li elemen belül megadható akár egy másik lista is.
 </ol>
 ```
 
+Böngészőben a beágyazott lista:
+
+![egymásba ágyazás](images/html/szamozott_lista_beagyazva.png)
+
 ### Definíciós lista
 
 Valamilyen fogalom definiálásra használható a definíciós lista:
@@ -594,6 +640,10 @@ Valamilyen fogalom definiálásra használható a definíciós lista:
     <dd>másik alternatív leírás</dd>
 </dl>
 ```
+
+Böngészőben:
+
+![definíciós lista](images/html/definicios_lista_minta.png)
 
 ## Képek beillesztése
 
