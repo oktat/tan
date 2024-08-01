@@ -40,21 +40,41 @@ A kettő közötti különbség, hogy ha fordítót használunk, a gépi kódú 
 
 Ha adott programozási nyelven leírjuk a parancsok sorozatát, azt forráskódnak hívjuk.
 
+![forráskódból gépi kódot szeretnénk](images/programozas/forraskod_gepi-kod.png)
+
 * forráskód > gépi kód
 
 ### Értelmezett nyelv
 
+Megírjuk a programot valamilyen programozási nyelven. A program futtatáskor egy értelmező program fordítja gépi kóddá.
+
 * forráskód > értelmező > gépi kód
 
+![forráskódból gépi kód](images/programozas/forraskod_ertelmezo_gepi-kod.png)
+
+Ha értelmezett nyelvet használunk, akkor a terjesztendő program maga a forráskód lesz, ezt kapja meg a megrendelő. Ilyen például a Python.
+
 ### Fordítás
+
+Megírjuk valamilyen nyelven a programot. Lesz egy forrásfájlunk. Ebből egy vagy több menetben fordítunk egy gépi kódot, ami egy másik állomány lesz. Windowson ez például egy .exe kiterjesztésű fájl. Ilyen nyelv a C, C++ stb.
 
 * forráskód > fordító > gépi kód
 
 A fordítás több lépésből is állhat, például tárgykód készítés.
 
+![forráskód fordítása](images/programozas/forraskod_fordito_gepi-kod.png)
+
+Ha fordított nyelvet használunk, akkor a terjesztendő program a fordítás után létrejött gépikód.
+
 ### Modern nyelvek
 
+Az újabb nyelvek egy köztes kódot fordítanak a forráskódból. Vagyis használuk fordítót. A köztes kódot terjesztem. Ez azhért jó, mert a köztes kód géptől független. Ahol futtatom, ott lenni kell egy értelmezőnek, ami az adott gép számára lefordítja a gép függelten kódot, gép függő gépi kódra.
+
 * forráskód > fordító > bájtkód > értelmező > gépi kód
+
+![bájtkód](images/programozas/forraskod_bajtkod_gepi-kod.png)
+
+A modern nyelvek bátkódot fordítani, és ezt terjesztjük. Ezt azonban a gép nem érti, ezt futtatáskor gépi kóddá kell fordítanni.
 
 ## Algoritmus
 
