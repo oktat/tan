@@ -27,7 +27,7 @@ A webtartalom minél hamarabbi megjelenítése a célja. Ne kelljen várni JavaS
 
 Ez segíti az internetes kereső motorok működését is, de a letöltés is gyorsabb.
 
-Az stílust és az animációt CSS-sel határozzuk meg. A JavaScript egyéb fejlesztésekre használatos.
+A stílust és az animációt CSS-sel határozzuk meg. A JavaScript egyéb fejlesztésekre használatos.
 
 A technik a Graceful degradation fejlesztés továbbgondolt változata. Ennek lényege, hogy a mobilos verziókból a lényegtelen részeket egyszerűen elhagyjuk.
 
