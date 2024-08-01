@@ -134,8 +134,7 @@ echo alma > adat.txt
 echo 2022 > naplo.txt
 ```
 
-Az adat.txt állományt szeretnénk verzió-követni, de a naplo.txt állományt nem.
-A naplo.txt állomány nevét írjuk bele egy .gitignore állományba. Így a Git nem törekszik annak követésére.
+Az adat.txt állományt szeretnénk verzió-követni, de a naplo.txt állományt nem. A naplo.txt állomány nevét írjuk bele egy .gitignore állományba. Így a Git nem törekszik annak követésére.
 
 ```cmd
 echo "naplo.txt" >> .gitignore
@@ -279,7 +278,7 @@ git branch dev
 git checkout dev
 ```
 
-Fejlesztünk
+Fejlesztünk:
 
 ```cmd
 echo uborka >> zoldseg.txt
@@ -298,31 +297,31 @@ git merge dev
 
 A tárolóinkat feltölthetjük egy Git szerverre, vagy a szerverről letölthetjük saját gépünkre. Egy népszerű szabadon használható Git szerver a GitHub. De használhatjuk a GitLab vagy Bitbucket szervereket is. A következő példákban a GitHub szerver használjuk.
 
-Ha még nincs példányunk:
+Ha egy projektből még nincs példányunk, a klónozást használjuk a "clone" paranccsal:
 
 ```cmd
 git clone https://github.com/valaki/valami
 ```
 
-Ha már van példányunk és szeretnék a változásokat letölteni:
+Ha már van példányunk a projektből és szeretnék a változásokat letölteni, használjuk a "pull" parancsot:
 
 ```cmd
 git pull origin master
 ```
 
-Feltöltéshez távoli szerver beállítása:
+Feltöltéshez távoli szerver beállítását a "remote" paranccsal végezzük:
 
 ```cmd
 git remote add origin https://github.com/valaki/valahol.git
 ```
 
-Ha javítani kell:
+Ha javítani kell a távoli szerver URL-jét, az "add" parancsot javítani kell a "set-url" parancsra:
 
 ```cmd
 git remote set-url origin https://github.com/valaki/valahol.git
 ```
 
-Lekérdezés:
+A beállított URL lekérdezhető a "get-url" parancs segítségével:
 
 ```cmd
 git remote get-url origin
