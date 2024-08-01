@@ -217,12 +217,14 @@ h1 {
 
 ### A font stílusa
 
-A font stílusát a font-style tulajdonsággal állítjuk. Lehetséges értékei:
+A font stílusát a **font-style** tulajdonsággal állítjuk. Lehetséges értékei:
 
 * normal
-* italic
-* oblique
+* italic - dőlt fontkészlet
+* oblique - a normál fontkészlet megdöntése
 * inherit
+
+Az oblique eredetileg a kurzív írás. De a kurzhív írás folyamatos írást jelent. Vagyis tollal írva nem emeljük fel azt írás közben. Ilyen betűkészlet azonban nincs.
 
 ```css
 p {
@@ -232,7 +234,7 @@ p {
 
 ### A fontok vastagsága
 
-A fontok vastagságát a font-weight tulajdonsággal állítjuk. Lehetséges értékei:
+A fontok vastagságát a **font-weight** tulajdonsággal állítjuk. Lehetséges értékei:
 
 * normal
 * bold
@@ -249,7 +251,7 @@ p {
 
 ### A fontok mérete
 
-A fontok méretét a font-size tulajdonsággal állítjuk.
+A fontok méretét a **font-size** tulajdonsággal állítjuk.
 
 Lehetséges értékek:
 
@@ -273,7 +275,7 @@ p {
 
 ### Fontcsalád beállítása
 
-Beállítható fontcsalád, vagy konkrét font. Ehhez a font-family tulajdonságot használjuk.
+Beállítható fontcsalád, vagy konkrét font. Ehhez a **font-family** tulajdonságot használjuk.
 
 A következő táblázat tartalmazza a fontcsaládokat:
 
@@ -301,7 +303,7 @@ p {
 
 ### Fontvariációk
 
-Fontvariációkat a font-variant tulajdonsággal állíthatunk. Lehetséges értékek:
+Fontvariációkat a **font-variant** tulajdonsággal állíthatunk. Lehetséges értékek:
 
 * normal
 * small-caps
@@ -341,7 +343,7 @@ h1 {
 
 #### RGB kód
 
-RGB a Red, Green és Blue szavak rövidítése. A három szinből állítjuk össze a kívánt színt. A színeket hexadecimális számokkal adjuk meg. A kódon belül, egy színt két hexadecimális számmal adunk meg. Mivel három színt kell megadni, ezért hat darab hexadecimális számot írunk. A tiszta piros szín például: #ff0000. A tiszta zöld szín: #00ff00. A kék szín: #0000ff. A számokat variálva különböző színek állíthatók össze.
+Az RGB a Red, Green és Blue szavak rövidítése. A három szinből állítjuk össze a kívánt színt. A színeket hexadecimális számokkal adjuk meg. A kódon belül, egy színt két hexadecimális számmal adunk meg. Mivel három színt kell megadni, ezért hat darab hexadecimális számot írunk. A tiszta piros szín például: #ff0000. A tiszta zöld szín: #00ff00. A kék szín: #0000ff. A számokat variálva különböző színek állíthatók össze.
 
 ```css
 h1 {
@@ -371,7 +373,7 @@ p {
 
 ### A sormagassága
 
-Az előző sorhoz képest beállítható a távolság a line-height segítségével.
+Az előző sorhoz képest beállítható a távolság a **line-height** segítségével.
 
 ```css
 p {
@@ -381,7 +383,7 @@ p {
 
 ### Szöveg igazítása
 
-A szöveg igazításához a text-align tulajdonságot használjuk. Értékeik a következők lehetnek:
+A szöveg igazításához a **text-align** tulajdonságot használjuk. Értékeik a következők lehetnek:
 
 * left
 * right
@@ -448,7 +450,7 @@ Feladat: Határozza meg a h1 elem szülőelemét.
 
 ## Kerettulajdonságok
 
-Minden HTML elemhez beállítható keret, vagy másként mondva szegély. A szegélyt a border tulajdonsággal állítjuk.
+Minden HTML elemhez beállítható keret, vagy másként mondva szegély. A szegélyt a **border** tulajdonsággal állítjuk.
 
 Meg kell adnunk a keret szélességét, stílusát és színét.
 
@@ -490,11 +492,11 @@ p {
 }
 ```
 
-A border-collapse tulajdonság használható táblázatoknál, lásd ott.
+A **border-collapse** tulajdonság használható táblázatoknál, lásd ott.
 
 ## Dobozmodell
 
-Minden böngészőben megjelenő HTM elemet egy doboznak tekintünk. Így beszélhetünk a dobozmodellről. Figyeljük meg a következő ábrán a dobozokat. Legkülső dobozt a body elem alkotja. Abban van egy div doboz. A divben egy h1 és egy p doboz van.
+Minden böngészőben megjelenő HTML elemet egy doboznak tekintünk. Így beszélhetünk a dobozmodellről. Figyeljük meg a következő ábrán a dobozokat. Legkülső dobozt a body elem alkotja. Abban van egy div doboz. A divben egy h1 és egy p doboz van.
 
 ![Dobozmodell](images/dobozmodell.png)
 
@@ -504,7 +506,7 @@ Minden doboz ugyanúgy épül fel, ugyanazok a tulajdonságok jellemzik. Lehet v
 
 ### Margó beállítása
 
-A margót a margin tulajdonsággal állítjuk.
+A margót a **margin** tulajdonsággal állítjuk.
 
 ```css
 p {
@@ -560,11 +562,36 @@ p {
 }
 ```
 
-Az felső és alsó margó 5%-s, a bal és a jobb margó 2%-s.
+A felső és alsó margó 5%-s, a bal és a jobb margó 2%-s.
 
 ### Az auto éréték
 
 Az auto beállítást a dobozok vízszintes középre igazításához használjuk.
+
+### A belső margó
+
+A belső margó a doboz széle és tartalma közötti területet jelenti. A belső margót a **padding** tulajdonsággal állítjuk.
+
+```css
+p {
+    padding: 20px;
+}
+```
+
+A belső margó beállítható külön fent, jobb, balra lent és balra:
+
+* padding-top
+* padding-right
+* padding-bottom
+* padding-left
+
+Példa:
+
+```css
+p {
+    padding-left: 20px;
+}
+```
 
 ## Túlcsordulás
 
@@ -724,7 +751,7 @@ li {
 
 ## Megjelenés
 
-A dobozok megjelenítését a visibility és a display tulajdonsággal állítható.
+A dobozok megjelenítését a visibility és a display tulajdonsággal állíthatjuk.
 
 Alapértelmezetten minden doboz látszik.
 
@@ -744,7 +771,7 @@ Dobozok rejtése a dispaly tulajdonsággal:
 }
 ```
 
-Mi a különbség a kettő között? Ha visibility segítségével rejtünk el egy dobozt, annak helye megmarad. Ha display segítségével rejtünk el valamit, annak helye sem marad meg.
+Mi a különbség a kettő között? Ha visibility segítségével rejtünk el egy dobozt, annak helye megmarad. Ha display segítségével rejtünk el, annak helye sem marad meg.
 
 ### A display
 
@@ -790,7 +817,7 @@ span.doboz {
 
 ## Pozicionálás
 
-A dobozok poziciónálást a position tulajdonsággal állítjuk.
+A dobozok poziciónálást a **position** tulajdonsággal állítjuk.
 
 Lehetséges értékei:
 
