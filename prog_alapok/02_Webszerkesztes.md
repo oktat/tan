@@ -572,6 +572,8 @@ Az angol "ordered list" szavak első betű ol. Az ol elemmel hozhatunk létre sz
 </ol>
 ```
 
+Böngészőben:
+
 ![számozott lista](images/html/szamozott_lista_minta.png)
 
 A számozás szabályozása:
@@ -669,6 +671,10 @@ Az [MDN](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types)
 
 Az src és az alt attribútumok kötelezőek.
 
+Lássunk egy példát böngészőben:
+
+![kep](images/html/tatrakep_weblapon_bongeszoben.jpg)
+
 A képeknek, azonban más attribútumai is lehetnek.
 
 ```html
@@ -692,6 +698,8 @@ A figure elem segítségével összefoghatjuk a képet és a feliratát.
 </figure>
 ```
 
+![figure elem](images/html/tatrakep_figure_elemben_felirattal.jpg)
+
 ## Táblázat
 
 A táblázat elterjedt formája többféle tulajdonság megjelenítésének.
@@ -699,15 +707,28 @@ A táblázat elterjedt formája többféle tulajdonság megjelenítésének.
 ### Alap
 
 ```html
-<table border="1">
+<style>
+  table, th, td {
+    border: 1px solid black;          
+  }      
+</style>
+
+<table>
   <tr>
     <th>#</th>
     <th>Név</th>
+    <th>Település</th>
   </tr>
   <tr>
     <td>1</td>
-    <td>Pala Béla</td>
+    <td>Nagy József</td>
+    <td>Szolnok</td>
   </tr>
+  <tr>
+    <td>2</td>
+    <td>Peres Ferenc</td>
+    <td>Szeged</td>
+  </tr> 
 </table>
 ```
 
@@ -718,15 +739,28 @@ A border attribútum szegélyt határoz meg a táblázat részére. Ezt nem így
 A caption elem segítségével feliratozható a táblázat. Böngészőtől függ, hogy ez hol jelenik meg.
 
 ```html
-<table border="1">
+<style>
+  table, th, td {
+    border: 1px solid black;          
+  }      
+</style>
+
+<table>
   <caption>Dolgozók</caption>
   <tr>
     <th>#</th>
     <th>Név</th>
+    <th>Település</th>
   </tr>
   <tr>
     <td>1</td>
-    <td>Pala Béla</td>
+    <td>Nagy József</td>
+    <td>Szolnok</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Peres Ferenc</td>
+    <td>Szeged</td>
   </tr>
 </table>
 ```
@@ -736,15 +770,28 @@ A caption elem segítségével feliratozható a táblázat. Böngészőtől füg
 Ritkábban használt attribútum a summary, amiben megadhatunk egy összefoglalót, ami egyébként csak a forráskódban jelenik meg.
 
 ```html
-<table border="1" summary="A dolgozók adatai">
+<style>
+  table, th, td {
+    border: 1px solid black;          
+  }      
+</style>
+
+<table summary="A dolgozók adatai">
   <caption>Dolgozók</caption>
   <tr>
     <th>#</th>
     <th>Név</th>
+    <th>Település</th>
   </tr>
   <tr>
     <td>1</td>
-    <td>Pala Béla</td>
+    <td>Nagy József</td>
+    <td>Szolnok</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Peres Ferenc</td>
+    <td>Szeged</td>
   </tr>
 </table>
 ```
@@ -752,7 +799,13 @@ Ritkábban használt attribútum a summary, amiben megadhatunk egy összefoglal�
 ### Oszlopnyúlás
 
 ```html
-<table border="1">
+<style>
+  table, th, td {
+    border: 1px solid black;          
+  }      
+</style>
+
+<table>
   <tr>
     <th colspan="2">Költségek</th>
   </tr>
@@ -772,7 +825,13 @@ Ritkábban használt attribútum a summary, amiben megadhatunk egy összefoglal�
 ### Sornyúlás
 
 ```html
-<table border="1">
+<style>
+  table, th, td {
+    border: 1px solid black;          
+  }      
+</style>
+
+<table>
   <tr>
     <th rowspan="2">Adatok</th>
     <th>Hónap</th>
@@ -790,7 +849,13 @@ Ritkábban használt attribútum a summary, amiben megadhatunk egy összefoglal�
 ### Sor- és oszlopnyúlás
 
 ```html
-<table border="1">
+<style>
+  table, th, td {
+    border: 1px solid black;          
+  }      
+</style>
+
+<table>
   <tr>
     <th rowspan="3">Adatok</th>
     <th colspan="2">Költségek</th>
@@ -810,40 +875,62 @@ Ritkábban használt attribútum a summary, amiben megadhatunk egy összefoglal�
 
 ### Táblázat részeinek csoportosítása
 
-A táblázat sorait felbontjuk fejrészre, törzs és lábrészre. A fejrészt a thead elemmel adjuk meg, a törzs részt a tbody elemmel, míg a lábrészt a tfoot elemmel.
+A táblázat sorait felbontjuk fejrészre, törzs és lábrészre. A fejrészt a **thead** elemmel adjuk meg, a törzs részt a **tbody** elemmel, míg a lábrészt a **tfoot** elemmel.
 
 ```html
+<style>
+  table, th, td {
+    border: 1px solid black;          
+  }      
+</style>
+
 <table>
   <thead>
     <tr>
+      <th>#</th>
       <th>Név</th>
-      <th>Fizetés</th>
+      <th>Település</th>
+      <th>Fizetés</th>      
     </tr>
   </thead>
   <tbody>
     <tr>
+      <td>1</td>
       <td>Nagy János</td>
+      <td>Szolnok</td>
       <td>3850000</td>
     </tr>
     <tr>
+      <td>2</td>
       <td>Kemény Ferenc</td>
+      <td>Szeged</td>
       <td>2870000</td>
     </tr>
   </tbody>
   <tfoot>
     <tr>
-      <td>Összesen</td>
+      <td colspan="3">Összesen</td>
       <td>6720000</td>
     </tr>
   </tfoot>
 </table>
 ```
 
+Böngészőben:
+
+![táblázat részeinek csoportosítása](images/html/tablazat_reszeinek_csoportositasa.png)
+
 ### Oszlopok csoportosítása
 
 Az oszlopok is csoportosíthatók a colgorup és col HTML elemekkel.
 
 ```html
+<style>
+  table, th, td {
+    border: 1px solid black;          
+  }      
+</style>
+
 <table>
   <colgroup>
     <col span="2" style="background-color:yellow">
@@ -866,6 +953,10 @@ Az oszlopok is csoportosíthatók a colgorup és col HTML elemekkel.
   </tr>
 </table>
 ```
+
+Böngészőben:
+
+![Oszlopok csoportosítása](images/html/tablazat_oszlopok_csoportositasa.png)
 
 ## Hiperhivatkozás
 
