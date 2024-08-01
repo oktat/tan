@@ -88,21 +88,54 @@ záródik:
 ```
 
 A kisebb mint és nagyobb mint jelek között adjuk meg a tag nevét.
+
 Kétféle tag van:
 
 * nyitó
 * záró
 
-A tartalmat ezek tagek fogják közre. Egy nyitó és egy záró taget
-együtt elemnek nevezünk, HTML elem.
+```xml
+<név>
+tartalom
+</név>
+```
 
-A weboldalak ilyen szervezése az SGML, majd később ebből kialakult
-XML dokumentumleíró nyelvből jött létre.
+Egy konkrét HTML elmemmel:
+
+```html
+<div>
+  Tartalom
+</div>
+```
+
+A tartalmat ezek tagek fogják közre. Egy nyitó és egy záró taget együtt elemnek nevezünk, HTML elem. A HTML tagek közzé írt szöveg a tartalom, vagy innerText, más esetben textContent.
+
+A HTML elemek újabb HTML elemeket tartalmazhatnak.
+
+```xml
+<név>
+    <másiknév>
+      tartalom
+    </másiknév>
+</név>
+```
+
+Konkrét HTML elemmel:
+
+```html
+<div>
+  <h1>szöveg</h1>
+  <p>szöveg</p>
+</div>
+```
+
+Ha egy HTML elembe újabb HTML elemet vagy elemeket ágyazunk, innerHTML-ről beszélünk.
+
+A weboldalak ilyen szervezése az SGML, majd később ebből kialakult XML dokumentumleíró nyelvből jött létre.
 
 A HTML elemek lehetséges neveit szabvány határozza meg, amit [W3C](https://www.w3.org/) konzorcium készít.
 
-Az egész HTML dokumentumot html elemek közzé tesszük, a DOCTYPE sor
-után.
+Az egész HTML dokumentumot html elemek közzé tesszük, a DOCTYPE sor után.
 
 A HTML dokumentumot két részre lehet osztani a html elemek
 között:
@@ -110,15 +143,12 @@ között:
 * fejrész
 * törzsrész
 
-A fejrészt a head elemek között adjuk meg, a törzsrészt a body elemek között.
+A fejrészt a **head** elemek között adjuk meg, a törzsrészt a **body** elemek között.
 
-A fejrészben a megjelenő weblaphoz háttér-információkat adunk.
-A megjelenő részt a törzs részben helyezzük el. A fejrészben van két minimálisan megadandó HTML elem. Az egyik a weblap karakterkódolását mondja meg, a másik a weboldalnak egy olyan címét határozza meg, amely a böngésző címsorában, vagy annak fülein jelenik meg.
+A fejrészben a megjelenő weblaphoz  háttér-információkat adunk meg. Azt a tartalmat ami a weblapon megjelenik a törzs részben helyezzük el. A fejrészben van két minimálisan megadandó HTML elem. Az egyik a weblap karakterkódolását mondja meg, a másik a weboldalnak egy olyan címét határozza meg, amely a böngésző címsorában, vagy annak fülein jelenik meg.
 
 A karakterkódolást a meta elemmel adjuk meg. Minden HTML elem
-felvehet attribútumokat. Az attribútumoknak van mindig egy értékük.
-A meta elemmel nagyon sok dolog beállítható, a karakterkódolás csak
-az egyik dolog. A karakterkódolást a charset attribútummal adjuk meg. Ennek értéke a kódolás:
+felvehet attribútumokat. Az attribútumoknak van mindig egy értékük. A meta elemmel nagyon sok dolog beállítható, a karakterkódolás csak az egyik dolog. A karakterkódolást a charset attribútummal adjuk meg. Ennek értéke a kódolás:
 
 ```html
 <meta charset="utf-8">
@@ -145,13 +175,21 @@ Ezt a dokumentumfát nevezzük DOM-nak, ami a Document
 Object Model rövidítése.
 
 ```html
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Valami</title>
+</head>
 <body>
     <div>
        <h1>Fejrész</h1>
        <p>Bekezdés</p>
     </div>
 </body>
+</html>
 ```
+
+A DOM-ban a html a gyökérelem, mivel ez van a legfelső szinten.
 
 ## Megjegyzés
 
@@ -171,8 +209,7 @@ A HTML megjegyzések nem ágyazhatók egymásba.
 
 ## Fejezetcímek
 
-A fejezet címek a h1, h2, h3, h4, h5, h6 elemekkel határozhatók meg.
-Alapértelmezetten a h1 elem jelenik meg a legmagasabb betűmérettel.
+Egy szöveghez általában címmekkel adjuk meg miről szól, az adott fejezet. A fejezet címek a h1, h2, h3, h4, h5, h6 elemekkel határozhatók meg. Alapértelmezetten a h1 elem jelenik meg a legmagasabb betűmérettel.
 
 ```html
 <h1>H1 fejezetcím</h1>
@@ -183,10 +220,13 @@ Alapértelmezetten a h1 elem jelenik meg a legmagasabb betűmérettel.
 <h6>H6 fejezetcím</h6>
 ```
 
+Alapértelmezetten a következő a megjelenítése Chrome böngészőben:
+
+![h1-h6-ig HTML elemek](images/html/html_h1-h6.png)
+
 ## Bekezdések
 
-A szövegeket bekezdésekre szokás tagolni. A HTML nyelven a
-bekezdés a "p" elemmel készíthető:
+A szövegeket bekezdésekre szokás tagolni. A HTML nyelven a bekezdés a "p" elemmel jelölhető meg:
 
 ```html
 <p>
@@ -206,7 +246,7 @@ Ritkán van rá szükség.
 
 ## Általános elemek
 
-A div és a span elemeknek nincs szemantikai jelentésük. A div elem az oldal szerkezetének meghatározására lett létrehozva. A span elem segítségével a szöveg egyes részei eltérően formázhatók.
+A div és a span elemeknek nincs szemantikai jelentésük. A div elem az oldal tagolására lett létrehozva. A span elem segítségével a szöveg egyes részei eltérően formázhatók.
 
 A következő példa a div elemek használatára mutat egy lehetséges megoldást:
 
@@ -222,6 +262,22 @@ A következő példa a div elemek használatára mutat egy lehetséges megoldás
         <!-- ide jön az oldal tartalma -->
     </div>
 </div>
+```
+
+Létrehoztunk egy div elemet, amelybe három újabb div elemet ágyaztunk. Minden div elemet számára megadtunk egy class attribútumot. A class attribútummal osztályba soroljuk a div elemeket. Ezekre az osztályokra szokás hivatkozni CSS-ben vagy JavaScriptben.
+
+CSS:
+
+```css
+.container {
+    color: blue;
+}
+```
+
+JavaScript:
+
+```javascript
+document.querySelector('.container').style.color = 'blue';
 ```
 
 A span elem használatára példa:
@@ -246,7 +302,7 @@ A szemantikus elemek valamilyen jelentéssel bírnak. Nem szemantikus elem a spa
 
 ### Blokkelemek
 
-Ha egy blokkelemet hozunk létre, az a tartalomtól függetlenül kitölti a rendelkezésre álló helyet. A következő példában a div elemmel hozunk létre egy dobozt, amelynek a tartalmazza az "alma" szót. Minden HTML elem egy úgynevezett dobozt hoz létre a weblapon. Ezen dobozok mérete, kiterjedése, általában nem látszik.
+Ha egy blokkelemet hozunk létre, az a tartalomtól függetlenül kitölti a rendelkezésre álló helyet. A következő példában a div elemmel hozunk létre egy dobozt, amelynek a tartalmazza az "alma" szót. Minden HTML elem egy úgynevezett dobozt hoz létre a weblapon. Ezen dobozok mérete, kiterjedése, általában nem látszik. Az "alma" szó nem tölti ki a weblap teljes szélességét, de a doboz amiben van, igen.
 
 ```html
 <body>
