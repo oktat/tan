@@ -508,6 +508,10 @@ A következő ábrán láthatjunk néhány mintát a kiemelések használata sor
 | &lt;var&gt; | változó |
 | &lt;pre&gt; | előreformázott szöveg |
 
+Bönégészőben minta:
+
+![számítógépes kiemelések](images/html/szamitogepes_kiemelesek_minta.png)
+
 ### Idézetek és definíciók
 
 | Tag | Leírás |
