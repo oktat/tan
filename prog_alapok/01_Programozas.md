@@ -118,6 +118,8 @@ Az algoritmust alakzatokban írom le
 
 ## Fejlesztés
 
+Láthattuk, hogy a fejlesztés az adott programozási nyelven egy algoritmus leírása. A programozási nyelveket szabályok alapján használjuk, hasonlóan a természetes nyelvekhez. A nem szabályosan írt utasítás nyelvtani hiba, ahogy a természetes nyelvekben is.
+
 ### Szintaktikai hibák
 
 Nem korrekt helyesírás, a program nem fordul, nem fut.
