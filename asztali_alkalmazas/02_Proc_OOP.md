@@ -64,7 +64,7 @@ Megjegyzés: A triangle = Triangle bizonyos esetekben működik, de az nem péld
 
 ### Property
 
-Egy osztály adattagja, tulajdonsága. Az osztályon belül egy globális változóként látjuk jelen.
+Egy osztály adattagja, tulajdonsága, jellemzője. Az osztályon belül egy globális változóként látjuk jelen.
 
 Általában két metódus van hozzá:
 
@@ -90,7 +90,7 @@ print(feri.getName())
 
 ## Objektum Orienált Java
 
-A Java nyelvben osztály nélkül programot sem indíthatunk:
+A Java nyelvben osztály nélkül csak JShell-t használva dolgozhatunk. Minden más esetben a egy osztály létrehozásával kell kezdenünk:
 
 ```java
 class Program01 {
@@ -100,10 +100,25 @@ class Program01 {
 }
 ```
 
-* A blokkokat kapcsoszárójelekkel jelezzük.
-* Kötelező egy main() metódus, ez lesz a program belépési pontja.
+Az osztályt mindig a class kulcsszóval vezetjük be. Az induló osztály neve tetszőleges, de meg kell egyezen a fájl nevével, kis- és nagybetűre is egyeznie kell.
 
-Az adattagok típusát előre meg kell adni:
+Az osztály és a metódusok törzsét kapcsoszárójellel adjuk meg. Nem kötelező, hogy kövessék az osztály vagy a metódust nevét. A fenti kód így is  helyes:
+
+```java
+class Program01 
+{
+    public static void main(String[] args) 
+    {
+
+    }
+}
+```
+
+De az összes utasít írható egyetlen sorban is. Ez viszont nem ajánlott, mivel átláthatatlanná teszi a kódot.
+
+A főosztályban Kötelező egy main() metódus, ez lesz a program belépési pontja. A public és a static előtagok kötlezőek, a void visszatérési típussal együtt. A bementő paraméter szintén kötlező: String[] args.
+
+Vegyünk egy Employee osztályt, amiben dolgozó adatatit szeretnénk tárolni. Az adattagok típusát előre meg kell adni:
 
 ```java
 class Employee {
@@ -130,4 +145,4 @@ System.out.println(feri.getName());
 * A void azt jelenti nincs visszatérési érték.
 * Minden utasítást pontosvesszővel zárunk.
 * A kiíratás a println() metódussal történik.
-* A println() előtt a System.out valami pluszra utal.
+* A println() előtt a System.out a képernyőt jelenti.

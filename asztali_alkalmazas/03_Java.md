@@ -1,4 +1,4 @@
-# Asztali alkalmazások fejlesztése - Változók
+# Asztali alkalmazások fejlesztése - Bevezetés a Java nyelvbe
 
 * **Szerző:** Sallai András
 * Copyright (c) 2022, Sallai András
@@ -32,7 +32,7 @@ A képernyőre a System osztályon keresztül szokás írni. A System osztályna
 * out
 * err
 
-Valójában mindegyik a képernyőt jelképezi. Tehát bármelyik mezővel íratunk ki, az a képernyőn jelenik meg. De tartsuk magunkat a következőhöz: A normál kimenetet írjuk az out mezővel, a hibakimenetet az err mezővel. A hozzáértők a program futtatásakor ezt szét tudják választani.
+Valójában mindegyik a képernyőt jelképezi. Tehát bármelyik mezővel íratunk ki, az a képernyőn jelenik meg. Az out mezővel a szabványos kimenetre írunk, az err mezővel a szabványos hibakimenetre. Az alkalmazás használói a kétféle kimenetet így szét tudják választani.
 
 A kiíratásra következő metódusokat használhatjuk:
 
@@ -42,17 +42,71 @@ A kiíratásra következő metódusokat használhatjuk:
 
 Ezeknek a metódusoknak többféle aláírása [^1] is olvasható a dokumentációban.
 
-[^1]: Az aláírás alatt egy függvény bemenő paramétereit értjük. A bemenőparamétereket szokás még formális paramétereknek is nevezni.
+[^1]: Az aláírás alatt egy függvény bemenő paramétereit értjük.
 
-Ha a println() metódust szeretnénk a képernyőre írni, így rakjuk össze:
+Ha a println() metódussal szeretnénk a képernyőre írni, így rakjuk össze:
 
 ```java
 System.out.println("bármi");
 ```
 
+Írjunk programot, amiben kipróbáljuk az utasítást. Készítsünk egy App.java nevű fájlt, a következő tartalommal. A Java nyelven írt forráskódok .java kiterjesztést kapnak. Készítsük el az állományt.
+
+App.java:
+
+```java
+class App {
+    public static void main(String[] args) {
+        System.out.println("bármi");
+    } 
+}
+```
+
+A forráskódból bájtkódot kell fordítanunk:
+
+```cmd
+javac App.java
+```
+
+Létre jön egy App.class fájjl. Futtassuk a fájlt:
+
+```cmd
+java App
+```
+
+A futtatáskor nem adjuk meg a kiterjesztést, csak annak nevét. A kimenet ehhez hasonló:
+
+```cmd
+bármi
+```
+
+Az utasítások kipróbálásához, használhatjuk a JShellt is. Parancssorban indítsuk el:
+
+```cmd
+jshell
+```
+
+Indulás után a következőt látjuk:
+
+![JShell indulás után](images/jshell_indulas_utan.png)
+
+Nézzük meg a kiíratást JShellben is.
+
+```cmd
+System.out.println("bármi");
+```
+
+Nézzük meg, mit csinál egy számmal:
+
+```cmd
+System.out.println(3);
+```
+
 ## Operátorok és kifejezések
 
-Ha leírom 3, ez önmagában egy állandó. Ha leírom 3 + 4, van két állandónk és egy operátorunk, a "+". A 3-s és 4-s számokat operandusnak hívjuk. Ha van legalább egy operandus és egy operátor, akkor kifejezésről beszélünk. A println() metódus megadott kifejezéseket kiértékeli:
+Ha leírom 3, ez önmagában egy állandó, literális állandó. Ha leírom 3 + 4, van két állandónk és egy operátorunk a "+". A 3-s és 4-s számokat operandusnak hívjuk. Ha van legalább egy operandus és egy operátor, akkor kifejezésről beszélünk. Nézzük meg mit csinál a println() metódus a kifejezéssekkel.
+
+A println() metódus megadott kifejezéseket kiértékeli:
 
 ```java
 System.out.println(3 + 4);
@@ -180,19 +234,19 @@ Most fordítsuk meg a relációs jelet:
 System.out.println(5 < 3);
 ```
 
-Mivel az állítás hamis, fals íródik a képernyőre:
+Mivel az állítás hamis, false íródik a képernyőre:
 
 ```cmd
 false
 ```
 
-Egyelőség vizsgálata:
+Egyenlőség vizsgálata:
 
 ```java
 System.out.println(5 == 3);
 ```
 
-Azt vizsgáljuk: "nem egyenlő?":
+Ha az egyenlőtlenésget szeretnénk vizsgálni, az első karakter cseréljük ! jel karakraterre.
 
 ```java
 System.out.println(5 != 3);
@@ -206,22 +260,22 @@ Ezeket nevezzük összehasonlító operátoroknak. Összes:
 
 ## Különleges karakterek
 
-Néhány karakternek lehet különleges viselkedése. Ezt a viselkedést a "\\" visszaperjel karakter segítségével válthatjuk ki. Vegyük például az "n" betüt, és írassuk ki egy szóban:
+Néhány karakternek lehet különleges viselkedése. Ezt a viselkedést a "\\" visszaperjel karakter segítségével válthatjuk ki. Vegyük például az "n" betűt, és írassuk ki egy szóban:
 
 ```java
-System.out.println("banán");
+System.out.println("mentés");
 ```
 
-A képernyőn megjelenik a banán szó:
+A képernyőn megjelenik a "mentés" szó:
 
 ```cmd
-banán
+mentés
 ```
 
-Most adjuk az első "n" betűnek speciálist jelentést:
+Most adjuk az "n" betűnek speciálist jelentést:
 
 ```java
-System.out.println("ba\nán");
+System.out.println("me\ntés");
 ```
 
 A speciális jelentést a "\" jel karakter elé írásával váltjuk ki. A "\" perjel mindig az utána következő karakterre vonatkozik.
@@ -229,17 +283,11 @@ A speciális jelentést a "\" jel karakter elé írásával váltjuk ki. A "\" p
 Készítsünk egy programot, futtassuk és nézzük meg az eredményt. Az eredmény ehhez hasonló lesz:
 
 ```cmd
-ba
-án
+me
+tés
 ```
 
-Az "n" betű sortörésként viselkedik. Ilyen speciális viselkedése lehet a "t" betűnek is. Nézzük meg ugyanezt "t" betűvel. Javítsuk a szót "mentés"-re:
-
-```java
-System.out.println("mentés");
-```
-
-Most tegyük a "t" betűt specálissá:
+Az "n" betű sortörésként viselkedik. Ilyen speciális viselkedése lehet a "t" betűnek is. Nézzük meg ugyanezt "t" betűvel. Most tegyük a "t" betűt specálissá:
 
 ```java
 System.out.println("men\tés");
@@ -253,7 +301,7 @@ men        és
 
 A "t" betű helyett egy tabulátor hely íródik a képernyőre.
 
-Ezeket a speciális karaktereket escape szekvenciáknak is nevezzük. Az Java nyelvben használható escape szekvenciák táblázatát látjuk:
+Ezeket a speciális karaktereket **escape szekvenciáknak** is nevezzük. Az Java nyelvben használható escape szekvenciák táblázatát látjuk:
 
 | Escape szekvencia | Leírás  |
 |-|-|
@@ -269,7 +317,7 @@ Ezeket a speciális karaktereket escape szekvenciáknak is nevezzük. Az Java ny
 
 ## Típusok és változók
 
-### Egészek típusok
+### Egész típusok
 
 A programozás során dolgozunk egész és valós számokkal, karakterekkel, karakterláncokkal és logikai típussal (igaz/hamis). A Java nyelvben megadható milyen típust szeretnénk tárolni. A memória helynek adunk egy nevet, például "szam1":
 
@@ -336,22 +384,22 @@ System.out.println(szam);
 
 A megoldás, ha a szám végén jelezzük egy "L" betűvel, hogy long típus számára foglaljon helyet. Lehet kis "l" vagy nagy "L".
 
-Vegyük észre, hogy a forráskódban ezredest tagolást használtunk a alsóvonással, amit a Java nyelv megenged.
+```java
+long szam;
+szam = 2_147_483_648L;
+System.out.println(szam);
+```
+
+Vegyük észre, hogy a forráskódban ezredest tagolást használtunk az alsóvonallal, amit a Java nyelv megenged.
 
 ### Valós típusok
 
-Valós számok esetén a double típust használhatjuk:
-
-```java
-double szam2;
-```
-
-Kétféel valós típust adhatunk meg:
+Valós számok esetén kétféle típust adhatunk meg:
 
 * float
 * double
 
-A két típus, szintén a szám számára foglalt memróai méretében különbözik:
+A két típus, szintén a szám számára foglalt memória méretében különbözik:
 
 * float - 4 bytes
 * double - 8 bytes
@@ -383,6 +431,8 @@ szam = 45.123F;
 
 Az adott szám végére egy "F" betűvel jeleztük, hogy csak egy float típus szeretnénk leírni.
 
+Egy értékadás során, az egyenlőségjel jobb oldalára írt valós szám számára double típusnak megfelelő hely lesz lefoglalva. Ezért szükséges float típus esetén jelezni az "F" vagy "f" betűvel, hogy float méretű számmal dolgozunk.
+
 ### Karakterek
 
 Karaktereket a char típusban tárolhatunk:
@@ -408,7 +458,7 @@ boolean van_hely = true;
 
 ### Primitív típusok és burkolóosztályok
 
-Az int, byte, short, long, float, double, boolean, char, mind primitív típus. Minden primitív típusuhoz tartozik egy burkoló osztály. Ez annyit jelent, hogy a típusokat osztállyal is létrehozhatom. Például egy egész típus burkolóosztállyal:
+Az int, byte, short, long, float, double, boolean, char, mind primitív típus. Minden primitív típushoz tartozik egy burkoló osztály. Ez annyit jelent, hogy a típusokat osztállyal is létrehozhatom. Például egy egész típus burkolóosztállyal:
 
 ```java
 Integer szam1 = 45;
@@ -462,7 +512,7 @@ int szam1;
 szam1 = 45;
 ```
 
-Amikor értéket rendelünk a "szam1" nevű változóhoz, ezt nevezzük definiálásnak.
+Amikor értéket rendelünk a "szam1" nevű változóhoz, ezt nevezzük definiálásnak. Defináltuk az értékét.
 
 A Java nyelvben az értékadás "=" opetrátorral történik. A változók a deklaráció során is kaphatnak értéket:
 
@@ -497,7 +547,7 @@ Vegyük a szam1 nevű egész típusú változót:
 int szam1 = 45;
 ```
 
-Amikor leírom ezt az utasítást, futtatáskor a memóriában tárolásra kerül ez az utasítás, ahol szerepel a 45, és egy másik memória helyen is tárolódik a 45 érték. Az első az utasítások memóriaterületére kerül, utóbbi a változók memóraterületére.
+Amikor leírom ezt az utasítást, futtatáskor a memóriában tárolásra kerül ez az utasítás, ahol szerepel a 45, és egy másik memória helyen is tárolódik a 45 érték. Az első az utasítások memóriaterületére kerül, utóbbi az adatok memóraterületére.
 
 Java nyelvben kétféle állandó van:
 
@@ -514,7 +564,7 @@ Amikor leírom, hogy 45, ez is egy állandó. Állandó, mert azt a memóriahely
 
 Az egyenlőségjel jobb oldalán szerplő 45-t **literális állandó**nak nevezem.
 
-A változóknak adhatunk neveket is, így kapunk nevesített állandót. Az állandó deklarációt, úgy kezdjük mint a változókat, de teszünk eléjük egy "final" módosítót:
+A változóknak megadhatunk egy módosítót, amelynek hatására azt nem lehet megváltoztatni. Így kapunk egy nevesített állandót. Az állandó deklarációt, úgy kezdjük mint a változókat, de teszünk eléjük egy "final" módosítót:
 
 ```java
 final int szam1 = 45;
@@ -547,14 +597,14 @@ short num1 = 30;
 byte num2 = num1; //Hiba!
 ```
 
-A megoldás a típus kasztolás (type casting):
+A megoldás a típus kasztolás (type casting; kényszerítés):
 
 ```java
 short num1 = 30;
 byte num2 = (byte) num1;
 ```
 
-A num1 nevű változó elé zárójelbe írtam milyen típussá szeretném "erőltetni".
+A num1 nevű változó elé zárójelbe írtam milyen típussá szeretném "erőltetni, kényszeríteni".
 
 ## Formázott kivitel
 
@@ -569,7 +619,7 @@ A printf() metódusnak az első paramétere a formátumstring. A formátumstring
 
 Nézzük meg a formátumstringet közelebbről. Egy formátumsztring egy vagy több formátumkódot tartalmazhat. Minden formátumsztring utáni paraméternek szükség van egy formátumkódra. A fenti program a formátumsztring után egyetlen változót szerepeltet a "szam1". Az ehhez tartozó formátukód %d. A formátumkódot mindig "%" százalékjellel kezdjük, és egy konverziós karakterrel zárjuk. A konverziós karakter mindig függ a kiíratni kívánt típustól. A "szam1" változó jelenleg egész típusú, ilyen esetben a konverziós karakter egy "d" betű.
 
-A "d" betű után a "\n" csak a sortörést miatt van, mivel a print() utasítás nem ír sörtörést, ellentétben a println() metódussal.
+A "d" betű után a "\n" csak a sortörés miatt van, mivel a printf() utasítás nem ír sörtörést, ellentétben a println() metódussal.
 
 ![formátumstring](images/printf_formatstring.png)
 
@@ -637,7 +687,7 @@ Valós számok esetén beállíthatjuk a pontosságot. Vegyük szemügyre újbó
 %[argumentum_index$][jelzők][szélesség][.pontosság]konverziós_karakter
 ```
 
-A pontosság megadását mindig egy "." karakter vezeti, be ezt követi a pontosság, számmal megadva.
+A pontosság megadását mindig egy "." karakter vezeti be, ezt követi a pontosság, számmal megadva.
 
 ```java
 double valos1 = 45.12345678;
@@ -677,7 +727,7 @@ A szélesség előtt megadhatunk jelzőket. A következő táblázat mutatja mil
 | ' ' | egy vezető szóköz pozitív számok számára (csak d, o, x és X esetén ) |
 | ( | negatív számok zárójelbe kerülnek csak e, E , f, g, és G esetén |
 
-### Előjel előrírása
+### Előjel előírása
 
 Alapestben az előjel csak negatív számok esetén jelenik meg. A "+" jelzővel, előírhatjuk pozitív számok számára is.
 
@@ -774,9 +824,10 @@ Az "L" betű nélkül a Java a leírt számot int típusúnak gondolja. A memór
 | % | Visszad egy % literálist (\u0025). |
 | n | Visszatér egy platformspecifikus sortöréssel. |
 
-## Gyakorlatok Változók témakörben
+## Gyakorlatok
 
 ### Kérdések
 
 * Írjon egy lebegőpontos típust
 * Írjon két egész típust
+* Írjon programot, ami kiértékeli a következő kifejezést: 35+7*2
