@@ -44,3 +44,24 @@ while(i<5) {
     i++;
 }
 ```
+
+### do-while
+
+```java
+int i=0;
+do {
+    System.out.println(i);
+    i++;
+} while(i<5);
+```
+
+### for-each
+
+A for utasítás használható tömbök, listák bejárására. Más programozási nyelvekben ezt foreach, vagy forEach néven ismerjük. Itt az each csak arra utal, hogyan használom a for utasítást.
+
+```java
+int[] numbers = {1, 2, 3, 4, 5};
+for(int num : numbers) {
+    System.out.println(num);
+}
+```
