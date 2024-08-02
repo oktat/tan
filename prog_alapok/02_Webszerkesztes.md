@@ -996,6 +996,9 @@ vagy:
 <a name="név"></a>
 ```
 
+* [Példa1](https://szit.hu/download/peldak/html5/negybekezdes.html)
+* [Példa2](https://szit.hu/download/peldak/html5/elso.html)
+
 ## Videó
 
 Videókat a video elemmel teszünk közzé.
