@@ -811,7 +811,7 @@ A figure elem segítségével összefoghatjuk a képet és a feliratát.
 
 A táblázat elterjedt formája többféle tulajdonság megjelenítésének.
 
-Régebben a táblázatokat használták az oldalelrendezés meghatározására is. Ez azonban elavult technika, ma már nem használjuk. Csak adatok megjelenítésére ajánlott használni.
+Régebben a táblázatokat használták az oldalelrendezés meghatározására is. Ez azonban elavult technika, ma már nem ajánlott. Csak adatok megjelenítésére használjuk.
 
 ### Alap
 
@@ -881,37 +881,6 @@ A caption elem segítségével feliratozható a táblázat. Böngészőtől füg
 A böngészőben:
 
 ![táblázat felirattal](images/html/tablazat_minta_felirattal.png)
-
-### Táblázat összefoglalója
-
-Ritkábban használt attribútum a summary, amiben megadhatunk egy összefoglalót, ami egyébként csak a forráskódban jelenik meg.
-
-```html
-<style>
-  table, th, td {
-    border: 1px solid black;          
-  }      
-</style>
-
-<table summary="A dolgozók adatai">
-  <caption>Dolgozók</caption>
-  <tr>
-    <th>#</th>
-    <th>Név</th>
-    <th>Település</th>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>Nagy József</td>
-    <td>Szolnok</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>Peres Ferenc</td>
-    <td>Szeged</td>
-  </tr>
-</table>
-```
 
 ### Oszlopnyúlás
 
