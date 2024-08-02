@@ -14,7 +14,7 @@ Kétféle kivétel van a Java nyelvben:
 * ellenőrzött - kötelező kezelni
 * futási idejű (ellenőrizetlen) - nem kötelező kezelni
 
-A kivételek a try catch utasításokkal kaphatjuk el.
+A kivételeket a try catch utasításokkal kaphatjuk el.
 
 ```java
 try {
@@ -70,7 +70,7 @@ hozzáféűzésre nyissuk meg az állományt, vagy nem.
 
 ## Kivételek eldobása
 
-Ha nem szeretnénk egy metódusban kezelni egy kivételt, továbbdobhatjuk a hívás helyére. Ha VSCode-ban létrehozunk egy "No build tools" típusú Java projektet, abban találunk egy App osztályt, abban pedig egy main() metódust, amely minden kivételt eldob. Ha fájlkezelést ebben a main() metódusban szeretnénk megvalósítani, a kivételet nem szükséges kezelni.
+Ha nem szeretnénk egy metódusban kezelni egy kivételt, továbbdobhatjuk a hívás helyére. Ha VSCode-ban létrehozunk egy "No build tools" típusú Java projektet, abban találunk egy App osztályt, abban pedig egy main() metódust, amely minden kivételt eldob. Ha fájlkezelést ebben a main() metódusban szeretnénk megvalósítani, a kivételet nem szükséges kezelni, hiszen az eleve eldobásra kerül.
 
 App.java:
 
@@ -116,7 +116,7 @@ public class Store {
 }
 ```
 
-Dobjuk tovább a kivételt. Meg kell tudunk milyen kivételről van szó. A kódszerkesztő is segít ebben. Aláhúzza  a "new FileWriter()" konstruktort. Ha az egérkurzot ráviszem, akkor kiírja milyne kivételt kell kezelnünk. Esetünkben ez a IOException. Dobjuk csak ezt a kivételet tovább:
+Dobjuk tovább a kivételt. Meg kell tudunk milyen kivételről van szó. A kódszerkesztő is segít ebben. Aláhúzza  a "new FileWriter()" konstruktort. Ha az egérkurzot ráviszem, akkor kiírja milyen kivételt kell kezelnünk. Esetünkben ez a IOException. Dobjuk csak ezt a kivételet tovább:
 
 Store.java:
 
@@ -454,7 +454,7 @@ try {
 }
 ```
 
-A sorrendnél vegyük figyelembe, hogy a specifikustól a generikusok kivételek felé haladjunk. Vegyük például a fájlkezelés két kivételét:
+A sorrendnél vegyük figyelembe, hogy a specifikustól a generikus kivételek felé haladjunk. Vegyük például a fájlkezelés két kivételét:
 
 ```java
 try {
@@ -474,9 +474,9 @@ A több catch ágat tartalmazó try_catch szerekezeteknek is lehet egy finally b
 
 ## Beépített kivételek
 
-Sok beépített metódus áll rendelkezésre a Java nyelvben. Itt most veszünk egyet.
+Sok beépített kivétel áll rendelkezésre a Java nyelvben. Itt most veszünk egyet.
 
-Ha egy metódus még nincs megvalítva, dobhatunk java.lang.UnsupportedOperationException kivételt.
+Ha egy metódus még nincs megvalósítva, dobhatunk java.lang.UnsupportedOperationException kivételt.
 
 ```java
 throw new UnsupportedOperationException();
@@ -517,7 +517,7 @@ public class App {
 }
 ```
 
-### Fájl zárás automatikusan lezárt erőforrással
+### Fájlzárás automatikusan lezárt erőforrással
 
 Fentebb már megtanultuk, hogy a kivételeket külön metódusban kezelejük. A try(){} blokk maradhat, miközben a kivételt továbbdobjuk.
 
