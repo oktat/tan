@@ -811,6 +811,8 @@ A figure elem segítségével összefoghatjuk a képet és a feliratát.
 
 A táblázat elterjedt formája többféle tulajdonság megjelenítésének.
 
+Régebben a táblázatokat használták az oldalelrendezés meghatározására is. Ez azonban elavult technika, ma már nem használjuk. Csak adatok megjelenítésére ajánlott használni.
+
 ### Alap
 
 ```html
