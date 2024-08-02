@@ -25,10 +25,10 @@
 * [Videók](#videok)
 * [Hangok](#hangok)
 * [Űrlapok](#form-ok)
-* [Az oldal szerkezetét leíro elemek](#az-oldalszerkezetet-leiro-elemek)
+* [Az oldal szerkezetét leíró elemek](#az-oldalszerkezetet-leiro-elemek)
 * [Gyakorlatok](#gyakorlatok)
 
-<a name="html">
+<a name="html"></a>
 
 ## HTML
 
@@ -56,7 +56,7 @@ Az oldalon kapunk egy számot, például 528 az 555-ből. Alatta pedig részlete
 
 Az [other browsers] gombra kattintva több böngésző összehasonlítását látjuk verzióként.
 
-<a name="szerkesztok">
+<a name="szerkesztok"></a>
 
 ## Szerkesztők
 
