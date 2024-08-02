@@ -414,7 +414,7 @@ public class App extends Application {
 
 ## Eseményfigyelés
 
-Az eseményfigyelést a nyomógombon egy setOnAction() metódussal állítható be. Lambad kifejezés használatával csak meg kell hívni a metódust, ami reagál az eseményre.
+Az eseményfigyelést a nyomógombon egy setOnAction() metódussal állítható be. Lambda kifejezés használatával csak meg kell hívni a metódust, ami reagál az eseményre.
 
 ```java
 button.setOnAction(e -> onClickButton());
