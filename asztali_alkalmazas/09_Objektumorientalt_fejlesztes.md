@@ -7,11 +7,11 @@
 
 ## Osztályok IDE segítségével
 
-Visual Studio Code-ban az osztályokat az oldalsáv JAVA PROJECTS nézetén hozzuk létre. Ha nem látszik a nézet, nyissuk meg az egyik .java kiterjesztésű fájlt, például az App.java. Az oldalsávon megjelenik JAVA PROJECTS nézet.
+Visual Studio Code-ban az osztályokat az oldalsáv JAVA PROJECTS nézetén érdemes létrehozni. Ha nem látszik a nézet, nyissuk meg az egyik .java kiterjesztésű fájlt, például az App.java. Az oldalsávon megjelenik JAVA PROJECTS nézet.
 
 ![Java projects nézet](images/ide/vscode_java_projects.png)
 
-A csomagokat (könyvtárakat) fent a app01 (a projekt neve) nézetben hozzuk létre. Például views csomag.
+A csomagokat (könyvtárakat) fent az app01 (a projekt neve) nézetben hozzuk létre. Például views csomag.
 
 ![views csomag létrehozása](images/ide/vscode_views_package.png)
 
@@ -35,11 +35,11 @@ A név megadása után ki kell választanunk mit szeretnénk:
 
 ![Fájltípus választása](images/ide/vscode_select_type.png)
 
-Választhatunk a le és fel billentyűkket. A választást Enter lenyomásával véglegesítjük.
+Választhatunk a le és fel billentyűkkel. A választást Enter lenyomásával véglegesítjük.
 
 ## Scope
 
-A változókat létrehozhatjuk osztályon belül mezőként (adattag), vagy létrehozhatjuk valamelyik metóduson belül. A metóduson belül létrehozott változó csak az adott metódusban érhető el. Az osztály mezőjeként létrehozott változó, azonban minden metódusban elérhető.
+A változókat létrehozhatjuk osztályon belül mezőként (adattag, jellemző), vagy létrehozhatjuk valamelyik metóduson belül. A metóduson belül létrehozott változó csak az adott metódusban érhető el. Az osztály mezőjeként létrehozott változó, azonban minden metódusban elérhető.
 
 ```java
 class Valami {
@@ -59,7 +59,7 @@ Employee employee = new Emplyoee();
 
 ## Konstruktorok
 
-A Java nyelvben a konstruktorok nev megyegyezik az osztály nevével és sosincs visszatérési értékük. A következő példában van egy Employee osztályunk, amiben találunk egy konstruktort Employee néven. Vegyük észre a public és az Employee szavak között nincs visszatérési érték.
+A Java nyelvben a konstruktorok neve megyegyezik az osztály nevével és sosincs visszatérési értékük. A következő példában van egy Employee osztályunk, amiben találunk egy konstruktort Employee néven. Vegyük észre a public és az Employee szavak között nincs visszatérési érték.
 
 ```java
 class Employee {
@@ -70,8 +70,7 @@ class Employee {
 }
 ```
 
-A konstruktorok az osztály mezőinek előkészítésére használható.
-A konstruktorok fogadhatnak paramétert, mint a következő példában is:
+A konstruktorok az osztály mezőinek előkészítésére használhatók. A konstruktorok fogadhatnak paramétert, mint a következő példában is:
 
 ```java
 class Employee {
@@ -110,7 +109,7 @@ Emplyoee employee = new Emplyoee("Tenge Albert");
 
 ## Öröklés
 
-Az öröklés segítségével a már elkészült osztályokat újrafelhasználhatjuk és bővíthetjük. A következő példában készítünk egy Employee osztályt, aminek két adattagja van, a name és a city. Ha most szükségünk van egy Engineer osztályra, amiben szintén van name és city adattag, nem kell újra felvenem ezeket a mezőket, egyszerűen átörökítem azokat az extends utasítással:
+Az öröklés segítségével a már elkészült osztályokat újrafelhasználhatjuk és bővíthetjük. A következő példában készítünk egy Employee osztályt, aminek két adattagja van, a **name** és a **city**. Ha most szükségünk van egy Engineer osztályra, amiben szintén van name és city adattag, nem kell újra felvenem ezeket a mezőket, egyszerűen átörökítem azokat az extends utasítással:
 
 ```java
 class Employee {
@@ -207,6 +206,8 @@ public class Employee {
 
 ## Osztály tömbben
 
+Tömbökben tárolhatunk osztállyal megadott típust is.
+
 ```java
 Dolgozo[] dolgozok = new Dolgozo[5];
 Dolgozo dolgozo = new Dolgozo("Park Béla", "Pécs", 345);
@@ -214,6 +215,8 @@ dolgozok[0] = dolgozo;
 ```
 
 ## Osztály listában
+
+A legkényelmesebb használatot az osztályok listában való használata jelenti.
 
 ```java
 ArrayList<Dolgozo> dolgozoLista = new ArrayList<>();
