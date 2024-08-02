@@ -74,7 +74,7 @@ Telepítés Chocolatey csomagkezelővel:
 choco install vscode.install
 ```
 
-<a name="hellovilag">
+<a name="hellovilag"></a>
 
 ## Helló Világ
 
@@ -222,7 +222,7 @@ Object Model rövidítése.
 
 A DOM-ban a html a gyökérelem, mivel ez van a legfelső szinten.
 
-<a name="megjegyzes">
+<a name="megjegyzes"></a>
 
 ## Megjegyzés
 
@@ -240,7 +240,7 @@ Megjegyzéseket a következő módon készíthetünk:
 
 A HTML megjegyzések nem ágyazhatók egymásba.
 
-<a name="fejezetcimek">
+<a name="fejezetcimek"></a>
 
 ## Fejezetcímek
 
@@ -259,7 +259,7 @@ Alapértelmezetten a következő a megjelenítése Chrome böngészőben:
 
 ![h1-h6-ig HTML elemek](images/html/html_h1-h6.png)
 
-<a name="bekezdesek">
+<a name="bekezdesek"></a>
 
 ## Bekezdések
 
@@ -281,7 +281,7 @@ Lorem ipsum
 
 Ritkán van rá szükség.
 
-<a name="altalanos-elemek">
+<a name="altalanos-elemek"></a>
 
 ## Általános elemek
 
@@ -327,7 +327,7 @@ consectetur, <span class="ketto">adipisicing</span> elit.
 Numquam, rem.
 ```
 
-<a name="szemantikus-elemek">
+<a name="szemantikus-elemek"></a>
 
 ## Szemantikus elemek
 
@@ -339,7 +339,7 @@ A szemantikus elemek valamilyen jelentéssel bírnak. Nem szemantikus elem a spa
 * form - űrlap készítítése
 * section - egy rész jelölése
 
-<a name="blokk-es-inline-elemek">
+<a name="blokk-es-inline-elemek"></a>
 
 ## Blokk és inline szintű elemek
 
@@ -471,7 +471,7 @@ Inline elemek:
 * a
 * stb.
 
-<a name="sortores">
+<a name="sortores"></a>
 
 ## Sortörés
 
@@ -520,7 +520,7 @@ A br elemek már a weblapon is tördelik a sorokat.
 
 A három sor akár egyetlen sorban is megadható.
 
-<a name="kiemeles">
+<a name="kiemeles"></a>
 
 ## Kiemelés
 
@@ -754,7 +754,7 @@ Böngészőben:
 
 ![definíciós lista](images/html/definicios_lista_minta.png)
 
-<a name="kepek">
+<a name="kepek"></a>
 
 ## Képek beillesztése
 
@@ -805,7 +805,7 @@ A figure elem segítségével összefoghatjuk a képet és a feliratát.
 
 ![figure elem](images/html/tatrakep_figure_elemben_felirattal.jpg)
 
-<a name="tablazatok">
+<a name="tablazatok"></a>
 
 ## Táblázatok
 
