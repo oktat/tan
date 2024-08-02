@@ -494,7 +494,22 @@ A kiemelésekre többféle HTML elem áll rendelkezésre. A következő három f
 | &lt;del&gt; | törölt szöveg |
 | &lt;s&gt; | elavult, pontatlan, nem fontos szöveg |
 
-A következő ábrán láthatjunk néhány mintát a kiemelések használata során:
+Vegyük a következő példát:
+
+```html
+<b>félkövérnek jelölt szöveg</b><br>
+<em>kiemeltnek jelölt szöveg</em><br>
+<i>dőltnek jeleölt szöveg</i><br>
+<small>kisebbnek jelölt szöveg</small><br>
+<strong>nagyobbnak jelölt szöveg</strong><br>
+Alsó index példa: H<sub>2</sub>O<br>
+Felső index példa: 2<sup>8</sup><br>
+<ins>Beszúrtnak jelölt szöveg</ins><br>
+<del>Töröltnek jelölt szöveg</del><br>
+<s>Elavultnak jelölt szöveg</s><br>
+```
+
+A böngészőben ehhez hasonlóan jelenik meg:
 
 ![kiemelés](images/html/kiemelesek_minta.png)
 
@@ -508,7 +523,23 @@ A következő ábrán láthatjunk néhány mintát a kiemelések használata sor
 | &lt;var&gt; | változó |
 | &lt;pre&gt; | előreformázott szöveg |
 
-Bönégészőben minta:
+Lássunk egy példát:
+
+```html
+Kód:<code>System.out.println("Hello World");</code><br>
+<kbd>Ctrl + Enter</kbd><br>
+Minta: <samp>System.out.println("Hello World");</samp><br>
+Változó: <var>USER</var><br>
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+    printf("Hello World");
+    return 0;
+}
+</pre>
+```
+
+Bönégészőben:
 
 ![számítógépes kiemelések](images/html/szamitogepes_kiemelesek_minta.png)
 
@@ -529,6 +560,25 @@ A bdo elem esetén a szöveg irányát a dir attribútummal kell megadni:
 ```html
 <bdo dir="rtl">szöveg irányának meghatározása</bdo><br>
 ```
+
+Példa:
+
+```html
+Rövidítés minta: <abbr>MTA</abbr><br>
+Cím: <address>Valahol, 28 kerület, Valami utca 1. </address><br>
+
+<bdo dir="rtl">szöveg irányának meghatározása</bdo><br>
+Hosszú idézet:
+<blockquote>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quos dolorum cupiditate quasi, veniam, fuga, quae eos ducimus nihil eius consequuntur aut ipsam a non ipsa. Quidem, qui laboriosam. Perferendis!
+</blockquote><br>
+Rövid idézet:
+<q>Lorem ipsum dolor sit amet</q><br>
+Cím idézése: <cite>A sötét ég</cite><br>
+<dfn>Definció</dfn><br>
+```
+
+Bönégészőben:
 
 ![idézetek és definíciók](images/html/idezetek_es_definiciok_minta.png)
 
