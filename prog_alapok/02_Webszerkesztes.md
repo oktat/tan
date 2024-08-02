@@ -489,7 +489,7 @@ A kiemelésekre többféle HTML elem áll rendelkezésre. A következő három f
 | &lt;small&gt; | kis szöveg |
 | &lt;strong&gt; | erős szöveg |
 | &lt;sub&gt; | alsó index |
-| &lt;sup&gt; | felő index |
+| &lt;sup&gt; | felső index |
 | &lt;ins&gt; | beszúrt szöveg |
 | &lt;del&gt; | törölt szöveg |
 | &lt;s&gt; | elavult, pontatlan, nem fontos szöveg |
