@@ -8,7 +8,7 @@
 ## Tartalomjegyzék
 
 * [HTML](#html)
-* [Szerkesztő](#szerkeszto)
+* [Szerkesztők](#szerkesztok)
 * [Helló Világ](#hellovilag)
 * [Megjegyzés](#megjegyzes)
 * [Fejezetcímek](#fejezetcimek)
@@ -56,7 +56,7 @@ Az oldalon kapunk egy számot, például 528 az 555-ből. Alatta pedig részlete
 
 Az [other browsers] gombra kattintva több böngésző összehasonlítását látjuk verzióként.
 
-<a name="szerkeszto">
+<a name="szerkesztok">
 
 ## Szerkesztők
 
