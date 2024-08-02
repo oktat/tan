@@ -570,7 +570,11 @@ Cím: <address>Valahol, 28 kerület, Valami utca 1. </address><br>
 <bdo dir="rtl">szöveg irányának meghatározása</bdo><br>
 Hosszú idézet:
 <blockquote>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quos dolorum cupiditate quasi, veniam, fuga, quae eos ducimus nihil eius consequuntur aut ipsam a non ipsa. Quidem, qui laboriosam. Perferendis!
+    Lorem ipsum dolor sit amet consectetur 
+    adipisicing elit. Doloribus quos dolorum 
+    cupiditate quasi, veniam, fuga, quae eos 
+    ducimus nihil eius consequuntur aut ipsam 
+    a non ipsa. Quidem, qui laboriosam. Perferendis!
 </blockquote><br>
 Rövid idézet:
 <q>Lorem ipsum dolor sit amet</q><br>
