@@ -11,6 +11,8 @@ A Math osztály matematikai kifejezések írását segíti.
 
 ### A pí értéke
 
+A PI értékét példáu így kapjuk meg:
+
 ```java
 System.out.println(Math.PI);
 ```
@@ -40,6 +42,8 @@ System.out.println(Math.floor(1.9));
 ```
 
 ### Trigonometria
+
+A trigonometriai függvények radiánban várják az értéket. Ha nekünk szög értékünk van, át kell azt számolni radiánba.
 
 ```java
 double szog = 1;
@@ -128,6 +132,8 @@ String gyumolcs = new String("alma");
 
 ### Sztringek hossza
 
+A length() metódussal lekérdezhetjük egy sztirng hosszát. Java nyelvben ez a karakterek számát jelenti.
+
 ```java
 String szo = "alma";
 System.out.println(szo.length());
@@ -147,7 +153,7 @@ String szoveg = "alma";
 String eredmeny = szoveg.concat(" szilva");
 ```
 
-Mindkét konkatenálás esetén az eredményt egy új változóban tároltuk. A concat() metódus nem változtatja meg az eredeti szoveg nevű változó tartalmát. A String változók, láthatjuk, hogy megváltoztathatatlanok, angolul immutable.
+Mindkét konkatenálás esetén az eredményt egy új változóban tároltuk. A concat() metódus nem változtatja meg az eredeti szoveg nevű változó tartalmát. A String változók ezért megváltoztathatatlanok, angolul immutable.
 
 ### Adott indexen a karakter lekérdezése
 
@@ -248,7 +254,7 @@ String ujszoveg = szoveg.toLowerCase();
 System.out.println(ujszoveg);
 ```
 
-A kis betűs szöveget nagybetűssé a toUpperCase() függvény alkalmas.
+A kisbetűs szöveget nagybetűssé a toUpperCase() függvénnyel konvertálhatjuk.
 
 ```java
 String szoveg = "kereszteződés";
@@ -291,3 +297,10 @@ System.out.println(szoveg);
 A StringBuffer szálbiztos, a StringBuilder nem. A StringBuffer használata ezért mindig lassabb. Többszálas programozás esetén a StringBuffer objektumok nem lép fel probléma, de ez többlet munkát igényel, de ezért nevezzük szálbiztosnak.
 
 A StringBuffer és a StringBuilder osztályoknak van egy append() és egy insert() függvénye.
+
+```java
+StringBuffer szoveg = new StringBuffer("alma");
+szoveg.append(" körte");
+szoveg.append(" barack");
+System.out.println(szoveg);
+```
