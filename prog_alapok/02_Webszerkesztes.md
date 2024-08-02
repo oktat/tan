@@ -727,7 +727,7 @@ Az src és az alt attribútumok kötelezőek.
 
 Lássunk egy példát böngészőben:
 
-![kep](images/html/tatrakep_weblapon_bongeszoben.jpg)
+![kep](./images/html/tatrakep_weblapon_bongeszoben.jpg)
 
 A képeknek, azonban más attribútumai is lehetnek.
 
