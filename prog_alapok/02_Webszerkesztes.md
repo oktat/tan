@@ -7,7 +7,29 @@
 
 ## Tartalomjegyzék
 
+* [HTML](#html)
+* [HTML5 teszt](#html5-teszt)
+* [Szerkesztő](#szerkeszto)
+* [Helló Világ](#hellovilag)
+* [Megjegyzés](#megjegyzes)
+* [Fejezetcímek](#fejezetcimek)
+* [Bekezdések](#bekezdesek)
+* [Általános elemek](#altalanos-elemek)
+* [Szemantikus elemek](#szemantikus-elemek)
+* [Blokk és inline elemek](#blokk-es-inline-elemek)
+* [Sortörés](#sortores)
 * [Kiemelés](#kiemeles)
+* [Listák](#listak)
+* [Képek beillesztése](#kepek)
+* [Táblázatok](#tablazatok)
+* [Hiperhivatkozások](#hiperhivatkozasok)
+* [Videók](#videok)
+* [Hangok](#hangok)
+* [Űrlapok](#form-ok)
+* [Az oldal szerkezetét leíro elemek](#az-oldalszerkezetet-leiro-elemek)
+* [Gyakorlatok](#gyakorlatok)
+
+<a name="html">
 
 ## HTML
 
@@ -25,6 +47,8 @@ A HTML először a SGML alapján készült. Így lettek 1, 2, 3, 4, 4.1 verziók
 
 2007-ben a Mozilla Foundation, Apple, és az Opera Software létrehozott egy közösséget Web Hypertext Application Technology Working Group (WHATWG) néven. Ez lett a HTML5, amit ma is használunk.
 
+<a name="html5-teszt">
+
 ## HTML5 teszt
 
 A böngészőgyártók folyamatosan fejlesztik a böngészőik HTML5 képességeit. Van egy webes felület, ahol letesztelhetjük böngészőnk, milyen szinten ismeri a HTML5 oldalakt.
@@ -35,11 +59,15 @@ Az oldalon kapunk egy számot, például 528 az 555-ből. Alatta pedig részlete
 
 Az [other browsers] gombra kattintva több böngésző összehasonlítását látjuk verzióként.
 
-## Online szerkesztő
+<a name="szerkeszto">
+
+## Szerkesztők
+
+### Online szerkesztő
 
 * [https://jsbin.com/](https://jsbin.com/)
 
-## Telepíthető szerkesztő
+### Telepíthető szerkesztő
 
 * [https://code.visualstudio.com/](https://code.visualstudio.com/)
 
@@ -48,6 +76,8 @@ Telepítés Chocolatey csomagkezelővel:
 ```cmd
 choco install vscode.install
 ```
+
+<a name="hellovilag">
 
 ## Helló Világ
 
@@ -76,7 +106,7 @@ Az index.html fájl tartalma a következő legyen:
 
 Nyissuk meg böngészőben az index.html oldalt. Erre az egyik módszer: böngészőben Ctrl+O, kikeresem az index.html-t, majd a "Select" vagy "Megnyitás" gombra kattintva megnyitom.
 
-## Elemzés
+### Elemzés
 
 Minden HTML fájlt DOCTYPE sorral kezdjük. Ez megmondja
 a böngészőnek, hogy a HTML melyik verzióját használjuk.
@@ -166,7 +196,7 @@ A head elemek között az oldal címét a title taggel adjuk meg.
 <title>Valami</title>
 ```
 
-## A body elem
+### A body elem
 
 A body elemek közzé írt tartalom jelenik meg a weboldalon.
 Korábbi HTML verzióknál használtak attribútumokat a weboldal
@@ -195,6 +225,8 @@ Object Model rövidítése.
 
 A DOM-ban a html a gyökérelem, mivel ez van a legfelső szinten.
 
+<a name="megjegyzes">
+
 ## Megjegyzés
 
 Megjegyzéseket a következő módon készíthetünk:
@@ -210,6 +242,8 @@ Megjegyzéseket a következő módon készíthetünk:
 ```
 
 A HTML megjegyzések nem ágyazhatók egymásba.
+
+<a name="fejezetcimek">
 
 ## Fejezetcímek
 
@@ -227,6 +261,8 @@ Egy szöveghez általában címmekkel adjuk meg miről szól, az adott fejezet. 
 Alapértelmezetten a következő a megjelenítése Chrome böngészőben:
 
 ![h1-h6-ig HTML elemek](images/html/html_h1-h6.png)
+
+<a name="bekezdesek">
 
 ## Bekezdések
 
@@ -247,6 +283,8 @@ Lorem ipsum
 ```
 
 Ritkán van rá szükség.
+
+<a name="altalanos-elemek">
 
 ## Általános elemek
 
@@ -292,6 +330,8 @@ consectetur, <span class="ketto">adipisicing</span> elit.
 Numquam, rem.
 ```
 
+<a name="szemantikus-elemek">
+
 ## Szemantikus elemek
 
 A szemantikus elemek valamilyen jelentéssel bírnak. Nem szemantikus elem a span és a div. Néhány szemantikus elem:
@@ -301,6 +341,8 @@ A szemantikus elemek valamilyen jelentéssel bírnak. Nem szemantikus elem a spa
 * p - bekezdés jelölése
 * form - űrlap készítítése
 * section - egy rész jelölése
+
+<a name="blokk-es-inline-elemek">
 
 ## Blokk és inline szintű elemek
 
@@ -431,6 +473,8 @@ Inline elemek:
 * i
 * a
 * stb.
+
+<a name="sortores">
 
 ## Sortörés
 
@@ -592,6 +636,8 @@ Bönégészőben:
 
 ![idézetek és definíciók](images/html/idezetek_es_definiciok_minta.png)
 
+<a name="listak"></a>
+
 ## Listák
 
 A listák minden dokumentumban fontos szervező elemek. A HTML oldalakon háromféle listát hozhatunk létre:
@@ -711,6 +757,8 @@ Böngészőben:
 
 ![definíciós lista](images/html/definicios_lista_minta.png)
 
+<a name="kepek">
+
 ## Képek beillesztése
 
 Használható fájltípusok:
@@ -760,7 +808,9 @@ A figure elem segítségével összefoghatjuk a képet és a feliratát.
 
 ![figure elem](images/html/tatrakep_figure_elemben_felirattal.jpg)
 
-## Táblázat
+<a name="tablazatok">
+
+## Táblázatok
 
 A táblázat elterjedt formája többféle tulajdonság megjelenítésének.
 
@@ -1026,7 +1076,9 @@ Böngészőben:
 
 ![Oszlopok csoportosítása](images/html/tablazat_oszlopok_csoportositasa.png)
 
-## Hiperhivatkozás
+<a name="hiperhivatkozasok"></a>
+
+## Hiperhivatkozások
 
 Hiperhivatkozást az "a" elemmel hozunk létre. Maga a hivatkozás a href attribútum értéke. Az "a" elem tartalma pedig ami a weblapon megjelenik.
 
@@ -1059,7 +1111,9 @@ vagy:
 * [Példa1: ugrás lapon belül](https://szit.hu/download/peldak/html5/negybekezdes.html)
 * [Példa2: ugrás másik lapra](https://szit.hu/download/peldak/html5/elso.html)
 
-## Videó
+<a name="videok"></a>
+
+## Videók
 
 Videókat a video elemmel teszünk közzé.
 
@@ -1076,6 +1130,8 @@ Több formátumban is feltölthetünk videót. Ha egy böngésző nem ismeri az 
 </video>
 ```
 
+<a name="hangok"></a>
+
 ## Hang
 
 Hangot az audio elemmel tehetünk közzé.
@@ -1088,7 +1144,9 @@ A böngésződ nem támogatja az audio elemet.
 </audio>
 ```
 
-## Űrlap
+<a name="form-ok"></a>
+
+## Űrlapok
 
 Az űrlapok segítségével a weblap felhasználója adatokat közölhet a webszerverrel.
 
@@ -1107,6 +1165,8 @@ Az űrlapok segítségével a weblap felhasználója adatokat közölhet a websz
 </form>
 ```
 
+<a name="az-oldalszerkezetet-leiro-elemek"></a>
+
 ## Az oldal szerkezetét leíró elemek
 
 Az oldal szerkezetét általános célú div elemekkel,
@@ -1121,7 +1181,9 @@ a következő szemantikus elemek állnak rendelkezésre:
 * article - tartalmi egységek
 * main - az oldal főbb része
 
-## Gyakorlat
+<a name="gyakorlat"></a>
+
+## Gyakorlatok
 
 ### Szerkesztő gyakorlat
 
