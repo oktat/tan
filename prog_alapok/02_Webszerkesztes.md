@@ -996,8 +996,8 @@ vagy:
 <a name="név"></a>
 ```
 
-* [Példa1](https://szit.hu/download/peldak/html5/negybekezdes.html)
-* [Példa2](https://szit.hu/download/peldak/html5/elso.html)
+* [Példa1: ugrás lapon belül](https://szit.hu/download/peldak/html5/negybekezdes.html)
+* [Példa2: ugrás másik lapra](https://szit.hu/download/peldak/html5/elso.html)
 
 ## Videó
 
