@@ -8,7 +8,6 @@
 ## Tartalomjegyzék
 
 * [HTML](#html)
-* [HTML5 teszt](#html5-teszt)
 * [Szerkesztő](#szerkeszto)
 * [Helló Világ](#hellovilag)
 * [Megjegyzés](#megjegyzes)
@@ -47,9 +46,7 @@ A HTML először a SGML alapján készült. Így lettek 1, 2, 3, 4, 4.1 verziók
 
 2007-ben a Mozilla Foundation, Apple, és az Opera Software létrehozott egy közösséget Web Hypertext Application Technology Working Group (WHATWG) néven. Ez lett a HTML5, amit ma is használunk.
 
-<a name="html5-teszt">
-
-## HTML5 teszt
+### HTML5 teszt
 
 A böngészőgyártók folyamatosan fejlesztik a böngészőik HTML5 képességeit. Van egy webes felület, ahol letesztelhetjük böngészőnk, milyen szinten ismeri a HTML5 oldalakt.
 
