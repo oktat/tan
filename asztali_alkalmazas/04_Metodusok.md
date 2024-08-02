@@ -95,7 +95,7 @@ class App {
 
 ## Statikus metódusok
 
-Az osztály céljától függően a metódusaik lehetnek statikus és példánymetódusok. Az osztályok a világunkat reprezentálják. Ha egy osztály olyan dolgot reprezentál, amiből csak egy van, akkor statikus metódusokat szoktunk létrehozni. Egy alkalmazásból csak egy van világon, és annak egy tulajdonsoba van. Most eltekintünk a hasonló alkalmazásoktól. Ennek következtében célszerű statikus metódusokat használni.
+Az osztály céljától függően a metódusaik lehetnek statikus és példánymetódusok. Az osztályok a világunkat reprezentálják. Ha egy osztály olyan dolgot reprezentál, amiből csak egy van, akkor statikus metódusokat szoktunk létrehozni. Egy alkalmazásból csak egy van világon, és annak egy tulajdonsa van. Most eltekintünk a hasonló alkalmazásoktól. Ennek következtében célszerű statikus metódusokat használni.
 
 ```java
 class App {
@@ -176,9 +176,13 @@ class App {
 
 ```
 
+Vegyük észre, hogy az Emplyoee osztályban nem használtuk a static kulcsszót.
+
 ## Scope
 
-A metóduson belül létrehozott változók és objektumok csak a változón belül érhetők el. Az osztály adattagjai az összes metódusból elérhetők.
+A metóduson belül létrehozott változók és objektumok csak a metóduson belül érhetők el. Az osztály adattagjai az összes metódusból elérhetők.
+
+A következő példában osztály adattagokat használok a base, a height és az area.
 
 ```java
 class Triangle {
@@ -219,13 +223,19 @@ public class Triangle {
 }
 ```
 
+Előfordul, hogy ugyanazon a néven létrehozunk oszhtályváltozót és helyi változót is. Az előbbi programunkban ilyen az "area". Ha az osztályváltozóra akarok hivatkozni, egyszerűen a this kulcsszot használjuk.
+
 ## Paraméterátadás
+
+A metódusok átvehetenk értékeket. A következő metóuds például egy num változón keresztül egy egész értéket vesz át. Az ilyen bejövő paramétert nevezzük formális paraméternek.
 
 ```java
 void doubleNumber(int num) {
     System.out.println(num * 2);
 }
 ```
+
+A következő példában két formális paraméterünki van:
 
 ```java
 void sumNumbers(int num1, int num2) {
@@ -235,15 +245,17 @@ void sumNumbers(int num1, int num2) {
 
 ## Visszatérési érték
 
+A metódusoknak lehetnek visszatérési értékeik. A visszatérés értékét a return utasítás után adjuk meg. A metódus neve előtt meg kell adnunk a visszatérés típusát.
+
 ```java
-void doubleNumber(int num) {
+int doubleNumber(int num) {
     int result = num * 2;
     return result;
 }
 ```
 
 ```java
-void doubleNumber(int num) {
+int doubleNumber(int num) {
     return num * 2;
 }
 ```
