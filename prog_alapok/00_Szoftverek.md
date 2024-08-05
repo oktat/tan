@@ -38,10 +38,23 @@ choco install vscode.install
 choco install dia
 choco install git
 choco install totalcommander
-choco install pycharm-community
 choco install python
 choco install googlechrome
 choco install firefox
 ```
 
+Opcionális:
+
+```cmd
+choco install pycharm-community
+```
+
 A programok telepíthetők a webhelyükről is, a choco parancs nélkül is.
+
+## Visual Studio Code bővítmények
+
+* HTML CSS Support
+* Live Server
+* MDN Docs
+* Lorem ipsum
+* BootStrap 5 Snippets
