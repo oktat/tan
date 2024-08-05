@@ -240,7 +240,7 @@ git reset --hard HEAD
 Visszaállás egy véglegesített állapotra:
 
 ```cmd
-git checkout 4824
+git reset --hard 4824
 ```
 
 Az ágból elhagyott commitokat is szeretnénk látni:
