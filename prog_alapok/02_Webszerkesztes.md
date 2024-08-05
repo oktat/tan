@@ -1147,6 +1147,12 @@ A böngésződ nem támogatja az audio elemet.
 
 Szabadon használható hangfájlokat szerehetünk be, a keresőbe beírjuk: "youtube audio library".
 
+Az audio fájl egyéb attribútumai:
+
+* autoplay
+* muted
+* loop
+
 <a name="form-ok"></a>
 
 ## Űrlapok
