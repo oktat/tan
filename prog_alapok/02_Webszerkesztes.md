@@ -1131,6 +1131,15 @@ Több formátumban is feltölthetünk videót. Ha egy böngésző nem ismeri az 
 </video>
 ```
 
+A video elem néhány attribútuma:
+
+* controls
+* autoplay
+* muted
+* loop
+
+Ezek az attribútumok logikai típusok, így elég a nevüket megadni.
+
 <a name="hangok"></a>
 
 ## Hang
