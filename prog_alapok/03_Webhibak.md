@@ -341,9 +341,15 @@ Az első IRC klienst és szervert **Jarkko Oikarinen** készítette **1988**-ban
 
 A fejlesztők használhatják megbeszélésekre, segítségkérésekre, szoftverek támogatására, hibák közös keresésére. A közösségi oldalak csevegő felületével szemben itt olyan emberektől is kaphatunk segítséget, akivel még sosem találkoztunk.
 
-Egy online kliens a freenode hálózathoz:
+Néhány IRC hálózat:
 
-* [https://webchat.freenode.net/](https://webchat.freenode.net/)
+* DALnet
+* DigitalIRC
+* EntropyNet
+
+Egy IRC szerver, ami nem szokott a klienslistákban szerepelni:
+
+* chat.freenode.net
 
 Néhány Freenode csatorna 2022-ben:
 
