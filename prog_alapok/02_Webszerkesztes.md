@@ -1081,6 +1081,26 @@ vagy:
 
 <a name="videok"></a>
 
+### URL-ek
+
+A hivatkozásokban megadhatók URL-ek is.
+
+```html
+<a href="https://szit.hu">Leírás</a>
+```
+
+A linkek alapértelmezetten ugyanbabban az ablakban nyílnak meg. Beállítható, hogy másik lapon nyíljanak meg.
+
+```html
+<a href="https://szit.hu" target="_blank">Leírás</a>
+```
+
+Megadhatók e-mail címek is:
+
+```html
+<a href="mailto:K4wzH@example.com">K4wzH@example.com</a>
+```
+
 ## Videók
 
 Videókat a video elemmel teszünk közzé.
