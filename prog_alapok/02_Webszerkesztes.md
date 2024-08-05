@@ -1145,6 +1145,8 @@ A böngésződ nem támogatja az audio elemet.
 </audio>
 ```
 
+Szabadon használható hangfájlokat szerehetünk be, a keresőbe beírjuk: "youtube audio library".
+
 <a name="form-ok"></a>
 
 ## Űrlapok
