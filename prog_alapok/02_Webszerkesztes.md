@@ -131,13 +131,15 @@ tartalom
 </név>
 ```
 
-Egy konkrét HTML elmemmel:
+Egy konkrét HTML elemmel:
 
 ```html
 <div>
   Tartalom
 </div>
 ```
+
+![HTML elemek](images/html/html_tag_elem.png)
 
 A tartalmat ezek tagek fogják közre. Egy nyitó és egy záró taget együtt elemnek nevezünk, HTML elem. A HTML tagek közzé írt szöveg a tartalom, vagy innerText, más esetben textContent.
 
@@ -186,6 +188,8 @@ felvehet attribútumokat. Az attribútumoknak van mindig egy értékük. A meta 
 ```
 
 Az értéket mindig az attribútum és egy egyenlőség jel után adjuk meg, idézőjelek között.
+
+![attribútumok](images/html/html_elem_attributuma.png)
 
 A head elemek között az oldal címét a title taggel adjuk meg.
 
