@@ -1101,6 +1101,19 @@ Megadhatók e-mail címek is:
 <a href="mailto:K4wzH@example.com">K4wzH@example.com</a>
 ```
 
+### Hivatkozások és képek
+
+A képek megadhatók az "a" elem tartalmaként:
+
+```html
+
+<a href="https://szit.hu">
+  <img src="kep.png">
+</a>
+```
+
+A képre kattintva bejön a hivatkozott oldal.
+
 ## Videók
 
 Videókat a video elemmel teszünk közzé.
