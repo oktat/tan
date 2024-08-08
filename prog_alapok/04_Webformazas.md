@@ -542,7 +542,7 @@ Minden böngészőben megjelenő HTML elemet egy doboznak tekintünk. Így besz�
 
 Minden doboz ugyanúgy épül fel, ugyanazok a tulajdonságok jellemzik. Lehet valami tartalma. A tartalma vagy egy másik doboz, vagy szöveg. A tartalom körül beállítható egy belső margó. A belső margó után állítható a szegély. A szegélyt margó veszi körül. Mindezeket állíthatjuk felül, jobbra, alul és balra. Figyeljük meg a következő ábrán:
 
-![Doboz felépítése](images/dobozfelepites.png)
+![Doboz felépítése CSS1](images/css/DobozFelepites.png)
 
 A CSS2 verzióban a szegély köré egy újabb réteg került, az outline, magyarul körvonal.
 
