@@ -1124,45 +1124,58 @@ A hozzátartozó CSS:
 
 ```css
 #egy {
-    position: relative; left: 0px; top:0px; width:100px; height:100px; 
+    position: absolute; 
+    left: 0px; top:0px; 
+    width:100px; height:100px; 
     background: #f00;
-    z-index:3;
 }
  
 #ketto {
-    position: relative; left: 50px; top:-50px; width:100px; height:100px; 
+    position: absolute; 
+    left: 50px; top:50px; 
+    width:100px; height:100px; 
     background: #0f0;
-    z-index:2;
 }
  
 #harom {
-    position: relative; left: 100px; top:-100px; width:100px; height:100px; 
+    position: absolute; 
+    left: 100px; top:100px; 
+    width:100px; height:100px; 
     background: #00f;
-    z-index:1;
 }
 ```
+
+![z-index nélkül 3 doboz](images/css/z-index_nelkul.png)
 
 A z-index változtatása:
 
 ```css
 #egy {
-    position: relative; left: 0px; top:0px; width:100px; height:100px; 
+    position: relative; 
+    left: 0px; top:0px; 
+    width:100px; height:100px; 
     background: #f00;
     z-index:3;
 }
  
 #ketto {
-    position: relative; left: 50px; top:-50px; width:100px; height:100px; 
+    position: relative; 
+    left: 50px; top:-50px; 
+    width:100px; height:100px; 
     background: #0f0;
     z-index:2;
 }
  
 #harom {
-    position: relative; left: 100px; top:-100px; width:100px; height:100px; 
+    position: relative; 
+    left: 100px; top:-100px; 
+    width:100px; height:100px; 
     background: #00f;
     z-index:1;
 }
 ```
+
+![z-index beállítva](images/css/z-index_beallitva.png)
 
 <a name="mertekegysegek"></a>
 
