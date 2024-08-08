@@ -266,6 +266,32 @@ Kétféle mértékegység van:
 | Képernyő | px, em, % | ex | mm, cm, in, pt, pc |
 | Nyomtatott | mm, cm, in, pt, pc, em, % | px, ex, | |
 
+A fontok méretének meghatározása során haszáljunk em vagy rem értéket. Ha abszolút mértékegységet használunk, az gondot okozhat a nagyított használt esetén.
+
+Gyakorlásként hozzunk létre egy weblapot a következő tartalommal:
+
+```html
+<p class="egy">Lorem ipsum dolor sit amet.</p>
+<p class="ketto">Lorem ipsum dolor sit amet.</p>
+```
+
+Állítsuk be a következő stílust:
+
+```css
+p.egy {
+    font-size: 16px;
+}
+p.ketto {
+    font-size: 1rem;
+}
+```
+
+Alapértelmezetten mindkét bekezdés 16px méretben jelenik meg, hiszen a 1rem alapértelmezetten 16px.
+
+Most menjünk a beállításokhoz, majd válasszuk a **Megjelenítés**-t. A **Betűméret**-nél állítsuk be "Nagyon nagy" lehetőséget. Ha most megnézzük a weblapot, a px mértékegységgel beállított bekezdés mérete nem változott. A rem mértékegységgel beállított bekezdés azonban az elvárásokank megfelelően nagy lett.
+
+![Bekezdések nagyítva px és rem mértékegységgel beállítva](images/bekezdesek_nagyitva_px_rem.png)
+
 ## Flex dobozok
 
 A reszponzív viselkedés egyik lehetséges módja a flex dobozok használata.
@@ -377,7 +403,7 @@ Legyen 3 oszlopos grid, ahol a harmadik oszlop mérete rugalmasan változik.
 
 A böngészőben:
 
-![Grid dobozo a böngészőben](images/grid_third-auto.png)
+![Grid dobozok a böngészőben](images/grid_third-auto.png)
 
 Élő példa:
 
