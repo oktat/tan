@@ -214,6 +214,11 @@ Opera esetén ajánlott előtag használata:
 }
 ```
 
+Készítsünk egy webolat, amiben szerepel egy például két bekezés, és 200px szélességet állítsunk be. Nézzük meg a viewport beállítással és nélküle telfonon, vagy böngészőben telefonnézetben.
+
+* [https://szit.hu/m/viewport/](https://szit.hu/m/viewport/)
+* [https://szit.hu/m/viewport/index2.html](https://szit.hu/m/viewport/index2.html)
+
 ## Médialekérdezés és viewport
 
 ```css
