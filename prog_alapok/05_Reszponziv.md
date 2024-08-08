@@ -68,17 +68,15 @@ Nincs meghatározva a töréspontok száma, de érdemes legalább 3 törésponto
 
 ## Viewport
 
-A viewportot, mint tulajdonság a mobileszközök elterjedése indukálta.
-
-A viewport az a terület a böngészőben, ahol megjelenik a weboldal.
-
-Viewport beállítás nélkül, ha egy átlagos PC monitorára elkészítettünk egy szöveges tartalmat, a mobileszközön a szöveg apró és olvashatatlan.
+A viewport segítségével a tartalom automatikusan igazodik a kijelző méretéhez. A megjelenés mérete megfelelő skálázással jelenik a különböző eszközökön. Beállítható a nagyítással kapcsolatos tulajdonságok.
 
 A viewport beállítása:
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 ```
+
+A width=device-width biztosítja, hogy webolal szélessége megegyezzen a készülék szélességével. A initial-scale=1.0 beállítja a kezdeti nagyítási szintet.
 
 Ha a weblapot 320 pixel szélességű eszközhöz készítenénk, írhatnánk ezt:
 
