@@ -544,6 +544,10 @@ Minden doboz ugyanúgy épül fel, ugyanazok a tulajdonságok jellemzik. Lehet v
 
 ![Doboz felépítése](images/dobozfelepites.png)
 
+A CSS2 verzióban a szegély köré egy újabb réteg került, az outline, magyarul körvonal.
+
+![Doboz felépítése CSS2-től](images/css/DobozFelepites_v2.png)
+
 ### Margó beállítása
 
 A margót a **margin** tulajdonsággal állítjuk.
