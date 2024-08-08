@@ -11,27 +11,7 @@ A reszponzív tervezéshez újabban betűszavakat hoznak létre. Responsive Web 
 
 A reszponzív tervezés esetén, a legkülönfélébb eszközökön szeretnénk a weblapot optimálisan megjeleníteni.
 
-A cél eléréshez az elemek méretét, helyét százalékban adjuk meg, illetve a beállításokat médiaméretéhez igazítjuk.
-
-## Mobile First Design
-
-A mobilhasználat nagyságrendje okán, elsőként mobil eszközre készítjük el a weboldalt.
-
-Fontos a tartalmi elemek megfelelő sorrendjének megtalálása.
-
-A mobileszközök esetén is keressük meg a legkisebb felbontást. Legyen a legkisebb például 320x50 pixel.
-
-## Progressive enhancement
-
-A webtartalom minél hamarabbi megjelenítése a célja. Ne kelljen várni JavaScript futásra sem, inkább töltődjön a HTML a tartalommal együtt azonnal.
-
-Ez segíti az internetes kereső motorok működését is, de a letöltés is gyorsabb.
-
-A stílust és az animációt CSS-sel határozzuk meg. A JavaScript egyéb fejlesztésekre használatos.
-
-A technik a Graceful degradation fejlesztés továbbgondolt változata. Ennek lényege, hogy a mobilos verziókból a lényegtelen részeket egyszerűen elhagyjuk.
-
-A Graceful degradation ellentéte, a kicsitől a nagyobbig elv, amikor elsőként kevesebb funkcióval fejlesztek kisebb eszközökre.
+A cél eléréshez az elemek méretét, helyét valamilyen relatiív értékben adjuk meg, illetve a beállításokat médiaméretéhez igazítjuk.
 
 ## Médialekérdezések
 
