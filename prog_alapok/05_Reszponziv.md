@@ -52,6 +52,36 @@ Példa:
 }
 ```
 
+Példa médiatípus meghatározására:
+
+```css
+@media screen {
+    p {
+        color: blue;
+    }
+}
+
+@media print {
+    p {
+        color: red;
+    }
+}
+```
+
+Médistípus beállítása HTML fájlban, példa:
+
+```html
+<link 
+    rel="stylesheet" 
+    href="egy.css"
+    media="screen">
+
+<link 
+    rel="stylesheet" 
+    href="ketto.css"
+    media="print">
+```
+
 ## Töréspontok
 
 A töréspontok segítségével a webhely tartalma különböző módon reagál az eszköz szélességére. A töréspontokat a médialekérdezés teszi lehetővé.
