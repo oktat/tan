@@ -31,6 +31,8 @@ Chocolatey nélkül is használható a tananyag, ez csak a telepítések megkön
 
 ## Telepítés
 
+### Windows csomagkezelő
+
 Telepítés Chocolatey csomagkezelővel.
 
 ```cmd
@@ -50,6 +52,20 @@ choco install pycharm-community
 ```
 
 A programok telepíthetők a webhelyükről is, a choco parancs nélkül is.
+
+### Node.js csomag
+
+Szükségünk lesz még a **sinto** Node.js csomagra:
+
+```cmd
+npm install -g sinto
+```
+
+Telepítés után kapunk egy **sin** parancsot. Ellenőrizzük:
+
+```cmd
+sin --version
+```
 
 ## Visual Studio Code bővítmények
 

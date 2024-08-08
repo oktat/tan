@@ -96,6 +96,58 @@ Lássunk néhány gyakori töréspontot:
 
 Nincs meghatározva a töréspontok száma, de érdemes legalább 3 töréspontot használni.
 
+Készítsünk egy index.html a body elemben a következő tartalommal:
+
+### Kártyák töréssel
+
+```html
+<div class="container">
+
+    <div class="cards">
+        <div class="card">
+            <h2>Béla</h2>
+            <p>Szeged</p>
+        </div>
+    <div class="card">
+        <h2>Lajos</h2>
+        <p>Szeged</p>
+    </div>
+    <!-- 
+        Készítsünk további 10 kártyát
+        ...
+    -->
+</div>
+```
+
+```css
+.cards {
+    text-align: center;
+    max-width: 572px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (min-width: 850px) {
+    .cards {
+        max-width: 820px;
+    }
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100px;
+    display: inline-block;
+    background-color: #f9f9f9;
+}
+```
+
+Tekintsük meg működés közben a weblapot:
+
+[https://szit.hu/m/media/](https://szit.hu/m/media/)
+
 ## Viewport
 
 A viewport segítségével a tartalom automatikusan igazodik a kijelző méretéhez. A megjelenés mérete megfelelő skálázással jelenik a különböző eszközökön. Beállítható a nagyítással kapcsolatos tulajdonságok.
