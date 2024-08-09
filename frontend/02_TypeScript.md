@@ -233,6 +233,18 @@ app01/
   `-bs-config.json
 ```
 
+Függőségek telepítése:
+
+```cmd
+npm install
+```
+
+vagy:
+
+```cmd
+pnpm install
+```
+
 ## TypeScript típusok
 
 A következő típusokat használhatjuk:
