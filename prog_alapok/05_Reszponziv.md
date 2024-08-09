@@ -214,10 +214,11 @@ Opera esetén ajánlott előtag használata:
 }
 ```
 
-Készítsünk egy webolat, amiben szerepel egy például két bekezés, és 200px szélességet állítsunk be. Nézzük meg a viewport beállítással és nélküle telfonon, vagy böngészőben telefonnézetben.
+Készítsünk egy webolat, amiben szerepel egy például egy rövid mondat: "Lorem ipsum dolor est amet". Nézzük meg a viewport beállítással és nélküle telfonon, vagy böngészőben telefonnézetben.
 
 * [https://szit.hu/m/viewport/](https://szit.hu/m/viewport/)
-* [https://szit.hu/m/viewport/index2.html](https://szit.hu/m/viewport/index2.html)
+
+Hosszab szöveg esetén a böngésző igazíthatja a szöveget, de rövid szöveg esetén ez nem történik meg. Ha fix szélességű dobozt használunk a probléma ismét megjelenhet. Ha használjuk a viewport beállítást, a probléma megoldott.
 
 ## Médialekérdezés és viewport
 
