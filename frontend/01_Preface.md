@@ -39,6 +39,7 @@ choco install nodejs
 choco install dia
 choco install composer
 choco install insomnia-rest-api-client
+choco install httpie
 choco install gimp
 choco install totalcommander
 choco install xampp-74
