@@ -160,6 +160,8 @@ npm start
 
 A böngészőben automatikusan megnyílik a projekt gyökérkönyvtárban található index.html tartalma.
 
+Ha szerkesztjük az src könyvtárban valamelyik fájlt, a mentés után egyelőre nem történik semmi. Az automatikus frissítéshez újabb kapcsoló szükséges.
+
 ### Browser-sync beállító fájl
 
 Készítsünk egy beállítófájlt bs-config.json néven, a következő tartalommal:
@@ -182,9 +184,19 @@ Készítsünk egy beállítófájlt bs-config.json néven, a következő tartalo
 }
 ```
 
+Ha fut a szerver, indítsuk azt újra.
+
 ### Bootstrap használata
 
-Ha Bootstrap-t használunk:
+Ha van egy Node.js projektünk, amiben Bootstrap-t használunk, kiadjuk a következő parancsot:
+
+```cmd
+npm install bootstrap
+```
+
+A Bootstrap ezt követően a node_modules/bootstrap/ könyvtárba telepszik. Az lenne a célunk, hogy ne kelljen innen linkelni, helyette a HTML fájlban csak annyit kelljen megadni, hogy bootstrap.css és bootstrap.js.
+
+Ha Bootstrap-t használunk, a bs-config.json fájlban vegyük fel az src után két újabb útvonalat:
 
 ```json
 {
@@ -197,6 +209,8 @@ Ha Bootstrap-t használunk:
     "watch": true
 }
 ```
+
+A beállítás után újra kell indítani a browser-sync szervert, ha az éppen fut.
 
 ## A sinto csomag
 
