@@ -44,3 +44,15 @@ choco install gimp
 choco install totalcommander
 choco install xampp-74
 ```
+
+## A Path környezeti változó
+
+A C:\Users\janos\AppData\Roaming\npm útvonalat vegyük fel a PATH környezeti változóba.
+
+* C:\Users\janos\AppData\Roaming\npm
+
+Erre később szükség lesz, amikor az npm install -g <csomagnév> parancsot haszbnáljuk.
+
+A környezeti változó beállításról itt találunk egy leírást:
+
+* [https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:utvonalak#gui_felueleten](https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:utvonalak#gui_felueleten)
