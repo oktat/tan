@@ -198,6 +198,41 @@ Ha Bootstrap-t használunk:
 }
 ```
 
+## A sinto csomag
+
+A sinto csomag leegyszerűsíti a Node.js projektek készítést. Telepítsük:
+
+```cmd
+npm install -g sinto
+```
+
+Telepítés után, kapunk egy **sin** parancsot. Ellenőrizzük:
+
+```cmd
+sin --version
+```
+
+Node.js projekt létrehozhása:
+
+```cmd
+sin init
+```
+
+Ami létrejön:
+
+```cmd
+app01/
+  |-assets/
+  |-src/
+  |  |-style.css
+  |  |-index.html
+  |  `-app.js
+  |-README.md
+  |-package.json
+  |-gulpfile.js
+  `-bs-config.json
+```
+
 ## TypeScript típusok
 
 A következő típusokat használhatjuk:
