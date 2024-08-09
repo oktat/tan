@@ -1,11 +1,11 @@
-# Frontend - JavaScript
+# Frontend - TypeScript
 
 * **Szerző:** Sallai András
 * Copyright (c) 2022, Sallai András
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
-## TypeScript
+## A TypeScript
 
 A TypeScript a Microsoft egy nyílt forráskódú programozási nyelve, a JavaScript szuperhalmaza. Ahogy a neve is mutatja, leginkább típusokkal egészíti ki a JavaScript nyelvet. Úgy mondhatnánk: JavaScript típus szintaktikával.
 
