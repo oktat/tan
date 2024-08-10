@@ -15,6 +15,7 @@
 * git
 * composer (PHP script)
 * Insomnia (REST API client)
+* HTTPie (REST API client)
 * GIMP
 * Total Commander
 * XAMPP
@@ -47,7 +48,7 @@ choco install xampp-74
 
 ## A Path környezeti változó
 
-A C:\Users\janos\AppData\Roaming\npm útvonalat vegyük fel a PATH környezeti változóba.
+A C:\Users\janos\AppData\Roaming\npm útvonalat vegyük fel a **PATH** környezeti változóba.
 
 * C:\Users\janos\AppData\Roaming\npm
 
