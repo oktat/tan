@@ -48,6 +48,7 @@ choco install totalcommander -y
 choco install vscode git -y
 choco install googlechrome -y
 choco install geany -y
+choco install scenebuilder -y
 ```
 
 ## Java JDK
