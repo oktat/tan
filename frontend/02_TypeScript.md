@@ -723,9 +723,21 @@ kibarat('Kati', 'Lóri', 'Erik', 'Pali');
 
 ## Űrlap tartalma
 
+Kötés létrehozása az input elemre:
+
 ```javascript
 const num1Elem = 
 document.querySelector("#num1")! as HTMLInputElement;
+```
+
+A "!" karakter a non-null assertion operátor.
+Akkor használjuk, ha biztosan tudjuk, hogy a hivatkozott változó nem null vagy undefined lesz.
+
+Kötés létrehozása button elemre:
+
+```javascript
+const calcButton = 
+document.querySelector("#calcButton")! as HTMLButtonElement;
 ```
 
 ## Interfész
