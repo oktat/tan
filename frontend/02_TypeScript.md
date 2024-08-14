@@ -887,6 +887,43 @@ emp1 = {
 console.log(emp1.name);
 ```
 
+### Interfészek enum típussal
+
+Nézzünk egy példát az interfész és az enum együttes használatára.
+
+```javascript
+enum Localness { LOCAL, FOREIGN }
+
+interface IEmploee {
+    name: string;
+    city: string;
+    localness: Localness;
+}
+
+const emploee: IEmploee = {
+    name: 'Sinto',
+    city: 'London',
+    localness: Localness.LOCAL
+}
+```
+
+A localness tulajdonság beállítható nem kötelező elemnek:
+
+```javascript
+enum Localness { LOCAL, FOREIGN }
+
+interface IEmploee {
+    name: string;
+    city: string;
+    localness?: Localness;
+}
+
+const emploee: IEmploee = {
+    name: 'Sinto',
+    city: 'London'
+}
+```
+
 ## Forrás
 
 * [https://szit.hu/doku.php?id=oktatas:web:typescript:typescript_nyelv](https://szit.hu/doku.php?id=oktatas:web:typescript:typescript_nyelv)
