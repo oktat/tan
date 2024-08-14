@@ -111,6 +111,7 @@ A többi metódus (POST, PUT, DELETE) teszteléséhez szükségünk van más kli
 
 A REST API teszteléséhez ajánlott eszközök:
 
+* Resen
 * HTTPie
 * Insomnia
 * curl
