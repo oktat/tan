@@ -740,6 +740,22 @@ const calcButton =
 document.querySelector("#calcButton")! as HTMLButtonElement;
 ```
 
+## Osztály használata
+
+```javascript
+class Employee {
+    name: string;
+    salary: number;
+    constructor(name: string, salary: number) {
+        this.name = name;
+        this.salary = salary;
+    }
+    getSalary(): number {
+        return this.salary;
+    }
+}
+```
+
 ## Interfész
 
 Az interfész definiálja a megkötéseket az alkalmazásban. Az interfészt megvalósító osztályoknak követniük kell a megvalósított interfészt.
@@ -792,22 +808,6 @@ emp1 = {
     salary: 358
 }
 console.log(emp1.name);
-```
-
-## Osztály használata
-
-```javascript
-class Employee {
-    name: string;
-    salary: number;
-    constructor(name: string, salary: number) {
-        this.name = name;
-        this.salary = salary;
-    }
-    getSalary(): number {
-        return this.salary;
-    }
-}
 ```
 
 ## Forrás
