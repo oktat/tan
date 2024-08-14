@@ -384,7 +384,7 @@ Ennek hatására mentéskor automatikusan megtörténik a fordítás.
 ### A void típus
 
 ```javascript
-var valami: vid = null;
+var valami: void = null;
 ```
 
 Függvények esetén használjuk. Azt határozzuk meg, hogy nincs visszatérési értéke a függvények. Egyes programozási nyelvekben ezt nevezzük eljárásnak.
@@ -479,6 +479,18 @@ var numAny: any = '30';
 var num: number = numAny as number;
 ```
 
+Mindkét esetben a num változó típusa string lesz:
+
+```javascript
+console.log(typeof num);
+```
+
+A lehetséges kimenet:
+
+```cmd
+string
+```
+
 ## Változók és állandók
 
 Háromféle kulcsszóval hozható létre változó:
@@ -488,6 +500,12 @@ Háromféle kulcsszóval hozható létre változó:
 | var | Globális hatókörű |
 | let | Blokk szintű használat |
 | const | Értéke nem változtatható meg |
+
+```javascript
+let nev = 'Penge Béla';
+var kor = 35;
+const igazEmber = true;
+```
 
 ## Típuskövetkeztetés a TypeScritben
 
