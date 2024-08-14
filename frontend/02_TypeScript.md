@@ -754,6 +754,9 @@ class Employee {
         return this.salary;
     }
 }
+
+var emp = new Employee("John", 1000);
+console.log(emp.getSalary());
 ```
 
 ## Interfész
