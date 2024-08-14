@@ -531,7 +531,7 @@ Ilyen esetben a leggyakoribb típust keresi a TypeScript a típus megállapítá
 var tomb = [ 30, 35, 'alma', 45, 50];
 ```
 
-Ebben az esetben számok és sztringek uniótípusa lesz: (number | number). Újabb számot vagy sztringet hozzáadhatunk, de például egy logikai típus hozzáadása hibát okoz.
+Ebben az esetben számok és sztringek uniótípusa lesz: (number | string). Újabb számot vagy sztringet hozzáadhatunk, de például egy logikai típus hozzáadása hibát okoz.
 
 ## Megjegyzések
 
