@@ -759,6 +759,80 @@ var emp = new Employee("John", 1000);
 console.log(emp.getSalary());
 ```
 
+### A tsconfig.json használata
+
+A _sin ts_ parancs elkészíti számunkra a tsconfig.json fájlt, de ha a tsc prancsot paraméterekkel használjuk, akkor azt nem veszi figyelembe.
+
+Gyakorlásként készítsünk egy _sin_ paranncsal egy projektet, majd adjuk hozzá a TypeScript lehetőséget:
+
+```cmd
+sin init
+sin ts
+```
+
+Az src könyvtárban át kell nevezni az app.js fájlt app.ts-re. Létre kell hozni egy **app** nevű könyvtárat, amibe át kell mozgatni az index.html és style.css állományokat.
+
+A Browser-sync szerver beállításaiban állítsuk át az src könyvtárat app könyvtárra:
+
+```json
+{
+  "server": [
+    "app",
+    "node_modules/bootstrap/dist/css",
+    "node_modules/bootstrap/dist/js"
+  ],
+  "port": 3000,
+  "watch": true
+}
+```
+
+Ha fut a szerver, újra kell indítani.
+
+A tsconfig.json fájlban a ügyeljünk arra, hogy a module érték is ES-re legyen állítva:
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "ESNext",
+    "outDir": "./app",
+    "strict": true,
+    "esModuleInterop": true
+  }  
+}
+```
+
+Ezt követően a TypeScript fordítása:
+
+```cmd
+tsc
+```
+
+Folyamatos fordítást is beállíthatunk:
+
+```cmd
+tsc --watch
+```
+
+A könyvtárszerkezetünk ekkor így néz ki:
+
+```txt
+app01/
+  |-app/
+  |  |-app.js
+  |  |-index.html
+  |  `-style.css
+  |-assets/
+  |-node_modules/
+  |-src/
+  |  `-app.ts
+  |-bs-config.json
+  |-gulpfile.js
+  |-package.json
+  |-README.md
+  `-tsconfig.json
+```
+
 ## Interfész
 
 Az interfész definiálja a megkötéseket az alkalmazásban. Az interfészt megvalósító osztályoknak követniük kell a megvalósított interfészt.
