@@ -373,7 +373,7 @@ var szamTomb: [number, number, number] = [27, 42, 35];
 document.write(String(szamTomb[2]));
 ```
 
-A folytonos tsc src/app.ts parans kiadása helyett, mondjuk meg a tsc parancsnak, hogy folyamatosan figyelje az src/app.ts fájlt:
+A folytonos tsc src/app.ts parancs kiadása helyett, mondjuk meg a tsc parancsnak, hogy folyamatosan figyelje az src/app.ts fájlt:
 
 ```cmd
 tsc --watch src/app.ts
