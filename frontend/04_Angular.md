@@ -306,6 +306,33 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [];
 ```
 
+### Csomagkezelő beállítása
+
+Az Angular számára az alapértelmezett csomagkezelő a npm.
+
+A következő parancs segítségével beállíthatjuk, például a pnpm parancsot:
+
+```cmd
+ng config -g cli.packageManager pnpm
+```
+
+Ez az információ a felhasználó alapkönyvtárában egy fájlban jelenik meg:
+
+* Windows: %USERPROFILE%\angular-config.json
+* Linux: ~/.angular-config.json
+
+A beállítás után, egy ilyen tulajdonságot találunk:
+
+```json
+{
+  "cli": {
+    "packageManager": "pnpm"
+  }
+}
+```
+
+Ezt követően az angular a pnpm csomagkezelő használja.
+
 ## Angular elmélet
 
 ### Komponens
