@@ -943,6 +943,157 @@ Az src/app/app.component.html fájl tartalma:
 
 ## Sablon-vezérelt űrlapok
 
+### Komponens készítése
+
+Készítsünk egy komponenst, signup néven.
+
+```cmd
+ng generate component signup
+```
+
+Építsük a komponenst a főkomponensbe. Az src/app/signup/signup.component.html fájlba:
+
+```html
+<div class="container">
+  <app-signup></app-signup>
+</div>
+```
+
+### Az űrlapok direktívái
+
+A sablon-vezérelt űrlapok esetén az ngForm, ngModel direktívát fogjuk használni. Ehhez importálni kell a FormsModule modult.
+
+```typescript
+import { FormsModule } from '@angular/forms';
+//...
+  imports: [FormsModule],
+```
+
+A teljes signup.component.ts tartalma:
+
+```typescript
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'app-signup',
+  standalone: true,
+  imports: [FormsModule],
+  templateUrl: './signup.component.html',
+  styleUrl: './signup.component.css'
+})
+export class SignupComponent {
+
+}
+```
+
+### Űrlap elkészítése
+
+Az src/app/signup/signup.component.html fájl tartalma kezdetben:
+
+```html
+<form #userForm="ngForm">
+
+</form>
+```
+
+Az űrlap fejlesztve:
+
+```html
+<form #userForm="ngForm" (ngSubmit)="submitForm(userForm)">
+    <div class="input">
+        <label for="name" class="form-label">Név</label>
+        <input type="text" id="name"
+        class="form-control" 
+        name="username"
+        [(ngModel)]="user.name">
+    </div>
+    <div class="input">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="text" id="name"
+        class="form-control" [(ngModel)]="user.email"
+        name="email">
+    </div>
+    <div class="input">
+        <label for="name" class="form-label">Jelszó</label>
+        <input type="text" id="name"
+        class="form-control" [(ngModel)]="user.password"
+        name="password">
+    </div>
+    <div>
+        <button class="btn btn-primary mt-2">Regisztrálok</button>
+    </div>
+</form>
+```
+
+A name attribútum használata kötelező, ha az ngModel attirbútumot használjuk.
+
+### A TypeScript rész
+
+A teljes TypeScript az src/app/signup/signup.component.ts fájl:
+
+```typescript
+import { Component } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
+
+
+@Component({
+  selector: 'app-signup',
+  standalone: true,
+  imports: [FormsModule],
+  templateUrl: './signup.component.html',
+  styleUrl: './signup.component.css'
+})
+export class SignupComponent {
+
+  user: any = {
+    name: '',
+    email: '',
+    password: ''
+  }
+
+  submitForm(userForm: NgForm) {
+    console.log(userForm.value, this.user);
+  }
+}
+```
+
+Vegyük észre, hogy az NgForm osztály is importálva lett.
+
+### Interface használata
+
+```typescript
+import { Component } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
+
+interface User {
+  name: string;
+  email: string;
+  password: string;
+}
+
+@Component({
+  selector: 'app-signup',
+  standalone: true,
+  imports: [FormsModule],
+  templateUrl: './signup.component.html',
+  styleUrl: './signup.component.css'
+})
+export class SignupComponent {
+
+  user: User = {
+    name: '',
+    email: '',
+    password: ''
+  }
+
+  submitForm(userForm: NgForm) {
+    console.log(userForm.value, this.user);
+  }
+
+}
+```
+
 ## Reaktív űrlapok
 
 ## Űrlapok érvényessége
