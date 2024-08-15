@@ -477,6 +477,26 @@ export class ExampleService {
 }
 ```
 
+Szolgáltatás létrehozása:
+
+```cmd
+ng generate service valami
+```
+
+Röviden használva:
+
+```cmd
+ng g s valami
+```
+
+Ajánlott külön könyvtárba elhelyezni a szolgáltatásokat:
+
+```cmd
+ng generate service shared/valami
+```
+
+Ebben az esetben a szolgáltatás a shared könyvtáron belül jön létre.
+
 ## Függőségbefecskendezés
 
 Az Angular Dependency Injection, röviden DI, lehetővé teszi a direktívák, szolgáltatások, komponensek számára, hogy egyik a másikra támaszkodjon.
