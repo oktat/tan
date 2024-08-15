@@ -434,8 +434,9 @@ export class ExampleComponent implements OnInit {
     // Adatok betöltése
   }
 }
-
 ```
+
+A szolgáltatásokban nem használhatók!
 
 ### Az ngOnDestroy() függvény
 
@@ -584,6 +585,8 @@ A HTML fájlba még egy gomb:
 
 Az **ngIf** direktíva hatására a showContent változó tartalmát figyeljük. Ha az érték true, megjelenik az tartalom, ha false eltűnik.
 
+### Új if verzió
+
 Az Angular 17 verzióban megjelent egy újabb forma:
 
 ```html
@@ -626,6 +629,8 @@ export class AppComponent {
   ]
 }
 ```
+
+### Új for verzió
 
 ```html
 <ul>
@@ -1019,6 +1024,7 @@ src/app/app.component.html:
 ```
 
 ### Signup űrlap
+
 #### Komponens készítése
 
 Készítsünk egy komponenst, signup néven.
@@ -1314,7 +1320,7 @@ onSubmit() {
 </form>
 ```
 
-### Reaktví űrlapok érvényessége
+### Reaktív űrlapok érvényessége
 
 ```typescript
 ngOnInit(): void { 
@@ -1324,6 +1330,40 @@ ngOnInit(): void {
     password: ['', Validators.required]
   })
 }
+```
+
+### Figyelmeztetés
+
+```html
+<form [formGroup]="userForm">
+
+    <div *ngIf="
+        userForm.get('name')?.invalid && 
+        userForm.get('name')?.touched">
+        Kötelező kitölteni
+    </div>    
+
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input
+            type="text"
+            id="name"
+            formControlName="name"
+            class="form-control"
+        />
+    </div>
+    <!-- ... -->
+</form>
+```
+
+A hasError() használata:
+
+```typescript
+<div *ngIf="
+    userForm.get('name')?.hasError('required') && 
+    userForm.get('name')?.touched">
+    Kötelező kitölteni
+</div> 
 ```
 
 ## HttpClient
