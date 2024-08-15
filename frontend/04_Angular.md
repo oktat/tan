@@ -404,13 +404,16 @@ A következő függvények állnak rendelkezésre:
 
 * ngOnInit()
 * ngOnDestroy()
-* ngAfterViewInit()
 * ngOnChanges()
-* stb.
+* ngDoCheck()
+* ngAfterContentInit()
+* ngAfterContentChecked()
+* ngAfterViewInit()
+* ngAfterViewChecked()
 
 ### ngOnInit() függvény
 
-A komponens betöltésekor fut le. Általában adatok lekérésére, betöltésére használjuk, előkészítésére használjuk.
+A komponens betöltésekor fut le, a konstruktor után. Általában adatok lekérésére, betöltésére használjuk, előkészítésére használjuk.
 
 Az @angular/core-ból kell importálni:
 
@@ -465,6 +468,292 @@ export class ExampleComponent implements OnDestroy {
 }
 ```
 
+## Bootstrap használata
+
+Telepítés:
+
+```cmd
+pnpm install --save bootstrap
+```
+
+```css
+@import "bootstrap";
+```
+
+### Bootstrap ikonok
+
+```cmd
+ng add bootstrap-icons
+```
+
+style.css fájl:
+
+```css
+@import "~bootstrap-icons";
+```
+
+Használat:
+
+```html
+<i class="bi bi-bug-fill"></i>
+```
+
+## Képek megjelenítése
+
+Képeket az src/assets könyvtárba kell elhelyezni.
+
+Töltsük le egy képet például a következő helyről:
+
+* [Képek](https://szit.hu/download/images)
+
+Tegyük a kiválasztott képet az src/assets könyvtárba. Például:
+
+```txt
+src/assets/tatra_hegy.jpg
+```
+
+Az app.component.html fájlba ekkor
+
+```html
+<img 
+    src="../assets/tatra_hegy.jpg" 
+    alt="Tatra Hegy" 
+    width="200"
+/>
+```
+
+## Eseménykezelő
+
+```html
+<p>{{name}}</p>
+
+<button (click)="changeName()">
+  Névcsere
+</button>
+```
+
+A TypeScript tartalma:
+
+```typescript
+export class AppComponent {
+  name = 'Ernő';
+
+  changeName() {
+    this.name = 'Tibor';
+  }
+}
+```
+
+## Szelekció
+
+```html
+<div *ngIf="showContent">
+  Tartalom
+</div>
+
+```
+
+TypeScript:
+
+```typescript
+  showContent: boolean = true;  // Kezdetben igaz, tehát a tartalom megjelenik
+
+  toggleContent() {
+    this.showContent = !this.showContent;  // Átváltja az értéket
+  }
+```
+
+A HTML fájlba még egy gomb:
+
+```html
+<button 
+  (click)="toggleContent()">
+    Tartalom megjelenítése/elrejtése
+</button>
+```
+
+Az **ngIf** direktíva hatására a showContent változó tartalmát figyeljük. Ha az érték true, megjelenik az tartalom, ha false eltűnik.
+
+Az Angular 17 verzióban megjelent egy újabb forma:
+
+```html
+<div>
+@if (showContent) {
+  Tartalom megjelenítése/elrejtése
+}
+</div>
+```
+
+Használhatunk ellenbenággal:
+
+```html
+@if (showContent) {
+  Tartalom megjelenítése/elrejtése
+} @else {
+  más
+}
+```
+
+## Iteráció
+
+Legyen egy sztringek tömbje gyümölcsökkel:
+
+```typescript
+export class AppComponent {
+  fruitList = [
+    "alma",
+    "körte",
+    "barack",
+    "szilva"
+  ]
+}
+```
+
+```html
+<ul>
+  @for(fruit of fruitList; track fruit) {
+      <li>{{fruit}}</li>
+  }
+</ul>
+```
+
+Korábban:
+
+```html
+<ul>
+    <li *ngFor="let fruit of fruits">
+        {{fruit}}
+    </li>
+</ul>
+```
+
+## Komponensek
+
+![Egy komponens a főkomponensben](images/angular/componens_egymasba_00.png)
+
+Kettő egymás alatt:
+
+![Komponensek egymás alatt](images/angular/componens_egymasba_01.png)
+
+Kettő egymás mellett:
+
+![Komponensek egymás mellett](images/angular/componens_egymasba_02.png)
+
+A főkomponensben több komponens:
+
+![Több komponensben több komponens](images/angular/componens_egymasba_03.png)
+
+### Komponens cseréje
+
+Útválasztással másik komponenst töltünk az eredeti comp1 helyére:
+
+![Az első komponenst cseréljük](images/angular/componens_csere_01.png)
+
+Akár több komponenst is cserélgethetünk egymással.
+
+![Komponens csere](images/angular/componens_csere_02.png)
+
+### Komponens létrehozása
+
+```cmd
+ng generate component comp1
+```
+
+Rövidítve:
+
+```cmd
+ng g c comp1
+```
+
+Ami létrejön:
+
+```txt
+app01/
+  `-src/
+    `-comp1/
+      |-comp1.component.css
+      |-comp1.component.html
+      |-comp1.component.spec.ts
+      `-comp1.component.ts
+```
+
+## Routing és navigáció
+
+Az Angular keretrendszer lehetővé teszi, hogy egyszerűen kezeljük az alkalmazásunk navigációját és az útvonalakat. A routing használatához a Router modult kell használnunk.
+
+Az útvonalak beállításával megadhatjuk, hogy a felhasználó hogyan jusson el egyik oldalról a másikra, és milyen komponens töltődjön be.
+
+### Két komponens elkészítése
+
+Hozzunk létre két komponenst: home és about.
+
+```cmd
+ng generate component home
+ng generate component about
+```
+
+### A RouterLink importálása
+
+Vegyük fel a **Component** dekoráció paramétereként, az imports részhez a **RouterLink** osztályt. Közben imporátljuk.
+
+```typescript
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink, RouterOutlet } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, RouterOutlet, RouterLink],
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+}
+```
+
+### Navigáció elkészítése
+
+Az src/app/app.component.html tartalma legyen:
+
+```html
+<nav>
+  <ul>
+    <li>
+      <a routerLink="/">Főoldal</a>
+    </li>
+    <li>
+      <a routerLink="/about">Rólunk</a>
+    </li>
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>
+```
+
+
+### A navigáció elkészítése
+
+```typescript
+import { Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+
+export const routes: Routes = [
+    { path: '', component: HomeComponent },
+    { path: 'about', component: AboutComponent}
+];
+```
+
+Ebben a példában két útvonal van. A kezdőlap és az About oldal.
+
+Mindkét útvonal egy-egy komponenshez van rendelve. A path: '' az üres útvonalat jelenti. Az alkalmazásunk első megnyitásakor az itt megadott komponens töltődik be.
+
+A routerLink attribútum használata szükséges az SPA viselkedéshez. Ha href attribútumot használunk az oldal újratöltéssel navigál.
+
+A router-outlet direktíva azt jelzi, hogy ide kell behelyettesíteni az aktuális komponenst.
+
 ## Szolgáltatások
 
 Az adatkezelés és a funkcionalitás bővítését teszik lehetővé a szolgáltatások. A szolgáltatások tulajdonképpen olyan osztályok, amelyeket injektálni lehet más osztályokba, vagy más szolgáltatásokba. A szolgáltatások így újrahasznosíthatók, könnyen karbantarthatók.
@@ -507,28 +796,36 @@ export class ExampleService {
 Szolgáltatás létrehozása:
 
 ```cmd
-ng generate service valami
+ng generate service example
 ```
 
 Röviden használva:
 
 ```cmd
-ng g s valami
+ng g s example
 ```
 
 Ajánlott külön könyvtárba elhelyezni a szolgáltatásokat:
 
 ```cmd
-ng generate service shared/valami
+ng generate service shared/example
 ```
 
 Ebben az esetben a szolgáltatás a shared könyvtáron belül jön létre.
 
 ## Függőségbefecskendezés
 
-Az Angular Dependency Injection, röviden DI, lehetővé teszi a direktívák, szolgáltatások, komponensek számára, hogy egyik a másikra támaszkodjon.
+Az Angular **Dependency Injection**, röviden **DI**, lehetővé teszi a direktívák, szolgáltatások, komponensek számára, hogy egyik a másikra támaszkodjon.
+
+### Szolgáltatás készítése
 
 A példa kedvéért készítsünk egy egyszerű szolgáltatást:
+
+```cmd
+ng generate service shared/greeting
+```
+
+A tartalom a következő legyen:
 
 ```javascript
 import { Injectable } from '@angular/core';
@@ -537,114 +834,122 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class GreetingService {
+
+  constructor() { }
+
   greet(name: string): string {
-    return `Hello, ${name}!`;
+    return `Helló ${name}!`;
   }
 }
-
 ```
+
+### Komponens készítése
 
 Készítsünk egy komponenst, amely függőségként befecskendezi az előbbi szolgáltatást:
 
-```javascript
+```cmd
+ng generate component greeting
+```
+
+A greeting.component.html fájlt javítsuk.
+
+```html
+<p>{{ greeting }}</p>
+```
+
+Készítsünk egy greeting nevű változót, string típussal. 
+
+```typescript
+greeting: string;
+```
+
+A konstruktorba írjuk meg a függőségbefecskendezést:
+
+```typescript
+constructor(private greetingService: GreetingService) {}
+```
+
+A konstruktor törzsébe:
+
+```typescript
+this.greeting = greetingService.greet('Tibor');
+```
+
+A teljes tartalom:
+
+```typescript
 import { Component } from '@angular/core';
-import { GreetingService } from './greeting.service';
+import { GreetingService } from '../shared/greeting.service';
 
 @Component({
   selector: 'app-greeting',
-  template: '<p>{{ greeting }}</p>',
-  styles: []
+  standalone: true,
+  imports: [],
+  templateUrl: './greeting.component.html',
+  styleUrl: './greeting.component.css'
 })
 export class GreetingComponent {
   greeting: string;
-
   constructor(private greetingService: GreetingService) {
-    this.greeting = greetingService.greet('John');
+    this.greeting = greetingService.greet('Tibor');
   }
 }
 ```
 
-A komponens konstruktora egy GreetingService példányt kap a DI révén. Így az alkalmazás részévé válik és bárhol használhatjuk.
+A komponens konstruktora egy **GreetingService** példányt kap a DI révén. Így az alkalmazás részévé válik és bárhol használhatjuk.
 
-Az app.module.ts fájlban a GreetingService szolgáltatást regisztrálni kell, hogy az egész alkalmazásból elérhető legyen.
+### A greeting megjelenítése
 
-```javascript
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+A greeting komponenst láthatóvá kell tenni. Ha nincs routing, akkor egyszerűen helyezzük el a főkomponensben. Ehhez importáljuk az src/app/app.component.ts fájlba
 
-import { AppComponent } from './app.component';
-import { GreetingComponent } from './greeting.component';
-import { GreetingService } from './greeting.service';
+```typescript
+import { GreetingComponent } from './greeting/greeting.component';
+```
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    GreetingComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [GreetingService],  // injektáljuk a GreetingService-t
-  bootstrap: [AppComponent]
+Vegyük fel a **Component** dekorátor paraméterében is:
+
+```typescript
+imports: [CommonModule, RouterOutlet, RouterLink, GreetingComponent],
+```
+
+A teljes src/app/app.component.ts fájl tartalma:
+
+```typescript
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { GreetingComponent } from './greeting/greeting.component';
+
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, RouterOutlet, RouterLink, GreetingComponent],
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
-export class AppModule { }
+export class AppComponent {
+
+}
 ```
 
-## Routing és navigáció
+Ezt követően helyezzük hivatkozzunk a HTML állományban a greeting komponensre:
 
-Az Angular keretrendszer lehetővé teszi, hogy egyszerűen kezeljük az alkalmazásunk navigációját és az útvonalakat. A routing használatához a Router modult kell használnunk.
+Az src/app/app.component.html fájl tartalma:
 
-Az útvonalak beállításával megadhatjuk, hogy a felhasználó hogyan jusson el egyik oldalról a másikra, és milyen komponens töltődjön be.
-
-### Routing elkészítése
-
-Létre kell hozni az AppRoutingModule modult.
-
-```cmd
-ng generate module app-routing --flat --module=app
+```html
+<app-greeting></app-greeting>
 ```
 
-Az AppRoutingModule-ban be kell állítani az útvonalakat.
+## Sablon-vezérelt űrlapok
 
-```javascript
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+## Reaktív űrlapok
 
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
+## Űrlapok érvényessége
 
-const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent }
-];
+## HttpClient
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
-```
-
-Ebben a példában két útvonal van. A kezdőlap és az About oldal.
-
-Mindkét útvonal egy-egy komponenshez van rendelve. A path: '' az üres útvonalat jelenti. Az alkalmazásunk első megnyitásakor az itt megadott komponens töltődik be.
-
-Navigáció:
-
-```javascript
-<nav>
-  <a routerLink="/">Kezdőlap</a>
-  <a routerLink="/about">Rólunk</a>
-</nav>
-
-<router-outlet></router-outlet>
-```
-
-A routerLink attribútum használata szükséges az SPA viselkedéshez. Ha href attribútumot használunk az oldal újratöltéssel navigál.
-
-A router-outlet direktíva azt jelzi, hogy ide kell behelyettesíteni az aktuális komponenst.
-
-## A HTTP és a Backend kommunikáció
+<!-- ## A HTTP és a Backend kommunikáció -->
 
 Az Angular lehetővé teszi HTTP kommunikációt a háttérben futó szerverekkel. Az Angularnak ehhez saját HTTP modulja van.
 
@@ -686,6 +991,20 @@ this.http.get('https://jsonplaceholder.typicode.com/todos').subscribe(data => {
 A http.get() metódus elküldi a kérést az URL-re, majd kapunk egy Observable objektumot, ahol a subscribe() metódussal kapjuk meg a választ.
 
 A HttpClient aszinkron kommunikációt tesz lehetővé a szerverrel, így nem kell várakoznunk a szerver válaszára.
+
+## Listakezelés
+
+## Táblázatok
+
+## Tömb lapozása
+
+## Routing
+
+## Pipe
+
+## Filter
+
+## Komponensek kommunikációja
 
 ## Angular animáció
 
