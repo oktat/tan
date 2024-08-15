@@ -418,13 +418,13 @@ A komponens betöltésekor fut le, a konstruktor után. Általában adatok leké
 Az @angular/core-ból kell importálni:
 
 ```javascript
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 @Component({
   selector: 'app-example',
   templateUrl: './example.component.html',
   styleUrls: ['./example.component.css']
 })
-export class ExampleComponent implements OnInit {
+export class ExampleComponent {
   ngOnInit() {
     // Adatlekérés és betöltés
     this.loadData();
@@ -443,7 +443,7 @@ A szolgáltatásokban nem használhatók!
 Az ngOnDestroy() életciklus függvény akkor fut le, amikor a komponens megsemmisül. Ez a komponens eltávolítását jelenti. Eseményfigyelők, időzítők és adatfolyamok leállítására használjuk.
 
 ```javascript
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -451,7 +451,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './example.component.html',
   styleUrls: ['./example.component.css']
 })
-export class ExampleComponent implements OnDestroy {
+export class ExampleComponent {
   private exampleSubscription: Subscription;
 
   constructor(private exampleService: ExampleService) {
