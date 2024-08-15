@@ -546,6 +546,16 @@ export class AppComponent {
 
 ## Szelekció
 
+Ügyeljünk arra, hogy a **CommonModule** importálva van, ott ahol haszáljuk.
+
+```typescript
+import { CommonModule } from '@angular/common';
+//...
+  imports: [CommonModule],
+```
+
+Használat:
+
 ```html
 <div *ngIf="showContent">
   Tartalom
@@ -595,6 +605,14 @@ Használhatunk ellenbenággal:
 ```
 
 ## Iteráció
+
+Ügyeljünk arra, hogy a **CommonModule** importálva van, ott ahol haszáljuk.
+
+```typescript
+import { CommonModule } from '@angular/common';
+//...
+  imports: [CommonModule],
+```
 
 Legyen egy sztringek tömbje gyümölcsökkel:
 
@@ -943,7 +961,65 @@ Az src/app/app.component.html fájl tartalma:
 
 ## Sablon-vezérelt űrlapok
 
-### Komponens készítése
+### Űrlap tartalmának elérése
+
+Komponens létrehozása:
+
+```cmd
+ng generate component num
+```
+
+src/app/num/num.component.js:
+
+```typescript
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'app-num',
+  standalone: true,
+  imports: [FormsModule],
+  templateUrl: './num.component.html',
+  styleUrl: './num.component.css'
+})
+export class NumComponent {
+  num: number = 0;
+  onStart() {
+    console.log(this.num)
+    this.num = 27;
+  }
+}
+```
+
+src/app/num/num.component.html:
+
+```html
+
+<label for="num">Szám</label>
+<input 
+    type="text" 
+    id="num" 
+    name="num" 
+    [(ngModel)]="num"
+    class="form-control"
+>
+
+<button (click)="onStart()"
+    class="btn btn-primary mt-2">
+    Mehet
+</button>
+```
+
+src/app/app.component.html:
+
+```html
+<div class="container">
+  <app-num></app-num>
+</div>
+```
+
+### Signup űrlap
+#### Komponens készítése
 
 Készítsünk egy komponenst, signup néven.
 
@@ -959,7 +1035,7 @@ ng generate component signup
 </div>
 ```
 
-### Az űrlapok direktívái
+#### Az űrlapok direktívái
 
 A sablon-vezérelt űrlapok esetén az ngForm, ngModel direktívát fogjuk használni. Ehhez importálni kell a FormsModule modult.
 
@@ -987,7 +1063,7 @@ export class SignupComponent {
 }
 ```
 
-### Űrlap elkészítése
+#### Űrlap elkészítése
 
 Az src/app/signup/signup.component.html fájl tartalma kezdetben:
 
@@ -1028,7 +1104,7 @@ Az űrlap fejlesztve:
 
 A name attribútum használata kötelező, ha az ngModel attirbútumot használjuk.
 
-### A TypeScript rész
+#### A TypeScript rész
 
 A teljes TypeScript az src/app/signup/signup.component.ts fájl:
 
@@ -1060,7 +1136,7 @@ export class SignupComponent {
 
 Vegyük észre, hogy az NgForm osztály is importálva lett.
 
-### Interface használata
+#### Interface használata
 
 ```typescript
 import { Component } from '@angular/core';
@@ -1094,9 +1170,161 @@ export class SignupComponent {
 }
 ```
 
+#### Érvényesség vizsgálata
+
+Az input elembe vezessük be a require attribútumot.
+
+```html
+<div class="input">
+    <label for="name" class="form-label">Név</label>
+    <input type="text" id="name"
+    class="form-control" 
+    name="username"
+    [(ngModel)]="user.name"
+    required>
+</div>
+```
+
+TypeScript oldalon:
+
+```typescript
+  submitForm(userForm: NgForm) {
+    if(userForm.valid) {
+      console.log(userForm.value, this.user);      
+    }
+  }
+```
+
+#### E-mail cím vizsgálata
+
+```typescript
+validateEmail() {
+  const regex = /^[a-z0-9][\w\.]+\@\w+?(\.\w+){1,}$/gi;
+  return regex.test(this.user.email);
+}
+```
+
+Tegyük elérhetetlenné a nyomógombot, ha nem érvényes az űrlap:
+
+```html
+<div>
+    <button class="btn btn-primary mt-2"
+    [disabled]="!validateEmail()">
+    Regisztrálok
+    </button>
+</div>
+```
+
+A gomb legyen elérhetetlen érvénytelen űrlap vagy érvénytelen e-mail cím esetén:
+
+```html
+<button type="submit"
+  [disabled]="!userForm.valid || !validateName()">
+  Regisztrálok
+</button>
+```
+
 ## Reaktív űrlapok
 
-## Űrlapok érvényessége
+Importáljuk a FormBuilder és a ReactiveFormsModule osztályokat.
+
+```typescript
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+```
+
+Állítsuk be a @Component dekorátor paraméterét is:
+
+```typescript
+imports: [ReactiveFormsModule],
+```
+
+Szükségünk van egy userForm változóra:
+
+```typescript
+userForm: any;
+```
+
+Injektáljuk a FormBuilder osztályt:
+
+```typescript
+constructor(public builder: FormBuilder) { }
+```
+
+Készítsük el az ngOnInit() metódust:
+
+```typescript
+ngOnInit(): void {}
+```
+
+Töltsük meg tartalommal:
+
+```typescript
+ngOnInit(): void { 
+  this.userForm = this.builder.group({
+    name: '',
+    email: '',
+    password: ''
+  })
+}
+```
+
+Készítsünk egy onSubmit() metódust:
+
+```typescript
+onSubmit() {
+  console.log(this.userForm.value);
+}
+```
+
+### HTML a reaktív űrlaphoz
+
+```html
+
+<form [formGroup]="userForm">
+
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input
+            type="text"
+            id="name"
+            formControlName="name"
+        />
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input
+            type="email"
+            id="email"
+            formControlName="email"
+        />
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input
+            type="password"
+            id="password"
+            formControlName="password"
+        />
+    </div>
+
+    <button (click)="onSubmit()" type="submit">Submit</button>
+
+</form>
+```
+
+### Reaktví űrlapok érvényessége
+
+```typescript
+ngOnInit(): void { 
+  this.userForm = this.builder.group({
+    name: ['', Validators.required],
+    email: ['', Validators.required, Validators.email],
+    password: ['', Validators.required]
+  })
+}
+```
 
 ## HttpClient
 
