@@ -1372,26 +1372,52 @@ A hasError() használata:
 
 Az Angular lehetővé teszi HTTP kommunikációt a háttérben futó szerverekkel. Az Angularnak ehhez saját HTTP modulja van.
 
-### A HttpClientModule
+### A HttpClientModule importálása
 
-Az app.module.ts fájlban:
+Az Angular 17 verziójában az app.module.ts fájl helyett az app.config.ts fájlba kell felvenni.
+
+Az app.config.ts fájlban:
 
 ```javascript
 import { HttpClientModule } from '@angular/common/http';
 //...
  
-imports: [
-    HttpClientModule
-],
+providers: [
+  providerRouter(routes),
+  importProvidersFrom(HttpClientModule)
+]
 ```
 
-Ahol használni szeretnénk, például egy szolgáltatásban importáljuk a HttpClient osztályt:
+### Szolgáltatás készítése
+
+```cmd
+ng generate service api
+```
+
+Az src/app/shared/api.service.ts fájlba:
 
 ```javascript
 import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ApiService {
+
+  http = inject(HttpClient);
+  host = 'http://localhost:8000';
+
+  constructor() { }
+
+  getEmployees() {
+    let url = this.host + '/employees';
+    return this.http.get(url);
+  }
+}
 ```
 
-A konstruktorban injektáljuk:
+Az injektálás a konstruktorban is megtehető:
 
 ```javascript
 constructor(private http: HttpClient) { }
@@ -1410,6 +1436,41 @@ this.http.get('https://jsonplaceholder.typicode.com/todos').subscribe(data => {
 A http.get() metódus elküldi a kérést az URL-re, majd kapunk egy Observable objektumot, ahol a subscribe() metódussal kapjuk meg a választ.
 
 A HttpClient aszinkron kommunikációt tesz lehetővé a szerverrel, így nem kell várakoznunk a szerver válaszára.
+
+### A szolgátatás hasznalta
+
+Készítsünk egy emp nevű komponenst:
+
+```cmd
+ng generate component emp
+```
+
+```typescript
+import { Component, inject } from '@angular/core';
+import { ApiService } from '../shared/api.service';
+
+@Component({
+  selector: 'app-emp',
+  standalone: true,
+  imports: [],
+  templateUrl: './emp.component.html',
+  styleUrl: './emp.component.css'
+})
+export class EmpComponent {
+
+  api = inject(ApiService);
+
+  constructor() {
+    this.getEmployees();
+  }
+
+  getEmployees() {
+    this.api.getEmployees().subscribe((data) => {
+      console.log('Adat: ', data);
+    });
+  }
+}
+```
 
 ## Listakezelés
 
