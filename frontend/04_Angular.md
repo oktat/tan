@@ -650,6 +650,8 @@ Korábban:
 </ul>
 ```
 
+Az src/app/emp
+
 ## Komponensek
 
 ![Egy komponens a főkomponensben](images/angular/componens_egymasba_00.png)
@@ -1467,9 +1469,350 @@ export class EmpComponent {
 }
 ```
 
-## Listakezelés
-
 ## Táblázatok
+
+A következő teendők vannak.
+
+* HttpClientModule használatbavétele
+* api szolgáltatás
+* emp komponens
+
+### A HttpClientModule használata
+
+Szerkesszük az src/app/app.config.ts fájlt:
+
+```typescript
+import { provideHttpClient } from '@angular/common/http';
+
+//...
+
+  providers: [
+    provideHttpClient()
+  ]
+```
+
+A teljeskód:
+
+```typescript
+import { ApplicationConfig } from '@angular/core';
+import { provideRouter } from '@angular/router';
+
+import { routes } from './app.routes';
+import { provideHttpClient } from '@angular/common/http';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideRouter(routes),
+    provideHttpClient()
+  ]
+};
+```
+
+### Szolgáltatás elkészítése
+
+```cmd
+ng generate service api
+```
+
+```typescript
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ApiService {
+  host = 'http://localhost:8000';
+  constructor(private http: HttpClient) { }
+  getEmployees() {
+    let url = `${this.host}/employees`;
+    return this.http.get(url);
+  }
+}
+```
+
+### Komponens készítése
+
+```cmd
+ng generate component emp
+```
+
+Jelenítsük meg a komponenst a főkomponensben. Ehhez szerkesszük a src/app/app.component.ts fájlt. Importáljuk az Emp komponenst:
+
+```typescript
+import { EmpComponent } from './emp/emp.component';
+
+@Component({
+  imports: [EmpComponent],
+})
+```
+
+A teljes kód:
+
+```typescript
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
+import { EmpComponent } from './emp/emp.component';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, RouterOutlet,
+    EmpComponent
+  ],
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'app01';
+}
+```
+
+Az app.component.html fájl tartalma a következő legyen:
+
+```html
+<app-emp></app-emp>
+```
+
+### A komponens használata
+
+```typescript
+import { Component } from '@angular/core';
+import { ApiService } from '../shared/api.service';
+
+@Component({
+  selector: 'app-emp',
+  standalone: true,
+  imports: [],
+  templateUrl: './emp.component.html',
+  styleUrl: './emp.component.css'
+})
+export class EmpComponent {
+
+  employees: any[] = [];
+  constructor(private api: ApiService) {
+  }
+
+  ngOnInit() {
+    this.showEmployees();
+  }
+  showEmployees() {
+    this.api.getEmployees().subscribe({
+      next: (data: any) => {
+        this.employees = data;
+        console.log(data);
+      }
+  })
+  }
+}
+```
+
+Az src/app/emp/emp.component.html
+
+```html
+
+<table class="table table-striped">
+    <legend>Dologzók</legend>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Név</th>
+            <th>Település</th>
+            <th>Fizetés</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (emp of employees; track emp) {
+            <tr>
+                <td>{{emp.id}}</td>
+                <td>{{emp.name}}</td>
+                <td>{{emp.city}}</td>
+                <td>{{emp.salary}}</td>
+            </tr>
+        }
+    </tbody>
+</table>
+```
+
+### Új elem felvétele
+
+Szükségünk lesz a Bootstrap JavaScript részére:
+
+angular.json:
+
+```json
+"build": {
+    "options": {
+        "scripts": [
+            "node_modules/bootstrap/dist/js/bootstrap.js"
+        ]
+    }
+}
+```
+
+Indítsuk újra az Angular fejlesztői szerverét és már kész is.
+
+Vegyünk a Bootstrapből egy modális ablakot, és egy űrlapot.
+
+```html
+<!-- Button trigger modal -->
+<button 
+    type="button" 
+    class="btn btn-primary m-2" 
+    data-bs-toggle="modal" 
+    data-bs-target="#addModal"
+    (click)="addMode = true"
+    >
+    Hozzáadás
+</button>
+
+<!-- ... -->
+
+<!-- Modal -->
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Hozzáadás</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+
+
+            <form [formGroup]="empForm" (ngSubmit)="saveEmployee()" 
+            id="empForm">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Id</label>
+                  <input type="text" class="form-control" id="name"
+                  formControlName="id"
+                  readonly>
+                </div>
+                <div class="mb-3">
+                  <label for="name" class="form-label">Név</label>
+                  <input type="text" class="form-control" id="name"
+                  formControlName="name">
+                </div>
+                <div class="mb-3">
+                  <label for="city" class="form-label">Település</label>
+                  <input type="text" class="form-control" id="city"
+                  formControlName="city">
+                </div>
+                <div class="mb-3">
+                  <label for="salary" class="form-label">Fizetés</label>
+                  <input type="text" class="form-control" id="salary"
+                  formControlName="salary">
+                </div>
+            </form>            
+
+        </div>
+        <div class="modal-footer">
+          <button 
+            type="button" 
+            class="btn btn-secondary" 
+            data-bs-dismiss="modal">
+            Close</button>
+          
+          <button 
+            type="submit" 
+            class="btn btn-primary"
+            data-bs-dismiss="modal"
+            form="empForm"
+            >
+            Mentés</button>
+        </div>
+      </div>
+    </div>
+  </div>
+```
+
+#### A szolgáltatás bővítése
+
+```typescript
+  addEmployee(data: any) {
+    let url = `${this.host}/employees`;
+    return this.http.post(url, data);
+  }
+```
+
+#### A mentés
+
+```typescript
+saveEmployee() {
+    console.log('Mentés indul...')
+    console.log(this.empForm.value);
+
+    this.api.addEmployee(this.empForm.value).subscribe({
+      next: (data: any) => {
+        console.log('Mentés sikeres!');
+        this.showEmployees();
+        this.empForm.reset();
+      }
+    })    
+  }
+```
+
+#### Teljes TypeScript
+
+src/app/emp/emp.component.ts:
+
+```typescript
+import { Component } from '@angular/core';
+import { ApiService } from '../shared/api.service';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'app-emp',
+  standalone: true,
+  imports: [ReactiveFormsModule],
+  templateUrl: './emp.component.html',
+  styleUrl: './emp.component.css'
+})
+export class EmpComponent {
+  
+  addMode: boolean = true;
+  employees: any[] = [];
+  empForm: any;
+
+  constructor(
+    private api: ApiService,
+    private builder: FormBuilder
+  ) { }
+
+  ngOnInit() {
+    this.showEmployees();
+    this.empForm = this.builder.group({
+      id: '',
+      name: '',
+      city: '',
+      salary: ''
+    })
+  }
+  showEmployees() {
+    this.api.getEmployees().subscribe({
+      next: (data: any) => {
+        this.employees = data;
+        console.log(data);
+      }
+    })
+  }
+
+saveEmployee() {
+    console.log('Mentés indul...')
+    console.log(this.empForm.value);
+
+    this.api.addEmployee(this.empForm.value).subscribe({
+      next: (data: any) => {
+        console.log('Mentés sikeres!');
+        this.showEmployees();
+        this.empForm.reset();
+      }
+    })
+    
+  }
+}
+```
 
 ## Tömb lapozása
 
