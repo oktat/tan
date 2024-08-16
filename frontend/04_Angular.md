@@ -8,18 +8,103 @@
 
 ## Tartalomjegyzék
 
-* [Az Angular telepítése](#angular_telepitese)
-* [Új projekt](#uj_projekt)
-* [Könyvtár-struktúra](#konyvtar-struktura)
-* [Angular koncepció](#angular_koncepcio)
-* [Kötések](#kotesek)
-* [Életciklus események](#eletciklus_esemenyek)
-* [Bootstrap használata](#bootstrap_hasznalata)
-* [Képek megjelenítése](#kepek_megjelenitese)
-* [Eseménykezelő](#esemenykezelo)
-* [Szelekció](#Szelekció)
+<!-- TOC -->
 
-<a name="angular_telepitese"></a>
+- [Frontend - Angular keretrendszer](#frontend---angular-keretrendszer)
+  - [Tartalomjegyzék](#tartalomjegyzék)
+  - [Az Angular telepítése](#az-angular-telepítése)
+    - [Telepítés](#telepítés)
+    - [Ellenőrzés](#ellenőrzés)
+    - [Adott verzió beszerzése](#adott-verzió-beszerzése)
+    - [Windowson](#windowson)
+  - [Új projekt](#új-projekt)
+    - [Projekt használata](#projekt-használata)
+    - [Futtatás](#futtatás)
+  - [Könyvtár-struktúra](#könyvtár-struktúra)
+    - [A fő komponens állományai](#a-fő-komponens-állományai)
+    - [Csomagkezelő beállítása](#csomagkezelő-beállítása)
+  - [Angular koncepció](#angular-koncepció)
+    - [Komponens](#komponens)
+    - [Szolgáltatás](#szolgáltatás)
+    - [Dekorátorok](#dekorátorok)
+    - [Routing](#routing)
+    - [Modulok](#modulok)
+  - [Kötések](#kötések)
+  - [Életciklus események](#életciklus-események)
+    - [ngOnInit() függvény](#ngoninit-függvény)
+    - [Az ngOnDestroy() függvény](#az-ngondestroy-függvény)
+  - [Bootstrap használata](#bootstrap-használata)
+    - [Bootstrap ikonok](#bootstrap-ikonok)
+  - [Képek megjelenítése](#képek-megjelenítése)
+  - [Eseménykezelő](#eseménykezelő)
+  - [Szelekció](#szelekció)
+    - [Új if verzió](#új-if-verzió)
+  - [Iteráció](#iteráció)
+    - [Új for verzió](#új-for-verzió)
+  - [Komponensek](#komponensek)
+    - [Komponens cseréje](#komponens-cseréje)
+    - [Komponens létrehozása](#komponens-létrehozása)
+  - [Szolgáltatások](#szolgáltatások)
+  - [Függőségbefecskendezés](#függőségbefecskendezés)
+    - [Szolgáltatás készítése](#szolgáltatás-készítése)
+    - [Komponens készítése](#komponens-készítése)
+    - [A greeting megjelenítése](#a-greeting-megjelenítése)
+  - [Sablon-vezérelt űrlapok](#sablon-vezérelt-űrlapok)
+    - [Űrlap tartalmának elérése](#űrlap-tartalmának-elérése)
+    - [Signup űrlap](#signup-űrlap)
+      - [Signup komponens készítése](#signup-komponens-készítése)
+      - [Az űrlapok direktívái](#az-űrlapok-direktívái)
+      - [Űrlap elkészítése](#űrlap-elkészítése)
+      - [A TypeScript rész](#a-typescript-rész)
+      - [Interface használata](#interface-használata)
+      - [Érvényesség vizsgálata](#érvényesség-vizsgálata)
+      - [E-mail cím vizsgálata](#e-mail-cím-vizsgálata)
+  - [Reaktív űrlapok](#reaktív-űrlapok)
+    - [HTML a reaktív űrlaphoz](#html-a-reaktív-űrlaphoz)
+    - [Reaktív űrlapok érvényessége](#reaktív-űrlapok-érvényessége)
+    - [Figyelmeztetés](#figyelmeztetés)
+  - [HttpClient](#httpclient)
+    - [A HttpClientModule importálása](#a-httpclientmodule-importálása)
+    - [Api szolgáltatás készítése](#api-szolgáltatás-készítése)
+    - [A szolgátatás használta](#a-szolgátatás-használta)
+  - [Táblázatok](#táblázatok)
+    - [A HttpClientModule használata](#a-httpclientmodule-használata)
+    - [Szolgáltatás elkészítése](#szolgáltatás-elkészítése)
+    - [Emp komponens készítése](#emp-komponens-készítése)
+    - [A komponens használata](#a-komponens-használata)
+    - [Új elem felvétele](#új-elem-felvétele)
+      - [A szolgáltatás bővítése](#a-szolgáltatás-bővítése)
+      - [A mentés](#a-mentés)
+      - [Teljes TypeScript](#teljes-typescript)
+    - [Elem módosítása](#elem-módosítása)
+      - [Szerkesztés](#szerkesztés)
+    - [Elem törlése](#elem-törlése)
+      - [Törlés szolgáltatásban](#törlés-szolgáltatásban)
+      - [Törlési lehetőség a komponensben](#törlési-lehetőség-a-komponensben)
+      - [Törlés gomb táblázatban](#törlés-gomb-táblázatban)
+      - [Példa a GitHubon és képen](#példa-a-githubon-és-képen)
+  - [Tömb lapozása](#tömb-lapozása)
+    - [TypeScript oldalon](#typescript-oldalon)
+    - [Weblap](#weblap)
+    - [Példa](#példa)
+  - [Routing és navigáció](#routing-és-navigáció)
+    - [Két komponens elkészítése](#két-komponens-elkészítése)
+    - [A RouterLink importálása](#a-routerlink-importálása)
+    - [Menü készítése](#menü-készítése)
+    - [Az útvláasztás elkészítése](#az-útvláasztás-elkészítése)
+  - [Pipe](#pipe)
+    - [A pipe-ról](#a-pipe-ról)
+    - [Beépített pipe használata](#beépített-pipe-használata)
+    - [Saját pipe készítése](#saját-pipe-készítése)
+    - [Saját pipe használata](#saját-pipe-használata)
+  - [Filter](#filter)
+  - [Komponensek kommunikációja](#komponensek-kommunikációja)
+  - [Tesztelés](#tesztelés)
+  - [Deploy](#deploy)
+  - [Angular animáció](#angular-animáció)
+  - [Az Angular egységtesztelés](#az-angular-egységtesztelés)
+
+<!-- /TOC -->
 
 ## Az Angular telepítése
 
@@ -76,8 +161,6 @@ A user felhasználónév helyére helyettesítse be a saját felhasználónevét
 Az útvonalba állításról a következő helyen olvashat:
 
 * [szit.hu](https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:utvonalak#gui_felueleten)
-
-<a name="uj_projekt"></a>
 
 ## Új projekt
 
@@ -217,8 +300,6 @@ A böngészőben megnyíló ablak:
 
 ![Angular kezdőablak](images/angular_kezdo_projekt.png)
 
-<a name="konyvtar-struktura"></a>
-
 ## Könyvtár-struktúra
 
 ```cmd
@@ -352,8 +433,6 @@ A beállítás után, egy ilyen tulajdonságot találunk:
 
 Ezt követően az angular a pnpm csomagkezelő használja.
 
-<a name="angular_koncepcio">
-
 ## Angular koncepció
 
 ### Komponens
@@ -377,8 +456,6 @@ Az Angular a routing segítségével képes választani a betöltendő nézetek 
 ### Modulok
 
 Az Angular modulok az ES2015 JavaScript szabvány kiegészítői.
-
-<a name="kotesek"></a>
 
 ## Kötések
 
@@ -418,8 +495,6 @@ A változó nevét beírtuk dupla kapcsoszárójelek közé. Így létrehoztuk a
 ```cmd
 ng server --open
 ```
-
-<a name="eletciklus_esemenyek"></a>
 
 ## Életciklus események
 
@@ -494,8 +569,6 @@ export class ExampleComponent {
 }
 ```
 
-<a name="bootstrap_hasznalata"></a>
-
 ## Bootstrap használata
 
 Telepítés:
@@ -526,8 +599,6 @@ Használat:
 <i class="bi bi-bug-fill"></i>
 ```
 
-<a name="kepek_megjelenitese"></a>
-
 ## Képek megjelenítése
 
 Képeket az src/assets könyvtárba kell elhelyezni.
@@ -551,8 +622,6 @@ Az app.component.html fájlba ekkor
     width="200"
 />
 ```
-
-<a name="esemenykezelo"></a>
 
 ## Eseménykezelő
 
