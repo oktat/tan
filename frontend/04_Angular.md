@@ -702,83 +702,6 @@ app01/
       `-comp1.component.ts
 ```
 
-## Routing és navigáció
-
-Az Angular keretrendszer lehetővé teszi, hogy egyszerűen kezeljük az alkalmazásunk navigációját és az útvonalakat. A routing használatához a Router modult kell használnunk.
-
-Az útvonalak beállításával megadhatjuk, hogy a felhasználó hogyan jusson el egyik oldalról a másikra, és milyen komponens töltődjön be.
-
-### Két komponens elkészítése
-
-Hozzunk létre két komponenst: home és about.
-
-```cmd
-ng generate component home
-ng generate component about
-```
-
-### A RouterLink importálása
-
-Vegyük fel a **Component** dekoráció paramétereként, az imports részhez a **RouterLink** osztályt. Közben imporátljuk.
-
-```typescript
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterLink, RouterOutlet } from '@angular/router';
-
-@Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent {
-
-}
-```
-
-### Navigáció elkészítése
-
-Az src/app/app.component.html tartalma legyen:
-
-```html
-<nav>
-  <ul>
-    <li>
-      <a routerLink="/">Főoldal</a>
-    </li>
-    <li>
-      <a routerLink="/about">Rólunk</a>
-    </li>
-  </ul>
-</nav>
-
-<router-outlet></router-outlet>
-```
-
-
-### A navigáció elkészítése
-
-```typescript
-import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-
-export const routes: Routes = [
-    { path: '', component: HomeComponent },
-    { path: 'about', component: AboutComponent}
-];
-```
-
-Ebben a példában két útvonal van. A kezdőlap és az About oldal.
-
-Mindkét útvonal egy-egy komponenshez van rendelve. A path: '' az üres útvonalat jelenti. Az alkalmazásunk első megnyitásakor az itt megadott komponens töltődik be.
-
-A routerLink attribútum használata szükséges az SPA viselkedéshez. Ha href attribútumot használunk az oldal újratöltéssel navigál.
-
-A router-outlet direktíva azt jelzi, hogy ide kell behelyettesíteni az aktuális komponenst.
-
 ## Szolgáltatások
 
 Az adatkezelés és a funkcionalitás bővítését teszik lehetővé a szolgáltatások. A szolgáltatások tulajdonképpen olyan osztályok, amelyeket injektálni lehet más osztályokba, vagy más szolgáltatásokba. A szolgáltatások így újrahasznosíthatók, könnyen karbantarthatók.
@@ -2040,13 +1963,263 @@ A következő tároló paging ágán találunk egy CRUD művelettek melett magva
 
 ![CRUD műveletek lapozással](images/table_crud_and_paging.png)
 
-## Routing
+## Routing és navigáció
+
+Az Angular keretrendszer lehetővé teszi, hogy egyszerűen kezeljük az alkalmazásunk navigációját és az útvonalakat. A routing használatához a Router modult kell használnunk.
+
+Az útvonalak beállításával megadhatjuk, hogy a felhasználó hogyan jusson el egyik oldalról a másikra, és milyen komponens töltődjön be.
+
+### Két komponens elkészítése
+
+Hozzunk létre két komponenst: home és about.
+
+```cmd
+ng generate component home
+ng generate component about
+```
+
+### A RouterLink importálása
+
+Vegyük fel a **Component** dekoráció paramétereként, az imports részhez a **RouterLink** osztályt. Közben imporátljuk.
+
+```typescript
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink, RouterOutlet } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, RouterOutlet, RouterLink],
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+}
+```
+
+### Menü készítése
+
+Az src/app/app.component.html tartalma legyen:
+
+```html
+<nav>
+  <ul>
+    <li>
+      <a routerLink="/">Főoldal</a>
+    </li>
+    <li>
+      <a routerLink="/about">Rólunk</a>
+    </li>
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>
+```
+
+
+### Az útvláasztás elkészítése
+
+```typescript
+import { Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+
+export const routes: Routes = [
+    { path: '', component: HomeComponent },
+    { path: 'about', component: AboutComponent}
+];
+```
+
+Ebben a példában két útvonal van. A kezdőlap és az About oldal.
+
+Mindkét útvonal egy-egy komponenshez van rendelve. A path: '' az üres útvonalat jelenti. Az alkalmazásunk első megnyitásakor az itt megadott komponens töltődik be.
+
+A routerLink attribútum használata szükséges az SPA viselkedéshez. Ha href attribútumot használunk az oldal újratöltéssel navigál.
+
+A router-outlet direktíva azt jelzi, hogy ide kell behelyettesíteni az aktuális komponenst.
+
 
 ## Pipe
+
+### A pipe-ról
+
+A pipe egy csővezetek, amiben valamilyen adatot beengedünk, majd visszakapunk valami mást.
+
+Vannak beépített pipe-ok, mint az **uppercase**, a **date** stb.
+
+### Beépített pipe használata
+
+A beépített pipe használata. 
+
+A pipe-t HTML oldalon használjuk. Szintaxis:
+
+```html
+<htmltag>{{ valtozonev | pipenev [:paraméterek] }}</htmltag>
+```
+
+Legyen egy felirat, amit szeretnénk nagybetűssé alakítani.
+
+```typescript
+//...
+
+export class AppComponent {
+  title = 'app01';  
+}
+```
+
+HTML oldalon:
+
+```html
+<p>
+{{ title | uppercase }}
+</p>
+```
+
+Az uppercase pipe nagybetűssé alakítja a title változó tartalmát. A "|" karakter az _AltGr+W_ beírásával írható be.
+
+A pipe-ok kaphatnak paramétereket is. A date függvény például a dátum formázására használható:
+
+```typescript
+//...
+
+export class AppComponent {
+  date = new Date();
+}
+```
+
+HTML oldalon:
+
+```html
+<p>
+  {{ date | date: 'short' }}
+</p>
+```
+
+A 'short' paraméter által a dátum röviden jelenik meg. Most alakítsuk át konkrét formára:
+
+```html
+<p>
+  {{ date | date: 'yyyy-MM-dd' }}
+</p>
+```
+
+### Saját pipe készítése
+
+Nézzük meg, hogyan készíthetünk saját pipe-t. Legyen egy feladat miszerint magyar **Ft** utótagot szeretnénk tenni egy fizetés értéke után. Legyen az új pipe neve salaryhuf.
+
+Csővezeteék készítése:
+
+```cmd
+ng g pipe shared/pipe/salaryhuf
+```
+
+Kapunk két fájlt: 
+
+* src/app/shared/pipe/salaryhuf.pipe.spec.ts
+* src/app/shared/pipe/salaryhuf.pipe.ts
+
+Nézzük a salaryhuf.pipe.ts fájlt tartalmát:
+
+```typescript
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'salaryhuf',
+  standalone: true
+})
+export class SalaryhufPipe implements PipeTransform {
+
+  transform(value: unknown, ...args: unknown[]): unknown {
+    return null;
+  }
+
+}
+```
+Kapunk egy tansform() függvényt, amiben elvégezhetjük az átalakítást. A value fogja tartalmazni az értéket, ami jön a csővezetéken. A neve akár maradhat is. A típusát viszont adjuk meg, javítsuk az unknown szót a megfelelő típusra. Ha vannak a pipe-nak paraméterei ezt az args változóban kapjuk meg. A transform() függvény törzsében végezzük el az átalakítást, majd térjünk vissz az értékkel. A visszatérés típusát is javítsuk. 
+
+Nézzük meg, hogyan tehetjük egy pénzösszeg végére a **Ft** szót:
+
+```typescript
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'salaryhuf',
+  standalone: true
+})
+export class SalaryhufPipe implements PipeTransform {
+
+  transform(value: number): string {
+    return value + ' Ft';
+  }
+
+}
+```
+
+### Saját pipe használata
+
+Importáljuk a pipe-t abban a komponensben ahol használni szeretnénk:
+
+```typescript
+import { SalaryhufPipe } from './shared/pipe/salaryhuf.pipe';
+```
+
+A @Component() dekorátorban is adjuk meg az import paraméternek:
+
+```typescirpt
+  imports: [SalaryhufPipe],
+```
+
+Hozzuk létre a salary változót és tegyünk bele valamilyen értéket:
+
+```typescript
+export class AppComponent {
+  salary = 1780000;
+}
+```
+
+A főkomponens esetén a src/app/app.component.ts fájl teljes tartalma:
+
+```typescript
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
+import { SalaryhufPipe } from './shared/pipe/salaryhuf.pipe';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, RouterOutlet, SalaryhufPipe],
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  salary = 780000;
+}
+```
+
+Ezt követően az src/app/app.component.html fájlban, használjuk a pipe-t:
+
+```html
+<p>
+  {{ salary | salaryhuf }}
+</p>
+```
+
+A kimenet ehhez hasonló lesz:
+
+```txt
+1780000 Ft
+```
 
 ## Filter
 
 ## Komponensek kommunikációja
+
+## Tesztelés
+
+## Deploy
 
 ## Angular animáció
 
