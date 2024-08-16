@@ -1937,11 +1937,107 @@ Fel kell vennünk egy gombot a törléshez a táblázat sorainak a végén:
 </td>
 ```
 
-#### Példa a GitHubon
+#### Példa a GitHubon és képen
 
 * [https://github.com/oktat/angular_emps_crud.git](https://github.com/oktat/angular_emps_crud.git)
 
+![Dolgozók táblázatban](images/table_crud_example.png)
+
 ## Tömb lapozása
+
+### TypeScript oldalon
+
+```typescript
+import { Component } from '@angular/core';
+import { ApiService } from '../shared/api.service';
+
+@Component({
+  selector: 'app-employee',
+  standalone: true,
+  imports: [],
+  templateUrl: './employee.component.html',
+  styleUrl: './employee.component.css'
+})
+export class EmployeeComponent {
+
+  employees : any = []
+  pageSize = 5;
+  currentPage = 1;
+
+  constructor(private api: ApiService){
+
+    api.getEmployees().subscribe({
+      next: data => {
+        console.log(data);
+        this.employees = data;
+      },
+      error: err => {
+        console.error('Hiba! A letöltés sikertelen!');
+      }
+    })
+  }
+
+  get totalPages(): number {
+    return Math.ceil(this.employees.length / this.pageSize);
+  }
+
+  get pagedEmployees(): any {
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    return this.employees.slice(startIndex, startIndex + this.pageSize);
+  }
+
+  previousPage() {
+    this.currentPage--;
+  }
+
+  nextPage() {
+    this.currentPage++;
+  }
+}
+```
+
+### Weblap
+
+Legyen egy táblázat dolgozókkal:
+
+```html
+<p>Dolgozók</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Név</th>
+            <th>Település</th>
+            <th>Fizetés</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(emp of pagedEmployees; track emp) {
+            <tr>
+                <td>{{emp.id}}</td>
+                <td>{{emp.name}}</td>
+                <td>{{emp.city}}</td>
+                <td>{{emp.salary}}</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<div>
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Előző</button>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Következő</button>
+</div>
+```
+
+### Példa
+
+A következő tároló paging ágán találunk egy CRUD művelettek melett magvalósított lapozást:
+
+* [https://github.com/oktat/angular_emps_crud.git](https://github.com/oktat/angular_emps_crud.git)
+
+![CRUD műveletek lapozással](images/table_crud_and_paging.png)
 
 ## Routing
 
