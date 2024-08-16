@@ -6,6 +6,21 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Az Angular telepítése](#angular_telepitese)
+* [Új projekt](#uj_projekt)
+* [Könyvtár-struktúra](#konyvtar-struktura)
+* [Angular koncepció](#angular_koncepcio)
+* [Kötések](#kotesek)
+* [Életciklus események](#eletciklus_esemenyek)
+* [Bootstrap használata](#bootstrap_hasznalata)
+* [Képek megjelenítése](#kepek_megjelenitese)
+* [Eseménykezelő](#esemenykezelo)
+* [Szelekció](#Szelekció)
+
+<a name="angular_telepitese"></a>
+
 ## Az Angular telepítése
 
 ### Telepítés
@@ -61,6 +76,8 @@ A user felhasználónév helyére helyettesítse be a saját felhasználónevét
 Az útvonalba állításról a következő helyen olvashat:
 
 * [szit.hu](https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:utvonalak#gui_felueleten)
+
+<a name="uj_projekt"></a>
 
 ## Új projekt
 
@@ -200,6 +217,8 @@ A böngészőben megnyíló ablak:
 
 ![Angular kezdőablak](images/angular_kezdo_projekt.png)
 
+<a name="konyvtar-struktura"></a>
+
 ## Könyvtár-struktúra
 
 ```cmd
@@ -333,7 +352,9 @@ A beállítás után, egy ilyen tulajdonságot találunk:
 
 Ezt követően az angular a pnpm csomagkezelő használja.
 
-## Angular elmélet
+<a name="angular_koncepcio">
+
+## Angular koncepció
 
 ### Komponens
 
@@ -356,6 +377,8 @@ Az Angular a routing segítségével képes választani a betöltendő nézetek 
 ### Modulok
 
 Az Angular modulok az ES2015 JavaScript szabvány kiegészítői.
+
+<a name="kotesek"></a>
 
 ## Kötések
 
@@ -395,6 +418,8 @@ A változó nevét beírtuk dupla kapcsoszárójelek közé. Így létrehoztuk a
 ```cmd
 ng server --open
 ```
+
+<a name="eletciklus_esemenyek"></a>
 
 ## Életciklus események
 
@@ -469,6 +494,8 @@ export class ExampleComponent {
 }
 ```
 
+<a name="bootstrap_hasznalata"></a>
+
 ## Bootstrap használata
 
 Telepítés:
@@ -499,6 +526,8 @@ Használat:
 <i class="bi bi-bug-fill"></i>
 ```
 
+<a name="kepek_megjelenitese"></a>
+
 ## Képek megjelenítése
 
 Képeket az src/assets könyvtárba kell elhelyezni.
@@ -522,6 +551,8 @@ Az app.component.html fájlba ekkor
     width="200"
 />
 ```
+
+<a name="esemenykezelo"></a>
 
 ## Eseménykezelő
 
@@ -805,7 +836,7 @@ A greeting.component.html fájlt javítsuk.
 <p>{{ greeting }}</p>
 ```
 
-Készítsünk egy greeting nevű változót, string típussal. 
+Készítsünk egy greeting nevű változót, string típussal.
 
 ```typescript
 greeting: string;
@@ -950,7 +981,7 @@ src/app/app.component.html:
 
 ### Signup űrlap
 
-#### Komponens készítése
+#### Signup komponens készítése
 
 Készítsünk egy komponenst, signup néven.
 
@@ -1313,7 +1344,7 @@ providers: [
 ]
 ```
 
-### Szolgáltatás készítése
+### Api szolgáltatás készítése
 
 ```cmd
 ng generate service api
@@ -1455,7 +1486,7 @@ export class ApiService {
 }
 ```
 
-### Komponens készítése
+### Emp komponens készítése
 
 ```cmd
 ng generate component emp
@@ -2018,7 +2049,6 @@ Az src/app/app.component.html tartalma legyen:
 <router-outlet></router-outlet>
 ```
 
-
 ### Az útvláasztás elkészítése
 
 ```typescript
@@ -2040,7 +2070,6 @@ A routerLink attribútum használata szükséges az SPA viselkedéshez. Ha href 
 
 A router-outlet direktíva azt jelzi, hogy ide kell behelyettesíteni az aktuális komponenst.
 
-
 ## Pipe
 
 ### A pipe-ról
@@ -2051,12 +2080,12 @@ Vannak beépített pipe-ok, mint az **uppercase**, a **date** stb.
 
 ### Beépített pipe használata
 
-A beépített pipe használata. 
+Nézzük meg a beépített pipe használatát.
 
 A pipe-t HTML oldalon használjuk. Szintaxis:
 
 ```html
-<htmltag>{{ valtozonev | pipenev [:paraméterek] }}</htmltag>
+nyito_htmltag {{ valtozonev | pipenev [:paraméterek] }} zaro_htmltag
 ```
 
 Legyen egy felirat, amit szeretnénk nagybetűssé alakítani.
@@ -2115,7 +2144,7 @@ Csővezeteék készítése:
 ng g pipe shared/pipe/salaryhuf
 ```
 
-Kapunk két fájlt: 
+Kapunk két fájlt:
 
 * src/app/shared/pipe/salaryhuf.pipe.spec.ts
 * src/app/shared/pipe/salaryhuf.pipe.ts
@@ -2137,7 +2166,8 @@ export class SalaryhufPipe implements PipeTransform {
 
 }
 ```
-Kapunk egy tansform() függvényt, amiben elvégezhetjük az átalakítást. A value fogja tartalmazni az értéket, ami jön a csővezetéken. A neve akár maradhat is. A típusát viszont adjuk meg, javítsuk az unknown szót a megfelelő típusra. Ha vannak a pipe-nak paraméterei ezt az args változóban kapjuk meg. A transform() függvény törzsében végezzük el az átalakítást, majd térjünk vissz az értékkel. A visszatérés típusát is javítsuk. 
+
+Kapunk egy tansform() függvényt, amiben elvégezhetjük az átalakítást. A value fogja tartalmazni az értéket, ami jön a csővezetéken. A neve akár maradhat is. A típusát viszont adjuk meg, javítsuk az unknown szót a megfelelő típusra. Ha vannak a pipe-nak paraméterei ezt az args változóban kapjuk meg. A transform() függvény törzsében végezzük el az átalakítást, majd térjünk vissz az értékkel. A visszatérés típusát is javítsuk.
 
 Nézzük meg, hogyan tehetjük egy pénzösszeg végére a **Ft** szót:
 
