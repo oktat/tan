@@ -1384,7 +1384,7 @@ import { HttpClientModule } from '@angular/common/http';
  
 providers: [
   providerRouter(routes),
-  importProvidersFrom(HttpClientModule)
+  provideHttpClient()
 ]
 ```
 
@@ -1394,33 +1394,28 @@ providers: [
 ng generate service api
 ```
 
+Az injektálás megoldható az inject() függvénnyel is. De itt most a konstruktort fogjuk erre a célra használni.
+
 Az src/app/shared/api.service.ts fájlba:
 
 ```javascript
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  http = inject(HttpClient);
   host = 'http://localhost:8000';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getEmployees() {
     let url = this.host + '/employees';
     return this.http.get(url);
   }
 }
-```
-
-Az injektálás a konstruktorban is megtehető:
-
-```javascript
-constructor(private http: HttpClient) { }
 ```
 
 Ezek uátn használhatjuk a get(), post(), put(), delete() stb. metódust.
