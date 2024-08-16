@@ -1816,7 +1816,130 @@ saveEmployee() {
 
 ### Elem módosítása
 
+Az api _szolgáltatásunkat_ alkalmassá kell tenni a módosításra. Vegyük fel a következő függvényt az **src/app/shared/api.service.ts** fájlban:
+
+```typescript
+  updateEmployee(data: any) {
+    let url = `${this.host}/employees/${data.id}`;
+    return this.http.put(url, data);
+  }
+```
+
+#### Szerkesztés
+
+Szükségünk lesz minden sorban egy szerkesztésgombra, és egy metódusra, ami reagál a gombnyomásra. Készítsük el a metódust:
+
+```typescript
+  editEmployee(emp: any) {
+    this.addMode = false;
+    this.empForm.patchValue(emp);
+  }
+```
+
+A táblázatban a sorok végére vegyük fela szerkesztőgombot:
+
+```html
+<td>
+  <button 
+    type="button"
+    data-bs-target="#addModal"
+    data-bs-toggle="modal"
+    class="btn btn-primary"
+    (click)="editEmployee(emp)"
+    >
+    Szerkesztés
+  </button>
+</td>
+```
+
+Kattintásra az editEmployee() metódust hívjuk és paraméterként átadjuk az aktuális dolgozó adatiat.
+
+Kattintásra meg kell, hogy jelenjen a modális ablak, amit most már szerencsésebb lenne operationModel-nak nevezni az addModal helyett, mivel már két funkciót is ellát.
+
+A mentésgombra hogyan regáljun TypeScript oldalon? Írjuk át a saveEmployee() metódust, mert most már másként kell reagáni, ha nem hozzáadás módban vagyunk.
+
+```typescript
+  saveEmployee() {
+    console.log('Mentés indul...')
+    if (this.addMode) {
+      this.addEmployee();
+    } else {
+      this.updateEmployee(this.empForm.value);
+    }
+  }
+```
+
+Létrehozunk egy addEmployee() metódust, ahova bekerül az előzőleg saveEmplyoee() metódusban található tartalom:
+
+```typescript
+  addEmployee() {
+    this.api.addEmployee(this.empForm.value).subscribe({
+      next: (data: any) => {
+        console.log('Mentés sikeres!');
+        this.showEmployees();
+        this.empForm.reset();
+      }
+    })    
+  }
+```
+
+Végül szükségünk van egy updateEmployee() metódusra, ami a módosítást elküldi a szolgáltatásnak.
+
+```typescript
+  updateEmployee(emp: any) {
+    this.api.updateEmployee(this.empForm.value).subscribe({
+      next: (data: any) => {
+        console.log('Mentés sikeres!');
+        this.showEmployees();
+        this.empForm.reset();
+      }
+    })
+  }
+```
+
 ### Elem törlése
+
+#### Törlés szolgáltatásban
+
+```typescript
+  deleteEmployee(id: any) {
+    let url = `${this.host}/employees/${id}`;
+    return this.http.delete(url);
+  }
+```
+
+#### Törlési lehetőség a komponensben
+
+```typescript
+  deleteEmployee(id: any) {
+    this.api.deleteEmployee(id).subscribe({
+      next: (data: any) => {
+        console.log('Törölve!');
+        this.showEmployees();
+      }
+    })
+  }
+```
+
+#### Törlés gomb táblázatban
+
+Fel kell vennünk egy gombot a törléshez a táblázat sorainak a végén:
+
+```html
+<td>
+  <button 
+    type="button"
+    class="btn btn-danger"
+    (click)="deleteEmployee(emp.id)"
+    >
+    Törlés
+  </button>
+</td>
+```
+
+#### Példa a GitHubon
+
+* [https://github.com/oktat/angular_emps_crud.git](https://github.com/oktat/angular_emps_crud.git)
 
 ## Tömb lapozása
 
