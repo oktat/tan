@@ -1814,6 +1814,10 @@ saveEmployee() {
 }
 ```
 
+### Elem módosítása
+
+### Elem törlése
+
 ## Tömb lapozása
 
 ## Routing
