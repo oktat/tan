@@ -2,7 +2,7 @@
 
 * **Szerző:** Sallai András
 * Copyright (c) 2022, Sallai András
-* Szerkesztve: 2022, 2023
+* Szerkesztve: 2022, 2023, 2024
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
@@ -1434,7 +1434,7 @@ A http.get() metódus elküldi a kérést az URL-re, majd kapunk egy Observable 
 
 A HttpClient aszinkron kommunikációt tesz lehetővé a szerverrel, így nem kell várakoznunk a szerver válaszára.
 
-### A szolgátatás hasznalta
+### A szolgátatás használta
 
 Készítsünk egy emp nevű komponenst:
 
@@ -1476,6 +1476,7 @@ A következő teendők vannak.
 * HttpClientModule használatbavétele
 * api szolgáltatás
 * emp komponens
+* CRUD műveletek megvalósítása
 
 ### A HttpClientModule használata
 
