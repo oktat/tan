@@ -40,7 +40,9 @@
 
 ## Az Angular
 
-Az angular a Google TypeScript alapú keretrendszere.
+Az Angular a Google TypeScript alapú, népszerű keretrendszere. Az első Angular neve AngularJS volt, mivel JavaScript alapú volt, és 2010-ben adták ki. Az Angular 2.0-nak nevezett kiadás 2016-ban lett kiadva, és már TypeScript alapokon működött.
+
+Az Angular szabad és nyílt forráskódú _single-page_ webalkalmazások létrehozására használható keretrendszer.
 
 Ebben a leírásban az Angular 17-s verziójával dolgoztam.
 
