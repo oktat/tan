@@ -123,3 +123,89 @@ class Rhombus {
 ```
 
 Készítsük el a Tombsug nevű osztályt ami használja a Rhombus osztályt. Legyen egy metódus, ami bekéri az oldalt és az alfa szöget. Másik metódus végezze el a számítást. Egy harmadik metódus írja az eredményt fájlba, hozzáfűzéssel.
+
+## Kivételek tesztelése
+
+```java
+import org.testng.annotations.Test;
+
+public class TriangleTest {
+
+    @Test(expectedExceptions = NumberFormatException.class )
+    public void testCalcAreaFail() throws Exception {
+        Triangle triangle = new Triangle();        
+        triangle.calcArea(-130, 135);
+    }
+
+}
+```
+
+### Üzenet vizsgálata
+
+```java
+import org.testng.annotations.Test;
+
+public class TriangleTest {
+    @Test(expectedExceptions = 
+    NumberFormatException.class, 
+    expectedExceptionsMessageRegExp = "Hiba" )
+    public void testCalcAreaFail() throws Exception {
+        Triangle triangle = new Triangle();        
+        triangle.calcArea(-130, 135);
+    }
+}
+```
+
+A teszteléshez:
+
+```java
+public class Triangle {
+    public double calcArea(double base, double height) {
+        if(base<=0) {
+            throw new NumberFormatException("Hiba!!!!");
+            // throw new NullPointerException("Hiba");
+        }
+        return base * height / 2;
+    }
+}
+```
+
+## A tesztek kizárása
+
+### Annotáció paraméter
+
+```java
+public class TestPelda {
+    @Test(enabled=false)
+    public void testMethod1() {}
+
+    @Test
+    public void testMethod1() {}
+}
+```
+
+### Az Ignore annotáció
+
+```java
+@Ignore
+public class TestPelda {
+    @Test
+    public void testMethod1() {}
+
+    @Test
+    public void testMethod1() {}
+}
+```
+
+### Az Ignore annotáció metódusokkal
+
+```java
+public class TestPelda {
+    @Ignore
+    @Test
+    public void testMethod1() {}
+
+    @Test
+    public void testMethod1() {}
+}
+```
