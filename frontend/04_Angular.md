@@ -2077,6 +2077,54 @@ A routerLink attribútum használata szükséges az SPA viselkedéshez. Ha href 
 
 A router-outlet direktíva azt jelzi, hogy ide kell behelyettesíteni az aktuális komponenst.
 
+### Komplexebb megoldás
+
+```typescript
+const routes: Routes = [
+  { path: 'home', component: HomeComponent },
+  { path: 'task/:id', component: TaskComponent },
+  { path: 'tasks', component: TasksComponent },
+  { path: 'about', component: AboutComponent },  
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', component: NopageComponent }
+];
+```
+
+### Routing alkönyvtárakkal
+
+src/app/app.routes.ts:
+
+```typescript
+//...
+const routes: Routes = [
+  {
+    path: 'admin', component: AdminComponent,
+    children: [
+      {path: 'login', component: LoginComponent},
+      {path: 'products', component: ProductsComponent,  canActivate: [AuthGuard]}      
+    ]
+  },
+  {
+    path: '', component: WebsiteComponent,
+    children: [
+      { path: 'buy', component: BuyComponent }
+    ]
+  }
+];
+```
+
+src/app/admin/admin.component.html:
+
+```html
+<router-outlet></router-outlet>
+```
+
+src/app/buy/buy.component.html:
+
+```html
+<router-outlet></router-outlet>
+```
+
 ## Pipe
 
 ### A pipe-ról
@@ -2424,6 +2472,253 @@ A tényleges szűrés beállítása a HTML fájlban:
 
 ## Komponensek kommunikációja
 
+A komponensek kommunikációjára az egyik lehetőség az EventEmitter használata. Itt most úgy fogjuk használni, hogy szolgáltatás készítünk belőle.
+
+Legyen egy webhely, ahol van egy be- és kilépési lehetőség, navigációval.
+
+![Weboldal belépési lehetőséggel](images/angular/angular_nav_routing.png)
+
+A belépés után a navigációról el kellene tűnnie a **Belépés** linknek, és megjelennie a **Kilépés** linknek.
+
+Készítsük egy Angular alkalmazást:
+
+```cmd
+ng new app01
+cd app01
+code .
+```
+
+Szükségünk lesz a RouterLink osztályra.
+
+src/app/app.component.ts:
+
+```typescript
+import { RouterLink } from '@angular/router';
+//...
+@Component({
+  imports: [RouterLink],
+})
+```
+
+Készítsük a főkomponensben egy navigációt, és egy **logedIn** nevű változót, amiben nyilvánatartjuk, hogy be vagyunk-e jelentkezve.
+
+src/app/app.component.ts:
+
+```typescript
+export class AppComponent {
+  logedIn = false;
+}
+```
+
+Készítsük el a navigációt.
+
+src/app/app.component.html:
+
+```html
+<nav>
+  <ul class="nav">
+    <li class="nav-item">
+      <a routerLink="/"
+      class="nav-link">Főoldal</a>
+    </li>
+    @if (logedIn) {
+      <li class="nav-item">
+        <a routerLink="/logout"
+        class="nav-link">Kilépés</a>
+      </li>
+    }@else {        
+      <li class="nav-item">
+        <a routerLink="/login"
+        class="nav-link">Belépés</a>
+      </li>      
+    }
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>
+```
+
+### A home, login, result és a logout komponensek
+
+```cmd
+ng generate component home
+```
+
+Belépési felület számára:
+
+```cmd
+ng generate component login
+```
+
+Belépés után ezt látható:
+
+```cmd
+ng generate component result
+```
+
+Kilépéshez:
+
+```cmd
+ng generate component logout
+```
+
+### Útválasztás
+
+src/app/app.routes.ts:
+
+```typescript
+import { Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { ResultComponent } from './result/result.component';
+import { LogoutComponent } from './logout/logout.component';
+
+export const routes: Routes = [
+    {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+    },
+    {
+        path: 'home',
+        component: HomeComponent
+    },
+    {
+        path: 'login',
+        component: LoginComponent
+    },
+    {
+        path: 'logout',
+        component: LogoutComponent
+    },
+    {
+        path: 'result',
+        component: ResultComponent
+    }
+];
+```
+
+### Az Emitter szolgáltatás
+
+```typescript
+import { EventEmitter, Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class EmitterService {
+
+  event = new EventEmitter();
+
+  constructor() { }
+
+  setLogedIn(logedIn: boolean) {
+    this.event.emit(logedIn);
+  }
+}
+```
+
+### A login komponens
+
+src/app/login/login.component.ts:
+
+```typescript
+import { Component } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { EmitterService } from '../shared/emitter.service';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-login',
+  standalone: true,
+  imports: [ReactiveFormsModule],
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.css'
+})
+export class LoginComponent {
+
+  loginForm: any;
+
+  constructor(
+    private builder: FormBuilder,
+    private emitter: EmitterService,
+    private router: Router
+  ) {}
+  
+  ngOnInit() {
+    this.loginForm = this.builder.group({
+      username: '',
+      password: ''
+    })
+  }
+
+  onSubmit() {
+    console.log(this.loginForm.value);
+    //Ide jön az azonosítás
+    this.emitter.setLogedIn(true);
+    this.router.navigate(['result']);
+  }
+
+}
+```
+
+src/app/login/login.component.html:
+
+```html
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <label for="username">Felhasználónév</label>
+        <input type="text" 
+        class="form-control" 
+        id="username" 
+        formControlName="username">
+    </div>
+
+    <div class="form-group">
+        <label for="password">Jelszó</label>
+        <input type="password" 
+        class="form-control" 
+        id="password" 
+        formControlName="password">   
+    </div>
+
+    <button type="submit" 
+    class="btn btn-primary mt-3">
+    Bejelentkezés</button>
+</form>
+```
+
+### A főkomponens
+
+```typescript
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { EmitterService } from './shared/emitter.service';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, RouterOutlet, RouterLink],
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  logedIn = false;
+
+  constructor(
+    private emitter: EmitterService
+  ) {}
+
+  ngOnInit() {
+    this.emitter.event.subscribe((logedIn) => {
+      this.logedIn = logedIn;
+    });
+  }
+}
+```
+
 ## Tesztelés
 
 ### Egységtesztelés
@@ -2470,6 +2765,49 @@ Az Angular komplexebb tesztjei a következő modulokat is használhatják:
 * FormsModule
 
 ## Deploy
+
+### Build
+
+Ha elkészült a termék a build paranccsal készítsünk belőle kiadást:
+
+```cmd
+ng build
+```
+
+Létre jön egy dist/projectnev nevű könyvtár. Az útvonal az angular.json fájlban, az autputPath tulajdonsággal szabályozható.
+
+### Build alkönyvtárba
+
+Ha a projekt a végleges helyén egy alkönyvtárban lesz, akkor használnunk kell a --base-href vagy a --deployUrl kapcsolót.
+
+```cmd
+ng build --base-href=/alkonyvtárnév/
+```
+
+#### Az aktuális könyvtár beállítása
+
+Az index.html fájlban is beállítható, akár build után is az alkönyvtár.
+
+Ha nincs alkönyvtár:
+
+```html
+<base href="./">
+```
+
+Alkönyvtár beállítása.
+
+```html
+<base href="/egy/">
+```
+
+Ha változtatunk ezen a beállításon és azt szeretnénk a böngészőben megtekinteni, a böngésző nem frissít. Megoldás:
+
+* Nyissuk meg az oldal forráskódját.
+* Frissítsük az oldal forráskódját.
+
+Élő példa:
+
+* [https://szit.hu/m/angular_minta/](https://szit.hu/m/angular_minta/)
 
 ## Angular animáció
 
@@ -2523,4 +2861,3 @@ export class AppComponent {
 ```
 
 A fadeInOut az animáció neve. A state() függvényben megmondjuk, hogy milyen állapotok között kell váltani. A void állapot, azt jelenti az animáció nem látható. A transition() függvényben meghatározzuk, hogy az animáció milyen állapotváltozásra kell bekövetkezzen.
-
