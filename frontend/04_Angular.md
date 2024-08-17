@@ -37,7 +37,6 @@
 * [Tesztelés](#tesztelés)
 * [Deploy](#deploy)
 * [Angular animáció](#angular-animáció)
-* [Az Angular egységtesztelés](#az-angular-egységtesztelés)
 
 ## Az Angular
 
@@ -2427,6 +2426,49 @@ A tényleges szűrés beállítása a HTML fájlban:
 
 ## Tesztelés
 
+### Egységtesztelés
+
+Az egységtesztek fontosak az alkalmazás minőségbiztosításához. Az egységtesztek esetén az alkalmazás egy elkülönített részét teszteljük, ami általában egy függvény.
+
+A teszteléshez a következő Angular szolgáltatásokra van szükség:
+
+* TestBed
+* ComponentFixture
+
+A teszteket egy spec.ts kiterjesztésű fájlba tesszük.
+
+```javascript
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { YourComponent} from './your.component';
+
+describe('YourComponent', () => {
+    let component: YourComponent;
+    let fixture: ComponentFixture<YourComponent>;
+
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [ YourComponent ]
+        }).compileComponents();
+    });
+
+    beforeEach(() => {
+        fixture = TestBed.createComponent(YourComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
+
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
+});
+```
+
+Az Angular komplexebb tesztjei a következő modulokat is használhatják:
+
+* HttpClientTestingModule
+* RouterTestingModule
+* FormsModule
+
 ## Deploy
 
 ## Angular animáció
@@ -2482,45 +2524,3 @@ export class AppComponent {
 
 A fadeInOut az animáció neve. A state() függvényben megmondjuk, hogy milyen állapotok között kell váltani. A void állapot, azt jelenti az animáció nem látható. A transition() függvényben meghatározzuk, hogy az animáció milyen állapotváltozásra kell bekövetkezzen.
 
-## Az Angular egységtesztelés
-
-Az egységtesztek fontosak az alkalmazás minőségbiztosításához. Az egységtesztek esetén az alkalmazás egy elkülönített részét teszteljük, ami általában egy függvény.
-
-A teszteléshez a következő Angular szolgáltatásokra van szükség:
-
-* TestBed
-* ComponentFixture
-
-A teszteket egy spec.ts kiterjesztésű fájlba tesszük.
-
-```javascript
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { YourComponent} from './your.component';
-
-describe('YourComponent', () => {
-    let component: YourComponent;
-    let fixture: ComponentFixture<YourComponent>;
-
-    beforeEach(async () => {
-        await TestBed.configureTestingModule({
-            declarations: [ YourComponent ]
-        }).compileComponents();
-    });
-
-    beforeEach(() => {
-        fixture = TestBed.createComponent(YourComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
-
-    it('should create', () => {
-        expect(component).toBeTruthy();
-    });
-});
-```
-
-Az Angular komplexebb tesztjei a következő modulokat is használhatják:
-
-* HttpClientTestingModule
-* RouterTestingModule
-* FormsModule
