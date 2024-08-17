@@ -40,6 +40,8 @@ A kiíratásra következő metódusokat használhatjuk:
 * println()
 * printf()
 
+![A System.out.println()](images/system_out_println.png)
+
 Ezeknek a metódusoknak többféle aláírása [^1] is olvasható a dokumentációban.
 
 [^1]: Az aláírás alatt egy függvény bemenő paramétereit értjük.
