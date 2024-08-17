@@ -2719,6 +2719,16 @@ export class AppComponent {
 }
 ```
 
+### Emitter példa
+
+Forráskód:
+
+* [https://github.com/oktat/angular_emitter.git](https://github.com/oktat/angular_emitter.git)
+
+Élő példa:
+
+* [https://szit.hu/m/angular_emitter](https://szit.hu/m/angular_emitter)
+
 ## Tesztelés
 
 ### Egységtesztelés
