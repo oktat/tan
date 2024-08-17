@@ -10,6 +10,7 @@
 ## Tartalomjegyzék
 
 * [Tartalomjegyzék](#tartalomjegyzék)
+* [Az Angular](#az-angular)
 * [Az Angular telepítése](#az-angular-telepítése)
 * [Új projekt](#új-projekt)
 * [Könyvtár-struktúra](#könyvtár-struktúra)
@@ -37,6 +38,12 @@
 * [Deploy](#deploy)
 * [Angular animáció](#angular-animáció)
 * [Az Angular egységtesztelés](#az-angular-egységtesztelés)
+
+## Az Angular
+
+Az angular a Google TypeScript alapú keretrendszere.
+
+Ebben a leírásban az Angular 17-s verziójával dolgoztam.
 
 ## Az Angular telepítése
 
@@ -2245,6 +2252,176 @@ A kimenet ehhez hasonló lesz:
 ```
 
 ## Filter
+
+Ha adott egy listánk vagy egy táblázatunk, amiben nagyon sok sor van, a szűrési lehetőség megkönnyítheti a munkánkat.
+
+### Kezdeti projekt
+
+Kezdésnek készítsünk egy Angular projektet. A bemutatott mintának legalább 17 verzió szükséges. Korábbi verziókban az iterációt másként valósítjuk meg.
+
+```cmd
+ng new app01
+cd app01
+code .
+```
+
+Dolgozókkal fogunk dolgozni, ezért készítsünk egy _emp_ komponenst és egy _empfilter_ nevű pipe-t. Ebből láthatjuk, hogy a szűrést pipe segítségével fogjuk megoldani.
+
+```cmd
+ng g c emp
+ng g p empfilter
+```
+
+Az emp komponenst ágyazzuk be a főkomponensbe.
+
+Először importáljuk a főkomponensbe az EmpComponent osztályt:
+
+```typescript
+import { EmpComponent } from './emp/emp.component';
+
+//...
+
+  imports: [CommonModule, RouterOutlet,
+    EmpComponent
+  ],
+```
+
+Az src/app/app.component.html fájl tartalma a következő legyen:
+
+```html
+<div class="container">  
+  <app-emp></app-emp>
+</div>
+```
+
+### Adatok készítése
+
+Az adatok most az emp komponensben leszenek egy objektumokat tartalmazó tömbben.
+
+Az src/app/emp/emp.component.ts fájlban vegyük fel:
+
+```typescript
+export class EmpComponent {
+
+  employees = [
+    { id: 1, name: 'Nitin Szabó', city: 'Budapest' },
+    { id: 2, name: 'Prakash Varga', city: 'Budapest' },
+    { id: 3, name: 'Sachin Tóth', city: 'Pécs' },
+    { id: 4, name: 'Vijay Kiss', city: 'Debrecen' },
+    { id: 5, name: 'Prabhat Nagy', city: 'Miskolc' },
+  ];
+  
+}
+```
+
+Jelenítsük meg a HTML oldalon:
+
+```html
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(emp of employees; track emp.id){
+            <tr>
+                <td>{{emp.id}}</td>
+                <td>{{emp.name}}</td>
+                <td>{{emp.city}}</td>
+            </tr>
+        }
+    </tbody>
+</table>
+```
+
+### Szűrőmező létrehozása
+
+Űrlap elemet szeretnénk az emp komponensben kötni. Ehhez sablonvezérelt űrlapot fogunk használni. Az src/app/emp/emp.component.ts fájlban importáljuk:
+
+```typescript
+import { FormsModule } from '@angular/forms';
+//...
+  imports: [FormsModule],
+```
+
+Az EmpComponent osztályban vegyünk fel egy újabb adattagot. Legyen a neve **filteredName**. Ide fogjuk kötni a szűrőmező tartalmát, és ezt fogjuk felhasználni a szűrőben.
+
+```typescript
+export class EmpComponent {
+  filteredName: string = '';
+  //...
+  //itt következik a tömb
+}
+```
+
+Az src/app/emp/emp.component.ts fájlban a táblázat felett vegyünk fel egy beviteli mezőt. Ez lesz a szűrőmezőnk.
+
+```html
+<input 
+    type="text" 
+    [(ngModel)]="filteredName"
+    class="form-control mt-3" 
+    placeholder="szűrés név alapján">
+```
+
+### Szűrő létrehozása
+
+Az empfilter pipe-t írjuk át a következőre:
+
+```typescript
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'empfilter',
+  standalone: true
+})
+export class EmpfilterPipe implements PipeTransform {
+
+  transform(values: any[], filter: string) {
+    if (!values || !filter) {
+      return values;
+    }
+    return values.filter(value => value.name.indexOf(filter) !== -1);
+  }
+
+}
+```
+
+A value változót átneveztük values-re mivel tömbbel fogunk dolgozni. Az any[] után a szögletes zárójellel jeleztük, hogy valamilyen tömböt kellesz szűrni. Paraméterként fogunk kapni valami szűrőértéket. Ezt a filter nevű változóból szeretnénk használni.
+
+Az if utasításban, megmondjuk, ha nincs adata a values vagy a filter változóban térjünk vissza az üres values változóval.
+
+Ha van adat, a values változón futtatjuk a filter() függvényt, aminek paramétere egy függvény. Névtelen függvényt fogunk használni, amiben leírjuk hogyan szűrünk.
+
+A névtelen függvény egy dolgozó adatati a value változóban adja meg nekünk. A névtelen függvény törzsében megvizsgáljuk, hogy ha a dolgozó nevében megtalálható a szűrő szöveg, akkor térjünk vissza igaz értékkel.
+
+Ennyi a szűrés megvalósítása név alapján.
+
+### A szűrő használata
+
+Az Emp komponensben importálni kell a szűrőt:
+
+```typescript
+import { EmpfilterPipe } from '../shared/pipe/empfilter.pipe';
+//...
+  imports: [FormsModule, EmpfilterPipe],
+```
+
+A tényleges szűrés beállítása a HTML fájlban:
+
+```html
+@for(emp of employees | empfilter:filteredName;
+  track emp.id){
+    <tr>
+        <td>{{emp.id}}</td>
+        <td>{{emp.name}}</td>
+        <td>{{emp.city}}</td>
+    </tr>
+}
+```
 
 ## Komponensek kommunikációja
 
