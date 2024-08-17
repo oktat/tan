@@ -1,7 +1,7 @@
 # Szoftvertesztelés
 
 * **Szerző:** Sallai András
-* Copyright (c) Sallai András, 2022
+* Copyright (c) 2022, Sallai András
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
@@ -23,8 +23,8 @@ A kézi tesztelés során olyan hibákra is fény derülhet, amire a teszt szoft
 
 #### Szisztematikus és ad-hoc
 
-* szisztematikus - előre meghatározott
-* ad-hoc - nincs előre meghatározva
+* szisztematikus - előre tervezett
+* ad-hoc - nincs előre tervezve
 
 #### Fekete és fehérdobozos
 
@@ -85,8 +85,7 @@ A szoftverek sorsa:
 
 ### Statisztikák
 
-A megírt programkódokat mérjük, általában sorok alapján.
-Így alakult ki a LOC vagy SLOC mértékegység.
+A megírt programkódokat mérjük, általában sorok alapján. Így alakult ki a LOC vagy SLOC mértékegység.
 
 * Lines Of Code
 * Source Lines Of Code
@@ -104,12 +103,13 @@ SI prefixumokat is szokás használni:
 * rendszerteszt
 * elfogadási teszt
 
-Az első három tesztet az IT végzi. Az utolsó tesztet a
-megrendelő, illetve annak tesztelői.
+Az első három tesztet az IT végzi. Az utolsó tesztet a megrendelő, illetve annak tesztelői.
 
 ## QA
 
 * Quality Assurance - minőségbiztosítás
+
+A szoftverfejlesztés során a termékek és szolgáltatások minőségének folyamatos javítása, biztosítása a minőségbiztosítás. A cél a vásárlói elégedettség növelése. Gyakran használunk nemzetközi szabványokat, például ISO 9001.
 
 ## Gyakorlat
 
