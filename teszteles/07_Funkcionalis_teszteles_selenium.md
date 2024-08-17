@@ -5,6 +5,10 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Bevezetés
+
+A funkcionális tesztelésből jelenleg 2 változat van. Elég az egyiket feldolgozni.
+
 ## Selenium
 
 A Selenium egy nyílt forráskódú projekt, ami lehetővé teszi böngészők automatizálását.
