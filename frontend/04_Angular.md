@@ -2723,11 +2723,11 @@ export class AppComponent {
 
 Forráskód:
 
-* [https://github.com/oktat/angular_emitter.git](https://github.com/oktat/angular_emitter.git){:target="_blank"}
+* [https://github.com/oktat/angular_emitter.git](https://github.com/oktat/angular_emitter.git)
 
 Élő példa:
 
-* [https://szit.hu/m/angular_emitter](https://szit.hu/m/angular_emitter){:target="_blank"}
+* [https://szit.hu/m/angular_emitter](https://szit.hu/m/angular_emitter)
 
 ## Tesztelés
 
