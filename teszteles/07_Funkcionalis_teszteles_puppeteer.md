@@ -17,6 +17,7 @@
 * [Fej nélküli indítás](#fej-nélküli-indítás)
 * [Képernyőkép](#képernyőkép)
 * [A Mocha használata a szit.hu vizsgálatával](#a-mocha-használata-a-szithu-vizsgálatával)
+* [A háromszög területsámítsá tesztje](#a-háromszög-területsámítsá-tesztje)
 
 ## Bevezetés
 
@@ -269,4 +270,57 @@ describe('A szit.hu tesztelése', function()  {
         assert.strictEqual(currentUrl, 'https://szit.hu/doku.php?id=oktatas');
     });
 });
+```
+
+## A háromszög területsámítsá tesztje
+
+```javascript
+import puppeteer from 'puppeteer'
+import assert from 'assert'
+
+describe('Háromszög területszámítás tesztje', () => {
+    let browser;
+    let page;
+    before(async function () {
+        browser = await puppeteer.launch({headless: true})
+        page = await browser.newPage()
+        await page.goto('http://localhost:3000')        
+    })
+    after(async function() {
+        await browser.close()
+    })
+    it('Böngésző címsora', async function() {        
+        const title = await page.title()
+        assert.strictEqual(title, 'Háromszög')
+    })
+    it('h1 tartalma a weblapon', async function() {
+        const content = await page.$eval('h1', element => element.textContent)
+        assert.strictEqual(content, 'Háromszög területe')
+    })
+
+    it('Az alap label tartalma', async function() {
+        const content = await page.$eval('label[for="base"]', element => element.textContent.trim())
+        assert.strictEqual(content, 'Alap')
+    })
+    it('A magasság label tartalma', async function() {
+        const content = await page.$eval('label[for="height"]', element => element.textContent.trim())
+        assert.strictEqual(content, 'Magasság')
+    })
+    it('Az alap input létezése', async function() {
+        const element = await page.$('#base')
+        assert.ok(element, 'A base input elemnek léteznie kell')
+    })
+    it('A magasság input létezése', async function() {
+        const element = await page.$('#height')
+        assert.ok(element, 'A height input elemnek léteznie kell')
+    })
+
+    it('Input 30 és 35 bemenetre 525 kimenete', async function() {
+        await page.type('#base', '30')
+        await page.type('#height', '35')        
+        await page.click('#calcButton')
+        const actual = await page.$eval('#area', elem => elem.value)
+        assert.strictEqual(actual, '525')
+    })
+})
 ```
