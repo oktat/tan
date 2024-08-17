@@ -2,8 +2,21 @@
 
 * **Szerző:** Sallai András
 * Copyright (c) 2023, Sallai András
+* Szerkesztve: 2024
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
+
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Bevezetés](#bevezetés)
+* [A puppeteer](#a-puppeteer)
+* [Projekt készítése](#projekt-készítése)
+* [Teszt írása](#teszt-írása)
+* [Teszt](#teszt)
+* [Fej nélküli indítás](#fej-nélküli-indítás)
+* [Képernyőkép](#képernyőkép)
+* [A Mocha használata a szit.hu vizsgálatával](#a-mocha-használata-a-szithu-vizsgálatával)
 
 ## Bevezetés
 
@@ -156,9 +169,104 @@ const puppeteer = require('puppeteer');
 })();
 ```
 
-## Futtatás
+### Futtatás
 
 ```cmd
 npm start
 npm test
+```
+
+## Fej nélküli indítás
+
+```javascript
+puppeteer.launch({headless: false});
+```
+
+Legyen egy 10 másodperces várakozást állítsunk be:
+
+```javascript
+await new Promise(resolve => setTimeout(resolve, 10000));
+```
+
+A teljes kód:
+
+```javascript
+const puppeteer = require('puppeteer');
+
+(async () => {
+    const browser = await puppeteer.launch({headless: false});
+    const page = await browser.newPage();
+
+    await page.goto('https://szit.hu/');
+
+    await new Promise(resolve => setTimeout(resolve, 10000));
+    await browser.close();
+})();
+```
+
+A teszt indítása:
+
+```bash
+node test/valami.js
+```
+
+vagy:
+
+```bash
+npm test
+```
+
+## Képernyőkép
+
+```javascript
+const puppeteer = require('puppeteer');
+
+(async () => {
+    const browser = await puppeteer.launch({headless: false});
+    const page = await browser.newPage();
+
+    await page.goto('https://szit.hu/');
+
+    await page.screenshot({ path: 'szit.png', fullPage: true});
+    await page.pdf({ path: 'szit.pdf', format: 'A4'});
+
+    await browser.close();
+})();
+```
+
+## A Mocha használata a szit.hu vizsgálatával
+
+```javascript
+const puppeteer = require('puppeteer');
+const assert = require('assert');
+
+describe('A szit.hu tesztelése', function()  {
+    let browser;
+    let page;
+    before(async function() {
+        browser = await puppeteer.launch({headless: true});
+        page = await browser.newPage();
+    });
+    after(async function() {
+        await browser.close();
+    });
+    it('A weblap elérése', async function() {
+        await page.goto('https://szit.hu');
+        const title = await page.title();
+        assert.strictEqual(title, 'start [szit]')
+    });
+    it('Van az Oktatás link a főoldalon', async function() {
+        await page.goto('https://szit.hu');
+        const linkExists = await page.waitForSelector('a[href="/doku.php?id=oktatas"]');
+        assert.ok(linkExists, 'Az Oktatás link nem található!');
+    });
+
+    it('Az Oktatás link kattintása', async function() {
+        await page.goto('https://szit.hu');
+        await page.click('a[href="/doku.php?id=oktatas"]');
+        await page.waitForSelector('body')
+        const currentUrl = await page.url();
+        assert.strictEqual(currentUrl, 'https://szit.hu/doku.php?id=oktatas');
+    });
+});
 ```
