@@ -2,8 +2,23 @@
 
 * **Szerző:** Sallai András
 * Copyright (c) 2022, Sallai András
+* Szerkesztve: 2024
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
+
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Megjegyzések](#megjegyzések)
+* [Kivitel](#kivitel)
+* [Operátorok és kifejezések](#operátorok-és-kifejezések)
+* [Különleges karakterek](#különleges-karakterek)
+* [Típusok és változók](#típusok-és-változók)
+* [Változók](#változók)
+* [Állandók](#állandók)
+* [Típuskonverzió](#típuskonverzió)
+* [Formázott kivitel](#formázott-kivitel)
+* [Gyakorlatok](#gyakorlatok)
 
 ## Megjegyzések
 
@@ -392,7 +407,7 @@ szam = 2_147_483_648L;
 System.out.println(szam);
 ```
 
-Vegyük észre, hogy a forráskódban ezredest tagolást használtunk az alsóvonallal, amit a Java nyelv megenged.
+Vegyük észre, hogy a forráskódban ezredes tagolást használtunk az alsóvonallal, amit a Java nyelv megenged.
 
 ### Valós típusok
 
