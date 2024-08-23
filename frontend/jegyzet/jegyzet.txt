@@ -1,0 +1,34 @@
+
+# Angular lehetséges fejezetek
+
+Telepítés
+Új projekt
+Könyvtár-struktúra
+Angular elemek
+Kötések
+Életciklus események
+Bootstrap
+Képek
+Eseménykezelés
+Szelekció
+Iteráció
+Komponensek
+Routing
+Szolgáltatások
+Függőségbefecskendezés
+Sablon-vezérelt űrlapok
+Reaktív űrlapok
+Űrlapok érvényessége
+HttpClient
+Táblázatok
+Tömb lapozása
+Pipe
+Filter
+Komponensek kommunikációja
+Tesztelés
+Deploy
+Animáció
+
+======================
+
+
