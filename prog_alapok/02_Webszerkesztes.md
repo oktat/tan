@@ -8,6 +8,7 @@
 ## Tartalomjegyzék
 
 * [Tartalomjegyzék](#tartalomjegyzék)
+* [A webes fejlesztés](#a-webes-fejlesztés)
 * [HTML](#html)
 * [Szerkesztők](#szerkesztők)
 * [Helló Világ](#helló-világ)
@@ -28,6 +29,14 @@
 * [Űrlapok](#űrlapok)
 * [Az oldal szerkezetét leíró elemek](#az-oldal-szerkezetét-leíró-elemek)
 * [Gyakorlatok](#gyakorlatok)
+
+## A webes fejlesztés
+
+A webes fejlesztő általában HTML, CSS és JavaScript állományokat hoz létre, egy ügyfél kérésére, amelyeket feltölt egy webszerverre. A weboldal elkészítését a fejlesztő általában a helyi gépén végzi, a munkát nem tölti fel azonnal, helyette a helyi gépen futtat fejlesztői webszervereket, hogy megnézze hogyan áll a weblap.
+
+A webszerverek HTTP protokollon keresztül szolgálják ki a weblapokat. Ezért az ügyfelek, a látogatók böngészői HTTP protokollon keresztül kérik le a weblapokat.
+
+![A webes fejlesztés](images/html/weboldal_fejlesztes.png)
 
 ## HTML
 
