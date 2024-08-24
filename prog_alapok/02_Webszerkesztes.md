@@ -68,9 +68,9 @@ Az [other browsers] gombra kattintva több böngésző összehasonlítását lá
 
 ### Online szerkesztő
 
-* [https://jsbin.com/](https://jsbin.com/)
 * [https://codepen.io/](https://codepen.io/)
 * [https://plnkr.co/](https://plnkr.co/) (Plunker)
+* [https://jsbin.com/](https://jsbin.com/)
 
 ### Telepíthető szerkesztő
 
