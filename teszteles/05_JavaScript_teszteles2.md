@@ -5,6 +5,21 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Bevezetés](#bevezetés)
+* [A Jasmine Browser Runner](#a-jasmine-browser-runner)
+* [Szükséges](#szükséges)
+* [Helló Világ](#helló-világ)
+* [Ellentét](#ellentét)
+* [Egyezések](#egyezések)
+* [Függvény tesztelése](#függvény-tesztelése)
+* [Hibakezelés tesztelése](#hibakezelés-tesztelése)
+* [Véletlenszerű tesztek](#véletlenszerű-tesztek)
+* [A tesztek helye](#a-tesztek-helye)
+* [Alkalmazás készítése](#alkalmazás-készítése)
+
 ## Bevezetés
 
 A JavaScript teszteléshez két fejezet van:

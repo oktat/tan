@@ -5,6 +5,16 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [A TestNG](#a-testng)
+* [Helló Világ](#helló-világ)
+* [Háromszög tesztelése](#háromszög-tesztelése)
+* [Bekérős feladat megoldása](#bekérős-feladat-megoldása)
+* [Kivételek tesztelése](#kivételek-tesztelése)
+* [A tesztek kizárása](#a-tesztek-kizárása)
+
 ## A TestNG
 
 A TestNG egy tesztelő keretrendszer Java alkalmazások számára.

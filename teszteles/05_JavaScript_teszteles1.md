@@ -5,6 +5,21 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Bevezetés](#bevezetés)
+* [A Jasmine](#a-jasmine)
+* [Szükséges](#szükséges)
+* [Helló Világ - Jasmine](#helló-világ---jasmine)
+* [Ellentét](#ellentét)
+* [Egyezések](#egyezések)
+* [Függvény tesztelése](#függvény-tesztelése)
+* [Tesztek kikapcsolása](#tesztek-kikapcsolása)
+* [Véletlenszerű tesztek](#véletlenszerű-tesztek)
+* [A tesztek helye](#a-tesztek-helye)
+* [Alkalmazás készítése](#alkalmazás-készítése)
+
 ## Bevezetés
 
 A JavaScript tesztelés két fejezet is van: 1 és 2. Elég az egyiket tudni. A JavaScript tesztelés 2-ben a Jasmin Browser Runner-t használjuk. Annak használata egyszerűbb. A JavaScript tesztelés 1-ben a szimpla Jasmine-t használjuk.

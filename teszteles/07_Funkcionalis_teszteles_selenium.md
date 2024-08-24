@@ -5,6 +5,16 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Bevezetés](#bevezetés)
+* [Selenium](#selenium)
+* [JavaScript webdriver](#javascript-webdriver)
+* [Forráskód](#forráskód)
+* [Teszt](#teszt)
+* [Futtatás](#futtatás)
+
 ## Bevezetés
 
 A funkcionális tesztelésből jelenleg 2 változat van. Elég az egyiket feldolgozni.

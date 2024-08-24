@@ -6,13 +6,24 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Egységteszt](#egységteszt)
+* [Integrációs teszt](#integrációs-teszt)
+* [Rendszerteszt](#rendszerteszt)
+* [Elfogadási teszt](#elfogadási-teszt)
+* [Biztonsági teszt](#biztonsági-teszt)
+* [Teljesítmény- és terhelés teszt](#teljesítmény--és-terhelés-teszt)
+* [TDD](#tdd)
+
 ## Egységteszt
 
 Egy függvény, metódus vagy egy komplett osztály tesztje.
 
 ## Integrációs teszt
 
-A komponensek együttműködését teszteljük.
+A komponensek együttműködését teszteljük. Angolul **Integration Level Testing**, röviden **ILT**.
 
 Megközelítések:
 
@@ -23,8 +34,15 @@ Megközelítések:
 
 ## Rendszerteszt
 
+Angolul **System Level Testing**, röviden **SLT**.
+
+Jellemzők:
+
+* A teljes rendszert teszteljük.
+* Funkcionális és nem-funkciónális tesztelés.
 * Általában külső tesztelő csapat végzi.
 * Általában fekete dobozos teszt.
+* Lehet automatizált és kézi tesztelés is.
 
 Mit vizsgálnak?
 
@@ -32,12 +50,90 @@ Mit vizsgálnak?
 
 Például: Specifikáció szerint jelentést kell tudnia generálni valamiről a programnak. Ennek ellenőrzése.
 
+### Eszközök
+
+Automatizált tesztelés lehetséges eszközei:
+
+* Puppeteer
+* Selenium
+* JUnit
+* TestNG
+* Robot Framework
+
+Kézi tesztelés lehetséges eszközei:
+
+* Tesztelési forgatókönyv
+* Checklisták
+* egyéb
+  
+### Teszt forgatókönyv példa
+
+#### TC001
+
+Teszteset azonosító: TC001
+
+* Teszteset neve: Érvényes bejelentkezés
+* Leírás: Érvényes felhasználónévvel bejelentkezünk a webes felületen.
+* Előfeltételek:
+  * A felhasználó rendelkezik hozzáféréssel.
+  * A rendszer elérhető.
+
+Lépések:
+
+* Weblap megnyitása
+* Jobb felső sarokban **Bejelentkezés** gombra kattintunk
+* Felhasználónév beírása
+* Jelszó beírása
+* Kattintás a bejelentkezésre
+
+Várt eredmény:
+
+* Bejelentkezés OK, átiránytás történt a főoldalra.
+* A bejelentkezhés gomb helyett a felhasználó neve látszik.
+* A felhasználó hozzáfér a fiókjához, böngészhet a védett oldalon.
+
+Utófeltételek:
+
+* A felhasználó be van jelentkezve, és hozzáfér a fiókjához.
+
+#### TC002
+
+Teszteset azonosító: TC002
+
+* Teszteset neve: Érvénytelen bejelentkezés
+* Leírás: Érvénytelen felhasználónévvel bejelentkezünk a webes felületen.
+* Előfeltételek:
+  * A rendszer elérhető.
+
+Lépések:
+
+* Weblap megnyitása
+* Jobb felső sarokban **Bejelentkezés** gombra kattintunk
+* Felhasználónév beírása
+* Helytelen jelszó beírása
+* Kattintás a bejelentkezésre
+
+Várt eredmény:
+
+* A rendszer hibát ad.
+* A felhasználó nem kerül bejelentkezésre.
+
 ## Elfogadási teszt
 
-A szoftver valóban képes elvégezni a neki szánt munkát. Kik végeznek ilyen munkát?
+Angolul **User Acceptance Testing**, röviden **UAT**.
+
+A rendszertesztelést követheti egy elfogadási teszt.
+
+Vizsgáljuk, hogy a szoftver valóban képes elvégezni a neki szánt munkát. Kik végeznek ilyen munkát?
+
+Kik végzik:
 
 * megrendelő
 * külső hivatásos tesztelők
+
+Az UAT célja, hogy valóban készen áll a szoftver a használatra, az üzembe helyezésre.
+
+Valós üzleti forgatókönyvet és folyamatok szerint tesztelnek, általában kéziteszteléssel.
 
 ## Biztonsági teszt
 
