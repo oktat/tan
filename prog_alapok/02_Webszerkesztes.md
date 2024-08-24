@@ -7,28 +7,27 @@
 
 ## Tartalomjegyzék
 
+* [Tartalomjegyzék](#tartalomjegyzék)
 * [HTML](#html)
-* [Szerkesztők](#szerkesztok)
-* [Helló Világ](#hellovilag)
-* [Megjegyzés](#megjegyzes)
-* [Fejezetcímek](#fejezetcimek)
-* [Bekezdések](#bekezdesek)
-* [Általános elemek](#altalanos-elemek)
+* [Szerkesztők](#szerkesztők)
+* [Helló Világ](#helló-világ)
+* [Megjegyzés](#megjegyzés)
+* [Fejezetcímek](#fejezetcímek)
+* [Bekezdések](#bekezdések)
+* [Általános elemek](#általános-elemek)
 * [Szemantikus elemek](#szemantikus-elemek)
-* [Blokk és inline elemek](#blokk-es-inline-elemek)
-* [Sortörés](#sortores)
-* [Kiemelés](#kiemeles)
-* [Listák](#listak)
-* [Képek beillesztése](#kepek)
-* [Táblázatok](#tablazatok)
-* [Hiperhivatkozások](#hiperhivatkozasok)
-* [Videók](#videok)
-* [Hangok](#hangok)
-* [Űrlapok](#form-ok)
-* [Az oldal szerkezetét leíró elemek](#az-oldalszerkezetet-leiro-elemek)
+* [Blokk és inline szintű elemek](#blokk-és-inline-szintű-elemek)
+* [Sortörés](#sortörés)
+* [Kiemelés](#kiemelés)
+* [Listák](#listák)
+* [Képek beillesztése](#képek-beillesztése)
+* [Táblázatok](#táblázatok)
+* [Hiperhivatkozások](#hiperhivatkozások)
+* [Videók](#videók)
+* [Hang](#hang)
+* [Űrlapok](#űrlapok)
+* [Az oldal szerkezetét leíró elemek](#az-oldal-szerkezetét-leíró-elemek)
 * [Gyakorlatok](#gyakorlatok)
-
-<a name="html"></a>
 
 ## HTML
 
@@ -56,15 +55,17 @@ Az oldalon kapunk egy számot, például 528 az 555-ből. Alatta pedig részlete
 
 Az [other browsers] gombra kattintva több böngésző összehasonlítását látjuk verzióként.
 
-<a name="szerkesztok"></a>
-
 ## Szerkesztők
 
 ### Online szerkesztő
 
 * [https://jsbin.com/](https://jsbin.com/)
+* [https://codepen.io/](https://codepen.io/)
+* [https://plnkr.co/](https://plnkr.co/) (Plunker)
 
 ### Telepíthető szerkesztő
+
+A Microsoft szerkesztője a **Visual Studio Code** vagy röviden csak **VSCode**, egy népszerű és hatékony kódszerkesztő.
 
 * [https://code.visualstudio.com/](https://code.visualstudio.com/)
 
@@ -74,7 +75,18 @@ Telepítés Chocolatey csomagkezelővel:
 choco install vscode.install
 ```
 
-<a name="hellovilag"></a>
+Régebben ajánlott volt az **Emmet** nevű bővítmény telepítése, de ma már alapértelmezetten tartalmazza a VSCode.
+
+Ajánlott bővítmény:
+
+* Prettier - Code formatter
+* HTML CSS Support
+
+Egyéb szerkesztők:
+
+* [https://vscodium.com/](https://vscodium.com/) (VSCodium)
+* [https://brackets.io/](https://brackets.io/) (Brackets)
+* [https://atom-editor.cc/](https://atom-editor.cc/) (Atom)
 
 ## Helló Világ
 
@@ -226,8 +238,6 @@ Object Model rövidítése.
 
 A DOM-ban a html a gyökérelem, mivel ez van a legfelső szinten.
 
-<a name="megjegyzes"></a>
-
 ## Megjegyzés
 
 Megjegyzéseket a következő módon készíthetünk:
@@ -243,8 +253,6 @@ Megjegyzéseket a következő módon készíthetünk:
 ```
 
 A HTML megjegyzések nem ágyazhatók egymásba.
-
-<a name="fejezetcimek"></a>
 
 ## Fejezetcímek
 
@@ -262,8 +270,6 @@ Egy szöveghez általában címmekkel adjuk meg miről szól, az adott fejezet. 
 Alapértelmezetten a következő a megjelenítése Chrome böngészőben:
 
 ![h1-h6-ig HTML elemek](images/html/html_h1-h6.png)
-
-<a name="bekezdesek"></a>
 
 ## Bekezdések
 
@@ -284,8 +290,6 @@ Lorem ipsum
 ```
 
 Ritkán van rá szükség.
-
-<a name="altalanos-elemek"></a>
 
 ## Általános elemek
 
@@ -331,8 +335,6 @@ consectetur, <span class="ketto">adipisicing</span> elit.
 Numquam, rem.
 ```
 
-<a name="szemantikus-elemek"></a>
-
 ## Szemantikus elemek
 
 A szemantikus elemek valamilyen jelentéssel bírnak. Nem szemantikus elem a span és a div. Néhány szemantikus elem:
@@ -342,8 +344,6 @@ A szemantikus elemek valamilyen jelentéssel bírnak. Nem szemantikus elem a spa
 * p - bekezdés jelölése
 * form - űrlap készítítése
 * section - egy rész jelölése
-
-<a name="blokk-es-inline-elemek"></a>
 
 ## Blokk és inline szintű elemek
 
@@ -475,8 +475,6 @@ Inline elemek:
 * a
 * stb.
 
-<a name="sortores"></a>
-
 ## Sortörés
 
 Sortörést a br elemmel lehet megvalósítani. A b elemnek nincs lezáró része, a lezárást az elem neve után írt szóköz, majd a / karakter jelölheti, de ez nem kötelező.
@@ -523,8 +521,6 @@ Most nézzük meg újra a böngészőben:
 A br elemek már a weblapon is tördelik a sorokat.
 
 A három sor akár egyetlen sorban is megadható.
-
-<a name="kiemeles"></a>
 
 ## Kiemelés
 
@@ -636,8 +632,6 @@ Cím idézése: <cite>A sötét ég</cite><br>
 Bönégészőben:
 
 ![idézetek és definíciók](images/html/idezetek_es_definiciok_minta.png)
-
-<a name="listak"></a>
 
 ## Listák
 
@@ -758,8 +752,6 @@ Böngészőben:
 
 ![definíciós lista](images/html/definicios_lista_minta.png)
 
-<a name="kepek"></a>
-
 ## Képek beillesztése
 
 Használható fájltípusok:
@@ -808,8 +800,6 @@ A figure elem segítségével összefoghatjuk a képet és a feliratát.
 ```
 
 ![figure elem](images/html/tatrakep_figure_elemben_felirattal.jpg)
-
-<a name="tablazatok"></a>
 
 ## Táblázatok
 
@@ -1048,8 +1038,6 @@ Böngészőben:
 
 ![Oszlopok csoportosítása](images/html/tablazat_oszlopok_csoportositasa.png)
 
-<a name="hiperhivatkozasok"></a>
-
 ## Hiperhivatkozások
 
 Hiperhivatkozást az "a" elemmel hozunk létre. Maga a hivatkozás a href attribútum értéke. Az "a" elem tartalma pedig ami a weblapon megjelenik.
@@ -1082,8 +1070,6 @@ vagy:
 
 * [Példa1: ugrás lapon belül](https://szit.hu/download/peldak/html5/negybekezdes.html)
 * [Példa2: ugrás másik lapra](https://szit.hu/download/peldak/html5/elso.html)
-
-<a name="videok"></a>
 
 ### URL-ek
 
@@ -1144,8 +1130,6 @@ A video elem néhány attribútuma:
 
 Ezek az attribútumok logikai típusok, így elég a nevüket megadni.
 
-<a name="hangok"></a>
-
 ## Hang
 
 Hangot az audio elemmel tehetünk közzé.
@@ -1166,8 +1150,6 @@ Az audio fájl egyéb attribútumai:
 * muted
 * loop
 
-<a name="form-ok"></a>
-
 ## Űrlapok
 
 Az űrlapok segítségével a weblap felhasználója adatokat közölhet a webszerverrel.
@@ -1187,8 +1169,6 @@ Az űrlapok segítségével a weblap felhasználója adatokat közölhet a websz
 </form>
 ```
 
-<a name="az-oldalszerkezetet-leiro-elemek"></a>
-
 ## Az oldal szerkezetét leíró elemek
 
 Az oldal szerkezetét általános célú div elemekkel,
@@ -1202,8 +1182,6 @@ a következő szemantikus elemek állnak rendelkezésre:
 * footer - az oldal vagy egy rész lábrésze
 * article - tartalmi egységek
 * main - az oldal főbb része
-
-<a name="gyakorlat"></a>
 
 ## Gyakorlatok
 
