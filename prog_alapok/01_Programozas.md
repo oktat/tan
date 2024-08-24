@@ -5,6 +5,17 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Játékos programozás](#játékos-programozás)
+* [Oktatási portálok](#oktatási-portálok)
+* [Fordítás és értelmezés](#fordítás-és-értelmezés)
+* [Algoritmus](#algoritmus)
+* [Fejlesztés](#fejlesztés)
+* [Python Shell](#python-shell)
+* [Gyakorlat](#gyakorlat)
+
 ## Játékos programozás
 
 A játékos programozás növelheti a lelkesedésünket a programozást iránt. Többféle online megoldás is létezik erre a célra. Egyik ajánlott hely a lightbot.hu, ahol egy kis robotot irányíthatunk, az általunk összerakott programjainkkal.

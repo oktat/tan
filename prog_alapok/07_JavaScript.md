@@ -5,6 +5,17 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [A JavaScript](#a-javascript)
+* [Kimenet](#kimenet)
+* [A script elem használata](#a-script-elem-használata)
+* [JavaScript külső fájlban](#javascript-külső-fájlban)
+* [Üdvözlő](#üdvözlő)
+* [Háromszög területszámítás](#háromszög-területszámítás)
+* [JavaScript gyakorlat](#javascript-gyakorlat)
+
 ## A JavaScript
 
 A JavaScript eredetileg böngészőre szánt programozási nyelv. A JavaScript alkalmazás a weboldallal együtt letöltődik a kliensgépre, amit böngésző futtat.

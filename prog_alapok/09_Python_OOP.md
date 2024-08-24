@@ -5,6 +5,12 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Osztályok](#osztályok)
+* [Konstruktor](#konstruktor)
+
 ## Osztályok
 
 Az osztályokat különböző típusú adatok tárolására alkalmas adatszerkezetekre használhatjuk. Az osztályt mindig a class kulcsszóval vezetjük be. Ha szeretnék egy dolgozó adatai tárolni, hozzunk létre osztályt.

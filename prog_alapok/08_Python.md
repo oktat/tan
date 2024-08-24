@@ -5,6 +5,30 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [A Python bemutatása](#a-python-bemutatása)
+* [Helló Világ](#helló-világ)
+* [Megjegyzések](#megjegyzések)
+* [Kivitel](#kivitel)
+* [Gyakorló feladatok a kivitelhez](#gyakorló-feladatok-a-kivitelhez)
+* [Escape szekvenciák](#escape-szekvenciák)
+* [Típusok](#típusok)
+* [Változóhasználat](#változóhasználat)
+* [Formázott kimenet](#formázott-kimenet)
+* [Matematikai eszközök](#matematikai-eszközök)
+* [Véletlen szám](#véletlen-szám)
+* [Operátorok](#operátorok)
+* [Konvertálás](#konvertálás)
+* [Bevitel](#bevitel)
+* [Szekvenciális tevékenység](#szekvenciális-tevékenység)
+* [Szelekció](#szelekció)
+* [Karakterláncok kezelése](#karakterláncok-kezelése)
+* [Lista](#lista)
+* [Függvények](#függvények)
+* [Fájlkezelés](#fájlkezelés)
+
 ## A Python bemutatása
 
 A Python egy népszerű és sokoldalú programozási nyelv, amit használnak a tudományos adatfeldolgozásban, webfejlesztésben, automatizálásban, és még sok más területen. A Python nyelvet Guido van Rossum, holland programozó kezdte fejleszteni a Centrum Wiskunde & Informatica (CWI, Matematikai és Informatikai Központ) kutatóintézetben, 1989-ben.
