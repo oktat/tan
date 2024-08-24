@@ -5,6 +5,14 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Procedurális fejlesztés](#procedurális-fejlesztés)
+* [Objektum Orientál fejlesztés](#objektum-orientál-fejlesztés)
+* [Az osztály és az objektum](#az-osztály-és-az-objektum)
+* [Objektum Orienált Java](#objektum-orienált-java)
+
 ## Procedurális fejlesztés
 
 A program egyes részeit **eljárásokba,

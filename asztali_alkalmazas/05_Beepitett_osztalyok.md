@@ -5,6 +5,15 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Matematikai osztály](#matematikai-osztály)
+* [Véletlen szám generálás](#véletlen-szám-generálás)
+* [Konvertlálás](#konvertlálás)
+* [Bevitel](#bevitel)
+* [Karakterláncok](#karakterláncok)
+
 ## Matematikai osztály
 
 A Math osztály matematikai kifejezések írását segíti.

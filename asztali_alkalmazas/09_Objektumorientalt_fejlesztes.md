@@ -5,6 +5,18 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Osztályok IDE segítségével](#osztályok-ide-segítségével)
+* [Scope](#scope)
+* [Példányosítás](#példányosítás)
+* [Konstruktorok](#konstruktorok)
+* [Öröklés](#öröklés)
+* [Beállító lekérdező metódusok](#beállító-lekérdező-metódusok)
+* [Osztály tömbben](#osztály-tömbben)
+* [Osztály listában](#osztály-listában)
+
 ## Osztályok IDE segítségével
 
 Visual Studio Code-ban az osztályokat az oldalsáv JAVA PROJECTS nézetén érdemes létrehozni. Ha nem látszik a nézet, nyissuk meg az egyik .java kiterjesztésű fájlt, például az App.java. Az oldalsávon megjelenik JAVA PROJECTS nézet.

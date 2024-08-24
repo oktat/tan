@@ -5,6 +5,19 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [A metódusokról](#a-metódusokról)
+* [Metódusok definiálása](#metódusok-definiálása)
+* [Kód struktúrálása](#kód-struktúrálása)
+* [Osztályváltozó elérése](#osztályváltozó-elérése)
+* [Statikus metódusok](#statikus-metódusok)
+* [Példánymetódusok](#példánymetódusok)
+* [Scope](#scope)
+* [Paraméterátadás](#paraméterátadás)
+* [Visszatérési érték](#visszatérési-érték)
+
 ## A metódusokról
 
 A metódusok létrehozásával egy utasításnak újabb nevet adhatunk, vagy összefogunk vele több utasítást, amit egyetlen néven futtatok.

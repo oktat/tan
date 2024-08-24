@@ -5,6 +5,18 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Kivételkezelés](#kivételkezelés)
+* [Fájlkezelés](#fájlkezelés)
+* [Kivételek eldobása](#kivételek-eldobása)
+* [Saját kivétel készítése](#saját-kivétel-készítése)
+* [A finally blokk](#a-finally-blokk)
+* [Több kivétel elkapása egyszerre](#több-kivétel-elkapása-egyszerre)
+* [Beépített kivételek](#beépített-kivételek)
+* [Automatikusan lezárt erőforrások](#automatikusan-lezárt-erőforrások)
+
 ## Kivételkezelés
 
 A kivételek abnormális állapotok, amiket kezelünk. Ha fellép egy abnormális állapot, a program kivételt dob.
