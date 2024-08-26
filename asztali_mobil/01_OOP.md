@@ -7,7 +7,7 @@
 
 ## Ismétlő gyakorlatok
 
-1. Kérdezze meg az egyik AI-t, mi a különbség a VSCode és a Netbeans között.
+1. Kérdezze meg az egyik LLM-t, mi a különbség a VSCode és a Netbeans között.
 
 2. Készítsen a VSCode-ban Maven projektet, amiben megold egy programozási feladatot.
 
@@ -35,7 +35,7 @@ public abstract class Dolgozo {
 }
 ```
 
-Figyeljük meg a munkavegzes() nevű metódust. A metódus törzsét nem valósítottuk meg. Viszont előírtuk, hogy az gyermekosztályban létre kell hozni egy munkavegzes() metódust, ami public elérésű, és nincs bemenő paramétere.
+Figyeljük meg a **munkavegzes()** nevű metódust. A metódus törzsét nem valósítottuk meg. Viszont előírtuk, hogy a gyermekosztályban létre kell hozni egy munkavegzes() metódust, ami public elérésű, és nincs bemenő paramétere.
 
 Használjuk örökléssel az osztályt:
 
