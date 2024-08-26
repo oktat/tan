@@ -68,6 +68,75 @@ Az absztrakt osztály tulajdonságai:
 * Egy absztrakt osztály absztrakt metódusát nem lehet az absztrakt osztályon belül megvalósítani.
 * Az örökölt oszálytban, ha az nem absztrakt kötelező megvalósítani az ősosztály absztrakt metódusát.
 
+### Absztrakt osztály gyakorlat
+
+#### Az absztrak osztály gyakorlat 01
+
+Adott az Animal nevű osztály:
+
+```java
+abstract class Animal {
+    abstract void makeSound();
+    
+    void move() {
+        System.out.println("Az állat mozog");
+    }
+}
+```
+
+* Készítsen egy Dog és egy Cat osztályt, ami örökíti az Animal osztályt.
+* Mutassa be az osztályok használatát.
+
+#### Az absztrak osztály gyakorlat 02
+
+Adott a következő osztály:
+
+```java
+abstract class Shape {
+    abstract double calculateArea();
+}
+```
+
+* Készítsen Circle és Rectangle alosztály.
+* Mutassa be az osztályok használatát.
+
+#### Az absztrak osztály gyakorlat 03
+
+Adott a következő osztály:
+
+```java
+abstract class Vehicle {
+    abstract void start();
+
+    void stop() {
+        System.out.println("A jármű megállt.");
+    }
+}
+```
+
+* Készítsen Bike és Car alosztályt.
+* Mutassa be az osztályok használatát.
+
+#### Az absztrak osztály gyakorlat 04
+
+1. Kérdés: Mi az absztrakt osztályok angol megfelelője?
+     * A) Concrete
+     * B) Abstract
+     * C) Virtual
+     * D) Interface  
+
+2. Kérdés: Milyen célra vannak tervezve az absztrakt osztályok?
+    * A) Példányok létrehozására
+    * B) Adatok tárolására
+    * C) Öröklésre
+    * D) Hibakezelésre  
+
+3. Kérdés: Mi a következménye annak, ha megpróbálunk példányt létrehozni egy absztrakt osztályból?
+    * A) Az osztály létrejön
+    * B) Fordítási hiba lép fel
+    * C) Futási hiba lép fel
+    * D) A példány létrejön, de a metódusok nem működnek  
+
 ## Interfész
 
 Az interfészek **metódusok és állandók egy halmazát** adják meg. Az osztályok, amikor implementálnak egy ilyen interfészt, a benne található metódusokat kötelesek megvalósítani.
@@ -297,11 +366,17 @@ public class Triangle {
     public double calcArea(double base, double height) {
         return 0.5 * base * height;
     }
-    public double calcArea(double sideA, double sideB, double angleInDegress) {
+    public double calcArea(
+            double sideA, 
+            double sideB, 
+            double angleInDegress) {
         double angleInRadius = angleInDegress * Math.PI / 180;
         return 0.5 * sideA * sideB * Math.sin(angleInRadius);
     }
-    public double calcArea(float sideA, float sideB, float sideC) {
+    public double calcArea(
+            float sideA, 
+            float sideB, 
+            float sideC) {
         double s = (sideA + sideB + sideC)/2;
         return Math.sqrt(s*(s-sideA)*(s-sideB)*(s-sideC));
     }
