@@ -973,7 +973,7 @@ document.getElementById('changeTextBtn').onclick = function() {
 };
 ```
 
-### Osztály alapon
+### Elérés osztály neve alapján
 
 ```html
 <div class="box">alma</div>
