@@ -1268,9 +1268,9 @@ A JavaScript utasítások egymás után rendere futnak le. Kivétel ez elól az 
 Lássunk egy szinkronban futó utasításhalmazt.
 
 ```javascript
-console.log('Első üzenet)
-console.log('Masodik üzenet)
-console.log('Harmadik üzenet)
+console.log('Első üzenet')
+console.log('Masodik üzenet')
+console.log('Harmadik üzenet')
 ```
 
 Most lássunk egy aszinkron módon futó utasítást.
