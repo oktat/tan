@@ -1149,6 +1149,16 @@ index.html:
 </html>
 ```
 
+style.css:
+
+```css
+.container, .content, h2, ul {
+  border: 1px solid;
+  margin: 2%;
+  padding: 5px;
+}
+```
+
 Nyissuk meg böngészőben. Kapcsoljuk be a DevTools eszközt, azon pedig az "Elements" fület. A "Properties" kiegészítőfülön láthatjuk a kijelölt elemek tulajdonságait. Szűrjünk a childNodes tulajdonságra.
 
 ### DOM manipuláció
