@@ -455,32 +455,127 @@ Viszont a függvényen kívül létrehozott változók elérhetők a függvénye
 let num = 8;
 
 if (num % 2 == 0) {
-  console.log('A sz m páros.')
+  console.log('A szám páros.')
 } else {
-  console.log('A sz m páratlan.')
+  console.log('A szám páratlan.')
 }
+```
 
+Több ágú szelekció az if-fel:
+
+```javascript
+let num = 8;
+
+if (num == 1) {
+  console.log('egy')
+} else if (num == 2) {
+  console.log('kettő')
+} else if (num == 3) {
+  console.log('három')
+} else if (num == 4) {
+  console.log('négy')
+} else {
+  console.log('ismeretlen')
+}
+```
+
+A switch utasítás több ágú szelekciót teszt lehetővé.
+
+```javascript
 let day = 'szerda';
 
 switch (day) {
-  case 'hétfő': console.log('Ez a hét elsőnapja.'); break;
-  case 'kedd': console.log('Ez a hét második napja.'); break;
-  case 'szerda': console.log('Ez a hét harmadik napja.'); break;
-  case 'csütörtök': console.log('Ez a hét negyedik napja.'); break;
-  case 'péntek': console.log('Ez a hét ötödik napja.'); break;
-  case 'szombat': console.log('Ez a hét hatodik napja.'); break;
-  case 'vasárnap': console.log('Ez a hét hetedik napja.'); break;
-  default: console.log('Nem ismerem ezt a napot.');
+  case 'hétfő': 
+    console.log('Ez a hét elsőnapja.'); 
+    break;
+  case 'kedd': 
+    console.log('Ez a hét második napja.'); 
+    break;
+  case 'szerda': 
+    console.log('Ez a hét harmadik napja.'); 
+    break;
+  case 'csütörtök': 
+    console.log('Ez a hét negyedik napja.'); 
+    break;
+  case 'péntek': 
+    console.log('Ez a hét ötödik napja.'); 
+    break;
+  case 'szombat':
+    console.log('Ez a hét hatodik napja.'); 
+    break;
+  case 'vasárnap': 
+    console.log('Ez a hét hetedik napja.'); 
+    break;
+  default: 
+  console.log('Nem ismerem ezt a napot.');
 }
 ```
 
 ### Iteráció
+
+#### A for ciklus
+
+```txt
+for (kezdőérték; feltétel; növekmény) {
+  //ciklustörzs
+}
+```
 
 ```javascript
 const numbers = [1, 2, 3, 4, 5];
 
 for (let i = 0; i < numbers.length; i++) {
   console.log(numbers[i]);
+}
+```
+
+#### A while cikluse
+
+```txt
+while (állítás) {
+  //ciklus törzse
+}
+```
+
+```javascript
+let num = 0;
+while (num < 4) {
+  console.log('egy sor');
+  num++;
+}
+```
+
+#### A do-while ciklus
+
+```txt
+while (állítás) {
+  //ciklus törzse
+}
+```
+
+```javascript
+let num = 0;
+while (num < 4) {
+  console.log('egy sor');
+  num++;
+}
+```
+
+#### A for..in szerkezet
+
+```javascript
+let nums = [35, 47, 22, 11];
+for (index in nums) {
+  console.log(nums[index]);
+}
+```
+
+#### A for..of szerkezet
+
+```javascript
+let nums = [35, 47, 22, 11];
+for (num of nums) {
+  console.log(num);
 }
 ```
 
