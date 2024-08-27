@@ -960,6 +960,10 @@ A lehetésges kimenet:
   <script src="peldak.js"></script></body>
 ```
 
+A használható függvényeket lásd itt:
+
+[https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName)
+
 ### Elemek elérése id alapján
 
 ```html
