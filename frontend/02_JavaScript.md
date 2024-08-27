@@ -1010,7 +1010,7 @@ document.querySelector('#changeTextBtn').onclick = function() {
 };
 ```
 
-Osztályokkla a querySelectorAll() függvény használható:
+Osztályokkal a querySelectorAll() függvény használható:
 
 ```html
 <p class="text">Első szöveg</p>
@@ -1028,7 +1028,9 @@ document.getElementById('changeTextBtn').onclick = function() {
 };
 ```
 
-A dokumentum beöltötségének vizsgálata:
+### A dokumentum betöltöttsége
+
+A dokumentum betöltötségének vizsgálata:
 
 ```javascript
 document.addEventListener('DOMContentLoaded', function() {
@@ -1087,14 +1089,67 @@ document (gyökér)
       p (Ez egy példa a DOM-ra.)
 ```
 
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM Példa</title>
+  </head>
+  <body>
+    <!-- megjegyzés -->
+    <h1 id="cim">Üdvözlet!</h1>
+    <p class="doboz">Ez egy példa a DOM-ra.</p>
+  </body>
+</html>
+```
+
 ### DOM csomópontok
 
-A DOM-ban minden elem egy csomópontot hoz létre. A következő típusok vannak:
+A DOM-ban minden egy csomópontot hoz létre. A következő típusok vannak:
 
 * Element Node (elem csomópont) - egy HTML elem
 * Text Node (szöveg csomópont) - egy szöveg az elemek között
 * Attribute Node (attribútum csomópont) - egy attribútum (class, id stb)
 * Comment Node (megjegyzés csomópont) - egy megjegyzés
+
+Vegyük például egy egyszerű weblapot. 
+
+index.html:
+
+```html
+
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" 
+  content="width=device-width, 
+  initial-scale=1.0">
+  <title>Sinto weblap</title>
+  <link rel="stylesheet" href="style.css">        
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <h2>Lista</h2>
+      <!-- megjegyzés -->
+    
+      <ul id="lista">
+        <li>alma</li>
+        <li>körte</li>
+        <li>barack</li>
+        <li>szilva</li>
+      </ul>
+    </div>
+  </div>    
+
+  <script src="app.js"></script>
+
+</body>
+</html>
+```
+
+Nyissuk meg böngészőben. Kapcsoljuk be a DevTools eszközt, azon pedig az "Elements" fület. A "Properties" kiegészítőfülön láthatjuk a kijelölt elemek tulajdonságait. Szűrjünk a childNodes tulajdonságra.
 
 ### DOM manipuláció
 
@@ -1117,12 +1172,22 @@ function changeText() {
 
 A DOM lehetővé teszi az elemek közötti navigációt. Navigálhatunk a szülő, gyermek vagy testvér elemek között.
 
-* parentNode - az elem szülőjéra mutat
-* childNodes - az elem gyermeke
-* firstChild - az elem első gyermeke
-* lastChild - az elem utolsó gyermeke
-* nextSibling - a következő testvér elem
-* previousSibling - az elem előző testvér elem
+* parentNode - a szülő csomópont
+* childNodes - gyermek csomópont
+* firstChild - a csomópont első gyermekcsomópontja
+* lastChild - a csomópont utolsó gyermekcsomópontja
+* nextSibling - a következő testvér csomópont
+* previousSibling - az előző testvér csomópont
+
+A csomópont nem mindig HTML elemet jelent!
+
+HTML elemek közötti navigációra:
+
+* parentElement - a szülő elem
+* firstElementChild - az elem első gyermeke, amely egy elemre mutat
+* lastElementChild - az elem utolsó gyermeke, amely egy elemre mutat
+* nextElementSibling - a következő testvér elem, amely egy elemre mutat
+* previousElementSibling - az elem érvényes testvér elem, amely egy elemre mutat
 
 Példa a navigációra:
 
@@ -1135,9 +1200,9 @@ Példa a navigációra:
 
 <script>
 const list = document.getElementById('list');
-console.log(list.firstChild); // Az első gyermek elem
-console.log(list.lastChild);  // Az utolsó gyermek elem
-console.log(list.childNodes); // Az összes gyermek elem
+console.log(list.firstElementChild); // Az első gyermek elem
+console.log(list.lastElementChild);  // Az utolsó gyermek elem
+console.log(list.childNodes); // Az összes gyermek csomópont
 </script>
 ```
 
