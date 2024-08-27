@@ -613,6 +613,23 @@ try {
 }
 ```
 
+```javascript
+function szamol(a) {
+  if(a <= 0) {
+    throw new Error('Nem lehet egynél kisebb');
+  }  
+  console.log(a);  
+}
+
+try {
+  szamol(-1);
+} catch (error) {
+  console.log('Hiba történt!');
+  console.log(error.name);
+  console.log(error.message);
+}
+```
+
 ## Függvények
 
 ```javascript
