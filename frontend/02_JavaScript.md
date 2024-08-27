@@ -405,18 +405,47 @@ console.log('A nevem ' + nameVar + ' és ' +
 
 ## Láthatóság
 
+A let és a const kulcsszóval létrehozott változók csak blokkon belül látszanak.
+
 ```javascript
-let outer = "outer";
-
-function foo() {
-  let inner = "inner";
-  console.log(outer); // "outer"
-  console.log(inner); // "inner"
+{
+  let num1 = 30;
+  const num2 = 35;
+  var num3 = 40;
 }
-
-foo();
-//console.log(inner); // ReferenceError: inner is not defined
+//console.log(num1) // hibát ad
+//console.log(num2) // hibát ad
+console.log(num3)
 ```
+
+Ha a var kulcsszóval hoztam létre egy változót, az elérhető blokkon kívül is.
+
+Blokkot általában if, for, while stb utasításokkal hozunk létre:
+
+```javascript
+if(true) {
+  let num1 = 30;
+  const num2 = 35;
+  var num3 = 40;
+}
+console.log(num3)
+```
+
+A függvények blokkok eltérően viselkednek. A függények blokkjaiban var kulcsszóval létrehozott változó sem látszik azon kívül:
+
+```javascript
+var num0 = 25;
+function valami() {
+  let num1 = 30;
+  const num2 = 35;
+  var num3 = 40;
+  console.log(num0);
+}
+valami();
+//console.log(num3); //hibát ad
+```
+
+Viszont a függvényen kívül létrehozott változók elérhetők a függvényen belül
 
 ## Vezérlési szerkezetek
 
