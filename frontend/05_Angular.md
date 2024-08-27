@@ -815,6 +815,8 @@ ng generate service shared/greeting
 
 A tartalom a következő legyen:
 
+src/app/shared/GreetingService.ts:
+
 ```javascript
 import { Injectable } from '@angular/core';
 
@@ -841,14 +843,18 @@ ng generate component greeting
 
 A greeting.component.html fájlt javítsuk.
 
+src/app/greeting/greeting.component.html:
+
 ```html
 <p>{{ greeting }}</p>
 ```
 
 Készítsünk egy greeting nevű változót, string típussal.
 
+src/app/greeting/greeting.component.ts:
+
 ```typescript
-greeting: string;
+greeting!: string;
 ```
 
 A konstruktorba írjuk meg a függőségbefecskendezést:
@@ -886,6 +892,8 @@ export class GreetingComponent {
 
 A komponens konstruktora egy **GreetingService** példányt kap a DI révén. Így az alkalmazás részévé válik és bárhol használhatjuk.
 
+Vegyük észre, hogy a @Component dekorátorban nem kellett felvenni a szolgáltatást az import tömbben.
+
 ### A greeting megjelenítése
 
 A greeting komponenst láthatóvá kell tenni. Ha nincs routing, akkor egyszerűen helyezzük el a főkomponensben. Ehhez importáljuk az src/app/app.component.ts fájlba
@@ -901,6 +909,8 @@ imports: [CommonModule, RouterOutlet, RouterLink, GreetingComponent],
 ```
 
 A teljes src/app/app.component.ts fájl tartalma:
+
+src/app/app.component.ts:
 
 ```typescript
 import { Component } from '@angular/core';
