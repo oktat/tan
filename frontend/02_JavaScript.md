@@ -529,7 +529,7 @@ for (let i = 0; i < numbers.length; i++) {
 }
 ```
 
-#### A while cikluse
+#### A while ciklus
 
 ```txt
 while (feltétel) {
