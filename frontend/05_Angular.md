@@ -841,17 +841,15 @@ Készítsünk egy komponenst, amely függőségként befecskendezi az előbbi sz
 ng generate component greeting
 ```
 
-A greeting.component.html fájlt javítsuk.
-
-src/app/greeting/greeting.component.html:
+A greeting.component.html fájlt javítsuk:
 
 ```html
 <p>{{ greeting }}</p>
 ```
 
-Készítsünk egy greeting nevű változót, string típussal.
+A greeting.component.ts fájlban, készítsünk egy greeting nevű változót, string típussal:
 
-src/app/greeting/greeting.component.ts:
+greeting.component.ts
 
 ```typescript
 greeting!: string;
