@@ -21,7 +21,7 @@
 * [Prototype](#prototype)
 * [A window objektum](#a-window-objektum)
 * [A location objektum](#a-location-objektum)
-* [A document](#a-document)
+* [A document objektum](#a-document-objektum)
 * [DOM](#dom)
 * [Elemek létrehozása](#elemek-létrehozása)
 * [Elemek attribútumainak változtatása](#elemek-attribútumainak-változtatása)
@@ -722,6 +722,25 @@ student.sayHello()
 
 ### Öröklés használata
 
+Tegyük fel, hogy van valahol egy Person osztályunk:
+
+```javascript
+class Person {
+  constructor(name, age) {
+    this.name = name
+    this.age = age
+  }
+  getPerson() {
+    return this.name
+  }
+  getPersonAge() {
+    return this.age
+  }
+}
+```
+
+Örökléssel használjuk az Employee osztályon:
+
 ```javascript
 class Employee extends Person {
     constructor(name, age, jobTitle) {
@@ -744,6 +763,26 @@ employee1.introduce();   // Szia! A nevem Kati, és 28 éves vagyok.
 employee1.describeJob(); // Kati a(z) Fejlesztő pozícióban dolgozik.
 ```
 
+Újabb példa:
+
+```javascript
+class Employee extends Person {
+  constructor(name, age, salary) {
+    super(name, age)
+    this.salary = salary
+  }
+  getSalary() {
+    return this.salary
+  }
+}
+
+const person = new Person('John', 30)
+const employee = new Employee('Jane', 25, 5000)
+
+console.log(person.getPerson())
+console.log(employee.getSalary())
+```
+
 ## Prototype
 
 ```javascript
@@ -760,7 +799,7 @@ const s1 = new Student('Józsi', 20);
 s1.introduce();
 ```
 
-### Örökléssel együtt
+### Prototype örökléssel együtt
 
 ```javascript
 // Konstruktorfüggvény a Person objektum létrehozásához
@@ -897,7 +936,7 @@ location.reload();
 location.href = 'https://szit.hu';
 ```
 
-## A document
+## A document objektum
 
 A document objektum az aktuális HTML dokumentumot képviseli.
 
@@ -921,7 +960,7 @@ A lehetésges kimenet:
   <script src="peldak.js"></script></body>
 ```
 
-### Változtatás
+### Elemek elérése id alapján
 
 ```html
 <p id="greeting">Helló Világ!</p>
@@ -937,8 +976,8 @@ document.getElementById('changeTextBtn').onclick = function() {
 ### Osztály alapon
 
 ```html
-<div class="box"></div>
-<div class="box"></div>
+<div class="box">alma</div>
+<div class="box">körte</div>
 <button id="changeColorBtn">Szín megváltoztatása</button>
 ```
 
