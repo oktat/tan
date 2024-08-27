@@ -7,13 +7,32 @@
 
 ## Típusok és kifejezések
 
+### A ternáris operátor
+
+A ternáris operátor három kifejezésből áll.
+
+```txt
+feltétel ? kifejezés_ha_igaz : kifejezés_ha_hamis
+```
+
+Ha feltétel igaz, a "kifejezés_ha_igaz" értékét kapjuk, ellenkező esetben a "kifejezés_ha_hamisj" értékét kapjuk meg.
+
+```javascript
+let vanAutoja = true;
+console.log(
+  vanAutoja ? 'rendelkezik járművel' : 'nincs autója'
+)
+```
+
+Kicsit összetettebb példa:
+
 ```javascript
 let nev = 'John Doe';
 let kor = 25;
-let vanEAutoja = true;
+let vanAutoja = true;
 
 console.log(nev + ' ' + kor + ' éves és ' +
-   (vanEAutoja ? '' : 'nem ') + 'rendelkezik autóval.');
+   (vanAutoja ? '' : 'nem ') + 'rendelkezik autóval.');
 ```
 
 Tömbtípus:
