@@ -997,6 +997,22 @@ document.getElementById('changeColorBtn').onclick = function() {
 ### A quierSelector
 
 ```html
+<p id="egy">Első szöveg</p>
+<p id="ketto">Második szöveg</p>
+<button id="changeTextBtn">Változtass</button>
+
+```
+
+```javascript
+document.querySelector('#changeTextBtn').onclick = function() {
+    const paragraph = document.querySelector('#egy');
+    paragraph.innerHTML = 'Új szöveg';
+};
+```
+
+Osztályokkla a querySelectorAll() függvény használható:
+
+```html
 <p class="text">Első szöveg</p>
 <p class="text">Második szöveg</p>
 <button id="changeTextBtn">Változtasd meg az összes szöveget</button>
