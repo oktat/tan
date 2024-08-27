@@ -23,8 +23,6 @@
 * [A location objektum](#a-location-objektum)
 * [A document objektum](#a-document-objektum)
 * [DOM](#dom)
-* [Elemek létrehozása](#elemek-létrehozása)
-* [Elemek attribútumainak változtatása](#elemek-attribútumainak-változtatása)
 * [Aszinkron futtatás](#aszinkron-futtatás)
 * [Promise-ok](#promise-ok)
 
@@ -1165,7 +1163,7 @@ Nyissuk meg böngészőben. Kapcsoljuk be a DevTools eszközt, azon pedig az "El
 
 A DOM használatával a webolal elemeit dinamikusan változtathatjuk.
 
-Elem tartalmának változtatása:
+#### Elem tartalmának változtatása
 
 ```javascript
 <p id="myParagraph">Ez egy szöveg.</p>
@@ -1178,7 +1176,9 @@ function changeText() {
 </script>
 ```
 
-### DOM navigáció
+Elem létrehozása
+
+#### DOM navigáció
 
 A DOM lehetővé teszi az elemek közötti navigációt. Navigálhatunk a szülő, gyermek vagy testvér elemek között.
 
@@ -1216,7 +1216,7 @@ console.log(list.childNodes); // Az összes gyermek csomópont
 </script>
 ```
 
-## Elemek létrehozása
+#### Elemek létrehozása
 
 ```html
 <ul id="list">
@@ -1233,7 +1233,7 @@ document.getElementById('addItemBtn').onclick = function() {
 };
 ```
 
-## Elemek attribútumainak változtatása
+#### Elemek attribútumainak változtatása
 
 ```javascript
 document.getElementById('changeImageBtn').addEventListener('click', function() {
