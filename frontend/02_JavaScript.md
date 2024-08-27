@@ -532,7 +532,7 @@ for (let i = 0; i < numbers.length; i++) {
 #### A while cikluse
 
 ```txt
-while (állítás) {
+while (feltétel) {
   //ciklus törzse
 }
 ```
@@ -548,17 +548,17 @@ while (num < 4) {
 #### A do-while ciklus
 
 ```txt
-while (állítás) {
+do {
   //ciklus törzse
-}
+} (feltétel);
 ```
 
 ```javascript
 let num = 0;
-while (num < 4) {
+do {
   console.log('egy sor');
   num++;
-}
+}while (num < 4);
 ```
 
 #### A for..in szerkezet
