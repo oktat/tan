@@ -581,10 +581,21 @@ for (let num of nums) {
 
 ### A try catch
 
+A JavaScript hibát dob a következő utasításokra:
+
+```javascript
+var eredmeny = a + 30;
+console.log(eredmeny);
+```
+
+A try..catch lehetővé teszi, hogy a hibát saját magam kezeljem:
+
 ```javascript
 try {
-  var pelda = 10 / 0;
+  var eredmeny = a + 30;
+  console.log(eredmeny);
 } catch (error) {
+  console.log('Hiba történt!');
   console.log(error.name + ': ' + error.message);
 }
 ```
