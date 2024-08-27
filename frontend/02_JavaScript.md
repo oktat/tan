@@ -1112,7 +1112,7 @@ A DOM-ban minden egy csomópontot hoz létre. A következő típusok vannak:
 * Attribute Node (attribútum csomópont) - egy attribútum (class, id stb)
 * Comment Node (megjegyzés csomópont) - egy megjegyzés
 
-Vegyük például egy egyszerű weblapot. 
+Vegyük például egy egyszerű weblapot.
 
 index.html:
 
