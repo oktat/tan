@@ -574,7 +574,7 @@ for (index in nums) {
 
 ```javascript
 let nums = [35, 47, 22, 11];
-for (num of nums) {
+for (let num of nums) {
   console.log(num);
 }
 ```
