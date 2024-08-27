@@ -5,6 +5,29 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Típusok és kifejezések](#típusok-és-kifejezések)
+* [Operátorok](#operátorok)
+* [Változók](#változók)
+* [Láthatóság](#láthatóság)
+* [Vezérlési szerkezetek](#vezérlési-szerkezetek)
+* [Függvények](#függvények)
+* [A Math](#a-math)
+* [Console](#console)
+* [Osztályok és objektumok](#osztályok-és-objektumok)
+* [Az Object.create()](#az-objectcreate)
+* [Prototype](#prototype)
+* [A window objektum](#a-window-objektum)
+* [A location objektum](#a-location-objektum)
+* [A document](#a-document)
+* [DOM](#dom)
+* [Elemek létrehozása](#elemek-létrehozása)
+* [Elemek attribútumainak változtatása](#elemek-attribútumainak-változtatása)
+* [Aszinkron futtatás](#aszinkron-futtatás)
+* [Promise-ok](#promise-ok)
+
 ## Típusok és kifejezések
 
 ### A ternáris operátor
@@ -35,7 +58,7 @@ console.log(nev + ' ' + kor + ' éves és ' +
    (vanAutoja ? '' : 'nem ') + 'rendelkezik autóval.');
 ```
 
-Tömbtípus:
+### Tömbtípus
 
 ```javascript
 let tomb = [1, 2, 3, 4, 5];
