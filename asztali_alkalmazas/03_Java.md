@@ -30,7 +30,7 @@ Egysoros megjegyzéseket két darab perjel segítségével állíthatunk be:
 // egysoros megjegyzés
 ```
 
-Több soros megjeygzések
+Több soros megjegyzések:
 
 ```java
 /* 
@@ -47,7 +47,7 @@ A képernyőre a System osztályon keresztül szokás írni. A System osztályna
 * out
 * err
 
-Valójában mindegyik a képernyőt jelképezi. Tehát bármelyik mezővel íratunk ki, az a képernyőn jelenik meg. Az out mezővel a szabványos kimenetre írunk, az err mezővel a szabványos hibakimenetre. Az alkalmazás használói a kétféle kimenetet így szét tudják választani.
+Valójában mindegyik a képernyőt jelképezi. Tehát bármelyik mezővel íratunk ki, az a képernyőn jelenik meg. Az **out** mezővel a **szabványos kimenetre** írunk, az **err** mezővel a **szabványos hibakimenetre**. Az alkalmazás használói kétféle kimenetet, így szét tudják választani.
 
 A kiíratásra következő metódusokat használhatjuk:
 
@@ -67,7 +67,7 @@ Ha a println() metódussal szeretnénk a képernyőre írni, így rakjuk össze:
 System.out.println("bármi");
 ```
 
-Írjunk programot, amiben kipróbáljuk az utasítást. Készítsünk egy App.java nevű fájlt, a következő tartalommal. A Java nyelven írt forráskódok .java kiterjesztést kapnak. Készítsük el az állományt.
+Írjunk programot, amiben kipróbáljuk az utasítást. Készítsünk egy **App.java** nevű fájlt. A Java nyelven írt forráskódok .java kiterjesztést kapnak. Készítsük el az állományt a következő tartalommal:
 
 App.java:
 
@@ -85,7 +85,7 @@ A forráskódból bájtkódot kell fordítanunk:
 javac App.java
 ```
 
-Létre jön egy App.class fájjl. Futtassuk a fájlt:
+Létre jön egy **App.class** fájl. Futtassuk a fájlt:
 
 ```cmd
 java App
@@ -97,7 +97,7 @@ A futtatáskor nem adjuk meg a kiterjesztést, csak annak nevét. A kimenet ehhe
 bármi
 ```
 
-Az utasítások kipróbálásához, használhatjuk a JShellt is. Parancssorban indítsuk el:
+Az utasítások kipróbálásához, használhatjuk a **JShell**-t is. Parancssorban indítsuk el:
 
 ```cmd
 jshell
@@ -107,7 +107,7 @@ Indulás után a következőt látjuk:
 
 ![JShell indulás után](images/jshell_indulas_utan.png)
 
-Nézzük meg a kiíratást JShellben is.
+Nézzük meg a kiíratást **JShell**-ben is.
 
 ```cmd
 System.out.println("bármi");
@@ -263,7 +263,7 @@ Egyenlőség vizsgálata:
 System.out.println(5 == 3);
 ```
 
-Ha az egyenlőtlenésget szeretnénk vizsgálni, az első karakter cseréljük ! jel karakraterre.
+Ha az egyenlőtlenésget szeretnénk vizsgálni, az első karaktert cseréljük ! jel karakraterre.
 
 ```java
 System.out.println(5 != 3);
