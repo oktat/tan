@@ -129,6 +129,17 @@ console.log(a === c); // true, mert ugyanarra a referenciára mutatnak
 
 ### A Map típus
 
+A Map típussal kulcs-érték párokat tárolhatunk. Előnyök:
+
+* Bármilyen típus lehet kulcs (még tömb is).
+* Garantált sorrend; a beillesztés sorrendjében kapjuk az adatokat.
+* A kulcson keresztüli elérés O(1) időt vesz igénybe (gyors).
+* Egyszerű iteráció.
+* A size tulajdonsággal könnyen lekérdezhető a mérete.
+* Egyszerű törlés. Egy elem törlése delete. Összes: clear.
+
+A Map adatstruktúrát a Map() konstruktorral hozzuk létre.
+
 Map létrehozása:
 
 ```javascript
@@ -189,7 +200,7 @@ for (let value of myMap.values()) {
 
 ### Set típus
 
-Egyedi értékeket tároló szerkezet.
+Egyedi értékeket tároló szerkezet, amit a Set() konstruktorral hozunk létre.
 
 ```javascript
 
