@@ -1241,10 +1241,19 @@ A gomb legyen elérhetetlen érvénytelen űrlap vagy érvénytelen e-mail cím 
 
 ### FormControl használata
 
-Szükségünk lesz a FormControl osztályra:
+Szükségünk lesz a FormControl és a ReactiveFormsModule osztályra:
 
 ```typescript
-import { FormControl } from '@angular/forms';
+import { 
+  FormControl, 
+  ReactiveFormsModule 
+  } from '@angular/forms';
+```
+
+A @Component dekorátorban fel kell venni a ReactiveFormsModule osztályt:
+
+```typescript
+  imports: [ReactiveFormsModule],
 ```
 
 Az adattag:
@@ -1253,20 +1262,40 @@ Az adattag:
 num = new FormControl('');
 ```
 
+Az onClick kezelése:
+
+```typescript
+  onClick() {
+    console.log(this.num.value);
+    this.num.setValue('35');
+  }
+```
+
 #### Az űrlap
 
 ```typescript
+
 <label for="num">Szám</label>
 <input type="text" id="num" 
 [formControl]="num">
+
+<button (click)="onClick()">Lekér</button>
+
+<button (click)="num.setValue('10')">10</button>
 ```
 
 ### Csoportosított űrlapvezérlők
 
-A FormControl és a FormGroup osztályokra lesz szükség:
+A ReactiveFormsModule, FormControl és a FormGroup osztályokra lesz szükség:
 
 ```typescript
 import { FormControl, FormGroup } from '@angular/forms';
+```
+
+A @Component dekorátor import sorába:
+
+```typescript
+  imports: [ReactiveFormsModule],
 ```
 
 ```typescript
@@ -1280,22 +1309,46 @@ import { FormControl, FormGroup } from '@angular/forms';
 A számítás:
 
 ```typescript
-  calcArea() {
-    let area = Number(this.triangleForm.value.base) *
-      Number(this.triangleForm.value.height) / 2;
+  calculateArea(): void {
+    const base = this.triangleForm.get('base')?.value;
+    const height = this.triangleForm.get('height')?.value;
+    const area = (base * height) / 2;
 
-    this.triangleForm.patchValue({area: area});
+    this.triangleForm.patchValue({ area });
   }
 ```
 
 A sablon:
 
 ```html
-<form [formGroup]="triangleForm" (ngSubmit)="calcArea()">
- 
-<!-- ... -->
- 
-<button type="submit">Számít</button>
+<form [formGroup]="triangleForm"
+  (ngSubmit)="calculateArea()">
+
+  <div class="form-group">
+    <label for="base">Szám</label>
+    <input type="text" id="base"
+    class="form-control"
+    formControlName="base">
+  </div>
+
+  <div class="form-group">
+    <label for="height">Szám</label>
+    <input type="text" id="height"
+    class="form-control"
+    formControlName="height">
+  </div>
+
+  <button class="btn btn-primary mt-2">
+    Számít
+  </button>
+
+  <div class="form-group">
+    <label for="area">Szám</label>
+    <input type="text" id="area"
+    class="form-control"
+    formControlName="area">
+  </div>
+</form>
 ```
 
 ### FormBuilder használata
