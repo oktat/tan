@@ -1358,13 +1358,37 @@ Az email esetén az a@a email cím már megfelel.
 ### Figyelmeztetés
 
 ```html
-<form [formGroup]="userForm">
-
     <div *ngIf="
         userForm.get('name')?.invalid && 
         userForm.get('name')?.touched">
         Kötelező kitölteni
-    </div>    
+    </div>
+```
+
+Az Angular 17 verziótól:
+
+```html
+    @if (
+      userForm.get('name')?.invalid &&
+      userForm.get('name')?.touched
+      ) {
+    <div>
+      Kötelező kitölteni
+    </div>
+    }
+```
+
+```html
+<form [formGroup]="userForm">
+
+    @if (
+      userForm.get('name')?.invalid &&
+      userForm.get('name')?.touched
+      ) {
+    <div>
+      Kötelező kitölteni
+    </div>
+    }
 
     <div class="form-group">
         <label for="name">Name</label>
