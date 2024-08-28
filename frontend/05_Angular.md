@@ -1239,6 +1239,67 @@ A gomb legyen elérhetetlen érvénytelen űrlap vagy érvénytelen e-mail cím 
 
 ## Reaktív űrlapok
 
+### FormControl használata
+
+Szükségünk lesz a FormControl osztályra:
+
+```typescript
+import { FormControl } from '@angular/forms';
+```
+
+Az adattag:
+
+```typescript
+num = new FormControl('');
+```
+
+#### Az űrlap
+
+```typescript
+<label for="num">Szám</label>
+<input type="text" id="num" 
+[formControl]="num">
+```
+
+### Csoportosított űrlapvezérlők
+
+A FormControl és a FormGroup osztályokra lesz szükség:
+
+```typescript
+import { FormControl, FormGroup } from '@angular/forms';
+```
+
+```typescript
+  triangleForm = new FormGroup( {
+    base: new FormControl(''),
+    height: new FormControl(''),
+    area: new FormControl('')
+  })
+```
+
+A számítás:
+
+```typescript
+  calcArea() {
+    let area = Number(this.triangleForm.value.base) *
+      Number(this.triangleForm.value.height) / 2;
+
+    this.triangleForm.patchValue({area: area});
+  }
+```
+
+A sablon:
+
+```html
+<form [formGroup]="triangleForm" (ngSubmit)="calcArea()">
+ 
+<!-- ... -->
+ 
+<button type="submit">Számít</button>
+```
+
+### FormBuilder használata
+
 Importáljuk a FormBuilder és a ReactiveFormsModule osztályokat.
 
 ```typescript
@@ -1289,7 +1350,7 @@ onSubmit() {
 }
 ```
 
-### HTML a reaktív űrlaphoz
+#### HTML a reaktív űrlaphoz
 
 ```html
 
@@ -1327,7 +1388,7 @@ onSubmit() {
 </form>
 ```
 
-### Reaktív űrlapok érvényessége
+#### Reaktív űrlapok érvényessége
 
 ```typescript
 ngOnInit(): void { 
@@ -1355,7 +1416,7 @@ ngOnInit(): void {
 
 Az email esetén az a@a email cím már megfelel.
 
-### Figyelmeztetés
+#### Figyelmeztetés
 
 ```html
     <div *ngIf="
