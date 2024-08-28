@@ -1544,9 +1544,6 @@ Az Angular 17 verziójában az app.module.ts fájl helyett az app.config.ts fáj
 Az app.config.ts fájlban:
 
 ```javascript
-import { HttpClientModule } from '@angular/common/http';
-//...
- 
 providers: [
   providerRouter(routes),
   provideHttpClient()
