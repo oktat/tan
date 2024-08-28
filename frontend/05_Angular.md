@@ -805,7 +805,7 @@ Ebben az esetben a szolgáltatás a shared könyvtáron belül jön létre.
 
 Az Angular **Dependency Injection**, röviden **DI**, lehetővé teszi a direktívák, szolgáltatások, komponensek számára, hogy egyik a másikra támaszkodjon.
 
-### Szolgáltatás készítése
+### A greeting szolgáltatás készítése
 
 A példa kedvéért készítsünk egy egyszerű szolgáltatást:
 
@@ -833,7 +833,7 @@ export class GreetingService {
 }
 ```
 
-### Komponens készítése
+### A greet komponens készítése
 
 Készítsünk egy komponenst, amely függőségként befecskendezi az előbbi szolgáltatást:
 
@@ -998,6 +998,8 @@ src/app/app.component.html:
 
 ### Signup űrlap
 
+Gyakoroljunk és nézzük meg az űrlap érvényességének vizsgálatát is.
+
 #### Signup komponens készítése
 
 Készítsünk egy komponenst, signup néven.
@@ -1006,17 +1008,9 @@ Készítsünk egy komponenst, signup néven.
 ng generate component signup
 ```
 
-Építsük a komponenst a főkomponensbe. Az src/app/signup/signup.component.html fájlba:
-
-```html
-<div class="container">
-  <app-signup></app-signup>
-</div>
-```
-
 #### Az űrlapok direktívái
 
-A sablon-vezérelt űrlapok esetén az ngForm, ngModel direktívát fogjuk használni. Ehhez importálni kell a FormsModule modult.
+A sablon-vezérelt űrlapok esetén az ngForm, ngModel direktívát fogjuk használni. Ehhez **importálni** kell a **FormsModule** modult.
 
 ```typescript
 import { FormsModule } from '@angular/forms';
@@ -1085,6 +1079,12 @@ A name attribútum használata kötelező, ha az ngModel attirbútumot használj
 
 #### A TypeScript rész
 
+Importáljuk az NgForm osztályt, amit típusként fogunk használni. A dekorátorban ezt nem kell megtenni!
+
+```javascript
+import { FormsModule, NgForm } from '@angular/forms';
+```
+
 A teljes TypeScript az src/app/signup/signup.component.ts fájl:
 
 ```typescript
@@ -1113,7 +1113,31 @@ export class SignupComponent {
 }
 ```
 
-Vegyük észre, hogy az NgForm osztály is importálva lett.
+### A signup projekt fő komponense
+
+Építsük a komponenst a főkomponensbe.
+
+Az src/app/app.component.ts fájlba:
+
+```typescript
+import { SignupComponent } from './signup/signup.component';
+//...
+  imports: [RouterOutlet, SignupComponent],
+```
+
+Az src/app/app.component.html fájlba:
+
+```html
+<div class="container">
+  <app-signup></app-signup>
+</div>
+```
+
+Indítsuk el a szervert:
+
+```bash
+ng serve -o
+```
 
 #### Interface használata
 
@@ -1151,7 +1175,7 @@ export class SignupComponent {
 
 #### Érvényesség vizsgálata
 
-Az input elembe vezessük be a require attribútumot.
+Az input elembe vezessük be a **require** attribútumot.
 
 ```html
 <div class="input">
