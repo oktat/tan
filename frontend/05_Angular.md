@@ -2993,6 +2993,26 @@ Ha a projekt a végleges helyén egy alkönyvtárban lesz, akkor használnunk ke
 ng build --base-href=/alkonyvtárnév/
 ```
 
+### A providerRouter paraméterezése
+
+Az src/app/app.config.ts fájlban találjuk a providers tömböt, benne a provideRouter() függvényt. Ennek egy paramétere van a routes objektum, amiban az útválasztási információk találhatók. Ha szerveren alkönyvtárat használunk a második paraméterként hívjuk meg a **withHashLocation() függvényt. Az útválasztás nélküle is működik. Azonban ha egy ilyen weboldon frissítjük a weblapot, az oldal nem található üzenetet kapjuk.
+
+src/app/app.config.ts:
+
+```typescript
+import { ApplicationConfig } from '@angular/core';
+import { provideRouter, withHashLocation } from '@angular/router';
+
+import { routes } from './app.routes';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideRouter(routes, withHashLocation())
+  ]
+};
+
+```
+
 #### Az aktuális könyvtár beállítása
 
 Az index.html fájlban is beállítható, akár build után is az alkönyvtár.
