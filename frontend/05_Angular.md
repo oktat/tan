@@ -1333,11 +1333,27 @@ onSubmit() {
 ngOnInit(): void { 
   this.userForm = this.builder.group({
     name: ['', Validators.required],
-    email: ['', Validators.required, Validators.email],
+    email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required]
   })
 }
 ```
+
+| Függvény | Leírás |
+|-|-|
+| min() | A kontroll értékének minimuma |
+| max() | A kontroll értékének maximuma |
+| required | Kötelező megadni |
+| required | A kontroll értékének true-nak kell lennie |
+| email | Az email tesztnek meg kell felelnie |
+| minLength | Minimum ennyi karakter a kontroll értéke |
+| maxLength | Maximum ennyi karakter a kontroll értéke |
+| pattern | A megadott regexnek megfelel a kontroll értéke |
+| nullValidator | Semmit sem vizsgálunk  |
+| compose | Több érvényesítő összefogása, egy függvénybe |
+| composeAsync | Több aszinkron érvényesítő összefogása |
+
+Az email esetén az a@a email cím már megfelel.
 
 ### Figyelmeztetés
 
