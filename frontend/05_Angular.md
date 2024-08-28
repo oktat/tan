@@ -988,6 +988,16 @@ src/app/num/num.component.html:
 </button>
 ```
 
+Vegyük fel a főkomponensbe a num komponenst.
+
+src/app/app.component.ts:
+
+```typescript
+import { NumComponent } from './num/num.component';
+//...
+  imports: [RouterOutlet, NumComponent],
+```
+
 src/app/app.component.html:
 
 ```html
@@ -998,7 +1008,7 @@ src/app/app.component.html:
 
 ### Signup űrlap
 
-Gyakoroljunk és nézzük meg az űrlap érvényességének vizsgálatát is.
+Gyakoroljunk és nézzük meg az űrlap érvényességének vizsgálatát is. Készítsünk egy **signup** nevű projektet.
 
 #### Signup komponens készítése
 
@@ -1113,7 +1123,7 @@ export class SignupComponent {
 }
 ```
 
-### A signup projekt fő komponense
+#### A signup projekt fő komponense
 
 Építsük a komponenst a főkomponensbe.
 
