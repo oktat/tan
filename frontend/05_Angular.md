@@ -50,7 +50,7 @@ Ebben a leírásban az Angular 17-s verziójával dolgoztam.
 
 ### Telepítés
 
-Célunk, hogy legyen egy **ng** nevű parancs. Ehhez a @angular/cli csomagot kell telepíteni:
+Célunk, hogy legyen egy **ng** nevű parancs. Ehhez az @angular/cli csomagot kell telepíteni:
 
 ```cmd
 npm install -g @angular/cli
@@ -838,18 +838,16 @@ export class GreetingService {
 Készítsünk egy komponenst, amely függőségként befecskendezi az előbbi szolgáltatást:
 
 ```cmd
-ng generate component greeting
+ng generate component greet
 ```
 
-A greeting.component.html fájlt javítsuk:
+A greet.component.html fájlban kössük be a greeting változót:
 
 ```html
 <p>{{ greeting }}</p>
 ```
 
-A greeting.component.ts fájlban, készítsünk egy greeting nevű változót, string típussal:
-
-greeting.component.ts
+A **greet.component.ts** fájlban, készítsünk egy greeting nevű változót, string típussal:
 
 ```typescript
 greeting!: string;
@@ -869,6 +867,8 @@ this.greeting = greetingService.greet('Tibor');
 
 A teljes tartalom:
 
+src/app/greet/greet.component.ts:
+
 ```typescript
 import { Component } from '@angular/core';
 import { GreetingService } from '../shared/greeting.service';
@@ -880,7 +880,7 @@ import { GreetingService } from '../shared/greeting.service';
   templateUrl: './greeting.component.html',
   styleUrl: './greeting.component.css'
 })
-export class GreetingComponent {
+export class GreetComponent {
   greeting: string;
   constructor(private greetingService: GreetingService) {
     this.greeting = greetingService.greet('Tibor');
@@ -897,13 +897,13 @@ Vegyük észre, hogy a @Component dekorátorban nem kellett felvenni a szolgált
 A greeting komponenst láthatóvá kell tenni. Ha nincs routing, akkor egyszerűen helyezzük el a főkomponensben. Ehhez importáljuk az src/app/app.component.ts fájlba
 
 ```typescript
-import { GreetingComponent } from './greeting/greeting.component';
+import { GreetComponent } from './greet/greet.component';
 ```
 
 Vegyük fel a **Component** dekorátor paraméterében is:
 
 ```typescript
-imports: [CommonModule, RouterOutlet, RouterLink, GreetingComponent],
+imports: [CommonModule, RouterOutlet, RouterLink, GreetComponent],
 ```
 
 A teljes src/app/app.component.ts fájl tartalma:
@@ -914,13 +914,13 @@ src/app/app.component.ts:
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { GreetingComponent } from './greeting/greeting.component';
+import { GreetComponent } from './greet/greet.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, GreetingComponent],
+  imports: [CommonModule, RouterOutlet, RouterLink, GreetComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -934,7 +934,7 @@ Ezt követően helyezzük hivatkozzunk a HTML állományban a greeting komponens
 Az src/app/app.component.html fájl tartalma:
 
 ```html
-<app-greeting></app-greeting>
+<app-greet></app-greet>
 ```
 
 ## Sablon-vezérelt űrlapok
