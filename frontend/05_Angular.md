@@ -1289,7 +1289,11 @@ Az onClick kezelése:
 A ReactiveFormsModule, FormControl és a FormGroup osztályokra lesz szükség:
 
 ```typescript
-import { FormControl, FormGroup } from '@angular/forms';
+import { 
+  FormControl, 
+  FormGroup, 
+  ReactiveFormsModule 
+  } from '@angular/forms';
 ```
 
 A @Component dekorátor import sorába:
