@@ -41,7 +41,7 @@ A kézi tesztelés során olyan hibákra is fény derülhet, amire a teszt szoft
 #### Típusok
 
 * funkcionális tesztek - adott funkció működik?
-* nem funkcionális teszek - például teljesítmény, kinézet
+* nem funkcionális tesztek - például teljesítmény, kinézet
 * regressziós teszt - újratesztelés
 
 Ha javítunk valamit egy szoftveren, az újratesztelést regressziós tesztelésnek hívjuk.
