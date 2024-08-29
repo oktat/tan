@@ -3110,7 +3110,7 @@ animations: [
   ],
 ```
 
-A fadeInOut az animáció neve. A state() függvényben megmondjuk, hogy milyen állapotok között kell váltani. A void állapot, azt jelenti az animáció nem látható. A transition() függvényben meghatározzuk, hogy az animáció milyen állapotváltozásra kell bekövetkezzen.
+A fadeInOut az animáció neve. A state() függvénnyel megmondjuk, hogy milyen állapotok vannak. Esetünkben void1 és void2. A void1 az első állapot. A transition() függvényben meghatározzuk, hogy az animáció milyen állapotváltozásra kell bekövetkezzen. Először a void1 állapotból megyünk a void2 állapotba, majd vissza. Az animate() függvényben mondjuk meg, hogy mennyi idő alatt szeretnénk.
 
 Szükségünk van még egy **visible** változóra és egy toggle() metódusra.
 
@@ -3156,5 +3156,7 @@ A sablonfájlban:
   Helló Világ
 </div>
 ```
+
+Ha visible true értékkel rendelkezik, akkor void1 állaptot vesszük fel, és fordítva.
 
 Lásd még: [https://angular.dev/guide/animations](https://angular.dev/guide/animations)
