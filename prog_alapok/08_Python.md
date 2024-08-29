@@ -701,7 +701,7 @@ A format() függvényről még több információ:
 
 ### Natív függvények
 
-Néhány függvény natív Pythonban rendelkezésre áll, vagyis nem szükséges importálni hozzá egyetlen modult sem. Ilyen a pow() függvény:
+Néhány függvény Python nyelvben natívan rendelkezésre áll, vagyis nem szükséges importálni hozzá egyetlen modult sem. Ilyen a pow() függvény:
 
 ```python
 print(pow(2, 8))
