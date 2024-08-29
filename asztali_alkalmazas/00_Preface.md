@@ -5,6 +5,15 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Chocolatey](#chocolatey)
+* [Java JDK](#java-jdk)
+* [Kódszerkesztők](#kódszerkesztők)
+* [Verziókövető](#verziókövető)
+* [Scene Builder](#scene-builder)
+
 ## Chocolatey
 
 Telepítse a Chocolatey csomagkezelőt. Továbbiakban ezt a csomagkezelőt használjuk.

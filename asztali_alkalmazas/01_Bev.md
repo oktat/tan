@@ -5,6 +5,12 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [A Java története](#a-java-története)
+* [Helló Világ](#helló-világ)
+
 ## A Java története
 
 A Java nyelvet a **Sun Microsystem** programozói kezdték fejleszteni 1991-ben, fordítóval, futtató keretrendszerrel. Később az Oracle felvásárolta a céget, így a Java eszközök fejlesztője jelenleg az Oracle.
@@ -43,7 +49,7 @@ A Java keretrendszer, kétféle technológiával jelenik meg:
 
 A **Java Standard Edition** és a **Java Enterprise Edition**. A Standard Edition egyszerűbb alkalmazások fejlesztésére használható, amíg az Enterprise Edition megkönnyíti az összetettebb alkalmazások írását.
 
-A két technolóigából is kétféle kiadás létezik:
+A két technológiából is kétféle kiadás létezik:
 
 * Java JRE - csak futtatásra alkalmas
 * Java JDK - fejlesztés és futtatásra alkalmas

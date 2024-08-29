@@ -9,14 +9,13 @@
 
 * [Tartalomjegyzék](#tartalomjegyzék)
 * [Procedurális fejlesztés](#procedurális-fejlesztés)
-* [Objektum Orientál fejlesztés](#objektum-orientál-fejlesztés)
+* [Objektum Orientált fejlesztés](#objektum-orientált-fejlesztés)
 * [Az osztály és az objektum](#az-osztály-és-az-objektum)
-* [Objektum Orienált Java](#objektum-orienált-java)
+* [Objektum Orientált Java](#objektum-orientált-java)
 
 ## Procedurális fejlesztés
 
-A program egyes részeit **eljárásokba,
-függvényekbe** szervezzük. Nézzünk erre példát Python nyelven.
+A program egyes részeit **eljárásokba, függvényekbe** szervezzük. Nézzünk erre példát Python nyelven.
 
 ```python
 def calcPerimeter(aSide, bSide, cSide):
@@ -31,7 +30,7 @@ print('Kerület:', perimeter)
 print('Terület:', area)
 ```
 
-## Objektum Orientál fejlesztés
+## Objektum Orientált fejlesztés
 
 A programokat **osztályokba** szervezzük. A következő példa Python nyelven mutatja ezt be:
 
@@ -96,7 +95,7 @@ feri.setName("Deres Ferenc")
 print(feri.getName())
 ```
 
-## Objektum Orienált Java
+## Objektum Orientált Java
 
 A Java nyelvben osztály nélkül csak JShell-t használva dolgozhatunk. Minden más esetben egy osztály létrehozásával kell kezdenünk:
 
@@ -106,8 +105,7 @@ class Program01 {
 }
 ```
 
-Az osztályt mindig a class kulcsszóval vezetjük be. Az induló osztály neve tetszőleges, de meg kell egyezen a fájl nevével, kis- és nagybetűre is.
-A metódusokat az osztályon belül hozzuk létre:
+Az osztályt mindig a class kulcsszóval vezetjük be. Az induló osztály neve tetszőleges, de meg kell egyezen a fájl nevével, kis- és nagybetűre is. A metódusokat az osztályon belül hozzuk létre:
 
 ```java
 class Program01 {
@@ -129,9 +127,9 @@ class Program01
 }
 ```
 
-De az összes utasít írható egyetlen sorban is. Ez viszont nem ajánlott, mivel átláthatatlanná teszi a kódot.
+De az összes utasítás írható egyetlen sorba is. Ez viszont nem ajánlott, mivel átláthatatlanná teszi a kódot.
 
-A főosztályban kötelező egy main() metódus, ez lesz a program belépési pontja. A public és a static előtagok kötlezőek, a void visszatérési típussal együtt. A bementő paraméter szintén kötlező: String[] args.
+A főosztályban kötelező egy main() metódus, ez lesz a program belépési pontja. A public és a static előtagok kötelezőek, a void visszatérési típussal együtt. A bemenő paraméter szintén kötlező: String[] args formában.
 
 Vegyünk egy Employee osztályt, amiben dolgozó adatatit szeretnénk tárolni. Az adattagok típusát előre meg kell adni:
 
@@ -153,7 +151,7 @@ feri.setName("Deres Ferenc");
 System.out.println(feri.getName());
 ```
 
-* A this az adattagra utal.
+* A this, magára az osztályra utal.
 * A konstruktor neve megegyezik az osztály nevével.
 * A példányosításhoz szükség van a "new" kulcsszóra.
 * A metódusoknál jelezni kell a visszatérés típusát.
