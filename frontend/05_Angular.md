@@ -2301,6 +2301,10 @@ const routes: Routes = [
 ];
 ```
 
+Ha a path értéke üres, nem írtam útvonalat, akkor átirányítunk a Home komponensre.
+
+A két csillag (**), azt jelenti nem létező útvonal. Ha ilyenre hivatkozik valaki, akkor betöltjük a Nopage componenst.
+
 ### Routing alútvonalkkal
 
 Az útválasztá során a komponenseket a főkomponensebe töltjük be, ami az **app**. A betöltött komponensekbe útválasztás útjár újabb gyeremek komponenseket tölthetünk útválasztással.
@@ -3067,51 +3071,88 @@ Ha változtatunk ezen a beállításon és azt szeretnénk a böngészőben megt
 
 Az Angularban elérhető az @angular/animations modul, ami lehetővé teszi animáció létrehozását.
 
-A használathoz importálni kell az alkalmazás számára a BrowserAnimationsModule modult.
+A használathoz importálni kell az alkalmazás számára a BrowserAnimationsModule modult. Standalone alkalmazásnál ehhez a **provideAnimationsAsync() függvényt használjuk. Az app.config.ts fájlban importáljuk:
 
-```javascript
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-@NgModule({
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule
-    ],
-    declarations: [AppComponent],
-    bootstrap: [AppComponent]
-})
-export class AppModule { }
+```typescript
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 ```
 
-Ez után definiálhatunk a komponenseikben animációt:
+Az app.config.ts fájlban vegyük fel a **providers** tömbbe:
+
+```typescript
+providers: [    
+    provideAnimationsAsync()
+  ]
+```
+
+Ez után definiálhatunk egy komponensben animációt. Importáljuk a szükséges függvényeket:
 
 ```javascript
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { 
+  animate, 
+  state, 
+  style, 
+  transition, 
+  trigger 
+  } from '@angular/animations';
+```
 
-@Component({
-    selector: 'app-root',
-    template: `
-        <button (click)="toggle()">Toggle</button>
-        <div [@fadeInOut] *ngIf="visible">Hello World</div>
-    `,
-    animations: [
-        trigger('fadeInOut', [
-            state('void', style({
-                opacity: 0
-            })),
-            transition(':enter, :leave', [
-                animate(300)
-            ])
-        ])
-    ]
-})
-export class AppComponent {
-    visible: boolean = false;
+A @Component dekorátorban hozzk létre az animations tömböt:
 
-    toggle() {
-        this.visible = !this.visible;
-    }
-}
+```javascript
+animations: [
+    trigger('fadeInOut', [
+      state('void1', style({ opacity: 0 })),
+      state('void2', style({ opacity: 0.9 })),
+      transition('void1 => void2', [animate('2s')]),
+      transition('void2 => void1', [animate('2s')])
+    ])
+  ],
 ```
 
 A fadeInOut az animáció neve. A state() függvényben megmondjuk, hogy milyen állapotok között kell váltani. A void állapot, azt jelenti az animáció nem látható. A transition() függvényben meghatározzuk, hogy az animáció milyen állapotváltozásra kell bekövetkezzen.
+
+Szükségünk van még egy **visible** változóra és egy toggle() metódusra.
+
+A teljes kód:
+
+src/app/app.component.ts:
+
+```javascript
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { Component } from '@angular/core';
+
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css',
+  animations: [
+    trigger('fadeInOut', [
+      state('void1', style({ opacity: 0 })),
+      state('void2', style({ opacity: 0.9 })),
+      transition('void1 => void2', [animate('2s')]),
+      transition('void2 => void1', [animate('2s')])
+    ])
+  ],
+})
+export class AppComponent {
+  visible = false;
+
+  toggle() {
+    this.visible = !this.visible;
+  }
+}
+```
+
+A sablonfájlban:
+
+```html
+<button (click)="toggle()">Vált</button>
+
+<div [@fadeInOut]="visible ? 'void1' : 'void2'">
+  Helló Világ
+</div>
+```
