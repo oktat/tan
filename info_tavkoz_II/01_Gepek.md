@@ -7,11 +7,118 @@
 
 ## Mesterséges intelligencia
 
-* [https://szit.hu/doku.php?id=oktatas:szamitastechnika:mesterseges_intelligencia](https://szit.hu/doku.php?id=oktatas:szamitastechnika:mesterseges_intelligencia)
+A mesterséges intelligencai rövdien MI. Angolul artifical intelligence, vödien AI.
+
+A MI fejlesztés célja, hogy olyan intelligenciával rendelkező gépet hozzunk létre, ami az intelligens viselkedéshez hasonlít.
+
+Meg kell jegyezzük, hogy a manapság AI néven elérehtő gépek nem valódi mesterséges intelligenciák. Ezt az alkotójuk is beismerik. Üzeleti érdekekből, azonban AI néven teszik hozzáférhetővé.
+
+Az AI néven elérhető gépek statisztikai nyelvi modulok. Általánosan "Nagy nyelv modellek". Angolul: Large Language Model. A helyes rövidítés így: LLM. Így helyesebb nyelvi modellekről beszélni, vagy egyszerűen LLM-ről.
+
+Nézzük meg hol használják ezeket a technológiákat:
+
+* Robotok irányítása
+* Számolás
+* Keresés adatok között
+* Alakzatok felismerése
+* Nyelvek közötti fordítás
+* Természetes nyelvek megértése
+* Beszéd előállítása
+
+Az AI fejlesztésnek négy irányzatát különböztetjük meg:
+
+* Emberi módon gondolkodó rendszerek
+* Emberi módon cselekvő rendszerek
+* Racionálisan gondolkodó rendszerek
+* Racionálisan cslekvő rendszerek
+
+Az AI-t első képviselői automaták, amelyek már az ókorban is megjelentek.
+
+### Arisztotelész
+
+Arisztotelész (Kr. e 384-324), a Politika című művében automatiáknak nevezett eszközökkel kívánta kiváltani a rabszolgák munkáját, amely sosem valósultak meg. A "Szerszám" című művében lefekteti a logika és a szillogizmus alapjait. "Elemek" című munkájában a számelméleti algoritmusokról ír. Itt szerepel, például két szám legynagyobb közös osztója.
+
+### Turing
+
+Alan Mathison Turing 1950-ben tesztet javasol az automata számára, amit 26 fejezeten keresztül tárgyal. A gép akkor állja ki a próbát, ha a vele társalgó ember nem tudja eldönteni, hogy gépről vagy emberről van szó.
+
+Ehhez a gépekenek a következőkkel kell rendelkeznie:
+
+* természtese nyelv feldolgozása
+* ismert vagy hallot információ tárolása
+* következtetése levonása
+* gépi tanulás - új következtetések levonása
+
+### Arthur Samuel
+
+Arhur Samuel 1952-ben egy IBM számítógépen elkszít egy dámajátékot. Minden játék után a program hatékanyabb dámajátékossá vált.
+
+### Dartmouth College
+
+Az amerikai Darthmouth Collage-ban, 1956-ban 10 tudós megfogalmazza, mit kell tudni egy gépnek:
+
+* nyelvhasználat
+* elvont fogalmak ismerete
+* problémamegoldás
+
+### Deep Blue
+
+A Deep Blue nevű sakkgép 1997-ben legyőzi Garri Kaszparovot.
+
+### Geoffry Hinton
+
+Geoffry Hinton 2006-ban megalkotja a deep learning fogalmát. Kutatásai során foglalkozott algoritmusokkal, amelyek objektumokat és szövegeket ismernek fel videókon, képeken.
+
+### A Turing teszt teljesítése
+
+2014-ben egy gép teljesíti a Turing tesztet.
+
+### Nyílt levél
+
+2015-ben 3000 fejlesztő találkozott, ahol nyílt levelet fogalmaztak meg. Nyílt levélben az autónom rendszerek veszélyeir hívták fel a figyelmet, amelyk emberi beavatkozás nélkül választják ki a célpontjaikat.
+
+Néhény ismertebb résztvevő:
+
+* Elon Musk
+* Steve Wozniak
+* Stephen Hawkig
+
+A felhívás itt olvasható:
+
+* [https://arstechnica.com/](https://arstechnica.com/gadgets/2015/07/musk-hawking-wozniak-call-for-ban-on-autonomous-weaponry-and-military-ai/)
+
+AlphaGo
+
+2016-ban az AlphaGo nevű program megver egy profi kínai Go játékost.
 
 ## Gépi tanulás
 
-* [https://szit.hu/doku.php?id=oktatas:szamitastechnika:mesterseges_intelligencia#gepi_tanulas](https://szit.hu/doku.php?id=oktatas:szamitastechnika:mesterseges_intelligencia#gepi_tanulas)
+A gépek egy-egy probléma esetén összetett mintákat is felismerhetnek.
+
+A gépi tanulás osztályozása:
+
+* felügyelt
+* nem felügyelt
+* megerősített
+
+### Felügyelt tanulás
+
+Az adatokat valmailyen céllal címkézzük. Ilyen elven működnek:
+
+* spam szűrő
+* célzott reklám, hírdetés
+
+### Nem felügyelt tanulás
+
+A rendezelet adatokban a gép csoportokat ismer fel, de nem áll rendelkezésre célérték.
+
+* hasonló viselkedésű ügyfelek keresése
+
+### Megerősített tanulás
+
+A rendszer hibákból tanul. Eleinte sokat hibázik, amikről visszajelzést kap.
+
+* arfelismerés
 
 ## Neurális hálózatok
 
