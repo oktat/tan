@@ -72,7 +72,7 @@ Hátrányok:
 
 * Telepítő fájl letöltése.
 * Fel kell tölteni a használt tárhelyre.
-* Adatbázis kell létrehozni.
+* Adatbázist kell létrehozni.
 * CMS telepítése, általában URL-en keresztül.
 * Belépés és tesztelés
 
