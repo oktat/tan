@@ -5,9 +5,35 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
-## React Native
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [A React Native](#a-react-native)
+* [Követelmények](#követelmények)
+* [Indulás](#indulás)
+* [Alapvető stílusok](#alapvető-stílusok)
+* [Görgetés](#görgetés)
+* [Képek megjelenítése](#képek-megjelenítése)
+* [Bevitel](#bevitel)
+* [Jelszó bekérés](#jelszó-bekérés)
+* [Gombok](#gombok)
+* [Saját gombok](#saját-gombok)
+* [Bekérés gyakorlat](#bekérés-gyakorlat)
+* [Lista megjelenítése](#lista-megjelenítése)
+* [Adatok REST API szerverről](#adatok-rest-api-szerverről)
+* [Továbbiak](#továbbiak)
+
+## A React Native
+
+A React Native egy népszerű nyílt forráskódú keretrendszer, amit Facebook fejleszt.
+
+A React Native segítségével ugyanazt a kódot futtathatjuk iOS és Android operációs rendszeren is.
+
+Nagy előnye a gyors fejlesztés és a közösséi támogatás.
 
 ## Követelmények
+
+Szükségünk van a Node.js aktuális LTS verziójára, egy Git verziókövetőre és VSCode kódszerkesztőre.
 
 * Node.js LTS
 * Git

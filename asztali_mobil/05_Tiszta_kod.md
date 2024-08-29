@@ -6,6 +6,22 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [A tisztakódról](#a-tisztakódról)
+* [Elnevezések](#elnevezések)
+* [Gyakorlat elnevezésekre](#gyakorlat-elnevezésekre)
+* [Függvények](#függvények)
+* [Megjegyzések](#megjegyzések)
+* [Formázás](#formázás)
+* [Objektumok és adatszerkezetek](#objektumok-és-adatszerkezetek)
+* [Hibakezelés](#hibakezelés)
+* [Határok](#határok)
+* [Unit tesztek](#unit-tesztek)
+* [Osztályok](#osztályok)
+* [S.O.L.I.D. elvek](#solid-elvek)
+
 ## A tisztakódról
 
 **Robert C. Martin** fogalmazta meg a tiszta kód elveit a **"Tiszta kód"** című könyvében.

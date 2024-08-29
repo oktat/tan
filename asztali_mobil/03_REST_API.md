@@ -5,6 +5,24 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [REST API elérésről](#rest-api-elérésről)
+* [Szinkron kérés](#szinkron-kérés)
+* [A get() metódus darabolása](#a-get-metódus-darabolása)
+* [A POST metódus](#a-post-metódus)
+* [A PUT metódus](#a-put-metódus)
+* [A DELETE metódus](#a-delete-metódus)
+* [Azonosítás beállítása](#azonosítás-beállítása)
+* [Objektum JSON formátumba](#objektum-json-formátumba)
+* [Objektumból JSON újra módosítással](#objektumból-json-újra-módosítással)
+* [Aszinkron kérés](#aszinkron-kérés)
+* [Hozzáadás](#hozzáadás)
+* [Frissítés](#frissítés)
+* [Törlés](#törlés)
+* [Telejes kód](#telejes-kód)
+
 ## REST API elérésről
 
 Java 11-től használhatjuk a **HttpClient** osztályt HTTP kapcsolatokra. A **HttpRequest** osztály egy objektumát használjuk egy kérés leírására. Paraméterként az URI osztályt használhatjuk, a REST API elérésének megadására. Egy **HttpResponse** objektumban fogadjuk a HTTP szerver válaszát, a **BodyHandlers** osztállyal mondjuk meg, hogy Sztringként szeretnénk kezelni a válaszban érkezett tartalmat.

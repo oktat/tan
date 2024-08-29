@@ -7,35 +7,32 @@
 
 ## Tartalomjegyzék
 
-* [CSS](#css)
-* [Stíluslapok készítése](#stiluslapok-kiszitese)
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [A CSS](#a-css)
+* [Stíluslapok készítése](#stíluslapok-készítése)
 * [Szelektorok](#szelektorok)
-* [Háttérbeállítások](#hatterbeallitasok)
+* [Háttérbeállítások](#háttérbeállítások)
 * [Fontok](#fontok)
-* [Szövegbeállíátsok](#szovegbeallitasok)
-* [Kerettulajdonságok](#kerettulajdonsagok)
+* [Szövegbeállítások](#szövegbeállítások)
+* [Kerettulajdonságok](#kerettulajdonságok)
 * [Dobozmodell](#dobozmodell)
-* [Túlcsordulás](#tulcsordulas)
-* [Listák](#listak)
-* [Megjelenés](#megjelenes)
-* [Pozíconálás](#pozicionalas)
-* [Lebegtetés](#lebegtetes)
-* [Blokkelemek igazítása](#blokkelemekigazitasa)
-* [Ál-osztályok](#alosztalyok)
-* [Átlátszatlanság](#atlatszatlansag)
-* [Táblázatok](#tablazatok)
+* [Túlcsordulás](#túlcsordulás)
+* [Listák](#listák)
+* [Megjelenés](#megjelenés)
+* [Pozicionálás](#pozicionálás)
+* [Lebegtetés](#lebegtetés)
+* [Blokkelemek igazítása](#blokkelemek-igazítása)
+* [Ál-osztályok](#ál-osztályok)
+* [Átlátszatlanság](#átlátszatlanság)
+* [Táblázatok](#táblázatok)
 * [Z-index](#z-index)
-* [Mértékegységek](#mertekegysegek)
-* [Színek](#szinek)
-* [Ajánlott linkek](#ajanlottlinkek)
-
-<a name="css"></a>
+* [Mértékegységek](#mértékegységek)
+* [Színek](#színek)
+* [Ajánlott linkek](#ajánlott-linkek)
 
 ## A CSS
 
 A **CSS** a **Cascading Style Sheets** rövidítése. Magyarul **Lépcsőzetes stíluslapok**. A CSS segítségével formázzuk a weboldalakat, meghatározzuk a weblap stílusát.
-
-<a name="stiluslapok-kiszitese"></a>
 
 ## Stíluslapok készítése
 
@@ -59,8 +56,6 @@ A külső stíluslapot a HTML állományban a link elemmel csatoljuk:
 <link rel="stylesheet" href="style.css">
 ```
 
-<a name="szelektorok"></a>
-
 ## Szelektorok
 
 A stílust mindig egy HTML elemhez rendeljük hozzá. A szelektorok segítségével mondjuk meg, melyik HTML elem számára írunk beállításokat. Például:
@@ -79,7 +74,7 @@ body {
 }
 ```
 
-A stílus utasítások tulajdonság értékpárokból állnak. Ezeket a szelektor után írjuk a kapcsos zárójelek közzé. Állítsuk be a példa kedvéért a h1 elemek háttérszínét kék színűre.
+A stílusutasítások tulajdonság értékpárokból állnak. Ezeket a szelektor után írjuk a kapcsos zárójelek közzé. Állítsuk be a példa kedvéért a **h1** elemek háttérszínét kék színűre.
 
 ```css
 h1 {
@@ -87,7 +82,7 @@ h1 {
 }
 ```
 
-Az első tulajdonságunk a background-color, amit egy blue érték követ. Vegyük észre a tulajdonság és az érték között az kettőspontot (:), az érték után a pontosvesszőt (;)
+Az első tulajdonságunk a background-color, amit egy blue érték követ. Vegyük észre a tulajdonság és az érték között a kettőspontot (:), az érték után a pontosvesszőt (;)
 
 Egyszerre több elemet is megadhatunk:
 
@@ -101,7 +96,7 @@ A h1, a h2 és a h3 elem számára is beállítottuk a kék háttérszínt. A sz
 
 ### Osztályok használata
 
-Ha például több h2 elemünk is van, és nem szeretnénk mindegyik h2 elemnek beállítani a kék színt, akkor osztályt használunk. A HTML oldalról:
+Ha több h2 elemünk is van, és nem szeretnénk mindegyik h2 elemnek beállítani a kék színt, akkor osztályt használunk. A HTML oldalról:
 
 ```html
 <h2>egy</h2>
@@ -152,8 +147,6 @@ Itt is elhagyható a div:
     background-color: blue;
 }
 ```
-
-<a name="hatterbeallitasok"></a>
 
 ## Háttérbeállítások
 
@@ -244,8 +237,6 @@ h1 {
     background-size: cover;
 }
 ```
-
-<a name="fontok"></a>
 
 ## Fontok
 
@@ -351,8 +342,6 @@ p {
 
 A kiskapitális nagybetűs írás, de kisebb méretben.
 
-<a name="szovegbeallitasok"></a>
-
 ## Szövegbeállítások
 
 ### Szöveg színezése
@@ -407,7 +396,7 @@ p {
 }
 ```
 
-### A sormagassága
+### A sor magassága
 
 Az előző sorhoz képest beállítható a távolság a **line-height** segítségével.
 
@@ -484,8 +473,6 @@ Adott a következő weblap:
 
 Feladat: Határozza meg a h1 elem szülőelemét.
 
-<a name="kerettulajdonsagok"></a>
-
 ## Kerettulajdonságok
 
 Minden HTML elemhez beállítható keret, vagy másként mondva szegély. A szegélyt a **border** tulajdonsággal állítjuk.
@@ -531,8 +518,6 @@ p {
 ```
 
 A **border-collapse** tulajdonság használható táblázatoknál, lásd ott.
-
-<a name="dobozmodell"></a>
 
 ## Dobozmodell
 
@@ -637,8 +622,6 @@ p {
 }
 ```
 
-<a name="tulcsordulas"></a>
-
 ## Túlcsordulás
 
 A HTML dobozok alapértelmezetten rugalmas méretűek. Ha hozzáadunk tartalmat, akkor automatikusan nő a méretük. Ha viszont fix szélességű és magasságú dobozt hozunk létre, és a tartalom nem fér el benne, a doboz túlcsordul.
@@ -716,8 +699,6 @@ Beállítható értékek:
     overflow-y: scroll;
 }
 ```
-
-<a name="listak"></a>
 
 ## Listák
 
@@ -797,8 +778,6 @@ li {
 
 ![inline és outline lista](images/lista_inside_outside.png)
 
-<a name="megjelenes"></a>
-
 ## Megjelenés
 
 A dobozok megjelenítését a visibility és a display tulajdonsággal állíthatjuk.
@@ -864,8 +843,6 @@ span.doboz {
     display: block;
 }
 ```
-
-<a name="pozicionalas"></a>
 
 ## Pozicionálás
 
@@ -961,8 +938,6 @@ A kipróbáláshoz olyan hosszú szöveges tartalmat illesszünk a bekezdésekbe
 
 A sticky érték esetén a doboz helyén marad mindaddig, amíg el nem éri a felsőrészt, 5 pixelre.
 
-<a name="lebegtetes"></a>
-
 ## Lebegtetés
 
 Egy doboz tartalmában úsztatunk egy másik dobozt. A tartalom általában szöveg, az úsztatott doboz pedig egy képet jelenít meg.
@@ -1007,8 +982,6 @@ A float beállítás után, minden tartalomban úszik a kép. Ha szeretnénk tö
 
 ![A float és a clear bemutatása](images/float_clear.png)
 
-<a name="blokkelemekigazitasa"></a>
-
 ## Blokkelemek igazítása
 
 A blokk elemek a böngésző bal szélétől a jobb széléig érnek. Ha beállítjuk, hogy 50% legyen a szélesség, a doboz automatikusan baloldalra igazodik. Középre igazításhoz a bal és jobb margót automatikusra kell állítani.
@@ -1022,8 +995,6 @@ A blokk elemek a böngésző bal szélétől a jobb széléig érnek. Ha beáll�
 }
 ```
 
-<a name="alosztalyok"></a>
-
 ## Ál-osztályok
 
 Az ál-osztályok speciális szelektorok. Például ál-osztállyal állíthatjuk be a, linkeket, az aktivált linkek, a már meglátogatott linkeket stb.
@@ -1034,8 +1005,6 @@ a:visited {color:#00FF00;}  /* látogatott linkek */
 a:hover {color:#FF00FF;}  /* ha az egér felé megy */
 a:active {color:#0000FF;}  /* aktuális linkek */
 ```
-
-<a name="atlatszatlansag"></a>
 
 ## Átlátszatlanság
 
@@ -1065,8 +1034,6 @@ rgba(piros, zöld, kék, alfa)
    background-color:rgba(255, 0, 0, 0.3);
 } 
 ```
-
-<a name="tablazatok"></a>
 
 ## Táblázatok
 
@@ -1109,8 +1076,6 @@ td {
     padding: 30px;
 }
 ```
-
-<a name="z-index"></a>
 
 ## Z-index
 
@@ -1177,8 +1142,6 @@ A z-index változtatása:
 
 ![z-index beállítva](images/css/z-index_beallitva.png)
 
-<a name="mertekegysegek"></a>
-
 ## Mértékegységek
 
 ### Relatív hosszmértékek
@@ -1212,8 +1175,6 @@ Abszolút és mégis relatív hosszmértékek
 | Mértékegység | Leírás |
 |-|-|
 | px | képpont; eszközfüggő |
-
-<a name="szinek"></a>
 
 ## Színek
 
@@ -1367,8 +1328,6 @@ A böngészők általában elfogadják a következő színeket:
 * WhiteSmoke
 * Yellow
 * YellowGreen
-
-<a name="ajanlottlinkek"></a>
 
 ## Ajánlott linkek
 

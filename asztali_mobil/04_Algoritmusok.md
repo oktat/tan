@@ -5,6 +5,19 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Nevezetes algoritmusok](#nevezetes-algoritmusok)
+* [Algoritmusok bonyolultsága](#algoritmusok-bonyolultsága)
+* [Tömb](#tömb)
+* [Lista](#lista)
+* [Lista műveletek](#lista-műveletek)
+* [Elemi adatszerkezetek](#elemi-adatszerkezetek)
+* [Hashmap](#hashmap)
+* [Rekurzió](#rekurzió)
+* [Algoritmusok alkalmazása gyakorlat](#algoritmusok-alkalmazása-gyakorlat)
+
 ## Nevezetes algoritmusok
 
 ### Buborék rendezés

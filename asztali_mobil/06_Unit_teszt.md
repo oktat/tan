@@ -5,6 +5,19 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [A tesztelés szintjei](#a-tesztelés-szintjei)
+* [TestNG teszt](#testng-teszt)
+* [JUnit teszt](#junit-teszt)
+* [Beszerzés](#beszerzés)
+* [Visual Studio Code bővítmény](#visual-studio-code-bővítmény)
+* [Projekt készítés](#projekt-készítés)
+* [A JUnit hozzáadása](#a-junit-hozzáadása)
+* [Teszt osztály](#teszt-osztály)
+* [Triangle tesztelése](#triangle-tesztelése)
+
 ## A tesztelés szintjei
 
 * komponensteszt
