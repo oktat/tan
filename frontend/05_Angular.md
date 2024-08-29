@@ -3156,3 +3156,5 @@ A sablonfájlban:
   Helló Világ
 </div>
 ```
+
+Lásd még: [https://angular.dev/guide/animations](https://angular.dev/guide/animations)
