@@ -2220,6 +2220,16 @@ ng generate component about
 Vegyük fel a **Component** dekoráció paramétereként, az imports részhez a **RouterLink** osztályt. Közben imporátljuk.
 
 ```typescript
+import { RouterLink } from '@angular/router';
+//...
+  imports: [RouterLink],
+```
+
+A teljes kód:
+
+src/app/app.routes.ts:
+
+```typescript
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
@@ -2272,7 +2282,9 @@ Ebben a példában két útvonal van. A kezdőlap és az About oldal.
 
 Mindkét útvonal egy-egy komponenshez van rendelve. A path: '' az üres útvonalat jelenti. Az alkalmazásunk első megnyitásakor az itt megadott komponens töltődik be.
 
-A routerLink attribútum használata szükséges az SPA viselkedéshez. Ha href attribútumot használunk az oldal újratöltéssel navigál.
+![A Home és About kompones az App komponensben](images/angular/routing_home_about.png)
+
+Az **a** elemben, a routerLink attribútum használata szükséges az SPA viselkedéshez. Ha href attribútumot használunk az oldal újratöltéssel navigál.
 
 A router-outlet direktíva azt jelzi, hogy ide kell behelyettesíteni az aktuális komponenst.
 
@@ -2289,7 +2301,11 @@ const routes: Routes = [
 ];
 ```
 
-### Routing alkönyvtárakkal
+### Routing alútvonalkkal
+
+Az útválasztá során a komponenseket a főkomponensebe töltjük be, ami az **app**. A betöltött komponensekbe útválasztás útjár újabb gyeremek komponenseket tölthetünk útválasztással.
+
+A következő példában az **admin** komponensbe útválasztással **login** és a **products** gyermekkomponenst töltöm.
 
 src/app/app.routes.ts:
 
@@ -2307,6 +2323,7 @@ const routes: Routes = [
     path: '', component: WebsiteComponent,
     children: [
       { path: 'buy', component: BuyComponent }
+      { path: 'contact', component: ContactComponent }
     ]
   }
 ];
@@ -2323,6 +2340,10 @@ src/app/buy/buy.component.html:
 ```html
 <router-outlet></router-outlet>
 ```
+
+![Az Admin komponensben újabb komponensek](images/angular/routing_website_admin_child.png)
+
+![A Website komponensben újabb komponensek](images/angular/routing_website_admin_child_02.png)
 
 ## Pipe
 
