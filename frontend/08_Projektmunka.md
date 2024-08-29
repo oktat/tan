@@ -5,11 +5,37 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
-## Projektfeladat
+## Bekérős feladat
 
-### Minőségbiztosító rendszer
+### Bekérős feladat kezdés
 
-#### Kezdés
+A cél egy bekérős feladat megoldása.
+
+* Hozzunk létre csoportokat. Lehet akár 2-3 fős csoport.
+* Legyen egy csoportvezető.
+* A csoportvezető létrehozza a kezdeti Angular projektet.
+* A csoportvezető létrehozza az komponenseket és az útválasztást.
+  * Home
+  * Solution
+  * History
+  * About
+
+### A bekérős feladatben a komponensek szerepe
+
+Mit is tudjanak az egyes komponensek.
+
+* Home - Leírja mit olda meg az alkalmazás
+* Solution - A megoldás. Bekérés, eredmény kiírása, kattintásra, Enter-re.
+* History - Az eddig megoldott feleadat be- és kimenő paraméterinek listája.
+* About - Névjegy. Kik, mikor és milyen körülmények között csinálták.
+
+### A bekérős felat szolgáltatásai
+
+* History - Kezeli a megoldott feladatok CRUD műveleteit.
+
+## Minőségbiztosító rendszer
+
+### Minőségbiztosító kezdés
 
 Célunk egy minőségbiztosító rendszer létrehozása.
 
@@ -29,9 +55,9 @@ Célunk egy minőségbiztosító rendszer létrehozása.
 * A csoport tagjai klónozzák a projektet.
 * A csoport tagok fejlesztik az egyes komponenseket.
 
-#### A komponensek szerepe
+### Minőségbiztosító komponensek szerepe
 
-Mit is tudjanak az egyes komponensek.
+Mit is tudjanak az egyes komponensek. Általában a CRUD műveleteket.
 
 * Home - A minőségbiztosító rendszerről leírás
 * Login - Beléptető felület
@@ -46,7 +72,7 @@ Mit is tudjanak az egyes komponensek.
 * Admin Users - Felhasználókezelés
 * Admin Subject - A témák kezelése (bizonyos témákra lehet kérdőívet kitölteni)
 
-#### Szolgáltatások
+### Minőségbiztosító szolgáltatások
 
 A következő szolgáltatásokat kell megvalósítani:
 
@@ -58,7 +84,7 @@ A következő szolgáltatásokat kell megvalósítani:
 * Sheet - Kérdőív kezelése (egy kérdőív kérdéseket tartalmaz)
 * Answer - Válaszkezelő
 
-#### Lehetséges kérdések
+### Lehetséges kérdések
 
 A kérdőíven lehetséges kérdések:
 
@@ -66,6 +92,6 @@ A kérdőíven lehetséges kérdések:
 
 Ez lehetne egy 5-ös vagy 10-s skálán értékelni.
 
-#### Minta
+### Minta
 
 * [https://exquality.netlify.app](https://exquality.netlify.app)
