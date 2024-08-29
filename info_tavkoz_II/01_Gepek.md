@@ -122,11 +122,38 @@ A rendszer hibákból tanul. Eleinte sokat hibázik, amikről visszajelzést kap
 
 ## Neurális hálózatok
 
-* [https://szit.hu/doku.php?id=oktatas:szamitastechnika:mesterseges_intelligencia#neuralis_halozatok](https://szit.hu/doku.php?id=oktatas:szamitastechnika:mesterseges_intelligencia#neuralis_halozatok)
+A "neurális hálózatok" mint fogalom, elsőként a biológiában jelent meg. A biológiai neuronok összekapcsolt hálózatát nevezzük neurális hálózatnak. Egy neuron, az idegsejt idegen szóval. A LLM gépeket adatkezelését a neurális hálózatok mintájára építették meg. Ezért nézzük meg hogyan működik.
+
+Egy neuronnak van egy sejtmagja és egy vagy több nyúlványa. A nyúlványok dendritek és egy axon.
+
+![idegsejt](images/neuron.png)
+
+Az idegsejt a dendriteken keresztül impulzust fogad. Megfelelő számú impulzus esetén az idegsejt az axonon keresztül továbbítja az implzust.
+
+### Mesterséges neurális hálózat
+
+A biológiai neurális hálózatok alapján megalkották a mesterséges neurális hálózatokat. A mesterséges neurális hálózatok csak bizonyos tulajdonságokat modelleznek a biológiai hálózatból.
 
 ## Gépi látás
 
-* [https://szit.hu/doku.php?id=oktatas:szamitastechnika:mesterseges_intelligencia#gepi_latas](https://szit.hu/doku.php?id=oktatas:szamitastechnika:mesterseges_intelligencia#gepi_latas)
+A képfeldolgozás esetén gépi látásról beszélünk. Olyan algoritmusokkal dolgozunk, amelyek kidreítik mi látható egy videón vagy egy képen.
+
+A következő tevékenységek jellemzik:
+
+* osztályozás
+* objektum követése
+* a valóság kiterjesztése
+* képek előfeldolgozása (nyújtás, színcsatornák)
+
+A gyártósoron a CNC eszterga minőségellenőre jó példa erre.
+
+## Néhány elérhető nyelvi modell
+
+* [https://deepai.org/chat](https://deepai.org/chat ) - általános célú
+* [https://chatgpt.com/](https://chatgpt.com/) - általános célú
+* [https://gemini.google.com/](https://gemini.google.com/) - áltaános célú
+* [https://codeium.com/](https://codeium.com/) - szoftverfejlesztési cél
+* [https://bito.ai/](https://bito.ai/) - szoftverfejlesztő cél
 
 ## Gyakorlat
 
