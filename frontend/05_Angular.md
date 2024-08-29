@@ -2217,17 +2217,17 @@ ng generate component about
 
 ### A RouterLink importálása
 
-Vegyük fel a **Component** dekoráció paramétereként, az imports részhez a **RouterLink** osztályt. Közben imporátljuk.
+Vegyük fel a **Component** dekoráció paramétereként, az imports részhez a **RouterLink** és a RouterOutlet osztályt. Ugyanezt tegyük meg a dekorátoban is.
 
 ```typescript
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 //...
-  imports: [RouterLink],
+  imports: [RouterOutlet, RouterLink],
 ```
 
 A teljes kód:
 
-src/app/app.routes.ts:
+src/app/app.component.ts:
 
 ```typescript
 import { Component } from '@angular/core';
