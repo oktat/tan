@@ -3034,6 +3034,10 @@ export const appConfig: ApplicationConfig = {
 
 ```
 
+Lásd a dokumentációt:
+
+* [https://angular.dev/](https://angular.dev/guide/routing/common-router-tasks#hashlocationstrategy)
+
 #### Az aktuális könyvtár beállítása
 
 Az index.html fájlban is beállítható, akár build után is az alkönyvtár.
