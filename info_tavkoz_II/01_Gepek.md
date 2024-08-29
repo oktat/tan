@@ -147,7 +147,9 @@ A következő tevékenységek jellemzik:
 
 A gyártósoron a CNC eszterga minőségellenőre jó példa erre.
 
-## Néhány elérhető nyelvi modell
+## Elérhető modellek
+
+Néhány elérhető nagy nyelvi modell, aza LLM:
 
 * [https://deepai.org/chat](https://deepai.org/chat ) - általános célú
 * [https://chatgpt.com/](https://chatgpt.com/) - általános célú
