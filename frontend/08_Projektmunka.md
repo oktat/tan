@@ -5,6 +5,12 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Bekérős feladat](#bekérős-feladat)
+* [Minőségbiztosító rendszer](#minőségbiztosító-rendszer)
+
 ## Bekérős feladat
 
 ### Bekérős feladat kezdés
@@ -32,6 +38,40 @@ Mit is tudjanak az egyes komponensek.
 ### A bekérős felat szolgáltatásai
 
 * History - Kezeli a megoldott feladatok CRUD műveleteit.
+
+### A bekérős feladat REST API szervere
+
+Használhatunk helyettesítő projektet.
+
+Szükséges csomag telepítése:
+
+```bash
+npm i -g sinto
+```
+
+Eztután kapunk egy **sin** parancsot. Ellenőrizzük:
+
+```bash
+sin --version
+```
+
+A projekt létrehozása:
+
+```bash
+mkdir app01
+cd app01
+sin api
+pnpm i
+pnpm start
+```
+
+A **sin api** parancs létrehozza a helyettesítő REST API szerver vázát.
+
+Találunk egy **database.json** fájlt. Ebben vegyük fel a számunka megkívánt tömböt az **employees** helyett.
+
+### Bekérős feladat egyéb követelmény
+
+A számítás akkor is működjön, ha nem érhető el a REST API szerver.
 
 ## Minőségbiztosító rendszer
 
