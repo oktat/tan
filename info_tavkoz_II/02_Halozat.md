@@ -70,7 +70,7 @@ A **logikai topológián** viszont a kommunikációs mechanizmust ábrázoljuk. 
 
 ### Fizikai topológia
 
-Attól függően, hogy milyen alakzatok jön létre, különböző típusokat határozhatunk meg.
+Attól függően, hogy milyen alakzatok jönnek létre, különböző típusokat határozhatunk meg.
 
 Topológiák:
 
