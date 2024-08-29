@@ -829,7 +829,7 @@ import random
 print(random.randint(1,6))
 ```
 
-1-től 6-ig kapunk egy számot.
+1-től 6-ig kapunk egy számot. Ebben benne van az 1 és a 6 is.
 
 ## Operátorok
 
