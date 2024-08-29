@@ -5,6 +5,16 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Az integrációs teszt](#az-integrációs-teszt)
+* [Selenium](#selenium)
+* [Szükséges](#szükséges)
+* [Teszt létrehozása](#teszt-létrehozása)
+* [Triangle teszt](#triangle-teszt)
+* [Lásd még](#lásd-még)
+
 ## Az integrációs teszt
 
 Az egyes szoftverkomponenseket együttesen vizsgáljuk.
@@ -48,7 +58,7 @@ npm init -y
 npm install selenium-webdriver
 ```
 
-Szükségünk egy böngészőhöz is egy driver-re, de itt figyelembe kell venni a verziószámot is.
+Szükségünk van a böngészőhöz is egy illesztőprogramra, de itt figyelembe kell venni a verziószámot is.
 
 Ha a Chrome verzió például 112, akkor
 
