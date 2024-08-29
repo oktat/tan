@@ -5,6 +5,13 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Szükséges szoftverek](#szükséges-szoftverek)
+* [Chocolatey](#chocolatey)
+* [Csomagok telepítése Chocolatey csomagkezelővel](#csomagok-telepítése-chocolatey-csomagkezelővel)
+
 ## Szükséges szoftverek
 
 * Chocolatey

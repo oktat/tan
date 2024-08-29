@@ -5,11 +5,24 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Ismétlő gyakorlatok](#ismétlő-gyakorlatok)
+* [Absztrakt osztály](#absztrakt-osztály)
+* [Interfész](#interfész)
+* [Laza függőség létrehozása](#laza-függőség-létrehozása)
+* [Többalakúság](#többalakúság)
+* [Módosítók](#módosítók)
+* [Csomagok](#csomagok)
+* [A this és a super](#a-this-és-a-super)
+* [OOP feladat](#oop-feladat)
+
 ## Ismétlő gyakorlatok
 
-1. Kérdezze meg az egyik LLM-t, mi a különbség a VSCode és a Netbeans között.
+1. Kérdezze meg az egyik **LLM**-t, mi a különbség a VSCode és a Netbeans között.
 
-2. Készítsen a VSCode-ban Maven projektet, amiben megold egy programozási feladatot.
+2. Készítsen a VSCode-ban Maven projektet, amiben megold egy programozási feladatot. [Feladatgyűjtemény](https://szit.hu/doku.php?id=oktatas:programozas:feladatok:altalanos)
 
 3. Készítsen VSCode-ban "no build tools" módban projektet, oldjon meg vele egy programozási feladatot. [Feladatgyűjtemény](https://szit.hu/doku.php?id=oktatas:programozas:feladatok:altalanos)
 
@@ -35,7 +48,7 @@ public abstract class Dolgozo {
 }
 ```
 
-Figyeljük meg a **munkavegzes()** nevű metódust. A metódus törzsét nem valósítottuk meg. Viszont előírtuk, hogy a gyermekosztályban létre kell hozni egy munkavegzes() metódust, ami public elérésű, és nincs bemenő paramétere.
+Figyeljük meg a **munkavegzes()** nevű metódust. A metódus törzsét nem valósítottuk meg. Viszont előírtuk, hogy a származtatott osztályban létre kell hozni egy munkavegzes() metódust, ami public elérésű, és nincs bemenő paramétere.
 
 Használjuk örökléssel az osztályt:
 
@@ -58,7 +71,7 @@ public abstract class Dolgozo {
 }
 ```
 
-A gyermekosztályban nem kötelező a pihen() nevű metódus osztályt megvalósítása.
+A származtatott osztályban nem kötelező a pihen() nevű metódus megvalósítása.
 
 Az absztrakt osztály tulajdonságai:
 
@@ -97,7 +110,7 @@ abstract class Shape {
 }
 ```
 
-* Készítsen Circle és Rectangle alosztály.
+* Készítsen Circle és Rectangle alosztályt.
 * Mutassa be az osztályok használatát.
 
 #### Az absztrak osztály gyakorlat 03
@@ -186,7 +199,7 @@ public class App {
 }
 ```
 
-Szemelygepkocsi.java fájl:
+Szemelygepkocsi.java:
 
 ```java
 public class Szemelygepkocsi implements Jarmu {
@@ -313,7 +326,7 @@ public class Angol implements Beszed {
 }
 ```
 
-App.java fájl:
+App.java:
 
 ```java
 public class App {
@@ -328,7 +341,7 @@ public class App {
 }
 ```
 
-Beszed.java fájl:
+Beszed.java:
 
 ```java
 public interface Beszed {
@@ -336,7 +349,7 @@ public interface Beszed {
 }
 ```
 
-Ember.java fájl:
+Ember.java:
 
 ```java
 public class Ember {
@@ -347,7 +360,7 @@ public class Ember {
 }
 ```
 
-Magyar.java fájl:
+Magyar.java:
 
 ```java
 public class Magyar implements Beszed {

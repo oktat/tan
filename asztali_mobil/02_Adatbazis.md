@@ -58,7 +58,7 @@ values
 
 Adatok tárolásához hozzuk létre az Employee osztályt.
 
-src/Employee.java
+src/Employee.java:
 
 ```java
 public class Employee {
