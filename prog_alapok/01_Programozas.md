@@ -99,6 +99,8 @@ Az ételkészítés, a tea vagy kávé készítés is egy algoritmus alapján t�
 
 Az algoritmust egy természetes nyelven írom le.
 
+#### Szekvenciális tevékenység mondatszerű leírással
+
 ```txt
 A program indul
 Bekérek egy alapot
@@ -108,24 +110,121 @@ Kiírom a területet
 A program vége
 ```
 
+#### Szelekciós tevékenység mondatszerű leírással
+
+```txt
+A program indítása.
+Ki írjuk, hogy kérjük az alapot.
+Bekérjük az alap változóba a alapot.
+Ki írjuk, hogy kérjük a magasságot.
+Bekérjük a magasság valtozóba a magasságot.
+Megvizsgáljuk, hogy az alap vagy a 
+    magasság kisebb-e mint nulla.
+  Ha kisebb, kiírjuk: "Érvénytelen adat"
+Ha nem így van:
+  Kiszámítom a területet az alap és a magasság
+    szorzatának a felétől.
+  Kiírom a területet.
+A programnak vége
+```
+
+#### Iterációs tevékenység mondatszerű leírással
+
+```txt
+Indítjuk a programot.
+Ismétlés kezdete.
+  Ki írjuk, hogy kérjük az alapot.
+  Bekérjük az alap változóba a alapot.
+  Ki írjuk, hogy kérjük a magasságot.
+  Bekérjük a magasság valtozóba a magasságot.
+Ismétlés végn megvizsgáljuk, 
+    hogy az alap vagy a magasság kisebb-e 
+    mint nulla. Ha igaz vissza az ismétlés
+    elejére.
+
+Kiszámítom a területet az 
+    alap és a magasság szorzatának a felétől.
+Kiírom a területet.
+
+Vége a programnak.
+```
+
 ### Pszeudókód
 
 Az algoritmust előre meghatározott szabályok alapján írjuk le.
 
+#### Szekvenciális tevékenység pszeudókóddal
+
 ```txt
-indulás
+Indulás
+Ki "Alap: "
 Be alap
-Be magasság
-terület = alap * magasság / 2
-ki terület
-vége
+Ki "Magasság: "
+Be magassag
+terulet = alap * magasság / 2
+ki "Terület: ", terulet
+Vége
+```
+
+#### Szelekciós tevékenység pszeudókóddal
+
+```txt
+Indulás
+Ki "Alap: "
+Be alap
+Ki "Magasság: "
+Be magassag
+Ha alap <= 0 vagy magassag <= 0 akkor
+    Ki "Érvénytelen adat"
+Ellenben
+  terulet = alap * magassag
+  ki "Terület: ", terulet
+Ha vége
+Vége
+```
+
+#### Iterációs tevékenység pszeudókóddal
+
+```txt
+Indulás
+Ismétlés kezdete
+  Ki "Alap: "
+  Be alap
+  Ki "Magasság: "
+  Be magassag
+Ismétlés alap <= 0 vagy magassag <= 0
+terulet = alap * magassag
+Ki "Terület: ", terulet
+Vége
 ```
 
 ### Folyamatábra
 
 Az algoritmust alakzatokban írom le
 
-[https://szit.hu/doku.php?id=oktatas:programozas:programozas_elmelet:tananyag#folyamatabra](https://szit.hu/doku.php?id=oktatas:programozas:programozas_elmelet:tananyag#folyamatabra)
+![folyamatábra alakzatai](images/folyamatabra/folyamatabra_alakzatok.png)
+
+#### Szekvenciális tevékenység
+
+Lássunk egy példát a szekvenciális tevékenységre.
+
+![szekvenciális tevékenység](images/folyamatabra/folyamatabra_haromszog.png)
+
+#### Szelekciós tevékenység
+
+Példa a szelekciós tevékenységre.
+
+![szelekciós tevékenység](images/folyamatabra/folyamatabra_haromszog_szelekcio.png)
+
+#### Iterációs tevékenység
+
+Az iterációs tevékenység példája.
+
+![iterációs tevékenység](images/folyamatabra/folyamatabra_haromszog_iteracio.png)
+
+Több informácia:
+
+* [https://szit.hu/doku.php?id=oktatas:programozas:programozas_elmelet:tananyag#folyamatabra](https://szit.hu/doku.php?id=oktatas:programozas:programozas_elmelet:tananyag#folyamatabra)
 
 ## Fejlesztés
 
