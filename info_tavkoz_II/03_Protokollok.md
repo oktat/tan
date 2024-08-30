@@ -40,9 +40,9 @@ Egy kapcsolat általában több protokollon keresztül van megvalsítva. Egy e-m
 
 ## RFC
 
-Az internetes szabványokat az IETF [^1] hozza létre és RFC nevű leírásokban teszik közzé.
+Az internetes szabványokat az IETF[^ietf] hozza létre és RFC nevű leírásokban teszik közzé.
 
-[^1]: Internet Engineering Task Force
+[^ietf]: Internet Engineering Task Force
 
 A példa kedvéért, az FTP protokoll a 114 számú RFC-ben írták le, és többek között itt található:
 
