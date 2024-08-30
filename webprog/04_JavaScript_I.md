@@ -24,7 +24,7 @@
 
 ## A JavaScript nyelv
 
-1995-ben létrehoztak egy **Mocha** nevű nyelvet. Néha **Netscape Scripting Language** néven is említették. A C és Java nyelv is hatással volt rá, de azoktól független nyelv. A Mocha később **LiveScript**-re lett átnevezve, majd megint később lett JavaScript.
+1995-ben létrehoztak egy **Mocha** nevű nyelvet. Néha **Netscape Scripting Language** néven is említették. A C és Java nyelv is hatással volt rá, de azoktól független nyelv. A Mocha később **LiveScript**-re lett átnevezve, majd megint később lett **JavaScript**.
 
 A Mocha óta a JavaScript sok változáson ment keresztül. Szintaktikája a Java nyelvhez hasonlóságot a JavaScript név felvétele idején kezdett mutatni.
 
@@ -44,7 +44,7 @@ Manapság GUI programokat is írunk JavaScriptben.
 
 ### ECMA szabvány
 
-A JavaScript szabványt az ECMA szabványügyi szervezet tartja karban. Az ECMAScript szabványt a JavaScript (Netscape) és a JScript (Microsoft) nyelvek alapján hozták létre. A szabványosítást a Netscape vállalat kezdeményezte. Az első szabvány **1997**-ben jelent meg. 1998-ban és 1999-ben újabb verziója jelent meg a szabványnak. A következő, a negyedik szabványig hosszabb idő telt el, de nem készült el. Az ötödik szabvány 2011-ben jelent meg 5.1 verziószámmal. A hatódik szabvány 2016-ban jelent meg. Ettől a szabványtól évente jelent meg újabb [szabványok](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/).
+A JavaScript szabványt az ECMA szabványügyi szervezet tartja karban. Az ECMAScript szabványt a JavaScript (Netscape) és a JScript (Microsoft) nyelvek alapján hozták létre. A szabványosítást a Netscape vállalat kezdeményezte. Az első szabvány **1997**-ben jelent meg. 1998-ban és 1999-ben újabb verziója jelent meg a szabványnak. A következő, a negyedik szabványig hosszabb idő telt el, de nem készült el. Az ötödik szabvány 2011-ben jelent meg 5.1 verziószámmal. A hatódik szabvány 2016-ban jelent meg. Ettől a szabványtól évente jelent meg újabb [szabvány](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/).
 
 * 1 - 1997
 * 2 - 1998
