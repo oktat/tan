@@ -5,6 +5,16 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [A hálózati protokollok](#a-hálózati-protokollok)
+* [RFC](#rfc)
+* [OSI rétegmodell](#osi-rétegmodell)
+* [TCP/IP](#tcpip)
+* [Továbbiak](#továbbiak)
+* [Gyakorló](#gyakorló)
+
 ## A hálózati protokollok
 
 Ha két gép össze van kötve, és szeretne egymással kommunikálni, ahhoz, hogy megértsék egymást, szükség van lefektetett szabályokra.

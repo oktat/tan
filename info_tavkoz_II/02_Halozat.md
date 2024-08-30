@@ -5,6 +5,18 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [A hálózatokról](#a-hálózatokról)
+* [A fizikai és logikai topológia](#a-fizikai-és-logikai-topológia)
+* [Csatlakozás az Internethez](#csatlakozás-az-internethez)
+* [BYOD](#byod)
+* [SDN](#sdn)
+* [A hálózat fenyegetései](#a-hálózat-fenyegetései)
+* [Kérdések](#kérdések)
+* [Irodalom](#irodalom)
+
 ## A hálózatokról
 
 A hálózat egymással összekapcsolt számítógépek és informatikai eszközök rendszere.
@@ -123,7 +135,7 @@ A logikai topológiát arra is használják, hogy megmutassák, hogy két eszkö
 
 ## Csatlakozás az Internethez
 
-Szükségünk van egy ISP-re. Az ISP a  Internet service provider rövidítése. Az ISP egy olyan vállalkozás, amely Internet hozzáférést biztosít más vállalkozások vagy éppen otthonok, intézmények számára.
+Szükségünk van egy ISP-re. Az **ISP** az **Internet Service Provider** rövidítése. Az ISP egy olyan vállalkozás, amely Internet hozzáférést biztosít más vállalkozások vagy éppen otthonok, intézmények számára.
 
 Az ISP az Internet biztosítása mellett számos más szolgáltatást is nyújthat:
 
@@ -166,11 +178,11 @@ Az ISP hálózatán nagysebességű útválasztók és kapcsolókon keresztül j
 
 ## BYOD
 
-A BYOD a Bring Your Own Device rövidítése. Magyarul: hozd a saját eszközödet. Ez olyan munkamodell, ahol a dolgozók saját eszközön dolgoznak a munkahelyükön.
+A **BYOD** a **Bring Your Own Device** rövidítése. Magyarul: hozd a saját eszközödet. Ez olyan munkamodell, ahol a dolgozók saját eszközön dolgoznak a munkahelyükön.
 
 ## SDN
 
-Az SDN a Software defined networking rövidítése, magyarul szoftver által beállított hálózat. Az SDN olyan beállításra utal, ahol a hálózatot dinamikusan programozottan szoftverek állítják be.
+Az **SDN** a **Software Defined Networking** rövidítése, magyarul szoftver által beállított hálózat. Az SDN olyan beállításra utal, ahol a hálózatot dinamikusan programozottan szoftverek állítják be.
 
 ## A hálózat fenyegetései
 
