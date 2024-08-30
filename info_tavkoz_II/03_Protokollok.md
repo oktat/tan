@@ -130,6 +130,8 @@ Vegyük észre, hogy a Quake a szállítási szinten UDP protokollt használ, az
 
 ## Protokoll készítő szervezetek
 
+Az interneten használt protokollokat néhány szabványosító szervezet készíti. A leggyakoribbak:
+
 * ITU-T - International Telecommunication Union
 * IEEE - Institute of Electrical and Electronics Engineers
 * ISO - International Standard Organization
