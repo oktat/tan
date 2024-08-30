@@ -12,6 +12,10 @@
 * [RFC](#rfc)
 * [OSI rétegmodell](#osi-rétegmodell)
 * [TCP/IP](#tcpip)
+* [Adatküldés](#adatküldés)
+* [Protokollok](#protokollok)
+* [Protokoll készítő szervezetek](#protokoll-készítő-szervezetek)
+* [Az RFC](#az-rfc)
 * [Továbbiak](#továbbiak)
 * [Gyakorló](#gyakorló)
 
@@ -82,6 +86,61 @@ A TCP/IP régetmodellje:
 Az OSI modell és a TCP/IP összehasonlítása
 
 ![images/OSI_es_TCP_IP_01.png](images/OSI_es_TCP_IP_01.png)
+
+Nézzük meg a TCP/IP rétegeiben, milyen protokollok találhatók, a teljesség igénye nélkül.
+
+## Adatküldés
+
+Nézzük hogyan történik egy adatküldés. Legyen egy email amit megírunk egy levelezőprogramban.
+
+* Kigondoljuk mit szeretnénk elküdleni, nevezzük ezt adatnak.
+* Beírjuk a levelezőprogramba, ami készít hozzá egy fejlécet.
+* A levelezőprogram továbbküldi az OS-nek.
+* A szállítási szinten a TCP protokoll fejlécét teszi az adatokhoz.
+* A hálózati szint a még hozzátesz egy IP fejlécet.
+* A hálózati szint átadja az adatot az eddigi fejlécekkel a hálózati kártya illesztőprogramjának, ami szintén hozzátesz egy fejlécet; Ethernet fejlécet.
+
+A következő ábra ezt szemlélteti.
+
+![adatküldés a rétegeken keresztül](images/adatkuldes.png)
+
+A hálózati kártya végül digitális jelekké alakítja az adatot, minden fejléccel együtt és kiküldi a hálózati kártyán.
+
+![az adatokat és fejléceket előállítók](images/adatkuldes_fejleceinek_gyartoja.png)
+
+Ezt a folyamatot adatbeágyazásnak is nevezzük.
+
+## Protokollok
+
+A következő ábrán láthatjuk, hogy melyik rétegben milyen protokollt találunk. Ez nem az összes protokoll, csanéhány ismertebb. Az alkalmazási szinten rengeteg protokollt található, mivel bárki írhat egy újabb programot, ami egy új alkalmazói protokollt használ.
+
+![Protokollok a TCP/IP rétegeiben](images/adatkuldes.png)
+
+A lentebb rétegekben ritkábban jönnek létre új protokollok. Ha készítek egy új alkalmazást, általában a szállítási szint TCP vagy UDP protokollját használom.
+
+Ha böngészőt használunk, ugyanez történik.
+
+![A böngésző készít egy fejlécet](images/adatkuldes_HTTP.png)
+
+A Quake játéknak nincs ismert alkalmazói protokollja. Előállít egy adatot saját szabályai szerint, majd átadja a szállítási szintnek.
+
+![A Quake adatküldése](images/adatkuldes_Quake.png)
+
+Vegyük észre, hogy a Quake a szállítási szinten UDP protokollt használ, az eddigi TCP helyett.
+
+## Protokoll készítő szervezetek
+
+* ITU-T - International Telecommunication Union
+* IEEE - Institute of Electrical and Electronics Engineers
+* ISO - International Standard Organization
+* IETF - Internet Engineering Task Force
+* IANA - Internet Assigned Numbers Authority
+
+## Az RFC
+
+Az RFC - Request for Comments rövidítése. Az internet protokolljait RFC-ben írjuk le. Egy protokoll leíársa egy RFC. Minden RFC kap egy sorszámot.
+
+Az elkészült RFC sosem változik. Ha hibás egy RFC, akkor újabbat adnak ki.
 
 ## Továbbiak
 
