@@ -12,8 +12,8 @@
 * [RFC](#rfc)
 * [OSI rétegmodell](#osi-rétegmodell)
 * [TCP/IP](#tcpip)
-* [Adatküldés](#adatküldés)
 * [Protokollok](#protokollok)
+* [Adatküldés](#adatküldés)
 * [Protokoll készítő szervezetek](#protokoll-készítő-szervezetek)
 * [Az RFC](#az-rfc)
 * [Továbbiak](#továbbiak)
@@ -81,13 +81,19 @@ A TCP/IP régetmodellje:
 * Internet
 * Hálózat-hozzáférés
 
-![images/TCP_IP_01.png](images/TCP_IP_01.png)
+![A TCP/IP rétegei](images/TCP_IP_01.png)
 
-Az OSI modell és a TCP/IP összehasonlítása
+Az OSI modell és a TCP/IP összehasonlítását látjuk a következő ábrán.
 
-![images/OSI_es_TCP_IP_01.png](images/OSI_es_TCP_IP_01.png)
+![Az OSI modell és a TCP/IP összehasonlítása](images/OSI_es_TCP_IP_01.png)
+
+## Protokollok
 
 Nézzük meg a TCP/IP rétegeiben, milyen protokollok találhatók, a teljesség igénye nélkül.
+
+![néhány protokoll az egyes rétegekben](images/TCP_IP_es_protokollok.png)
+
+Az alkalmazási rétegben sokkal több protokoll található. A szállítási és Internet rétegben, viszont a TCP, az UDP és az IP réteg jellemzőek. A hálózat-hozzáférési rétegben, a legelterjedtebb protokoll az Ethernet.
 
 ## Adatküldés
 
@@ -102,21 +108,9 @@ Nézzük hogyan történik egy adatküldés. Legyen egy email amit megírunk egy
 
 A következő ábra ezt szemlélteti.
 
-![adatküldés a rétegeken keresztül](images/adatkuldes.png)
-
-A hálózati kártya végül digitális jelekké alakítja az adatot, minden fejléccel együtt és kiküldi a hálózati kártyán.
-
-![az adatokat és fejléceket előállítók](images/adatkuldes_fejleceinek_gyartoja.png)
-
-Ezt a folyamatot adatbeágyazásnak is nevezzük.
-
-## Protokollok
-
-A következő ábrán láthatjuk, hogy melyik rétegben milyen protokollt találunk. Ez nem az összes protokoll, csanéhány ismertebb. Az alkalmazási szinten rengeteg protokollt található, mivel bárki írhat egy újabb programot, ami egy új alkalmazói protokollt használ.
-
 ![Protokollok a TCP/IP rétegeiben](images/adatkuldes.png)
 
-A lentebb rétegekben ritkábban jönnek létre új protokollok. Ha készítek egy új alkalmazást, általában a szállítási szint TCP vagy UDP protokollját használom.
+A lentebb rétegekben ritkábban jönnek létre új protokollok. Ha készítek egy új alkalmazást, általában a szállítási szint TCP vagy UDP protokollját használja.
 
 Ha böngészőt használunk, ugyanez történik.
 
@@ -140,9 +134,13 @@ Az interneten használt protokollokat néhány szabványosító szervezet kész�
 
 ## Az RFC
 
-Az RFC - Request for Comments rövidítése. Az internet protokolljait RFC-ben írjuk le. Egy protokoll leíársa egy RFC. Minden RFC kap egy sorszámot.
+Az RFC - Request for Comments rövidítése. Az internet protokolljait RFC-ben írjuk le. Egy protokoll leírása egy RFC. Minden RFC kap egy sorszámot.
 
 Az elkészült RFC sosem változik. Ha hibás egy RFC, akkor újabbat adnak ki.
+
+Az RFC szabványokat megtekinthetjük például itt:
+
+* [https://www.rfc-editor.org/](https://www.rfc-editor.org/)
 
 ## Továbbiak
 
