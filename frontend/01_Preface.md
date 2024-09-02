@@ -52,7 +52,7 @@ A C:\Users\janos\AppData\Roaming\npm útvonalat vegyük fel a **PATH** környeze
 
 * C:\Users\janos\AppData\Roaming\npm
 
-Erre később szükség lesz, amikor az npm install -g <csomagnév> parancsot haszbnáljuk.
+Erre később szükség lesz, amikor az npm install -g <csomagnév> parancsot használjuk.
 
 A környezeti változó beállításról itt találunk egy leírást:
 
