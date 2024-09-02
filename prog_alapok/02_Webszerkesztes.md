@@ -46,13 +46,13 @@ A HTML fájlokat .html kiterjesztésű állományba írjuk.
 
 ### Történet
 
-A GML nyelvet (Generalized Markup Language) az IBM alkotta meg az 1960-as években. Ezt a nyelvet használta dokumentumok leírásara. Az SGML nyelvből később szabvány lett, elét tettek egy "S" betűt, így lett SGML (Standard Generalized Markup Language). Az SGML később tovább fejlesztették, ez lett az XML.
+A **GML** nyelvet (Generalized Markup Language) az **IBM** alkotta meg az **1960**-as években. Ezt a nyelvet használta dokumentumok leírásara. A GML nyelvből később szabvány lett, elé tettek egy "S" betűt, így lett **SGML** (Standard Generalized Markup Language). Az SGML később tovább fejlesztették, ez lett az XML.
 
-Tim Berners-Lee 1990-ben a CERN-nél dolgozott, ahol kitalálta a World Wide Web-t, azzal együtt a HTML-t.
+**Tim Berners-Lee** 1990-ben a CERN-nél dolgozott, ahol kitalálta a **World Wide Web**-t, azzal együtt a HTML-t.
 
 A HTML először a SGML alapján készült. Így lettek 1, 2, 3, 4, 4.1 verziók. Ezt követően XML alapokon kezdték a HTML újraírni, így lett XHTML 1, 1.1 és 2.0. A böngészőgyártok azonban nem mutattak nagy hajlandóságot a megvalósításra.
 
-2007-ben a Mozilla Foundation, Apple, és az Opera Software létrehozott egy közösséget Web Hypertext Application Technology Working Group (WHATWG) néven. Ez lett a HTML5, amit ma is használunk.
+2007-ben a **Mozilla Foundation**, **Apple**, és az **Opera Software** létrehozott egy közösséget **Web Hypertext Application Technology Working Group** (WHATWG) néven. Ez lett a HTML5, amit ma is használunk.
 
 ### HTML5 teszt
 
@@ -162,7 +162,7 @@ Egy konkrét HTML elemmel:
 
 ![HTML elemek](images/html/html_tag_elem.png)
 
-A tartalmat ezek tagek fogják közre. Egy nyitó és egy záró taget együtt elemnek nevezünk, HTML elem. A HTML tagek közzé írt szöveg a tartalom, vagy innerText, más esetben textContent.
+A tartalmat ezek tagek fogják közre. Egy nyitó és egy záró taget együtt elemnek nevezünk, HTML elem. A HTML tagek közzé írt szöveg a tartalom, vagy **innerText**, más esetben **textContent**.
 
 A HTML elemek újabb HTML elemeket tartalmazhatnak.
 
@@ -183,7 +183,7 @@ Konkrét HTML elemmel:
 </div>
 ```
 
-Ha egy HTML elembe újabb HTML elemet vagy elemeket ágyazunk, innerHTML-ről beszélünk.
+Ha egy HTML elembe újabb HTML elemet vagy elemeket ágyazunk, **innerHTML**-ről beszélünk.
 
 A weboldalak ilyen szervezése az SGML, majd később ebből kialakult XML dokumentumleíró nyelvből jött létre.
 
@@ -191,8 +191,7 @@ A HTML elemek lehetséges neveit szabvány határozza meg, amit [W3C](https://ww
 
 Az egész HTML dokumentumot html elemek közzé tesszük, a DOCTYPE sor után.
 
-A HTML dokumentumot két részre lehet osztani a html elemek
-között:
+A HTML dokumentumot két részre lehet osztani:
 
 * fejrész
 * törzsrész
@@ -201,8 +200,7 @@ A fejrészt a **head** elemek között adjuk meg, a törzsrészt a **body** elem
 
 A fejrészben a megjelenő weblaphoz  háttér-információkat adunk meg. Azt a tartalmat ami a weblapon megjelenik a törzs részben helyezzük el. A fejrészben van két minimálisan megadandó HTML elem. Az egyik a weblap karakterkódolását mondja meg, a másik a weboldalnak egy olyan címét határozza meg, amely a böngésző címsorában, vagy annak fülein jelenik meg.
 
-A karakterkódolást a meta elemmel adjuk meg. Minden HTML elem
-felvehet attribútumokat. Az attribútumoknak van mindig egy értékük. A meta elemmel nagyon sok dolog beállítható, a karakterkódolás csak az egyik dolog. A karakterkódolást a charset attribútummal adjuk meg. Ennek értéke a kódolás:
+A karakterkódolást a meta elemmel adjuk meg. Minden HTML elem felvehet attribútumokat. Az attribútumoknak mindig van egy értékük. A meta elemmel számtalan dolog beállítható, a karakterkódolás csak az egyik. A karakterkódolást a charset attribútummal adjuk meg. Ennek értéke a kódolás:
 
 ```html
 <meta charset="utf-8">
@@ -220,15 +218,11 @@ A head elemek között az oldal címét a title taggel adjuk meg.
 
 ### A body elem
 
-A body elemek közzé írt tartalom jelenik meg a weboldalon.
-Korábbi HTML verzióknál használtak attribútumokat a weboldal
-formázására, de a HTML5 esetén a formázást CSS nyelvvel
-végezzük.
+A body elemek közzé írt tartalom jelenik meg a weboldalon. Korábbi HTML verzióknál használtak attribútumokat a weboldal
+formázására, de a HTML5 esetén a formázást CSS nyelvvel végezzük.
 
-A body elemen belül újabb HTML elemeket helyezünk el a
-weboldal így egy hierarchikus dokumentumfába szerveződik.
-Ezt a dokumentumfát nevezzük DOM-nak, ami a Document
-Object Model rövidítése.
+A body elemen belül újabb HTML elemeket helyezünk el a weboldal így egy hierarchikus dokumentumfába szerveződik.
+Ezt a dokumentumfát nevezzük **DOM**-nak, ami a **Document Object Model** rövidítése.
 
 ```html
 <html>

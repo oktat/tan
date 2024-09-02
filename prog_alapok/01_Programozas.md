@@ -11,6 +11,7 @@
 * [Játékos programozás](#játékos-programozás)
 * [Oktatási portálok](#oktatási-portálok)
 * [Fordítás és értelmezés](#fordítás-és-értelmezés)
+* [Tevékenységek](#tevékenységek)
 * [Algoritmus](#algoritmus)
 * [Fejlesztés](#fejlesztés)
 * [Python Shell](#python-shell)
@@ -67,7 +68,7 @@ Ha értelmezett nyelvet használunk, akkor a terjesztendő program maga a forrá
 
 ### Fordítás
 
-Megírjuk valamilyen nyelven a programot. Lesz egy forrásfájlunk. Ebből egy vagy több menetben fordítunk egy gépi kódot, ami egy másik állomány lesz. Windowson ez például egy .exe kiterjesztésű fájl. Ilyen nyelv a C, C++ stb.
+Megírjuk valamilyen nyelven a programot. Lesz egy forrásfájlunk. Ebből egy vagy több menetben fordítunk egy gépi kódot, ami egy másik állomány lesz. Windowson ez például egy .exe kiterjesztésű fájl. Ilyen nyelv a C, C++ stb. Linuxon ez általában egy kiterjesztés nélküli futtatható ELF bináris állomány.
 
 * forráskód > fordító > gépi kód
 
@@ -79,21 +80,39 @@ Ha fordított nyelvet használunk, akkor a terjesztendő program a fordítás ut
 
 ### Modern nyelvek
 
-Az újabb nyelvek egy köztes kódot fordítanak a forráskódból. Vagyis használuk fordítót. A köztes kódot terjesztem. Ez azhért jó, mert a köztes kód géptől független. Ahol futtatom, ott lenni kell egy értelmezőnek, ami az adott gép számára lefordítja a gép függelten kódot, gép függő gépi kódra.
+Az újabb nyelvek egy **köztes kódot** fordítanak a forráskódból. Vagyis használuk fordítót. A köztes kódot terjesztem. Ez azhért jó, mert a köztes kód géptől független. Ahol futtatom, ott lenni kell egy értelmezőnek, ami az adott gép számára lefordítja a gép függelten kódot, gép függő gépi kódra.
 
 * forráskód > fordító > bájtkód > értelmező > gépi kód
 
 ![bájtkód](images/programozas/forraskod_bajtkod_gepi-kod.png)
 
-A modern nyelvek bátkódot fordítani, és ezt terjesztjük. Ezt azonban a gép nem érti, ezt futtatáskor gépi kóddá kell fordítanni.
+A modern nyelvek bájtkódot fordítanak, és ezt terjesztjük. Ezt azonban a gép nem érti, ezt futtatáskor gépi kóddá kell fordítanni.
+
+## Tevékenységek
+
+A program készítésekor megkülönböztetünk alaptevékenységeket és vezérlő tevekénységeket.
+
+### Alaptevékenységek
+
+* Kiírás
+* Bekérés
+* Számítások
+
+### Vezérlő tevekennenységek
+
+* Szekvenciális
+* Szelekciós
+* Iterációs
+
+Egyes tankönyvek ide sorolják az ugróutasításokat is.
 
 ## Algoritmus
 
-Az algoritmus lépésekből álló utasítások sorozata.
+Az algoritmus egyértelmű lépésekből álló utasítások sorozata.
 
 Az algoritmusokat számítógép vagy valamilyen automata követi egy adott feladat elvégzése során.
 
-Az ételkészítés, a tea vagy kávé készítés is egy algoritmus alapján történik.
+Az ételkészítés, a tea vagy kávé készítés is egy algoritmus alapján történik. Leírható utasítások sorozatként.
 
 ### Mondatszerű leírás
 
@@ -103,9 +122,11 @@ Az algoritmust egy természetes nyelven írom le.
 
 ```txt
 A program indul
+Ki írjuk, hogy kérjük az alapot
 Bekérek egy alapot
+Ki írjuk, hogy kérjük a magasságot
 Bekérek egy magasságot
-Területként eltárolom az alap és a magasság szorzatánka felét
+Területként, eltárolom az alap és a magasság szorzatának a felét
 Kiírom a területet
 A program vége
 ```
@@ -114,16 +135,15 @@ A program vége
 
 ```txt
 A program indítása.
-Ki írjuk, hogy kérjük az alapot.
-Bekérjük az alap változóba a alapot.
-Ki írjuk, hogy kérjük a magasságot.
+Kiírjuk, hogy kérjük az alapot.
+Bekérjük az alap változóba az alapot.
+Kiírjuk, hogy kérjük a magasságot.
 Bekérjük a magasság valtozóba a magasságot.
 Megvizsgáljuk, hogy az alap vagy a 
-    magasság kisebb-e mint nulla.
-  Ha kisebb, kiírjuk: "Érvénytelen adat"
-Ha nem így van:
-  Kiszámítom a területet az alap és a magasság
-    szorzatának a felétől.
+    magasság kisebb vagy egyenlő mint nulla.
+  Ha feltétel igaz, kiírjuk: "Érvénytelen adat"
+Ha a feltétel hamis
+  Területként, eltárolom az alap és a magasság szorzatának a felét
   Kiírom a területet.
 A programnak vége
 ```
@@ -133,12 +153,12 @@ A programnak vége
 ```txt
 Indítjuk a programot.
 Ismétlés kezdete.
-  Ki írjuk, hogy kérjük az alapot.
+  Kiírjuk, hogy kérjük az alapot.
   Bekérjük az alap változóba a alapot.
-  Ki írjuk, hogy kérjük a magasságot.
+  Kiírjuk, hogy kérjük a magasságot.
   Bekérjük a magasság valtozóba a magasságot.
 Ismétlés végn megvizsgáljuk, 
-    hogy az alap vagy a magasság kisebb-e 
+    hogy az alap vagy a magasság kisebb vagy egyenlő-e 
     mint nulla. Ha igaz vissza az ismétlés
     elejére.
 
