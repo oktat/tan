@@ -9,6 +9,7 @@
 
 * [Tartalomjegyzék](#tartalomjegyzék)
 * [Java fejlesztés](#java-fejlesztés)
+* [Különleges karakterek](#különleges-karakterek)
 * [Java fejlesztés gyakorlatok](#java-fejlesztés-gyakorlatok)
 * [Absztrakt osztály](#absztrakt-osztály)
 * [Interfész](#interfész)
@@ -109,6 +110,25 @@ Mi a különbség? A println() egy sortörést is a képernyőre ír. A printf()
 System.out.println(1 + 2);
 System.out.println("1 + 2 = " + (1 + 2));
 ```
+
+## Különleges karakterek
+
+```java
+System.out.println("mentés")
+```
+
+```java
+System.out.println("me\ntés")
+```
+
+```java
+System.out.println("men\tés")
+```
+
+| \n | új sor |
+| \t | tabulátor |
+| \' | felsővessző kiíratása |
+| \" | idézőjel kiíratása /
 
 ## Java fejlesztés gyakorlatok
 
