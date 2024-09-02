@@ -103,6 +103,13 @@ A kivitelhez a következő metódusok állnak rendelkezésre:
 
 Mi a különbség? A println() egy sortörést is a képernyőre ír. A printf() formázott kimenetet tesz lehetővé. A print() utasítás sortörés nélkül ír a képernyőre.
 
+### Operátorok
+
+```java
+System.out.println(1 + 2);
+System.out.println("1 + 2 = " + (1 + 2));
+```
+
 ## Java fejlesztés gyakorlatok
 
 1. Kérdezze meg az egyik **LLM**-t, mi a különbség a VSCode és a Netbeans között.
