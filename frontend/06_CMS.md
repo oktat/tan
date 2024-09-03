@@ -9,7 +9,7 @@
 
 * [Tartalomjegyzék](#tartalomjegyzék)
 * [CMS alapok](#cms-alapok)
-* [CMS rendszer telepítése](#cms-rendszer-telepítése)
+* [WordPress rendszer telepítése](#wordpress-rendszer-telepítése)
 * [Tartalom kezelése](#tartalom-kezelése)
 * [Felhasználó-kezelés](#felhasználó-kezelés)
 * [Sablon kezelés](#sablon-kezelés)
@@ -68,13 +68,15 @@ Hátrányok:
 11. Media Library (Média könyvtár)
     * Definíció: A weboldalakhoz feltöltött képek, videók, hangfájlok helye.
 
-## CMS rendszer telepítése
+## WordPress rendszer telepítése
 
 * Telepítő fájl letöltése.
 * Fel kell tölteni a használt tárhelyre.
 * Adatbázist kell létrehozni.
 * CMS telepítése, általában URL-en keresztül.
 * Belépés és tesztelés
+
+### Beszerzés
 
 A CMS rendszerek közül a WordPress-t fogjuk használni. Keressük fel a WordPress webhelyét:
 
@@ -84,6 +86,24 @@ Kattintsunk a "WordPress letöltése" gombra. Egy újabb oldalon válasszuk a "D
 
 * wordpress-6.5-hu_HU.zip
 
+### Tárhely
+
+#### A php parancs használata
+
+A távoli tárhely helyett, helyben fogunk fejlesztő szervert indítani.
+
+Csomagoljk ki tetszőleges helyre a WordPress-t. Lépjünk be a WordPress könyvtárába, majd indítsuk el a szervert:
+
+```bash
+php -S localhost:3000 -t . -d extension=mysqli
+```
+
+A php parancsnak útvonalba kell lennie. Ha XAMPP-t telepítettünk a Chocolatey csomagkezelővel, a php parancs útvonalba lesz. Mindenképpen el kell még indítanunk egy MariaDB szervert (MySQL).
+
+### Az XAMPP használata
+
+A php parancs használata helyett az XAMPP könyvtárába is elhelyezhetjük a WordPress állományokat.
+
 Ha az XAMPP a C:\ gyökérkönyvtárába lett telepítve, akkor találunk egy ilyen könyvtárat:
 
 * C:\xampp\htdocs
@@ -92,7 +112,11 @@ Ebben könyvtárba csomagoljuk ki a .zip állományt. Ha mindent jól csináltun
 
 * C:\xampp\htdocs\wordpress
 
-Telepítés előtt hozzunk létre egy adatbázist. Legyen például a neve wordpress.
+### Adatbázis létrehozása
+
+Akár a php parancsot használjuk, akár a XAMPP könyvtárában használjuk a WordPress, a telepítés megkezdése előtt létre kell hozni egy adatbázist.
+
+Hozzuk létre az adatbázist. Legyen a neve wordpress.
 
 ```sql
 create database wordpress;
