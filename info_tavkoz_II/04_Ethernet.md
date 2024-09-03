@@ -45,6 +45,14 @@ Az Ethernet az adatokat keretekben továbbítja, angolul frame. Az Ethernet kere
 
 Minden hálózati eszköz rendelkezik egy egyedi azonosítóval. Ezt nevezzük MAC címnek. A MAC cím mérete 48 bites méretű.
 
+A MAC címek kiosztását az IEEE végzi. Minden gyártó rendelkezik egy 3 bájtos azonosítóval (OUI). Az utolsó három szám az interfész azonosíót (NIC).
+
+| Gyártó | Interfész |
+|-|-|
+| OUI | NIC |
+| 24 bit | 24 bit |
+| 00-8f-24 | 58-29-a3 |
+
 ## Lásd még
 
 Az Ethernet téma elérhető a következő helyen:
