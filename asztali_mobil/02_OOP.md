@@ -8,9 +8,7 @@
 ## Tartalomjegyzék
 
 * [Tartalomjegyzék](#tartalomjegyzék)
-* [Java fejlesztés](#java-fejlesztés)
-* [Különleges karakterek](#különleges-karakterek)
-* [Java fejlesztés gyakorlatok](#java-fejlesztés-gyakorlatok)
+* [Ismétlő gyakorlatok](#ismétlő-gyakorlatok)
 * [Absztrakt osztály](#absztrakt-osztály)
 * [Interfész](#interfész)
 * [Laza függőség létrehozása](#laza-függőség-létrehozása)
@@ -20,117 +18,7 @@
 * [A this és a super](#a-this-és-a-super)
 * [OOP feladat](#oop-feladat)
 
-## Java fejlesztés
-
-A Java nyelvet a **Sun Microsystem** programozói kezdték fejleszteni, 1991-ben. Később az Oracle felvásárolt a céget, így a Java most az ő tulajdona.
-
-A Java nyelv még mindig az egyes fő verziószámnál tart. Az egyes Java verziók:
-
-* 1.1
-* 1.2
-* ...
-* 1.16
-* 1.17
-
-Az egyes verziókra azonban a főverzió nélkül szokás hivatkozni. Az 1.17-es verzióra például csak 17-s verzióként hivatkozunk.
-
-Java technológiák:
-
-* Java JRE - csak futtatásra alkalmas
-* Java JDK - fejlesztésre és futtatásra egyaránt alkalmas
-
-Dokumentáció:
-
-* [https://docs.oracle.com/javase/](https://docs.oracle.com/javase/)
-
-### Java Helló Világ program
-
-Készítsük el az App.java nevű fájlt.
-
-App.java:
-
-```java
-public class App {
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
-    }
-}
-```
-
-A forráskód fordítása:
-
-```bash
-javac App.java
-```
-
-Kapunk egy App.class állományt. Futtassuk:
-
-```bash
-java App
-```
-
-### Megjegyzések a Java nyelvben
-
-```java
-// egy soros
-```
-
-```java
-/* több
-soros 
-megjegyzés
-*/
-```
-
-### Kivitel
-
-A képernyőre írni a System osztály áll rendelkezésre. Ennek van két tagja:
-
-* out
-* err
-
-Az out és az err mezők is a képernyőt jelentik. A programot használó szakember képes szétválasztani a kétféle kimenetet. Ha egy nomál kiíratást végzünk, akkor az **out** mezőn keresztül kell kiíratni. Ha hibát írunk a képernypre, akkor az **err** mezőn keresztül kell kiíratni.
-
-```java
-System.out.println("Normál kimenet.");
-System.err.println("Hiba! Ez nem lesz így jó!");
-```
-
-A kivitelhez a következő metódusok állnak rendelkezésre:
-
-* println()
-* printf()
-* print()
-
-Mi a különbség? A println() egy sortörést is a képernyőre ír. A printf() formázott kimenetet tesz lehetővé. A print() utasítás sortörés nélkül ír a képernyőre.
-
-### Operátorok
-
-```java
-System.out.println(1 + 2);
-System.out.println("1 + 2 = " + (1 + 2));
-```
-
-## Különleges karakterek
-
-```java
-System.out.println("mentés")
-```
-
-```java
-System.out.println("me\ntés")
-```
-
-```java
-System.out.println("men\tés")
-```
-
-| \n | új sor |
-| \t | tabulátor |
-| \' | felsővessző kiíratása |
-| \" | idézőjel kiíratása /
-
-## Java fejlesztés gyakorlatok
+## Ismétlő gyakorlatok
 
 1. Kérdezze meg az egyik **LLM**-t, mi a különbség a VSCode és a Netbeans között.
 
