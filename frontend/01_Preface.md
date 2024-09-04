@@ -57,3 +57,14 @@ Erre később szükség lesz, amikor az npm install -g <csomagnév> parancsot ha
 A környezeti változó beállításról itt találunk egy leírást:
 
 * [https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:utvonalak#gui_felueleten](https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:utvonalak#gui_felueleten)
+
+## Előzetes ismeretek
+
+Ennek a témának az elsajátításához szükség van a HTML, CSS, Bootstrap és JavaScript ismeretekre.
+
+Ezek az ismeretek a következő tankönyvekben vannak leírva:
+
+* [prog_alapok](https://github.com/oktat/tan/tree/master/prog_alapok)
+* [webprog](https://github.com/oktat/tan/tree/master/webprog)
+
+Előnyös még, ha a hálózatok témakörből ismerjük a HTTP protokoll működését.
