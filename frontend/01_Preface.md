@@ -43,7 +43,7 @@ choco install insomnia-rest-api-client
 choco install httpie
 choco install gimp
 choco install totalcommander
-choco install xampp-74
+choco install xampp-81
 ```
 
 ## A Path környezeti változó
@@ -57,6 +57,17 @@ Erre később szükség lesz, amikor az npm install -g <csomagnév> parancsot ha
 A környezeti változó beállításról itt találunk egy leírást:
 
 * [https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:utvonalak#gui_felueleten](https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:utvonalak#gui_felueleten)
+
+## Node.js alkalmazások
+
+Az npm csomagkezelő telepítve kell legyen. Az npm a Node.js rendszer csomagkezelője.
+
+```bash
+npm install --global sinto
+npm install --global resen
+```
+
+Szükség lesz még az angular cli csomagra, de ennek telepítése az Angular fejezetben le van írva.
 
 ## Előzetes ismeretek
 
