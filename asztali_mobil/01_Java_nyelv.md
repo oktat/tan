@@ -33,9 +33,16 @@ A Java nyelv még mindig az egyes fő verziószámnál tart. Az egyes Java verzi
 
 * 1.1
 * 1.2
+* 1.3
+* 1.4
 * ...
 * 1.16
 * 1.17
+* 1.18
+* 1.19
+* 1.20
+* 1.21
+* 1.22
 
 Az egyes verziókra azonban a főverzió nélkül szokás hivatkozni. Az 1.17-es verzióra például csak 17-s verzióként hivatkozunk.
 
@@ -57,7 +64,7 @@ App.java:
 ```java
 public class App {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        System.out.println("Helló Világ!");
     }
 }
 ```
@@ -73,6 +80,14 @@ Kapunk egy App.class állományt. Futtassuk:
 ```bash
 java App
 ```
+
+Windowson szükség lehet a karakterkódolás megadására:
+
+```bash
+javac -encoding utf8 App.java
+```
+
+Megfelelő a utf8, utf-8, UTF8 és az UTF-8 is.
 
 ### Megjegyzések a Java nyelvben
 
@@ -114,6 +129,10 @@ Mi a különbség? A println() egy sortörést is a képernyőre ír. A printf()
 ```java
 System.out.println(1 + 2);
 System.out.println("1 + 2 = " + (1 + 2));
+System.out.println(3 - 2);
+System.out.println(3 * 2);
+System.out.println(3 / 2);
+System.out.println(3 % 2);
 ```
 
 ## Különleges karakterek
@@ -130,6 +149,8 @@ System.out.println("me\ntés")
 System.out.println("men\tés")
 ```
 
+| Karakter | Jelentés |
+|-|-|
 | \n | új sor |
 | \t | tabulátor |
 | \' | felsővessző kiíratása |
@@ -202,7 +223,13 @@ float f = (float) i;
 double d = (double) f;
 ```
 
+Ha megpróbáljuk "l" változó tartalmát az "i" változóba tenni, hibát kapunk, mivel long típusba akkora szám is lehet, ami nem fér bele az int típusba. Ezért típuskénykényszerítást alkalmazunk.
+
+A típuskényszerítés esetén egy zárójelpárba írjuk azt a típust amib szeretnénk kényszerítani az utána következő változó értékét.
+
 ### Változók használata
+
+A változókat használat előtt deklarálni kell. Ez abból áll, hogy megmondjuk milyen típusú változó hozunk létre.
 
 ```java
 float f = 1.0f;
@@ -211,7 +238,7 @@ float f2 = 1.0F;
 double d2 = 1.0D;
 ```
 
-Kifejezeések:
+Kifejezések:
 
 ```java
 int i = 1;
@@ -264,6 +291,7 @@ Jelzők
 Konverziós karakterek
 
 | Konverziós karakter | Leírás |
+|-|-|
 | 's', 'S' | Karaktersorozat |
 | 'd' | egész szám |
 | 'f' | valós szám |
@@ -364,6 +392,12 @@ String numStr = sc.nextLine();
 int num = Integer.parseInt(numStr);
 ```
 
+```java
+Scanner sc = new Scanner(System.in);
+String numStr = sc.nextLine();
+double num = Double.parseDouble(numStr);
+```
+
 Név bekérése:
 
 ```java
@@ -461,6 +495,19 @@ for (int i = 0; i < numbers.length; i++) {
 }
 ```
 
+```java
+String[] nevek = {
+  "Gábor", 
+  "Irén", 
+  "Piri", 
+  "Teri", 
+  "Lili"
+  };
+for (int i = 0; i < numbers.length; i++) {
+  System.out.println(numbers[i]);
+}
+```
+
 ## Listák
 
 ```java
@@ -470,6 +517,25 @@ names.add("Teri");
 names.add("Lili");
 for (String name : names) {
   System.out.println(name);
+}
+```
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        List<Integer> szamLista = new ArrayList<>();
+        szamLista.add(35);
+        szamLista.add(27);
+        szamLista.add(52);
+        szamLista.add(24);
+        for(Integer szam: szamLista) {
+            System.out.println(szam);
+        }
+        
+    }
 }
 ```
 
