@@ -520,6 +520,12 @@ for (String name : names) {
 }
 ```
 
+Kiírás egyszerűen:
+
+```java
+System.out.println(names);
+```
+
 ```java
 import java.util.ArrayList;
 import java.util.List;
@@ -537,6 +543,49 @@ public class App {
         
     }
 }
+```
+
+Elem eltávolítása:
+
+```java
+szamLista.remove(27);
+```
+
+Méret lekérdezése:
+
+```java
+System.out.println(szamLista.size());
+```
+
+### Elem keresése
+
+```java
+List<String> names = new ArrayList<>();
+names.add("Piri");
+names.add("Teri");
+names.add("Lili");
+System.out.println(names.indexOf("Teri"));
+System.out.println(names.lastIndexOf("Teri"));
+System.out.println(names.contains("Teri"));
+```
+
+Az eredmény:
+
+```txt
+1
+1
+true
+```
+
+### Lista rendezése
+
+```java
+List<String> names = new ArrayList<>();
+names.add("Piri");
+names.add("Teri");
+names.add("Lili");
+Collections.sort(names);
+System.out.println(names);
 ```
 
 ## Az enum típus
