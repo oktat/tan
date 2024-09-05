@@ -249,31 +249,31 @@ float f = 1.0f + i + (float) d;
 ### Formázott kivitel
 
 ```java
-System.out.printnf("1 + 2 = %d", 1 + 2);
+System.out.printf("1 + 2 = %d", 1 + 2);
 ```
 
 Argumentum index:
 
 ```java
-System.out.printnf("%d + %d = %d", 1, 2, 1 + 2);
+System.out.printf("%d + %d = %d", 1, 2, 1 + 2);
 ```
 
 Szélesség megadása:
 
 ```java
-System.out.printnf("%10d", 15);
+System.out.printf("%10d", 15);
 ```
 
 Pontosság:
 
 ```java
-System.out.printnf("%.2f", 15.12345);
+System.out.printf("%.2f", 15.12345);
 ```
 
 Ezredes elválasztó:
 
 ```java
-System.out.printnf("%,f\n", 1234567812345.12345678);
+System.out.printf("%,f\n", 1234567812345.12345678);
 ```
 
 Jelzők
