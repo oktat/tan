@@ -187,65 +187,11 @@ A viewport beállítása:
 
 A width=device-width biztosítja, hogy webolal szélessége megegyezzen a készülék szélességével. A initial-scale=1.0 beállítja a kezdeti nagyítási szintet.
 
-Ha a weblapot 320 pixel szélességű eszközhöz készítenénk, írhatnánk ezt:
-
-```html
-<meta name="viewport" content="width=320" />
-```
-
-Eszközhöz igazított méret:
-
-```html
-<meta name="viewport" content="width=device-width" />
-```
-
-Megadhatunk magasságot is, ha úgy tetszik:
-
-```html
-<meta name="viewport" content="width=device-height" />
-```
-
-A nagyítás mértékét az initial-scale tulajdonsággal végezzük:
-
-```html
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-```
-
-Egyéb tulajdonságok:
-
-* user-scalable=no - felhasználói zoom tiltása
-* minimum-scale=1.0 - zoom minimum
-* maximum-scale=3.0 - zoom maximum
-
-A W3C hivatalos viewport szabványa:
-
-```css
-@viewport {
-    width: device-width;
-    zoom: fixed;
-    zoom: 1.0;
-    min-zoom: 1;
-    max-zoom: 3;
-}
-```
-
-Opera esetén ajánlott előtag használata:
-
-```css
-@-o-viewport {
-    width: device-width;
-    zoom: fixed;
-    zoom: 1.0;
-    min-zoom: 1;
-    max-zoom: 3;
-}
-```
-
-Készítsünk egy webolat, amiben szerepel egy például egy rövid mondat: "Lorem ipsum dolor est amet". Nézzük meg a viewport beállítással és nélküle telfonon, vagy böngészőben telefonnézetben.
+Készítsünk egy webolat, amiben szerepel egy rövid mondat: "Lorem ipsum dolor est amet". Nézzük meg a viewport beállítással és nélküle telefonon, vagy böngészőben telefonnézetben.
 
 * [https://szit.hu/m/viewport/](https://szit.hu/m/viewport/)
 
-Hosszab szöveg esetén a böngésző igazíthatja a szöveget, de rövid szöveg esetén ez nem történik meg. Ha fix szélességű dobozt használunk a probléma ismét megjelenhet. Ha használjuk a viewport beállítást, a probléma megoldott.
+Hosszabb szöveg esetén a böngésző igazíthatja a szöveget, de rövid szöveg esetén ez nem történik meg. Ha fix szélességű dobozt használunk a probléma ismét megjelenhet. Ha használjuk a viewport beállítást, a probléma megoldott.
 
 ## Mértékegységek
 
