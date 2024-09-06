@@ -180,6 +180,8 @@ style.css:
 }
 ```
 
+Ha elkészült a weboldal nyissuk meg böngészőben, ellenőrizzük. Ezt követően nézzük meg nyomtatási nézetben, a Ctrl+P megnyomásával.
+
 ## Töréspontok
 
 A töréspontok segítségével a webhely tartalma különböző módon reagál az eszköz szélességére. A töréspontokat a médialekérdezés teszi lehetővé.
