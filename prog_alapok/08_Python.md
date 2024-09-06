@@ -27,6 +27,7 @@
 * [Iteráció](#iteráció)
 * [Karakterláncok kezelése](#karakterláncok-kezelése)
 * [Lista](#lista)
+* [Tuple](#tuple)
 * [Függvények](#függvények)
 * [Fájlkezelés](#fájlkezelés)
 
@@ -1563,6 +1564,37 @@ Rendezés a sort() függvénnyel:
 lista1 = [5, 1, 3, 4, 2]
 lista1.sort()
 print(lista1) # [1, 2, 3, 4, 5]
+```
+
+## Tuple
+
+A Tuple olyan elemek listája, amit nem változtathatunk meg.
+
+```python
+# egy üres tuple
+tuple1 = ()
+```
+
+```python
+# Tuple egy elemmel
+tuple1 = (45,)
+```
+
+```python
+# Tuple több elemmel:
+tupl1 = (35, 22, 47, 92)
+```
+
+```python
+# Hozzáférés egy elemhez:
+print(tuple1[0])
+# negatíav index is használahtó
+print(tuple1[-1])
+# Tartomány:
+print(tuple1[2:5])
+print(tuple1[-4:-2])
+print(tuple1[:5]) # 5-ig
+print(tuple1[2:]) # 2-től
 ```
 
 ## Függvények
