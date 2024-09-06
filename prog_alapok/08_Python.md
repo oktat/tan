@@ -1013,7 +1013,7 @@ else:
 
 ### A match case
 
-A match case szerkezet a Python 3.10-től szerepel a Pythonban. Más nyelvek switch case szerkezetét másolja.
+A match case szerkezet a Python 3.10-től elérhető. Más nyelvek switch case szerkezetét másolja.
 
 ```python
 num = int(input("Kérek egy számot: "))
