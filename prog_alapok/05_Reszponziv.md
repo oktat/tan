@@ -43,7 +43,7 @@ Miket figyelhetünk a médialekérdezések során:
 
 Szintaxis:
 
-```css
+```txt
 @media not|only médiatípus and (kifejezés) {
     /* Ide jön a CSS kód */
 }
