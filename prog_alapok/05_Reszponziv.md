@@ -28,9 +28,24 @@ A cél eléréshez az elemek méretét, helyét valamilyen relatív értékben a
 
 ## Médialekérdezések
 
+### CSS2 médiatípusok
+
 A CSS2 bemutatta médiatípusokat. Ez lehetővé teszi stílusok meghatározását különböző médiatípusokhoz.
 
+* all - minden médiatípus
+* screen - képernyő
+* print - nyomtató
+* speech - beszéd alapú olvasás - képernyőolvasó
+
 Például más stílust lehet beállítani a nyomtatott médiához és más a képernyőhöz.
+
+A webfelületen különböző stíluslapok médiához igazítva:
+
+```html
+<link rel="stylesheet" media="típus and|not|only (kifejezés)" href="fajlnev.css">
+```
+
+### CSS3 eszközök képessége
 
 A CSS3-ban bevezették az eszköz képességeinek lekérdezését, a szimpla típusfigyelés helyett.
 
@@ -47,12 +62,6 @@ Szintaxis:
 @media not|only médiatípus and (kifejezés) {
     /* Ide jön a CSS kód */
 }
-```
-
-A webfelületen különböző stíluslapok médiához igazítva:
-
-```html
-<link rel="stylesheet" media="típus and|not|only (kifejezés)" href="fajlnev.css">
 ```
 
 Példa:
