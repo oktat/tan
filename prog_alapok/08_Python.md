@@ -896,6 +896,66 @@ Egy precedencia táblával leírható, melyik operátor értékelődik ki előbb
 | ^ | bitmozgató XOR |
 | &vert; | bitmozgató OR |
 
+Ha egymás mellett azonos precedenciájú operátorok találkoznak, a kiértékelés balról jobbra történik.
+
+Kiértékelés balró jobbra:
+
+```python
+print(10 - 5 + 2)  # 7
+print(2**3**2)     # 512
+```
+
+A precedencia érvényesülése:
+
+```python
+print(10 + 5 * 2)    # 20
+print((10 + 5) * 2)  # 30
+```
+
+A logikai operátorok esetén az **and** hajtódik végre, ezt követően az **or** operátor.
+
+```python
+result = True or False and False
+print(result)   # True
+```
+
+A zárójellel befolyásolhatjuk ezt a viselkedést:
+
+```python
+result = (True or False) and False
+print(result)  # False
+```
+
+Összehasonlítás:
+
+```python
+result = 3 < 5 == True
+# A < operátor értékelődik ki előbb
+print(result)    # False
+```
+
+Ez valójában ezt jelenti:
+
+```python
+(3 < 5) and (5 == True)
+```
+
+Magyarázat: 3 < 5 ez igaz. Után azt nézzük meg, hogy 5 == True. Ez hamis, mert a Python True értéke 1-gyel egyenlő, nem 5-tel. Tehát 5 == True hamis.
+
+Hatványozás és negáció:
+
+```python
+result = -3 ** 2
+# a hatványozás előbb történik:
+print(result)   # -9
+```
+
+```python
+result = (-3) ** 2
+# a negálás előbb történik:
+print(result)   # 9
+```
+
 ## Konvertálás
 
 ### Sztring valóssá
