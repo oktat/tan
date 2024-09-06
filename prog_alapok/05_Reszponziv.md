@@ -91,7 +91,7 @@ Példa médiatípus meghatározására:
 }
 ```
 
-Médistípus beállítása HTML fájlban, példa:
+Médiatípus beállítása HTML fájlban, példa:
 
 ```html
 <link 
@@ -103,6 +103,81 @@ Médistípus beállítása HTML fájlban, példa:
     rel="stylesheet" 
     href="ketto.css"
     media="print">
+```
+
+### Médialekérdezés gyakorlat
+
+#### Feladat 001
+
+Készítsünk egy weblapot a következők szerint:
+
+* A weblapon a tartalom egy .container div-be kerüljön.
+* Legyen a weblapon egy cím, egyes fejezetcímmel
+  * A cím szövege: CPU
+* A címet kövesse egy bekezdés **lorem** rövidítéssel létrehozva.
+* Nyomtató esetén követelmény a .container számára:
+  * A fontcsalád: serif
+  * A háttérszín: fehér
+* Képernyő esetén:
+  * A fontcsalád: sans-serif
+  * A háttérszín: aqua
+* Mindkét média esetén:
+  * Külső margó: 5%
+  * Belső margó: 10px
+  * 10px-es lekerekített sarok
+
+Megoldás:
+
+index.html:
+
+```html
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPU</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>CPU</h1>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur 
+            adipisicing elit. Voluptate at voluptatum 
+            delectus autem animi, unde laudantium 
+            accusamus expedita quos officiis eos 
+            placeat libero, commodi beatae dolor 
+            tenetur veritatis fugiat pariatur.
+        </p>
+    </div>
+    
+</body>
+</html>
+```
+
+style.css:
+
+```css
+.container {
+    margin: 5%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+@media screen {
+    .container {
+        font-family: sans-serif;
+        background-color: aqua;
+    }
+}
+@media print {
+    .container {
+        font-family: serif;
+        background-color: white;
+    }
+}
 ```
 
 ## Töréspontok
