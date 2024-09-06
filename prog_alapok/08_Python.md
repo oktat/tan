@@ -12,7 +12,6 @@
 * [Helló Világ](#helló-világ)
 * [Megjegyzések](#megjegyzések)
 * [Kivitel](#kivitel)
-* [Gyakorló feladatok a kivitelhez](#gyakorló-feladatok-a-kivitelhez)
 * [Escape szekvenciák](#escape-szekvenciák)
 * [Típusok](#típusok)
 * [Változóhasználat](#változóhasználat)
@@ -146,7 +145,35 @@ Próbáljuk meg futtatni a következő hibás kódot:
 print(alma)
 ```
 
-## Gyakorló feladatok a kivitelhez
+### Kiírás után
+
+A print() utasítás a kiírás után egy sortörést küld a képernyőre. Eze a viselkedésen változtathatunk az end paraméterrel.
+
+```python
+print('alma', end=' ')
+print('körte)
+```
+
+Az els print() utasítás például a sortérés helyett egy szóközt ír a képernyőre. A kimenet tehát:
+
+```txt
+alma körte
+```
+
+### Az elemek közötti szeparátor
+
+```python
+print('alma', 'szilva', 'körte', 'barack', sep='-')
+# Kimenet: alma-szilva-körte-barack
+```
+
+Egyszerre használhatjuk a sortöréssel:
+
+```python
+print('alma', 'szilva', sep='-', end=' ')
+```
+
+### Gyakorló feladatok a kivitelhez
 
 1.)  Milyen típusú adat a következő: 0.5
 
