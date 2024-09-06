@@ -74,6 +74,8 @@ Példa:
 }
 ```
 
+### Vegyes példák
+
 Példa médiatípus meghatározására:
 
 ```css
