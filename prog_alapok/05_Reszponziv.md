@@ -376,7 +376,7 @@ Megjelenés:
 
 Élő példa:
 
-* [https://szit.hu/download/peldak/css/flex.html](https://szit.hu/download/peldak/css/flex.html)
+* [https://szit.hu/m/flex](https://szit.hu/m/flex)
 
 ## Grid dobozok
 
@@ -432,7 +432,7 @@ A böngészőben:
 
 Élő példa:
 
-* [https://szit.hu/download/peldak/css/grid.html](https://szit.hu/download/peldak/css/grid.html)
+* [https://szit.hu/m/grid](https://szit.hu/grid)
 
 ## CSS keretrendszerek
 
