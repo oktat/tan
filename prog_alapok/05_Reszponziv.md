@@ -502,4 +502,4 @@ Szimpla felosztás összehasonlítva a nagy és kicsi beállítással:
 
 Élő példa:
 
-* [https://szit.hu/download/peldak/bootstrap/bs.html](https://szit.hu/download/peldak/bootstrap/bs.html)
+* [https://szit.hu/m/bootstrap/bs.html](https://szit.hu/m/bootstrap/bs.html)
