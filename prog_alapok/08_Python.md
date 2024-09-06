@@ -1227,11 +1227,18 @@ szoveg = "45"
 print(szoveg.isdigit())    # True
 ```
 
-Csak szám és betű?
+Csak betű?
 
 ```python
 szoveg = "45"
 print(szoveg.isalpha())    # False
+```
+
+Csak szám és betű?
+
+```python
+szoveg = "45"
+print(szoveg.isalnum())    # True
 ```
 
 Csak kisbetűs?
