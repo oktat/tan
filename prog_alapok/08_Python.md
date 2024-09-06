@@ -1216,18 +1216,6 @@ else:
     print('Találat')
 ```
 
-### Új hivatkozás létrehozása
-
-```python
-kars = "szilva"
-print(id(kars))       # 140087358978224
-kars2 = kars[:]
-print(id(kars2))      # 140087358978224
-print(kars is kars2)  # True
-```
-
-Nem jött létre új karakterlánc, csak az elsőre egy hivatkozás.
-
 ### Karakterek osztályozása
 
 Megnézzük, hogy számról, karakterekről vagy valami vegyeset tartalmaz egy karakterlánc.
