@@ -96,6 +96,26 @@ Az egysoros megjegyzések az utasítások után is írhatók:
 print(35) # a kimenet 35
 ```
 
+### Többsoros megjegyzés
+
+Aposztrófokkal és idézőjelekkel többsoros megjegyzés hozható létre, bár eredetileg nem ez volt a cél.
+
+```python
+"""
+több
+soros
+megjegyzés
+"""
+```
+
+```python
+'''
+több
+soros
+megjegyzés
+'''
+```
+
 ### Gyakorlat a Megjegyzések fejezethez
 
 Írjon programot, amely a képernyőre írja a 145 számot.
