@@ -24,7 +24,7 @@ A reszponzív tervezéshez újabban betűszavakat hoznak létre. Responsive Web 
 
 A reszponzív tervezés esetén, a legkülönfélébb eszközökön szeretnénk a weblapot optimálisan megjeleníteni.
 
-A cél eléréshez az elemek méretét, helyét valamilyen relatiív értékben adjuk meg, illetve a beállításokat médiaméretéhez igazítjuk.
+A cél eléréshez az elemek méretét, helyét valamilyen relatív értékben adjuk meg, illetve a beállításokat médiaméretéhez igazítjuk.
 
 ## Médialekérdezések
 
