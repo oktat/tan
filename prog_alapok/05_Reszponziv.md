@@ -170,9 +170,13 @@ Készítsünk egy index.html a body elemben a következő tartalommal:
 
 Tekintsük meg működés közben a weblapot:
 
-[https://szit.hu/m/media/](https://szit.hu/m/media/)
+* [https://szit.hu/m/media/](https://szit.hu/m/media/)
 
 ## Viewport
+
+A viewport ahol a szegély:
+
+* [https://szit.hu/m/media_border/](https://szit.hu/m/media_border/)
 
 A viewport segítségével a tartalom automatikusan igazodik a kijelző méretéhez. A megjelenés mérete megfelelő skálázással jelenik a különböző eszközökön. Beállítható a nagyítással kapcsolatos tulajdonságok.
 
