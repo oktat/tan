@@ -37,15 +37,25 @@ Bővebb leírása:
 
 ## Csomagok telepítése Chocolatey csomagkezelővel
 
+Csak az aktuális profilba telepítés:
+
+```cmd
+choco install vscode
+```
+
+Telepíthetjük minden felhasználó számára:
+
 ```cmd
 choco install vscode.install
 ```
+
+A SceneBuilder JavaFX fejlesztéshez szükséges.
 
 ```cmd
 choco install scenebuilder
 ```
 
-Java JDK lehet amit alapból ad, de ajánlott a 17 Java:
+Java JDK verziójának jó választás amit alapból ad, de ajánlott a 17 Java, illetve az aktuális stabli verzió:
 
 ```cmd
 choco install oraclejdk

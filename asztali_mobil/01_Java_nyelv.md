@@ -27,9 +27,9 @@
 
 ## Java fejlesztés
 
-A Java nyelvet a **Sun Microsystem** programozói kezdték fejleszteni, 1991-ben. Később az Oracle felvásárolt a céget, így a Java most az ő tulajdona.
+A Java nyelvet a **Sun Microsystem** programozói kezdték fejleszteni, 1991-ben. Később az Oracle felvásárolta a céget, így a Java most az ő tulajdona.
 
-A Java nyelv még mindig az egyes fő verziószámnál tart. Az egyes Java verziók:
+A Java nyelv még mindig az 1-es fő verziószámnál tart. Az egyes Java verziók:
 
 * 1.1
 * 1.2
@@ -81,6 +81,8 @@ Kapunk egy App.class állományt. Futtassuk:
 java App
 ```
 
+Vegyük észre, hogy a .class kiterjesztést nem szükséges megadni.
+
 Windowson szükség lehet a karakterkódolás megadására:
 
 ```bash
@@ -109,7 +111,7 @@ A képernyőre írni a System osztály áll rendelkezésre. Ennek van két tagja
 * out
 * err
 
-Az out és az err mezők is a képernyőt jelentik. A programot használó szakember képes szétválasztani a kétféle kimenetet. Ha egy nomál kiíratást végzünk, akkor az **out** mezőn keresztül kell kiíratni. Ha hibát írunk a képernypre, akkor az **err** mezőn keresztül kell kiíratni.
+Az out és az err mezők is a képernyőt jelentik. A programot használó szakember képes szétválasztani a kétféle kimenetet. Ha egy normál kiíratást végzünk, akkor az **out** mezőn keresztül kell kiíratni. Ha hibát írunk a képernyőre, akkor az **err** mezőn keresztül kell kiíratni.
 
 ```java
 System.out.println("Normál kimenet.");
@@ -126,6 +128,10 @@ Mi a különbség? A println() egy sortörést is a képernyőre ír. A printf()
 
 ### Operátorok
 
+#### Aritmetikai operátorok
+
+A Java nyelv aritmetikai operátorai a +, -, *, / és a % karakter.
+
 ```java
 System.out.println(1 + 2);
 System.out.println("1 + 2 = " + (1 + 2));
@@ -135,19 +141,112 @@ System.out.println(3 / 2);
 System.out.println(3 % 2);
 ```
 
+A % operátor a számok osztása során a maradékot adja.
+
+#### Egyoperandusú operátorok
+
+| Operátor | Leírás |
+|-|-|
+| + | Az értéket adja |
+| - | Előjelet vált |
+| ++ | Inkrementálás |
+| -- | Dekrementálás |
+| !  | Negálás |
+
+A + operátor csak a szimetria kedvéért jött létre még a C nyelvben.
+
+#### Összehasonlító operátor
+
+| Operátor | Leírás |
+|-|-|
+| == | egyenlő |
+| != | nem egyenlő |
+| >  | nagyobb mint |
+| >= | nagyobb vagy egyenlő |
+| <  | kisebb mint |
+| <= | kisebb vagy egyenlő |
+
+#### Feltételes operátorok
+
+| Operátor | Leírás |
+|-|-|
+| && | ÉS művelet |
+| \|\| | VAGY művelet |
+| ?: | Hármas operátor |
+
+#### Bitenkénti operátorok
+
+| Operátor | Leírás |
+|-|-|
+| ~ | Komplemensképzés |
+| << | előjeles balra mozgatás |
+| >> | előjeles jobbra mozgatás |
+| >>> | elője nélküli jobbra mozgatás |
+| & | bitenkénti ÉS |
+| \| | bitenkénti VAGY |
+| ^ | bitenkénti Kizáró VAGY |
+
+#### Precedencia
+
+| Operátorok | Leírás |
+|-|-|
+| ++, --, !, ~ | Inkrementálás, dekrementálás, logikai és bitenkénti negálás |
+| * / % | szorzás, osztás, moduló |
+| + - | összeadás, kivonás |
+| << >> >>> | bitenkénti léptetések |
+| < > >= <= | összehasonlítások |
+| == != | egyenlő, nem egyenlő |
+| & | bitenkénti AND |
+| ^ | bitenkénti XOR |
+| \| | bitenkénti OR |
+| && | logikai AND |
+| \|\| | logikai OR |
+| ?: | feltétele kifejezés |
+| = += -= *= /= %= ^= &= \|= <<= >>= >>>= | értékadó operátorok |
+
+#### Inkrementálás és dekrementálás
+
+Előbb átadja az értéket, majd inkrementálja 1-gyel az "a" értékét.
+
+```java
+int a = 30;
+b = a++;
+System.out.println(b); // 30
+```
+
+Előbb inkrementálja "a" értékét 1-gyel, majd átadja a megnövelt értéket.
+
+```java
+int a = 30;
+b = ++a;
+System.out.println(b); // 31
+```
+
+A dekrementálás ugyanígy működik.
+
 ## Különleges karakterek
+
+Ha kiíratom a "mentés" szót, az összes karakter normál karakterként viselkedik, mindegyik megjelenik a képernyőn.
 
 ```java
 System.out.println("mentés")
 ```
 
+Néhány karakternek speciális jelentést adhatunk, ha elé teszünk egy "\" visszaperjel karaktert.
+
 ```java
 System.out.println("me\ntés")
 ```
 
+Nézzük meg mi a kiírás eredménye. Most tegyük a "t" karaktert különlegessé.
+
 ```java
 System.out.println("men\tés")
 ```
+
+Azokat a karaktereket, amelyeknek speciális jelentést adhatunk, **escape szekvenciáknak** nevezzük.
+
+A következő táblázat bemutatja az escape szekvenciákat.
 
 | Karakter | Jelentés |
 |-|-|
@@ -163,6 +262,8 @@ System.out.println("men\tés")
 
 ## Adattípusok
 
+### Egés számok
+
 | Típus | Szám | Tartomány |
 |-|-|-|
 | byte | 1 byte | -128 - 127 |
@@ -170,10 +271,14 @@ System.out.println("men\tés")
 | int | 4 bytes | -2 147 483 648 - 2 147 483 647 |
 | long | 8 bytes | -9 223 372 036 854 775 808 - 9 223 372 036 854 775 807 |
 
+### Valós számok
+
 | Típus | Szám | Tartomány |
 |-|-|-|
 | double | 8 bytes | 4.9e-324 - 1.7976931348623157e+308 |
 | float | 4 bytes | 1.4e-45 - 3.4028235e+38 |
+
+### Logikai típus
 
 | Típus | Szám | Tartomány |
 |-|-|-|
@@ -183,6 +288,8 @@ System.out.println("men\tés")
 boolean igaz = true;
 ```
 
+### Karakter típus
+
 | Típus | Szám | Tartomány |
 |-|-|-|
 | char | 2 bytes | 0 - 65535 |
@@ -191,6 +298,8 @@ boolean igaz = true;
 char karakter = 'a';
 System.out.println(karakter);
 ```
+
+### Burkolóosztályok
 
 Primitív típusok burkolóosztályai
 
