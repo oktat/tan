@@ -24,6 +24,7 @@
 * [Bevitel](#bevitel)
 * [Szekvenciális tevékenység](#szekvenciális-tevékenység)
 * [Szelekció](#szelekció)
+* [Iteráció](#iteráció)
 * [Karakterláncok kezelése](#karakterláncok-kezelése)
 * [Lista](#lista)
 * [Függvények](#függvények)
@@ -982,6 +983,51 @@ utasítás1; utasítás2; utasítás3
 ```
 
 ## Szelekció
+
+### Az if
+
+```python
+num = int(input("Kérek egy számot: "))
+if num > 30:
+    print('Túl nagy szám')
+```
+
+```python
+num = int(input("Kérek egy számot: "))
+if num > 30:
+    print('Túl nagy szám')
+else:
+    print('Megfelelő szám')
+```
+
+```python
+num = int(input("Kérek egy számot: "))
+
+if num > 30:
+    print("Túl nagy")
+elif num == 30:
+    print("pont 30, jó lesz")
+else:
+    print("30-nál kisebb megfelel")
+```
+
+### A match case
+
+A match case szerkezet a Python 3.10-től szerepel a Pythonban. Más nyelvek switch case szerkezetét másolja.
+
+```python
+num = int(input("Kérek egy számot: "))
+
+match num:
+    case 1:
+        print("egy")
+    case 2:
+        print("kettő")
+    case _:
+        print("ismeretelen")
+```
+
+## Iteráció
 
 ### A for
 
