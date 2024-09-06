@@ -45,6 +45,16 @@ print("Helló Világ!")
 
 Nyissunk egy könyvtárat a **Visual Studio Code** programmal, majd készítsünk egy **main.py** nevű fájlt. Tartalma a fenti kód legyen. Futtassuk a kódot.
 
+A kód futtatása lehet terminálból:
+
+```bash
+python hello.py
+```
+
+A másik lehetőség, ha telepítjük a VSCode **Python** bővítményét. Ekkor megjelenik egy lejátszógomb, ha meg van nyitva egy .py kiterjesztésű fájl. Erre kattintva a program elindul.
+
+### Elemezés
+
 A program a képernyőre írja, hogy "Helló Világ!", idézőjelek nélkül. A programban az idézőjelek között adunk meg szöveget. A print utasítás egy függvény, ami paraméterként megadott szöveget kiírja a képernyőre. A paramétert mindig zárójelek () között adjuk meg. Később látni fogjuk, hogy a print() utasítással nem csak szöveget tudunk kiíratni.
 
 A programozás nem olyan nehéz mint azt egy kezdő elsőre gondolja. Foglalkozni kell vele, a befektetett idő megtérül.
