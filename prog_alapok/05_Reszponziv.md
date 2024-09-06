@@ -12,7 +12,6 @@
 * [Médialekérdezések](#médialekérdezések)
 * [Töréspontok](#töréspontok)
 * [Viewport](#viewport)
-* [Médialekérdezés és viewport](#médialekérdezés-és-viewport)
 * [Mértékegységek](#mértékegységek)
 * [Flex dobozok](#flex-dobozok)
 * [Grid dobozok](#grid-dobozok)
@@ -247,14 +246,6 @@ Készítsünk egy webolat, amiben szerepel egy például egy rövid mondat: "Lor
 * [https://szit.hu/m/viewport/](https://szit.hu/m/viewport/)
 
 Hosszab szöveg esetén a böngésző igazíthatja a szöveget, de rövid szöveg esetén ez nem történik meg. Ha fix szélességű dobozt használunk a probléma ismét megjelenhet. Ha használjuk a viewport beállítást, a probléma megoldott.
-
-## Médialekérdezés és viewport
-
-```css
-@media screen and (min-width: 740px) and (max-width: 1024px) {
-    @viewport { width: 740px; }
-}
-```
 
 ## Mértékegységek
 
