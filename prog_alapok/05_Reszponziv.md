@@ -432,7 +432,7 @@ A böngészőben:
 
 Élő példa:
 
-* [https://szit.hu/m/grid](https://szit.hu/grid)
+* [https://szit.hu/m/grid](https://szit.hu/m/grid)
 
 ## CSS keretrendszerek
 
