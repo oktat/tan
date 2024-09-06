@@ -328,7 +328,9 @@ from typing import Final
 max: Final[float] = 150
 ```
 
-A max változó ugyan felülírható, de a kódszerkesztő figyelmeztet hibára.
+A max változó ugyan felülírható, de a kódszerkesztő figyelmeztet hibára, ha telepítve van egy megfelelő linter:
+
+* VSCode bővítmény: **Mypy Type Checker**
 
 ### Literális állandó
 
