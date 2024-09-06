@@ -173,7 +173,7 @@ Tekintsük meg működés közben a weblapot:
 
 ## Viewport
 
-A viewport ahol a szegély:
+A viewport a böngészőnek az a része, ahol weblapot látjuk. A következő weblapon a viewport szélét 5 pixeles szegéllyel jeleztem:
 
 * [https://szit.hu/m/media_border/](https://szit.hu/m/media_border/)
 
