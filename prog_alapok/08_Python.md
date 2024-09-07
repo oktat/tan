@@ -32,7 +32,7 @@
 
 ## A Python bemutatása
 
-A Python egy népszerű és sokoldalú programozási nyelv, amit használnak a tudományos adatfeldolgozásban, webfejlesztésben, automatizálásban, és még sok más területen. A Python nyelvet Guido van Rossum, holland programozó kezdte fejleszteni a Centrum Wiskunde & Informatica (CWI, Matematikai és Informatikai Központ) kutatóintézetben, 1989-ben.
+A Python egy népszerű és sokoldalú programozási nyelv, amit használnak a tudományos adatfeldolgozásban, webfejlesztésben, automatizálásban, és még sok más területen. A Python nyelvet **Guido van Rossum**, holland programozó kezdte fejleszteni a Centrum Wiskunde & Informatica (CWI, Matematikai és Informatikai Központ) kutatóintézetben, 1989-ben.
 
 A Python nagyon jó kezdők számára, mivel könnyen tanulható, olvasható és írható a kóddal dolgozunk.
 
