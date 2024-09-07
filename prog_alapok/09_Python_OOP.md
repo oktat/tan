@@ -13,7 +13,7 @@
 
 ## Osztályok
 
-Az osztályokat különböző típusú adatok tárolására alkalmas adatszerkezetekre használhatjuk. Az osztályt mindig a class kulcsszóval vezetjük be. Ha szeretnék egy dolgozó adatai tárolni, hozzunk létre osztályt.
+Az osztályokat különböző típusú adatok tárolására alkalmas adatszerkezetekre használhatjuk. Az osztályt mindig a class kulcsszóval vezetjük be. Ha szeretnék egy dolgozó adatait tárolni, hozzunk létre osztályt.
 
 A következő példában egy osztályt hozunk létre, amely egyelőre üres.
 
@@ -21,6 +21,8 @@ A következő példában egy osztályt hozunk létre, amely egyelőre üres.
 class Dolgozo:
     pass
 ```
+
+Az üres osztály létrehozásához a "pass" utasítást kell megadni, ami nem csinál semmit.
 
 Szeretnénk tárolni nevet, települést, fizetést egy dolgozóról:
 
@@ -31,7 +33,7 @@ class Dolgozo:
     fizetes = 0
 ```
 
-Az így létrehozott változókat adattagoknak hívjuk, a továbbiakban így hivatkozunk rájuk.
+Az így létrehozott változókat **adattagok**nak hívjuk, a továbbiakban így hivatkozunk rájuk.
 
 Az osztály használata:
 
@@ -52,7 +54,7 @@ print(janos.nev)
 
 ## Konstruktor
 
-Az osztályon belül létrehozhatók függvények is. Az osztályon belüli függvényeket metódusnak nevezzük, a továbbiakban így hivatkozunk rá. Van egy speciális metódus, amelynek a neve &#95;&#95;init&#95;&#95;. Az &#95;&#95;init&#95;&#95; metódust arra, használjuk, hogy kezdőértéket adjunk az adattagok számára. Ezt a metódust hívjuk konstruktornak. Az init szó előtt és után kettő darab alulvonás van.
+Az osztályon belül létrehozhatók függvények is. Az osztályon belüli függvényeket **metódus**nak nevezzük, a továbbiakban így hivatkozunk rá. Van egy speciális metódus, amelynek a neve &#95;&#95;init&#95;&#95;. Az &#95;&#95;init&#95;&#95; metódust arra, használjuk, hogy kezdőértéket adjunk az adattagok számára. Ezt a metódust hívjuk konstruktornak. Az init szó előtt és után kettő darab alulvonás van.
 
 ```python
 class Dolgozo:
@@ -65,8 +67,7 @@ class Dolgozo:
 janos = Dolgozo()
 ```
 
-A példányosításnál a Dolgozo() utasítás a konstruktor hívása.
-Konstruktor akkor is van, ha azt nem hozzuk létre.
+A példányosításnál a Dolgozo() utasítás a konstruktor hívása. Konstruktor akkor is van, ha azt nem hozzuk létre; a háttérben automatikusan létrejön.
 
 A self paraméter kötelező paraméter, ezen keresztül hivatkozhatunk az osztály adattagjaira. A self.nev a "nev" adattagra hivatkozik.
 
