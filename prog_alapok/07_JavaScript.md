@@ -7,7 +7,7 @@
 
 ## Tartalomjegyzék
 
-![Olvasmány](../images/olvasmany-kicsi.png)
+![Olvasmány](images/olvasmany-kicsi.png)
 
 * [Tartalomjegyzék](#tartalomjegyzék)
 * [A JavaScript](#a-javascript)
