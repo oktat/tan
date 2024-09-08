@@ -368,4 +368,6 @@ A navigációra példa:
 <button class="btn btn-success">Siker</button>
 ```
 
+![Gombok](images/bootstrap/gombok_01.png)
+
 * [https://getbootstrap.com/docs/5.2/components/buttons/](https://getbootstrap.com/docs/5.2/components/buttons/)
