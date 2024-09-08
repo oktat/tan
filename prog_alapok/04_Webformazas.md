@@ -662,6 +662,21 @@ p {
 
 ![Dobozok méretezése](images/css/dobozok_meretezese.png)
 
+### Szélsőértékek
+
+Ha a dobozok mérete rugalmas, megadhatunk egy maximális vagy egy minimális értéket.
+
+```css
+p {
+  background-color: aqua;
+  width: 50%;
+  max-width: 400px;
+  min-width: 300px;
+}
+```
+
+A magasság számára is beállíthatók szélsőértékek.
+
 ## Túlcsordulás
 
 A HTML dobozok alapértelmezetten rugalmas méretűek. Ha hozzáadunk tartalmat, akkor automatikusan nő a méretük. Ha viszont fix szélességű és magasságú dobozt hozunk létre, és a tartalom nem fér el benne, a doboz túlcsordul.
