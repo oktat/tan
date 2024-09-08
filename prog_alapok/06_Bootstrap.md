@@ -221,6 +221,32 @@ Keverés:
 
 ## Elrendezés
 
+Ha form elemek tartalmát egymás helyezzük el egymás utána, azok a egymás alatt jelennek meg a weblapon. A rácsok használatával egymás mellé tehetjük azokat.
+
+```html
+<div class="mb-3">
+  <label for="egy" class="form-label">Egy</label>
+  <input type="text" class="form-control" id="egy" placeholder="egy jön ide">
+</div>
+<div class="mb-3">
+  <label for="ketto" class="form-label">Kettő</label>
+  <input type="text" class="form-control" id="ketto" placeholder="kettő jön ide">
+</div>
+```
+
+Elhelyezés egymás mellé:
+
+```html
+<div class="row">
+  <div class="col">
+    <input type="text" class="form-control" placeholder="Egy">
+  </div>
+  <div class="col">
+    <input type="text" class="form-control" placeholder="Kettő">
+  </div>
+</div>
+```
+
 * [https://getbootstrap.com/docs/5.2/forms/layout/](https://getbootstrap.com/docs/5.2/forms/layout/)
 
 ## Listák
