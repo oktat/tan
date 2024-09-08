@@ -8,6 +8,7 @@
 ## Tartalomjegyzék
 
 * [Tartalomjegyzék](#tartalomjegyzék)
+* [Bootstrap kezdés](#bootstrap-kezdés)
 * [Tipográfia](#tipográfia)
 * [Konténerek](#konténerek)
 * [Rácsok](#rácsok)
@@ -17,6 +18,54 @@
 * [Képek](#képek)
 * [Navigáció](#navigáció)
 * [Gombok](#gombok)
+
+## Bootstrap kezdés
+
+A Bootstrap egy nyílt forráskódú frontend keretrendszer, amit weboldalak stílussal való ellátására szolgál.
+
+Jellemzők:
+
+* előre definiált stílusok
+* reszponzív tervezés
+* JavaScript bővítmények
+* testreszabható
+* közösségi támogatás
+
+### A használat módjai
+
+* Letötljük a Bootstrap-t a weboldalon keresztül.
+* npm csomagként letöltöm
+* CDN-t használok
+
+Webhely:
+
+* [https://getbootstrap.com](https://getbootstrap.com)
+
+Amit linkelni szükséges: bootstrap.css
+
+```html
+<link rel="stylesheet" href="bootstrap.css">
+```
+
+A saját stílusfájlt (ha van ilyen) a Bootstrap hivatkozása után kell megadni:
+
+```html
+<link rel="stylesheet" href="bootstrap.css">
+<link rel="stylesheet" href="style.css">
+```
+
+### A használta kezdete
+
+Nem kötelező, de érdemes egy div elmmel kezdeni, aminek a .container osztállyelölőt adom:
+
+```html
+<div class="container">
+  <h1>Cím</h1>
+  <p>
+    Lorem ispum dolor est amet
+  </p>
+</div>
+```
 
 ## Tipográfia
 
