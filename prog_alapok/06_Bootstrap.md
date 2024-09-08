@@ -251,6 +251,8 @@ Elhelyezés egymás mellé:
 
 ## Listák
 
+A listák ul elemét a **list-group** osztályjelölőve jelöljük. A listaelemeket **list-group-item** osztályjelölővel jelöljük.
+
 ```html
 <ul class="list-group">
   <li class="list-group-item">alma</li>
@@ -260,7 +262,28 @@ Elhelyezés egymás mellé:
 </ul>
 ```
 
+Színezés:
+
+```html
+<ul class="list-group">
+  <li class="list-group-item
+  list-group-item-info">alma</li>
+  <li class="list-group-item
+  list-group-item-secondary">körte</li>
+  <li class="list-group-item
+  list-group-item-success">barack</li>
+  <li class="list-group-item
+  list-group-item-warning">málna</li>
+  <li class="list-group-item
+  list-group-item-danger">szilva</li>
+</ul>
+```
+
+![Lista színezve](images/bootstrap/lista_szinezve.png)
+
 ## Táblázatok
+
+A táblázatokat egyszerűen a **table** osztályjelölővel jelöljük.
 
 ```html
 <table class="table">
@@ -289,11 +312,20 @@ Elhelyezés egymás mellé:
 </table>
 ```
 
+Csíkozott táblázat beállítása:
+
+```html
+<table class="table table-striped">
+</table>
+```
+
 Bővebb információ:
 
 * [https://getbootstrap.com/docs/5.2/content/tables/](https://getbootstrap.com/docs/5.2/content/tables/)
 
 ## Képek
+
+Átméretezhető képek:
 
 ```html
 <img src="..." class="img-fluid" alt="...">
@@ -357,6 +389,8 @@ A navigációra példa:
 * [https://getbootstrap.com/docs/5.2/components/navs-tabs/](https://getbootstrap.com/docs/5.2/components/navs-tabs/)
 
 ## Gombok
+
+A gombokat a btn osztályjelölővel jelöljük. Nézzünk néhány színezéshez használt osztályjelölőt: btn-primary, btn-danger, btn-info, btn-success.
 
 ```html
 <button class="btn btn-primary">Mehet</button>
