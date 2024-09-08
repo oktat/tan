@@ -712,7 +712,7 @@ public static void main(String[] args) {
 
 ## Sztringkezelés
 
-Szting hossza:
+Sztring hossza:
 
 ```java
 String s = "Piri Teri Lili";
