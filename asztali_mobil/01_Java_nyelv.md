@@ -787,7 +787,6 @@ harmadik sor
 System.out.println(textBlock);
 ```
 
-
 ```java
 String name = "John";
 int age = 30;
