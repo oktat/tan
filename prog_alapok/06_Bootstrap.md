@@ -13,6 +13,7 @@
 * [Konténerek](#konténerek)
 * [Rácsok](#rácsok)
 * [Elrendezés](#elrendezés)
+* [Margók](#margók)
 * [Listák](#listák)
 * [Táblázatok](#táblázatok)
 * [Képek](#képek)
@@ -250,6 +251,37 @@ Elhelyezés egymás mellé:
 ```
 
 * [https://getbootstrap.com/docs/5.2/forms/layout/](https://getbootstrap.com/docs/5.2/forms/layout/)
+
+## Margók
+
+```txt
+{tulajdonság}{oldal}-{méret}
+```
+
+Tulajdonság:
+
+* m - margin
+* p - padding
+
+Oldal:
+
+* t - margin-top
+* b - margin-bottom
+* s - (start) margin-left
+* e - (end) margin-right
+* x - -left és -right együtt
+* y - -top és -bottom
+* üres - mind a négy oldalt jelenti
+
+Méret:
+
+* 0
+* 1 - $spacer * .25
+* 2 - $spacer * .5
+* 3 - $spacer
+* 4 - $spacer * 1.5
+* 5 - $spacer * 3
+* auto
 
 ## Listák
 
