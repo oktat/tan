@@ -91,6 +91,8 @@ Címsorok másként:
 <h1 class="display-6">Cím</h1>
 ```
 
+![Címsorok display beállításal](images/bootstrap/cimsor_display.png)
+
 Vezető szöveg:
 
 ```html
