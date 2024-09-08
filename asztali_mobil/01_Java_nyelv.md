@@ -774,6 +774,29 @@ sb.append(" Teri");
 sb.append(" Lili");
 ```
 
+### Text Block
+
+A Java 15-ben bevezették a Text Block-t, ami több soros sztringek létrehozhását teszi lehetővé.
+
+```java
+String textBlock = """
+első sor
+második sor
+harmadik sor
+"""
+System.out.println(textBlock);
+```
+
+
+```java
+String name = "John";
+int age = 30;
+String textBlock = """
+                   My name is %s and I am %d years old.
+                   """.formatted(name, age);
+System.out.println(textBlock);
+```
+
 ## Függvények
 
 ```java
