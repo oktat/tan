@@ -336,6 +336,12 @@ A beállított URL lekérdezhető a "get-url" parancs segítségével:
 git remote get-url origin
 ```
 
+A távoli elérés törlése:
+
+```cmd
+git remote remove origin
+```
+
 ### További lehetőségek
 
 Bővebb leírást találhatunk a Git használatáról a [https://szit.hu](https://szit.hu) webhelyen:
