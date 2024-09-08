@@ -16,6 +16,7 @@
 * [Szövegbeállítások](#szövegbeállítások)
 * [Kerettulajdonságok](#kerettulajdonságok)
 * [Dobozmodell](#dobozmodell)
+* [Méretek](#méretek)
 * [Túlcsordulás](#túlcsordulás)
 * [Listák](#listák)
 * [Megjelenés](#megjelenés)
@@ -621,6 +622,45 @@ p {
     padding-left: 20px;
 }
 ```
+
+## Méretek
+
+```html
+<h1>Sinto weblap</h1>
+<p>
+    This is a default index.html
+    file, which was created by 
+    the sin command.
+</p>
+```
+
+```css
+p {
+    background-color: aqua;
+    width: 50%;
+}
+```
+
+```css
+p {
+    background-color: aqua;
+    width: 100px;
+}
+```
+
+```html
+<div class="doboz"></div>
+```
+
+```css
+.doboz {
+    background-color: aqua;
+    width: 100px;
+    height: 100px;
+}
+```
+
+![Dobozok méretezése](images/css/dobozok_meretezese.png)
 
 ## Túlcsordulás
 
