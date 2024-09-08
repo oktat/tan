@@ -360,6 +360,12 @@ A navigációra példa:
 
 ```html
 <button class="btn btn-primary">Mehet</button>
+<br>
+<button class="btn btn-danger">Törlés</button>
+<br>
+<button class="btn btn-info">Információ</button>
+<br>
+<button class="btn btn-success">Siker</button>
 ```
 
 * [https://getbootstrap.com/docs/5.2/components/buttons/](https://getbootstrap.com/docs/5.2/components/buttons/)
