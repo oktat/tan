@@ -30,6 +30,10 @@ A zavaros kód a szoftverfejlesztő kedvét is elveszi a fejlesztői munkától.
 
 A jó kódra kevés időt kell fordítani a megértéshez.
 
+Robert C. Martin idézi könyvében **Grady Booch** szavait, amiből a lényeg:
+
+* Egyszerű, közvetlen, olyan mint egy prózai mű.
+
 ## Elnevezések
 
 ### Beszédes nevek
