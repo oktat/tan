@@ -330,6 +330,16 @@ Igazítás másként:
 
 ## Navigáció
 
+A navigációhoz érdemes a Bootstrap JavaScript bővítményét is használni, mivel kisméretű viewport esetén így tud egyetlen ikonnra váltani.
+
+```html
+<link rel="" href="bootstrap.css">
+<!--...-->
+<script src="bootstrap.js"></script>
+```
+
+A navigációra példa:
+
 ```html
 <ul class="nav justify-content-center">
   <li class="nav-item">
