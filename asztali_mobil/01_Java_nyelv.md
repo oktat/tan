@@ -761,6 +761,38 @@ String s = "Piri Teri Lili";
 System.out.println(s.equals("Piri Teri Lili"));
 ```
 
+Keresés:
+
+```java
+String szoveg = "még nyílnak";
+String keresett = "nyílnak";
+int kezdoIndex = szoveg.indexOf(keresett);
+System.out.println(kezdoIndex); // 4
+```
+
+Rész sztring:
+
+```java
+// kezdőindex megadása
+String szoveg = "még nyílnak";
+String resz = szoveg.substring(4); 
+System.out.println(resz); //nyílnak
+
+// kezdő- és végindex megadása
+String szoveg = "még nyílnak a völgyben";
+String resz = szoveg.substring(4, 8);
+System.out.println(resz); //nyíl
+```
+
+Tartalmazás:
+
+```java
+String szoveg = "még nyílnak";
+String keresett = "nyílnak";
+boolean benneVan = szoveg.contains(keresett);
+System.out.println(benneVan); // true
+```
+
 ### Pufferelt sztirngek
 
 A pufferelt sztirngek dinamikjusan bővíthetők, változtathatók, szemben a String objektummal, ami immutábilis (változtathatatlan). Ha elvégzel egy értékadást akkor a Java új memóriaterületet foglal, amíg az eredeti megmarad. Ez memóriapazarló és időigényes lehet ha sok műveletet kell elvégezni.
