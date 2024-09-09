@@ -24,6 +24,8 @@
 * [Sztringkezelés](#sztringkezelés)
 * [Függvények](#függvények)
 * [Fájlkezelés](#fájlkezelés)
+* [Argumentmok olvasása](#argumentmok-olvasása)
+* [Gyakorlat](#gyakorlat)
 
 ## Java fejlesztés
 
@@ -776,7 +778,7 @@ sb.append(" Lili");
 
 ### Text Block
 
-A Java 15-ben bevezették a Text Block-t, ami több soros sztringek létrehozhását teszi lehetővé.
+A Java 15-ben bevezették a Text Block-t, ami több soros sztringek létrehozását teszi lehetővé.
 
 ```java
 String textBlock = """
@@ -848,3 +850,188 @@ public class App {
   }
 }
 ```
+
+## Argumentmok olvasása
+
+### Az argumentumokról
+
+Az argumentumok azok szövegek, amiket egy program neve után gépelünk be a futtatás során.
+
+Kétféle argumentum van:
+
+* kapcsolók - módosítják a parancs működését
+* paraméterek - megmondják min kell végrehajtani a parancsot
+
+### A dir parancs
+
+Vegyük például a Windows **dir** parancsát. Ha argumentumok nélkül futtatjuk, valahogy így néz ki:
+
+```cmd
+dir
+```
+
+A parancs a képernyőre listázza az aktuális könyvtár tartalmát, és náhány hozzátartozó adatot. Egy paraméterrel megmondhatjuk, hogy egyetlen állományról vagy könyvtárról mutasson adatokat. Ha az aktuális könyvtárban van egy **dev** nevű könyvtár, akkor ezt írhatjuk:
+
+```cmd
+dir dev
+```
+
+A **dev** egy paraméter. Azt közöljük a dir paranccsal, hogy a dev könyvtáron hajtsa végre a parancsot.
+
+### Az argumentokhoz példa
+
+Legyen egy App osztály:
+
+```java
+public class App {
+  public static void main(String args) {
+    System.out.println("Helló");
+  }
+}
+```
+
+Fordítás után futtatás parancssorból:
+
+```bash
+java App
+```
+
+Futtatás argumentum megadásával:
+
+```bash
+java App adat.txt
+```
+
+Most írjuk át az App osztályt, hogy írja ki az argumentumok számát:
+
+```java
+public class App {
+  public static void main(String args) {
+    System.out.println(args.length);
+  }
+}
+```
+
+Ha a programot argumentumok nélkül futtatjuk, 0 értéket kell kapjunk:
+
+```bash
+java App
+```
+
+Most adjunk meg tetszőleges argumentumot:
+
+```bash
+java App valami
+```
+
+Ebben az esetben 1-t kell kapjunk, mivel 1 argumentumot adtunk meg. Ellenőrizzük 3 argumentummal:
+
+```bash
+java App egy kettő három
+```
+
+Írjuk át a programot úgy, hogy vizsgálja meg, hogy van-e argumentum. Ha van, írja a képernyőre az első argumentumot. Ellenkező esetben lépjen ki a program.
+
+```java
+public class App {
+  public static void main(String args) {
+    if (args.length <= 0) {
+      System.out.println("Kötelező minimum 1 paraméter");
+      System.exit(1);
+    }
+    
+    System.out.println(args[0]);
+  }
+}
+```
+
+### Argumentum beállítása VSCode-ban
+
+Ha parancssorban adjuk meg a paramétereket, ez kényelmetlen lehet. Használjuk ki a VSCode adata lehetőségeket. Készítsünk egy konfigurációt:
+
+* Run > Add configuration...
+
+Ha nincs megnyitva .java fájl, akkor rá kérdez, milyen debuger-t választunk. Válasszuk a **Java**-t.
+
+A menüt kiválasztva a .vscode könyvtárban elkészül egy launch.json nevű fájl. A tartalma ehhez hasonló:
+
+```json
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    },
+    {
+      "type": "java",
+      "name": "App",
+      "request": "launch",
+      "mainClass": "App",
+      "projectName": "app01_8512a664"
+    }
+  ]
+}
+```
+
+Ha a "Prorject Manager for Java" bővítményt használjuk, akkor a .java fájl megnyitása esetén találunk egy lejátszógombot a jobb felső sarokban. De a main() függvény felett és megjelenik egy lebegő **Run** parancs. Ha ezt használjuk, akkor második konfigurációt fogja használni a VSCode. Ezért ezzel dolgozunk. Vegyünk fel egy args kulcsot:
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "App",
+      "request": "launch",
+      "mainClass": "App",
+      "projectName": "app01_8512a664",
+      "args": ["adat.txt"]
+    }
+  ]
+}
+```
+
+Így minden futtatásnál az adat.txt szöveg kerül átadásra, első paraméterként. Az args itt egy tömb, így vesszővel tagolva felvehetünk több paraméter is. Az első konfigurációt nem kell törölni, csak a rövidítés miatt nem szerepel a fenti példában.
+
+## Gyakorlat
+
+### Tennivalók fájlbaírása
+
+Írjunk programot, ami egy adott tennivalót fájlbaír.
+
+Writer.java:
+
+```java
+public class Writer {
+  public void writeTodo(String fileName) {
+    FileWriter fw = new FileWriter(
+      fileName, Charset.forName("utf8"), true);
+    
+    fw.write("A feladatgyűjteményből megoldás Javaf nyelven");
+    fw.close();
+  }
+}
+```
+
+App.java:
+
+```java
+public class App {
+  public static void main(String[] args) {
+    if(args.length <= 0) {
+      System.err.println("Hiba! Paraméter megadása kötelező!");
+      System.exit(1);
+    }
+    Writer writer = new Writer();
+    writer.writeTodo(args[0])
+  }
+}
+```
+
+További teendő: Kérje be az adott feladatot.
