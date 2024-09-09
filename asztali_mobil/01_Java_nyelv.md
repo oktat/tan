@@ -25,6 +25,7 @@
 * [Függvények](#függvények)
 * [Fájlkezelés](#fájlkezelés)
 * [Argumentmok olvasása](#argumentmok-olvasása)
+* [Debug](#debug)
 * [Gyakorlat](#gyakorlat)
 
 ## Java fejlesztés
@@ -1010,6 +1011,84 @@ Ha a "Prorject Manager for Java" bővítményt használjuk, akkor a .java fájl 
 ```
 
 Így minden futtatásnál az adat.txt szöveg kerül átadásra, első paraméterként. Az args itt egy tömb, így vesszővel tagolva felvehetünk több paraméter is. Az első konfigurációt nem kell törölni, csak a rövidítés miatt nem szerepel a fenti példában.
+
+## Debug
+
+Készítsünk egy számológépet:
+
+```java
+import java.util.Scanner;
+
+public class Calculator {
+  static Scanner scanner = new Scanner(System.in);
+  public static void main(String[] args) {
+
+      System.out.print("Egész szám1: ");
+      int firstNumber = scanner.nextInt();
+
+      System.out.print("Egész szám2: ");
+      int secondNumber = scanner.nextInt();
+
+      System.out.println("Válaszd ki az operátort: +, -, *, /");
+      char operator = scanner.next().charAt(0);
+
+      int result = 0;
+      
+      // Töréspont helye, figyeljük a 'result' értékét
+      switch (operator) {
+          case '+':
+              result = add(firstNumber, secondNumber);
+              break;
+          case '-':
+              result = subtract(firstNumber, secondNumber);
+              break;
+          case '*':
+              result = multiply(firstNumber, secondNumber);
+              break;
+          case '/':
+              result = divide(firstNumber, secondNumber);
+              break;
+          default:
+              System.out.println("Érvénytelen operátor");
+              return;
+      }
+
+      System.out.println("Eredmény: " + result);
+  }
+
+  private static int add(int a, int b) {
+      return a + b;
+  }
+
+  private static int subtract(int a, int b) {
+      return a - b;
+  }
+
+  private static int multiply(int a, int b) {
+      return a * b;
+  }
+
+  private static int divide(int a, int b) {
+      if (b == 0) {
+          System.err.println("Hiba! Osztás nullával!");
+          return 0;
+      }
+      return a / b;
+  }
+}
+```
+
+* Jelöljünk meg töréspontot a forráskódban megadott sorban.
+* Indítsuk el a Debug-t: F5
+
+Ahogy a program elér a törésponthoz leáll, és vizsgálódhatunk.
+
+A folyamat követési lehetőségei:
+
+* Step Over (F10) - Egy lépés előre.
+* Step Into (F11) - Belépés egy függvénybe.
+* Variables: A balodlaon figyelheted a változók tartalmát.
+* Watch: Megfigyelhetünk változókat.
 
 ## Gyakorlat
 
