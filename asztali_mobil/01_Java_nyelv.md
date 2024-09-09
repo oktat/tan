@@ -1009,7 +1009,8 @@ Writer.java:
 
 ```java
 public class Writer {
-  public void writeTodo(String fileName) {
+  public void writeTodo(String fileName) 
+      throws IOException{
     FileWriter fw = new FileWriter(
       fileName, Charset.forName("utf8"), true);
     
