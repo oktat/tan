@@ -762,6 +762,8 @@ System.out.println(s.equals("Piri Teri Lili"));
 
 ### Pufferelt sztirngek
 
+A StringBuffer szálbiztos megoldás használata:
+
 ```java
 StringBuffer sb = new StringBuffer();
 sb.append("Piri");
@@ -769,11 +771,19 @@ sb.append(" Teri");
 sb.append(" Lili");
 ```
 
+A StringBuilder nem szálbiztos megoldás használata:
+
 ```java
 StringBuilder sb = new StringBuilder();
 sb.append("Piri");
 sb.append(" Teri");
 sb.append(" Lili");
+```
+
+Átalakítás String típusra:
+
+```java
+String s = sb.toString();
 ```
 
 ### Text Block
