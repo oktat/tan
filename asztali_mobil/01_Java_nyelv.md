@@ -762,7 +762,9 @@ System.out.println(s.equals("Piri Teri Lili"));
 
 ### Pufferelt sztirngek
 
-A StringBuffer szálbiztos megoldás használata:
+A pufferelt sztirngek dinamikjusan bővíthetők, változtathatók, szemben a String objektummal, ami immutábilis (változtathatatlan). Ha elvégzel egy értékadást akkor a Java új memóriaterületet foglal, amíg az eredeti megmarad. Ez memóriapazarló és időigényes lehet ha sok műveletet kell elvégezni.
+
+A StringBuffer szálbiztos (thread-safe) megoldás. Több szál egyidejűleg használhatja, inkozisztencia nélkül. Minden művelet ugyanazon az objektumon lesz végrehajtva.
 
 ```java
 StringBuffer sb = new StringBuffer();
@@ -771,7 +773,7 @@ sb.append(" Teri");
 sb.append(" Lili");
 ```
 
-A StringBuilder nem szálbiztos megoldás használata:
+A StringBuilder nem szálbiztos megoldás. Mint a StringBuffer egy belső pufferben tárolja az adatokat, és dinamikusan bővíthető. Egy szálon gyorsabb megoldás, mint a szálbzitos StringBuffer.
 
 ```java
 StringBuilder sb = new StringBuilder();
