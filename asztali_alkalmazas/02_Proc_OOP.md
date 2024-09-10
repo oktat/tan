@@ -49,6 +49,25 @@ print('Kerület:', perimater)
 print('Terület:', area)
 ```
 
+Másik példa:
+
+```python
+class Triangle:
+    def __init__(self):
+        self.base = 0
+        self.height = 0
+        self.area = 0
+
+    def calcArea(self):
+        self.area = self.base * self.height / 2
+
+triangle = Triangle()
+triangle.base = 30
+triangle.height = 35
+triangle.calcArea()
+print('Terület:', triangle.area)
+```
+
 ## Az osztály és az objektum
 
 Az osztályt általános leírásra használjuk. Úgy is felfogható, hogy valaminek a tervrajza.
