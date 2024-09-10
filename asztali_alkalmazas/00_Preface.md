@@ -44,6 +44,8 @@ Telepítés általánosan:
 choco install <csomagnév>
 ```
 
+A telepítés végezhető **Command Prmpt** és **Power Shell** terminálban egyaránt, de **rendszergazdi jog** szükséges.
+
 A telepítés során még rákérdez, hogy biztosan szeretnénk-e telepíteni a csomagot. Ekkor az összes ilyen kérdés elfogadása az "a" beírásával lehetésges. Ha telepítő parancsnak adunk egy -y kapcsolót, a kérdés elmarad és azonnal telepíti a Chocolatey.
 
 ```cmd
@@ -69,8 +71,11 @@ choco install oracle17jdk
 ```
 
 Ellenőrzés:
-  java --version
-  javac --version
+
+```bash
+java --version
+javac --version
+```
 
 ## Kódszerkesztők
 
