@@ -50,6 +50,10 @@ Mit vizsgálnak?
 
 Például: Specifikáció szerint jelentést kell tudnia generálni valamiről a programnak. Ennek ellenőrzése.
 
+* Hány felhasználót képes kiszolgálni?
+* Milyen gyorsan reagál?
+* A célrendszeren problémamentesen fut?
+
 ### Eszközök
 
 Automatizált tesztelés lehetséges eszközei:
@@ -63,7 +67,7 @@ Automatizált tesztelés lehetséges eszközei:
 Kézi tesztelés lehetséges eszközei:
 
 * Tesztelési forgatókönyv
-* Checklisták
+* Ellenőző listák
 * egyéb
   
 ### Teszt forgatókönyv példa
