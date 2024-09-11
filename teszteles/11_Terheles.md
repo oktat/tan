@@ -27,6 +27,10 @@ Tesztelhetjük a hálózati terhelés, vagy a memóriafogyasztást,  vagy valami
 * Locust
 * Gatling
 * Leghthouse
+* [WebPageTest](https://www.webpagetest.org/)
+* Artillery
+* BlazeMeter
+* Siege
 
 ## Figyelmeztetés
 
