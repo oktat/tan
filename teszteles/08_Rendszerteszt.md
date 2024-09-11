@@ -1,5 +1,10 @@
 # Rendszer szintá tesztelés
 
+* **Szerző:** Sallai András
+* Copyright (c) 2024, Sallai András
+* Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
+* Web: [https://szit.hu](https://szit.hu)
+
 ## A rendszertesztelésről
 
 Fejelsztési folyamat végén a rendszert funkcionális és nem funkcionális részét teszteljük.
