@@ -140,6 +140,8 @@ Indítsuk el a JMeter-t. A File menüből válasszuk a "Templates..." lehetősé
 
 A futtatáshoz találunk az eszköztáron egy lejátszógombot.
 
+![JMeter](images/teljesitmeny/jmeter_indulas.png)
+
 ## A Lighthouse
 
 A Google által fejlesztett eszköz, egy egy teljesítmény, SEO, hozzáférhetőségi és más szempontok alapján készít tesztet.
@@ -154,4 +156,4 @@ A Lighthouse Chrome bővítményként érhető el. Képes jelentéseket generál
 * Válasszuk a **Lighthhouse** fület
 * Kattintsunk: (Analyze page load)
 
-![A Lighthouse tesztelés után](images/terheles/lighthouse_teljesitmeny.png)
+![A Lighthouse tesztelés után](images/teljesitmeny/lighthouse_teljesitmeny.png)
