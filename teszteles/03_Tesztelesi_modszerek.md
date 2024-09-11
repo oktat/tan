@@ -13,7 +13,6 @@
 * [Integrációs teszt](#integrációs-teszt)
 * [Rendszerteszt](#rendszerteszt)
 * [Elfogadási teszt](#elfogadási-teszt)
-* [Biztonsági teszt](#biztonsági-teszt)
 * [Teljesítmény- és terhelés teszt](#teljesítmény--és-terhelés-teszt)
 * [TDD](#tdd)
 
@@ -138,44 +137,6 @@ Kik végzik:
 Az UAT célja, hogy valóban készen áll a szoftver a használatra, az üzembe helyezésre.
 
 Valós üzleti forgatókönyvet és folyamatok szerint tesztelnek, általában kéziteszteléssel.
-
-## Biztonsági teszt
-
-### Tesztelési módszertanok
-
-* biztonsági vizsgálat
-* sebezhetőség vizsgálat
-* behatolásteszt
-* etikus hackelés
-
-![Biztonsági tesztelés módszertanok](images/Biztonsagi_teszt_modszertanok.png)
-
-![Biztonsági tesztelés módszertanai grafikonon](images/Biztonsagi_tesztek_grafikonon.png)
-
-#### Biztonsági vizsgálat
-
-* Fehérdobozos teszt.
-* Pl. valóban kötelező a betűk és számok használata a jelszavaknál?
-
-#### Sebezhetőség vizsgálat
-
-* Zöld dobozs teszt.
-* Biztonsági rések mintáit keresi egy automatizált szoftver.
-* Pl. Valamilyen bemenetre, érzékeny adatokat szolgáltat az alkalmazás.
-
-#### Behatolásteszt
-
-* Fekete dobozos teszt.
-* A tesztelőnek nincs jogosultsága.
-* Nehezen automatizálható.
-* Kétféle:
-  * Blue teaming (a tesztelő ismeri az infrastruktúrát)
-  * Red teaming (a tesztelő nem ismeri az infrastruktúrát)
-
-#### Etikus hackelés
-
-* Előzetes ismeretek nélküli teszt.
-* Akár pszichológiai manipulációval (social engineering).
 
 ### Tesztelési "szabványok"
 
