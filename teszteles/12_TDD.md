@@ -7,15 +7,18 @@
 
 ## A TDD
 
-A TDD a Test-Driven Development rövidítése, vagyis Teszt vezérelt fejlesztés. Röviden, előbb fejlesztjük a tesztet és utána az iparikódot.
+A TDD a Test-driven development rövidítése. Magyarul tesztvezérelt fejlesztésnek hívjuk. A szoftverfejlesztést egy minimális teszt írásával kezdjük. Ezt követően annyit fejlesztünk, hogy a teszt teljesüljön. Refaktorálunk ha szükséges, majd ismételjük az elejétől. Fejlesztjük a tesztet minimálisan. Annyit fejlesztünk a kódon, hogy teljesítse a tesztet. Ha szükséges refaktorálunk. Ezt ismételjük.
 
-A TDD három részből áll:
+Lépések:
 
-* Elkezdem a tesztet. Minimális tesztet írok, csak annyit, hogy hibára fusson a teszt.
-* Minimálisan fejlesztek, hogy teljesüljön a teszt.
-* Refaktorálunk ha szükséges.
+* Készítünk egy tesztet
+  * Futtatjuk a teszteket
+* Annyi kódot írunk, hogy teljesítse a tesztet
+  * Futtatjuk a teszteket
+* Ha szükséges refaktorálunk
+  * Futtatjuk a tesztet
 
-Ezt követően, ezt a három lépést ismétlem.
+![TDD](images/TDD_3_resz.png)
 
 ### Példa
 

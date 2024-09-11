@@ -16,9 +16,22 @@
 
 ## A terheléses tesztelésről
 
-A terheléses teszt során a renszerre vagy az alkalmazásra egy növekvő terhelést helyezünk, hogy megvizságljuk a viselekdését.
+A terheléses teszt során a renszerre vagy az alkalmazásra egy növekvő terhelést helyezünk, hogy megvizságljuk a viselekdését. Tesztelhetjük a hálózati terhelés, vagy a memóriafogyasztást,  vagy valamilyen konkrét célt. A teljesítménytesztek a **nem funkcionális** tesztekhez tartoznak.
 
-Tesztelhetjük a hálózati terhelés, vagy a memóriafogyasztást,  vagy valamilyen konkrét célt.
+Teljesítmény:
+
+* megbízhatóság
+* erőforrás-használat
+* méretezhetőség
+
+Terhelésvizsgálat:
+
+* többfelhasználós rendszereknél relevánsabb
+* gyakran automatizált
+* nagy dokumentum
+* sok adat
+
+Azt vizsgáljuk, mi az a mennyiség, amit a rendszer összeomlás nélkül tud még kezelni.
 
 ## Terheléses tesztek szoftverei
 
