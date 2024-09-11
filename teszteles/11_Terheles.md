@@ -31,6 +31,8 @@ Tesztelhetjük a hálózati terhelés, vagy a memóriafogyasztást,  vagy valami
 * Artillery
 * BlazeMeter
 * Siege
+* LoadRunner
+* JProfiler - Asztali alkalmazásokhoz
 
 ## Figyelmeztetés
 
