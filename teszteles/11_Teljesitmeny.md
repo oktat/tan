@@ -153,3 +153,5 @@ A Lighthouse Chrome bővítményként érhető el. Képes jelentéseket generál
 * Nyissuk meg F12-vel a fejlesztői eszközt.
 * Válasszuk a **Lighthhouse** fület
 * Kattintsunk: (Analyze page load)
+
+![A Lighthouse tesztelés után](images/terheles/lighthouse_teljesitmeny.png)
