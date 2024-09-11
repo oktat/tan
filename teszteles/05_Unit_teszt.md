@@ -21,14 +21,6 @@
 
 ## Bevezetés
 
-A JavaScript teszteléshez három fejezet van:
-
-* 05_JavaScript_teszteles1.md
-* 05_JavaScript_teszteles2.md
-* 05_JavaScript_teszteles_mocha.md
-
-Ebből elég az egyiket ismerni.
-
 A fejezet feldolgozásához feltételezzük HTML5, CSS, JavaScript és Node.js ismereteket.
 
 ## A Mocha
