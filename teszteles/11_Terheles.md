@@ -1,4 +1,4 @@
-# Terheléses tesztelése
+# Teljesítmény és terheléses tesztek
 
 * **Szerző:** Sallai András
 * Copyright (c) 2024, Sallai András
@@ -9,17 +9,24 @@
 
 * [Tartalomjegyzék](#tartalomjegyzék)
 * [A terheléses tesztelésről](#a-terheléses-tesztelésről)
+* [Terheléses tesztek szoftverei](#terheléses-tesztek-szoftverei)
 * [Figyelmeztetés](#figyelmeztetés)
 * [JMeter](#jmeter)
-* [Teszt gyakorlat](#teszt-gyakorlat)
-* [Tesztelendő szerver összeállítása](#tesztelendő-szerver-összeállítása)
-* [Első teszttervünk](#első-teszttervünk)
+* [A Lighthouse](#a-lighthouse)
 
 ## A terheléses tesztelésről
 
 A terheléses teszt során a renszerre vagy az alkalmazásra egy növekvő terhelést helyezünk, hogy megvizságljuk a viselekdését.
 
 Tesztelhetjük a hálózati terhelés, vagy a memóriafogyasztást,  vagy valamilyen konkrét célt.
+
+## Terheléses tesztek szoftverei
+
+* Apache JMeter
+* k6
+* Locust
+* Gatling
+* Leghthouse
 
 ## Figyelmeztetés
 
@@ -28,6 +35,25 @@ Terheléses tesztnek csak a saját gépeinket, szerverinket tegyük ki! Mások g
 ## JMeter
 
 A JMeter-ben teszterveket hozunk létre, azon belül szálcsoportokat (Thread Group). A szálcsoportok a minden tesztnek a kezdőpontjai.
+
+### A JMeter beszerzése
+
+Telepíthetjük csomagkezelővel:
+
+```bash
+choco install jmeter
+```
+
+Letölthetjük a legújabb binárist:
+
+* apache-jmeter-x.y.z.zip
+
+Bontsuk ki a becsomagolt fájlt, majd a bin könyvtárba keressük meg az indítóscrpteket:
+
+* jmeter.bat
+* jmeter.sh
+
+Windowson a jmeter.bat segítségével indítjuk.
 
 ### Szálakcsoportok
 
@@ -74,9 +100,9 @@ A figyelők hozzáférést biztosítanak a tesztesetekről összegyűjtött info
 
 * View Results Tree
 
-## Teszt gyakorlat
+### JMeter teszt gyakorlat
 
-## Tesztelendő szerver összeállítása
+#### Tesztelendő szerver összeállítása
 
 ```bash
 mkdir api
@@ -86,7 +112,7 @@ pnpm i
 pnpm start
 ```
 
-## Első teszttervünk
+#### Első teszttervünk
 
 A JMeter előre összeállított sablonját fogjuk használni.
 
@@ -107,3 +133,17 @@ Indítsuk el a JMeter-t. A File menüből válasszuk a "Templates..." lehetősé
 * Futtassuk
 
 A futtatáshoz találunk az eszköztáron egy lejátszógombot.
+
+## A Lighthouse
+
+A Google által fejlesztett eszköz, egy egy teljesítmény, SEO, hozzáférhetőségi és más szempontok alapján készít tesztet.
+
+### A Lighthouse beszerzése
+
+A Lighthouse Chrome bővítményként érhető el. Képes jelentéseket generálni.
+
+### A Lighthouse használata
+
+* Nyissuk meg F12-vel a fejlesztői eszközt.
+* Válasszuk a **Lighthhouse** fület
+* Kattintsunk: (Analyze page load)
