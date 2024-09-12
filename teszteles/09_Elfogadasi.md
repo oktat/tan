@@ -5,11 +5,13 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
-## Elfogadási teszt
+## Az átvételi tesztről
 
 Angolul **User Acceptance Testing**, röviden **UAT**.
 
-A rendszertesztelést követheti egy elfogadási teszt.
+Magyarul **Felhasználói elfogadási teszt**, vagy **Felhasználó átvételi teszt**. Röviden lehet **átvételi** vagy **elfogadási** teszt.
+
+A rendszertesztelést követheti egy átvételi teszt.
 
 Vizsgáljuk, hogy a szoftver valóban képes elvégezni a neki szánt munkát. Kik végeznek ilyen munkát?
 
