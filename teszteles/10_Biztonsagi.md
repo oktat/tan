@@ -215,6 +215,8 @@ for username, password in payloads:
 
 Webes alkalmazások:
 
+* [Wapiti](https://wapiti-scanner.github.io/)
+* [dirb](https://www.kali.org/tools/dirb/)
 * [ZAP -Zed Attack Proxy](https://www.zaproxy.org/)
 * [Burp Suite](https://portswigger.net/burp/communitydownload)
 * [Acunetix](https://www.acunetix.com/)

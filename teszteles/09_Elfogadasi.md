@@ -11,7 +11,6 @@
 * [Az átvételi tesztről](#az-átvételi-tesztről)
 * [Tesztelési "szabványok"](#tesztelési-szabványok)
 * [Jellemző tevékenységek](#jellemző-tevékenységek)
-* [Szoftverek](#szoftverek)
 * [Gyakorlat](#gyakorlat)
 
 ## Az átvételi tesztről
@@ -76,14 +75,6 @@ Kockázatértékelés
 * biztonsági fejlesztési szabályzat
 * kockázatértékelés
 * adatkezelés
-
-## Szoftverek
-
-* Wapiti
-  * [https://wapiti-scanner.github.io/](https://wapiti-scanner.github.io/)
-
-* dirb
-  * [https://www.kali.org/tools/dirb/](https://www.kali.org/tools/dirb/)
 
 ## Gyakorlat
 
