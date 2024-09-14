@@ -2824,6 +2824,14 @@ export const routes: Routes = [
 
 ### Az Emitter szolgáltatás
 
+Hozzuk létre a szolgáltatás:
+
+```bash
+ng generate service shared/emmiter
+```
+
+Tartalma:
+
 ```typescript
 import { EventEmitter, Injectable } from '@angular/core';
 
