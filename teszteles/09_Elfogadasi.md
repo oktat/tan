@@ -11,7 +11,8 @@
 * [Az átvételi tesztről](#az-átvételi-tesztről)
 * [Tesztelési "szabványok"](#tesztelési-szabványok)
 * [Jellemző tevékenységek](#jellemző-tevékenységek)
-* [Gyakorlat](#gyakorlat)
+* [Gyakorlat 1](#gyakorlat-1)
+* [Gyakorlat 2](#gyakorlat-2)
 
 ## Az átvételi tesztről
 
@@ -76,39 +77,78 @@ Kockázatértékelés
 * kockázatértékelés
 * adatkezelés
 
-## Gyakorlat
+## Gyakorlat 1
 
-### Tesztelendő szoftver beszerzése
+### A tesztelendő szoftver 1
 
-* [https://github.com/oktat/teTodo](https://github.com/oktat/teTodo)
+* [https://szit.hu/m/triangle_ts/](https://szit.hu/m/triangle_ts/)
 
-Töltsük le a szoftvert, majd a leírás szerint indítsuk el.
+### Feladatok 1
 
-### Feladatok
-
-#### Tesztelési terv
+#### Tesztelési terv 1
 
 Egy rövid teszttervet kell készíteni. A terv tartalmazza: milyen funkciókat lesznek tesztelve. Mik az elvárt eredmények és a felhasználói igények.
 
-#### Forgatókönyv
+#### Forgatókönyv 1
 
 Készítsen tesztelési forgatókönyvet
 
 Minimum 1 fogatókönyvet írjon meg. Tartalmazza a tesztelés lépéseit és az elvárt eredményeket.
 
-#### Hibajegyzék
+#### Hibajegyzék 1
 
 Végezze el a teszteket
 
 Készítsen hibajegyzéket.
 
-#### Kérdőív
+#### Kérdőív 1
 
 * Készítsen kérdőívet a felhasználói visszajelzések gyűjtésére
 
 Felhasználói élmény, funkciókkal elégedettséggel kapcsolatos kérdéseket legyenek.
 
-#### Prezentáció készítése
+#### Prezentáció készítése 1
+
+Készítsen prezentációt, amiben szerepelnek:
+
+* a tesztelt funkciók
+* talált hibák
+* felhasználói visszajelzések
+* javasolt fejlesztések
+
+## Gyakorlat 2
+
+### Tesztelendő szoftver beszerzése 2
+
+* [https://github.com/oktat/teTodo](https://github.com/oktat/teTodo)
+
+Töltsük le a szoftvert, majd a leírás szerint indítsuk el.
+
+### Feladatok 2
+
+#### Tesztelési terv 2
+
+Egy rövid teszttervet kell készíteni. A terv tartalmazza: milyen funkciókat lesznek tesztelve. Mik az elvárt eredmények és a felhasználói igények.
+
+#### Forgatókönyv 2
+
+Készítsen tesztelési forgatókönyvet
+
+Minimum 1 fogatókönyvet írjon meg. Tartalmazza a tesztelés lépéseit és az elvárt eredményeket.
+
+#### Hibajegyzék 2
+
+Végezze el a teszteket
+
+Készítsen hibajegyzéket.
+
+#### Kérdőív 2
+
+* Készítsen kérdőívet a felhasználói visszajelzések gyűjtésére
+
+Felhasználói élmény, funkciókkal elégedettséggel kapcsolatos kérdéseket legyenek.
+
+#### Prezentáció készítése 2
 
 Készítsen prezentációt, amiben szerepelnek:
 
