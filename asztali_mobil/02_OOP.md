@@ -81,7 +81,7 @@ Az absztrakt osztály tulajdonságai:
 * Egy absztrakt osztálynak nem kötelező minden metódusának absztraknak lennie.
 * Egy absztrakt osztályt nem lehet final vagy private módosítóval ellátni.
 * Egy absztrakt osztály absztrakt metódusát nem lehet az absztrakt osztályon belül megvalósítani.
-* Az örökölt oszálytban, ha az nem absztrakt kötelező megvalósítani az ősosztály absztrakt metódusát.
+* Az örökölt oszálytban, ha az nem absztrakt, kötelező megvalósítani az ősosztály absztrakt metódusát.
 
 ### Absztrakt osztály gyakorlat
 
@@ -215,7 +215,7 @@ public class Szemelygepkocsi implements Jarmu {
 
 1.) Írjon programot, ahol egy idegsejtet szimulál. A szimulátorban használjon interfészt, amiben meghatározza a sejt egy tevékenységét. A program valósítsa meg az interfészt. A program fő osztálya külön állományban legyen.
 
-Vegyünk egy egyszerű esetet: Az idegsejtek ingerületet fogadnak és ingerültete küldenek.
+Vegyünk egy egyszerű esetet: Az idegsejtek ingerületet fogadnak és ingerületet küldenek.
 
 2.) Írjon programot, ami egy járművet szimulál. A szimulátorban interfésszel határozza meg a jármű mozgásait. A programban valósítsa meg az elkészített interfészt.
 
