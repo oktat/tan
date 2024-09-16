@@ -221,6 +221,8 @@ Vegyünk egy egyszerű esetet: Az idegsejtek ingerületet fogadnak és ingerüle
 
 ## Laza függőség létrehozása
 
+A laza függőség azt jelenti, hogy egyik objektum csak egy absztrakt interfészen keresztül ismeri a másik objektumot.
+
 Vegyünk egy osztályt, ami a konstruktorán keresztül paraméterként fogadott objektumot, amivel beállítja egyik adattagját.
 
 Példánkban, a **DataService** osztály **függ a Mariadb** osztálytól:
@@ -295,9 +297,22 @@ DataService service2 = new DataSercie(new Sqlite());
 
 A DataService ezért lazán függ a Mariadb és az Sqlite osztályoktól.
 
+![Függőség befecskendezés](images/oop/dataservice_befecskendezes.png)
+
+### Függőség befecskendezés
+
 A DataService számára befecskendztük a függőséget, ezért szokás függőség befecskendezésről beszélni a fenti példánkban.
 
-![Függőség befecskendezés](images/oop/dataservice_befecskendezes.png)
+```java
+class DataService {
+    DataSource source;
+    public DataService(DataSource source) {
+        this.source = source;
+    }
+}
+```
+
+A befecskendezés hatására a source objektum használható a DataSource osztályban. A függőséget nem a DataService konstruktora hozza létre, azok külső forrásból származnak.
 
 ### Beszélő emberek példa
 
@@ -368,6 +383,43 @@ Magyar.java:
 public class Magyar implements Beszed {
     public void beszel() {
         System.out.println("igen");
+    }
+}
+```
+
+### Laza függőség gyakorlat
+
+Készítsen Checkout osztályt, ami egy szállodai kijelentkezést bonyolít le. A tartozás kielégíthető CreditCard és PayPal segítségével.
+
+Késszítse el azt a programot, amelynek Checkout osztálya laza függőségként fogadja azt az osztályt, ami szükséges a fizetéshez.
+
+```java
+public interface PaymentProcessor {
+    void processPayment(double amount);
+}
+
+public class CreditCardProcessor implements PaymentProcessor {
+    public void processPayment(double amount) {
+        // Kreditkártyás fizetés logika
+    }
+}
+
+public class PayPalProcessor implements PaymentProcessor {
+    public void processPayment(double amount) {
+        // PayPal fizetés logika
+    }
+}
+
+// Laza függőség megvalósítása
+public class Checkout {
+    private PaymentProcessor paymentProcessor;
+
+    public Checkout(PaymentProcessor paymentProcessor) {
+        this.paymentProcessor = paymentProcessor;
+    }
+
+    public void completePurchase(double amount) {
+        paymentProcessor.processPayment(amount);
     }
 }
 ```
