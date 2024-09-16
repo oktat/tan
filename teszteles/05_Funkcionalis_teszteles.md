@@ -21,7 +21,15 @@
 
 ## Bevezetés
 
-A funkcionális tesztelésből jelenleg 2 változat van. Elég az egyiket feldolgozni.
+Angolul **System Level Testing**, röviden **SLT**.
+
+Jellemzők:
+
+* A teljes rendszert teszteljük.
+* Funkcionális és nem-funkciónális tesztelés.
+* Általában külső tesztelő csapat végzi.
+* Általában fekete dobozos teszt.
+* Lehet automatizált és kézi tesztelés is.
 
 ## A puppeteer
 
