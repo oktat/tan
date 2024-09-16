@@ -541,7 +541,8 @@ public class App {
         Circle circle = new Circle(5);
         Rectangle rectangle = new Rectangle(3, 4);
 
-        // Átadhatok minden ami megvalósítja az interfészt
+        // Olyan objektumot adhatok át,
+        // ami megvalósítja az interfészt
         PerimeterCalculator.calcAndPrint(circle);
         PerimeterCalculator.calcAndPrint(rectangle);
     }
@@ -554,14 +555,96 @@ public class App {
 
 * public - minden osztályból elérhető
 * protected - azonos csomagból és leszármazott osztályokból érhető el
-* default (nincs módosító) - azonos csomagból érhető el
 * private - csak osztályon belül érhető el
+
+Ha nincs módosító a protected érvényesül.
+
+```java
+class Example {
+    public String publicField = "public elérésű";
+    protected String protectedField = "protected elérésű";
+    private String privateField = "private elérésű";
+
+    public void showFields() {
+        // A private mező elérhető az osztályon belül
+        System.out.println("Private Field: " + privateField);
+        System.out.println("Protected Field: " + protectedField);
+        System.out.println("Public Field: " + publicField);
+    }
+}
+
+public class AccessModifiersDemo {
+    public static void main(String[] args) {
+        Example example = new Example();
+
+        // A public mező elérhető kívülről
+        System.out.println("Public Field: " + example.publicField);
+
+        // A protected mező csak ugyanabban a csomagban vagy öröklés esetén érhető el
+        System.out.println("Protected Field: " + example.protectedField);
+
+        // Hibát okoz:
+        // System.out.println("Private Field: " + example.privateField);
+
+        // A private mező elérése metóduson keresztül:
+        example.showFields();
+    }
+}
+
+```
 
 ### Nem hozzáférés módosítók
 
 * static - osztályszintű tag - az osztály nevén keresztül érhető el
 * final - nem írható felül
 * abstract - a metódus nincs helyben megvalósítva
+
+```java
+class SajatMath {
+    static double PI = 3.14;
+}
+
+class Dolgozo {
+    double fizetes = 395;
+}
+
+public class App {
+    public static void main(String[] args) throws Exception {
+
+        System.out.println(SajatMath.PI);
+
+        Dolgozo d = new Dolgozo();
+        System.out.println(d.fizetes);
+
+    }
+}
+```
+
+#### A final módosító
+
+```java
+class Dolgozo {
+    int fizetes = 400;
+    public final void emelFizetes() {
+        fizetes++;
+    }
+}
+
+class Mernok extends Dolgozo {
+    // Nem írható felül, mivel final
+    // public void emelFizetes() {
+    //     fizetes += 2;
+    // }
+}
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        Mernok mernok = new Mernok();
+        mernok.emelFizetes();
+        System.out.println(mernok.fizetes);
+    }
+}
+```
 
 ### Visszatérés típusa
 
@@ -570,7 +653,7 @@ public class App {
 
 ## Csomagok
 
-Ha VSCode-ban készítünk egy No build tools típusú Java projektet a következő könyvtárszerkezetet kapjuk:
+Ha VSCode-ban készítünk egy **No build tools** típusú Java projektet a következő könyvtárszerkezetet kapjuk:
 
 ```txt
 app01/
