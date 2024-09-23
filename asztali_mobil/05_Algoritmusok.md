@@ -116,71 +116,13 @@ A gyorsrendezést két módon szokták megvalósítani:
 
 A gyorsrendezést általában rekurzívan valósítjuk meg.
 
-#### Tömbbel megvalósított változat
-
-A következő pszeudokód tömbbel megvalósított változatot mutatja be:
-
-```txt
-function quicksort(list) 
-    if meret(list) <= 1 akkor
-        return list
-    var list less, equal, greater
-    pivot = list[meret(list)-1]
-    for each x in lista 
-        if x<pivot then append x to less
-        if x==pivot then append x to equal
-        if x>pivot then append x to greater
-    return concatenate(quicksort(less), equal, quicksort(greater))
-```
-
-A var list less, equal, greater sor azt jelenti, három listát (tömböt) hozok létre.
-
-A Java nyelven szimpla tömbök összefűzése nem egyszerű,
-öszetettebb kódot kapunk mint a helyben-rendezés,
-ezért ArrayList használatával látunk egy példát.
-
-Java megvalósítás:
-
-```java
-import java.util.ArrayList;
-import java.util.Arrays;
-
-public class App {
-    public static ArrayList<Integer> quicksort(ArrayList<Integer> list) {
-        if (list.size() <= 1) {
-            return list;
-        }
-        ArrayList<Integer> less = new ArrayList<>();
-        ArrayList<Integer> equal = new ArrayList<>();
-        ArrayList<Integer> greater = new ArrayList<>();        
-
-        Integer pivot = list.get(list.size()-1);
-        for(Integer x: list) {
-            if (x<pivot) { less.add(x); }
-            if (x==pivot) { equal.add(x); }
-            if (x>pivot) { greater.add(x); }
-        }
-        ArrayList<Integer> fullList = new ArrayList<>();
-        fullList.addAll(quicksort(less));
-        fullList.addAll(quicksort(equal));
-        fullList.addAll(quicksort(greater));
-        return fullList;
-    }
-    public static void main(String[] args) throws Exception {
-        System.out.println("Gyors-rendezés");
-
-        Integer[] t = {4, 8, 1, 3, 5, 2, 6};
-        ArrayList<Integer> list = new ArrayList<>(Arrays.asList(t));
-        list = quicksort(list);
-
-        for(Integer num: list)
-            System.out.print(num + " ");
-        System.out.println();        
-    }
-}
-```
-
 #### Helybenrendező változat
+
+A helyben rendező változat nagyobb listák esetén hatékonyabb, kevesebb memóriát igényel. Nem készítünk külön tömböket vagy listákat a rendezéshez, a cseréket helyben végezzük el, az adott tömbön vagy listán.
+
+Helyben rendezésnél is lesz két adathalmazunk, de ezeket csak mutatók jelzik.
+
+A gyorsrendezés esetén a tömb elemeit két részre bomtom egy pivot alapján. A pivot egy tetszőlegesen választott elem. Általában az utolsó elemet szokás választani. Ha ez a legkisebb vagy a legnagyobb szám, akkor a legrosszabb esetet kapjuk a rendezés során.
 
 A helyben rendező változat pszeudokódja:
 
@@ -201,6 +143,8 @@ partition(array, balindex, jobbindex)
     csere(array[i+1], array[jobbIndex])
     visszatérünk i + 1
 ```
+
+A partition() végzi az elemek felosztását két részre, a pivot alapján.
 
 ```java
 public class App {
@@ -249,6 +193,8 @@ quicksort(array, start, end)
 ```
 
 Teljes tömb rendezése esetén, a start legyen 0, az end legyen n-1, ahol az n a tömbb elemeinek a száma.
+
+Ha optimalizálni szeretnénk a pivot választást, akkor vesszük az első, a középső és az utolsó elem mediánáját, és ezt használjuk pivotnak.
 
 ### Bináris keresés
 
