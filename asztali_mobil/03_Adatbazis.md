@@ -8,8 +8,49 @@
 ## Tartalomjegyzék
 
 * [Tartalomjegyzék](#tartalomjegyzék)
+* [Adatbázis elérése](#adatbázis-elérése)
 * [Adatbázis létrehozása](#adatbázis-létrehozása)
+* [Lekérdezés adatbázisból](#lekérdezés-adatbázisból)
+* [Beszúrás adatbázisba](#beszúrás-adatbázisba)
+* [Modell osztály](#modell-osztály)
 * [Példa](#példa)
+
+## Adatbázis elérése
+
+Adatbázis és felhasználó létrehozása:
+
+```sql
+create database test01;
+
+grant all privileges
+on test01.*
+to test01@localhost
+identified by 'titok';
+```
+
+Database.java:
+
+```java
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class Database {
+  public void solution() {    
+    String url = "jdbc:mariadb://localhost:3306/test01";
+    Connection conn = null;
+    try {
+      conn = DriverManager.getConnection(url, "test01", "titok");  
+      System.out.println("OK");  
+      conn.close();
+    }catch (SQLException e) {
+     System.err.println("Hiba! A kapcsolódás sikertelen!");
+     System.err.println(e.getMessage());
+    }
+
+  }
+}
+```
 
 ## Adatbázis létrehozása
 
@@ -61,6 +102,84 @@ values
 ('Endő Lajos', 'Miskolc', 334),
 ('Tengi Mária', 'Szolnok', 329);
 ```
+
+## Lekérdezés adatbázisból
+
+Database.java:
+
+```java
+package lan.zold;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Database {
+  public void solution() {    
+    String url = "jdbc:mariadb://localhost:3306/surubt";
+    Connection conn = null;
+    try {
+      conn = DriverManager.getConnection(url, "surubt", "titok");  
+      System.out.println("OK");
+
+      Statement statement = conn.createStatement();
+      String sql = "select * from employees";
+      ResultSet rs = statement.executeQuery(sql);
+      while(rs.next()) {
+        String name = rs.getString("name");
+        System.out.println(name);
+      }
+      conn.close();
+    }catch (SQLException e) {
+     System.err.println("Hiba! A kapcsolódás sikertelen!");
+     System.err.println(e.getMessage());
+    }
+  }
+}
+```
+
+## Beszúrás adatbázisba
+
+Database.java:
+
+```java
+package lan.zold;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class Database {
+  public void solution() {    
+    String url = "jdbc:mariadb://localhost:3306/surubt";
+    Connection conn = null;
+    try {
+      conn = DriverManager.getConnection(url, "surubt", "titok");  
+      System.out.println("OK");
+      PreparedStatement ps = conn.prepareStatement("""
+          insert into employees 
+          (name, city, salary) 
+          values (?, ?, ?)    
+        """
+      );
+      ps.setString(1, "Csonka Ernő");
+      ps.setString(2, "Miskolc");
+      ps.setDouble(3, 392.0);
+      ps.executeUpdate();      
+      
+      conn.close();
+    }catch (SQLException e) {
+     System.err.println("Hiba! A kapcsolódás sikertelen!");
+     System.err.println(e.getMessage());
+    }
+  }
+}
+```
+
+## Modell osztály
 
 Adatok tárolásához hozzuk létre az Employee osztályt.
 
