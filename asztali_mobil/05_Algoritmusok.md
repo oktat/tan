@@ -8,15 +8,341 @@
 ## Tartalomjegyzék
 
 * [Tartalomjegyzék](#tartalomjegyzék)
-* [Nevezetes algoritmusok](#nevezetes-algoritmusok)
-* [Algoritmusok bonyolultsága](#algoritmusok-bonyolultsága)
+* [Elemi adatszerkezetek](#elemi-adatszerkezetek)
 * [Tömb](#tömb)
 * [Lista](#lista)
 * [Lista műveletek](#lista-műveletek)
-* [Elemi adatszerkezetek](#elemi-adatszerkezetek)
 * [Hashmap](#hashmap)
 * [Rekurzió](#rekurzió)
+* [Nevezetes algoritmusok](#nevezetes-algoritmusok)
+* [Algoritmusok bonyolultsága](#algoritmusok-bonyolultsága)
 * [Algoritmusok alkalmazása gyakorlat](#algoritmusok-alkalmazása-gyakorlat)
+
+## Elemi adatszerkezetek
+
+### Verem
+
+A verem olyan adatszerkezet, amiből mindig az utoljára betett adatot tudjuk kivenni.
+
+![Verem](images/verem.png)
+
+LIFO angol nyelvű rövidítést is használjuk a veremre, ami Last-In-First-Out rövidítése.
+
+Használat néhány esete:
+  
+* függvényhívások kezelése: Egy függvény meghív egy másikat, saját állapotát eltárolja egy verembe. Ha végetért a másik függvény futtatása, a veremből visszatölti az első függvény az állapotát.
+* rekurzió: A függvény önmagát hívja, az egyes állapotok veremben tárolhatók.
+* Felhasználói programok visszavonás: A felhasználói programok visszavonási lehetőségeti célszerű veremben tárolni.
+* Kifejezések kiértékelése: Egy kifejezés esetén, annak értelmezése során egy veremben tároljuk a végrehajtandó operátorokat.
+
+### Sor
+
+A sor olyan adatszerkezet, ahol az elsőként betett adatot tudjuk kivenni.
+
+![Sor](images/sor.png)
+
+FIFO angol nyelvű rövidítést is használjuk a veremre, ami First-In-First-Out rövidítése.
+
+Használat néhány esete:
+
+* üzenetkezelés
+* feladatkezelés
+* eseménykezelés
+* CPU ütemezés
+* Webes várólisták (online jegyvásárlás)
+* nyomtatási sor
+
+### Láncolt lista
+
+Az objektumok sorba egymás után érhetők el. Minden értékhez tartozik egy mutató is, amely a következő érték címét mutatja.
+
+![Láncolt lista](images/lancolt_lista_1.png)
+
+Az utolsó mutató vagy a semmibe mutat, vagy vissza az első elemre. A láncolt listát az elejétől a végéig tudjuk bejárni.
+
+A láncolt lista egy elemének megvalósítása Java nyelven:
+
+```java
+class Elem {
+    Object adat;
+    Elem kovetkezo;
+}
+```
+
+A kétirányú láncolt lista bejárható visszafelé is.
+
+![Kétirányba láncolt lista](images/lancolt_lista_ketiranyban_lancolt.png)
+
+A kétirányban láncolt lista megvalósítása Java nyelven:
+
+```java
+class Elem {
+    Object adat;
+    Elem elozo;
+    Elem kovetkezo;
+}
+```
+
+Komplett példa:
+
+* [Láncolt lista megvalósítás](https://szit.hu/doku.php?id=oktatas:programozas:java:java_lancolt_lista)
+
+### Fák
+
+A gráfok olyan pontok halmaza, amelyeket vonalakkal kötünk össze.
+
+![Gráf](images/graf_001.png)
+
+A fa egy speciális gráf. Fa adatszerkezetben a bejárás gyorsabb, szemben a listákkal.
+
+A gráfelmélet alapján a fák meghatározása:
+
+* körmentes (két elem között csak egyetlen út létezik)
+* összefüggő egyszerű gráfok
+
+Fa esetén létezik egy kiemelt csomópont, a gyökérelem.
+
+![Fa](images/001_fa.png)
+
+![A fa részei](images/002_fa_reszei.png)
+
+A bináris fák, speciális fák, mivel minden elemnek legfeljebb két gyermekeleme lehet.
+
+![Bináris fa](images/003_binarisfa.png)
+
+![Bináris fa 2](images/004_binarisfa.png)
+
+## Tömb
+
+Öt egész szám tárolására alkalmas tömb:
+
+```java
+int[] szamok = new int[5];
+a[0] = 35;
+a[1] = 22;
+a[2] = 72;
+a[3] = 14;
+a[4] = 28;
+```
+
+Tömb kezdőértékkel:
+
+```java
+int[] szamok = {35, 22, 72, 14, 28};
+```
+
+## Lista
+
+A Java nyelveben több lista létezik:
+
+* ArrayList
+* Vector
+* LinkedList
+* stb.
+
+Itt most az ArrayList osztályt használjuk.
+
+```java
+import java.util.ArrayList;
+//...
+
+ArrayList<Integer> szamLista = new ArrayList<>();
+
+szamLista.add(35);
+szamLista.add(22);
+szamLista.add(72);
+szamLista.add(14);
+szamLista.add(28);
+```
+
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+//...
+
+Integer[] szamok = {35, 22, 72, 14, 28}
+ArrayList<Integer> szamLista = new ArrayList<>(Arrays.asList(b));
+
+//bejárás:
+for(Integer szam : szamLista) {
+    System.out.println(szam);
+}
+```
+
+```java
+import java.util.LinkedList;
+//...
+
+LinkedList<Integer> szamLista = new LinkedList<>();
+
+szamLista.add(35);
+szamLista.add(22);
+szamLista.add(72);
+szamLista.add(14);
+szamLista.add(28);
+```
+
+Teljes kód:
+
+```java
+import java.util.LinkedList;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        System.out.println("LinkedList használata");
+
+        LinkedList<Integer> szamLista = new LinkedList<>();
+        szamLista.add(35);
+        szamLista.add(22);
+        szamLista.add(72);
+        szamLista.add(14);
+        szamLista.add(28);
+        for(Integer szam : szamLista) {
+            System.out.println(szam);
+        }
+    }
+}
+```
+
+## Lista műveletek
+
+Bejárás:
+
+```java
+for(Integer szam : szamokLista) {
+    System.out.println(szam);
+}
+```
+
+Tartalmazás:
+
+```java
+boolean tartalmaz = szamokLista.contains(5);
+```
+
+Elem index alapján:
+
+```java
+Integer szam = szamokLista.get(2);
+```
+
+Index keresése:
+
+```java
+int index = szamokLista.indexOf(5);
+```
+
+Visszaadja milyen indexnél található a keresett elem. Ha az elem nincs a listában, akkor -1 értéket kapjuk.
+
+Törlés index alapján:
+
+```java
+Integer szam = szamok.remove(0);
+```
+
+Törli az adott indexű elemet, majd visszatér az elemmel.
+
+## Hashmap
+
+A HashMap kulcs-értékpárok tárolására alkalmas lista.
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.Iterator;
+class Program03
+{
+    public static void main(String args[])
+    {
+        HashMap<String, String> m = new HashMap<String, String>();
+        m.put("alma", "apple");
+        m.put("asztal", "table");
+        m.put("szék", "chair");
+ 
+        System.out.println(m.get("asztal"));
+ 
+        System.out.println(m.containsKey("alma"));
+        System.out.println(m.containsValue("apple"));
+ 
+        Set<Map.Entry<String, String>> h = m.entrySet();
+        System.out.println("------------------");        
+        Iterator<Map.Entry<String, String>> i = h.iterator();
+        while(i.hasNext())
+        {
+            Map.Entry<String, String> elem = i.next();
+            System.out.println("Kulcs: "+elem.getKey()+
+                "\térték: "+ elem.getValue());
+        }
+        System.out.println("------------------");
+ 
+        System.out.println("------------------");        
+        for (Map.Entry<String, String> entry : m.entrySet())
+        {
+            System.out.println(entry.getKey() + "\t" + entry.getValue());
+        }
+        System.out.println("------------------");
+ 
+        String magyar = m.get("alma");
+        System.out.println("Az alma jelentése: " + magyar);
+ 
+        Set h2 = m.keySet();
+        System.out.println("Van-e alma: " + h2.contains("alma"));
+ 
+        String s = m.remove("asztal");
+        System.out.println("Töröleve ez: " + s); //Eredmény: table
+ 
+        m.clear();
+        System.out.println(m.size());
+    }
+}
+```
+
+* [https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html)
+
+## Rekurzió
+
+Ha egy függvény vagy egy metódus **önmagát hívja**, akkor rekurzióról beszélünk. Ciklikusan újra és újra önmagát hívja, ezért alkalmas ciklus kiváltására is. A rekurzió írásánál ügyelnünk arra, hogy **gondoskodni** kell annak **megszakításáról**, különben végtelen ciklust kapunk.
+
+A következő példa visszafele írja ki a számokat 9-től, és minden szám után a Joe szót írja szóközzel.
+
+```java
+class Program {
+    static void ki(int i) {
+        System.out.println(i + " Joe");     
+ 
+        if(i>0)
+            ki(i-1);
+    }   
+ 
+    public static void main(String args[]) {
+        ki(9);
+    }
+}
+```
+
+A rekurzió megszakításáról az if állítás gondoskodik.
+
+A következő program bekéri a számokat 0 végjelig:
+
+```java
+import java.util.Scanner;
+ 
+class Program { 
+    static void szamok() {
+        Scanner input = new Scanner(System.in); 
+        System.out.print("Szam: ");
+        int szam = input.nextInt();
+        input = null;
+        if(szam != 0)
+            szamok();
+    }   
+ 
+    public static void main(String args[]) {
+        szamok();
+    }
+}
+```
 
 ## Nevezetes algoritmusok
 
@@ -359,332 +685,6 @@ A művletek tengelyét 1000-re növeltem, amin látszik, hogy a legrosszabb eset
 2. Milyen szimbólumot használunk bonyolultság esetén az átlagos esetek jelölésére?
 
 3. Derítse ki, mi a bonyolultsága az összefésülő rendezésnek legrosszabb, legjobb és átlagos esetben.
-
-## Tömb
-
-Öt egész szám tárolására alkalmas tömb:
-
-```java
-int[] szamok = new int[5];
-a[0] = 35;
-a[1] = 22;
-a[2] = 72;
-a[3] = 14;
-a[4] = 28;
-```
-
-Töpmb kezdőértékkel:
-
-```java
-int[] szamok = {35, 22, 72, 14, 28};
-```
-
-## Lista
-
-A Java nyelveben több lista létezik:
-
-* ArrayList
-* Vector
-* LinkedList
-* stb.
-
-Itt most az ArrayList osztályt használjuk.
-
-```java
-import java.util.ArrayList;
-//...
-
-ArrayList<Integer> szamLista = new ArrayList<>();
-
-szamLista.add(35);
-szamLista.add(22);
-szamLista.add(72);
-szamLista.add(14);
-szamLista.add(28);
-```
-
-```java
-import java.util.ArrayList;
-import java.util.Arrays;
-//...
-
-Integer[] szamok = {35, 22, 72, 14, 28}
-ArrayList<Integer> szamLista = new ArrayList<>(Arrays.asList(b));
-
-//bejárás:
-for(Integer szam : szamLista) {
-    System.out.println(szam);
-}
-```
-
-```java
-import java.util.LinkedList;
-//...
-
-LinkedList<Integer> szamLista = new LinkedList<>();
-
-szamLista.add(35);
-szamLista.add(22);
-szamLista.add(72);
-szamLista.add(14);
-szamLista.add(28);
-```
-
-Teljes kód:
-
-```java
-import java.util.LinkedList;
-
-public class App {
-    public static void main(String[] args) throws Exception {
-        System.out.println("LinkedList használata");
-
-        LinkedList<Integer> szamLista = new LinkedList<>();
-        szamLista.add(35);
-        szamLista.add(22);
-        szamLista.add(72);
-        szamLista.add(14);
-        szamLista.add(28);
-        for(Integer szam : szamLista) {
-            System.out.println(szam);
-        }
-    }
-}
-```
-
-## Lista műveletek
-
-Bejárás:
-
-```java
-for(Integer szam : szamokLista) {
-    System.out.println(szam);
-}
-```
-
-Tartalmazás:
-
-```java
-boolean tartalmaz = szamokLista.contains(5);
-```
-
-Elem index alapján:
-
-```java
-Integer szam = szamokLista.get(2);
-```
-
-Index keresése:
-
-```java
-int index = szamokLista.indexOf(5);
-```
-
-Visszaadja milyen indexnél található a keresett elem. Ha az elem nincs a listában, akkor -1 értéket kapjuk.
-
-Törlés index alapján:
-
-```java
-Integer szam = szamok.remove(0);
-```
-
-Törli az adott indexű elemet, majd visszatér az elemmel.
-
-## Elemi adatszerkezetek
-
-### Verem
-
-A verem olyan adatszerkezet, amiből mindig az utoljára betett adatot tudjuk kivenni.
-
-![Verem](images/verem.png)
-
-LIFO angol nyelvű rövidítést is használjuk a veremre, ami Last-In-First-Out rövidítése.
-
-Használat néhány esete:
-  
-* függvényhívások kezelése: Egy függvény meghív egy másikat, saját állapotát eltárolja egy verembe. Ha végetért a másik függvény futtatása, a veremből visszatölti az első függvény az állapotát.
-* rekurzió: A függvény önmagát hívja, az egyes állapotok veremben tárolhatók.
-* Felhasználói programok visszavonás: A felhasználói programok visszavonási lehetőségeti célszerű veremben tárolni.
-* Kifejezések kiértékelése: Egy kifejezés esetén, annak értelmezése során egy veremben tároljuk a végrehajtandó operátorokat.
-
-### Sor
-
-A sor olyan adatszerkezet, ahol az elsőként betett adatot tudjuk kivenni.
-
-![Sor](images/sor.png)
-
-FIFO angol nyelvű rövidítést is használjuk a veremre, ami First-In-First-Out rövidítése.
-
-Használat néhány esete:
-
-* üzenetkezelés
-* feladatkezelés
-* eseménykezelés
-* CPU ütemezés
-* Webes várólisták (online jegyvásárlás)
-* nyomtatási sor
-
-### Láncolt lista
-
-Az objektumok sorba egymás után érhetők el. Minden értékhez tartozik egy mutató is, amely a következő érték címét mutatja.
-
-![Láncolt lista](images/lancolt_lista_1.png)
-
-Az utolsó mutató vagy a semmibe mutat, vagy vissza az első elemre. A láncolt listát az elejétől a végéig tudjuk bejárni.
-
-A láncolt lista egy elemének megvalósítása Java nyelven:
-
-```java
-class Elem {
-    Object adat;
-    Elem kovetkezo;
-}
-```
-
-A kétirányú láncolt lista bejárható visszafelé is.
-
-![Kétirányba láncolt lista](images/lancolt_lista_ketiranyban_lancolt.png)
-
-A kétirányban láncolt lista megvalósítása Java nyelven:
-
-```java
-class Elem {
-    Object adat;
-    Elem elozo;
-    Elem kovetkezo;
-}
-```
-
-Komplett példa:
-
-* [Láncolt lista megvalósítás](https://szit.hu/doku.php?id=oktatas:programozas:java:java_lancolt_lista)
-
-### Fák
-
-A gráfok olyan pontok halmaza, amelyeket vonalakkal kötünk össze.
-
-![Gráf](images/graf_001.png)
-
-A fa egy speciális gráf. Fa adatszerkezetben a bejárás gyorsabb, szemben a listákkal.
-
-A gráfelmélet alapján a fák meghatározása:
-
-* körmentes (két elem között csak egyetlen út létezik)
-* összefüggő egyszerű gráfok
-
-Fa esetén létezik egy kiemelt csomópont, a gyökérelem.
-
-![Fa](images/001_fa.png)
-
-![A fa részei](images/002_fa_reszei.png)
-
-A bináris fák, speciális fák, mivel minden elemnek legfeljebb két gyermekeleme lehet.
-
-![Bináris fa](images/003_binarisfa.png)
-
-![Bináris fa 2](images/004_binarisfa.png)
-
-## Hashmap
-
-A HashMap kulcs-értékpárok tárolására alkalmas lista.
-
-```java
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.Iterator;
-class Program03
-{
-    public static void main(String args[])
-    {
-        HashMap<String, String> m = new HashMap<String, String>();
-        m.put("alma", "apple");
-        m.put("asztal", "table");
-        m.put("szék", "chair");
- 
-        System.out.println(m.get("asztal"));
- 
-        System.out.println(m.containsKey("alma"));
-        System.out.println(m.containsValue("apple"));
- 
-        Set<Map.Entry<String, String>> h = m.entrySet();
-        System.out.println("------------------");        
-        Iterator<Map.Entry<String, String>> i = h.iterator();
-        while(i.hasNext())
-        {
-            Map.Entry<String, String> elem = i.next();
-            System.out.println("Kulcs: "+elem.getKey()+
-                "\térték: "+ elem.getValue());
-        }
-        System.out.println("------------------");
- 
-        System.out.println("------------------");        
-        for (Map.Entry<String, String> entry : m.entrySet())
-        {
-            System.out.println(entry.getKey() + "\t" + entry.getValue());
-        }
-        System.out.println("------------------");
- 
-        String magyar = m.get("alma");
-        System.out.println("Az alma jelentése: " + magyar);
- 
-        Set h2 = m.keySet();
-        System.out.println("Van-e alma: " + h2.contains("alma"));
- 
-        String s = m.remove("asztal");
-        System.out.println("Töröleve ez: " + s); //Eredmény: table
- 
-        m.clear();
-        System.out.println(m.size());
-    }
-}
-```
-
-* [https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html)
-
-## Rekurzió
-
-Ha egy függvény vagy egy metódus **önmagát hívja**, akkor rekurzióról beszélünk. Ciklikusan újra és újra önmagát hívja, ezért alkalmas ciklus kiváltására is. A rekurzió írásánál ügyelnünk arra, hogy **gondoskodni** kell annak **megszakításáról**, különben végtelen ciklust kapunk.
-
-A következő példa visszafele írja ki a számokat 9-től, és minden szám után a Joe szót írja szóközzel.
-
-```java
-class Program {
-    static void ki(int i) {
-        System.out.println(i + " Joe");     
- 
-        if(i>0)
-            ki(i-1);
-    }   
- 
-    public static void main(String args[]) {
-        ki(9);
-    }
-}
-```
-
-A rekurzió megszakításáról az if állítás gondoskodik.
-
-A következő program bekéri a számokat 0 végjelig:
-
-```java
-import java.util.Scanner;
- 
-class Program { 
-    static void szamok() {
-        Scanner input = new Scanner(System.in); 
-        System.out.print("Szam: ");
-        int szam = input.nextInt();
-        input = null;
-        if(szam != 0)
-            szamok();
-    }   
- 
-    public static void main(String args[]) {
-        szamok();
-    }
-}
-```
 
 ## Algoritmusok alkalmazása gyakorlat
 
