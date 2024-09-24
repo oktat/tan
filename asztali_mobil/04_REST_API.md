@@ -1,980 +1,793 @@
 # REST API elérés
 
 * **Szerző:** Sallai András
-* Copyright (c) 2022, Sallai András
+* Copyright (c) 2024, Sallai András
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
 ## Tartalomjegyzék
 
 * [Tartalomjegyzék](#tartalomjegyzék)
-* [REST API elérésről](#rest-api-elérésről)
-* [Szinkron kérés](#szinkron-kérés)
-* [A get() metódus darabolása](#a-get-metódus-darabolása)
-* [A POST metódus](#a-post-metódus)
-* [A PUT metódus](#a-put-metódus)
-* [A DELETE metódus](#a-delete-metódus)
-* [Azonosítás beállítása](#azonosítás-beállítása)
-* [Objektum JSON formátumba](#objektum-json-formátumba)
-* [Objektumból JSON újra módosítással](#objektumból-json-újra-módosítással)
-* [Aszinkron kérés](#aszinkron-kérés)
-* [Hozzáadás](#hozzáadás)
-* [Frissítés](#frissítés)
-* [Törlés](#törlés)
-* [Telejes kód](#telejes-kód)
+* [Bevezetés](#bevezetés)
+* [Unirest alapok](#unirest-alapok)
+* [A Gson](#a-gson)
+* [Gyakorlás 1](#gyakorlás-1)
+* [Azonosítás](#azonosítás)
+* [Hibakezelés](#hibakezelés)
+* [Tesztelés](#tesztelés)
+* [Források](#források)
 
-## REST API elérésről
+## Bevezetés
 
-Java 11-től használhatjuk a **HttpClient** osztályt HTTP kapcsolatokra. A **HttpRequest** osztály egy objektumát használjuk egy kérés leírására. Paraméterként az URI osztályt használhatjuk, a REST API elérésének megadására. Egy **HttpResponse** objektumban fogadjuk a HTTP szerver válaszát, a **BodyHandlers** osztállyal mondjuk meg, hogy Sztringként szeretnénk kezelni a válaszban érkezett tartalmat.
+### A REST API
 
-## Szinkron kérés
+A REST A Representational State Trasfer, az API az Application Programming Interface rövidíétse. A webszolgáltatások fejlesztéséhez fejlesztett architektúra. A REST API használata során URL-ek és HTTP protokollokkal (GET, POST, PUT, DELETE) dolgozunk.
 
-Legyen egy get() nevű metódus, amelyben tetszőleges URI alapján, lekérdezzük egy teteszőleges végpontot.
+Errőforrások:
 
-Legyen egy példa, ahol a src/models/Client.java fájl tartalma a következő:
+A REST API-t erőforrásokba szervezzük, amelyek egyedi URL-en keresztül érhetők el. A felhasználók például a /users címen érhetők el.Egyetlen felhasználó /users/{id} címen érhető el.
+
+A HTTP metódusok:
+
+A REST API létrehozása során a HTTP szabványos metódusait használjuk:
+
+* GET: erőforrás olvasása
+* POST: új elem létrehozása az erőforráson
+* PUT: egy elem frissítése az erőforráson
+* PATCH: létező elem egy részének frissítése
+* DELETE: elem törlése
+
+Állapotmentesség:
+
+A REST API állapotmentes, ezért minden kérés tartalmazza minden egyes kéréshez szükséges összes infomrációt.
+
+Adatformátumok:
+
+A REST API különböző formában dolgozat adatokkal:
+
+* JSON
+* XML
+* HTML
+
+Leggyakrabban JSON formátumot használjuk, mivel könnyen olvasható, és kevésbé terheli a hálózatot.
+
+HTTP státuszkódok:
+
+* 200 OK: Kérés sikeres
+* 201 Created: Új elem létrehozva
+* 204 No content: A kérés sikeres, de nincs mit visszaadni
+* 400 Bad request: A kérés hibás
+* 404 Not found: Az erőforrás nem található
+* 500 Internal server error: Szerver oldali hiba
+
+Kliens-szerver felépítés:
+
+A REST API általában kliens-szerver felépításű. A kliens lehet:
+
+* web
+* mobil
+* asztali alkalmazás
+
+### Miért Unirest?
+
+Az Unirest egy könnyen használható HTTP kliens programozói könyvtár.
+
+Tulajdonságok:
+
+* egyszerű
+* könnyen integrálható; például Gson, Jackson
+* a gyakran használt HTTP metódusok támogatása
+* aszinkron támogatás
+* testreszabható HTTP fejlécek
+* könnyű hibakezelés
+* jól dokumentált
+* közösségi támogatás
+* könnyen bővíthető
+
+### Gson bemutatása
+
+A Gson a Google által fejlesztett Java programozói könyvtár, amely lehetővé teszi Java objektumok könnyű konvertálását JSON formátumba és visszafelé.
+
+Jellemzők:
+
+* széleskörben használt
+* könnyű használat
+* adattípusok támogatása
+* jó teljesítmény
+
+#### Java objektum JSON formátumba alakítása
 
 ```java
-package models;
+import com.google.gson.Gson;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.net.http.HttpResponse.BodyHandlers;
+class User {
+    String name;
+    int age;
 
-public class Client {
-    public String get(String uri) {
-        String response = "";
-        try {
-            response = tryGet(uri);
-        } catch (IOException e) {
-            System.err.println("Hiba! A lekérés sikertelen!");
-            System.err.println(e.getMessage());
-        } catch (InterruptedException e) {
-            System.err.println("Hiba! Megszakadt lekérés!");
-            System.err.println(e.getMessage());            
-        }
-        return response;
-    }
-    public String tryGet(String url) 
-            throws IOException, InterruptedException {
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-        .uri(URI.create(url))
-        .build();
-        HttpResponse<String> response = 
-        client.send(request, BodyHandlers.ofString());
-        return response.body();
+    // Konstruktor
+    public User(String name, int age) {
+        this.name = name;
+        this.age = age;
     }
 }
-```
 
-Ezek után a Client osztály használata az App.java fájlban:
-
-```java
-import models.Client;
-
-public class App {
-    public static void main(String[] args) throws Exception {
-        Client client = new Client();
-        String url = "https://jsonplaceholder.typicode.com/todos";
-        System.out.println(client.get(url));
-    }    
-}
-```
-
-A kérést a client.send() utasítással küldtük el. Ez szinkron módon fut, vagyis amíg a válasz meg nem érkezik, addig az alkalmazás mozdulatlan, nem fut tovább.
-
-## A get() metódus darabolása
-
-Bontsuk fel a get() metódust több részre. Nézzük hány részre osztható fel:
-
-* A kliens létrehozása
-* A kérés létrehozása
-* A küldés
-
-Vegyük ki a kérés elkészítését, tegyük egy genGetRequest() nevű metódusba.
-Ugyanakkor bontsuk fel a "szerelvény". A szerelvény:
-
-```java
-        HttpRequest request = HttpRequest.newBuilder()
-        .uri(URI.create(url))
-        .build();
-```
-
-Hogyan bonthatjuk fel? A newbuilder() metódus egy Builder objektumot ad vissza.
-A Java nyelvben elég sok Builder osztály van. A következőt használjuk:
-
-* java.net.http.HttpRequest.Builder;
-
-Ez a Builder osztály a HttpRequest osztály egy beépített (Nested) osztálya.
-
-```java
-java.net.http.HttpRequest.Builder;
-
-//...
-
-Builder builder = HttpRequest.newBuilder();
-```
-
-A builder objektumon futtathatjuk az uri() metódust, ami beállítja a lekérdezendő API címét.
-
-A builder objektumon a build() metódust meghívva megkapjuk a HttpRequest objektumot.
-
-```java
-java.net.http.HttpRequest.Builder;
-
-//...
-String url = "api_cime";
-Builder builder = HttpRequest.newBuilder();
-builder.uri(URI.create(url));
-HttpRequest request = builder.build();
-```
-
-Írjuk meg az eddigiek alapján a genGetRequest() metódust.
-
-```java
-    private HttpRequest genGetRequest(String url) {
-        Builder builder = HttpRequest.newBuilder();
-        builder.uri(URI.create(url));
-        return builder.build();
-    }
-```
-
-A Client osztály használata; teljes kód:
-
-Client.java
-
-```java
-package models;
-
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.net.http.HttpRequest.Builder;
-import java.net.http.HttpResponse.BodyHandlers;
-
-public class Client {
-    public String get(String uri) {
-        String response = "";
-        try {
-            response = tryGet(uri);
-        } catch (IOException e) {
-            System.err.println("Hiba! A lekérés sikertelen!");
-            System.err.println(e.getMessage());
-        } catch (InterruptedException e) {
-            System.err.println("Hiba! Megszakadt lekérés!");
-            System.err.println(e.getMessage());            
-        }
-        return response;
-    }
-    public String tryGet(String url) 
-            throws IOException, InterruptedException {
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = genGetRequest(url);
-        HttpResponse<String> response = 
-        client.send(request, BodyHandlers.ofString());
-        return response.body();
-    }
-    private HttpRequest genGetRequest(String url) {
-        Builder builder = HttpRequest.newBuilder();
-        builder.uri(URI.create(url));
-        return builder.build();
-    }
-}
-```
-
-A tryGet() metódusból kivehetjük a küldést is. A kivételkezelést a client.send() metódust kívánja meg, ezért azt is visszük a küldéssel együtt. Legyen a metódus neve sendRequest(). A tryGet() metódus helyi client objektumát globálissá kell tennünk, hogy később más metódusokban ne kelljen példányosítani.
-
-```java
-package models;
-
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.net.http.HttpRequest.Builder;
-import java.net.http.HttpResponse.BodyHandlers;
-
-public class Client {
-    HttpClient client;
-    public Client() {
-        this.client = HttpClient.newHttpClient();
-    }
-
-    public String get(String url) {
-        HttpRequest request = genGetRequest(url);        
-        return sendRequest(request);
-    }
-    private HttpRequest genGetRequest(String url) {
-        Builder builder = HttpRequest.newBuilder();
-        builder.uri(URI.create(url));
-        return builder.build();
-    }
-    public String sendRequest(HttpRequest request) {
-        String result = "";
-        try {
-            result = trySendRequest(request);                     
-        } catch (IOException e) {
-            System.err.println("Hiba! A lekérés sikertelen!");
-            System.err.println(e.getMessage());
-        } catch (InterruptedException e) {
-            System.err.println("Hiba! Megszakadt lekérés!");
-            System.err.println(e.getMessage());            
-        }
-        return result;
-    }
-    private String trySendRequest(HttpRequest request) 
-            throws IOException, InterruptedException {
-        HttpResponse<String> response = 
-        this.client.send(request, BodyHandlers.ofString());        
-        return response.body();
-    }
-}
-```
-
-## A POST metódus
-
-A kérésgeneráló metódust újra kell írnunk, mivel a kérésbe bele kell tennük egy új TODO adatatit, fejléccel együtt:
-
-```java
-    private HttpRequest genPostRequest(String url, String body) {
-        Builder builder = HttpRequest.newBuilder();
-        builder.uri(URI.create(url));
-        builder.header("Content-Type", "application/json");
-        builder.POST(HttpRequest.BodyPublishers.ofString(body));
-        return builder.build();
-    }
-```
-
-A küldéshez használhatjuk a már meglévő küldő metódust.
-
-A teljes kód, az App osztály újraírásával:
-
-Client.java:
-
-```java
-package models;
-
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.net.http.HttpRequest.Builder;
-import java.net.http.HttpResponse.BodyHandlers;
-
-public class Client {
-    HttpClient client;
-    public Client() {
-        this.client = HttpClient.newHttpClient();
-    }
-
-    public String get(String url) {
-        HttpRequest request = genGetRequest(url);        
-        return sendRequest(request);
-    }
-    private HttpRequest genGetRequest(String url) {
-        Builder builder = HttpRequest.newBuilder();
-        builder.uri(URI.create(url));
-        return builder.build();
-    }
-    
-    public String post(String url, String body) {
-        HttpRequest request = this.genPostRequest(url, body);        
-        return this.sendRequest(request);
-    }
-    private HttpRequest genPostRequest(String url, String body) {
-        Builder builder = HttpRequest.newBuilder();
-        builder.uri(URI.create(url));
-        builder.header("Content-Type", "application/json");
-        builder.POST(HttpRequest.BodyPublishers.ofString(body));
-        return builder.build();
-    }
-
-    public String sendRequest(HttpRequest request) {
-        String result = "";
-        try {
-            result = trySendRequest(request);                     
-        } catch (IOException e) {
-            System.err.println("Hiba! A lekérés sikertelen!");
-            System.err.println(e.getMessage());
-        } catch (InterruptedException e) {
-            System.err.println("Hiba! Megszakadt lekérés!");
-            System.err.println(e.getMessage());            
-        }
-        return result;
-    }
-    private String trySendRequest(HttpRequest request) 
-            throws IOException, InterruptedException {
-        HttpResponse<String> response = 
-        this.client.send(request, BodyHandlers.ofString());        
-        return response.body();
-    }
-}
-```
-
-App.java:
-
-```java
-import models.Client;
-
-public class App {
-    public static void main(String[] args) throws Exception {
-        Client client = new Client();
-        String url = "https://jsonplaceholder.typicode.com/todos";
-        // System.out.println(client.get(url));
-
-        String newTodo = 
-            "{ \"userId\":10, " +
-            "\"title\":\"Eldobom a telefonom\", "+
-            "\"completed\": false }";
-        System.out.println(client.post(url, newTodo));
-    }
-}
-```
-
-## A PUT metódus
-
-A put() és a genPutRequest() metódus:
-
-```java
-    public String put(String url, String body) {
-        HttpRequest request = this.genPutRequest(url, body);
-        return this.sendRequest(request);
-    }
-    private HttpRequest genPutRequest(String url, String body) {
-        Builder builder = HttpRequest.newBuilder();
-        builder.uri(URI.create(url));
-        builder.header("Content-Type", "application/json");
-        builder.PUT(HttpRequest.BodyPublishers.ofString(body));
-        return builder.build();
-    }
-```
-
-A teljes kód a put() használatával:
-
-Client.java
-
-```java
-package models;
-
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.net.http.HttpRequest.Builder;
-import java.net.http.HttpResponse.BodyHandlers;
-
-public class Client {
-    HttpClient client;
-    public Client() {
-        this.client = HttpClient.newHttpClient();
-    }
-
-    public String get(String url) {
-        HttpRequest request = genGetRequest(url);        
-        return sendRequest(request);
-    }
-    private HttpRequest genGetRequest(String url) {
-        Builder builder = HttpRequest.newBuilder();
-        builder.uri(URI.create(url));
-        return builder.build();
-    }
-    
-    public String post(String url, String body) {
-        HttpRequest request = this.genPostRequest(url, body);        
-        return this.sendRequest(request);
-    }
-    private HttpRequest genPostRequest(String url, String body) {
-        Builder builder = HttpRequest.newBuilder();
-        builder.uri(URI.create(url));
-        builder.header("Content-Type", "application/json");
-        builder.POST(HttpRequest.BodyPublishers.ofString(body));
-        return builder.build();
-    }
-
-    public String put(String url, String body) {
-        HttpRequest request = this.genPutRequest(url, body);
-        return this.sendRequest(request);
-    }
-    private HttpRequest genPutRequest(String url, String body) {
-        Builder builder = HttpRequest.newBuilder();
-        builder.uri(URI.create(url));
-        builder.header("Content-Type", "application/json");
-        builder.PUT(HttpRequest.BodyPublishers.ofString(body));
-        return builder.build();
-    }
-
-    public String sendRequest(HttpRequest request) {
-        String result = "";
-        try {
-            result = trySendRequest(request);                     
-        } catch (IOException e) {
-            System.err.println("Hiba! A lekérés sikertelen!");
-            System.err.println(e.getMessage());
-        } catch (InterruptedException e) {
-            System.err.println("Hiba! Megszakadt lekérés!");
-            System.err.println(e.getMessage());            
-        }
-        return result;
-    }
-    private String trySendRequest(HttpRequest request) 
-            throws IOException, InterruptedException {
-        HttpResponse<String> response = 
-        this.client.send(request, BodyHandlers.ofString());        
-        return response.body();
-    }
-}
-```
-
-App.java
-
-```java
-import models.Client;
-
-public class App {
-    public static void main(String[] args) throws Exception {
-        Client client = new Client();
-        String url = "https://jsonplaceholder.typicode.com/todos";
-        // System.out.println(client.get(url));
-
-        // String newTodo = 
-        //     "{ \"userId\":10, " +
-        //     "\"title\":\"Eldobom a telefonom\", "+
-        //     "\"completed\": false }";
-        // System.out.println(client.post(url, newTodo));
-        
-        String modifiedTodo = 
-            "{ \"userId\":10, " +
-            "\"title\":\"Nem eszem cukrot 1 hónapig\", "+
-            "\"completed\": false }";
-        System.out.println(client.put(url + "/1", modifiedTodo));
-    }
-}
-```
-
-## A DELETE metódus
-
-Írjuk meg a delete() metódust a genDeleteRequest() metódussal együtt.
-
-Client.java:
-
-```java
-package models;
-
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.net.http.HttpRequest.Builder;
-import java.net.http.HttpResponse.BodyHandlers;
-
-public class Client {
-    HttpClient client;
-    public Client() {
-        this.client = HttpClient.newHttpClient();
-    }
-
-    public String get(String url) {
-        HttpRequest request = genGetRequest(url);        
-        return sendRequest(request);
-    }
-    private HttpRequest genGetRequest(String url) {
-        Builder builder = HttpRequest.newBuilder();
-        builder.uri(URI.create(url));
-        return builder.build();
-    }
-    
-    public String post(String url, String body) {
-        HttpRequest request = this.genPostRequest(url, body);        
-        return this.sendRequest(request);
-    }
-    private HttpRequest genPostRequest(String url, String body) {
-        Builder builder = HttpRequest.newBuilder();
-        builder.uri(URI.create(url));
-        builder.header("Content-Type", "application/json");
-        builder.POST(HttpRequest.BodyPublishers.ofString(body));
-        return builder.build();
-    }
-
-    public String put(String url, String body) {
-        HttpRequest request = this.genPutRequest(url, body);
-        return this.sendRequest(request);
-    }
-    private HttpRequest genPutRequest(String url, String body) {
-        Builder builder = HttpRequest.newBuilder();
-        builder.uri(URI.create(url));
-        builder.header("Content-Type", "application/json");
-        builder.PUT(HttpRequest.BodyPublishers.ofString(body));
-        return builder.build();
-    }
-
-    public String delete(String url) {
-        HttpRequest request = this.genDeleteRequest(url);
-        return this.sendRequest(request);
-    }
-    private HttpRequest genDeleteRequest(String url) {
-        Builder builder = HttpRequest.newBuilder();
-        builder.uri(URI.create(url));
-        builder.header("Content-Type", "application/json");
-        builder.DELETE();
-        return builder.build();        
-    }
-
-    public String sendRequest(HttpRequest request) {
-        String result = "";
-        try {
-            result = trySendRequest(request);                     
-        } catch (IOException e) {
-            System.err.println("Hiba! A lekérés sikertelen!");
-            System.err.println(e.getMessage());
-        } catch (InterruptedException e) {
-            System.err.println("Hiba! Megszakadt lekérés!");
-            System.err.println(e.getMessage());            
-        }
-        return result;
-    }
-    private String trySendRequest(HttpRequest request) 
-            throws IOException, InterruptedException {
-        HttpResponse<String> response = 
-        this.client.send(request, BodyHandlers.ofString());        
-        return response.body();
-    }
-}
-```
-
-App.java
-
-```java
-import models.Client;
-
-public class App {
-    public static void main(String[] args) throws Exception {
-        Client client = new Client();
-        String url = "https://jsonplaceholder.typicode.com/todos";
-        // System.out.println(client.get(url));
-
-        // String newTodo = 
-        //     "{ \"userId\":10, " +
-        //     "\"title\":\"Eldobom a telefonom\", "+
-        //     "\"completed\": false }";
-        // System.out.println(client.post(url, newTodo));
-        
-        // String modifiedTodo = 
-        //     "{ \"userId\":10, " +
-        //     "\"title\":\"Nem eszem cukrot 1 hónapig\", "+
-        //     "\"completed\": false }";
-        // System.out.println(client.put(url + "/1", modifiedTodo));
-
-        System.out.println(client.delete(url + "/1"));
-    }
-}
-```
-
-## Azonosítás beállítása
-
-Client.java:
-
-```java
-package models;
-
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.net.http.HttpRequest.Builder;
-import java.net.http.HttpResponse.BodyHandlers;
-
-public class Client {
-    HttpClient client;
-    public Client() {
-        this.client = HttpClient.newHttpClient();
-    }
-
-    public String get(String url) {
-        HttpRequest request = genGetRequest(url);        
-        return sendRequest(request);
-    }
-    private HttpRequest genGetRequest(String url, String... args) {
-        Builder builder = HttpRequest.newBuilder();
-        builder.uri(URI.create(url));
-        if(args.length > 0) {
-            String token = args[0];
-            builder.header("Authorization", "Bearer " + token);            
-        }
-        return builder.build();
-    }
-    
-    public String post(String url, String body, String... args) {
-        HttpRequest request = this.genPostRequest(url, body, args);        
-        return this.sendRequest(request);
-    }
-    private HttpRequest genPostRequest(String url, String body, String... args) {
-        Builder builder = HttpRequest.newBuilder();
-        builder.uri(URI.create(url));
-        builder.header("Content-Type", "application/json");
-        if(args.length > 0) {
-            String token = args[0];
-            builder.header("Authorization", "Bearer " + token);            
-        }        
-        builder.POST(HttpRequest.BodyPublishers.ofString(body));
-        return builder.build();
-    }
-
-    public String put(String url, String body, String... args) {
-        HttpRequest request = this.genPutRequest(url, body, args);
-        return this.sendRequest(request);
-    }
-    private HttpRequest genPutRequest(String url, String body, String... args) {
-        Builder builder = HttpRequest.newBuilder();
-        builder.uri(URI.create(url));
-        builder.header("Content-Type", "application/json");
-        if(args.length > 0) {
-            String token = args[0];
-            builder.header("Authorization", "Bearer " + token);            
-        }
-        builder.PUT(HttpRequest.BodyPublishers.ofString(body));
-        return builder.build();
-    }
-
-    public String delete(String url, String... args) {
-        HttpRequest request = this.genDeleteRequest(url, args);
-        return this.sendRequest(request);
-    }
-    private HttpRequest genDeleteRequest(String url, String... args) {
-        Builder builder = HttpRequest.newBuilder();
-        builder.uri(URI.create(url));
-        builder.header("Content-Type", "application/json");
-        if(args.length > 0) {
-            String token = args[0];
-            builder.header("Authorization", "Bearer " + token);            
-        }
-        builder.DELETE();
-        return builder.build();
-    }
-
-    public String sendRequest(HttpRequest request) {
-        String result = "";
-        try {
-            result = trySendRequest(request);                     
-        } catch (IOException e) {
-            System.err.println("Hiba! A lekérés sikertelen!");
-            System.err.println(e.getMessage());
-        } catch (InterruptedException e) {
-            System.err.println("Hiba! Megszakadt lekérés!");
-            System.err.println(e.getMessage());            
-        }
-        return result;
-    }
-    private String trySendRequest(HttpRequest request) 
-            throws IOException, InterruptedException {
-        HttpResponse<String> response = 
-        this.client.send(request, BodyHandlers.ofString());        
-        return response.body();
-    }
-}
-```
-
-App.java:
-
-```java
-import models.Client;
-
-public class App {
-    public static void main(String[] args) throws Exception {
-        Client client = new Client();
-        String url = "https://jsonplaceholder.typicode.com/todos";
-        // System.out.println(client.get(url));
-
-        // String newTodo = 
-        //     "{ \"userId\":10, " +
-        //     "\"title\":\"Eldobom a telefonom\", "+
-        //     "\"completed\": false }";
-        // System.out.println(client.post(url, newTodo));
-        
-        // String modifiedTodo = 
-        //     "{ \"userId\":10, " +
-        //     "\"title\":\"Nem eszem cukrot 1 hónapig\", "+
-        //     "\"completed\": false }";
-        // System.out.println(client.put(url + "/1", modifiedTodo));
-
-        System.out.println(client.delete(url + "/1"));
-    }
-}
-```
-
-## Objektum JSON formátumba
-
-Készítsünk egy Todo.java nevű osztályt:
-
-Todo.java:
-
-```java
-package models;
-
-public class Todo {
-    private Integer id;
-    private Integer userId;
-    private String title;
-    private Boolean completed;
-    public Todo(Integer userId, String title, Boolean completed) {
-        this.userId = userId;
-        this.title = title;
-        this.completed = completed;
-    }
-    public Todo(Integer id, Integer userId, String title, Boolean completed) {
-        this.id = id;
-        this.userId = userId;
-        this.title = title;
-        this.completed = completed;
-    }
-    public Integer getId() {
-        return id;
-    }
-    public void setId(Integer id) {
-        this.id = id;
-    }
-    public Integer getUserId() {
-        return userId;
-    }
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-    public String getTitle() {
-        return title;
-    }
-    public void setTitle(String title) {
-        this.title = title;
-    }
-    public Boolean getCompleted() {
-        return completed;
-    }
-    public void setCompleted(Boolean completed) {
-        this.completed = completed;
-    }
-    
-}
-```
-
-Hivatkozzuk meg a Gson library-t.
-
-Hozzunk létre egy gson objektumot, majd alakítsuk át a todo objektumot JSON stringgé.
-
-```java
+public class GsonExample {
+    public static void main(String[] args) {
         Gson gson = new Gson();
-
-        Todo todo = new Todo(10, 
-            "Eldobom a telefonom", false);        
-        String newTodo = gson.toJson(todo);
-        System.out.println(client.post(url, newTodo));
-```
-
-## Objektumból JSON újra módosítással
-
-```java
-        //...
-        Todo todo = new Todo(10,
-            "Nem eszek curot 1 hónapig", false);        
-        String modifiedTodo = gson.toJson(todo);
-        System.out.println(client.put(url + "/1", modifiedTodo));
-```
-
-## Aszinkron kérés
-
-Aszinkron kérés esetén a válasz megérkezéstől függetlenül az program tovább fut.
-
-Aszinkron módon megvalósított Client osztály:
-
-```java
-package models;
-
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.net.http.HttpResponse.BodyHandlers;
-import java.util.concurrent.CompletableFuture;
-
-public class Client {
-    public CompletableFuture<String> get(String uri) 
-            throws IOException, InterruptedException {
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-        .uri(URI.create(uri))
-        .build();        
-
-        return client.sendAsync(request, BodyHandlers.ofString())
-        .thenApply(HttpResponse::body);
-    }
-}
-```
-
-Használata App.java fájlban:
-
-```java
-import models.Client;
-
-public class App {
-    public static void main(String[] args) throws Exception {
-        Client client = new Client();
-        String uri = "https://jsonplaceholder.typicode.com/todos";
-        System.out.println(client.get(uri).join());
-    }    
-}
-```
-
-## Hozzáadás
-
-Szeretnénk felvenni új elemet. Egészítsük ki a Client osztályt egy post() metódussal.
-
-```java
-    public CompletableFuture<String> post(String uri, String body, String... token) {
-        HttpClient client = HttpClient.newHttpClient();
-        List<String> headers = new ArrayList<>();
-        headers.add("Content-Type");
-        headers.add("application/json");
-
-        if(token.length > 0) {
-            headers.add("Authorizatin");
-            headers.add("Bearer " + token[0]);
-        }
-
-        HttpRequest request = HttpRequest.newBuilder()
-        .uri(URI.create(uri))
-        .headers(headers.toArray(String[]::new))
-        .POST(HttpRequest.BodyPublishers.ofString(body))
-        .build();
-
-        return client.sendAsync(request, BodyHandlers.ofString())
-        .thenApply(HttpResponse::body);
-    }
-```
-
-Az App osztályban a használat:
-
-```java
-import models.Client;
-
-public class App {
-    public static void main(String[] args) throws Exception {
-        Client client = new Client();
-        String uri = "http://[::1]:8000/employees";
-        String body = "{ \"name\": \"Erős István\", " +
-         "\"city\": \"Szeged\", " +
-         "\"salary\": 389 }";
-        System.out.println(body);
-        System.out.println(client.post(uri, body).join());
-    }    
-}
-```
-
-A headers.toArray(String[]::new) utasítás a kollekció tartalmát sztring tömbbé alakítja.
-
-## Frissítés
-
-Frissítéshez a írjuk meg a put() metódust:
-
-```java
-    public CompletableFuture<String> put(String uri, String body, String... token) {
-        HttpClient client = HttpClient.newHttpClient();
-        List<String> headers = new ArrayList<>();
-        headers.add("Content-Type");
-        headers.add("application/json");
-
-        if(token.length > 0) {
-            headers.add("Authorization");
-            headers.add("Bearer " + token[0]);
-        }
-
-        HttpRequest request = HttpRequest.newBuilder()
-        .uri(URI.create(uri))
-        .headers(headers.toArray(String[]::new))
-        .PUT(HttpRequest.BodyPublishers.ofString(body))
-        .build();
-
-        return client.sendAsync(request, BodyHandlers.ofString())
-        .thenApply(HttpResponse::body);
-    }
-```
-
-A metódus használata:
-
-```java
-import models.Client;
-
-public class App {
-    public static void main(String[] args) throws Exception {
-        Client client = new Client();
-        String uri = "http://[::1]:8000/employees/2";
-        String body = "{ \"name\": \"Csípős Valér\", " +
-         "\"city\": \"Szolnok\", " +
-         "\"salary\": 381 }";
-        System.out.println(body);
-        System.out.println(client.put(uri, body).join());
-    }    
-}
-```
-
-Vegyük észre az uri objektumbana 2-s azonosítót. A client objektumon pedig a put() metódus hívást.
-
-## Törlés
-
-Hozzuk létre a delete() metódust, ami alkalmas törlésre:
-
-```java
-    public CompletableFuture<String> delete(String uri, String... token) {
-        HttpClient client = HttpClient.newHttpClient();
-
-        List<String> headers = new ArrayList<>();
-        headers.add("Content-Type");
-        headers.add("application/json");
-
-        if(token.length > 0) {
-            headers.add("Authorization");
-            headers.add("Bearer " + token[0]);
-        }
-
-        HttpRequest request = HttpRequest.newBuilder()
-        .uri(URI.create(uri))
-        .headers(headers.toArray(String[]::new))
-        .DELETE()
-        .build();
         
-        return client.sendAsync(request, BodyHandlers.ofString())
-        .thenApply(HttpResponse::body);
+        // Java objektum létrehozása
+        User user = new User("Alice", 25);
+        
+        // Java objektum konvertálása JSON-ra
+        String json = gson.toJson(user);
+        System.out.println(json); // Kimenet: {"name":"Alice","age":25}
     }
+}
 ```
 
-Használata:
+#### JSON objektum Java objektumra alakítása
 
 ```java
-import models.Client;
+import com.google.gson.Gson;
+
+class User {
+    String name;
+    int age;
+}
+
+public class GsonExample {
+    public static void main(String[] args) {
+        Gson gson = new Gson();
+        
+        // JSON szöveg
+        String json = "{\"name\":\"Alice\",\"age\":25}";
+        
+        // JSON konvertálása Java objektummá
+        User user = gson.fromJson(json, User.class);
+        System.out.println(user.name); // Kimenet: Alice
+        System.out.println(user.age);   // Kimenet: 25
+    }
+}
+```
+
+#### Következtetés
+
+A Gson nagyon hasznos azok számára, akik REST API-val dolgoznak, mivel az adatokat gyakran JSON formátumban fogadjuk és küldjük.
+
+## Unirest alapok
+
+### Unirest telepítése és konfigurálása
+
+Az Unirest használatát elkezdhetjük a következő helyeken:
+
+* [https://github.com/Kong/unirest-java](https://github.com/Kong/unirest-java) (2024)
+* [https://kong.github.io/unirest-java/](https://kong.github.io/unirest-java/) (2024)
+
+#### JAR fájlok használata
+
+Ha szeretnénk letölteni a függőségeket, például egy Library nevű könyvtárba, a következőkre van szükség:
+
+* commons-logging
+* httpasyncclient
+* httpclient
+* httpcore
+* httpcore-nio
+* unirest-java
+* httpmime
+* gson
+
+Esetleg még hiányolhatja:
+
+* commons-codec
+* guava
+* jackson-databind
+* jackson-datatype-guava
+* junit-jupiter-api
+
+Keressük meg a Maven Central Repository-ban:
+
+* [https://central.sonatype.com/](https://central.sonatype.com/)
+
+Keressünk a **unirest-java** kifejezésre, válasszuk azt, ami **com.konghq** szervezethez tartozik.
+
+#### Mavan használata
+
+Mivel az Unirest-nek jó sok függősége van függőségkezelő részt is meg kell adnunk a pom.xml állományban:
+
+```xml
+<dependencyManagement>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.konghq/unirest-java-bom -->
+        <dependency>
+            <groupId>com.konghq</groupId>
+            <artifactId>unirest-java-bom</artifactId>
+            <version>4.3.0</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+
+<dependencies>
+<!-- https://mvnrepository.com/artifact/com.konghq/unirest-java-core -->
+<dependency>
+    <groupId>com.konghq</groupId>
+    <artifactId>unirest-java-core</artifactId>
+</dependency>
+
+<!-- pick a JSON module if you want to parse JSON include one of these: -->
+<!-- Google GSON -->
+<dependency>
+    <groupId>com.konghq</groupId>
+    <artifactId>unirest-modules-gson</artifactId>
+</dependency>
+
+<!-- OR maybe you like Jackson better? -->
+<dependency>
+    <groupId>com.konghq</groupId>
+    <artifactId>unirest-modules-jackson</artifactId>
+</dependency>
+</dependencies>
+```
+
+#### Gradle használata
+
+```gradle
+dependencies {
+    // Ellenőrizze a legfrissebb verziót
+    implementation 'com.konghq:unirest-java:3.13.6'
+
+    // JSON támogatás (opcionális)
+    // Ellenőrizze a legfrissebb verziót
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3' 
+}
+```
+
+### Egyszerű GET kérés
+
+```java
+import unirest.HttpResponse;
+import unirest.Unirest;
+
+public class UnirestExample {
+  public static void main(String[] args) {
+    String url = "http://localhost:8000/api/employees";
+    HttpResponse<String> response = Unirest.get(url)
+      .header("accept", "application/json")
+      .asString();
+
+    System.out.println("Státusz: " + response.getStatus());
+    System.out.println("Válasz: " + response.getBody());
+  }
+}
+```
+
+### A POST kérés
+
+```java
+import kong.unirest.HttpResponse;
+import kong.unirest.JsonNode;
+import kong.unirest.Unirest;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Client client = new Client();
-        String uri = "http://[::1]:8000/employees/3";
-        System.out.println(client.delete(uri).join());
-    }    
-}
+        String url = "http://localhost:8000/api/employees";
+        String emp = """
+                {
+                    "name": "Erős István",
+                    "city": "Szeged",
+                    "salary": 397.0
+                }
+                """;
+        HttpResponse<JsonNode> response = Unirest.post(url)
+            .header("accept", "application/json")
+            .header("Content-Type", "application/json")
+            .body(emp)
+            .asJson();
 
+        System.out.println("Státusz: " + response.getStatus());
+        System.out.println("Válasz: " + 
+        response
+            .getBody()
+            .toPrettyString());
+    }
+}
 ```
 
-## Telejes kód
+### A PUT kérés
 
-A teljes kódot javítva a GitHubon megtaláljuk:
+```java
+import kong.unirest.HttpResponse;
+import kong.unirest.JsonNode;
+import kong.unirest.Unirest;
 
-* [https://github.com/oktat/empclient](https://github.com/oktat/empclient)
+public class App {
+    public static void main(String[] args) throws Exception {
+        String url = "http://localhost:8000/api/employees/5";
+        String emp = """
+                {
+                    "name": "Csopak Ernő",
+                    "city": "Pélcs",
+                    "salary": 395.2
+                }
+                """;
+        HttpResponse<JsonNode> response = Unirest.put(url)
+            .header("accept", "application/json")
+            .header("Content-Type", "application/json")
+            .body(emp)
+            .asJson();
 
-Lehetséges REST API:
+        System.out.println("Státusz: " + response.getStatus());
+        System.out.println("Válasz: " + 
+        response
+            .getBody()
+            .toPrettyString());
+    }
+}
+```
 
-* [https://github.com/oktat/empjs](https://github.com/oktat/empjs)
+### A DELETE kérés
+
+```java
+import kong.unirest.HttpResponse;
+import kong.unirest.Unirest;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        String url = "http://localhost:8000/api/employees/3";
+        HttpResponse<String> response = Unirest.delete(url)
+            .asString();
+
+        System.out.println("Státusz: " + response.getStatus());
+        System.out.println("Válasz: " + 
+        response
+            .getBody()
+            .toString());
+    }
+}
+```
+
+## A Gson
+
+### Gson telepítése
+
+A pom.xml fájlba:
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>com.google.code.gson</groupId>
+        <artifactId>gson</artifactId>
+        <!-- Ellenőrizze a legfrissebb verziót -->        
+        <version>2.10.1</version>
+    </dependency>
+</dependencies>
+```
+
+Gradle esetén:
+
+```gradle
+dependencies {
+    // Egyéb függőségek
+
+    // Gson függőség
+     // Ellenőrizze a legfrissebb verziót
+    implementation 'com.google.code.gson:gson:2.10.1'
+}
+```
+
+Kézi telepítés esetén a **gson** csomagot használja, a com.googele.code.gson szervezeti azonosítóval.
+
+### A GET metódus objektummá
+
+Employee.java:
+
+```java
+public class Employee {
+  Integer id;
+  String name;
+  String city;
+  Double salary;
+}
+```
+
+App.java:
+
+```java
+import kong.unirest.HttpResponse;
+import kong.unirest.Unirest;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        String url = "http://localhost:8000/api/employees/1";
+        HttpResponse<Employee> response = Unirest.get(url)
+        .header("Accept", "application/json")
+        .asObject(Employee.class);
+
+        Employee employee = response.getBody();
+  
+        System.out.println("ID: " + employee.id);
+        System.out.println("Név: " + employee.name);
+        System.out.println("Varos: " + employee.city);
+        System.out.println("Fizetés: " + employee.salary);
+    }
+}
+```
+
+### A GET metódus objektumtömbbé
+
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import kong.unirest.HttpResponse;
+import kong.unirest.Unirest;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        String url = "http://localhost:8000/api/employees";
+        HttpResponse<Employee[]> response = Unirest.get(url)
+        .header("Accept", "application/json")
+        .asObject(Employee[].class);
+
+        Employee[] employees = response.getBody();  
+        ArrayList<Employee> list = new ArrayList<Employee>(Arrays.asList(employees));
+
+        for (Employee employee : list) {
+            System.out.println(employee.city);
+        }        
+    }
+}
+```
+
+### A POST kérés objektumból
+
+```java
+import com.google.gson.JsonObject;
+
+import kong.unirest.HttpResponse;
+import kong.unirest.JsonNode;
+import kong.unirest.Unirest;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        String url = "http://localhost:8000/api/employees";
+        Employee emp = new Employee();
+        emp.name = "Poros Árpád";
+        emp.city = "Szeged";
+        emp.salary = 381.0;
+
+        JsonObject json = new JsonObject();
+        json.addProperty("name", emp.name);
+        json.addProperty("city", emp.city);
+        json.addProperty("salary", emp.salary);
+
+        HttpResponse<JsonNode> response = Unirest.post(url)
+        .header("Accept", "application/json")
+        .header("Content-Type", "application/json")
+        .body(json)
+        .asJson();
+
+        System.out.println(response.getBody().toPrettyString());       
+    }
+}
+```
+
+### PUT kérés objektummal
+
+```java
+import com.google.gson.JsonObject;
+
+import kong.unirest.HttpResponse;
+import kong.unirest.JsonNode;
+import kong.unirest.Unirest;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        String url = "http://localhost:8000/api/employees/12";
+        Employee emp = new Employee();
+        emp.name = "Poros Árpád";
+        emp.city = "Szeged";
+        emp.salary = 381.0;
+
+        JsonObject json = new JsonObject();
+        json.addProperty("name", emp.name);
+        json.addProperty("city", emp.city);
+        json.addProperty("salary", emp.salary);
+
+        HttpResponse<JsonNode> response = Unirest.put(url)
+        .header("Accept", "application/json")
+        .header("Content-Type", "application/json")
+        .body(json)
+        .asJson();
+
+        System.out.println(response.getBody().toPrettyString());       
+    }
+}
+```
+
+## Gyakorlás 1
+
+Employee.java:
+
+```java
+public class Employee {
+  Integer id;
+  String name;
+  String city;
+  Double salary;
+
+  public Employee(Integer id, String name, String city, Double salary) {
+    this.id = id;
+    this.name = name;
+    this.city = city;
+    this.salary = salary;
+  }
+  public Employee() {
+  }
+  public Employee(String name, String city, Double salary) {
+    this.name = name;
+    this.city = city;
+    this.salary = salary;
+  }
+}
+```
+
+EmployeeApi.java:
+
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import kong.unirest.HttpResponse;
+import kong.unirest.Unirest;
+
+public class EmployeeApi {
+
+  String url = "http://localhost:8000/api/employees";
+
+  public ArrayList<Employee> getEmployees() {
+    HttpResponse<Employee[]> response = Unirest.get(url)
+    .header("Accept", "application/json")
+    .asObject(Employee[].class);
+    Employee[] employees = response.getBody();  
+    ArrayList<Employee> list = 
+    new ArrayList<Employee>(Arrays.asList(employees));
+    return list;
+  }
+  public Employee addEmployee(Employee employee) {
+    HttpResponse<Employee> response = Unirest.post(url)
+    .header("Accept", "application/json")
+    .header("Content-Type", "application/json")
+    .body(employee)
+    .asObject(Employee.class);
+    Employee newEmployee = response.getBody();
+    return newEmployee;
+  }
+
+  public Employee updateEmployee(Employee employee) {
+    HttpResponse<Employee> response = Unirest.put(url + "/" + employee.id)
+    .header("Accept", "application/json")
+    .header("Content-Type", "application/json")
+    .body(employee)
+    .asObject(Employee.class);
+    Employee newEmployee = response.getBody();
+    return newEmployee;
+  }
+
+  public String deleteEmployee(int id) {
+    HttpResponse<String> response = Unirest.delete(url + "/" + id)
+    .header("Accept", "application/json")
+    .asString();
+    return response.getBody();
+  }
+}
+```
+
+App.java:
+
+```java
+import java.util.ArrayList;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        // readEmployees();
+        // createEmployee();
+        // updateEmployee();
+        deleteEmployee();
+    }
+
+    public static void readEmployees() {
+        EmployeeApi api = new EmployeeApi();
+        ArrayList<Employee> list = api.getEmployees();
+        for (Employee employee : list) {
+            System.out.println(employee.name);
+        }
+    }
+    public static void createEmployee() {
+        EmployeeApi api = new EmployeeApi();
+        Employee emp = new Employee();
+        emp.name = "John Doe";
+        emp.city = "New York";
+        emp.salary = 1000.0;
+        Employee newEmployee = api.addEmployee(emp);
+        System.out.println(newEmployee.id);
+    }
+    public static void updateEmployee() {
+        EmployeeApi api = new EmployeeApi();
+        Employee emp = new Employee();
+        emp.id = 1;
+        emp.name = "John Doe";
+        emp.city = "New York";
+        emp.salary = 1000.0;
+        Employee newEmployee = api.updateEmployee(emp);
+        System.out.println(newEmployee.id);
+    }
+    public static void deleteEmployee() {
+        EmployeeApi api = new EmployeeApi();
+        String response = api.deleteEmployee(6);
+        System.out.println(response);
+    }
+}
+```
+
+## Azonosítás
+
+```java
+import kong.unirest.HttpResponse;
+import kong.unirest.JsonNode;
+import kong.unirest.Unirest;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        String url = "http://localhost:8000/api/employees";
+        String token = "WrlcZ";
+        String emp = """
+                {
+                    "name": "Erős István",
+                    "city": "Szeged",
+                    "salary": 397.0
+                }
+                """;
+        HttpResponse<JsonNode> response = Unirest.post(url)
+            .header("accept", "application/json")
+            .header("Content-Type", "application/json")
+            .header("Authorization", "Bearer " + token)
+            .body(emp)
+            .asJson();
+
+        System.out.println("Státusz: " + response.getStatus());
+        System.out.println("Válasz: " + 
+        response
+            .getBody()
+            .toPrettyString());
+    }
+}
+```
+
+Most tegyük a HTTP fejlécet külön objektumba:
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+import kong.unirest.HttpResponse;
+import kong.unirest.JsonNode;
+import kong.unirest.Unirest;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        String url = "http://localhost:8000/api/employees";
+        String token = "WrlcZ";
+        String emp = """
+                {
+                    "name": "Erős István",
+                    "city": "Szeged",
+                    "salary": 394.0
+                }
+                """;
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Authorization", "Bearer " + token);
+        headers.put("accept", "application/json");
+        headers.put("Content-Type", "application/json");
+
+        HttpResponse<JsonNode> response = Unirest.post(url)
+            .headers(headers)
+            .body(emp)
+            .asJson();
+
+        System.out.println("Státusz: " + response.getStatus());
+        System.out.println("Válasz: " + 
+        response
+            .getBody()
+            .toPrettyString());
+    }
+}
+```
+
+## Hibakezelés
+
+### A HTTP válaszkódok kezelése
+
+```java
+import kong.unirest.HttpResponse;
+import kong.unirest.Unirest;
+
+public class App {
+  public static void main(String[] args) throws Exception {
+    String url = "http://localhost:8000/api/employees";
+    HttpResponse<String> response = Unirest.get(url).asString();
+    if(response.getStatus() == 200) {
+      System.out.println("Siker!");
+    }else {
+      System.out.println("Hiba!");
+    }
+  }
+}
+```
+
+```java
+int statusCode = response.getStatus();
+
+switch (statusCode) {
+    case 200:
+        System.out.println("Sikeres válasz: " + 
+        response.getBody());
+        break;
+    case 404:
+        System.out.println("Hiba: Az erőforrás nem található.");
+        break;
+    case 500:
+        System.out.println("Hiba: Szerverhiba lépett fel.");
+        break;
+    default:
+        System.out.println("Hiba: Ismeretlen válasz (" 
+        + statusCode + ").");
+}
+```
+
+### Kivételek kezelése
+
+```java
+try {
+    // JSON válasz deszerializálása User objektummá
+    User user = gson.fromJson(response.getBody().toString(), User.class);
+    System.out.println(user);
+} catch (JsonSyntaxException e) {
+    System.err.println("Hiba! A JSON feldolgozása sikertelen");
+    System.err.println(e.getMessage());
+}
+```
+
+## Tesztelés
+
+### Egységtesztek írása Unirest és Gson használatával
+
+tests/EmployeeApiTest.java:
+
+```java
+import org.testng.Assert;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+import java.util.ArrayList;
+
+public class EmployeeApiTest {
+  
+  EmployeeApi api;
+
+  @BeforeSuite
+  public void setup() {
+    api = new EmployeeApi();
+  }
+  @Test
+  public void testGetEmployees() {
+    ArrayList<Employee> list = api.getEmployees();
+    Assert.assertNotNull(list);
+  }
+}
+```
+
+## Források
+
+* [https://kong.github.io/unirest-java/](https://kong.github.io/unirest-java/)
+* [https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
