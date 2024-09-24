@@ -9,6 +9,7 @@
 
 * [Tartalomjegyzék](#tartalomjegyzék)
 * [Bevezetés](#bevezetés)
+* [Használható REST API](#használható-rest-api)
 * [Unirest alapok](#unirest-alapok)
 * [A Gson](#a-gson)
 * [Gyakorlás 1](#gyakorlás-1)
@@ -84,7 +85,7 @@ Tulajdonságok:
 * közösségi támogatás
 * könnyen bővíthető
 
-### Gson bemutatása
+### A Gsonről
 
 A Gson a Google által fejlesztett Java programozói könyvtár, amely lehetővé teszi Java objektumok könnyű konvertálását JSON formátumba és visszafelé.
 
@@ -153,6 +154,36 @@ public class GsonExample {
 #### Következtetés
 
 A Gson nagyon hasznos azok számára, akik REST API-val dolgoznak, mivel az adatokat gyakran JSON formátumban fogadjuk és küldjük.
+
+## Használható REST API
+
+Néhány használható REST API megvalósítás és helyettesítő REST API hai-server-rel.
+
+PHP:
+
+* [https://github.com/oktat/zoldhum.git](https://github.com/oktat/zoldhum.git)
+* [https://github.com/oktat/jarat.git](https://github.com/oktat/jarat.git)
+* [https://github.com/oktat/emp.git](https://github.com/oktat/emp.git)
+
+JavaScript:
+
+* [https://github.com/oktat/empjs.git](https://github.com/oktat/empjs.git)
+* [https://github.com/oktat/empjs_simple.git](https://github.com/oktat/empjs_simple.git)
+
+C#:
+
+* [https://github.com/oktat/emp_dotnet_tablejoin.git](https://github.com/oktat/emp_dotnet_tablejoin.git)
+* [https://github.com/oktat/emp_dotnet_crud.git](https://github.com/oktat/emp_dotnet_crud.git)
+
+Spring Boot:
+
+* [https://github.com/oktat/empsb.git](https://github.com/oktat/empsb.git)
+
+Hai-server:
+
+* [https://github.com/oktat/patients_haiapi.git](https://github.com/oktat/patients_haiapi.git)
+* [https://github.com/oktat/gepida_bike.git](https://github.com/oktat/gepida_bike.git)
+* [https://github.com/oktat/shipsale.git](https://github.com/oktat/shipsale.git)
 
 ## Unirest alapok
 
@@ -791,3 +822,7 @@ public class EmployeeApiTest {
 
 * [https://kong.github.io/unirest-java/](https://kong.github.io/unirest-java/)
 * [https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
+
+Példa GitHubon:
+
+* [https://github.com/oktat/java_unirest.git](https://github.com/oktat/java_unirest.git)
