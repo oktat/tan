@@ -347,11 +347,10 @@ A művletek tengelyét 1000-re növeltem, amin látszik, hogy a legrosszabb eset
 
 ![Rendezések átlagos esetben](images/rendezesek_atlag.png)
 
-Forrás: [https://www.bigocheatsheet.com/](https://www.bigocheatsheet.com/)
-
 ### Forrás
 
 * [https://devopedia.org/algorithmic-complexity](https://devopedia.org/algorithmic-complexity)
+* [https://www.bigocheatsheet.com/](https://www.bigocheatsheet.com/)
 
 ### Bonyolultság gyakorlat
 
