@@ -6,7 +6,7 @@ set label "átlagos esetben" at first 25, first 19 font "Helvetica,14"
 set label "θ(n/2)" at first 25, first 16 font "Helvetica,14"
 
 set label "legjobb esetben" at first 20, first 3 font "Helvetica,14"
-set label "Ω(n/2)" at first 20, first 6 font "Helvetica,14"
+set label "Ω(1)" at first 20, first 6 font "Helvetica,14"
 
 set nokey
 

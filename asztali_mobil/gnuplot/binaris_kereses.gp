@@ -2,7 +2,7 @@ set label "legrosszabb, átlagos" at first 14, first 8 font "Helvetica,14"
 set label "O(log(n))  θ(log(n)) " at first 14, first 5 font "Helvetica,14"
 
 set label "legjobb esetben" at first 20, first -5 font "Helvetica,14"
-set label "Ω(log n)" at first 20, first -2 font "Helvetica,14"
+set label "Ω(1)" at first 20, first -2 font "Helvetica,14"
 
 set nokey
 

@@ -67,7 +67,7 @@ class Program
 ### Rendezés beszúrással
 
 ```txt
-ciklus i = 0 .. n-1
+ciklus i = 1 .. n-1
   kulcs = t[i]
   j = i - 1
   ciklus amíg j >= 0 és t[j] > kulcs
@@ -88,7 +88,7 @@ public class App {
         int[] t = {4, 8, 1, 3, 5, 2, 6};
         int n = 7; // A tömb elemeinek száma
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 1; i < n; i++) {
             int kulcs = t[i];
             int j = i - 1;
             while(j>=0 && t[j]>kulcs) {
@@ -299,9 +299,11 @@ Ha **rendezett tömbben keresünk**, a keresés gyorsabb lesz. Ez egy logaritmik
 
 ![Keresés rendezett tömbben](images/algortimus/bonyolultsag/binaris_kereses.png)
 
-Ha egy tömbben **az első elem a keresett érték**, konstanst idő, a bonyolultság.
+Ha egy **rendezetlen** tömbben **az első elem** a keresett érték, konstanst idő, a bonyolultság.
 
 ![Az első elem a keresett elem](images/elso_keresett.png)
+
+**Rendezett tömbben**, ha keresett érték a **középső pozícióban** van, **szintén** konstans időt kapunk.
 
 Keressünk egy **rendezetlen listában** minden **ismétlődést**. A bonyolultság ekkor négyzetes, a legrosszabb esetben, de az átlagos esetben is. A legjobb esetben (n).
 
