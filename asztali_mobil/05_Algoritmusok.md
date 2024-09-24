@@ -11,7 +11,6 @@
 * [Elemi adatszerkezetek](#elemi-adatszerkezetek)
 * [Tömb](#tömb)
 * [Lista](#lista)
-* [Lista műveletek](#lista-műveletek)
 * [Hashmap](#hashmap)
 * [Rekurzió](#rekurzió)
 * [Nevezetes algoritmusok](#nevezetes-algoritmusok)
@@ -133,14 +132,18 @@ int[] szamok = {35, 22, 72, 14, 28};
 
 ## Lista
 
-A Java nyelveben több lista létezik:
+A Java nyelvben több lista létezik:
 
 * ArrayList
 * Vector
 * LinkedList
 * stb.
 
-Itt most az ArrayList osztályt használjuk.
+### ArrayList
+
+Az ArrayList mögött egy dinamikus tömbb van. Ha elemeket adunk hozzá és az aktuális kapacitás megtellik, újabb tömb számára foglalunk helyet, ami nagyobb mint az előző és az elemeket átmásolásra kerülnek. Ez több memóriát igényel elemek hozzáadása vagy eltváolítása során.
+
+Előnye a gyors hozzáférés (O(1)), de lassú (O(n)) beszúrás és törlés. Kis elemszámnál kevesebb memóriigénye.
 
 ```java
 import java.util.ArrayList;
@@ -148,6 +151,7 @@ import java.util.ArrayList;
 
 ArrayList<Integer> szamLista = new ArrayList<>();
 
+//elemek hozzáadása:
 szamLista.add(35);
 szamLista.add(22);
 szamLista.add(72);
@@ -160,6 +164,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 //...
 
+//kezdőérték:
 Integer[] szamok = {35, 22, 72, 14, 28}
 ArrayList<Integer> szamLista = new ArrayList<>(Arrays.asList(b));
 
@@ -168,6 +173,12 @@ for(Integer szam : szamLista) {
     System.out.println(szam);
 }
 ```
+
+### A LinkedList
+
+A LinkedList láncolt lista adatszerkezettel van megvalósítva. Minden csomópont egy adatot és két mutatót tartalmaz a következő és az előző elemre. Az elemek beszúrása és eltávolítása kevesebb memóriatevékenységet igényel, mivel csak a mutatókat kell változtatni.
+
+Lasabb (O(n) hozzáférés, de gyors (O(1)) beszúrás és törlés.
 
 ```java
 import java.util.LinkedList;
@@ -204,7 +215,7 @@ public class App {
 }
 ```
 
-## Lista műveletek
+### Lista műveletek
 
 Bejárás:
 
