@@ -201,50 +201,34 @@ Készítsünk egy index.html a body elemben a következő tartalommal:
 ### Kártyák töréssel
 
 ```html
-<div class="container">
-
-    <div class="cards">
-        <div class="card">
-            <h2>Béla</h2>
-            <p>Szeged</p>
-        </div>
-    <div class="card">
-        <h2>Lajos</h2>
-        <p>Szeged</p>
-    </div>
-    <!-- 
-        Készítsünk további 10 kártyát
-        ...
-    -->
-</div>
+<h1>Lorem</h1>
+<p>
+    Lorem ipsum dolor sit amet.
+</p>
+<p>
+    400 pixelnél váltás
+</p>
 ```
 
 ```css
-.cards {
-    text-align: center;
-    max-width: 572px;
-    margin-left: auto;
-    margin-right: auto;
+.container {
+    background-color: navy;
+    color: white;
 }
 
-@media screen and (min-width: 850px) {
-    .cards {
-        max-width: 820px;
+@media only screen and (min-width: 400px) {
+    .container {
+        background-color: gold;
+        color: #333;
     }
-}
-
-.card {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-    width: 100px;
-    display: inline-block;
-    background-color: #f9f9f9;
 }
 ```
 
 Tekintsük meg működés közben a weblapot:
+
+* [https://szit.hu/m/media_query/](https://szit.hu/m/media_query/)
+
+Másik példa:
 
 * [https://szit.hu/m/media/](https://szit.hu/m/media/)
 
