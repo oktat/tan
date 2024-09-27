@@ -277,6 +277,15 @@ Ezeket nevezzük összehasonlító operátoroknak. Összes:
 
 ### Logikai operátorok
 
+A VAGY művelet igazságtáblája:
+
+| A | B | C = A VAGY B |
+|-|-|-|
+| 0 | 0 |  0  |
+| 1 | 0 |  1  |
+| 0 | 1 |  1  |
+| 1 | 1 |  1  |
+
 A VAGY operátor:
 
 ```java
@@ -286,7 +295,16 @@ System.out.println(false || true);
 System.out.println(false || false);
 ```
 
-Az ÉS operátor:
+Az ÉS művelet igazságtáblája:
+
+| A | B | C = A ÉS B |
+|-|-|-|
+| 0 | 0 |  0  |
+| 1 | 0 |  0  |
+| 0 | 1 |  0  |
+| 1 | 1 |  1  |
+
+Az ÉS operátor használata a Java nyelvben:
 
 ```java
 System.out.println(true && true);
@@ -297,11 +315,24 @@ System.out.println(false && false);
 
 A tagadás:
 
+| A | B = ! A |
+|-|-|
+| 0 | 1 |
+| 1 | 0 |
+
+A tagadás a Java nyelvben:
+
 ```java
 //Eredmény: false
 System.out.println(! true);
 //Eredmény: true
 System.out.println(! false);
+```
+
+A tagadás használható olyan kifejezésekkel, amelyek logikai típust adnak vissza:
+
+```java
+System.out.println( ! (30 > 4) )
 ```
 
 ### Feltételes operátor
