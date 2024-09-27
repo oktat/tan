@@ -295,6 +295,15 @@ System.out.println(false && true);
 System.out.println(false && false);
 ```
 
+A tagadás:
+
+```java
+//Eredmény: false
+System.out.println(! true);
+//Eredmény: true
+System.out.println(! false);
+```
+
 ### Feltételes operátor
 
 A Java nyelvben a feltételes operátor szokásos elnevezései:
