@@ -198,7 +198,7 @@ Nincs meghatározva a töréspontok száma, de érdemes legalább 3 törésponto
 
 Készítsünk egy index.html a body elemben a következő tartalommal:
 
-### Kártyák töréssel
+### Példa a töréspont használatára
 
 ```html
 <h1>Lorem</h1>
