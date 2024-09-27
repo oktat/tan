@@ -275,6 +275,51 @@ Ezeket nevezzük összehasonlító operátoroknak. Összes:
 >, <, >=, <=, ==, !=
 ```
 
+### Logikai operátorok
+
+A VAGY operátor:
+
+```java
+System.out.println(true || true);
+System.out.println(true || false);
+System.out.println(false || true);
+System.out.println(false || false);
+```
+
+Az ÉS operátor:
+
+```java
+System.out.println(true && true);
+System.out.println(true && false);
+System.out.println(false && true);
+System.out.println(false && false);
+```
+
+### Feltételes operátor
+
+A Java nyelvben a feltételes operátor szokásos elnevezései:
+
+* feltételes operátor
+* hármas operátor
+* ternary operátor
+
+A feltételes operátor két karakterrel építjük fel:
+<code>
+ ? :
+</code>
+
+Ez egy kérdőjel és egy kettőspont. A kérdőjel előtt egy logikai értéket várunk. Ha az igaz, akkor a kérdőjel után értéket kapjuk, ha az hamis a kettőspont utáni értéket kapjuk.
+
+```java
+//Eredmény: 45
+System.out.println( 30 > 4 ? 45 : 27)
+```
+
+```java
+//Eredmény: 27
+System.out.println( 30 > 40 ? 45 : 27)
+```
+
 ## Különleges karakterek
 
 Néhány karakternek lehet különleges viselkedése. Ezt a viselkedést a "\\" visszaperjel karakter segítségével válthatjuk ki. Vegyük például az "n" betűt, és írassuk ki egy szóban:
@@ -324,8 +369,8 @@ Ezeket a speciális karaktereket **escape szekvenciáknak** is nevezzük. Az Jav
 |-|-|
 | \n | új sor |
 | \t | tabulátor |
-| \' | felső vessző kiíratása |
-| \" | idézőjel kiíratása |
+| \\' | felső vessző kiíratása |
+| \\" | idézőjel kiíratása |
 | \\\\ | visszaperjel kiíratása |
 | \r | kocsi vissza (A kiíratás a sor elejen folytatódik) |
 | \f | lapdobás (nyomtatóknál) |
