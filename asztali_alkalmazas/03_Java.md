@@ -545,6 +545,15 @@ char karakter1 = 'a';
 
 Figyeljük meg, hogy a karaktert aposztrófok közzé tettem.
 
+A char típusú változóba valójában számokat is tárolhatunk. Tegyük el például a 65-ös számot a egy karakter típusú változóban:
+
+```java
+char karakter2 = 65;
+System.out.println(karakter2);
+```
+
+Kiíratáskor az eredmény egy nagy "A" betű. A 65 a kódja a nagy "A" betűnek az ASCII kódtáblában.
+
 ### Logikai érték
 
 Logikai érték igaz vagy hamis lehet. Java nyelvben:
