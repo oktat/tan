@@ -10,6 +10,7 @@
 * [Tartalomjegyzék](#tartalomjegyzék)
 * [Osztályok](#osztályok)
 * [Konstruktor](#konstruktor)
+* [Gyakorlat](#gyakorlat)
 
 ## Osztályok
 
@@ -93,3 +94,17 @@ self.nev = nev
 ```
 
 Ebben az utasításban a self.nev az osztály adattagját jelenti. Az osztály "nev" adattagjának átadjuk azt az értéket, ami a "nev" formális paraméterben érkezik.
+
+## Gyakorlat
+
+### 1 feladat
+
+Készítsen osztályt, amiben egy jármű adatati tárolja. Egy Jarmu nevű osztályt hozzon létre egy jarmu.py nevű fájlban. Készítsen egy main.py fájlt, amiben használja a Jarmu osztályt.
+
+### 2 feladat
+
+Készítsen osztályt, amiben termékek adatait tárolja. Legyen az osztály neve Termek, és egy termek.py fájlba helyezze el.
+
+Készítsen egy main.py fájlba, amiben használja az osztályt.
+
+Kérje be egy termék adatatit. Tárolja egy objektumban, majd írja egy termek.txt fájlba.
