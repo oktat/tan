@@ -201,6 +201,7 @@ Készítsünk egy index.html a body elemben a következő tartalommal:
 ### Példa a töréspont használatára
 
 ```html
+<div class="container">
 <h1>Lorem</h1>
 <p>
     Lorem ipsum dolor sit amet.
@@ -208,6 +209,7 @@ Készítsünk egy index.html a body elemben a következő tartalommal:
 <p>
     400 pixelnél váltás
 </p>
+</div>
 ```
 
 ```css
