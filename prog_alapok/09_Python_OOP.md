@@ -101,6 +101,16 @@ Ebben az utasításban a self.nev az osztály adattagját jelenti. Az osztály "
 
 Készítsen osztályt, amiben egy jármű adatati tárolja. Egy Jarmu nevű osztályt hozzon létre egy jarmu.py nevű fájlban. Készítsen egy main.py fájlt, amiben használja a Jarmu osztályt.
 
+Egy járműről a következőt kell tárolni:
+
+* id
+* márka
+* üzemanyag
+* év
+* ár
+* szín
+* rendszám
+
 ### 2 feladat
 
 Készítsen osztályt, amiben termékek adatait tárolja. Legyen az osztály neve Termek, és egy termek.py fájlba helyezze el.
@@ -108,3 +118,10 @@ Készítsen osztályt, amiben termékek adatait tárolja. Legyen az osztály nev
 Készítsen egy main.py fájlba, amiben használja az osztályt.
 
 Kérje be egy termék adatatit. Tárolja egy objektumban, majd írja egy termek.txt fájlba.
+
+Mit tartsunk nyilván?
+
+* id
+* név
+* ár
+* mennyiség
