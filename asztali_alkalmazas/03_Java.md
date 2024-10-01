@@ -756,6 +756,16 @@ A formátumkód "%" jele és a konverzióskarakter közzé újabb formázó utas
 
 A "[]" szögletes zárójelek mutatják, hogy melyek a nem kötelező elemek. Láthatjuk, hogy a "%" jel és a konverziós karakter megadása kötelező, a többi nem.
 
+### Argumentum index
+
+Az argumentum index beállítása:
+
+```java
+System.out.printf("%2$d %1$d\n", 30, 45);
+```
+
+Ebben az esetben az első formátumkód a 30-ra vonatkozik, a masodik a 45-re.
+
 ### Szélesség
 
 Ábrázoljuk a számot 20 szélességen:

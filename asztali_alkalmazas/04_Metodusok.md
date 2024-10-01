@@ -28,8 +28,8 @@ Az osztályon belül létrehozhatunk több metódust is. Legyen egy print() met�
 
 ```java
 class App {
-    static void print(obj) { 
-        System.out.println(Object obj) 
+    static void print(Object obj) { 
+        System.out.println(obj) 
     }
     public static void main(String[] args) {
         print("Valami");
@@ -56,7 +56,7 @@ class App {
 ### Gyakorlat a metódusok definiálásához
 
 * Készítsen egy Square nevű osztályt.
-* Készítsen egy print metódus, ami négyzetet rajtzol a képernyőre.
+* Készítsen egy print metódus, ami négyzetet rajzol a képernyőre.
 
 ## Kód struktúrálása
 
