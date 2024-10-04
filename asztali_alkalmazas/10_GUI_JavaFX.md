@@ -9,15 +9,18 @@
 
 * [Tartalomjegyzék](#tartalomjegyzék)
 * [GUI programozási alapok](#gui-programozási-alapok)
-* [JavaFX kezdés](#javafx-kezdés)
-* [JavaFX program szerkezete](#javafx-program-szerkezete)
+* [JavaFX telepítés](#javafx-telepítés)
+* [JavaFX projekt készítése](#javafx-projekt-készítése)
+* [JavaFX Konténerek](#javafx-konténerek)
 * [JavaFX komponensek](#javafx-komponensek)
 * [JavaFX színkezelés](#javafx-színkezelés)
 * [JavaFX alakzatok](#javafx-alakzatok)
 * [JavaFX képek](#javafx-képek)
 * [JavaFX Label](#javafx-label)
-* [JavaFX gomb és bevitelimező](#javafx-gomb-és-bevitelimező)
+* [JavaFX gomb](#javafx-gomb)
 * [Eseményfigyelés](#eseményfigyelés)
+* [Label, TextField és PasswordField](#label-textfield-és-passwordfield)
+* [Alert](#alert)
 * [Aszinkronkód](#aszinkronkód)
 
 ## GUI programozási alapok
@@ -35,13 +38,15 @@ A GUI programok a következő elemekből állnak:
 
 A GUI programok eseményvezérelten működnek. A legtöbb elem esetén figyelhetünk valamilyen komponenst.
 
-## JavaFX kezdés
+## JavaFX telepítés
 
 Dokumentáció (19):
 
 * [https://openjfx.io/javadoc/19/](https://openjfx.io/javadoc/19/)
 
-## JavaFX program szerkezete
+## JavaFX projekt készítése
+
+### Fájlok
 
 App.java tartalma:
 
@@ -67,6 +72,18 @@ public class App extends Application {
     }
 }
 ```
+
+### Moduláris fejlesztés
+
+### Alaposztályok
+
+* Application
+* Stage
+* Scene
+
+### A start metódus
+
+## JavaFX Konténerek
 
 ## JavaFX komponensek
 
@@ -379,7 +396,7 @@ Szöveg színe:
 this.label1.setTextFill(Color.WHITE);
 ```
 
-## JavaFX gomb és bevitelimező
+## JavaFX gomb
 
 ```java
 Button button = new Button("Mehet");
@@ -472,6 +489,18 @@ public class App extends Application {
     }
 }
 ```
+
+## Label, TextField és PasswordField
+
+### Label
+
+### TextField
+
+### Jelszavak
+
+* PasswordField
+
+## Alert
 
 ## Aszinkronkód
 
