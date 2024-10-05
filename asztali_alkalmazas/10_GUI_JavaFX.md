@@ -1,27 +1,4 @@
-# Asztali alkalmazások fejlesztése - Grafikus programozás
-
-* **Szerző:** Sallai András
-* Copyright (c) 2022, Sallai András
-* Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
-* Web: [https://szit.hu](https://szit.hu)
-
-## Tartalomjegyzék
-
-* [Tartalomjegyzék](#tartalomjegyzék)
-* [GUI programozási alapok](#gui-programozási-alapok)
-* [JavaFX telepítés](#javafx-telepítés)
-* [JavaFX projekt készítése](#javafx-projekt-készítése)
-* [JavaFX Konténerek](#javafx-konténerek)
-* [JavaFX komponensek](#javafx-komponensek)
-* [JavaFX színkezelés](#javafx-színkezelés)
-* [JavaFX alakzatok](#javafx-alakzatok)
-* [JavaFX képek](#javafx-képek)
-* [JavaFX Label](#javafx-label)
-* [JavaFX gomb](#javafx-gomb)
-* [Eseményfigyelés](#eseményfigyelés)
-* [Label, TextField és PasswordField](#label-textfield-és-passwordfield)
-* [Alert](#alert)
-* [Aszinkronkód](#aszinkronkód)
+# JavaFX
 
 ## GUI programozási alapok
 
@@ -38,155 +15,344 @@ A GUI programok a következő elemekből állnak:
 
 A GUI programok eseményvezérelten működnek. A legtöbb elem esetén figyelhetünk valamilyen komponenst.
 
+### Komponensek
+
+A komponensek olyan vizuális elemek, amelyeket a program ablakban elhelyezünk. Többféle elnevezés használatos:
+
+* widget
+* komponens
+* vezérlő
+
+Ezek feliratok, beviteli mezők, nyomógombok, listadbozok, legördülő listadobozok, táblázatok stb.
+
+### Layout
+
+A Layout a GUI elemek szervezését, elrendezést határozzák meg.
+
+### GUI keretrendszerek
+
+* Tkinter (Python)
+* Swing (Java)
+* Qt (C++, Python - PyQt)
+* JavaFX (Java)
+* .NET (C#)
+
+### A GUI tervezés lépései
+
+* tervkészítés
+* fejlesztés
+  * Widgetek létrehozása
+  * Eseménykezlők hozzáadása
+
+### Scene Builder UI tervező
+
+A Scene Builder egy vizuális UI tervező eszköz. Lehetővé teszik JavaFX alapú felhasználói felületek gyors és intuitív létrehozását. A felhasznált elemek drag-and-drop módszerrel tehejtők a helyükre.
+
+A Scene Builder FXML fájlokkal dolgozik, ami egy XML alapú leírónyelv. Az FXML a felhasználói felületeket deklaratív módon írja le. A program logikáját Java kóddal valósítjuk meg.
+
+A Scene Builder valós idejű előnézetet kínál (What You See Is What You Get). Lehetőv teszi stíluslapok használatát, a könnyebb testreszabhatóság érdekében.
+
+A Scene Builder a [Gluon weboldaláról tölthető](https://gluonhq.com/) le, vagy használhatjuk a choco parancsot, ha rendelkezésre áll.
+
+```cmd
+choco install scenebuilder
+```
+
 ## JavaFX telepítés
 
-Dokumentáció (19):
+Erre a lépésre nincs szükség, ha Maven vagy Gradle építőeszközt használunk.
 
-* [https://openjfx.io/javadoc/19/](https://openjfx.io/javadoc/19/)
+Töltsük le a JavaFX-t a következő helyről:
+
+* [https://gluonhq.com/products/javafx/](https://gluonhq.com/products/javafx/)
+
+| JavaFX verzió | Minimum Java JDK |
+|-|-|
+| 24 | 21 |
+| 23 | 21 |
+| 21 | 17 |
+| 17 | 11 |
+
+A weboldalon válasszuk ki számunkra megfelelő csomagot:
+
+* Window, macOS vagy Linux
+* Verzió kiválasztása
+* Architecture - a megfelelő processzor - valószínűleg: x64
+* Type - a típus legyen SDK
+
+A **Download** gombar kattintva indítsuk a letöltést.
+
+Csomagoljuk ki tetszőleges helyre. Kicsomagolni elég a **lib** könyvtár tartalmát, de ebből minden fájlra szükség van. Ajánlott hely:
+
+* ${userProfile}/Library/javafx
 
 ## JavaFX projekt készítése
 
+### VSCode Maven használatával
+
+Indítsuk el a VSCode szerkesztőt. Kérjünk parancs panelt.
+
+* F1
+* Create Java Project...
+* JavaFX - create from archetype
+* Aktiválódik a Java
+* Írjuk be a group Id: például: com.example
+* Írjuk be a artifact Id: példáu: app01
+* Válasszuk ki a projekt melyik könyvtárba készüljön el.
+* Terminálban: Fogadjuk el a verzió számot egy **Enter** lenyomásával.
+* Terminálban: 13 JavaFX helyett írjuk be a sajátot, vagy **Enter** lenyomásával lépjünk tovább
+* Terminálban: nyomjunk egy billentyűt.
+* Zárjuk be a VSCode-t, és nyissuk meg azzal a könyvtárral, ahol létrejött a projektünk.
+
+Generáláskor a terminálablakban rákérdez a verzióra, ehhez hasonlót kell lássunk:
+
+```txt
+Define value property 'version' 1.0-SNAPSHOT: :
+```
+
+A JavaFX verziójának beállítása:
+
+```txt
+javafx-version: 13
+Y: :
+```
+
+A VSCode végül feldob egy párbeszéd ablakot, ami tájékoztat, hogy elkészült a projekt.
+
+A terminálban még egy billentyűnyomást vár:
+
+```txt
+* Terminal will reused by tasks, press any key to close it.
+```
+
+A projekt beállításait utólag annak gyökérkönyvtárában található **pom.xml** fájlban tehetjük meg.
+
 ### Fájlok
 
-App.java tartalma:
+A következő könyvtárszerkezetet kapjuk:
 
-```java
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
-
-public class App extends Application {
-    
-    public static void main(String[] args) throws Exception {
-        launch(args);
-    }
-
-    @Override
-    public void start(Stage stage) throws Exception {
-        StackPane stackPane = new StackPane();
-        Scene scene = new Scene(stackPane);
-        stage.setScene(scene);
-        stage.setTitle("Helló Világ");
-        stage.show();
-    }
-}
+```txt
+app01/
+  |-src/main
+  |      |-java/
+  |      |   |-com/example/
+  |      |   |      |-App.java
+  |      |   |      |-PrimaryController.java
+  |      |   |      `-SecondaryController.java
+  |      |   `mdoule-info.java
+  |      `-resources/com/example/
+  |                        |-primary.fxml
+  |                        `-secondary.fxml
+  |-target/
+  `-pom.xml
 ```
 
 ### Moduláris fejlesztés
 
-### Alaposztályok
+A Java 9-es verziójában bevezették a moduláris fejlesztési lehetőséget. Célja a szervezetebb, karbantarhatóbb, újrafelhasználható kód készítése.
 
-* Application
-* Stage
-* Scene
+A modulokat a **module-info.java fájlban adjuk meg. Itt határozuk meg a modul nevét és a nyilvános API-kat, amelyeket más modulok elérhetnek.
 
-### A start metódus
-
-## JavaFX Konténerek
-
-## JavaFX komponensek
-
-### Kontrollok listája
-
-* Button
-* CheckBox
-* ChoiceBox
-* ColorPicker
-* ComboBox
-* DatePicker
-* HTMLEditor
-* Hyperlink
-* ImageView
-* Label
-* ListView
-* MediaView
-* MenuBar
-* MenuButton
-* Pagination
-* PasswordField
-* ProgressBar
-* ProgressIndicator
-* RadioButton
-* ScrollBar (horizontal)
-* ScrollBar (vertical)
-* Separator (horizontal)
-* Separator (vertical)
-* Slider (horizontal)
-* Slider (vertical)
-* SplitMenuButton
-* TableColumn
-* TableView
-* TextArea
-* TextField
-* ToggleButton
-* TreeTableColumn
-* TreeTableView
-* TreeView
-* WebView
-
-### Text komponens elhelyezése
+Egyszerű példa:
 
 ```java
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
-
-public class App extends Application {
-    public static void main(String[] args) throws Exception {
-        launch(args);
-    }
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        StackPane root = new StackPane();
-        Text text = new Text("alma");
-        root.getChildren().add(text);
-        primaryStage.setTitle("Text komponens");
-        primaryStage.setScene(new Scene(root, 400, 300));
-        primaryStage.show();
-    }
+module com.example.myapp {
+    exports com.example.myapp.api;
+    requires java.sql;
 }
 ```
 
-## JavaFX színkezelés
+A JavaFX Maven alapú projekt kezdeti modul-info.java állománya:
 
 ```java
-Text text = new Text("alma");
-text.setStroke(Color.BLUE);
+module com.example {
+    requires javafx.controls;
+    requires javafx.fxml;
+
+    opens com.example to javafx.fxml;
+    exports com.example;
+}
 ```
 
-Teljes program App.java:
+### Alaposztályok - Application, Stage stb
+
+A projekt belépési pontja az App.java fájl App osztálya. Ez ki van terjesztve az Application elvont osztállyal.
+
+Az **Application** osztály egy start(Stage stage) metódust ír elő. A JavaFX programok itt indulnak.
+
+A main() metódus nem kötelező de használható. A VSCode létrehozza a main() metódust is, mivel ezt keresi indításkor.
+
+A **Stage** osztály jelképezi a program ablakát (színpad). Azon belül jeleneket hozhatunk létre a Scene osztállyal.
+
+### Start metódus
+
+A start() metódusban kell betölteni az FXML állományt. Itt állítjuk be az FXML tartalmát a stage számára, és utasítást adunk a megjelenítésre.
 
 ```java
+@Override
+public void start(Stage stage) throws IOException {
+    scene = new Scene(loadFXML("primary"), 640, 480);
+    stage.setScene(scene);
+    stage.show();
+}
+```
+
+A main metódusból indításnál egy launch() metódust kell hívni:
+
+```java
+public static void main(String[] args) {
+    launch();
+}
+```
+
+A teljes App.java tartalma:
+
+```java
+package com.example;
+
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
+/**
+ * JavaFX App
+ */
+public class App extends Application {
+
+    private static Scene scene;
+
+    @Override
+    public void start(Stage stage) throws IOException {
+        scene = new Scene(loadFXML("primary"), 640, 480);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    static void setRoot(String fxml) throws IOException {
+        scene.setRoot(loadFXML(fxml));
+    }
+
+    private static Parent loadFXML(String fxml) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        return fxmlLoader.load();
+    }
+
+    public static void main(String[] args) {
+        launch();
+    }
+
+}
+```
+
+Indítás után a start(Stage stage) metódusban aláhúzza a **Stage** osztályt. Ha az egeret a név felé visszük a következőt kapjuk:
+
+```txt
+The type Stage from module javafx.graphics may not be accessible to clients due to missing 'requires transitive'
+```
+
+A figyelmeztetés megszüntetéséhez transitive módosítóval importálni kell a a javafx.graphics csomagot:
+
+module-info.java:
+
+```java
+module com.example {
+    requires transitive javafx.graphics;
+    requires javafx.controls;
+    requires javafx.fxml;
+
+    opens com.example to javafx.fxml;
+    exports com.example;
+}
+```
+
+## JavaFX konténerek
+
+A JavaFX számos konténert kínál használatra. Vannak fixméretű és rugalmas méretű konténerek. A konténerekbe újabb konténereket és kontrollokat tehetünk.
+
+* Pane
+
+### A Pane konténer
+
+A Pane a legegyszerűbb konténer, ami felhasználói felület elemeinek csoportosításra használható. A Pane nem rendelkezik előre definiált elrendezéssel, az elredezést a fejlesztő határozza meg.
+
+A Pane gyermekei számára szabad elhelyezés biztosít, x, y koordinátákon. A Pane konténer gyermekit a getChildren() metódussal érhetjük el.
+
+### Az AnchorPane konténer
+
+Az AnchorPane lehetővé teszi a gyermek elemek rögzített pozicionálását. Meghatározhatunk bal, jobb felső és alsó margót. A Stage vagy a Scene mérete megváltozik az AnchorPane gyermeki automatikusan változtatják méretüket.
+
+## Szöveg
+
+Vegyünk egy Pane konténert, majd tegyük rá szöveget.
+
+* Készítsük el a projektet, például **szoveg** néven.
+* Készítsünk a egy mainScene.fxml nevű állományt.
+* Nyissuk meg a Scene Builder segítségével.
+* Tegyünk fel egy Pane konténet.
+* Tegyük fel a Text komponenst.
+  * Text értéke: "Helló Világ"
+  * fx:id : helloText
+* Állítsuk be kontrollert: MainController
+
+Ha group Id **com.example** akkor a kontroller beállítása:
+
+```txt
+com.example.MainController
+```
+
+Mentés után, a válasszuk a következő menüt:
+
+* View > Show Sample Controller Skeleton
+
+Az előugró ablakban kapunk egy ajánlást, hogyan nézhet ki a MainController tartalma. Egyszerűen mentsük el:
+
+* **Save as...**
+
+### Indítás
+
+Az App.java fájlban állítsuk be, hogy a mainScene.fxml legyen betöltve. Javítsuk:
+
+```java
+scene = new Scene(loadFXML("manScene"), 640, 480);
+```
+
+Ezt követően indíható a projekt.
+
+### A szöveg beállítása kontrollerből
+
+A Scene Builder-ben elhelyezett szövegnek azt az azonosítót adtuk, hogy helloText. Ennél fogva a MainController osztályban ezen a néven érhetjük le. A követelmény, hogy a MainControllerben legyen az @FXML annotációval deklarálva:
+
+```java
+@FXML
+private Text helloText;
+```
+
+A szöveg beállításához, a MainController.java fájlban készítsünk egy initilize() metódust:
+
+```java
+    @FXML
+    void initialize() {
+        helloText.setText("Új szöveg");
+    }
+```
+
+### Szöveg színezése
+
+A Color osztály importálásánál ügyeljünk arra, hogy a csomag a következő legyen:
+
+```java
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
-public class App extends Application {
-    public static void main(String[] args) throws Exception {
-        launch(args);
-    }
+//...
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        StackPane root = new StackPane();
-        Text text = new Text("alma");
-        text.setStroke(Color.BLUE);
-        root.getChildren().add(text);
-        primaryStage.setTitle("Text komponens");
-        primaryStage.setScene(new Scene(root, 400, 300));
-        primaryStage.show();
-    }
-}
+helloText.setFill(Color.BLUE);
 ```
 
-### Beépített színek
+Néhány beépített szín:
 
 * Color.ALICEBLUE
 * Color.ANTIQUEWHITE
@@ -201,398 +367,230 @@ public class App extends Application {
 
 Próbáljuk ki több színnel az előző programot.
 
-### RGBA színkód
-
-Színek megadhatók számokkal is RGBA színkódolással. A számok 0.0 - 1.0 közötti értékek lehetnek.
-
-Piros szín:
+### RGBA színek
 
 ```java
-Color color = new Color(1.0, 0.0, 0.0, 1.0);
+helloText.setFill(new Color(1.0, 0.0, 0.0, 1.0));
 ```
 
-Zöld szín:
+### Méret
 
 ```java
-Color color = new Color(0.0, 1.0, 0.0, 1.0);
-```
-
-Kék szín:
-
-```java
-Color color = new Color(0.0, 0.0, 1.0, 1.0);
-```
-
-## JavaFX alakzatok
-
-### Szöveg
-
-A szöveg vagy más alakzat elhelyezése x, y koordinátával hatástalan StackPane komponensen. Helyette használjuk a Group osztályt:
-
-```java
-Group group = new Group();
-```
-
-A szövegnek állíthatjuk a fontméretét, az elhelyezését, a vonalvastagságát, a szöveg színét.
-
-```java
-Text text = new Text("alma");
-text.setFont(Font.font(32));
-text.setX(30.0);
-text.setY(30.0);
-text.setStrokeWidth(4);
-text.setStroke(Color.BLUE);
-```
-
-A text objektum a group objektumhoz adható getChilcren() metóduson keresztül:
-
-```java
-Group group = new Group();
-group.getChildren().add(text);
-```
-
-Vagy paraméterként megadható a csoport számára:
-
-```java
-Group group = new Group(text);
-```
-
-### Vonal
-
-Vonal esetén a kezdőpontot és a végpontot kell megadni, x, y koordinátával.
-
-```java
-import javafx.scene.shape.Line;
+import javafx.scene.text.Font;
 //...
-Line line = new Line();
-line.setStartX(50.0);
-line.setStartY(50.0);
-line.setEndX(100.0);
-line.setEndY(100.0);
+helloText.setFont(Font.font(32));
 ```
 
-```java
-Group group = new Group(line);
-```
+## Vonal
 
-Vagy lehet így is:
+Húzzuk az alakzatok közül egy Line komponenst a Pane konténerre.
 
-```java
-Group group = new Group();
-group.getChildren().add(line);
-```
+Nevezzük el, hogy elérhető legyen a kontrollerben. Például:
 
-Teljes kód:
+* fx:id vonal1
+* Controller: com.example.MainController
+
+MainController.java
 
 ```java
-import javafx.application.Application;
-import javafx.scene.Group;
-import javafx.scene.Scene;
+package com.example;
+
+import javafx.fxml.FXML;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
-import javafx.stage.Stage;
 
-public class App extends Application {
-    
-    public static void main(String[] args) throws Exception {
-        launch(args);
-    }
+public class MainController {
+    @FXML
+    private Line line1;
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        Line line = new Line();
-        line.setStartX(50.0);
-        line.setStartY(50.0);
-        line.setEndX(100.0);
-        line.setEndY(100.0);
-        Group group = new Group();
-        group.getChildren().add(line);
-        Scene scene = new Scene(group, 300, 250);
-        stage.setScene(scene);
-        stage.setTitle("Helló Világ");
-        stage.show();
+    @FXML
+    void initialize() {                
+        line1.setStroke(Color.RED);
+        line1.setStrokeWidth(5);
     }
 }
 ```
 
-### Téglalap
+## Téglalap
+
+* Recatangle    fx:id   rectangle1
+* Controller    com.example.MainController
 
 ```java
-Rectangle rectangle = new Rectangle(x, y, width, height);
+package com.example;
+
+import javafx.fxml.FXML;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+
+public class MainController {
+    @FXML
+    private Rectangle rectangle1;
+
+    @FXML
+    void initialize() {          
+        rectangle1.setStroke(Color.CHOCOLATE);
+        rectangle1.setStrokeWidth(5);
+        rectangle1.setFill(Color.GREEN);
+    }
+}
 ```
 
-De használhatunk beállító metódusokat is:
+## Kör
 
-```java
-rectangle.setX(50.0);
-rectangle.setY(50.0);
-rectangle.setWidth(100.0);
-rectangle.setHeight(100.0);
-```
+* Circle        fx:id   circle1
+* Controller    com.example.MainController
 
-Színezés:
+## Ellipszis
 
-```java
-rectangle.setFill(Color.BLUE);
-```
-
-Lekerekített téglalap:
-
-```java
-Rectangle rectangle = new Rectangle(150, 150, 60, 60);
-rectangle.setArcWidth(15.0);
-rectangle.setArcHeight(15.0);
-```
-
-![Lekrekített téglalap](images/gui/javafx_rounded_rectangle.png)
-
-### Kör
-
-```java
-Circle circle = new Circle(50.0, 50.0, 25.0);
-circle.setFill(Color.BLUEVIOLET);
-```
-
-### Ellipszis
-
-```java
-Ellipse ellipse = new Ellipse(50.0, 50.0, 25.0, 15.0);
-ellipse.setFill(Color.BLUEVIOLET);
-```
+* Ellipse       fx:id   ellipse1
+* Controller    com.example.MainController
 
 ## JavaFX képek
 
-A képet a forrásfájl mellé kell tenni, vagy onnan relatívan megadni.
+Használjunk PNG formátumot.
+
+A képeket tegyük a .fxml fájlok mellé. Például:
+
+* src/resources/com/example/valam.png
+
+Beállítás Java kódból:
 
 ```java
-Image image = new Image("kep01.png");
-ImageView imageView = new ImageView(image);
-imageView.setX(50.0);
-imageView.setY(50.0);
+package com.example;
 
-Group group = new Group();
-group.getChildren().add(imageView);
+import javafx.fxml.FXML;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
+public class MainController {
+
+    @FXML
+    private ImageView imageView;
+
+    @FXML
+    void initialize() {          
+        Image image = new Image(getClass().getResourceAsStream("nyereg-kicsi.jpg"));
+        imageView.setImage(image);
+    }
+}
+
 ```
 
 ## JavaFX Label
 
-```java
-import javafx.scene.control.Label;
-//...
+* Label         fx:id   label1
+* Controller    com.example.MainController
 
-Label label1 = new Label();
+A Label elérhető kontrollerből, ahol tulajdonságai beállíthatók. A tartalmának beállítása:
+
+```java
+label1.setText("Másik tartalom");
 ```
 
-Háttérszín:
+## JavaFX Button
+
+* Button        fx:id   button1
+* Code          On Action: onClickButton1
+* Controller    com.example.MainController
+
+A Button elérhető kontrollerből, ahol tulajdonságai beállíthatók. Leginkább úgy használjuk, hogy egy esménykezelőt írunk hozzá.
+
+### Eseménykezelés
 
 ```java
-this.label1.setBackground(
-    new Background(new BackgroundFill(Color.BLUE, null, null))        
-);
-```
+package com.example;
 
-Szöveg színe:
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 
-```java
-this.label1.setTextFill(Color.WHITE);
-```
+public class MainController {
 
-## JavaFX gomb
-
-```java
-Button button = new Button("Mehet");
-```
-
-```java
-Button button = new Button("Mehet");
-button.setLayoutX(50.0);
-button.setLayoutY(50);
-
-Group group = new Group();
-group.getChildren().addAll(button);
-```
-
-Komplett kód:
-
-```java
-
-import javafx.application.Application;
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.stage.Stage;
-
-public class App extends Application {
-    
-    public static void main(String[] args) throws Exception {
-        launch(args);
-    }
-
-    @Override
-    public void start(Stage stage) throws Exception {
-        Button button = new Button("Mehet");
-        button.setLayoutX(50.0);
-        button.setLayoutY(50);
-        
-        Group group = new Group();
-        group.getChildren().addAll(button);
-
-        Scene scene = new Scene(group, 300, 250);
-        stage.setScene(scene);
-        stage.setTitle("Helló Világ");
-        stage.show();
+    @FXML
+    void onClickButton1(ActionEvent event) {
+        System.out.println("Működik");
     }
 }
 ```
 
-## Eseményfigyelés
+## TextField és PaswordField
 
-Az eseményfigyelést a nyomógombon egy setOnAction() metódussal állítható be. Lambda kifejezés használatával csak meg kell hívni a metódust, ami reagál az eseményre.
-
-```java
-button.setOnAction(e -> onClickButton());
-```
-
-Teljes kód:
+* TextField     fx:id         text1
+* Button        On Action     OnClickButton1
+* Controller    com.example.MainController
 
 ```java
+package com.example;
 
-import javafx.application.Application;
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.stage.Stage;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 
-public class App extends Application {
-    
-    public static void main(String[] args) throws Exception {
-        launch(args);
-    }
+public class MainController {
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        Button button = new Button("Mehet");
-        button.setLayoutX(50.0);
-        button.setLayoutY(50);
-        
-        button.setOnAction(e -> onClickButton());
+    @FXML
+    private TextField text1;
 
-        Group group = new Group();
-        group.getChildren().addAll(button);
-
-        Scene scene = new Scene(group, 300, 250);
-        stage.setScene(scene);
-        stage.setTitle("Helló Világ");
-        stage.show();
-    }
-    private void onClickButton() {
-        System.out.println("működik");
+    @FXML
+    void onClickButton1(ActionEvent event) {
+        System.out.println(text1.getText());
     }
 }
 ```
-
-## Label, TextField és PasswordField
-
-### Label
-
-### TextField
-
-### Jelszavak
-
-* PasswordField
 
 ## Alert
 
-## Aszinkronkód
-
-Van egy aszinkron folyamat amire várakozni kell:
-
 ```java
-
-import javafx.application.Application;
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.stage.Stage;
-
-public class App extends Application {
-    
-    public static void main(String[] args) throws Exception {
-        launch(args);
-    }
-
-    @Override
-    public void start(Stage stage) throws Exception {
-        Button asyncButton = new Button("Aszinkron folyamat indítása");
-
-        asyncButton.setLayoutX(50.0);
-        asyncButton.setLayoutY(50);
-        
-        asyncButton.setOnAction(e -> onClickAsyncButton());
-
-        Group group = new Group();
-        group.getChildren().addAll(asyncButton);
-
-        Scene scene = new Scene(group, 300, 250);
-        stage.setScene(scene);
-        stage.setTitle("Helló Világ");
-        stage.show();
-    }
-    private void onClickAsyncButton() {
-        doAsyncProcess();
-        System.out.println("működik");
-    }
-    private void doAsyncProcess() {
-        try {
-            this.tryDoAsyncProcess();
-        } catch (InterruptedException e) {
-            System.err.println("Hiba! Az aszinkron futtatás sikertelen!");
-        }
-    }
-    private void tryDoAsyncProcess() throws InterruptedException{
-        Thread.sleep(10000);
-        System.out.println("Az aszinkron folyamat véget ért");
-    }
+@FXML
+void onClickButton1(ActionEvent event) {
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    alert.setTitle("Információ");
+    alert.setHeaderText(null);
+    alert.setContentText("Működik");
+    alert.showAndWait();        
 }
 ```
 
-Nyomjuk meg a gombot, majd kattintsunk az ablak bezárására, majd figyeljük mi történik. A program nem záródik be, amíg az aszinkron folyamat véget nem ér.
+## Aszinkron folyamat kezelése
 
-Most az onClickAsyncButton() metódusban hívjuk aszinkron folyamatként a doAsyncProcess() metódust:
+Az aszinkron folyamatok megakaszthatják a program futtatását. Legyen egy nyomógomb kattintását kezelő metódus:
 
 ```java
+@FXML
+void onClickButton1(ActionEvent event) {
+    doAsyncProcess();
+    System.out.println("Kattintás után");
+}
+```
 
-import javafx.application.Application;
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.stage.Stage;
+Az doAsyncProcess() megakasztja a végrehajtást. A "Kattintás után" szöveg csak akkor íródik a képernyőre, ha az aszinkron folyamat végetért.
 
-public class App extends Application {
-    
-    public static void main(String[] args) throws Exception {
-        launch(args);
-    }
+Ha szeretnénk a háttérben futtatni a doAsyncProcess() folyamatot:
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        Button asyncButton = new Button("Aszinkron folyamat indítása");
+```java
+@FXML
+void onClickButton1(ActionEvent event) {
+    new Thread(this::doAsyncProcess).start();
+    System.out.println("Kattintás után");
+}
+```
 
-        asyncButton.setLayoutX(50.0);
-        asyncButton.setLayoutY(50);
-        
-        asyncButton.setOnAction(e -> onClickAsyncButton());
+Teljes példakód:
 
-        Group group = new Group();
-        group.getChildren().addAll(asyncButton);
+MainController.java:
 
-        Scene scene = new Scene(group, 300, 250);
-        stage.setScene(scene);
-        stage.setTitle("Helló Világ");
-        stage.show();
-    }
-    private void onClickAsyncButton() {
-        new Thread(() -> doAsyncProcess()).start();
-        System.out.println("működik");
+```java
+package com.example;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+
+public class MainController {
+
+    @FXML
+    void onClickButton1(ActionEvent event) {
+        new Thread(this::doAsyncProcess).start();
+        System.out.println("Kattintás után");
     }
     private void doAsyncProcess() {
         try {
@@ -607,13 +605,3 @@ public class App extends Application {
     }
 }
 ```
-
-A program ablaka most már reagál, bezáródik a kattinitásra, az aszinkron folyamat bezárása előtt.
-
-További információk:
-
-* [https://docs.oracle.com/javase/tutorial/essential/concurrency/runthread.html](https://docs.oracle.com/javase/tutorial/essential/concurrency/runthread.html)
-
-* [https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ExecutorService.html](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ExecutorService.html)
-
-* [https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html)
