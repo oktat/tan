@@ -436,6 +436,55 @@ public class MainController {
 }
 ```
 
+### Téglalap animálása
+
+MainController.java:
+
+```java
+package com.example;
+
+import javafx.animation.TranslateTransition;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
+
+public class MainController {
+
+    @FXML
+    private Rectangle vehicle;
+
+    @FXML
+    void onClickStartButton(ActionEvent event) {
+        TranslateTransition transition = new TranslateTransition();
+        transition.setNode(vehicle);
+        transition.setDuration(Duration.seconds(5));
+        transition.setByX(500);        
+        transition.play();
+
+    }
+}
+```
+
+Oda-vissza végtelenségig:
+
+```java
+@FXML
+void onClickStartButton(ActionEvent event) {
+    TranslateTransition transition = new TranslateTransition();
+    transition.setNode(vehicle);
+    transition.setDuration(Duration.seconds(5));
+    transition.setCycleCount(TranslateTransition.INDEFINITE);
+    transition.setAutoReverse(true);
+    transition.setByX(500);
+    transition.play();
+}
+```
+
+Téglalapok versenye:
+
+* [https://github.com/oktat/exCarRace_JavaFX.git](https://github.com/oktat/exCarRace_JavaFX.git)
+
 ## Kör
 
 * Circle        fx:id   circle1
