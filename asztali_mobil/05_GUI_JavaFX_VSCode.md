@@ -19,7 +19,7 @@
 * [Az initilize metódus](#az-initilize-metódus)
 * [CheckBox](#checkbox)
 * [RadioButton](#radiobutton)
-* [ComboBox](#combobox)
+* [ChoiceBox](#choicebox)
 * [ListView](#listview)
 * [TableView](#tableview)
 
@@ -660,7 +660,7 @@ public class MainController {
 * Minden kép alatt legyen egy rádiógomb.
 * Legyn egy nyomógomb, amivel elküldjük a választást.
 
-## ComboBox
+## ChoiceBox
 
 ```txt
 Pane
@@ -673,28 +673,82 @@ MainController.java:
 ```java
 package com.example;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.ChoiceBox;
 
 public class MainController {
 
     @FXML
-    private ComboBox<String> comboBox;
+    private ChoiceBox<String> choicebox;
 
     @FXML
     void initialize() {
-        comboBox.getItems().addAll(
-          "Item 1", 
-          "Item 2", 
-          "Item 3"
-          );
+        choicebox.getItems().addAll(
+            "alma",
+            "körte",
+            "szilva");
     }
 
     @FXML
-    void onClickSendButton(ActionEvent event) {
-        System.out.println(comboBox.getValue());        
+    void onClickStartButton() {
+        System.out.println(choicebox.getValue());
     }
+}
+```
+
+### ChoiceBox azonosítóval
+
+```txt
+Pane
+  |-ChoiceBox              choicebox
+  `-Button      Küldés     onClickStartButton
+```
+
+MainController.java:
+
+```java
+package com.example;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
+import javafx.util.Pair;
+import javafx.util.StringConverter;
+
+public class MainController {
+
+    @FXML
+    private ChoiceBox<Pair<Integer, String>> choicebox;
+
+    @FXML
+    void initialize() {
+
+        List<Pair<Integer, String>> list = new ArrayList<>();
+        list.add(new Pair<Integer, String>(1, "alma"));
+        list.add(new Pair<Integer, String>(2, "körte"));
+        list.add(new Pair<Integer, String>(3, "barack"));
+        choicebox.setConverter(new StringConverter<Pair<Integer, String>>() {
+            @Override
+            public String toString(Pair<Integer, String> object) {
+                return object.getValue();
+            }
+
+            @Override
+            public Pair<Integer, String> fromString(String string) {
+                return null;
+            }
+        });
+
+        choicebox.getItems().addAll(list);
+    }
+
+    @FXML
+    void onClickStartButton() {
+        System.out.println(choicebox.getValue().getKey());
+    }
+
 }
 ```
 
