@@ -22,7 +22,6 @@
 * [ChoiceBox](#choicebox)
 * [ListView](#listview)
 * [TableView](#tableview)
-* [Linkek](#linkek)
 
 ## Telepítés
 
@@ -893,7 +892,3 @@ void initialize() {
     empTable.setItems(empList);
 }
 ```
-
-## Linkek
-
-* [https://fxdocs.github.io/docs/html5/](https://fxdocs.github.io/docs/html5/)
