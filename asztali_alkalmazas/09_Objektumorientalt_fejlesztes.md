@@ -64,7 +64,12 @@ class Valami {
 
 ## Példányosítás
 
+A példányosítás, angolul instance creation, az objektum-orientált programozás (OOP) egyik alapvető fogalma. A példányosítás során egy osztály alaján létrehozunk egy objektumot.
+
+A példányosítás során egy memórirészt foglalunk le az új objektum számára. A Java nyelvben a példányosítás a **new** operátorral történik.
+
 ```java
+String gyumolcs = new String("alma");
 Random random = new Random();
 Employee employee = new Emplyoee();
 ```
