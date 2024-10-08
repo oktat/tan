@@ -91,6 +91,12 @@ describe('egyszerű teszt', () => {
 })
 ```
 
+Ha be van állítva a package.json fájlban a type érték module-ra ("type": "module"), akkor az importálása:
+
+```javascript
+import assert from 'assert';
+```
+
 A tesztek egy describe() és it() függvényekből állnak. Az it() függvényekből több is lehet és a describe() függvényen belül helyezzük el őket. Mindkét függvénynek két paramétere van, egy szöveg és egy függvény. A szövegben írjuk le, mit csinál a tesztünk, és egy
 névtelenfüggvényben valósítjuk meg a teszeket.
 
