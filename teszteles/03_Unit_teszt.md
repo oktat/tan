@@ -131,22 +131,53 @@ Egy állományban több describe() függvény is lehet. Minden describe() függv
 
 ## Függvény tesztelése
 
+Az app.js hivatkozása a HTML fájlban:
+
+```html
+<script type="module" src="app.js"></script>
+```
+
+A package.json fájlban a type értéke:
+
+```json
+{
+    "type": "module"
+}
+```
+
+Tipp: A **sinto** csomag, **sin init** parancsa, pont így állítja be a fájlokat.
+
 Most teszteljünk egy függvényt, ami összead két számot. Készítsünk az src könyvtárban egy app.js állományt, tartalma:
 
 ```javascript
 function add(num1, num2) {
     return num1 + num2
 }
+
+function sub(num1, num2) {
+  return num1 - num2;
+}
+
+export {add, sub};
 ```
 
 Írjunk hozzá tesztet, appTest.js nevű fájlba:
 
 ```javascript
+import assert from 'assert';
+import { add, sub } from '../src/app.js';
+
 describe('Az add() függvény tesztje', () => {
     it('A 30, 35 bemenetre 65', () => {
         let actual = add(30, 35)
         assert.equal(actual, 65)
     })  
+})
+describe('Az sub() függvény tesztje', () => {
+  it('A 30, 35 bemenetre -5', () => {
+    let actual = sub(30, 35);
+    assert.equal(actual, -5);
+  })
 })
 ```
 
