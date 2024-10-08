@@ -508,6 +508,24 @@ public class MainController {
 }
 ```
 
+A szélesség és magasság beállítása:
+
+```java
+rectangle1.setWidth(100);
+rectangle1.setHeight(100);
+rectangle1.setX(10);
+rectangle1.setY(10);
+```
+
+Az x, y koordináták az eredeti Scene Builder-ben megadott helyhez viszonyítva számítódnak. Ha szeretnénk 0, 0 balfelső saroktól számolni állítsuk a **Layout X** és **Layout Y** értékeit 0-ra a Scene Builderben. Ugyanezt megtehetjük Java kódból:
+
+```java
+rectangle1.setLayoutX(100);
+rectangle1.setLayoutY(100);
+rectangle1.setX(10);
+rectangle1.setY(10);
+```
+
 ### Téglalap animálása
 
 MainController.java:
