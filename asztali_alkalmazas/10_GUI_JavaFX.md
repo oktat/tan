@@ -381,6 +381,50 @@ import javafx.scene.text.Font;
 helloText.setFont(Font.font(32));
 ```
 
+## Eseménykezelés grafikai elemeken
+
+Hozzunk létre egy új projektet. Egy mainScne.fxml állománnyal fogunk dolgozni.
+
+Tegyünk fel egy Pane konténert, rá egy Text elemet.
+
+A Scene Builder-ben a jobb oldali harmonika **Code** szakaszában írjuk be, milyen metódussal szeretnénk kezelni az egérkattintás eseményét. Keressük memg a következő eseményt:
+
+* On Mouse Clicked
+
+Legyen az esménykezelő metódus neve például:
+
+* onMouseClickedText
+
+Készítsük el a MainController-t. Hozzuk létre az onMouseClickedText nevű metódust, ha még nem létezik:
+
+```java
+@FXML
+void onMouseClickedText(MouseEvent event) {
+
+}
+```
+
+Ügyeljünk arra, hogy az FXML annotáció legyen importálva. Írassuk ki, kattintásra a "Kattintás történt" szöveget. Teljes kód:
+
+```java
+package com.example;
+
+import javafx.fxml.FXML;
+import javafx.scene.input.MouseEvent;
+
+public class MainController {
+
+    @FXML
+    void onMouseClickedText(MouseEvent event) {
+        System.out.println("Kattintás történt");
+    }
+
+}
+
+```
+
+Az App.java fájlban állítsuk be, hogy a **mainScene.fxml** legyen megnyitva.
+
 ## Vonal
 
 Húzzuk az alakzatok közül egy Line komponenst a Pane konténerre.
