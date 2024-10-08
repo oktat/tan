@@ -445,6 +445,14 @@ public class MainController {
 
 Az App.java fájlban állítsuk be, hogy a **mainScene.fxml** legyen megnyitva.
 
+### Eseménykezelés grafikai elemen gyakorlat
+
+* Készítsen JavaFX programot
+* Kérdezzen rá: "Melyik évben kezdték fejleszteni a Java nyelvet?"
+* Adjon három választási lehetőséget: 1981, 1991, 2001
+* Ha helyes válasz, azaz 1991, írjon helyeslő üzenetet a konzolra.
+* Helytelen választás esetén, írja meg a sikertelenséget a konzolon.
+
 ## Vonal
 
 Húzzuk az alakzatok közül egy Line komponenst a Pane konténerre.
