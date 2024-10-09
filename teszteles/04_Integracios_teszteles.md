@@ -1,12 +1,19 @@
 # Integrációs tesztelés
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Az Integrációs tesztelés](#az-integrációs-tesztelés)
+* [Könyvtári kölcsönzés](#könyvtári-kölcsönzés)
+* [Integrációs teszt gyakorlat](#integrációs-teszt-gyakorlat)
+
 ## Az Integrációs tesztelés
 
 A komponensek, modulok együtműködését teszteljük.
 
 ## Könyvtári kölcsönzés
 
-Legyen egy több részből álló alkalmazás, ahol láthatjuk az integrációt.
+Legyen egy több részből álló alkalmazás, ahol áttekinthetjük az integrációs tesztelést.
 
 Egy egyszerű könyvtári rendszert fogunk készíteni. Három modulunk lesz: Könyv, Felhasználó, Kölcsönzés.
 
@@ -46,9 +53,9 @@ test_borrowing()
 
 A könyv és a felhasználó moduloknál érdemes implementálni a CRUD műveleteket.
 
-Megnézhetjük, hogy a kölcsönzés modul el tudja érni a kölcsönzés adatati?
+Megnézhetjük, hogy a kölcsönzés modul el tudja érni a kölcsönzés adatait?
 
-A kölcsönzött könyv lista frissül, a felhsználómodulban?
+A kölcsönzött könyv lista frissül a felhsználómodulban?
 
 Tesztelhetjük a határokat, például érévnyetlen adatokkal. Ez lehet egy nem létező könyv kölcsönzése.
 
@@ -120,3 +127,9 @@ def test_borrowing_invalid_book():
 
     assert result == "Invalid book"
 ```
+
+## Integrációs teszt gyakorlat
+
+Töltse le a következő projektet, majd végezze el az integrációs tesztet.
+
+* [https://github.com/oktat/teliblend.git](https://github.com/oktat/teliblend.git)

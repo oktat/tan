@@ -88,11 +88,11 @@ Scene Builder beállítása:
 
 Indítás után:
 
-![Scene Builder indulás után](images/scenebuilder_indulas.png)
+![Scene Builder indulás után](images/javafx/scenebuilder_indulas.png)
 
 Üres projekt:
 
-![Scene Builder üres projekt](images/scene_builder_ures_projekt.png)
+![Scene Builder üres projekt](images/javafx/scene_builder_ures_projekt.png)
 
 Indulás után baloldalon harmonikasáv eszközön találjuk a konténereket és a kontrollokat.
 
@@ -213,7 +213,7 @@ A program ablakát a Stage osztály jelképezi. Az ablakon belül egy FXML egy S
 
 Az FXML fájl cseréje, tulajdonképpen a Scene cseréjét jelenti.
 
-![JavaFX felépítése](images/javafx_szerkezete.png)
+![JavaFX felépítése](images/javafx/javafx_szerkezete.png)
 
 ### Moduláris fejlesztés
 
