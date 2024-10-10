@@ -631,8 +631,8 @@ label1.setText("Másik tartalom");
 
 ## JavaFX Button
 
-* Button        fx:id   button1
-* Code          On Action: onClickButton1
+* Button        Properties          Text: Mehet
+* Code          On Action: onClickStartButton
 * Controller    com.example.MainController
 
 A Button elérhető kontrollerből, ahol tulajdonságai beállíthatók. Leginkább úgy használjuk, hogy egy esménykezelőt írunk hozzá.
@@ -653,6 +653,8 @@ public class MainController {
     }
 }
 ```
+
+![JavaFX MainController UML ábra](images/javafx/uml_javafx_files_button.png)
 
 ## TextField és PaswordField
 
