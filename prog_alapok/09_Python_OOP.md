@@ -10,6 +10,7 @@
 * [Tartalomjegyzék](#tartalomjegyzék)
 * [Osztályok](#osztályok)
 * [Konstruktor](#konstruktor)
+* [Az alkalmazás osztályban](#az-alkalmazás-osztályban)
 * [Gyakorlat](#gyakorlat)
 
 ## Osztályok
@@ -23,6 +24,10 @@ class Dolgozo:
     pass
 ```
 
+UML ábrán:
+
+![UML Dolgozo osztály](images/programozas/uml/uml_dolgozo_pass.png)
+
 Az üres osztály létrehozásához a "pass" utasítást kell megadni, ami nem csinál semmit.
 
 Szeretnénk tárolni nevet, települést, fizetést egy dolgozóról:
@@ -33,6 +38,8 @@ class Dolgozo:
     telepules = 'ismeretlen'
     fizetes = 0
 ```
+
+![UML Dolgozo osztály adatagokkal](images/programozas/uml/uml_dolgozo_nev_tel_fiz.png)
 
 Az így létrehozott változókat **adattagok**nak hívjuk, a továbbiakban így hivatkozunk rájuk.
 
@@ -68,6 +75,8 @@ class Dolgozo:
 janos = Dolgozo()
 ```
 
+![Dolgozo osztály konstruktorral](images/programozas/uml/uml_dolgozo_konstruktor.png)
+
 A példányosításnál a Dolgozo() utasítás a konstruktor hívása. Konstruktor akkor is van, ha azt nem hozzuk létre; a háttérben automatikusan létrejön.
 
 A self paraméter kötelező paraméter, ezen keresztül hivatkozhatunk az osztály adattagjaira. A self.nev a "nev" adattagra hivatkozik.
@@ -87,6 +96,8 @@ janos = Dolgozo('Nagy János', 'Szolnok', 385)
 print(janos.nev)
 ```
 
+![Dolgozo osztály konstruktorral, ami paramétereket fogad](images/programozas/uml/uml_dolgozo_konstruktor_alairas.png)
+
 Az &#95;&#95;init&#95;&#95; metódus paraméterei a self, nev, telepules és fizetes. Ezeket metódus formális paraméterei. Nézzük az egyik utasítást, ahol felhasználjuk a nev formális paramétert:
 
 ```python
@@ -94,6 +105,38 @@ self.nev = nev
 ```
 
 Ebben az utasításban a self.nev az osztály adattagját jelenti. Az osztály "nev" adattagjának átadjuk azt az értéket, ami a "nev" formális paraméterben érkezik.
+
+## Az alkalmazás osztályban
+
+data.txt:
+
+```txt
+1:Nagy Géza:Szeged:389
+2:Erős István:Szeged:392
+3:Csep Ernő:Pécs:395
+4:Ere Gábor:Szeged:392
+```
+
+main.py:
+
+```python
+class App:
+  def __init__(self):
+    self.filename = 'data.txt'
+
+  def read_file(self):
+    fp = open(self.filename, 'r')
+    lines = fp.readlines()
+    fp.close()
+    for line in lines:
+      line = line.rstrip()
+      print(line)
+
+app = App()
+app.read_file()
+```
+
+![Alkalmazás osztályban](images/programozas/uml/uml_app_konstruktor_fajlolvas.png)
 
 ## Gyakorlat
 
