@@ -11,6 +11,10 @@
 
 A komponensek, modulok együtműködését teszteljük.
 
+Lehet automatizált vagy kézi.
+
+* [https://szit.hu/download/oktatas/teszt_sablon.xlsx](https://szit.hu/download/oktatas/teszt_sablon.xlsx)
+
 ## Könyvtári kölcsönzés
 
 Legyen egy több részből álló alkalmazás, ahol áttekinthetjük az integrációs tesztelést.
