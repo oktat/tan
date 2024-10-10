@@ -11,9 +11,10 @@
 
 A komponensek, modulok együtműködését teszteljük.
 
-Lehet automatizált vagy kézi.
+Lehet:
 
-* [https://szit.hu/download/oktatas/teszt_sablon.xlsx](https://szit.hu/download/oktatas/teszt_sablon.xlsx)
+* automatizált
+* kézi
 
 ## Könyvtári kölcsönzés
 
@@ -137,3 +138,4 @@ def test_borrowing_invalid_book():
 Töltse le a következő projektet, majd végezze el az integrációs tesztet.
 
 * [https://github.com/oktat/teliblend.git](https://github.com/oktat/teliblend.git)
+* [https://szit.hu/download/oktatas/teszt_sablon.xlsx](https://szit.hu/download/oktatas/teszt_sablon.xlsx)
