@@ -268,6 +268,8 @@ public class App extends Application {
 }
 ```
 
+![JavaFX App osztálya](images/javafx/javafx_app_class.png)
+
 Indítás után a start(Stage stage) metódusban aláhúzza a **Stage** osztályt. Ha az egeret a név felé visszük a következőt kapjuk:
 
 ```txt
