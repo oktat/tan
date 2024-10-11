@@ -135,7 +135,15 @@ def test_borrowing_invalid_book():
 
 ## Integrációs teszt gyakorlat
 
+### Feladat 1
+
 Töltse le a következő projektet, majd végezze el az integrációs tesztet.
 
 * [https://github.com/oktat/teliblend.git](https://github.com/oktat/teliblend.git)
 * [https://szit.hu/download/oktatas/teszt_sablon.xlsx](https://szit.hu/download/oktatas/teszt_sablon.xlsx)
+
+### Feladat 2
+
+Töltse le a következő projektet, majd végezze el az integrációs tesztet.
+
+* [https://github.com/oktat/teliblendfx.git](https://github.com/oktat/teliblendfx.git)
