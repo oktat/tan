@@ -211,6 +211,17 @@ for username, password in payloads:
 
 * [https://github.com/oktat/sql_injection_test.git](https://github.com/oktat/sql_injection_test.git)
 
+### JavaFX beléptető felület
+
+Töltsük le a következő projektet:
+
+* [https://github.com/oktat/sql_injection_test_javafx.git](https://github.com/oktat/sql_injection_test_javafx.git)
+
+Feladatok:
+
+* Írjunk kéziteszt tervet SQL injekcióra.
+* Végezük el a tesztelést.
+
 ## Lehetséges egyéb megoldások
 
 Webes alkalmazások:
