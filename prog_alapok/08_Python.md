@@ -167,7 +167,7 @@ print(alma)
 
 ### Kiírás után
 
-A print() utasítás a kiírás után egy sortörést küld a képernyőre. Eze a viselkedésen változtathatunk az end paraméterrel.
+A print() utasítás a kiírás után egy sortörést küld a képernyőre. Ezen a viselkedésen változtathatunk az **end** paraméterrel.
 
 ```python
 print('alma', end=' ')
@@ -1066,9 +1066,50 @@ szam = float(input("Valós szám: "))
 print("Plusz kettő: ", szam + 2)
 ```
 
+### Bevitel gyakorlat
+
+Gyakoroljuk a bekérést a programozási feladatgyűjtemény használatával, 0301-től - 0400-ig:
+
+* [https://szit.hu/doku.php?id=oktatas:programozas:feladatok:altalanos#feladat_0301](https://szit.hu/doku.php?id=oktatas:programozas:feladatok:altalanos#feladat_0301)
+
+Legyen például a 0301 feladat.
+
+Egy kör alapú kúp térfogatát kell kiszámolni. Be kell kérni az alap sugarát és magasságát.
+
+```python
+radius = float(input('Sugár: '))
+height = float(input('Magasság: '))
+```
+
+Számoljuk ki a térfogatot:
+
+```python
+import math
+volume = 1.0/3.0*math.pow(radius, 2)*math.pi * height
+```
+
+Írassuk ki az eredményt:
+
+```python
+print(f'Térfogat: {volume}')
+```
+
+A teljes kód:
+
+```python
+import math
+
+radius = float(input('Sugár: '))
+height = float(input('Magasság: '))
+
+volume = 1.0/3.0*math.pow(radius, 2)*math.pi * height
+
+print('Térfogat: ', volume)
+```
+
 ## Szekvenciális tevékenység
 
-Az utasításokat egymás után írjuk.
+Az utasításokat egymás után írjuk. Valójában eddig ezt tettük. Az utasítások egymás után végrehajtódnak, sorba.
 
 ```txt
 utasítás1
@@ -1092,13 +1133,57 @@ utasítás1; utasítás2; utasítás3
 
 ## Szelekció
 
+A szelekció esetén, már nem szeretnénk minden utasítást végrehajtani. Szelektálunk az utasítások között. Szokás még kiválasztásnak hívni.
+
 ### Az if
+
+A szelekciónak mindig szükség van valami feltételre. A feltételt az **if** utasítás után írjuk, végül egy **:** kettősponttal zárjuk. A feltétel egy logikai kifejezés kell legyen, amelnyek eredménye **True** vagy **False**.
+
+Ilyen lehet kért szám összehasonlítása:
+
+```python
+30 > 35
+```
+
+Szintaxis:
+
+```txt
+if feltétel:
+    utasítás1
+    utasítás2
+```
+
+A szelekciónak két része van:
+
+* fejrész - if feltétel:
+* törzs - utasítások
+
+Ha feltétel igaz, vagyis True, akkor a ciklus törzse végrehajtásra kerül. Ellenkező esetben nem történik semmi.
+
+Nézzünk egy példát, ahol bekérünk egy számot, majd megnézzük, hogy nagyobb-e mint 30. Ha igen kiírunk egy szöveget, hogy túl nagy. Ellenkező esetben nem csinálunk semmit.
 
 ```python
 num = int(input("Kérek egy számot: "))
 if num > 30:
     print('Túl nagy szám')
 ```
+
+A feltétel a **num > 30**. Ha ez igaz, a képernyőre íródik, hogy "Túl nagy szám". Ha nem igaz, akkor nem történik semmi.
+
+Ha szeretnénk abban az esetben tenni valamit, ha feltétel hamis, az **else** utasítást kell használni, amit **:** kettősponttal zárunk.
+
+Szintaxis:
+
+```txt
+if feltétel:
+   utasítás1
+   utasításn
+else:
+   utasítás1
+   utasításn
+```
+
+Példa:
 
 ```python
 num = int(input("Kérek egy számot: "))
@@ -1107,6 +1192,26 @@ if num > 30:
 else:
     print('Megfelelő szám')
 ```
+
+Több ágú szelekciót is létrehozhatunk, ahol több feltételt vizsgálunk.
+
+```txt
+if feltétel1:
+    utasítás1
+    utasításn
+elif feltétel2:
+    utasítás1
+    utasításn
+elif feltétel3:
+    utasítás1
+    utasításn
+#...
+else:
+    utasítás1
+    utasításn
+```
+
+Lássunk egy példát a több ágú szelekcióra:
 
 ```python
 num = int(input("Kérek egy számot: "))
@@ -1121,7 +1226,7 @@ else:
 
 ### A match case
 
-A match case szerkezet a Python 3.10-től elérhető. Más nyelvek switch case szerkezetét másolja.
+A match case szerkezet a **Python 3.10**-től elérhető. Más nyelvek switch case szerkezetét másolja.
 
 ```python
 num = int(input("Kérek egy számot: "))
@@ -1137,7 +1242,19 @@ match num:
 
 ## Iteráció
 
+Az iteráció más néven ciklus, ismétlés. Olyan esetben használjuk, ha egy utasítást többször szeretnénk végrehajtani.
+
 ### A for
+
+A **for** ciklust olyan esetektben szokás használni, amikor tudjuk hányszor forduljon a ciklus. Ezért szokás számláló ciklusnak is hívni.
+
+Szintaxis:
+
+```txt
+for változó in sorozat:
+    utasítás1
+    utasításn
+```
 
 Öt alma kiíratása:
 
@@ -1155,11 +1272,23 @@ for i in range(0, 5):
 
 ### A while
 
+A while ciklus olyan esetekben szokás használni, amikor nem tudjuk hányszor fog fordulni a ciklus. Ilyen lehet a ciklusok száma a felhasználói beviteltől függ, mert nem tudjuk mit fog pontosan tenni a felhasználó.
+
+```txt
+while feltétel:
+    utasítás1
+    utasításn
+```
+
+Lássunk egy példát, ahol számokat kérünk be 0 végjelig:
+
 ```python
 szam = -1
 while szam != 0:
     szam = int(input("Szám: "))
 ```
+
+Nem tudjuk hány számot fog a felhasználó beírni és mikor ír 0 értéket. Az ilyen ciklusokat amíg típusú ciklusnak is szokás hívni.
 
 Most adjuk össze a számokat 0 végjelig:
 
@@ -1201,13 +1330,19 @@ print(ord('€'))
 
 ### Konkatenálás
 
+A konkatenálás a szövegek összefűzését jelenti. Ezt Python nyelven több módon is megvalósíthatjuk. A legegyszerűbb a **+"" operátor használata:
+
 ```python
 nev = "Antal"
 cselekves = " eszik"
 mondat = nev + cselekves
 ```
 
+A **+** opetrátor tehát nem csak számok összeadsára jó, hanem szövegek összefűzésére is.
+
 ### Hossz
+
+A szövegek hosszát a len() függvénnyel kérdezhetjük le. Lássunk egy példát:
 
 ```python
 mondat = "Még nyílnak a völgyben"
@@ -1215,6 +1350,8 @@ print(len(mondat))
 ```
 
 ### Karakterlánc karakterenként
+
+Sokszor szükség van arra, hogy egy karakterlánc egyes karakterjeit sorba vegyük, vagy másként mondva bejárjuk a karakterláncot. A [] szögletes zárójelek segítségével hivatkozhatok egy adott indexű karakterláncra. Az indexelés 0-tól kezdődik. Egy 6 karakterből álló karakterlánc esetén az utolsó index így 5.
 
 ```python
 szoveg = "szilva"
@@ -1227,11 +1364,15 @@ print(szoveg[0])
 
 ### Karakterlánc bejárása
 
+A karakterlánc bejárható a for utasítással a [] szögltes zárójelek használata nélkül is:
+
 ```python
 szoveg = "alma"
 for karakter in szoveg:
     print(karakter)
 ```
+
+Egy másik példa a [] szögletes zárójel használatára mutat példát.
 
 ```python
 karakterlanc = "alma"
@@ -1242,12 +1383,47 @@ for i in range(1, hossz):
 
 ### Karakterlánc szeletek
 
+A [] szögletes zárójelek a karakterláncok szeleteinek megjelölésére is alkalmas. Angolul slicing.
+
+Szintaxis:
+
+```txt
+str_objektum[start_poz:end_poz:lépték]
+```
+
+A start pozíciót, a végpozíciót és a léptéket nem kötelező megadni. A kettőspontból is, elég egy.
+
+```python
+szoveg='szilva'
+print(szoveg[:])   # szilva
+print(szoveg[::])  # szilva
+```
+
+Így az adott karakterláncot kapjuk.
+
+Nézzük meg alsó és felső határ megadásával:
+
 ```python
 kars = "szilva"
 print(kars[2:5]) # 'ilv'
+```
+
+Csak felső határ megadása:
+
+```python
+kars = "szilva"
 print(kars[:3])  # 'szi'
 print(kars[3:len(kars)])  # 'lva'
 ```
+
+Alsó és felhő határ kifejezéssel:
+
+```python
+kars = "szilva"
+print(kars[3:len(kars)])  # 'lva'
+```
+
+Kisérletezünk tovább:
 
 ```python
 kars = "Mari, Kati, Lajos"
@@ -1264,28 +1440,42 @@ print(szoveg[::-1])
 
 ### Darabolás
 
+A split() függvény egy karakterlánc objektumon futtatva feldarabolja azt, és visszaad egy tömbött, vagy külön változókba tárolja az egyes darabokat.
+
 ```python
 tomb = szoveg.split()
 ```
+
+A split() függvény használható paraméter nélkül is, ekkor azt feltételezi, hogy a szövegben szóközök vannak, és ennek mentén darabolja a szöveget. Paraméterként megadható a szeparátor karakterláncként.
+
+Nézzünk egy példát, ahol a szövgben **:** kettőspont van szeparátorként:
 
 ```python
 szoveg = "alma:körte:barack"
 tomb = szoveg.split(":")
 ```
 
+Az egyes darabokat a tomb nevű változóban kapjuk. Az első elem kiíratsása például:
+
+```python
+print(tomb[0])
+```
+
+A split() függvény képes változókban is tárolni az egyes darabokat:
+
 ```python
 szoveg = "alma:körte:barack"
 elso, masodik, harmadik = szoveg.split(":")
 ```
 
-Whitespace karakterek esetén a split() használható paraméter nélkül is:
+Whitespace karakterek esetén a split() paraméter nélküli használata:
 
 ```python
 szoveg = "alma körte barack"
 elso, masodik, harmadik = szoveg.split()
 ```
 
-Újabb darabolás:
+Vegyünk egy példát, ahol a szöveg tartalmaz egy nevet, egy települést és egy fizetés kettősponttal szeparálva:
 
 ```python
 dolgozo = 'Pont Ferenc:Szeged:384'
@@ -1293,6 +1483,8 @@ dolgozo = 'Pont Ferenc:Szeged:384'
 ```
 
 ### Tartalmazás
+
+Egy adott szöveg tartalmaz-e egy bizonyos karakterláncot.
 
 ```python
 sor = "Erre jött Ferenc"
@@ -1335,11 +1527,20 @@ szoveg = "45"
 print(szoveg.isdigit())    # True
 ```
 
+Ha a karakterlánc ténylegesen számokat tartalmaz csak, akkor True értéket kapunk.
+
 Csak betű?
 
 ```python
 szoveg = "45"
 print(szoveg.isalpha())    # False
+```
+
+Ha a karakterlánc csak betűket tartalmaz True értéket kapunk. Szám esetén, ahogy a példában is látjuk False az eredmény. Ez a magyar ékezetes karakterek esetén is működik.
+
+```python
+szoveg = 'árvíztűrő'
+print(szoveg.isalpha())   # True
 ```
 
 Csak szám és betű?
