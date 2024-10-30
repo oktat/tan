@@ -31,6 +31,8 @@ A TestNG a **JUnit** és az **NUnit** által **inspirált** tesztelő keretrends
 
 ### Szükséges
 
+#### No build tools használata esetén
+
 Függőségek, vagyis szükséges programozói könyvtárak:
 
 * jcommander-x.y.jar
@@ -45,6 +47,19 @@ A programozói könyvtárak a következő helyről szerezhetők be:
 
 Például keresőbe írjuk be: testng.
 Uátan: testng > Versin > Browse > testng-7.8.0.jar
+
+#### Maven projekt esetén
+
+```xml
+<dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.10.2</version>
+    <scope>test</scope>
+</dependency>
+```
+
+Elég megadni a testng-t a függőségeket automatikusan kezeli.
 
 ### Projekt készítése
 
