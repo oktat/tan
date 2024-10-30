@@ -1259,15 +1259,75 @@ for változó in sorozat:
 Öt alma kiíratása:
 
 ```python
+for i in range(5):
+    print("alma")
+```
+
+Öt alma kiíratása, a kezdés megadsával:
+
+```python
 for i in range(0, 5):
     print("alma")
 ```
+
+Az eredmény megegyezik azzal, amikor nem adtuk meg az alsó határt, mivel alapértelmezetten 0 a kezdőhatár.
+
+Próbáljuk meg növelni kezdőhatárt, figyeljük meg mi történik.
+
+```python
+for i in range(2, 5):
+    print("alma")
+```
+
+Az alma szó most háromszor íródik a képernyőre.
 
 A számok kiíratása
 
 ```python
 for i in range(0, 5):
     print(i)
+```
+
+Az eredmény:
+
+```txt
+0
+1
+2
+3
+4
+```
+
+Az 5 már nem íródik ki.
+
+#### for gyakorlása
+
+Keressük fel a Programozási feladatgyűjteményt a szit.hu webhelyen:
+
+* [https://szit.hu/doku.php?id=oktatas:programozas:feladatok:altalanos#iteracios_tevekenyseg](https://szit.hu/doku.php?id=oktatas:programozas:feladatok:altalanos#iteracios_tevekenyseg)
+
+##### Feladat 0505
+
+Oldjuk meg például a 0505 feladatot.
+
+```python
+for i in range(1, 11):
+    print(i, i**2)
+```
+
+A futtatás eredménye:
+
+```txt
+1 1
+2 4
+3 9
+4 16
+5 25
+6 36
+7 49
+8 64
+9 81
+10 100
 ```
 
 ### A while
@@ -1416,7 +1476,7 @@ print(kars[:3])  # 'szi'
 print(kars[3:len(kars)])  # 'lva'
 ```
 
-Alsó és felhő határ kifejezéssel:
+Alsó határ és a felső határ kifejezéssel:
 
 ```python
 kars = "szilva"
