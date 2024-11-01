@@ -205,6 +205,33 @@ A következő képen a három commit utáni állapotot látjuk.
 
 Egy commit egy pillanatkép a projektről. A HEAD mutatja éppen hol dolgozunk. A képen láthatjuk, hogy a master ágon dolgozunk és a harmadik pillanatképen.
 
+### Az add művelet
+
+A stage állapotba az add paranccsal tesszük a fájlokat. Ezzel követett állapotba kerülnek.
+
+```cmd
+git add .gitignore
+git add adat.txt
+```
+
+A fájlok hozzáadása a --all kapcsolóval egyetlen paranccsal is megoldhatók:
+
+```cmd
+git add --all
+```
+
+Ezzel a paranccsal vigyáznunk kell, mert olyan fájlok és könyvtárak is hozzáadhatunk amiket nem szeretnénk. A következő forma még egyszerűbb:
+
+```cmd
+git add .
+```
+
+Ügyeljünk a használatuk során. A pont és a --all használata esetén ajánlot mindig futtatni a status lekérdezését:
+
+```cmd
+git status -u
+```
+
 ### Git objektumok
 
 A Git használata során a háttérben különféle objektumok jönnek létre.
@@ -233,15 +260,24 @@ git add file.py
 
 A művelet után mindkét fájlhoz létrejön egy **blob** nevű objektum.
 
+* blob
+
 ![Blob létrejötte](images/git/git_add_blob.png)
 
-Ezt követőően tároljuk el a **git commit** paranccsal:
+Ezt követően tároljuk el a **git commit** paranccsal:
 
 ![tree létrehozása](images/git/git_commit_tree.png)
 
-A művelet után a következő objektumszerkezet létezik:
+A művelet után létrejön két objektum:
+
+* tree
+* commit
+
+A következő objektumszerkezet létezik:
 
 ![Git objektumok](images/git/git_objektumok_1.png)
+
+Az add műveletnél létrejön a blob objektum, a commit műveletnél létrejön a tree és commit objektum.
 
 Lássunk egy példát egy másik Git objektumszerkezetre. A könyvtárszerkezet:
 
@@ -374,6 +410,12 @@ A távoli elérés törlése:
 
 ```cmd
 git remote remove origin
+```
+
+A helyi tároló feltöltése távoli szerverre:
+
+```cmd
+git push origin master
 ```
 
 ### További lehetőségek
