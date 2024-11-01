@@ -114,24 +114,6 @@ Batch fájlok:
 
 * [https://github.com/oktat/githandler](https://github.com/oktat/githandler)
 
-### Windows kulcsok
-
-Ha feltöltünk a GitHub vagy más távoli szerverre, szükség lehet kulcsok kezelésre.
-
-Kulcsok listázása:
-
-```cmd
-cmdkey /list
-```
-
-Meg kell keresnünk azt a sort, ahol szerepel a github.com.
-
-Ezek után a kiléptetés például:
-
-```cmd
-cmdkey /delete git:https://github.com
-```
-
 ### Tárolás
 
 ![Munka a git verziókövetővel](images/git/git_munka_szines_03.png)
@@ -222,6 +204,58 @@ A következő képen a három commit utáni állapotot látjuk.
 ![Git pillanatképek](images/git/git_fejlesztes.png)
 
 Egy commit egy pillanatkép a projektről. A HEAD mutatja éppen hol dolgozunk. A képen láthatjuk, hogy a master ágon dolgozunk és a harmadik pillanatképen.
+
+### Git objektumok
+
+A Git használata során a háttérben különféle objektumok jönnek létre.
+
+A példa kedvéért készítsünk az app01 projekt könyvtárban két fájlt:
+
+```txt
+app01/
+  |-main.py
+  `-file.py
+```
+
+Épjünk be az app01 projekt könyvtárba, ha nem vagyunk belépve, majd készítsünk helyi tárolót:
+
+```cmd
+cd app01
+git init
+```
+
+Tegyük a két fájlt stage (színpad) állapotba:
+
+```cmd
+git add main.py
+git add file.py
+```
+
+A művelet után mindkét fájlhoz létrejön egy **blob** nevű objektum.
+
+![Blob létrejötte](images/git/git_add_blob.png)
+
+Ezt követőően tároljuk el a **git commit** paranccsal:
+
+![tree létrehozása](images/git/git_commit_tree.png)
+
+A művelet után a következő objektumszerkezet létezik:
+
+![Git objektumok](images/git/git_objektumok_1.png)
+
+Lássunk egy példát egy másik Git objektumszerkezetre. A könyvtárszerkezet:
+
+```cmd
+app01/
+  |-src/
+  |  |-main.py
+  |  `-file.py
+  `-README.md
+```
+
+A létrejött objektumok:
+
+![Git objektumok 2](images/git/git_objektumok_2.png)
 
 ### Visszaállítás
 
