@@ -13,6 +13,7 @@
 * [Unirest alapok](#unirest-alapok)
 * [A Gson](#a-gson)
 * [Gyakorlás 1](#gyakorlás-1)
+* [Gyakorlás 2](#gyakorlás-2)
 * [Azonosítás](#azonosítás)
 * [Hibakezelés](#hibakezelés)
 * [Tesztelés](#tesztelés)
@@ -84,76 +85,6 @@ Tulajdonságok:
 * jól dokumentált
 * közösségi támogatás
 * könnyen bővíthető
-
-### A Gsonről
-
-A Gson a Google által fejlesztett Java programozói könyvtár, amely lehetővé teszi Java objektumok könnyű konvertálását JSON formátumba és visszafelé.
-
-Jellemzők:
-
-* széleskörben használt
-* könnyű használat
-* adattípusok támogatása
-* jó teljesítmény
-
-#### Java objektum JSON formátumba alakítása
-
-```java
-import com.google.gson.Gson;
-
-class User {
-    String name;
-    int age;
-
-    // Konstruktor
-    public User(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
-}
-
-public class GsonExample {
-    public static void main(String[] args) {
-        Gson gson = new Gson();
-        
-        // Java objektum létrehozása
-        User user = new User("Alice", 25);
-        
-        // Java objektum konvertálása JSON-ra
-        String json = gson.toJson(user);
-        System.out.println(json); // Kimenet: {"name":"Alice","age":25}
-    }
-}
-```
-
-#### JSON objektum Java objektumra alakítása
-
-```java
-import com.google.gson.Gson;
-
-class User {
-    String name;
-    int age;
-}
-
-public class GsonExample {
-    public static void main(String[] args) {
-        Gson gson = new Gson();
-        
-        // JSON szöveg
-        String json = "{\"name\":\"Alice\",\"age\":25}";
-        
-        // JSON konvertálása Java objektummá
-        User user = gson.fromJson(json, User.class);
-        System.out.println(user.name); // Kimenet: Alice
-        System.out.println(user.age);   // Kimenet: 25
-    }
-}
-```
-
-#### Következtetés
-
-A Gson nagyon hasznos azok számára, akik REST API-val dolgoznak, mivel az adatokat gyakran JSON formátumban fogadjuk és küldjük.
 
 ## Használható REST API
 
@@ -380,6 +311,17 @@ public class App {
 
 ## A Gson
 
+### A Gsonről
+
+A Gson a Google által fejlesztett Java programozói könyvtár, amely lehetővé teszi Java objektumok könnyű konvertálását JSON formátumba és visszafelé.
+
+Jellemzők:
+
+* széleskörben használt
+* könnyű használat
+* adattípusok támogatása
+* jó teljesítmény
+
 ### Gson telepítése
 
 A pom.xml fájlba:
@@ -409,7 +351,7 @@ dependencies {
 
 Kézi telepítés esetén a **gson** csomagot használja, a com.googele.code.gson szervezeti azonosítóval.
 
-### A GET metódus objektummá
+### A GET kérés átalakítása Java objektummá
 
 Employee.java:
 
@@ -445,7 +387,7 @@ public class App {
 }
 ```
 
-### A GET metódus objektumtömbbé
+### A GET kérés átalakítása objektumtömbbé
 
 ```java
 import java.util.ArrayList;
@@ -658,6 +600,63 @@ public class App {
         EmployeeApi api = new EmployeeApi();
         String response = api.deleteEmployee(6);
         System.out.println(response);
+    }
+}
+```
+
+## Gyakorlás 2
+
+### Java objektum JSON formátumba alakítása
+
+```java
+import com.google.gson.Gson;
+
+class User {
+    String name;
+    int age;
+
+    // Konstruktor
+    public User(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+
+public class GsonExample {
+    public static void main(String[] args) {
+        Gson gson = new Gson();
+        
+        // Java objektum létrehozása
+        User user = new User("Alice", 25);
+        
+        // Java objektum konvertálása JSON-ra
+        String json = gson.toJson(user);
+        System.out.println(json); // Kimenet: {"name":"Alice","age":25}
+    }
+}
+```
+
+### JSON objektum Java objektumra alakítása
+
+```java
+import com.google.gson.Gson;
+
+class User {
+    String name;
+    int age;
+}
+
+public class GsonExample {
+    public static void main(String[] args) {
+        Gson gson = new Gson();
+        
+        // JSON szöveg
+        String json = "{\"name\":\"Alice\",\"age\":25}";
+        
+        // JSON konvertálása Java objektummá
+        User user = gson.fromJson(json, User.class);
+        System.out.println(user.name); // Kimenet: Alice
+        System.out.println(user.age);   // Kimenet: 25
     }
 }
 ```
