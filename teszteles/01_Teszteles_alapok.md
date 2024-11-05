@@ -93,6 +93,8 @@ A szoftverek sorsa:
 * 30 % - kifizették, de sosem futott
 * 45 % - sosem futott rendesen
 
+![Szoftverek sorsa](images/szoftverek_sorsa.png)
+
 ### Statisztikák
 
 A megírt programkódokat mérjük, általában sorok alapján. Így alakult ki a LOC vagy SLOC mértékegység.
