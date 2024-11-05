@@ -16,10 +16,13 @@
 
 ### Fogalmak
 
-* verifikáció: ami elkészült, az jól működik?
-* validáció: amit készítünk, megfelel az ügyfél elvárásainak?
-
-A validáció már a tervezési fázisban is használható.
+* Verifikáció:
+  * Ami elkészült terv, az jó lesz?
+  * Dokumentumok, követelmények, kód ellenőrzése.
+  * Unit tesztek, integrációs tesztek.
+* Validáció:
+  * Amit készítünk, megfelel az ügyfél elvárásainak?
+  * Funkcionális tesztelés, elfogadási teszt, rendszer teszt stb.
 
 #### Automatikus és kézi
 
@@ -102,6 +105,12 @@ A megírt programkódokat mérjük, általában sorok alapján. Így alakult ki 
 SI prefixumokat is szokás használni:
 
 1000 LOC egyenlő 1 kLOC
+
+Az üres sorokat és a megjegyzéseket nem számoljuk.
+
+Példa a következő ábrán:
+
+![LOC példa](images/LOC_pelda.png)
 
 ### A tesztelés szintjei
 
