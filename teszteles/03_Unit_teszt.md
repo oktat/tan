@@ -25,7 +25,7 @@ A fejezet feldolgozásához feltételezzük HTML5, CSS, JavaScript és Node.js i
 
 ## A Mocha
 
-A Mocha böngészőben és Node.js JavaScript alkalmazások tesztelésére használható.
+A Mocha böngésző és Node.js JavaScript alkalmazások tesztelésére használható.
 
 ## Szükséges
 
