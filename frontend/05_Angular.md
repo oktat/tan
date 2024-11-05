@@ -523,6 +523,22 @@ src/style.css:
 @import "bootstrap";
 ```
 
+### Bootstrap JavaScript
+
+Az angular.json fájlba írjuk be bootstrap.js helyét.
+
+angular.json:
+
+```json
+"build": {
+    "options": {
+        "scripts": [
+            "node_modules/bootstrap/dist/js/bootstrap.js"
+        ]
+    }
+}
+```
+
 ### Bootstrap ikonok
 
 ```cmd
