@@ -557,6 +557,20 @@ Használat:
 <i class="bi bi-bug-fill"></i>
 ```
 
+![bootstrap ikon](images/bootstrap/bootstrap-icon_bug-fill.png)
+
+```html
+<i class="bi bi-book"></i>
+```
+
+![bootstrap ikon](images/bootstrap/bootstrap-icon_book.png)
+
+```html
+<i class="bi bi-basket"></i>
+```
+
+![bootstrap ikon](images/bootstrap/bootstrap-icon_backet.png)
+
 ## Képek megjelenítése
 
 Képeket az public könyvtárba kell elhelyezni. Korábbi Angular verzókban volt az src/assets könyvtár, ide kellett elhelyezni a képekept, hang és vidó fájlokat.
