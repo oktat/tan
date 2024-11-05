@@ -40,7 +40,7 @@
 
 ## Az Angular
 
-Az Angular a Google TypeScript alapú, népszerű keretrendszere. Az első Angular neve AngularJS volt, mivel JavaScript alapú volt, és 2010-ben adták ki. Az Angular 2.0-nak nevezett kiadás 2016-ban lett kiadva, és már TypeScript alapokon működött.
+Az Angular a Google **TypeScript** alapú, népszerű keretrendszere. Az első Angular neve AngularJS volt, mivel JavaScript alapú volt, és 2010-ben adták ki. Az Angular 2.0-nak nevezett kiadás 2016-ban lett kiadva, és már TypeScript alapokon működött.
 
 Az Angular szabad és nyílt forráskódú _single-page_ webalkalmazások létrehozására használható keretrendszer.
 
@@ -244,9 +244,10 @@ A böngészőben megnyíló ablak:
 
 ```cmd
 projetk01/
-  |-.angular/
   |-.vscode/
   |-node_modules/
+  |-public/
+  |  `-favicon.ico
   |-src/
   |  |-app/
   |  |  |-app.components.css
@@ -255,17 +256,14 @@ projetk01/
   |  |  |-app.components.ts
   |  |  |-app.config.ts
   |  |  `-app.routes.ts
-  |  |-assets/
-  |  |  `-.gitkeep
-  |  |-favicon.ico
   |  |-index.html
   |  |-main.ts
   |  `-style.css
   |-.editorconfig
   |-.gitignore
   |-angular.json
-  |-package-lock.json
   |-package.json
+  |-pnpm-lock.yaml
   |-README.md
   |-tsconfig.app.json
   |-tsconfig.json
@@ -497,7 +495,7 @@ export class ExampleComponent {
   constructor(private exampleService: ExampleService) {
     this.exampleSubscription = this.exampleService.exampleObservable.subscribe({
       next(data) {
-        // Csináld valamit az adattal
+        // Csinálunk valamit az adattal
       }
     });
   }
@@ -514,8 +512,12 @@ export class ExampleComponent {
 Telepítés:
 
 ```cmd
-pnpm install --save bootstrap
+pnpm install bootstrap
 ```
+
+Vegyük fel a src/style.css fájlban a bootstrap-t.
+
+src/style.css:
 
 ```css
 @import "bootstrap";
@@ -530,7 +532,7 @@ ng add bootstrap-icons
 style.css fájl:
 
 ```css
-@import "~bootstrap-icons";
+@import "bootstrap-icons";
 ```
 
 Használat:
@@ -541,26 +543,42 @@ Használat:
 
 ## Képek megjelenítése
 
-Képeket az src/assets könyvtárba kell elhelyezni.
+Képeket az public könyvtárba kell elhelyezni. Korábbi Angular verzókban volt az src/assets könyvtár, ide kellett elhelyezni a képekept, hang és vidó fájlokat.
 
 Töltsük le egy képet például a következő helyről:
 
 * [Képek](https://szit.hu/download/images)
 
-Tegyük a kiválasztott képet az src/assets könyvtárba. Például:
+Tegyük a kiválasztott képet az public könyvtárba. Például:
 
 ```txt
-src/assets/tatra_hegy.jpg
+public/tatra_hegy.jpg
 ```
 
 Az app.component.html fájlba ekkor
 
 ```html
 <img 
-    src="../assets/tatra_hegy.jpg" 
+    src="tatra_hegy.jpg" 
     alt="Tatra Hegy" 
     width="200"
 />
+```
+
+A public könyvtáron belül készíthetünk egy images vagy hasonló könyvtárat és tárolhatjuk abban a képeket. Esetleg public/assets/images.
+
+* public/valami.png
+* public/images/valami.png
+* public/assets/images/valami.png
+* public/imgs/valami.png
+
+A képek helye, egyébként az angular.json fájlban van beállítva:
+
+```json
+"assets": [
+  "glob": "**/*",
+  "input": "public"
+]
 ```
 
 ## Eseménykezelő
@@ -587,7 +605,7 @@ export class AppComponent {
 
 ## Szelekció
 
-Ügyeljünk arra, hogy a **CommonModule** importálva van, ott ahol haszáljuk.
+Ügyeljünk arra, hogy a **CommonModule** importálva legyen, ott ahol haszáljuk.
 
 ```typescript
 import { CommonModule } from '@angular/common';
