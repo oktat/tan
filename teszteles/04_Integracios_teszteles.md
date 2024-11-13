@@ -5,6 +5,8 @@
 * [Tartalomjegyzék](#tartalomjegyzék)
 * [Az Integrációs tesztelés](#az-integrációs-tesztelés)
 * [Könyvtári kölcsönzés](#könyvtári-kölcsönzés)
+* [További tesztesetek](#további-tesztesetek)
+* [Teszt keretrendszerek](#teszt-keretrendszerek)
 * [Integrációs teszt gyakorlat](#integrációs-teszt-gyakorlat)
 
 ## Az Integrációs tesztelés
@@ -43,17 +45,65 @@ class Borrowing:
     def lend_book(user, book):
         user.borrow_book(book)
 
+```
 
+```python
+# Integrációs teszt
+def test_borrowing():
+    user = User("Alice")
+    book = Book("1984", "George Orwell")
+    
+    # Mekkora a borrowed_books list mérete?
+    print(len(user.borrowed_books))
+    Borrowing.lend_book(user, book)
+    
+    # Most mérete 1 kell legyen
+    print(len(user.borrowed_books))
+
+test_borrowing()
+```
+
+Az assert a Python nyelv része, amivel vizsgálatokat végezhetünk. Ha vizsgálat False értéket ad, a program futása megszakad.
+
+Tesztelés assert-tel:
+
+```python
 # Integrációs teszt
 def test_borrowing():
     user = User("Alice")
     book = Book("1984", "George Orwell")
     
     Borrowing.lend_book(user, book)
-    
+
+    # Használjuk az assert kulcsszót
+    # A book benne van a listában?
     assert book in user.borrowed_books
 
+    # Az assert nem ad eredményt, ha benne volt
+    # Ha nem volt megszakítja a program futását
+
+    print('A teszt sikerres')
+
 test_borrowing()
+```
+
+A try_except használata:
+
+```python
+# Integrációs teszt
+def test_borrowing():
+    user = User("Alice")
+    book = Book("1984", "George Orwell")
+    book2 = Book("Más", "Másvalaki")
+
+    Borrowing.lend_book(user, book)    
+    
+    try:
+      assert book2 in user.borrowed_books, "Book not borrowed"
+      print("Borrowing test passed.")
+    except AssertionError as e:
+      print("Borrowing test failed.")
+      print(e)
 ```
 
 A könyv és a felhasználó moduloknál érdemes implementálni a CRUD műveleteket.
@@ -64,14 +114,7 @@ A kölcsönzött könyv lista frissül a felhsználómodulban?
 
 Tesztelhetjük a határokat, például érévnyetlen adatokkal. Ez lehet egy nem létező könyv kölcsönzése.
 
-### Teszt keretrendszerek
-
-Python
-
-* pytest
-* unittest
-
-### További tesztesetek
+## További tesztesetek
 
 ```python
 # Ha már ki van kölcsönözve egy könyv
@@ -91,7 +134,7 @@ test_borrowing_unavailable_book()
 
 ```
 
-Visszadás működik. A felhasználó könyveiből eltávolításra kerül a visszaadott könyv?
+Visszaadás működik. A felhasználó könyveiből eltávolításra kerül a visszaadott könyv?
 
 ```python
 def test_returning_book():
@@ -132,6 +175,15 @@ def test_borrowing_invalid_book():
 
     assert result == "Invalid book"
 ```
+
+## Teszt keretrendszerek
+
+Használhatunk teszt keretrendszereket is.
+
+A Python két tesztkeretrendszere:
+
+* pytest
+* unittest
 
 ## Integrációs teszt gyakorlat
 

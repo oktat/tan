@@ -70,7 +70,7 @@ Ellenőrzés:
 mocha --version
 ```
 
-A telepítéshez az npm helyett használhatjuk a yarn vagy a pnpm parancsot is.
+A telepítéshez az **npm helyett** használhatjuk a **yarn** vagy a **pnpm** parancsot is.
 
 Készítsük a projektünk gyökerében egy **test** nevű könyvtárat. Tetszőleges néven készítsünk benne egy teszt állományt.
 
@@ -131,10 +131,10 @@ Egy állományban több describe() függvény is lehet. Minden describe() függv
 
 ## Függvény tesztelése
 
-Az app.js hivatkozása a HTML fájlban:
+Az tools.js hivatkozása a HTML fájlban:
 
 ```html
-<script type="module" src="app.js"></script>
+<script type="module" src="tools.js"></script>
 ```
 
 A package.json fájlban a type értéke:
@@ -147,7 +147,9 @@ A package.json fájlban a type értéke:
 
 Tipp: A **sinto** csomag, **sin init** parancsa, pont így állítja be a fájlokat.
 
-Most teszteljünk egy függvényt, ami összead két számot. Készítsünk az src könyvtárban egy app.js állományt, tartalma:
+Most teszteljünk egy függvényt, ami összead két számot. Készítsünk az src könyvtárban egy **tools.js** állományt.
+
+src/tools.js:
 
 ```javascript
 function add(num1, num2) {
@@ -161,11 +163,13 @@ function sub(num1, num2) {
 export {add, sub};
 ```
 
-Írjunk hozzá tesztet, appTest.js nevű fájlba:
+Írjunk hozzá tesztet, **toolsTest.js** nevű fájlba.
+
+test/toolsTest.js:
 
 ```javascript
 import assert from 'assert';
-import { add, sub } from '../src/app.js';
+import { add, sub } from '../src/tools.js';
 
 describe('Az add() függvény tesztje', () => {
     it('A 30, 35 bemenetre 65', () => {
@@ -189,17 +193,41 @@ npm test
 
 ## Kizárások
 
-Az only() függvénnyel csak adott tesztet futtathatunk. A skip() segítségvel az adott tesztet átlépjük.
+Az only() függvénnyel csak adott tesztet futtathatjuk.
+
+test/toolsTest.js:
 
 ```javascript
-describe('egyszerű teszt', () => {
-    it('A true értékre true-t várunk', () => {
-      expect(true).toBe(true)
-    })  
-    it.skip('A false értéket kapunk, de true-t várunk', () => {
-      expect(false).not.toBe(true);
+describe('Az add() függvény tesztje', () => {
+    it('A 30, 35 bemenetre 65', () => {
+        let actual = add(30, 35)
+        assert.equal(actual, 65)
+    })
+    it.only('A 70, 20 bemenetre 90', () => {
+        let actual = add(70, 20)
+        assert.equal(actual, 90)
     })
 })
+
+//...
+```
+
+A skip() segítségvel az adott tesztet átlépjük.
+
+test/toolsTest.js:
+
+```javascript
+describe('Az add() függvény tesztje', () => {
+    it('A 30, 35 bemenetre 65', () => {
+        let actual = add(30, 35)
+        assert.equal(actual, 65)
+    })
+    it.skip('A 70, 20 bemenetre 90', () => {
+        let actual = add(70, 20)
+        assert.equal(actual, 90)
+    })
+})
+//...
 ```
 
 Ebben az esetben csak a második teszt nem fog futni.
@@ -248,7 +276,7 @@ Azt is vizsgáljuk milyen hibát dob:
 
 ### Feladat
 
-Oldjunk meg egy feladatot szit.hu webhelyről, amely adatokat kér be, számítást végez, majd az eredményt kiírja. A feladatok közül 0301-től 0400-ig jöhet szóba.
+Oldjunk meg egy feladatot szit.hu webhelyről, amely adatokat kér be, számítást elvégezi, majd az eredményt kiírja. A feladatok közül 0301-től 0400-ig jöhet szóba.
 
 Legyen a 0312-s feladat. A projekt neve "tombsug".
 
@@ -269,9 +297,10 @@ sin init
 Készítsük el az alkalmazást az src könyvtárban:
 
 ```txt
-src/
-  |-app.js
-  `-index.html
+tombsug/
+  `-src/
+     |-app.js
+     `-index.html
 ```
 
 Az index.html tartalma:
@@ -280,8 +309,7 @@ Az index.html tartalma:
 
 ```
 
-Az app.js fájlban két objektumot, 6 függvényt hozunk létre, és a
-window objektumon futtatunk egy függvényt:
+Az app.js fájlban két objektumot, 6 függvényt hozunk létre, és a window objektumon futtatunk egy függvényt:
 
 ```javascript
 const doc = {}
@@ -376,7 +404,20 @@ export {calcRadius, isValidInput}
 
 ### Tesztesetek felvétele
 
-Szükségünk van tesztestekre. Vegyünk egy számológépet és nézzük meg, adott bemenetre mit kell kapnunk. Lehetséges tesztesetek:
+Szükségünk van tesztestekre. Vegyünk egy számológépet és nézzük meg, adott bemenetre mit kell kapnunk. 
+
+Használjuk a Node.js node parancsát, például:
+
+```javascript
+node
+Welcome to Node.js v20.18.0.
+Type ".help" for more information.
+> 1.0/2.0*30*Math.sin(35*Math.PI/180)
+8.60364654526569
+> 
+```
+
+Lehetséges tesztesetek:
 
 | Oldal | Alfa szög | Sugár |
 |-|-|-|
