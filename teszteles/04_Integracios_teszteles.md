@@ -182,7 +182,7 @@ Használhatunk teszt keretrendszereket is.
 
 A Python két tesztkeretrendszere:
 
-* pytest
+* [pytest](https://szit.hu/doku.php?id=oktatas:programozas:python:pytest)
 * unittest
 
 ## Integrációs teszt gyakorlat
