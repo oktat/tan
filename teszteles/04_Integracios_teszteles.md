@@ -124,7 +124,7 @@ def test_borrowing_unavailable_book():
     book = Book("The Great Gatsby", "F. Scott Fitzgerald")
     book.is_available = False  # Könyv már el van kölcsönözve
 
-    result = Borrowing.lend_book(user, book)  # Itt implementálhatsz hibakezelést
+    result = Borrowing.lend_book(user, book)
 
     assert result == "Book is not available"
 
@@ -143,7 +143,9 @@ def test_returning_book():
     user.borrow_book(book)
 
     # Visszaadás művelet
-    user.return_book(book)  # Implementálj egy return_book metódust
+    user.return_book(book)  
+    
+    # Implementáljunk egy return_book metódust
 
     assert book not in user.borrowed_books
 ```
