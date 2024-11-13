@@ -1,4 +1,4 @@
-# Rendszer szintá tesztelés
+# Rendszer szintű tesztelés
 
 * **Szerző:** Sallai András
 * Copyright (c) 2024, Sallai András
