@@ -119,6 +119,15 @@ Tesztelhetjük a határokat, például érévnyetlen adatokkal. Ez lehet egy nem
 ```python
 # Ha már ki van kölcsönözve egy könyv
 # elutasítja a kód a kölcsönzést?
+
+class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+        self.is_available = True  # vegyük fel az új tulajdonságot
+
+#...
+
 def test_borrowing_unavailable_book():
     user = User("Alice")
     book = Book("The Great Gatsby", "F. Scott Fitzgerald")
@@ -127,7 +136,6 @@ def test_borrowing_unavailable_book():
     result = Borrowing.lend_book(user, book)
 
     assert result == "Book is not available"
-
 
 
 test_borrowing_unavailable_book()

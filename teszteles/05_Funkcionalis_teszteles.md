@@ -33,7 +33,7 @@ Jellemzők:
 
 ## A puppeteer
 
-A Puppeteer egy Node.js könyvtár. Vezérlést biztosít Chrome vagy és Firefox böngészőkhöz. A DevTools vagy WebDriver protokollt használ.
+A Puppeteer egy Node.js könyvtár. Vezérlést biztosít Chrome és Firefox böngészőkhöz. A DevTools vagy WebDriver protokollt használja.
 
 Webhely:
 
