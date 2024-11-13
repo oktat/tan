@@ -23,7 +23,7 @@ Például: Specifikáció szerint jelentést kell tudnia generálni valamiről a
 * Milyen gyorsan reagál?
 * A célrendszeren problémamentesen fut?
 
-### Eszközök
+## Eszközök
 
 Automatizált tesztelés lehetséges eszközei:
 
@@ -100,3 +100,7 @@ Tesztelésre kész:
 Tesztelés után:
 
 ![kézi tesztelés táblázat](images/keziteszt_tablazat_02.png)
+
+### Letölthető táblázat
+
+* [https://szit.hu/download/oktatas/teszt_sablon.xlsx](https://szit.hu/download/oktatas/teszt_sablon.xlsx)

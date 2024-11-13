@@ -156,3 +156,7 @@ Készítsen prezentációt, amiben szerepelnek:
 * talált hibák
 * felhasználói visszajelzések
 * javasolt fejlesztések
+
+### Letölthető táblázat
+
+* [https://szit.hu/download/oktatas/teszt_sablon.xlsx](https://szit.hu/download/oktatas/teszt_sablon.xlsx)

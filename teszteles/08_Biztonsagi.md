@@ -31,7 +31,7 @@ A cél a szoftverek sérülékenységeinke feltárása, az érzékyen adatok meg
 ### Biztonsági vizsgálat
 
 * Fehérdobozos teszt.
-* Pl. valóban kötelező a betűk és számok használata a jelszavaknál?
+* Például: valóban kötelező a betűk és számok használata a jelszavaknál?
 
 ### Sebezhetőség vizsgálat
 
