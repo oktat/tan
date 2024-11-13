@@ -17,7 +17,7 @@
 * [Fej nélküli indítás](#fej-nélküli-indítás)
 * [Képernyőkép](#képernyőkép)
 * [A Mocha használata a szit.hu vizsgálatával](#a-mocha-használata-a-szithu-vizsgálatával)
-* [A háromszög területsámítsá tesztje](#a-háromszög-területsámítsá-tesztje)
+* [A háromszög területszámításának tesztje](#a-háromszög-területszámításának-tesztje)
 
 ## Bevezetés
 
@@ -191,7 +191,7 @@ npm test
 puppeteer.launch({headless: false});
 ```
 
-Legyen egy 10 másodperces várakozást állítsunk be:
+Legyen egy 10 másodperces várakozás:
 
 ```javascript
 await new Promise(resolve => setTimeout(resolve, 10000));
@@ -280,7 +280,7 @@ describe('A szit.hu tesztelése', function()  {
 });
 ```
 
-## A háromszög területsámítsá tesztje
+## A háromszög területszámításának tesztje
 
 ```javascript
 import puppeteer from 'puppeteer'
