@@ -58,10 +58,18 @@ sin init
 Telepítsüka Puppeteer-t:
 
 ```cmd
+npm install --save-dev puppeteer
+```
+
+vagy pnpm paranccsal:
+
+```cmd
 pnpm add --save-dev puppeteer
 ```
 
 ## Teszt írása
+
+Ha a projektet a **sin init** paranccsal készítettük, akkor a package.json egyes részei már készen állhatnak. Ugyanígy a bs-config.json fájl is.
 
 A package.json scriptjei:
 
@@ -70,7 +78,7 @@ package.json:
 ```json
 {
   "scripts": {
-    "test": "node test/index.js",
+    "test": "node test/testApp.cjs",
     "start": "browser-sync start --config bs-config.json"
   }
 }
@@ -145,35 +153,63 @@ index.html
 
 ```json
 {
-    "server": ["src"]
+  "server": [
+    "src",
+    "node_modules/bootstrap/dist/css",
+    "node_modules/bootstrap/dist/js"
+  ],
+  "port": 3000,
+  "watch": true
 }
 ```
 
 ## Teszt
 
+A webes felület teszteléséhez néhány eszköz:
+
+* Selenium
+* Cypress
+* Puppeteer
+
+### A Puppeteer használata a szit.hu vizsgálatával
+
+Készítsük el a test nevű könyvtárba a tesztet.
+
+A fájlok kiterjesztése **.cjs**, ha package.json-ban a "type": "module" be van kapcsolva. Egyébként **js**.
+
+Használhatjuk .js kiterjesztést ha az **import** kulcsszóval készítjük el a tesztet.
+
+```javascript
+import puppeteer from 'puppeteer';
+
+//...
+```
+
+test/index.cjs:
+
 ```javascript
 const puppeteer = require('puppeteer');
 
 (async () => {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+        headless: true});
     const page = await browser.newPage();
 
     await page.goto('https://szit.hu/');
 
-    await page.type('#qsearch__in', 'Programozás');
+    await page.type('#qsearch__in', 'programozás');
     await page.click('button[type="submit"]');
 
-    await page.waitForSelector('body');
+    await page.waitForSelector('.search-results-form');
 
     const content = await page.content();
     const containsProgramming = content.includes('programozas');
 
     if (containsProgramming) {
-        console.log('A weblap a "programozas" szó szerepel.');
+        console.log('A weblapon a "programozas" szó szerepel.');
     } else {
-        console.log('A weblapon a "programozas" szó nem szerepl.');
+        console.log('A weblapon a "programozas" szó nem szerepel.');
     }
-
     await browser.close();
 })();
 ```
@@ -181,7 +217,6 @@ const puppeteer = require('puppeteer');
 ### Futtatás
 
 ```cmd
-npm start
 npm test
 ```
 
@@ -282,6 +317,8 @@ describe('A szit.hu tesztelése', function()  {
 
 ## A háromszög területszámításának tesztje
 
+test/index.cjs:
+
 ```javascript
 import puppeteer from 'puppeteer'
 import assert from 'assert'
@@ -331,4 +368,11 @@ describe('Háromszög területszámítás tesztje', () => {
         assert.strictEqual(actual, '525')
     })
 })
+```
+
+A teszt futtatása:
+
+```cmd
+npm start
+npm test
 ```
