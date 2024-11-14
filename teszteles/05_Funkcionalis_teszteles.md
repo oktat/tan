@@ -243,6 +243,26 @@ describe('A szit.hu tesztelése', function()  {
 });
 ```
 
+Telepítsük a mocha-t:
+
+```cmd
+npm install --save-dev mocha
+```
+
+package.json részlet:
+
+```json
+{
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "mocha": "^10.8.2",
+    "puppeteer": "^23.8.0"
+  },  
+}
+```
+
 ## Háromszög tesztprojekt készítése
 
 Ha a projektet a **sin init** paranccsal készítettük, akkor a package.json egyes részei már készen állhatnak. Ugyanígy a bs-config.json fájl is.
@@ -254,7 +274,7 @@ package.json:
 ```json
 {
   "scripts": {
-    "test": "node test/testApp.js",
+    "test": "mocha",
     "start": "browser-sync start --config bs-config.json"
   }
 }
