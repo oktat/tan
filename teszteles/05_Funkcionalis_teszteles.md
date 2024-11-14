@@ -331,7 +331,7 @@ bs-config.json:
 
 ## A háromszög területszámításának tesztje
 
-test/index.js:
+test/testApp.js:
 
 ```javascript
 import puppeteer from 'puppeteer'
