@@ -122,6 +122,18 @@ import puppeteer from 'puppeteer';
 
 ### Futtatás
 
+package.json részlet:
+
+```json
+{
+  "scripts": {
+    "test": "node test/testApp.js"
+  },
+}
+```
+
+Futtatás parancssorból:
+
 ```cmd
 npm test
 ```
