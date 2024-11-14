@@ -78,7 +78,7 @@ package.json:
 ```json
 {
   "scripts": {
-    "test": "node test/testApp.cjs",
+    "test": "node test/testApp.js",
     "start": "browser-sync start --config bs-config.json"
   }
 }
@@ -189,7 +189,7 @@ const puppeteer = require('puppeteer');
 //...
 ```
 
-test/index.js:
+test/testApp.js:
 
 ```javascript
 import puppeteer from 'puppeteer';
