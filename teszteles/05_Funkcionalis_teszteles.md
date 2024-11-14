@@ -91,7 +91,7 @@ const puppeteer = require('puppeteer');
 //...
 ```
 
-test/testApp.js:
+test/index.js:
 
 ```javascript
 import puppeteer from 'puppeteer';
@@ -122,12 +122,20 @@ import puppeteer from 'puppeteer';
 
 ### Futtatás
 
+Futtatás node paranccsal:
+
+```cmd
+node test/index.js
+```
+
+Futtathatjuk npm scripttel is.
+
 package.json részlet:
 
 ```json
 {
   "scripts": {
-    "test": "node test/testApp.js"
+    "test": "node test/index.js"
   },
 }
 ```
