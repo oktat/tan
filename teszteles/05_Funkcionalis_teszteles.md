@@ -12,11 +12,11 @@
 * [Bevezetés](#bevezetés)
 * [A puppeteer](#a-puppeteer)
 * [Projekt készítése](#projekt-készítése)
-* [Tesztprojekt készítése](#tesztprojekt-készítése)
 * [Teszt készítése](#teszt-készítése)
 * [Fej nélküli indítás](#fej-nélküli-indítás)
 * [Képernyőkép](#képernyőkép)
 * [A Mocha használata a szit.hu vizsgálatával](#a-mocha-használata-a-szithu-vizsgálatával)
+* [Háromszög tesztprojekt készítése](#háromszög-tesztprojekt-készítése)
 * [A háromszög területszámításának tesztje](#a-háromszög-területszámításának-tesztje)
 
 ## Bevezetés
@@ -65,104 +65,6 @@ vagy pnpm paranccsal:
 
 ```cmd
 pnpm add --save-dev puppeteer
-```
-
-## Tesztprojekt készítése
-
-Ha a projektet a **sin init** paranccsal készítettük, akkor a package.json egyes részei már készen állhatnak. Ugyanígy a bs-config.json fájl is.
-
-A package.json scriptjei:
-
-package.json:
-
-```json
-{
-  "scripts": {
-    "test": "node test/testApp.js",
-    "start": "browser-sync start --config bs-config.json"
-  }
-}
-```
-
-src/app.js:
-
-```javascript
-doc = {
-    baseInput: document.querySelector('#base'),
-    heightInput: document.querySelector('#height'),
-    areaInput: document.querySelector('#area'),
-    calcButton: document.querySelector('#calcButton')
-};
-
-window.addEventListener('load', () => {
-    init();
-});
-
-function init() {
-    doc.calcButton.addEventListener('click', () => {
-        startCalc();
-    });
-}
-
-function startCalc() {
-    let base = Number(doc.baseInput.value);
-    let height = Number(doc.heightInput.value);
-    doc.areaInput.value = calcTriangleArea(base, height);
-}
-
-function calcTriangleArea(base, height) {
-    return base * height / 2;
-}
-```
-
-src/index.html:
-
-```html
-<!DOCTYPE html>
-<html lang="hu">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Triangle</title>
-</head>
-<body>
-
-    <div class="container">
-        <h1>Triangle</h1>
-
-        <div class="triangleForm">
-            <div class="mt3">
-                <label for="base">Alap</label>
-                <input type="text" id="base">
-            </div>
-            <div class="mt3">
-                <label for="height">Magasság</label>
-                <input type="text" id="height">
-            </div>
-            <button id="calcButton">Számít</button>
-            <div class="mt3">
-                <label for="area">Terület</label>
-                <input type="text" id="area">
-            </div>
-        </div>
-    </div>
-    <script src="app.js"></script>
-</body>
-</html>
-```
-
-bs-config.json:
-
-```json
-{
-  "server": [
-    "src",
-    "node_modules/bootstrap/dist/css",
-    "node_modules/bootstrap/dist/js"
-  ],
-  "port": 3000,
-  "watch": true
-}
 ```
 
 ## Teszt készítése
@@ -327,6 +229,104 @@ describe('A szit.hu tesztelése', function()  {
         assert.strictEqual(currentUrl, 'https://szit.hu/doku.php?id=oktatas');
     });
 });
+```
+
+## Háromszög tesztprojekt készítése
+
+Ha a projektet a **sin init** paranccsal készítettük, akkor a package.json egyes részei már készen állhatnak. Ugyanígy a bs-config.json fájl is.
+
+A package.json scriptjei:
+
+package.json:
+
+```json
+{
+  "scripts": {
+    "test": "node test/testApp.js",
+    "start": "browser-sync start --config bs-config.json"
+  }
+}
+```
+
+src/app.js:
+
+```javascript
+doc = {
+    baseInput: document.querySelector('#base'),
+    heightInput: document.querySelector('#height'),
+    areaInput: document.querySelector('#area'),
+    calcButton: document.querySelector('#calcButton')
+};
+
+window.addEventListener('load', () => {
+    init();
+});
+
+function init() {
+    doc.calcButton.addEventListener('click', () => {
+        startCalc();
+    });
+}
+
+function startCalc() {
+    let base = Number(doc.baseInput.value);
+    let height = Number(doc.heightInput.value);
+    doc.areaInput.value = calcTriangleArea(base, height);
+}
+
+function calcTriangleArea(base, height) {
+    return base * height / 2;
+}
+```
+
+src/index.html:
+
+```html
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangle</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Triangle</h1>
+
+        <div class="triangleForm">
+            <div class="mt3">
+                <label for="base">Alap</label>
+                <input type="text" id="base">
+            </div>
+            <div class="mt3">
+                <label for="height">Magasság</label>
+                <input type="text" id="height">
+            </div>
+            <button id="calcButton">Számít</button>
+            <div class="mt3">
+                <label for="area">Terület</label>
+                <input type="text" id="area">
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
+```
+
+bs-config.json:
+
+```json
+{
+  "server": [
+    "src",
+    "node_modules/bootstrap/dist/css",
+    "node_modules/bootstrap/dist/js"
+  ],
+  "port": 3000,
+  "watch": true
+}
 ```
 
 ## A háromszög területszámításának tesztje
