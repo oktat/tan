@@ -151,6 +151,8 @@ index.html
 </html>
 ```
 
+bs-config.json:
+
 ```json
 {
   "server": [
@@ -179,16 +181,18 @@ A fájlok kiterjesztése **.cjs**, ha package.json-ban a "type": "module" be van
 
 Használhatjuk .js kiterjesztést ha az **import** kulcsszóval készítjük el a tesztet.
 
-```javascript
-import puppeteer from 'puppeteer';
-
-//...
-```
-
 test/index.cjs:
 
 ```javascript
 const puppeteer = require('puppeteer');
+
+//...
+```
+
+test/index.js:
+
+```javascript
+import puppeteer from 'puppeteer';
 
 (async () => {
     const browser = await puppeteer.launch({
@@ -222,6 +226,8 @@ npm test
 
 ## Fej nélküli indítás
 
+A fej nélküli indítás azt jelenti, a böngészőablak nem jelenik meg a teszt futtatása során. Az alapértelmezés a fejnélküli indítás. Ha beállítással nyomatékosítjuk a {headless: true} beállítással tehetjük meg. Ha szeretnénk látni a böngészőt, akkor állítsuk true értékre.
+
 ```javascript
 puppeteer.launch({headless: false});
 ```
@@ -233,6 +239,8 @@ await new Promise(resolve => setTimeout(resolve, 10000));
 ```
 
 A teljes kód:
+
+test/index.js:
 
 ```javascript
 const puppeteer = require('puppeteer');
@@ -251,7 +259,7 @@ const puppeteer = require('puppeteer');
 A teszt indítása:
 
 ```bash
-node test/valami.js
+node test/index.js
 ```
 
 vagy:
@@ -261,6 +269,10 @@ npm test
 ```
 
 ## Képernyőkép
+
+A futó böngészőről képernyő kép is készíthető programozottan.
+
+test/index.js:
 
 ```javascript
 const puppeteer = require('puppeteer');
@@ -279,6 +291,8 @@ const puppeteer = require('puppeteer');
 ```
 
 ## A Mocha használata a szit.hu vizsgálatával
+
+test/index.js:
 
 ```javascript
 const puppeteer = require('puppeteer');
@@ -299,7 +313,7 @@ describe('A szit.hu tesztelése', function()  {
         const title = await page.title();
         assert.strictEqual(title, 'start [szit]')
     });
-    it('Van az Oktatás link a főoldalon', async function() {
+    it('Van Oktatás link a főoldalon', async function() {
         await page.goto('https://szit.hu');
         const linkExists = await page.waitForSelector('a[href="/doku.php?id=oktatas"]');
         assert.ok(linkExists, 'Az Oktatás link nem található!');
@@ -317,7 +331,7 @@ describe('A szit.hu tesztelése', function()  {
 
 ## A háromszög területszámításának tesztje
 
-test/index.cjs:
+test/index.js:
 
 ```javascript
 import puppeteer from 'puppeteer'
