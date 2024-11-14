@@ -12,8 +12,8 @@
 * [Bevezetés](#bevezetés)
 * [A puppeteer](#a-puppeteer)
 * [Projekt készítése](#projekt-készítése)
-* [Teszt írása](#teszt-írása)
-* [Teszt](#teszt)
+* [Tesztprojekt készítése](#tesztprojekt-készítése)
+* [Teszt készítése](#teszt-készítése)
 * [Fej nélküli indítás](#fej-nélküli-indítás)
 * [Képernyőkép](#képernyőkép)
 * [A Mocha használata a szit.hu vizsgálatával](#a-mocha-használata-a-szithu-vizsgálatával)
@@ -67,7 +67,7 @@ vagy pnpm paranccsal:
 pnpm add --save-dev puppeteer
 ```
 
-## Teszt írása
+## Tesztprojekt készítése
 
 Ha a projektet a **sin init** paranccsal készítettük, akkor a package.json egyes részei már készen állhatnak. Ugyanígy a bs-config.json fájl is.
 
@@ -165,7 +165,7 @@ bs-config.json:
 }
 ```
 
-## Teszt
+## Teszt készítése
 
 A webes felület teszteléséhez néhány eszköz:
 
