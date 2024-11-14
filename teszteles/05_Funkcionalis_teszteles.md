@@ -319,12 +319,12 @@ src/index.html:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Triangle</title>
+    <title>Háromszög</title>
 </head>
 <body>
 
     <div class="container">
-        <h1>Triangle</h1>
+        <h1>Háromszög területe</h1>
 
         <div class="triangleForm">
             <div class="mt3">
