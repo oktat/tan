@@ -416,6 +416,21 @@ describe('Háromszög területszámítás tesztje', () => {
 })
 ```
 
+package.json részlet:
+
+```json
+{
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "mocha": "^10.8.2",
+    "puppeteer": "^23.8.0"
+  },
+}
+
+```
+
 A teszt futtatása:
 
 ```cmd
