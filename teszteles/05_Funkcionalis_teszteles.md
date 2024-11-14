@@ -84,7 +84,7 @@ package.json:
 }
 ```
 
-app.js
+src/app.js:
 
 ```javascript
 doc = {
@@ -115,7 +115,7 @@ function calcTriangleArea(base, height) {
 }
 ```
 
-index.html
+src/index.html:
 
 ```html
 <!DOCTYPE html>
