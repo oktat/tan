@@ -15,6 +15,9 @@
 * [Iteratív és inkrementális módszertanok](#iteratív-és-inkrementális-módszertanok)
 * [Gyors alkalmazásfejlesztés - RAD](#gyors-alkalmazásfejlesztés---rad)
 * [Agilis szoftverfejlesztés](#agilis-szoftverfejlesztés)
+* [DevOps](#devops)
+* [Extrém programozás](#extrém-programozás)
+* [Lean szoftverfejlesztés](#lean-szoftverfejlesztés)
 * [Gyakorlás](#gyakorlás)
 
 ## Módszertanok
@@ -30,6 +33,8 @@ A fejlesztési módszertanok meghatározzák, hogy az egyes szoftveréletcikluso
 * Extrém programozás
 
 ## Vízesés modell
+
+Angolul Waterfall.
 
 Meghatározzuk a követelményeket, tervezünk, fejlesztünk, tesztelünk és átadjuk a kész projektet.
 
@@ -52,6 +57,8 @@ A prototípus modellnél számtalan prototípust kap a megrendelő, mielőtt meg
 A szoftvert folyamatosan fejlesztjük és kiadjuk.
 
 Fontos az egyszerűség és a működő szoftver létrehozása.
+
+Elsőként egy vázlatos követelményrendszert állítunk össze. Osztályozzuk a szolgáltatásokat fontosság szerint. A fontosakat elkezdjük megvalósítani.
 
 ## Gyors alkalmazásfejlesztés - RAD
 
@@ -104,6 +111,44 @@ Megbeszélendő:
 * mivel foglalkoztam tegnap
 * mivel szeretnék ma foglalkozni
 * milyen problémákba ütköztem
+
+## DevOps
+
+A fejlesztési és üzemeltetési folyamatokat integráljuk. Gyorsabb és hatékony szoftver szállítás.
+
+Az automatikusa tesztek és a folyamatos integráció a hangsúlyosak.
+
+## Extrém programozás
+
+Angolul: Extreme Programming, röviden XP.
+
+Jellemzők:
+
+* párban programozás
+* folyamatos integráció
+* TDD
+
+## Lean szoftverfejlesztés
+
+A Lean elveket alkalmazza a szoftverfejlesztésben.
+
+Jellemzők:
+
+* tisztázzuk a követelményeket
+* összedolgozás
+* adjun ki kódot minél előbb
+* dolgozzunk csapatban
+* nézzük távolról az egészet
+* döntsünk olyan későn amennyire csak lehet
+* csökkentsük a felesleget
+* folyamatosan tanuljunk
+
+Plusz két ráadás:
+
+* kommunikáció javítása
+* megfelelő ember végezze a munkát
+
+* [Lean módszer](https://szit.hu/doku.php?id=oktatas:programozas:fejlesztesi_modellek_es_modszertanok#lean_modszer)
 
 ## Gyakorlás
 
