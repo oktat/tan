@@ -13,6 +13,7 @@
 * [Figyelmeztetés](#figyelmeztetés)
 * [JMeter](#jmeter)
 * [A Lighthouse](#a-lighthouse)
+* [A PageSpeed Insights](#a-pagespeed-insights)
 
 ## A terheléses tesztelésről
 
@@ -67,7 +68,7 @@ Letölthetjük a legújabb binárist:
 
 * apache-jmeter-x.y.z.zip
 
-Bontsuk ki a becsomagolt fájlt, majd a bin könyvtárba keressük meg az indítóscrpteket:
+Bontsuk ki a becsomagolt fájlt, majd a bin könyvtárba keressük meg az indítóscripteket:
 
 * jmeter.bat
 * jmeter.sh
@@ -76,7 +77,7 @@ Windowson a jmeter.bat segítségével indítjuk.
 
 ### Szálakcsoportok
 
-Beállíthatjuk a szálak számát, és a lefutáis időt.
+Beállíthatjuk a szálak számát, és a lefutási időt.
 
 * Number of Threads (users): 10
 * Ramp-up period (second): 100
@@ -161,7 +162,9 @@ A Google által fejlesztett eszköz, egy egy teljesítmény, SEO, hozzáférhet�
 
 ### A Lighthouse beszerzése
 
-A Lighthouse Chrome bővítményként érhető el. Képes jelentéseket generálni.
+A Lighthouse Chrome bővítményként érhető el. Képes jelentéseket generálni. Több Lighthouse nevű bővímény is van. Nekünk arra van szükségünk, aminek a kiadó szervezete:
+
+* developers.google.com/web
 
 ### A Lighthouse használata
 
@@ -170,3 +173,16 @@ A Lighthouse Chrome bővítményként érhető el. Képes jelentéseket generál
 * Kattintsunk: (Analyze page load)
 
 ![A Lighthouse tesztelés után](images/teljesitmeny/lighthouse_teljesitmeny.png)
+
+## A PageSpeed Insights
+
+A PageSpeed Insights a weboldalak tesztelésére szánt alkalmazás:
+
+* [https://pagespeed.web.dev/](https://pagespeed.web.dev/)
+
+Az alkalmazás a következőket vizsgálja:
+
+* elérés sebessége
+* kisegítési lehetőségek
+* bevált módszerek használata
+* keresőoptimalizálás

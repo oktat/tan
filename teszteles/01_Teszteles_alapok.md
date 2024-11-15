@@ -123,6 +123,13 @@ Példa a következő ábrán:
 
 Az első három tesztet az IT végzi. Az utolsó tesztet a megrendelő, illetve annak tesztelői.
 
+Egyes szerzők a komponens tesztet írják az egységteszt helyére, ami jelenthet metódus vagy osztályt tesztet.
+
+* komponensteszt - metódus, osztály (egység)
+* integrációs teszt
+* rendszerteszt
+* elfogadási teszt
+
 ## QA
 
 * Quality Assurance - minőségbiztosítás
@@ -130,6 +137,56 @@ Az első három tesztet az IT végzi. Az utolsó tesztet a megrendelő, illetve 
 A szoftverfejlesztés során a termékek és szolgáltatások minőségének folyamatos javítása, biztosítása a minőségbiztosítás. A cél a vásárlói elégedettség növelése. Gyakran használunk nemzetközi szabványokat, például ISO 9001.
 
 ## Gyakorlat
+
+### Egységteszt példa
+
+calculator.py:
+
+```python
+# A tesztelendő kód (calculator.py)
+def add(a, b):
+    return a + b
+```
+
+test_calculator.py:
+
+```python
+# A teszt kód (test_calculator.py)
+import pytest
+from calculator import add
+
+def test_add():
+    assert add(2, 4) == 6
+    assert add(-1, 1) == 0
+    assert add(0, 0) == 0
+```
+
+### Integrációs teszt példa
+
+calculator.py:
+
+```python
+# A tesztelendő kód (calculator.py)
+def subtract(a, b):
+    return a - b
+
+def calculate(a, b):
+    return add(a, b), subtract(a, b)
+```
+
+test_calculator.py:
+
+```python
+# A teszt kód (test_calculator.py)
+import pytest
+from calculator import calculate
+
+def test_calculate():
+    result = calculate(3, 2)
+    
+    # add(3, 2) == 5 és subtract(3, 2) == 1
+    assert result == (5, 1)  
+```
 
 ### Kérdések
 

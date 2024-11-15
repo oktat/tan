@@ -18,7 +18,7 @@
 
 Angolul **User Acceptance Testing**, röviden **UAT**.
 
-Magyarul **Felhasználói elfogadási teszt**, vagy **Felhasználó átvételi teszt**. Röviden lehet **átvételi** vagy **elfogadási** teszt.
+Magyarul **Felhasználói elfogadási teszt**, vagy **Felhasználói átvételi teszt**. Röviden lehet **átvételi** vagy **elfogadási** teszt.
 
 A rendszertesztelést követheti egy átvételi teszt.
 

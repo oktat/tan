@@ -10,26 +10,37 @@
 
 * [Tartalomjegyzék](#tartalomjegyzék)
 * [Bevezetés](#bevezetés)
+* [A funkcionális tesztelésről](#a-funkcionális-tesztelésről)
 * [A puppeteer](#a-puppeteer)
 * [Projekt készítése](#projekt-készítése)
 * [Teszt készítése](#teszt-készítése)
 * [Fej nélküli indítás](#fej-nélküli-indítás)
 * [Képernyőkép](#képernyőkép)
 * [A Mocha használata a szit.hu vizsgálatával](#a-mocha-használata-a-szithu-vizsgálatával)
-* [Háromszög tesztprojekt készítése](#háromszög-tesztprojekt-készítése)
-* [A háromszög területszámításának tesztje](#a-háromszög-területszámításának-tesztje)
+* [Háromszög projekt](#háromszög-projekt)
 
 ## Bevezetés
 
-Angolul **System Level Testing**, röviden **SLT**.
+A teszt típusok a következők lehetnek:
 
-Jellemzők:
+* funkcionális
+* nem-funkcionális
+* regressziós
+* biztonsági
+* teljesítmény
+* kompatibilitási
+* használhatósági
 
-* A teljes rendszert teszteljük.
-* Funkcionális és nem-funkciónális tesztelés.
-* Általában külső tesztelő csapat végzi.
-* Általában fekete dobozos teszt.
-* Lehet automatizált és kézi tesztelés is.
+A használhatósági tesztek eszközei:
+
+* megfigyelés - felhasználók figyelése
+* interjúk a felhasználókkal
+* kérdőívek
+* A/B tesztek - több változat tesztelése - melyik jobb?
+
+## A funkcionális tesztelésről
+
+A funkconális tesztelés az alkalmazást a specifikációnak megfelelően teszteljük. Megfelel a követelményeknek? A funkcionális tesztelés végezhető kézi és automatizált módszerekkel.
 
 ## A puppeteer
 
@@ -55,7 +66,7 @@ A VSCode-ban indítsunk egy terminált. Készítsünk Node.js projektet:
 sin init
 ```
 
-Telepítsüka Puppeteer-t:
+Telepítsük a Puppeteer-t:
 
 ```cmd
 npm install --save-dev puppeteer
@@ -271,7 +282,9 @@ package.json részlet:
 }
 ```
 
-## Háromszög tesztprojekt készítése
+## Háromszög projekt
+
+### A tesztelendő projekt elkészítése
 
 Ha a projektet a **sin init** paranccsal készítettük, akkor a package.json egyes részei már készen állhatnak. Ugyanígy a bs-config.json fájl is.
 
@@ -369,7 +382,9 @@ bs-config.json:
 }
 ```
 
-## A háromszög területszámításának tesztje
+### Teszt írása
+
+Puppetiert és Mocha-t használjuk vegyesen a tesztelésre.
 
 test/testApp.js:
 
@@ -388,7 +403,7 @@ describe('Háromszög területszámítás tesztje', () => {
     after(async function() {
         await browser.close()
     })
-    it('Böngésző címsora', async function() {        
+    it('Böngésző címsora', async function() {
         const title = await page.title()
         assert.strictEqual(title, 'Háromszög')
     })

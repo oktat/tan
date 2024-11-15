@@ -5,9 +5,43 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [A rendszertesztelésről](#a-rendszertesztelésről)
+* [Eszközök](#eszközök)
+* [A kézi tesztelésről](#a-kézi-tesztelésről)
+* [Nem funkcionális teszt](#nem-funkcionális-teszt)
+
 ## A rendszertesztelésről
 
+Angolul **System Level Testing**, röviden **SLT**.
+
 Fejelsztési folyamat végén a rendszert funkcionális és nem funkcionális részét teszteljük. A tesztelést a célgéphez hasonló gépen teszteljeük, azonos operációs rendszeren.
+
+Jellemzők:
+
+* A teljes rendszert teszteljük.
+* Funkcionális és nem-funkciónális tesztelés.
+* Általában külső tesztelő csapat végzi.
+* Általában fekete dobozos teszt.
+* Lehet automatizált és kézi tesztelés is.
+
+## Eszközök
+
+Automatizált tesztelés néháőny lehetséges eszköze:
+
+* Puppeteer
+* Selenium
+* JUnit
+* TestNG
+* Robot Framework
+
+Kézi tesztelés lehetséges eszközei:
+
+* Tesztelési forgatókönyv
+* Ellenőző listák
+* egyéb
 
 ## A kézi tesztelésről
 
@@ -23,22 +57,6 @@ Például: Specifikáció szerint jelentést kell tudnia generálni valamiről a
 * Milyen gyorsan reagál?
 * A célrendszeren problémamentesen fut?
 
-## Eszközök
-
-Automatizált tesztelés lehetséges eszközei:
-
-* Puppeteer
-* Selenium
-* JUnit
-* TestNG
-* Robot Framework
-
-Kézi tesztelés lehetséges eszközei:
-
-* Tesztelési forgatókönyv
-* Ellenőző listák
-* egyéb
-  
 ### Teszt forgatókönyv példa
 
 #### TC001
@@ -104,3 +122,22 @@ Tesztelés után:
 ### Letölthető táblázat
 
 * [https://szit.hu/download/oktatas/teszt_sablon.xlsx](https://szit.hu/download/oktatas/teszt_sablon.xlsx)
+
+## Nem funkcionális teszt
+
+* Teljesítmény teszt
+  * Mennyit kell várni az oldal betöltödésére?
+  * A számítás milyen gyorsan történik meg a kattintás után?
+* Használhatósági teszt
+  * UX - User Experience - felhasználói élmény
+  * Mennyire intuitív a felhasználói felület?
+  * Könnyen megtalálható a "Számít" gomb?
+  * Első próbálkozásra sikerül használni?
+* Kompatibilitás teszt
+  * Különböző böngészökben is működik?
+  * Különböző eszközökön jól működik? Mobil, táblagép, asztali.
+* Biztonsági teszt
+  * SQL injekcióra nem érzékeny?
+  * Jelszókezelés mennyire jó?
+* Skálázhatóság
+  * Ha növekszik a felhasználók száma, hogyan reagál a weboldal?
