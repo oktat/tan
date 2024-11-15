@@ -85,7 +85,7 @@ A fejlesztők szorosan együttműködnek a megrendelőkkel. Folyamatosan egyezte
 
 ### Scrum
 
-Az Agilis módszertanban is használt fejlesztési módszer. 6-8 fős fejlesztői csapatokkal dolgozunk, ebben általában két tesztelő van.
+Az Agilis módszertanban is használt fejlesztési módszer. 3-9 fős fejlesztői csapatokkal dolgozunk, ebben általában 1 vagy 2 tesztelő van.
 
 Szerepek:
 
@@ -93,24 +93,30 @@ Szerepek:
 * vezető fejlesztő - operatív irányítás
 * üzleti elemező - nem minden esetben van
 * tesztmenedzser - folyamatok előrehaladására figyel
-* product owner
+* product owner - a megrendelőtől egy ember
 * projektmenedzser
 
 Ciklusok:
   
 * napi ciklus
-* heti ciklus - sprint
+* heti ciklus - sprint - lehet 1 vagy több hetes
 * havi ciklus
 
 #### Napi ciklus
 
-A reggeli napindító megbeszélést állva kell tartani, amin csak a fejlesztők vesznek részt elsősorban, másodsorban a vezetőség is részt vehet. Ezt nevezik daily standup meetingnek.
+A reggeli napindító megbeszélést állva kell tartani, amin csak a fejlesztők vesznek részt elsősorban, másodsorban a vezetőség is részt vehet. Ezt nevezik **daily standup** meetingnek.
 
 Megbeszélendő:
 
 * mivel foglalkoztam tegnap
 * mivel szeretnék ma foglalkozni
 * milyen problémákba ütköztem
+
+A sprinteket mindig megelőzi egy Sprint Planning, ahol megbeszéljük mit fogunk csinálni a sprint alatt. A sprint végén végezzük a Sprint Review-t, ahol megbeszéljük mire jutottunk, mi működött, min kell változtatni.
+
+A backlog-t a Product Owner írja. Leírja mit kell megvalósítani, ami felhasználói tevékenységeket, történeteket jelent.
+
+A fejelsztők ehhez igazodva készítenek maguknak feladatlistát.
 
 ## DevOps
 
