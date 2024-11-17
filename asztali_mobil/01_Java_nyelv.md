@@ -11,6 +11,7 @@
 * [Java fejlesztés](#java-fejlesztés)
 * [Különleges karakterek](#különleges-karakterek)
 * [Adattípusok](#adattípusok)
+* [Formázott kivitel](#formázott-kivitel)
 * [Matematikai osztály](#matematikai-osztály)
 * [Véletlen szám generálás](#véletlen-szám-generálás)
 * [Konvertálás](#konvertálás)
@@ -358,13 +359,21 @@ double d = 1.0 + i;
 float f = 1.0f + i + (float) d;
 ```
 
-### Formázott kivitel
+## Formázott kivitel
+
+Formázott kimenetet a printf() függvénnyel valósíthatunk meg.
+
+A printf() függvény első paramétere egy formátumsztring, amit kötelező megadni. A formátumsztrinben írjuk le a következő paramétereket milyen formában írjuk ki. Mindenegyes paraméter számára a formátumsztringben egy fomátumkódot kell meghatározni.
+
+A formátumkód "%" jellel kezdődik, és egy konverziós karakterrel végződik. Egész számok kiíratása esetén például "d" betűt kell megadni. Valós számok esetén egy "f" betűt.
+
+A következő példában a második paraméter egy kifejezés, aminek az eredménye egy egész szám. A kifejezés eredményét úgy tudjuk megkapni, hogy egy "%d" fomártumkódot adunk meg.
 
 ```java
 System.out.printf("1 + 2 = %d", 1 + 2);
 ```
 
-Argumentum index:
+Nézzük meg, hogyan tudjunk több paramétert is kiíratni a formátumsztringben:
 
 ```java
 System.out.printf("%d + %d = %d", 1, 2, 1 + 2);
