@@ -177,7 +177,9 @@ Az src helyére a könyvtár neve, ahol van a login.php.
 
 * localhost:3000/login.php
 
-Egyszerű tesztkód:
+Nézzünk meg egyszerű tesztkódot.
+
+test.py:
 
 ```python
 import requests
