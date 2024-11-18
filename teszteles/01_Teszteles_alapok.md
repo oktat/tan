@@ -199,6 +199,102 @@ Mit jelenet a LOC mértékegység?
 * A helyi változók száma
 
 2.)
+Mi a verifikáció célja?
+
+* Az ügyfél igényeinek teljesítése
+* A kész tervek és dokumentációk helyességének ellenőrhzése
+* A rendszer teljesítményének növelése
+* A felhasználói élmény javítása
+
+3.)
+Melyik tesztelési forma kapcsolódik legikább a validációhoz?
+
+* Unit teszt
+* Rendszer teszt
+* Kód ellenőrzés
+* Integrációs teszt
+
+4.)
+A verifikáció során milyen tevékenységekre fókuszálunk?
+
+* Az ügyfél visszajelzésének gyűjtésére
+* A szoftver funkcionalitásának tesztelésére
+* A fejlesztett termék követelményeknek való megfelelésére
+* A felhasználói dokumentáció elkészítésére
+
+5.)
+Melyik eljárás nem a verifikáció része?
+
+* Dokumentáció ellenőrzése
+* Unit tesztelés
+* Elfogadási tesztelés
+* Kód review
+
+6.)
+A validáció fő célja a következő:
+
+* A szoftver hibáinak javítása
+* A rendszer teljesítményének tesztelése
+* Az ügyfél elvárásainak való megfelelés biztosítása
+* A létező funkciók optimalizálása
+
+7.)
+Mi a fő különbség a validáció és a verifikáció között?
+
+* A verifikáció csak kód szinten történik, míg a validáció felhasználói szinten
+* A verifikáció a fejlesztés utolsó szakasza, míg a validáció az első
+* A verifikáció a termék helyességét ellenőrzi, míg a validáció az ügyfél igényeit
+* Nincs különbség
+
+8.)
+Mi jellemző az automatikus tesztelésre?
+
+* Az ember végzi a teszteket
+* A szoftver végzi a teszteket
+* Nincs szükség tervre
+* Csak egyszer használható
+
+9.)
+Milyen előnnyel járhat a kézi tesztelés?
+
+* Gyorsabb végrehajtás
+* Kisebb költségek
+* Olyan hibák azonosítása, amire a teszt szoftver írásakor nem gondoltunk
+* Automatikus hibakeresés
+
+10.)
+Melyik jellemző a szisztematikus tesztelésre?
+
+* A tesztelés során nincs megtervezett folyamat
+* Az előre megtervezett tesztesetek végrehajtása
+* A tesztelés kreatív megközelítést igényel
+* Nincs dokumentáció
+
+11.)
+Melyik állítás helyes az ad-hoc tesztelésre?
+
+* Automatikus tesztelést igényel
+* A tesztelés nem tervezett, szabadon végzett
+* Gyakran használják a teljesítmény optimalizálására
+* Csak a kóddal kapcsolatos hibák keresésére összpontosít
+
+12.)
+Mit jelent a fehérdobozos tesztelés?
+
+* a) A tesztelés a kód működésének és logikájának ismerete alapján történik
+* b) A tesztelő nem ismeri a kódot
+* c) Csak a külső felhasználói felületet tesztelik
+* d) Az adatok csak a felhasználói szinten kerülnek megvizsgálásra
+
+13.)
+Mi a jellemző a fekete dobozos tesztelésre?
+
+* a) A tesztelőnek ismernie kell a kódot
+* b) A tesztelés a funkciók és a kimenetek tesztelésére összpontosít, nem a belső logikára
+* c) Csak automatikus tesztelés során alkalmazzák
+* d) A teszt végrehajtásához részletes dokumentáció szükséges
+
+14.)
 Mit jelent a release candidate? Válasszon.
 
 * hosszú ideig támogatott kiadás
@@ -206,7 +302,7 @@ Mit jelent a release candidate? Válasszon.
 * nem lesz továbbfejlesztve
 * vizsgát kell tennie
 
-3.)
+15.)
 Milyen tesztről beszélünk, ha újratesztelünk egy szoftvert?
 
 * előtesztelés
@@ -214,7 +310,7 @@ Milyen tesztről beszélünk, ha újratesztelünk egy szoftvert?
 * visszatérünk egy korábbi verziószámhoz
 * regressziós
 
-4.)
+16.)
 Mi a refaktorálás
 
 * A kód újraírása.
@@ -222,7 +318,7 @@ Mi a refaktorálás
 * A kód üres sorainak törlése.
 * A programot elölről kezdjük.
 
-5.)
+17.)
 Melyik teszttel szokás egy függvényt vizsgálni, ami egy számítást végez?
 
 * átvételi
@@ -230,7 +326,7 @@ Melyik teszttel szokás egy függvényt vizsgálni, ami egy számítást végez?
 * egység
 * kerekítés
 
-6.)
+18.)
 Melyik assert utasítással hasonlítjuk össze az elvárt eredményt az aktuális eredménnyel, ha az egy szám?
 
 * assertBear
@@ -238,7 +334,7 @@ Melyik assert utasítással hasonlítjuk össze az elvárt eredményt az aktuál
 * assertEquals
 * assertTrump
 
-7.)
+19.)
 Mit használunk Java nyelvhez egységteszteléshez?
 
 * GUnit
@@ -246,7 +342,7 @@ Mit használunk Java nyelvhez egységteszteléshez?
 * CUnit
 * JUnit
 
-8.)
+20.)
 Mi a verifikáció?
 
 * ami elkészült az megfelel az ügyfélnek?
@@ -254,7 +350,7 @@ Mi a verifikáció?
 * az adatbázis vizsgálata
 * ami elkészült, az jól működik?
 
-9.)
+21.)
 Mi a validáció?
 
 * ami elkészült az megfelel az ügyfélnek?
@@ -262,7 +358,7 @@ Mi a validáció?
 * az adatbázis vizsgálata
 * ami elkészült, az jól működik?
 
-10.)
+22.)
 Melyik tesztelési típus?
 
 * emberközpontú
@@ -270,7 +366,7 @@ Melyik tesztelési típus?
 * figyelemfelkeltő
 * kézi
 
-11.)
+23.)
 Mi a fekete dobozos tesztelés?
 
 * az eredményt fekete dobozban tároljuk
@@ -278,7 +374,7 @@ Mi a fekete dobozos tesztelés?
 * a tesztelőnek nem áll rendelkezésre a forráskód
 * a tesztelőnek rendelkezésre áll a forráskód
 
-12.)
+24.)
 Mi a fehér dobozos tesztelés?
 
 * az eredményt fehér dobozban tároljuk
@@ -286,7 +382,7 @@ Mi a fehér dobozos tesztelés?
 * a tesztelőnek nem áll rendelkezésre a forráskód
 * a tesztelőnek rendelkezésre áll a forráskód
 
-13.)
+25.)
 Melyik funkcionális teszt?
 
 * A weblapon megjelenik-e a "számít gomb".
@@ -294,7 +390,7 @@ Melyik funkcionális teszt?
 * A program kiszámítja a területet.
 * Újra vizsgáljuk, látszik-e már a számít gomb.
 
-14.)
+26.)
 Milyen tesztek helyezkednek el a tesztpiramis alján?
 
 * GUI teszt
@@ -302,7 +398,7 @@ Milyen tesztek helyezkednek el a tesztpiramis alján?
 * átvételi teszt
 * egységteszt
 
-15.)
+27.)
 A szoftverek életciklusát tekintve, melyik tevékenység van előbb?
 
 * terjesztés
@@ -310,7 +406,7 @@ A szoftverek életciklusát tekintve, melyik tevékenység van előbb?
 * tervezés
 * elemzés
 
-16.)
+28.)
 A szoftverek életciklusát tekintve, melyik tevékenység van utolsó helyen?
 
 * terjesztés
@@ -318,7 +414,7 @@ A szoftverek életciklusát tekintve, melyik tevékenység van utolsó helyen?
 * tervezés
 * elemzés
 
-17.)
+29.)
 Mi a LOC?
 
 * A tesztelési sebesség mértékegysége.
@@ -326,7 +422,7 @@ Mi a LOC?
 * Programkód sorainak száma.
 * A látható sorok száma.
 
-18.)
+30.)
 Mit jelent az LTS? Válasszon.
 
 * hosszú ideig támogatott kiadás
@@ -334,7 +430,7 @@ Mit jelent az LTS? Válasszon.
 * nem lesz továbbfejlesztve
 * vizsgát kell tennie
 
-19.)
+31.)
 Melyik tesztet csinálja az "ügyfél"?
 
 * integrációs
@@ -342,7 +438,7 @@ Melyik tesztet csinálja az "ügyfél"?
 * rendszer
 * egység
 
-20.)
+32.)
 1 kLOC, az hány kódsor?
 
 * 500
