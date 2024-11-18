@@ -13,7 +13,7 @@
 * [A funkcionális tesztelésről](#a-funkcionális-tesztelésről)
 * [A puppeteer](#a-puppeteer)
 * [Projekt készítése](#projekt-készítése)
-* [Teszt készítése](#teszt-készítése)
+* [Puppeteer teszt készítése](#puppeteer-teszt-készítése)
 * [Fej nélküli indítás](#fej-nélküli-indítás)
 * [Képernyőkép](#képernyőkép)
 * [A Mocha használata a szit.hu vizsgálatával](#a-mocha-használata-a-szithu-vizsgálatával)
@@ -41,6 +41,16 @@ A használhatósági tesztek eszközei:
 ## A funkcionális tesztelésről
 
 A funkconális tesztelés az alkalmazást a specifikációnak megfelelően teszteljük. Megfelel a követelményeknek? A funkcionális tesztelés végezhető kézi és automatizált módszerekkel.
+
+### A funkcionális tesztelés eszközei
+
+A webes felület teszteléséhez néhány eszköz:
+
+* Selenium
+* Cypress
+* Puppeteer
+
+Ebben a leírásban a Puppeteer-t fogjuk használni.
 
 ## A puppeteer
 
@@ -78,29 +88,11 @@ vagy pnpm paranccsal:
 pnpm add --save-dev puppeteer
 ```
 
-## Teszt készítése
-
-A webes felület teszteléséhez néhány eszköz:
-
-* Selenium
-* Cypress
-* Puppeteer
+## Puppeteer teszt készítése
 
 ### A Puppeteer használata a szit.hu vizsgálatával
 
-Készítsük el a test nevű könyvtárba a tesztet.
-
-A fájlok kiterjesztése **.cjs**, ha package.json-ban a "type": "module" be van kapcsolva. Egyébként **js**.
-
-Használhatjuk .js kiterjesztést ha az **import** kulcsszóval készítjük el a tesztet.
-
-test/index.cjs:
-
-```javascript
-const puppeteer = require('puppeteer');
-
-//...
-```
+Készítsük el a **test** nevű könyvtárba a tesztet, **index.js** néven.
 
 test/index.js:
 
@@ -129,6 +121,16 @@ import puppeteer from 'puppeteer';
     }
     await browser.close();
 })();
+```
+
+A fájlok kiterjesztése **.cjs**, ha package.json-ban a "type": "module" be van kapcsolva és a require() függvényt használjuk.
+
+test/index.cjs:
+
+```javascript
+const puppeteer = require('puppeteer');
+
+//...
 ```
 
 ### Futtatás
