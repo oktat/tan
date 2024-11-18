@@ -18,6 +18,7 @@
 * [Alkalmazás készítése](#alkalmazás-készítése)
 * [Horgok](#horgok)
 * [Chai](#chai)
+* [Gyakorlatok](#gyakorlatok)
 
 ## Bevezetés
 
@@ -404,7 +405,7 @@ export {calcRadius, isValidInput}
 
 ### Tesztesetek felvétele
 
-Szükségünk van tesztestekre. Vegyünk egy számológépet és nézzük meg, adott bemenetre mit kell kapnunk. 
+Szükségünk van tesztestekre. Vegyünk egy számológépet és nézzük meg, adott bemenetre mit kell kapnunk.
 
 Használjuk a Node.js node parancsát, például:
 
@@ -566,3 +567,11 @@ expect(valami).to.have.lengthOf(3);
 expect(valami).to.have.property('mas')
   .with.lengthOf(3);
 ```
+
+## Gyakorlatok
+
+### Gyakorlat 1
+
+Töltse le a következő projetet. Tesztelje a függvényeket:
+
+* [https://github.com/oktat/temuveletek.git](https://github.com/oktat/temuveletek.git)
