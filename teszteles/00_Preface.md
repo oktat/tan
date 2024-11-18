@@ -21,7 +21,7 @@ Szükség van a Chocolatey nevű csomagkezelőre. Több információ a csomagkez
 
 * [https://szit.hu/](https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:csomagkezeles#chocolatey)
 
-A következő szoftverek van szükség:
+A következő szoftverekre van szükség:
 
 * Visual Studio Code
 * Python
@@ -39,4 +39,32 @@ choco install googlechrome
 choco install totalcommander
 choco install oraclejdk
 choco install nodejs
+```
+
+## Ellenőrzés
+
+```cmd
+code --version
+python --version
+javac --version
+java --version
+node --version
+npm --version
+```
+
+Indítsuk el:
+
+* Google Chrome
+* Total Commander
+
+## Az npm paranccsal települő csomagok
+
+```cmd
+npm install --global sinto
+```
+
+Ellenőrzés:
+
+```cmd
+sin --version
 ```
