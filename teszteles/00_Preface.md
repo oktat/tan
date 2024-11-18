@@ -5,6 +5,14 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Chocolatey](#chocolatey)
+* [Szükséges szoftverek](#szükséges-szoftverek)
+* [Ellenőrzés](#ellenőrzés)
+* [Az npm paranccsal települő csomagok](#az-npm-paranccsal-települő-csomagok)
+
 ## Chocolatey
 
 Telepítse a Chocolatey csomagkezelőt. Továbbiakban ezt a csomagkezelőt használjuk.
