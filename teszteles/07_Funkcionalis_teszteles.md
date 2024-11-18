@@ -178,7 +178,7 @@ A teljes kód:
 test/index.js:
 
 ```javascript
-const puppeteer = require('puppeteer');
+import puppeteer from 'puppeteer';
 
 (async () => {
     const browser = await puppeteer.launch({headless: false});
@@ -210,7 +210,7 @@ A futó böngészőről képernyő kép is készíthető programozottan.
 test/index.js:
 
 ```javascript
-const puppeteer = require('puppeteer');
+import puppeteer from 'puppeteer';
 
 (async () => {
     const browser = await puppeteer.launch({headless: false});
@@ -227,11 +227,17 @@ const puppeteer = require('puppeteer');
 
 ## A Mocha használata a szit.hu vizsgálatával
 
+Telepítsük a mocha-t:
+
+```cmd
+npm install --save-dev mocha
+```
+
 test/index.js:
 
 ```javascript
-const puppeteer = require('puppeteer');
-const assert = require('assert');
+import puppeteer from 'puppeteer';
+import assert from 'assert';
 
 describe('A szit.hu tesztelése', function()  {
     let browser;
@@ -262,12 +268,6 @@ describe('A szit.hu tesztelése', function()  {
         assert.strictEqual(currentUrl, 'https://szit.hu/doku.php?id=oktatas');
     });
 });
-```
-
-Telepítsük a mocha-t:
-
-```cmd
-npm install --save-dev mocha
 ```
 
 package.json részlet:
