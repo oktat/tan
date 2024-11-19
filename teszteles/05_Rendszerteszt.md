@@ -126,8 +126,15 @@ Tesztelés után:
 
 ## Gyakorlat
 
+### Gúla térfogata
+
 * [https://szit.hu/m/tepiramid/](https://szit.hu/m/tepiramid/)
+* [https://github.com/oktat/tepiramid.git](https://github.com/oktat/tepiramid.git)
+
+### Rombusz kerülete, területe
+
 * [https://szit.hu/m/teromb/](https://szit.hu/m/teromb/)
+* [https://github.com/andteki/teromb.git](https://github.com/andteki/teromb.git)
 
 ## Nem funkcionális teszt
 
