@@ -11,6 +11,7 @@
 * [A rendszertesztelésről](#a-rendszertesztelésről)
 * [Eszközök](#eszközök)
 * [A kézi tesztelésről](#a-kézi-tesztelésről)
+* [Gyakorlat](#gyakorlat)
 * [Nem funkcionális teszt](#nem-funkcionális-teszt)
 
 ## A rendszertesztelésről
@@ -122,6 +123,10 @@ Tesztelés után:
 ### Letölthető táblázat
 
 * [https://szit.hu/download/oktatas/teszt_sablon.xlsx](https://szit.hu/download/oktatas/teszt_sablon.xlsx)
+
+## Gyakorlat
+
+* [https://szit.hu/m/tepiramid/](https://szit.hu/m/tepiramid/)
 
 ## Nem funkcionális teszt
 
