@@ -127,6 +127,7 @@ Tesztelés után:
 ## Gyakorlat
 
 * [https://szit.hu/m/tepiramid/](https://szit.hu/m/tepiramid/)
+* [https://szit.hu/m/teromb/](https://szit.hu/m/teromb/)
 
 ## Nem funkcionális teszt
 
