@@ -136,6 +136,11 @@ Tesztelés után:
 * [https://szit.hu/m/teromb/](https://szit.hu/m/teromb/)
 * [https://github.com/andteki/teromb.git](https://github.com/andteki/teromb.git)
 
+### Henger felszíne
+
+* [https://szit.hu/m/tehengfel/](https://szit.hu/m/tehengfel/)
+* [https://github.com/oktat/tehengfel.git](https://github.com/oktat/tehengfel.git)
+
 ## Nem funkcionális teszt
 
 * Teljesítmény teszt
