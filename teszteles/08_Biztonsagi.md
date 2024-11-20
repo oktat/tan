@@ -15,7 +15,7 @@
 
 ## A biztonsági tesztelésről
 
-A cél a szoftverek sérülékenységeinke feltárása, az érzékyen adatok megvédése.
+A cél a szoftverek sérülékenységeinek feltárása, az érzékyen adatok megvédése.
 
 ## Tesztelési módszertanok
 
@@ -54,8 +54,6 @@ A cél a szoftverek sérülékenységeinke feltárása, az érzékyen adatok meg
 * Akár pszichológiai manipulációval (social engineering).
 
 ## SQL Injection teszt
-
-A Python requests könyvtárát fogjuk használni.
 
 ### PHP beléptető felület készítése
 
@@ -159,13 +157,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </html>
 ```
 
-### Telepítés
-
-```bash
-pip install requests
-```
-
-### A tesztelés
+### A szerver indítása
 
 Indítsuk el a fenti szervert.
 
@@ -176,6 +168,16 @@ php -S localhost:3000 -t src
 Az src helyére a könyvtár neve, ahol van a login.php.
 
 * localhost:3000/login.php
+
+### Telepítés
+
+A Python requests könyvtárát fogjuk használni.
+
+```bash
+pip install requests
+```
+
+### A tesztelés
 
 Nézzünk meg egyszerű tesztkódot.
 
