@@ -158,7 +158,7 @@ A futtatáshoz találunk az eszköztáron egy lejátszógombot.
 
 ## A Lighthouse
 
-A Google által fejlesztett eszköz, egy egy teljesítmény, SEO, hozzáférhetőségi és más szempontok alapján készít tesztet.
+A Google által fejlesztett eszköz, ami teljesítmény, SEO, hozzáférhetőségi és más szempontok alapján készít tesztet.
 
 ### A Lighthouse beszerzése
 
