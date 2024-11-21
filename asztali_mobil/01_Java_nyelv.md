@@ -130,6 +130,10 @@ A kivitelhez a következő metódusok állnak rendelkezésre:
 
 Mi a különbség? A println() egy sortörést is a képernyőre ír. A printf() formázott kimenetet tesz lehetővé. A print() utasítás sortörés nélkül ír a képernyőre.
 
+```java
+System.out.print("Kiíratás sortörés nélkül");
+```
+
 ### Operátorok
 
 #### Aritmetikai operátorok
@@ -266,7 +270,7 @@ A következő táblázat bemutatja az escape szekvenciákat.
 
 ## Adattípusok
 
-### Egés számok
+### Egész számok
 
 | Típus | Szám | Tartomány |
 |-|-|-|
