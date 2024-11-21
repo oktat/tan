@@ -977,7 +977,7 @@ import java.io.IOException;
 public class App {
   public static void main(String[] args) throws IOException {
     File f = new File("file.txt");
-    Scanner sc = new Scanner(f);
+    Scanner sc = new Scanner(f, "utf-8");
     while (sc.hasNextLine()) {
       String line = sc.nextLine();
       System.out.println(line);
