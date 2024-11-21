@@ -89,7 +89,7 @@ app01/
   `-README.md
 ```
 
-### Testkönyvtár útvonalba
+### A test könyvtár útvonalba
 
 A test könyvtárat tegyük útvonalba.
 
