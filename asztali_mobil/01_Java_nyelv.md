@@ -9,6 +9,10 @@
 
 * [Tartalomjegyzék](#tartalomjegyzék)
 * [Java fejlesztés](#java-fejlesztés)
+* [Java Helló Világ program](#java-helló-világ-program)
+* [Megjegyzések a Java nyelvben](#megjegyzések-a-java-nyelvben)
+* [Kivitel](#kivitel)
+* [Operátorok](#operátorok)
 * [Különleges karakterek](#különleges-karakterek)
 * [Adattípusok](#adattípusok)
 * [Formázott kivitel](#formázott-kivitel)
@@ -59,7 +63,7 @@ Dokumentáció:
 
 * [https://docs.oracle.com/javase/](https://docs.oracle.com/javase/)
 
-### Java Helló Világ program
+## Java Helló Világ program
 
 Készítsük el az App.java nevű fájlt.
 
@@ -95,7 +99,7 @@ javac -encoding utf8 App.java
 
 Megfelelő az utf8, utf-8, UTF8 és az UTF-8 is.
 
-### Megjegyzések a Java nyelvben
+## Megjegyzések a Java nyelvben
 
 ```java
 // egy soros
@@ -108,7 +112,7 @@ megjegyzés
 */
 ```
 
-### Kivitel
+## Kivitel
 
 A képernyőre írni a System osztály áll rendelkezésre. Ennek van két tagja:
 
@@ -134,9 +138,9 @@ Mi a különbség? A println() egy sortörést is a képernyőre ír. A printf()
 System.out.print("Kiíratás sortörés nélkül");
 ```
 
-### Operátorok
+## Operátorok
 
-#### Aritmetikai operátorok
+### Aritmetikai operátorok
 
 A Java nyelv aritmetikai operátorai a +, -, *, / és a % karakter.
 
@@ -151,7 +155,7 @@ System.out.println(3 % 2);
 
 A % operátor a számok osztása során a maradékot adja.
 
-#### Egyoperandusú operátorok
+### Egyoperandusú operátorok
 
 | Operátor | Leírás |
 |-|-|
@@ -163,7 +167,7 @@ A % operátor a számok osztása során a maradékot adja.
 
 A + operátor csak a szimetria kedvéért jött létre még a C nyelvben.
 
-#### Összehasonlító operátor
+### Összehasonlító operátor
 
 | Operátor | Leírás |
 |-|-|
@@ -174,7 +178,7 @@ A + operátor csak a szimetria kedvéért jött létre még a C nyelvben.
 | <  | kisebb mint |
 | <= | kisebb vagy egyenlő |
 
-#### Feltételes operátorok
+### Feltételes operátorok
 
 | Operátor | Leírás |
 |-|-|
@@ -182,7 +186,7 @@ A + operátor csak a szimetria kedvéért jött létre még a C nyelvben.
 | \|\| | VAGY művelet |
 | ?: | Hármas operátor |
 
-#### Bitenkénti operátorok
+### Bitenkénti operátorok
 
 | Operátor | Leírás |
 |-|-|
@@ -194,7 +198,7 @@ A + operátor csak a szimetria kedvéért jött létre még a C nyelvben.
 | \| | bitenkénti VAGY |
 | ^ | bitenkénti Kizáró VAGY |
 
-#### Precedencia
+### Precedencia
 
 | Operátorok | Leírás |
 |-|-|
@@ -212,7 +216,7 @@ A + operátor csak a szimetria kedvéért jött létre még a C nyelvben.
 | ?: | feltétele kifejezés |
 | = += -= *= /= %= ^= &= \|= <<= >>= >>>= | értékadó operátorok |
 
-#### Inkrementálás és dekrementálás
+### Inkrementálás és dekrementálás
 
 Előbb átadja az értéket, majd inkrementálja 1-gyel az "a" értékét.
 
