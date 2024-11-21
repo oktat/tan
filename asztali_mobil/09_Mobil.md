@@ -44,7 +44,18 @@ Szükségünk van a Node.js aktuális LTS verziójára, egy Git verziókövetőr
 Hozzuk létre a projektet, hello néven:
 
 ```cmd
-npx create-expo-app hello
+npx create-expo-app hello --template
+```
+
+```cmd
+$ npx create-expo-app@latest hello2 --template
+? Choose a template: › - Use arrow-keys. Return to submit.
+    Default
+❯   Blank
+    a minimal app as clean as an empty canvas
+    Blank (TypeScript)
+    Navigation (TypeScript)
+    Blank (Bare)
 ```
 
 Lépjünk be a könyvtárba:
@@ -56,7 +67,7 @@ cd hello
 Webes előnézetet fogunk használni, ezért telepítsük a webes felülethez tartozó függőségeket. Győződjünk meg arról, hogy a projekt könyvtárában állunk, majd a függőségek telepítése:
 
 ```cmd
-npx expo install react-native-web @expo/metro-runtime
+npx expo install react-dom react-native-web @expo/metro-runtime
 ```
 
 A Metro Bundler indítása:
