@@ -20,7 +20,7 @@
 
 ## A tesztelés szintjei
 
-* komponensteszt
+* komponensteszt (ide tartozik a Unit teszt)
 * integrációs teszt
 * rendszerteszt
 * átvételi teszt
