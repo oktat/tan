@@ -93,7 +93,7 @@ Windowson szükség lehet a karakterkódolás megadására:
 javac -encoding utf8 App.java
 ```
 
-Megfelelő a utf8, utf-8, UTF8 és az UTF-8 is.
+Megfelelő az utf8, utf-8, UTF8 és az UTF-8 is.
 
 ### Megjegyzések a Java nyelvben
 
@@ -437,6 +437,7 @@ System.out.println(Math.sqrt(9));
 Hatványozás:
 
 ```java
+//2 a 8-dik hatványon:
 System.out.println(Math.pow(2,8));
 ```
 
@@ -456,6 +457,8 @@ System.out.println(Math.cos(rad));
 System.out.println(Math.tan(rad));
 ```
 
+A trigonometriai függvények radiánban várják az értéket. Ezért a szög értékeket át kell váltani radiánba.
+
 Kerekítések:
 
 ```java
@@ -464,7 +467,11 @@ System.out.println(Math.floor(4.9));
 System.out.println(Math.round(4.5));
 ```
 
+A ceil() mindig felfelé kerekít, a floor() mindig lefelé kerekít. A round() függvény a matematikai szabályai szerint kerekít.
+
 ## Véletlen szám generálás
+
+Használhatjuk a Math osztályt:
 
 ```java
 System.out.println((int) (Math.random() * 10) + 1);
@@ -505,13 +512,25 @@ double d = Double.parseDouble(s);
 
 ## Bevitel
 
-A Scanner osztály használata:
+A bevitelt többféleképpen szokás megvalósítani. Ebben a leírásban a java.util.Scanner osztályt használjuk.
+
+A Scanner osztály használatához, importálni kel azt a java.util csomagból:
+
+```java
+import java.util.Scanner;
+```
+
+Egész szám bekérése:
 
 ```java
 Scanner sc = new Scanner(System.in);
 String numStr = sc.nextLine();
 int num = Integer.parseInt(numStr);
 ```
+
+A Scanner osztályt példányosítjuk. A konstruktornak át kell adni, mit szeretnénk szkennelni. A System.in a billentyűzetet jelképezi.
+
+Valós szám bekérése:
 
 ```java
 Scanner sc = new Scanner(System.in);
@@ -528,12 +547,16 @@ String name = sc.nextLine();
 
 ## Szelekció
 
+A szelekciót az if és a switch utasításokkal lehet megvalósítani. Az if után egy zárójelben adjuk meg a feltételt. A feltétel egy logikai érték, vagy kifejezés kell legyen. Ha az eredmény igaz, akkor az if törzs részében végrehajtódnak az utasítások. Ellenkező esetben nem történik semmi.
+
 ```java
 int i = 0;
 if (i == 0) {
     System.out.println("i == 0");
 }
 ```
+
+Nézzük meg "ellenben" ággal is. Ha a feltétel hamis, akkor is szertnénk valamilyen tevékenységet elvégezni.
 
 ```java
 int i = 0;
@@ -543,6 +566,8 @@ if (i == 0) {
   System.out.println("i != 0");
 }
 ```
+
+Több ágú szelekciót valósítható mega az else if szerkezettel:
 
 ```java
 int i = 0;
@@ -556,6 +581,8 @@ if (i == 0) {
 ```
 
 ### Switch
+
+A switch utasítás eleve több űgú szelekcióra lett kitaláva:
 
 ```java
 int i = 0;
@@ -573,6 +600,8 @@ switch (i) {
     System.out.println("i != 0, 1, 2");
 }
 ```
+
+A break utasítás elhagyása esetén a következő eset utasításai is végrehajtódnak.
 
 ## Iteráció
 
@@ -609,11 +638,32 @@ for (int number : numbers) {
 
 ## Tömbök
 
+Egész számok tárolása:
+
 ```java
 int[] numbers = {1, 2, 3, 4, 5};
 for (int i = 0; i < numbers.length; i++) {
   System.out.println(numbers[i]);
 }
+```
+
+Egész számok tárolása burkoló osztály használatával:
+
+```java
+Integer[] nums = {1, 2, 3, 4, 5};
+Integer[] numbers = Integer[3];
+numbers[0] = 1;
+numbers[1] = 2;
+numbers[2] = 3;
+```
+
+Valós számok, két módon:
+
+```java
+double[] valosSzamok = double[3];
+Double[] valosSzamok2 = Double[3];
+valosSzamok[0] = 25;
+valosSzamok2[0] = 37;
 ```
 
 ```java
@@ -629,7 +679,39 @@ for (int i = 0; i < numbers.length; i++) {
 }
 ```
 
+A tömb bejárása:
+
+```java
+int[] szamok = {35, 12, 27, 18}
+for(int szam : szamok) {
+    System.out.println(szam);
+}
+```
+
 ## Listák
+
+Számok ArrayList-ben:
+
+```java
+import java.util.List;
+import java.util.ArrayList;
+//...
+
+List<Integer> nums = new ArrayList<>();
+```
+
+Lista esetén nem használhatunk primitív típust.
+
+Vagy:
+
+```java
+import java.util.ArrayList;
+//...
+
+ArrayList<Integer> nums = new ArrayList<>();
+```
+
+Karakterláncok tárolása.
 
 ```java
 List<String> names = new ArrayList<>();
@@ -804,7 +886,7 @@ System.out.println(benneVan); // true
 
 ### Pufferelt sztirngek
 
-A pufferelt sztirngek dinamikjusan bővíthetők, változtathatók, szemben a String objektummal, ami immutábilis (változtathatatlan). Ha elvégzel egy értékadást akkor a Java új memóriaterületet foglal, amíg az eredeti megmarad. Ez memóriapazarló és időigényes lehet ha sok műveletet kell elvégezni.
+A pufferelt sztirngek dinamikusan bővíthetők, változtathatók, szemben a String objektummal, ami immutábilis (változtathatatlan). Ha elvégzel egy értékadást akkor a Java új memóriaterületet foglal, amíg az eredeti megmarad. Ez memóriapazarló és időigényes lehet ha sok műveletet kell elvégezni.
 
 A StringBuffer szálbiztos (thread-safe) megoldás. Több szál egyidejűleg használhatja, inkozisztencia nélkül. Minden művelet ugyanazon az objektumon lesz végrehajtva.
 
