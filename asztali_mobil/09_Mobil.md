@@ -56,7 +56,7 @@ cd hello
 Webes előnézetet fogunk használni, ezért telepítsük a webes felülethez tartozó függőségeket. Győződjünk meg arról, hogy a projekt könyvtárában állunk, majd a függőségek telepítése:
 
 ```cmd
-npx expo install react-dom react-native-web @expo/webpack-config
+npx expo install react-native-web @expo/metro-runtime
 ```
 
 A Metro Bundler indítása:
