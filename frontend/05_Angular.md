@@ -802,7 +802,7 @@ app.component.html:
 <app-comp1></app-comp1>
 ```
 
-Mivel ez a fő komponens, ide tehetejük Bootstrap használata esetén a .container osztályjelölővel ellátott div elemet, ha használunk ilyet.
+Mivel ez a fő komponens, ide tehetjük Bootstrap használata esetén a .container osztályjelölővel ellátott div elemet, ha használunk ilyet.
 
 app.component.html:
 
