@@ -790,6 +790,28 @@ app01/
       `-comp1.component.ts
 ```
 
+### Komponensek egymásba illesztése
+
+Mindig van egy fő komponens, amibe a többit illesztjük. Nézzük meg, hogyan illesztjük a fő komponensbe a comp1 nevű komponenst.
+
+Az **app.component.html** állomány tartalma egy alapértelmezett tartalom, amit üresre törlünk, majd:
+
+app.component.html:
+
+```html
+<app-comp1></app-comp1>
+```
+
+Mivel ez a fő komponens, ide tehetejük Bootstrap használata esetén a .container osztályjelölővel ellátott div elemet, ha használunk ilyet.
+
+app.component.html:
+
+```html
+<div class="container">
+  <app-comp1></app-comp1>
+</div>
+```
+
 ## Szolgáltatások
 
 Az adatkezelés és a funkcionalitás bővítését teszik lehetővé a szolgáltatások. A szolgáltatások tulajdonképpen olyan osztályok, amelyeket injektálni lehet más osztályokba, vagy más szolgáltatásokba. A szolgáltatások így újrahasznosíthatók, könnyen karbantarthatók.
