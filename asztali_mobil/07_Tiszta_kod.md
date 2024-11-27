@@ -750,12 +750,77 @@ public void calcTriangleArea(double base, double height) {
 }
 ```
 
+Túl sok információ:
+
+```java
+/*
+Ez a függvény a BD-328-s szabvány alapján
+konvertálja a bemenő adatokat. A titkosítához
+AES algoritmust használ, ahol 128 bites 
+kulcsot használunk. A kódolást 82-szer végezzük
+el. 152 bájtos sót alkalmazunk, amit a RIF 145
+szabvány előír.
+*/
+public String convert(String input){
+    return "";
+}
+```
+
+Rizsázás:
+
+```java
+/*
+  A programnak itt nagyon fontos feladatot kell
+  elvégeznie, ez a program lelke, mivel itt
+  kerül kiszámításra két szám összege. Az összegzés
+  lehetővé teszi további számítások elvégzését,
+  ami hasznos lehet a továbbfejlesztés során.
+*/
+int result = sum(numbers)
+```
+
+Kódrészlet a megjegyzésben:
+
+```java
+// String nev = "Erős István";
+String nev = "Névtelen";
+```
+
+Személyes megjegyzések:
+
+```java
+/*
+Izgalmas ezt a függvényt megvalósítani.
+Vajon elsőre működik majd?
+public void calculate_something() {}
+*/
+public void calculate_something() {}
+```
+
+Félrevezető megjegyzés:
+
+```java
+//A függvény JSON formátumban kapj az adatokat
+public void validate(Employee emp) {}
+```
+
+Régen lehet valóban JSON formátumban kapta, de ma már
+nem igaz.
+
 Helyzetjelző:
 
 ```java
-/***************itt***********/
+/*********** itt kezdődik a kiíratás ********/
+public void processData(List<String> data) {
+    for (String item : data) {        
+        System.out.println(item);
+    }
+}
 
-/***************eddig***********/
+//...
+
+/*************** kiíratás vége ***********/
+//...
 ```
 
 Bezáró zárójelnél:
@@ -764,6 +829,70 @@ Bezáró zárójelnél:
 if(a > 0) {
    System.out.println(a);
 } //if(a > 0) vége
+```
+
+Feleslegessé vált átalíktás után:
+
+Itt még volt haszna:
+
+```java
+//Felhasználói jelszó érvényességének vizsgálata
+public boolean vp(String password) {
+    return password.length() >= 8;
+}
+```
+
+Javítva:
+
+```java
+//Felhasználói jelszó érvényességének vizsgálata
+public boolean validatePassword(String password) {
+    return password.length() >= 8;
+}
+```
+
+HTML a megjegyzésben:
+
+```java
+/*
+<p>
+Paraméterek: 
+base: a háromszög alapja
+height: a háromszög magassága
+</p>
+*/
+public void calcArea(double base, doulbe height){}
+```
+
+Elszúszott megjegyzés:
+
+```java
+/*
+A calcArea() a háromszög területét adja.
+*/
+public double calcPerimeter() {
+    return 0;
+}
+public double calcArea() {
+    return 0;
+}
+```
+
+Homályos megjegyzés:
+
+```java
+/*
+A 45 a maximális bájtméret:
+*/
+convert(input, 45, 45)
+```
+
+Kis függvény felesleges fejléccel:
+
+```java
+public double dupla(double num){
+    return num * 2;
+}
 ```
 
 ## Formázás
