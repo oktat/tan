@@ -713,6 +713,18 @@ Jog megjegyzés:
 */
 ```
 
+```java
+/*
+* File: ButtonPanel.java
+* Author: Nagy János
+* Copyright: 2021, Nagy János
+* Group: Szoft V
+* Date: 2021-09-03
+* Github: https://github.com/janos12345/
+* Licenc: GNU GPL
+*/
+```
+
 ### Rossz megjegyzések
 
 * felesleges megjegyzés - a kód önmagában is érhető
