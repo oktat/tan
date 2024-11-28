@@ -890,6 +890,8 @@ convert(input, 45, 45)
 Kis függvény felesleges fejléccel:
 
 ```java
+/* A függvény visszatére az adot szám
+ kétszeresével*/
 public double dupla(double num){
     return num * 2;
 }
