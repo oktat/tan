@@ -1220,8 +1220,10 @@ public class Solution {
 
     public void tryWriteFile() throws IOException {
         try(
-            FileOutputStream fos = new FileOutputStream("data.txt", true);
-            OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8")
+            FileWriter fw = new FileWriter(
+                "data".txt", 
+                Charset.forName("utf-8"), 
+                true)
         ) {
             osw.write("aaaa");
             osw.write(":bbbb");

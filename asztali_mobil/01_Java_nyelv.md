@@ -968,7 +968,11 @@ import java.io.IOException;
 
 public class App {
   public static void main(String[] args) throws IOException {
-    FileWriter fw = new FileWriter("file.txt");
+    FileWriter fw = new FileWriter(
+      "file.txt",
+      Charset.forName("utf-8"),
+      true
+      );
     fw.write("Hello");
     fw.close();
   }
