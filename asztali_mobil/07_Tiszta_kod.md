@@ -1170,6 +1170,67 @@ throws FileNotFoundException {
 }
 ```
 
+#### Fájl olvasása
+
+```java
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.util.Scanner;
+
+public class Solution {
+  public void readFile() {
+      try {
+          tryReadFile();
+      }catch(FileNotFoundException e) {
+          System.err.println("Hiba! A beolvasás sikertelen!");
+          System.err.println(e.getMessage());    
+      }
+  }
+
+  public void tryReadFile() throws FileNotFoundException {
+      File file = new File("data.txt");
+      try(Scanner sc = new Scanner(file)) {
+        while(sc.hasNextLine()) {
+            System.out.println(sc.nextLine());
+        }
+      }
+  }
+}
+```
+
+#### Fájlbaírás
+
+```java
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+
+public class Solution {
+    public void writeFile() {
+        try {
+            tryWriteFile();
+        }catch(IOException e) {
+            System.err.println("Hiba! A kiírás sikertelen!");
+            System.err.println(e.getMessage());    
+        }
+    }
+
+    public void tryWriteFile() throws IOException {
+        try(
+            FileOutputStream fos = new FileOutputStream("data.txt", true);
+            OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8")
+        ) {
+            osw.write("aaaa");
+            osw.write(":bbbb");
+            osw.write("\n");
+        }
+    }
+}
+```
+
 ### Null érték visszaadása
 
 Ne adjunk vissza null értéket. Ha vizsgálunk egy visszaadott értéket, ne a null értéket vizsgáljuk, inkább vizsgáljuk például a méretet.
