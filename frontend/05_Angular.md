@@ -512,6 +512,12 @@ export class ExampleComponent {
 Telepítés:
 
 ```cmd
+npm install bootstrap
+```
+
+vagy:
+
+```cmd
 pnpm install bootstrap
 ```
 
