@@ -1017,7 +1017,7 @@ Komponens létrehozása:
 ng generate component num
 ```
 
-src/app/num/num.component.js:
+src/app/num/num.component.ts:
 
 ```typescript
 import { Component } from '@angular/core';
