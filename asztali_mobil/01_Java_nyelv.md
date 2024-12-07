@@ -1032,7 +1032,7 @@ Legyen egy App osztály:
 
 ```java
 public class App {
-  public static void main(String args) {
+  public static void main(String[] args) {
     System.out.println("Helló");
   }
 }
@@ -1054,7 +1054,7 @@ Most írjuk át az App osztályt, hogy írja ki az argumentumok számát:
 
 ```java
 public class App {
-  public static void main(String args) {
+  public static void main(String[] args) {
     System.out.println(args.length);
   }
 }
@@ -1082,7 +1082,7 @@ java App egy kettő három
 
 ```java
 public class App {
-  public static void main(String args) {
+  public static void main(String[] args) {
     if (args.length <= 0) {
       System.out.println("Kötelező minimum 1 paraméter");
       System.exit(1);
