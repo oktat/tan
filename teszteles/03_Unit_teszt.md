@@ -53,6 +53,7 @@ Alakítsuk Node.js projektté:
 npm init -y
 ```
 
+> [!NOTE]
 > Az npm parancs helyett használhatjuk a sinto csomag sin parancsát:
 >
 > ```bash
