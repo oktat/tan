@@ -63,7 +63,7 @@ npm init -y
 > Projekt létrehozása, ha beléptünk annak könyvtárába:
 >
 > ```bash
-> sin ebuild -j
+> sin esbuild -j
 > ```
 
 Telepítsük a teszteléséhez a csomagokat:
