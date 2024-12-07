@@ -2,6 +2,7 @@
 
 * **Szerző:** Sallai András
 * Copyright (c) 2022, Sallai András
+* Szerkesztve: 2024
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
@@ -10,13 +11,7 @@
 * [Tartalomjegyzék](#tartalomjegyzék)
 * [A tesztelés szintjei](#a-tesztelés-szintjei)
 * [TestNG teszt](#testng-teszt)
-* [JUnit teszt](#junit-teszt)
-* [Beszerzés](#beszerzés)
 * [Visual Studio Code bővítmény](#visual-studio-code-bővítmény)
-* [Projekt készítés](#projekt-készítés)
-* [A JUnit hozzáadása](#a-junit-hozzáadása)
-* [Teszt osztály](#teszt-osztály)
-* [Triangle tesztelése](#triangle-tesztelése)
 
 ## A tesztelés szintjei
 
@@ -43,10 +38,10 @@ Függőségek, vagyis szükséges programozói könyvtárak:
 
 A programozói könyvtárak a következő helyről szerezhetők be:
 
-* [https://central.sonatype.com/](https://central.sonatype.com/)  (2023)
+* [https://central.sonatype.com/](https://central.sonatype.com/)  (2024)
 
 Például keresőbe írjuk be: testng.
-Uátan: testng > Versin > Browse > testng-7.8.0.jar
+Utána: testng > Version > Browse > testng-7.8.0.jar
 
 #### Maven projekt esetén
 
@@ -59,49 +54,44 @@ Uátan: testng > Versin > Browse > testng-7.8.0.jar
 </dependency>
 ```
 
+Tegyük a pom.xml fájlba.
+
 Elég megadni a testng-t a függőségeket automatikusan kezeli.
 
 ### Projekt készítése
 
-Készítsünk egy Java projektet. No build tools választása ajánlott.
+Készítsünk egy Java projektet. Érdemes Maven projektet választani "No Archetype" választással.
 
 ```txt
 app01/
-  |-lib/
   |-src/
-  |  `-App.java
-  `-README.md
+  |  |-main/
+  |  |  |-java/lan/zold/
+  |  |  |           `-Main.java
+  |  |  `-resouces/
+  |  `-test/java/
+  |-target/
+  `-pom.xml
 ```
 
-### Az App.java megnyitása
+### A Main.java megnyitása
 
-Meg kell nyitni az App.java fájlt. Várjuk meg, amíg a Java bővítmények aktíválódnak.
+Meg kell nyitni az Main.java fájlt. Várjuk meg, amíg a Java bővítmények aktíválódnak.
 
 ### Teszt fájl létrehozása
 
 ```txt
 app01/
-  |-lib/
   |-src/
-  |  `-App.java
-  |-test/
-  |  `-TestPelda.java
-  `-README.md
+  |  |-main/
+  |  |  |-java/lan/zold/
+  |  |  |           `-Main.java
+  |  |  `-resouces/
+  |  `-test/java/
+  |           `-TestPelda.java
+  |-target/
+  `-pom.xml
 ```
-
-### A test könyvtár útvonalba
-
-A test könyvtárat tegyük útvonalba.
-
-```txt
-test/TestPelda.java
-```
-
-Az EXPLORER-ben a test könyvtáron jobb egér gomb, majd:
-
-* Add Folder to Java Source Path
-
-Ellenőrzésként az oldalsávon a JAVA PROJECTS nézetben keressük meg a test könyvtárat.
 
 ### Első teszt
 
@@ -155,100 +145,6 @@ public class TestTriangle {
 }
 ```
 
-## JUnit teszt
-
-A JUnit egy egységtesztelő rendszer, amit programozói könyvtárak formájában érhetünk el.
-
-## Beszerzés
-
-Látogassuk meg a weboldalt:
-
-* [https://junit.org/junit5/](https://junit.org/junit5/)
-
-A weblapon a Latest Release alatt van három link, gomb alakban:
-
-* Jupiter
-* Vitage
-* Platform
-
-Két .jar fájlra van szükségünk, egyik a Jupiter gyűjteményből, a másik a Platformokból.
-
-### Jupiter
-
-Keressük meg az Artifact ID oszlopban a következőt:
-
-* junit-jupiter-api
-
-Ebben a sorban, a Download oszlopban lévő nyílra kattintunk. Egy újabb ablakban több lehetőség jelenik meg. Válasszuk felül a "jar" lehetőséget.
-
-Letöltődik egy junit-jupiter.api-x.y.z.jar fájl. Az x.y.z helyén az aktuális verziószámmal.
-
-### Platform
-
-Az Artifact ID oszlopban keressük meg a junit-platform-console-standalone sort. Ebben a sorban menjünk a Download osztlopban taláható nyílra. Kattintsunk rá, majd az előugró ablakban válasszuk a "jar" lehetőséget. Egy ehhez hasonló fájl tőltödik le:
-
-junit-platform-console-standalone-x.y.z.jar
-
 ## Visual Studio Code bővítmény
 
 * Test Runner for Java
-
-## Projekt készítés
-
-Készítsünk egy Java projektet, No build tools lehetőséggel.
-
-A .vscode/settings.json fájlban vegyük fel a test könyvtárat:
-
-```json
-{
-    "java.project.sourcePaths": ["src", "test"],
-    "java.project.outputPath": "bin"
-}
-```
-
-## A JUnit hozzáadása
-
-Az oldalsávon a JAVA PROJECTS lehetőségnél válasszuk a következőt:
-
-* Referenced Libraries
-
-Vigyük a egeret a felirat felé, megjelenik a "+" ikon, kattintsunk. Tallózzuk ki a két .jar fájlt.
-
-Ellenőrzés:
-
-A .vscode/settins.json fájlban meg kell jelenjen a két projekthez adott fájl.
-
-## Teszt osztály
-
-A test könyvtárban hozzunk létre egy tesztosztályt.
-
-```java
-class ValamiTest {
-
-}
-```
-
-Indítsuk újra a Visual Studo Code-t.
-
-## Triangle tesztelése
-
-```java
-import static org.junit.jupiter.api.Assertions.assertEquals;
- 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
- 
-public class TriangleTest {
-    Triangle triangle;
-    @BeforeEach
-    public void initEach() {
-        triangle = new Triangle();
-    }
-    @Test
-    void testCalcArea() {
-        assertEquals(525, triangle.calcArea(30, 35));
-    }
-}
-```
-
-* [https://szit.hu/doku.php?id=oktatas:programozas:java:java_teszteles:junit5#a_junit](https://szit.hu/doku.php?id=oktatas:programozas:java:java_teszteles:junit5#a_junit)
