@@ -53,6 +53,18 @@ Alakítsuk Node.js projektté:
 npm init -y
 ```
 
+> Az npm parancs helyett használhatjuk a sinto csomag sin parancsát:
+>
+> ```bash
+> npm install --global sinto
+> ```
+>
+> Projekt létrehozása, ha beléptünk annak könyvtárába:
+>
+> ```bash
+> sin ebuild -j
+> ```
+
 Telepítsük a teszteléséhez a csomagokat:
 
 ```bash
