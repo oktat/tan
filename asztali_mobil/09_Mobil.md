@@ -174,7 +174,7 @@ A függvény visszatérési értéke JSX tartalom, ami a JavaScript kiterjeszté
 
 A szabály szerint a JSX egy konténer taggel kezdődik, amely újab konténereket vagy más elemeket tartalmazhat.
 
-A példában a View tag a legkülső tag, amelyben két elem található, a Text és a StatusBar. A Text elemben, ahogy neve is mutatja szöveget lehet megjeleníteni. A StatusBar a telefon képernyőjének alján jelenít meg három navigációs gombot. Ez a navigációs sáv webes előnézetben nem látható.
+A példában a View tag a legkülső tag, amelyben két elem található, a Text és a StatusBar. A Text elemben, ahogy neve is mutatja szöveget lehet megjeleníteni. A StatusBar a telefon képernyőjének felső részén jelenít értesítéseket, állapotokat. Ez a navigációs sáv webes előnézetben nem látható.
 
 A View tag tartalmaz egy style attribútumot, amellyel megadhatjuk az elem tartalmának stílusát. Az attribútum értékét idézőjelek helyett kapcsoszárójelbe kell tenni.
 
@@ -186,6 +186,15 @@ A styles objektum állandóként lett létrehozva a StyleSheet objektum segíts�
 * justitfyContent: 'center' - A flex doboz tartalmát függőlegesn igazítjuk középre.
 
 Írjuk át az alapértelmezett szöveget, mondjuk "Helló Világ" szövegre.
+
+### A StatusBar elem
+
+A StatusBar elem mérete:
+
+* iOS - 20 pixel
+* Android - 24 pixel
+
+A StatusBar közepán előfordulhat egy előlapi kamera is.
 
 ## Alapvető stílusok
 
