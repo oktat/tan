@@ -451,7 +451,7 @@ A következő függvények állnak rendelkezésre:
 
 ### ngOnInit() függvény
 
-A komponens betöltésekor fut le, a konstruktor után. Általában adatok lekérésére, betöltésére használjuk, előkészítésére használjuk.
+A komponens betöltésekor fut le, a konstruktor után. Általában adatok lekérésére, betöltésére, előkészítésére használjuk.
 
 Az @angular/core-ból kell importálni:
 
