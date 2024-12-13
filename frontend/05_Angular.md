@@ -1003,7 +1003,7 @@ export class AppComponent {
 }
 ```
 
-### Szolgáltatás készítés gyakorlat
+### Szolgáltatás használata gyakorlat
 
 #### A greeting szolgáltatás készítése
 
@@ -1827,11 +1827,30 @@ Az app.config.ts fájlban:
 
 ```javascript
 providers: [
-  provideZoneChangeDetection({ eventCoalescing: true }),
-  providerRouter(routes),
   provideHttpClient()
 ]
 ```
+
+A teljes kód:
+
+```typescript
+//src/app/app.config.ts
+import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+
+import { routes } from './app.routes';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes),
+    provideHttpClient(),
+  ]
+};
+```
+
+A providers tömbben lehetnek más elemek is.
 
 ### Api szolgáltatás készítése
 
@@ -1887,7 +1906,7 @@ ng generate component emp
 ```
 
 ```typescript
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApiService } from '../shared/api.service';
 
 @Component({
@@ -1899,9 +1918,9 @@ import { ApiService } from '../shared/api.service';
 })
 export class EmpComponent {
 
-  api = inject(ApiService);
+  constructor(private api: ApiService) { }
 
-  constructor() {
+  ngOnInit() {
     this.getEmployees();
   }
 
@@ -1947,6 +1966,7 @@ import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideHttpClient()
   ]
@@ -2632,6 +2652,120 @@ src/app/buy/buy.component.html:
 ![Az Admin komponensben újabb komponensek](images/angular/routing_website_admin_child.png)
 
 ![A Website komponensben újabb komponensek](images/angular/routing_website_admin_child_02.png)
+
+### Útvonalak védelme
+
+#### Az isLoggedIn() metódus
+
+Az auth.services.ts fájlban, az AuthService könyvtárban hozzuk létre egy isLoggedIn() nevű metódust.
+
+```typescrpit
+  isLoggedIn() {
+    if (localStorage.getItem('currentUser') === null) {
+      return false;
+    }    
+    return true;
+  }
+```
+
+#### Guard használata
+
+```cmd
+ng generate guard shared/auth
+```
+
+Vagy röviden:
+
+```cmd
+ng g g shared/auth
+```
+
+Választanunk kell, milyen eseményre szeretnénk reagálni:
+
+```txt
+>(*) CanActivate
+ ( ) CanActivateChild
+ ( ) CanDeactivate
+ ( ) CanLoad
+```
+
+Szóközzel jelöljük meg a **CenActivate** lehetőséget.
+
+A következő állományok jönnek létre:
+
+* src/app/shared/auth.guard.spec.ts
+* src/app/shared/auth.guard.ts
+
+Az auth.guard.ts tartalma:
+
+```typescript
+//src/app/shared/auth.guard.ts
+import { CanActivateFn } from '@angular/router';
+
+export const authGuard: CanActivateFn = (route, state) => {
+  return true;
+};
+```
+
+#### Injektálás függvénybe
+
+Szükségünk van az AuthService solgáltatásra. Be kell injektálni a függvénybe. Függvényben nincs konstruktor így az inject() nevű függvényt fogjuk használni:
+
+```typescript
+import { inject } from '@angular/core';
+//...
+const auth = inject(AuthService);
+```
+
+Most már használhatjuk az isLoggedIn() függvényt. A teljes aut.guard.ts tartalma:
+
+```typescript
+import { inject } from '@angular/core';
+import { CanActivateFn } from '@angular/router';
+import { AuthService } from './auth.service';
+
+export const authGuard: CanActivateFn = (route, state) => {
+  const auth = inject(AuthService);
+
+  if (!auth.isLoggedIn()) {
+    return false;
+  }
+  return true;
+};
+```
+
+#### Guard használata az útvonalon
+
+```typescript
+//...
+import { EmpComponent } from './emp/emp.component';
+import { authGuard } from './shared/auth.guard';
+//...
+  { 
+    path: 'employees',  
+    component: EmpComponent,
+    canActivate: [authGuard]
+  },
+```
+
+Teljes kód:
+
+```typescript
+//src/app/app.routes.ts
+import { Routes } from '@angular/router';
+import { EmpComponent } from './emp/emp.component';
+import { authGuard } from './shared/auth.guard';
+import { NopageComponent } from './nopage/nopage.component';
+
+export const routes: Routes = [
+  { 
+    path: 'employees',  
+    component: EmpComponent,
+    canActivate: [authGuard]
+  },
+  { path: '**', component: NopageComponent}
+];
+```
 
 ## Pipe
 
