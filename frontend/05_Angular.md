@@ -641,7 +641,52 @@ export class AppComponent {
 
 ## Szelekció
 
-Ügyeljünk arra, hogy a **CommonModule** importálva legyen, ott ahol haszáljuk.
+### Az @if használata
+
+Az Angular 17 verzióban megjelent egy feltételes renderelés @if formája, a sablonok (.html fájlok) számára:
+
+```html
+<div>
+@if (showContent) {
+  Tartalom megjelenítése/elrejtése
+}
+</div>
+```
+
+A "Tartalom megjelenítése/elrejtése" szöveg csak akkor látható, ha a TypeScript fájlban a showContent változó értéke igaz, vagyis **true**. Ellenkező esetben nem jelenik meg semmi.
+
+Használhatuk ellenben ággal:
+
+```html
+@if (showContent) {
+  Tartalom megjelenítése/elrejtése
+} @else {
+  más
+}
+```
+
+A fenti példákat próbáljuk ki. A TypeScript fájlban, hozzunk létre a showContent változhót. Készítsünk egy toggleContent() metódust is a kapcsolgatáshoz.
+
+```typescript
+  showContent: boolean = true;  // Kezdetben igaz, tehát a tartalom megjelenik
+
+  toggleContent() {
+    this.showContent = !this.showContent;  // Átváltja az értéket
+  }
+```
+
+A HTML sablonfájlba tegyünk egy nyomógombot, ami futtatja a toggleContent() metódust:
+
+```html
+<button 
+  (click)="toggleContent()">
+    Tartalom megjelenítése/elrejtése
+</button>
+````
+
+### A *ngIf direktíva
+
+Az Angular 16 és korábbi verzióiban az *ngIf direktíva volt használatos a szelekcióra. Az újabb Angular verziók továbbra is támogatják ezeket a **CommonModule** importálása után.
 
 ```typescript
 import { CommonModule } from '@angular/common';
@@ -658,60 +703,13 @@ Használat:
 
 ```
 
-TypeScript:
-
-```typescript
-  showContent: boolean = true;  // Kezdetben igaz, tehát a tartalom megjelenik
-
-  toggleContent() {
-    this.showContent = !this.showContent;  // Átváltja az értéket
-  }
-```
-
-A HTML fájlba még egy gomb:
-
-```html
-<button 
-  (click)="toggleContent()">
-    Tartalom megjelenítése/elrejtése
-</button>
-```
-
-Az **ngIf** direktíva hatására a showContent változó tartalmát figyeljük. Ha az érték true, megjelenik az tartalom, ha false eltűnik.
-
-### Új if verzió
-
-Az Angular 17 verzióban megjelent egy újabb forma:
-
-```html
-<div>
-@if (showContent) {
-  Tartalom megjelenítése/elrejtése
-}
-</div>
-```
-
-Használhatunk ellenbenággal:
-
-```html
-@if (showContent) {
-  Tartalom megjelenítése/elrejtése
-} @else {
-  más
-}
-```
-
 ## Iteráció
 
-Ügyeljünk arra, hogy a **CommonModule** importálva van, ott ahol haszáljuk.
+### A @for ciklus sablonokban
 
-```typescript
-import { CommonModule } from '@angular/common';
-//...
-  imports: [CommonModule],
-```
+Az Angular 17 verziótól a @for utasítás használható sablon fáljokban a tartalom iterálására.
 
-Legyen egy sztringek tömbje gyümölcsökkel:
+Legyen egy tömb a példa kedvéért ami TypeScript fájlban hozunk létre:
 
 ```typescript
 export class AppComponent {
@@ -724,7 +722,9 @@ export class AppComponent {
 }
 ```
 
-### Új for verzió
+Ezt a tömböt szeretnék megjeleníteni egy listában.
+
+Az itárlás:
 
 ```html
 <ul>
@@ -734,7 +734,17 @@ export class AppComponent {
 </ul>
 ```
 
-Korábban:
+### Az Angular 16 *ngFor direktívája
+
+Az Angular 16 és korábbi verzióiban *ngFor direktív volt használatos a sablon fájlokban iterálásra. Az újabb Angular verziókban is használhatók, de importálni kell a **CommonModule** modult.
+
+```typescript
+import { CommonModule } from '@angular/common';
+//...
+  imports: [CommonModule],
+```
+
+Használatra példa:
 
 ```html
 <ul>
@@ -744,11 +754,13 @@ Korábban:
 </ul>
 ```
 
-Az src/app/emp
-
 ## Komponensek
 
+A komponensek a weboldal építőelemei. Amikor létrehozunk egy Angular alkalmazást eleve van egy komponensünk, a fő komponens, amit egyszerűen **app** komponensnek nevezünk. A fő komponenseb újabb komponensek építhetők be.
+
 ![Egy komponens a főkomponensben](images/angular/componens_egymasba_00.png)
+
+De beépíthetünk kettő vagy több komponenst is. Lehet egymás alatt, vagy egymás melett. Minden komponensbe újabb komponenst építhetünk. Nézzük meg a következő ábrákat.
 
 Kettő egymás alatt:
 
@@ -764,7 +776,25 @@ A főkomponensben több komponens:
 
 ### Komponens cseréje
 
-Útválasztással másik komponenst töltünk az eredeti comp1 helyére:
+Előfordulhhat hogy a fő komponensbe szeretnénk egyetlen komponenst, amit a weblap újratöltése nélkül cserélgetünk. A cserélgetést útválasztás hatására szeretnénk megtenni.
+
+Útválasztás alatt értjük az URL változtatását. Legyen például egy weboldal elérhető a example.com URL-en.
+
+```url
+https://example.com
+```
+
+A fenti link hatására be kell töltődjön például a comp1 kompnens.
+
+Másik útvonalat jelölhetek meg egy könyvtár megadásával. Például:
+
+```url
+https://example.com/comp2
+```
+
+Erre be kell töltődjön a comp2 komponens, és így tovább.
+
+A comp2 a comp1 helyére töltődik be:
 
 ![Az első komponenst cseréljük](images/angular/componens_csere_01.png)
 
@@ -773,6 +803,8 @@ Akár több komponenst is cserélgethetünk egymással.
 ![Komponens csere](images/angular/componens_csere_02.png)
 
 ### Komponens létrehozása
+
+A komponenseket a **ng generate component kompnensnév** utasítással generálhatunk.
 
 ```cmd
 ng generate component comp1
@@ -798,7 +830,7 @@ app01/
 
 ### Komponensek egymásba illesztése
 
-Mindig van egy fő komponens, amibe a többit illesztjük. Nézzük meg, hogyan illesztjük a fő komponensbe a comp1 nevű komponenst.
+Mindig van egy fő komponens (app), amibe a többit illesztjük. Az útválasztásról későbbi fejezetben fogunk beszélni. Nézzük meg, hogyan illesztjük a fő komponensbe a comp1 nevű komponenst.
 
 Az **app.component.html** állomány tartalma egy alapértelmezett tartalom, amit üresre törlünk, majd:
 
@@ -824,9 +856,12 @@ Az adatkezelés és a funkcionalitás bővítését teszik lehetővé a szolgál
 
 A szolgáltatások tárolhatnak egyszerűen adatokat, vagy elérhetnek szerveren tárolt adatokat.
 
-A szolgáltatást az @Injectable dekorátorral kell használni, ahhoz hogy a szolgáltatást injektálhatónak jelöljük. A root érték azt jelenti, hogy a szolgáltatás az egész alkalmazásból elérhető.
+A szolgáltatást az **@Injectable** dekorátorral kell használni, ahhoz hogy a szolgáltatást injektálhatónak jelöljük. A root érték azt jelenti, hogy a szolgáltatás az egész alkalmazásból elérhető.
+
+Nézzünk meg egy szolgáltatást, ami egy tömb adatati szolgáltatja:
 
 ```javascript
+//src/app/shared/ExampleService.ts
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -838,6 +873,8 @@ export class ExampleService {
     'Example 2', 
     'Example 3'
     ];
+
+  constructor(){ }
 
   getData(): string[] {
     return this.data;
@@ -875,13 +912,100 @@ Ajánlott külön könyvtárba elhelyezni a szolgáltatásokat:
 ng generate service shared/example
 ```
 
-Ebben az esetben a szolgáltatás a shared könyvtáron belül jön létre.
+Ebben az esetben a szolgáltatás a **shared** könyvtáron belül jön létre. Eltérő könyvtárnevet is használhatunk.
 
 ## Függőségbefecskendezés
 
 Az Angular **Dependency Injection**, röviden **DI**, lehetővé teszi a direktívák, szolgáltatások, komponensek számára, hogy egyik a másikra támaszkodjon.
 
-### A greeting szolgáltatás készítése
+### Az example szolgáltatás használata
+
+Készítünk az src/app/app.component.ts fájlban egy konstructort:
+
+```typecript
+//src/app/app.component.ts
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
+})
+export class AppComponent {
+  title = 'app07';
+
+  constructor() {}
+}
+
+```
+
+A konstruktorban private bejövő paraméterként fogadjuk egy ExampleService típustú objektumot:
+
+```typescript
+import { ExampleService } from './shared/example.service';
+//...
+constructor(private example: ExampleService) {}
+```
+
+Készítsünk egy ngOnInit() metódust amiben használjuk a szolgáltatást.
+
+```typescript
+ngOnInit() {
+  console.log(this.example.getData());
+}
+```
+
+Indítsuk el a szervert:
+
+```cmd
+ng serve --open
+```
+
+A böngészőben a F12-vel jelenítsük meg a DevTools felületet, majd a konzolon ellenőrizzük az ereményt.
+
+![Böngészőben az example szolgáltatás](images/angular/exampleServiceInConsole.png)
+
+Most adjunk a egy új elemet a kiíratás előtt a tömbhöz:
+
+```typescript
+  ngOnInit() {
+    this.example.addData('Example 4');
+    console.log(this.example.getData());
+  }
+```
+
+Az app.component.ts teljes kódja:
+
+```typescript
+//src/app/app.component.ts
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { ExampleService } from './shared/example.service';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
+})
+export class AppComponent {
+  title = 'app01';
+
+  constructor(private example: ExampleService) {}
+  ngOnInit() {
+    this.example.addData('Example 4');
+    console.log(this.example.getData());
+  }
+}
+```
+
+### Szolgáltatás készítés gyakorlat
+
+#### A greeting szolgáltatás készítése
 
 A példa kedvéért készítsünk egy egyszerű szolgáltatást:
 
@@ -909,7 +1033,7 @@ export class GreetingService {
 }
 ```
 
-### A greet komponens készítése
+#### A greet komponens készítése
 
 Készítsünk egy komponenst, amely függőségként befecskendezi az előbbi szolgáltatást:
 
@@ -957,8 +1081,12 @@ import { GreetingService } from '../shared/greeting.service';
   styleUrl: './greeting.component.css'
 })
 export class GreetComponent {
+  
   greeting: string;
-  constructor(private greetingService: GreetingService) {
+  
+  constructor(private greetingService: GreetingService) {}
+  
+  ngOnInit(){
     this.greeting = greetingService.greet('Tibor');
   }
 }
@@ -968,7 +1096,7 @@ A komponens konstruktora egy **GreetingService** példányt kap a DI révén. Í
 
 Vegyük észre, hogy a @Component dekorátorban nem kellett felvenni a szolgáltatást az import tömbben.
 
-### A greeting megjelenítése
+#### A greeting megjelenítése
 
 A greeting komponenst láthatóvá kell tenni. Ha nincs routing, akkor egyszerűen helyezzük el a főkomponensben. Ehhez importáljuk az src/app/app.component.ts fájlba
 
