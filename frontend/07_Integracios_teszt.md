@@ -16,6 +16,7 @@
 * [Szolgáltatás elkészítése](#szolgáltatás-elkészítése)
 * [Szolgáltatás használata](#szolgáltatás-használata)
 * [Az emp komponens tesztelése](#az-emp-komponens-tesztelése)
+* [GitHub-on példa](#github-on-példa)
 
 ## Az integrációs teszt
 
@@ -227,3 +228,7 @@ describe('EmpComponent', () => {
   })
 });
 ```
+
+## GitHub-on példa
+
+* [https://github.com/oktat/exemper.git](https://github.com/oktat/exemper.git)
