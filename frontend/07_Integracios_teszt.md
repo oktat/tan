@@ -9,164 +9,221 @@
 
 * [Tartalomjegyzék](#tartalomjegyzék)
 * [Az integrációs teszt](#az-integrációs-teszt)
-* [Selenium](#selenium)
-* [Szükséges](#szükséges)
-* [Teszt létrehozása](#teszt-létrehozása)
-* [Triangle teszt](#triangle-teszt)
-* [Lásd még](#lásd-még)
+* [Projekt készítése](#projekt-készítése)
+* [A HttpClient modul használata](#a-httpclient-modul-használata)
+* [A fő komponens teszt javítása](#a-fő-komponens-teszt-javítása)
+* [A szolgáltatás teszt javítása](#a-szolgáltatás-teszt-javítása)
+* [Szolgáltatás elkészítése](#szolgáltatás-elkészítése)
+* [Szolgáltatás használata](#szolgáltatás-használata)
+* [Az emp komponens tesztelése](#az-emp-komponens-tesztelése)
 
 ## Az integrációs teszt
 
 Az egyes szoftverkomponenseket együttesen vizsgáljuk.
 
-## Selenium
+Ebben a fejezetben az Angular egyes részeinek együttműködését teszteljük.
 
-A Selenium egy nyílt forráskódú rendszer integrációs és funkcionális tesztek számára. Böngészőautomatizálást biztosít, több programozási nyelven:
+## Projekt készítése
 
-* JavaScript
-* C#
-* Groovy
-* Java
-* Perl
-* PHP
-* Python
-* Ruby
-* Scala
-
-## Szükséges
-
-* Node.js
-* Visual Studio Code
-
-## Teszt létrehozása
-
-Feltételezzük, hogy a tesztelendő webhely már létezik. Csak a tesztet kell létrehozni.
-
-```bash
-mkdir app01
-cd app01
+```cmd
+ng new emper
+cd emper
 code .
 ```
 
-A VSCode terminálban készítsünk NodeJS projektet:
+Komponens és szolgáltatás:
 
-```bash
-npm init -y
+```cmd
+ng generate component emp
+ng generate service api
 ```
 
-```bash
-npm install selenium-webdriver
+## A HttpClient modul használata
+
+```typescript
+import { provideHttpClient } from '@angular/common/http';
+
+//...
+
+providers: [
+    provideHttpClient()
+]
 ```
 
-Szükségünk van a böngészőhöz is egy illesztőprogramra, de itt figyelembe kell venni a verziószámot is.
+## A fő komponens teszt javítása
 
-Ha a Chrome verzió például 112, akkor
+```typescript
+//src/app/app.component.spec.ts
+import { TestBed } from '@angular/core/testing';
+import { AppComponent } from './app.component';
+import { provideHttpClient } from '@angular/common/http';
 
-```bash
-npm install chromedriver@112
+describe('AppComponent', () => {
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [AppComponent],
+      providers: [provideHttpClient()],
+    }).compileComponents();
+  });
+
+  it('should create the app', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy();
+  });
+
+});
 ```
 
-Firefoxhoz a geckodriver nevű csomagot kell letölteni.
+Csak az első tesztet hagytuk meg. A TestBed konfigirációjában megadtuk a provideHttpClient() metódust.
 
-Legyen egy **index.js** nevű fájlt:
+## A szolgáltatás teszt javítása
 
-```javascript
-const {Builder, By, Key} = require("selenium-webdriver")
-require('chromedriver')
-async function szithuTest() {
-    let driver = await new Builder().forBrowser("chrome").build();
-    await driver.get("https://szit.hu");
-    await driver.findElement(
-        By.name("q"))
-        .sendKeys("selenium", Key.RETURN);
+```typescript
+import { TestBed } from '@angular/core/testing';
+
+import { ApiService } from './api.service';
+import { provideHttpClient } from '@angular/common/http';
+
+describe('ApiService', () => {
+  let service: ApiService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient()],
+    });
+    service = TestBed.inject(ApiService);
+  });
+
+  it('service should be created in api.service.spec', () => {
+    expect(service).toBeTruthy();
+  });
+});
+```
+
+## Szolgáltatás elkészítése
+
+```typescript
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ApiService {
+
+  constructor(private http: HttpClient) { }
+
+  getEmployees() {
+    return this.http.get('http://localhost:8000/employees');
+  }
 }
-szithuTest();
 ```
 
-A tesztelő alkalmazásban a findElement() függvénnyel megkeressük azt a HTML elemet, aminek a "name" tulajdonság értéke "q". Ez a szit.hu webhelyen a kereső.
+## Szolgáltatás használata
 
-A sendKeys("selenium", Key.RETURN) függvény beírja a keresőmezőbe a "selenium" szót, majd megnyomja az RETURN (Enter) billentyűt.
+Az emp komponensben használjuk a szolgáltatást
 
-A teszt futtatása:
+```typescript
+//src/app/emp/emp.component.ts
+import { Component } from '@angular/core';
+import { ApiService } from '../shared/api.service';
 
-```bash
-node index
+@Component({
+  selector: 'app-emp',
+  standalone: true,
+  imports: [],
+  templateUrl: './emp.component.html',
+  styleUrl: './emp.component.css'
+})
+export class EmpComponent {
+
+  employees: any[] = [];
+
+  constructor(private api: ApiService) {}
+
+  ngOnInit() {
+    this.api.getEmployees().subscribe((data: any) => {
+      console.log(data);
+      this.employees = data;
+    });
+  }
+}
 ```
-
-## Triangle teszt
-
-A kész projekt itt található:
-
-* [https://github.com/oktat/extriangle_selenium.git](https://github.com/oktat/extriangle_selenium.git)
 
 ```html
-<div class="triangleForm">
-    <div class="mt3">
-        <label for="base">Alap</label>
-        <input type="text" id="base">
-    </div>
-    <div class="mt3">
-        <label for="height">Magasság</label>
-        <input type="text" id="height">
-    </div>
-    <button id="calcButton">Számít</button>
-    <div class="mt3">
-        <label for="area">Terület</label>
-        <input type="text" id="area">
-    </div>
-</div>
+//src/app/emp/emp.component.html
+<p>emp works!</p>
+
+<ul>
+  @for(emp of employees; track emp.id) {
+    <li>{{emp.name}} - {{emp.city}} - {{emp.salary}} Ft</li>
+  }
+</ul>
 ```
 
-A tesztelendő alkalmazás JavaScript kódja:
+## Az emp komponens tesztelése
 
-```javascript
-doc = {
-    baseInput: document.querySelector('#base'),
-    heightInput: document.querySelector('#height'),
-    areaInput: document.querySelector('#area'),
-    calcButton: document.querySelector('#calcButton')
-};
- 
-window.addEventListener('load', () => {
-    init();
+```typescript
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { EmpComponent } from './emp.component';
+import { of } from 'rxjs';
+import { ApiService } from '../shared/api.service';
+
+//Létrehozunk egy Mock objektumot
+class MocApiService {
+  getEmployees() {
+    return of([
+      { id: 1, name: 'Erős Lajos', city: 'Pécs', salary: 300 },
+      { id: 2, name: 'Szi István', city: 'Pécs', salary: 100 },
+    ]);
+  }
+}
+
+describe('EmpComponent', () => {
+  let component: EmpComponent;
+  let fixture: ComponentFixture<EmpComponent>;
+  let apiService: ApiService;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [EmpComponent],
+      /*
+      Az ApiService szolgáltatás helyettesítjük
+      a MocApiService szolgáltatással:
+      */
+      providers: [{ 
+        provide: ApiService, 
+        useClass: MocApiService
+      }],
+    })
+    .compileComponents();
+
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(EmpComponent);
+    component = fixture.componentInstance;
+    //Az ApiService injektálása:
+    apiService = TestBed.inject(ApiService);
+    fixture.detectChanges();
+  });
+
+  it('Az EmpComponent létrehozható', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('Az EmpComponent-be betöltődik 2 dolgozó', () => {
+    expect(component.employees.length).toBe(2);
+  });
+
+  it('rederli a sablonfájlba', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelectorAll('li').length).toBe(2);
+  })
+  it('A rederlt listában az első elem Erős Lajos', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('li').textContent).toContain('Erős Lajos');
+  })
 });
- 
-function init() {
-    doc.calcButton.addEventListener('click', () => {
-        let base = Number(doc.baseInput.value);
-        let height = Number(doc.heightInput.value);
-        doc.areaInput.value = calcTriangleArea(base, height);
-    });
-}
- 
-function calcTriangleArea(base, height) {
-    return base * height / 2;
-}
 ```
-
-A teszt például test/index.js fájlban:
-
-```javascript
-const { Builder, By, Key, until } = require("selenium-webdriver");
-require('chromedriver');
- 
-async function triangleTest() {
-    let driver = await new Builder().forBrowser("chrome").build();
-    await driver.get('http://localhost:3002');
-    await driver.findElement(By.id('base')).sendKeys('30');
-    await driver.findElement(By.id('height')).sendKeys('35');
-    await driver.findElement(By.id('calcButton')).click();
-    const areaInput = await driver.findElement(By.id('area')).getAttribute('value');
-    console.log(areaInput)
-    await driver.close();
-}
-triangleTest();
-```
-
-Ami újdonság a nyomógomb kattintása a click() függvénnyel.
-
-## Lásd még
-
-Több információs:
-
-* [https://szit.hu/doku.php?id=oktatas:web:selenium](https://szit.hu/doku.php?id=oktatas:web:selenium)

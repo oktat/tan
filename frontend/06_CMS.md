@@ -14,6 +14,7 @@
 * [Felhasználó-kezelés](#felhasználó-kezelés)
 * [Sablon kezelés](#sablon-kezelés)
 * [Kiegészítők](#kiegészítők)
+* [CMS gyakorlatok](#cms-gyakorlatok)
 
 ## CMS alapok
 
@@ -225,3 +226,7 @@ Egyedi funkciókat adhatunk a WordPress számára a kiegészítőkkel.
 * Van néhány alap bővítmény:
   * biztonsági
   * SEO-optimalizálás
+
+## CMS gyakorlatok
+
+1. Egy LLM-től kérdezze le, melyek a legnépszerűbb CMS rendszerek.
