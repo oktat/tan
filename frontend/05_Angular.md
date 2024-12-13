@@ -1443,9 +1443,28 @@ A gomb legyen elérhetetlen érvénytelen űrlap vagy érvénytelen e-mail cím 
 
 ## Reaktív űrlapok
 
+A reaktív űrlapok kicsit több kódolást igényelnek, de átláthatóbb, könnyebb kezelést tesznek lehetővé.
+
+### Reaktív űrlap példaprojekt
+
+Készítsünk egy új projektet, például **empha** néven.
+
+Vegyünk fel egy emp nevű komponenst.
+
+```cmd
+ng g c emp
+```
+
+Építsük be a fő komponensbe:
+
+```html
+<!-- src/app/app.component.html -->
+<app-emp />
+```
+
 ### FormControl használata
 
-Szükségünk lesz a FormControl és a ReactiveFormsModule osztályra:
+Szükségünk lesz a FormControl és a ReactiveFormsModule modulokra:
 
 ```typescript
 import { 
@@ -1460,37 +1479,78 @@ A @Component dekorátorban fel kell venni a ReactiveFormsModule osztályt:
   imports: [ReactiveFormsModule],
 ```
 
-Az adattag:
+Ez szükséges, hogy az űrlapon hivatkozhassunk a FormControl konstruktorral létrehozott változóra.
+
+Legyenek például egy dolgozó adatai:
 
 ```typescript
-num = new FormControl('');
+  name = new FormControl('');
+  city = new FormControl('');
+  salary = new FormControl('');
 ```
 
-Az onClick kezelése:
+Kattintásra szeretnék ezeket lekérdezni, konzolra írni:
 
 ```typescript
-  onClick() {
-    console.log(this.num.value);
-    this.num.setValue('35');
+  getData() {
+    console.log(this.name.value);
+    console.log(this.city.value);
+    console.log(this.salary.value);
   }
 ```
 
-#### Az űrlap
+Nézzük meg, hogya állítunk be értéket. Lehessen alapértelmezett értéket beállítani a beviteli mezőkben:
 
 ```typescript
+  setDefault() {
+    this.name.setValue('névtelen');
+    this.city.setValue('ismeretlen');
+    this.salary.setValue('300');
+  }
+```
 
-<label for="num">Szám</label>
-<input type="text" id="num" 
-[formControl]="num">
+#### A FormControl űrlapja
 
-<button (click)="onClick()">Lekér</button>
+Az input elemek számára egy **[formControl]** attribútum szükséges.
 
-<button (click)="num.setValue('10')">10</button>
+Elkészíthetjük az űrlapot:
+
+```typescript
+//src/app/emp/emp.component.ts
+<h1>Dolgozók</h1>
+
+<div class="form-group">
+  <label for="name">Név</label>
+  <input type="text" [formControl]="name">
+</div>
+
+<div class="form-group">
+  <label for="city">Település</label>
+  <input type="text" [formControl]="city">
+</div>
+
+<div class="form-group">
+  <label for="salary">Fizetés</label>
+  <input type="text" [formControl]="salary">
+</div>
+
+<button (click)="getData()">Lekér</button>
+<button (click)="setDefault()">Alap</button>
 ```
 
 ### Csoportosított űrlapvezérlők
 
-A ReactiveFormsModule, FormControl és a FormGroup osztályokra lesz szükség:
+A reaktív űrlapok lehetővé teszik az űrlapok csoportban kezelését. Ehhez szükségünk lesz az FormGroup modulra is.
+
+Készítsünk egy **triha** nevű projektet. Vegyünk fel egy **tri** nevű komponenst.
+
+```cmd
+ng g c tri
+```
+
+Építsük be a főkomponensbe.
+
+A tri.component.ts fájlban állítsuk be a szüksége komponenseket. A ReactiveFormsModule, FormControl és a FormGroup osztályokra lesz szükség:
 
 ```typescript
 import { 
@@ -1505,6 +1565,8 @@ A @Component dekorátor import sorába:
 ```typescript
   imports: [ReactiveFormsModule],
 ```
+
+A FormControl konstruktorra továbbra is szükség van, de egyetlen objektumként átadjuk a FormGroup konstruktornak:
 
 ```typescript
   triangleForm = new FormGroup( {
@@ -1525,6 +1587,10 @@ A számítás:
     this.triangleForm.patchValue({ area });
   }
 ```
+
+Vegyük észre, hogy a csoport nevén keresztül érjük el az egyes adatokat, a get() metódus segítségével. Az area mezőbe kell írnunk az eredményt. Ez szintén a csoport objektumon keresztül tehetjük, meg a patchValue() metódussal.
+
+A sablonban itt használjuk a **form** HTML elemet is. Minden input elem számára fel kell vennünk egy **formControlName** attribútumot. A form elem számára be kell állítanunk a **[formGroup]** attirbútumot.
 
 A sablon:
 
@@ -1560,6 +1626,10 @@ A sablon:
 ```
 
 ### FormBuilder használata
+
+Készítsünk egy **loginha** nevű projektet. Felhasználónevet, e-mail címet és jelszót fogunk bekérni.
+
+A FormControl és a FormGroup helyett használhatjuk a FormBuilder konstruktort.
 
 Importáljuk a FormBuilder és a ReactiveFormsModule osztályokat.
 
@@ -1613,6 +1683,8 @@ onSubmit() {
 
 #### HTML a reaktív űrlaphoz
 
+A **[formGroup]** és a **formControlName** attirbútum továbbra is szükséges. A változás csak a TypeScript oldalon van.
+
 ```html
 
 <form [formGroup]="userForm">
@@ -1651,6 +1723,8 @@ onSubmit() {
 
 #### Reaktív űrlapok érvényessége
 
+A FormBuilder lehetővé teszi a bejövő adatok hatékony ellenőrzését. Ehhez szükségünk van a **Validators** osztályra. A Validators.required egyszerűen kötelezőv teszi a mező kitöltését. A Validators.email megköveteli az email cím megadását az adott mezőben.
+
 ```typescript
 ngOnInit(): void { 
   this.userForm = this.builder.group({
@@ -1660,6 +1734,8 @@ ngOnInit(): void {
   })
 }
 ```
+
+A következő táblázatban a Validators osztály néhány tagját láthatjuk:
 
 | Függvény | Leírás |
 |-|-|
@@ -1679,14 +1755,6 @@ Az email esetén az a@a email cím már megfelel.
 
 #### Figyelmeztetés
 
-```html
-    <div *ngIf="
-        userForm.get('name')?.invalid && 
-        userForm.get('name')?.touched">
-        Kötelező kitölteni
-    </div>
-```
-
 Az Angular 17 verziótól:
 
 ```html
@@ -1699,6 +1767,18 @@ Az Angular 17 verziótól:
     </div>
     }
 ```
+
+Az Angular 16 és korábbi verziókban:
+
+```html
+    <div *ngIf="
+        userForm.get('name')?.invalid && 
+        userForm.get('name')?.touched">
+        Kötelező kitölteni
+    </div>
+```
+
+Az input elemmel együtt:
 
 ```html
 <form [formGroup]="userForm">
@@ -1737,18 +1817,17 @@ A hasError() használata:
 
 ## HttpClient
 
-<!-- ## A HTTP és a Backend kommunikáció -->
-
-Az Angular lehetővé teszi HTTP kommunikációt a háttérben futó szerverekkel. Az Angularnak ehhez saját HTTP modulja van.
+A REST API szerverrel való kommunikációra használhatjuk a JavaScript fetch() függvényét. Az Angular azonban saját megoldsát kínál erre a célra a HttpClient modult.
 
 ### A HttpClientModule importálása
 
-Az Angular 17 verziójában az app.module.ts fájl helyett az app.config.ts fájlba kell felvenni.
+Ha a komponenseink standalone módban használjuk, akkor a modult az app.config.ts fájlban kell felvennünk. Ha az Angular 16 vagy korábbi verzióját használjuk, vagy a projektet úgy hoztuk létre, hogy nem standalone módban fusson, akkor az app.module.ts fájlban kell felvenni a függőségként.
 
 Az app.config.ts fájlban:
 
 ```javascript
 providers: [
+  provideZoneChangeDetection({ eventCoalescing: true }),
   providerRouter(routes),
   provideHttpClient()
 ]
@@ -1765,6 +1844,7 @@ Az injektálás megoldható az inject() függvénnyel is. De itt most a konstruk
 Az src/app/shared/api.service.ts fájlba:
 
 ```javascript
+//src/app/shared/api.service.ts
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
