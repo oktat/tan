@@ -462,3 +462,60 @@ A teszt futtatása:
 npm start
 npm test
 ```
+
+### Másik megoldás
+
+```javascript
+import puppeteer from "puppeteer";
+import assert from "assert";
+
+describe("Triangle", function () {
+  let browser;
+  let page;
+
+  before(async function () {
+    browser = await puppeteer.launch();
+    page = await browser.newPage();
+  });
+
+  /* Minden teszt előtt külön-külön betölti a weboldalot. */
+  this.beforeEach(async function () {
+    await page.goto("https://szit.hu/m/triangle_ts");
+  })
+  
+  after(async function () {
+    await browser.close();
+  });
+
+  it("A title ellenőrzése", async function () {
+    const actual = await page.title();
+    const expected = "Háromszög";
+    assert.strictEqual(actual, expected);
+  });
+
+  it("A h1 elem ellenőrzése", async function () {
+    const actual = await page.$eval("h1", el => el.textContent);
+    const expected = "Háromszög területe";
+    assert.strictEqual(actual, expected);
+  });
+
+  it("Háromszög területe 30, 35 bemenetre 525", async function () {
+    await page.type("#base", "30");
+    await page.type("#height", "35");
+    await page.click("#calcButton");
+    const actual = await page.$eval("#area", el => Number(el.value));
+    const expected = 525;
+    assert.strictEqual(actual.toFixed(1), expected.toFixed(1));
+  });
+
+  it("Háromszög területe 123, 99 bemenetre 6088.5", async function () {
+    await page.type("#base", "123");
+    await page.type("#height", "99");
+    await page.click("#calcButton");
+    const actual = await page.$eval("#area", el => Number(el.value));
+    const expected = 6088.5;
+    assert.strictEqual(actual.toFixed(1), expected.toFixed(1));
+  });
+
+})
+```
