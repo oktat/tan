@@ -346,6 +346,8 @@ export const routes: Routes = [];
 
 ### Csomagkezelő beállítása
 
+A csomagkezelőt ne állítgassuk osztott felhasználású gépen. Csak az otthoni saját gépen állítsuk át.
+
 Az Angular számára az alapértelmezett csomagkezelő a npm.
 
 A következő parancs segítségével beállíthatjuk, például a pnpm parancsot:
@@ -381,7 +383,7 @@ Az Angular alapú weblap komponensekből áll. A komponensek egy nézetet valós
 
 ### Szolgáltatás
 
-Létrehozhatunk szolgáltatásokat, amelyeket a komponensek használhatnak. A szolgáltatásokat a komponensekben függőség befecskendezéssel használhatók.
+Létrehozhatunk szolgáltatásokat, amelyeket a komponensek használhatnak. A szolgáltatásokat a komponensekben függőség befecskendezéssel használhatjuk.
 
 ### Dekorátorok
 
@@ -389,20 +391,20 @@ A modulok, komponensek és a szolgáltatások osztályként vannak létrehozva. 
 
 ### Routing
 
-Az Angular a routing segítségével képes választani a betöltendő nézetek között.
+Az Angular a routing segítségével képes választani a betöltendő nézetek között. A ruting segítségével különböző komponenseket tölthetünk a főkomponensebe, vagy akár egy alkomponensbe.
 
 ### Modulok
 
-Az Angular modulok az ES2015 JavaScript szabvány kiegészítői.
+Számtalan előre legyáratott Angular modult használhatunk. Az Angular modulok az ES2015 JavaScript szabvány szerint készültek. Ilyen modul például a HttpClientModule, ami lehetővé teszi, az Angular saját HTTP kliense.
 
 ## Kötések
 
-A komponens két főbb része:
+A komponensek két főbb részből állnak. A TypeScript fájl és a HTML sablon. A főkomponens állományai például:
 
 * app.component.ts
 * app.component.html
 
-A kettő között az adatok összeköthetők, így adatkötésről beszélhetünk.
+Az adatokat a TypeScript fájlba érkeznek meg, de a HTML sablonban szeretnék azokat megjeleníteni. Ezért a TypeScript fájlban lévő adatokat a HTML sablonfájlba kötni kell, ilyen esetben adatkötésről beszélhetünk.
 
 Töröljük üresre az app.component.html fájlt. Az app.component.ts fájlban már van egy adat title néven. Alapértelmezetten a projekt nevét találjuk itt:
 
@@ -436,7 +438,7 @@ ng server --open
 
 ## Életciklus események
 
-Olyan függvények, amelyek lehetővé teszik az alkalmazás különböző életciklusainak nyomon követését, azokhoz kapcsolódó műveletek végrehajtását.
+Olyan függvények, amelyek lehetővé teszik az alkalmazás különböző életciklusainak nyomon követését, azokhoz kapcsolódó műveletek végrehajtását. Életciklus függvények az alkalmazáson belül a komponensekben használhatók.
 
 A következő függvények állnak rendelkezésre:
 
@@ -521,7 +523,7 @@ vagy:
 pnpm install bootstrap
 ```
 
-Vegyük fel a src/style.css fájlban a bootstrap-t.
+Vegyük fel az src/style.css fájlban a bootstrap-t.
 
 src/style.css:
 
@@ -579,13 +581,13 @@ Használat:
 
 ## Képek megjelenítése
 
-Képeket az public könyvtárba kell elhelyezni. Korábbi Angular verzókban volt az src/assets könyvtár, ide kellett elhelyezni a képekept, hang és vidó fájlokat.
+Képeket az public könyvtárba kell elhelyezni. A public nem csak a képek, de minden médiafájl helye is. Tehetünk ide videókat, hangfájlokat. Korábbi Angular verzókban a médiák helye az src/assets könyvtár volt.
 
 Töltsük le egy képet például a következő helyről:
 
 * [Képek](https://szit.hu/download/images)
 
-Tegyük a kiválasztott képet az public könyvtárba. Például:
+Tegyük a kiválasztott képet a public könyvtárba. Például:
 
 ```txt
 public/tatra_hegy.jpg
@@ -608,7 +610,7 @@ A public könyvtáron belül készíthetünk egy images vagy hasonló könyvtár
 * public/assets/images/valami.png
 * public/imgs/valami.png
 
-A képek helye, egyébként az angular.json fájlban van beállítva:
+A média fájlok helye, az angular.json fájlban van beállítva:
 
 ```json
 "assets": [
@@ -618,6 +620,8 @@ A képek helye, egyébként az angular.json fájlban van beállítva:
 ```
 
 ## Eseménykezelő
+
+Webes alkalmazások esetén egyik alapvető esemény amit figyelni szoktunk a kattintás. Az Angular ehhez HTML attribútumokat használ. Az attribútum értéket a hívott függvény neve, zárójelekkel együtt.
 
 ```html
 <p>{{name}}</p>
@@ -641,6 +645,8 @@ export class AppComponent {
 
 ## Szelekció
 
+A HTML sablonfájlokban egy elemek megjelenését feltételhez köthetjük. A megjeleníthetőséget a TypeScript fájlban egy logikai típusú változó tartalmazza.
+
 ### Az @if használata
 
 Az Angular 17 verzióban megjelent egy feltételes renderelés @if formája, a sablonok (.html fájlok) számára:
@@ -653,7 +659,7 @@ Az Angular 17 verzióban megjelent egy feltételes renderelés @if formája, a s
 </div>
 ```
 
-A "Tartalom megjelenítése/elrejtése" szöveg csak akkor látható, ha a TypeScript fájlban a showContent változó értéke igaz, vagyis **true**. Ellenkező esetben nem jelenik meg semmi.
+A "Tartalom megjelenítése/elrejtése" szöveg csak akkor látható, ha a TypeScript fájlban a **showContent** változó értéke igaz, vagyis **true**. Ellenkező esetben nem jelenik meg semmi.
 
 Használhatuk ellenben ággal:
 
@@ -686,7 +692,7 @@ A HTML sablonfájlba tegyünk egy nyomógombot, ami futtatja a toggleContent() m
 
 ### A *ngIf direktíva
 
-Az Angular 16 és korábbi verzióiban az *ngIf direktíva volt használatos a szelekcióra. Az újabb Angular verziók továbbra is támogatják ezeket a **CommonModule** importálása után.
+Az Angular 16 és korábbi verzióiban az *ngIf direktíva volt használatos a HTML sablonokban szelekcióra. Az újabb Angular verziók továbbra is támogatják ezeket a **CommonModule** importálása után.
 
 ```typescript
 import { CommonModule } from '@angular/common';
@@ -736,7 +742,7 @@ Az itárlás:
 
 ### Az Angular 16 *ngFor direktívája
 
-Az Angular 16 és korábbi verzióiban *ngFor direktív volt használatos a sablon fájlokban iterálásra. Az újabb Angular verziókban is használhatók, de importálni kell a **CommonModule** modult.
+Az Angular 16 és korábbi verzióiban *ngFor direktíva volt használatos a sablon fájlokban iterálásra. Az újabb Angular verziókban is használhatók, de importálni kell a **CommonModule** modult.
 
 ```typescript
 import { CommonModule } from '@angular/common';
@@ -756,11 +762,11 @@ Használatra példa:
 
 ## Komponensek
 
-A komponensek a weboldal építőelemei. Amikor létrehozunk egy Angular alkalmazást eleve van egy komponensünk, a fő komponens, amit egyszerűen **app** komponensnek nevezünk. A fő komponenseb újabb komponensek építhetők be.
+A komponensek a weboldal építőelemei. Amikor létrehozunk egy Angular alkalmazást eleve van egy komponensünk, a fő komponens, amit egyszerűen **app** komponensnek nevezünk. A fő komponensbe újabb komponensek építhetők be.
 
 ![Egy komponens a főkomponensben](images/angular/componens_egymasba_00.png)
 
-De beépíthetünk kettő vagy több komponenst is. Lehet egymás alatt, vagy egymás melett. Minden komponensbe újabb komponenst építhetünk. Nézzük meg a következő ábrákat.
+Beépíthetünk kettő vagy több komponenst is. Lehet egymás alatt, vagy egymás mellett. Minden komponensbe újabb komponenst építhetünk. Nézzük meg a következő ábrákat.
 
 Kettő egymás alatt:
 
@@ -774,9 +780,11 @@ A főkomponensben több komponens:
 
 ![Több komponensben több komponens](images/angular/componens_egymasba_03.png)
 
+A komponensek egymás melletti helyzetét CSS segítségével állítjuk be, mint minden más webes alkalmazásnál.
+
 ### Komponens cseréje
 
-Előfordulhhat hogy a fő komponensbe szeretnénk egyetlen komponenst, amit a weblap újratöltése nélkül cserélgetünk. A cserélgetést útválasztás hatására szeretnénk megtenni.
+Előfordulhat hogy a fő komponensbe szeretnénk egyetlen komponenst, amit a weblap újratöltése nélkül cserélgetünk. A cserélgetést útválasztás hatására szeretnénk megtenni.
 
 Útválasztás alatt értjük az URL változtatását. Legyen például egy weboldal elérhető a example.com URL-en.
 
@@ -858,7 +866,7 @@ A szolgáltatások tárolhatnak egyszerűen adatokat, vagy elérhetnek szerveren
 
 A szolgáltatást az **@Injectable** dekorátorral kell használni, ahhoz hogy a szolgáltatást injektálhatónak jelöljük. A root érték azt jelenti, hogy a szolgáltatás az egész alkalmazásból elérhető.
 
-Nézzünk meg egy szolgáltatást, ami egy tömb adatati szolgáltatja:
+Nézzünk meg egy szolgáltatást, ami egy tömb adatait szolgáltatja:
 
 ```javascript
 //src/app/shared/ExampleService.ts
@@ -950,7 +958,7 @@ import { ExampleService } from './shared/example.service';
 constructor(private example: ExampleService) {}
 ```
 
-Készítsünk egy ngOnInit() metódust amiben használjuk a szolgáltatást.
+Készítsünk egy ngOnInit() metódust, amiben használjuk a szolgáltatást.
 
 ```typescript
 ngOnInit() {
@@ -968,7 +976,7 @@ A böngészőben a F12-vel jelenítsük meg a DevTools felületet, majd a konzol
 
 ![Böngészőben az example szolgáltatás](images/angular/exampleServiceInConsole.png)
 
-Most adjunk a egy új elemet a kiíratás előtt a tömbhöz:
+Most adjunk egy új elemet a kiíratás előtt a tömbhöz:
 
 ```typescript
   ngOnInit() {
@@ -1098,7 +1106,7 @@ Vegyük észre, hogy a @Component dekorátorban nem kellett felvenni a szolgált
 
 #### A greeting megjelenítése
 
-A greeting komponenst láthatóvá kell tenni. Ha nincs routing, akkor egyszerűen helyezzük el a főkomponensben. Ehhez importáljuk az src/app/app.component.ts fájlba
+A greeting komponenst láthatóvá kell tenni. Ha nincs routing, akkor egyszerűen helyezzük el a főkomponensben. Ehhez importáljuk az src/app/app.component.ts fájlba.
 
 ```typescript
 import { GreetComponent } from './greet/greet.component';
@@ -1133,7 +1141,7 @@ export class AppComponent {
 }
 ```
 
-Ezt követően helyezzük hivatkozzunk a HTML állományban a greeting komponensre:
+Ezt követően hivatkozzunk a HTML állományban a greeting komponensre:
 
 Az src/app/app.component.html fájl tartalma:
 
@@ -1142,6 +1150,8 @@ Az src/app/app.component.html fájl tartalma:
 ```
 
 ## Sablon-vezérelt űrlapok
+
+Az űrlapok segítségéve kérhetünk be a felhasználóktól különböző adatokat. Hozzunk létre egy új Angular projektet.
 
 ### Űrlap tartalmának elérése
 
@@ -2611,7 +2621,7 @@ A két csillag (**), azt jelenti nem létező útvonal. Ha ilyenre hivatkozik va
 
 ### Routing alútvonalkkal
 
-Az útválasztá során a komponenseket a főkomponensebe töltjük be, ami az **app**. A betöltött komponensekbe útválasztás útjár újabb gyeremek komponenseket tölthetünk útválasztással.
+Az útválasztás során a komponenseket a főkomponensebe töltjük be, ami általában az **app** komponens. A betöltött komponensekbe az útválasztás során újabb gyermek komponenseket tölthetünk útválasztással.
 
 A következő példában az **admin** komponensbe útválasztással **login** és a **products** gyermekkomponenst töltöm.
 
@@ -2656,6 +2666,8 @@ src/app/buy/buy.component.html:
 ### Útvonalak védelme
 
 #### Az isLoggedIn() metódus
+
+Feltételezzük, hogy az azonosítás az AuthService nevű szolgáltatásban van leírva.
 
 Az auth.services.ts fájlban, az AuthService könyvtárban hozzuk létre egy isLoggedIn() nevű metódust.
 
@@ -2709,7 +2721,7 @@ export const authGuard: CanActivateFn = (route, state) => {
 
 #### Injektálás függvénybe
 
-Szükségünk van az AuthService solgáltatásra. Be kell injektálni a függvénybe. Függvényben nincs konstruktor így az inject() nevű függvényt fogjuk használni:
+Szükségünk van az AuthService szolgáltatásra. Be kell injektálni a függvénybe. Mivel függvényt használunk, nincs konstruktor, így az inject() nevű függvényt fogjuk használni:
 
 ```typescript
 import { inject } from '@angular/core';
@@ -2717,7 +2729,7 @@ import { inject } from '@angular/core';
 const auth = inject(AuthService);
 ```
 
-Most már használhatjuk az isLoggedIn() függvényt. A teljes aut.guard.ts tartalma:
+Most már használhatjuk az isLoggedIn() függvényt. A teljes auth.guard.ts tartalma:
 
 ```typescript
 import { inject } from '@angular/core';
@@ -2736,6 +2748,8 @@ export const authGuard: CanActivateFn = (route, state) => {
 
 #### Guard használata az útvonalon
 
+Ha sikerült megvalósítani az authGurad védelmet, a használat már egyszerű. Az útvonalhoz egyszerűen adjunk meg egy újabb kulcs-érték párt.
+
 ```typescript
 //...
 import { EmpComponent } from './emp/emp.component';
@@ -2747,6 +2761,8 @@ import { authGuard } from './shared/auth.guard';
     canActivate: [authGuard]
   },
 ```
+
+Felvettük a **canActivate** kulcsot és **[authGuard]** értéket.
 
 Teljes kód:
 
@@ -2771,7 +2787,7 @@ export const routes: Routes = [
 
 ### A pipe-ról
 
-A pipe egy csővezetek, amiben valamilyen adatot beengedünk, majd visszakapunk valami mást.
+A pipe egy csővezetek, amiben valamilyen adatot beengedünk, majd visszakapunk valami mást. Segítségével a HTML sablonfájlokban az adatokon átalakításokat, formázásokat végezhetünk.
 
 Vannak beépített pipe-ok, mint az **uppercase**, a **date** stb.
 
@@ -2831,22 +2847,30 @@ A 'short' paraméter által a dátum röviden jelenik meg. Most alakítsuk át k
 </p>
 ```
 
+Gyakorlásként készítsünk egy új Angular alkalmazást és probáljuk ki a leírtakat a fő vagy egy alkomponensben.
+
 ### Saját pipe készítése
 
 Nézzük meg, hogyan készíthetünk saját pipe-t. Legyen egy feladat miszerint magyar **Ft** utótagot szeretnénk tenni egy fizetés értéke után. Legyen az új pipe neve salaryhuf.
 
-Csővezeteék készítése:
+Készítsünk egy új Angular projektet. Készítsünk benne egy csővezetéket.
+
+Csővezeték készítése:
 
 ```cmd
 ng g pipe shared/pipe/salaryhuf
 ```
+
+A **shared/pipe** könyvtárak megadása nem kötelező, de jó gyakorlat.
 
 Kapunk két fájlt:
 
 * src/app/shared/pipe/salaryhuf.pipe.spec.ts
 * src/app/shared/pipe/salaryhuf.pipe.ts
 
-Nézzük a salaryhuf.pipe.ts fájlt tartalmát:
+Nézzük a salaryhuf.pipe.ts fájlt tartalmát.
+
+salaryhuf.pipe.ts:
 
 ```typescript
 import { Pipe, PipeTransform } from '@angular/core';
@@ -2864,7 +2888,7 @@ export class SalaryhufPipe implements PipeTransform {
 }
 ```
 
-Kapunk egy tansform() függvényt, amiben elvégezhetjük az átalakítást. A value fogja tartalmazni az értéket, ami jön a csővezetéken. A neve akár maradhat is. A típusát viszont adjuk meg, javítsuk az unknown szót a megfelelő típusra. Ha vannak a pipe-nak paraméterei ezt az args változóban kapjuk meg. A transform() függvény törzsében végezzük el az átalakítást, majd térjünk vissz az értékkel. A visszatérés típusát is javítsuk.
+Kapunk egy tansform() függvényt, amiben elvégezhetjük az átalakítást. A value fogja tartalmazni az értéket, ami jön a csővezetéken. A neve akár maradhat is. A típusát viszont adjuk meg, javítsuk az unknown szót a megfelelő típusra. Ha vannak a pipe-nak paraméterei ezt az args változóban kapjuk meg. A transform() függvény törzsében végezzük el az átalakítást, majd térjünk vissza az értékkel. A visszatérés típusát is javítsuk.
 
 Nézzük meg, hogyan tehetjük egy pénzösszeg végére a **Ft** szót:
 
@@ -2884,6 +2908,8 @@ export class SalaryhufPipe implements PipeTransform {
 }
 ```
 
+A return tartalmazó sorban egyszerűen a **value** után fűzzük a **Ft** szót, előtt egy szóközzel, ezzel az értékkel térünk vissza.
+
 ### Saját pipe használata
 
 Importáljuk a pipe-t abban a komponensben ahol használni szeretnénk:
@@ -2892,7 +2918,7 @@ Importáljuk a pipe-t abban a komponensben ahol használni szeretnénk:
 import { SalaryhufPipe } from './shared/pipe/salaryhuf.pipe';
 ```
 
-A @Component() dekorátorban is adjuk meg az import paraméternek:
+A @Component() dekorátorban is adjuk meg az import paraméternek a **SalaryhufPiep**-t:
 
 ```typescirpt
   imports: [SalaryhufPipe],
@@ -2942,7 +2968,9 @@ A kimenet ehhez hasonló lesz:
 
 ## Filter
 
-Ha adott egy listánk vagy egy táblázatunk, amiben nagyon sok sor van, a szűrési lehetőség megkönnyítheti a munkánkat.
+Ha adott egy listánk vagy egy táblázatunk, amiben nagyon **sok sor** van, a szűrési lehetőség megkönnyítheti a munkánkat.
+
+A szűréshez pipe-t fogunk használni.
 
 ### Kezdeti projekt
 
@@ -2985,7 +3013,7 @@ Az src/app/app.component.html fájl tartalma a következő legyen:
 
 ### Adatok készítése
 
-Az adatok most az emp komponensben leszenek egy objektumokat tartalmazó tömbben.
+Az adatok most az emp komponensben lesznek, egy objektumokat tartalmazó tömbben.
 
 Az src/app/emp/emp.component.ts fájlban vegyük fel:
 
@@ -3079,13 +3107,13 @@ export class EmpfilterPipe implements PipeTransform {
 }
 ```
 
-A value változót átneveztük values-re mivel tömbbel fogunk dolgozni. Az any[] után a szögletes zárójellel jeleztük, hogy valamilyen tömböt kellesz szűrni. Paraméterként fogunk kapni valami szűrőértéket. Ezt a filter nevű változóból szeretnénk használni.
+A value változót átneveztük values-re mivel tömbbel fogunk dolgozni. Az any[] után a szögletes zárójellel jeleztük, hogy valamilyen tömböt kell szűrni. Paraméterként fogunk kapni valami szűrőértéket. Ezt a filter nevű változóból szeretnénk használni.
 
-Az if utasításban, megmondjuk, ha nincs adata a values vagy a filter változóban térjünk vissza az üres values változóval.
+Az if utasításban, megmondjuk, ha nincs adat a values vagy a filter változóban, térjünk vissza az üres values változóval.
 
 Ha van adat, a values változón futtatjuk a filter() függvényt, aminek paramétere egy függvény. Névtelen függvényt fogunk használni, amiben leírjuk hogyan szűrünk.
 
-A névtelen függvény egy dolgozó adatati a value változóban adja meg nekünk. A névtelen függvény törzsében megvizsgáljuk, hogy ha a dolgozó nevében megtalálható a szűrő szöveg, akkor térjünk vissza igaz értékkel.
+A névtelen függvény egy dolgozó adatait szolgáltatja, a value változóban. A névtelen függvény törzsében megvizsgáljuk, hogy ha a dolgozó nevében megtalálható a szűrő szöveg, akkor térjünk vissza igaz értékkel.
 
 Ennyi a szűrés megvalósítása név alapján.
 
@@ -3114,7 +3142,7 @@ A tényleges szűrés beállítása a HTML fájlban:
 
 ## Komponensek kommunikációja
 
-A komponensek kommunikációjára az egyik lehetőség az EventEmitter használata. Itt most úgy fogjuk használni, hogy szolgáltatás készítünk belőle.
+A komponensek kommunikációjára az egyik lehetőség az **EventEmitter** használata. Itt most úgy fogjuk használni, hogy szolgáltatást készítünk belőle.
 
 Legyen egy webhely, ahol van egy be- és kilépési lehetőség, navigációval.
 
@@ -3122,7 +3150,7 @@ Legyen egy webhely, ahol van egy be- és kilépési lehetőség, navigációval.
 
 A belépés után a navigációról el kellene tűnnie a **Belépés** linknek, és megjelennie a **Kilépés** linknek.
 
-Készítsük egy Angular alkalmazást:
+Készítsünk egy Angular alkalmazást:
 
 ```cmd
 ng new app01
@@ -3142,7 +3170,7 @@ import { RouterLink } from '@angular/router';
 })
 ```
 
-Készítsük a főkomponensben egy navigációt, és egy **logedIn** nevű változót, amiben nyilvánatartjuk, hogy be vagyunk-e jelentkezve.
+Készítsük a főkomponensben egy navigációt, és egy **logedIn** nevű változót, amiben nyilvántartjuk, hogy be vagyunk-e jelentkezve.
 
 src/app/app.component.ts:
 
@@ -3192,7 +3220,7 @@ Belépési felület számára:
 ng generate component login
 ```
 
-Belépés után ezt látható:
+Belépés után ez látható:
 
 ```cmd
 ng generate component result
@@ -3242,7 +3270,7 @@ export const routes: Routes = [
 
 ### Az Emitter szolgáltatás
 
-Hozzuk létre a szolgáltatás:
+Hozzuk létre a szolgáltatást:
 
 ```bash
 ng generate service shared/emmiter
@@ -3383,7 +3411,7 @@ Forráskód:
 
 ### Egységtesztelés
 
-Az egységtesztek fontosak az alkalmazás minőségbiztosításához. Az egységtesztek esetén az alkalmazás egy elkülönített részét teszteljük, ami általában egy függvény.
+Az egységtesztek fontosak az alkalmazás minőségbiztosításához. Az egységtesztek esetén az alkalmazás egy elkülönített részét teszteljük, ami általában egy függvény vagy egy osztály.
 
 A teszteléshez a következő Angular szolgáltatásokra van szükség:
 
@@ -3446,7 +3474,7 @@ ng build --base-href=/alkonyvtárnév/
 
 ### A providerRouter paraméterezése
 
-Az src/app/app.config.ts fájlban találjuk a providers tömböt, benne a provideRouter() függvényt. Ennek egy paramétere van a routes objektum, amiban az útválasztási információk találhatók. Ha szerveren alkönyvtárat használunk a második paraméterként hívjuk meg a **withHashLocation() függvényt. Az útválasztás nélküle is működik. Azonban ha egy ilyen weboldon frissítjük a weblapot, az oldal nem található üzenetet kapjuk.
+Az src/app/app.config.ts fájlban találjuk a **providers tömböt**, benne a provideRouter() függvényt. Ennek egy paramétere van a routes objektum, amiban az útválasztási információk találhatók. Ha szerveren alkönyvtárat használunk a második paraméterként hívjuk meg a **withHashLocation() függvényt. Az útválasztás nélküle is működik. Azonban ha egy ilyen weboldon frissítjük a weblapot, az oldal nem található üzenetet kapjuk.
 
 src/app/app.config.ts:
 
