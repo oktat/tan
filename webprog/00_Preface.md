@@ -8,6 +8,7 @@
 ## Tartalomjegyzék
 
 * [Tartalomjegyzék](#tartalomjegyzék)
+* [Szükséges előismeretek](#szükséges-előismeretek)
 * [Chocolatey](#chocolatey)
 * [Szükséges szoftverek](#szükséges-szoftverek)
 * [Node.js](#nodejs)
@@ -15,6 +16,21 @@
 * [Git használata](#git-használata)
 * [Osztott használat](#osztott-használat)
 * [Gyakorlás](#gyakorlás)
+
+## Szükséges előismeretek
+
+* Szövegszerkesztési ismeretek.
+* Böngésző használata.
+* Adott operációs renszeren fájl és könyvtárkezelés.
+* Környezeti változók beállítása.
+* A PATH környezeti változó kezelése.
+* Adott operációs rendszeren szoftverek telepítése.
+* Command Prompt használata
+* PowerShell használata
+
+A szövegszerkesztés témakörben ismerni kell a számítógépes billentyűzetet. Példul Insert lenyomása, pipe, backtick, alsóvonás beírása és hasonlók.
+
+A Command Prompt és a PowerShell használata fájl- és könyvtárkezeléssel. Batch fájlok készítése.
 
 ## Chocolatey
 
@@ -34,7 +50,7 @@ A script másolata:
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 ```
 
-Telepítés után kapunk egy choco nevű parancsot. Teszteljük:
+Telepítés után kapunk egy **choco** nevű parancsot. Teszteljük:
 
 ```cmd
 choco --version
@@ -114,7 +130,7 @@ Vagy használjuk a choco parancsot:
 choco install nodejs
 ```
 
-Telepítés után lenni kell egy node, egy npm és egy npx parancsnak. Ellenőrizzük:
+Telepítés után, lenni kell egy node, egy npm és egy npx parancsnak. Ellenőrizzük:
 
 ```cmd
 node --version
@@ -144,7 +160,7 @@ Alkalmazási területek:
 
 ### Projekt készítése
 
-Az alábbiakban elkészítünk egy Node.js projektet. Egy webes alkalmazást fogun készíteni. A jövőben mindig ilyen projektekkel fogunk dolgozni. Ilyen projekt az npm, yarn és a pnpm paranccsal is létrehozható.
+Az alábbiakban elkészítünk egy **Node.js** projektet. Egy webes alkalmazást fogun készíteni. A jövőben mindig ilyen projektekkel fogunk dolgozni. Ilyen projekt az npm, yarn és a pnpm paranccsal is létrehozható.
 
 A tervek szerint a következő könyvtárszerkezetet hozzuk létre:
 
@@ -156,10 +172,10 @@ app01/
   `-package-lock.json
 ```
 
-Ebből nekünk, csak az index.html fájlt kell létrehozni, a
-többit valamilyen parancs hozza létre.
+Ebből nekünk, csak az index.html fájlt kell létrehozni, a többit valamilyen parancs hozza létre.
 
-Az **npm** és a **yarn** parancs a függőségeket a **node_modules/** könyvtárba tölti le. A **packages.json** fájlba íródik, minden telepített csomag, amiről úgy beszélünk, hogy függőség, mivel ezt használtuk a munkánk során. Ha más használni akarja a projektünket, akkor megkapja az index.html és a package.json fájlt. Egy yarn vagy egy npm paranccsal telepíteni tudja ugyanazokat a csomagokat, amiket mi is használtunk.
+Az **npm**, **pnpm** és a **yarn** parancs a függőségeket a **node_modules/** könyvtárba tölti le. A **packages.json** fájlba íródik, minden telepített csomag neve, verziója, amiről úgy beszélünk, hogy függőség, mivel ezt használtuk a munkánk során. Ha más használni akarja a projektünket, akkor megkapja az index.html és a package.json fájlt. Egy yarn, pnpm vagy npm paranccsal telepíteni tudja ugyanazokat a csomagokat, amiket mi is használtunk.
+
 A **package-lock.json** fájlban az npm parancs írja le, milyen csomagokat tettünk fel és szedtünk le, ezt általában nem nézegetjük.
 
 Elkészítjük az első Node.js alapú projektünket. A projekt könyvtárát most nekünk kell létrehozni. Legyen a neve app01. Ha elkészült lépjünk be a könyvtárba.
@@ -205,42 +221,44 @@ A yarn parancs kevesebb tartalmat ír a fájlba:
 
 A package.json fájl akár kézzel is elkészíthető, illetve szerkeszthető. Ha a "yarn init" vagy az "npm init" parancsot használjuk, ügyeljünk arra, hogy ne legyen **node_moduels** könyvtár.
 
-### A lite-server
+### A browser-sync
 
-A lite-server nevű csomagot fogjuk használni a fejlesztés során, webszervernek.
+Hozzunk létre egy Node.js projektet.
 
-Telepítsük a lite-server nevű csomagot:
+A browser-sync nevű csomagot fogjuk használni a fejlesztés során, webszervernek.
+
+Telepítsük a browser-sync nevű csomagot:
 
 ```cmd
-npm install lite-server --save-dev
+npm install browser-sync --save-dev
 ```
 
 Ha van yarn parancsunk, a telepítés azzal is megoldható:
 
 ```cmd
-yarn add lite-server --dev
+yarn add browser-sync --dev
 ```
 
 A csomag telepszik a node_modules könyvtárba, sok függőségével együtt. Nézzünk bele a package.json fájlba, ahol láthatjuk, hogy bejegyzésre került.
 
-A projekt könyvtárában készítsünk egy index.html fájlt. Indítsuk el a lite-servert:
+A projekt könyvtárában készítsünk egy index.html fájlt. Indítsuk el a browser-sync szervert:
 
 ```cmd
-npx lite-server
+npx browser-sync
 ```
 
 Ügyeljünk arra, hogy a parancsot a projekt gyökérkönyvtárában indítsuk, és ott legyen az index.html állomány is.
 
-A lite-server ilyen formán a projektünk része. A lite-server telepíthető globálisan is:
+A browser-sync ilyen formán a projektünk része. A browser-sync telepíthető globálisan is:
 
 ```cmd
-npm install --global lite-server
+npm install --global browser-sync
 ```
 
 Ebben az esetben, minden későbbi projektnek rendelkezésre áll. Indítás:
 
 ```cmd
-lite-server
+browser-sync
 ```
 
 A **package-json** fájlba, bejegyezhetünk feladatokat, vagy más néven scripteket. Ezzel rövidíthetünk az indításon. Ha az npm paranccsal hoztuk létre a package.json fájlt, akkor lesz benne egy script "test" néven.
@@ -250,7 +268,7 @@ A **package-json** fájlba, bejegyezhetünk feladatokat, vagy más néven script
 ```json
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "lite-server"
+    "start": "browser-sync"
   },
 ```
 
@@ -294,16 +312,17 @@ Végezzünk néhány javítást a weboldalon. Vegyünk fel, például egy "p" el
 
 A továbbikaban így fogunk weboldalakat készíteni.
 
-### A lite-server konfigurálása
+### A browser-sync server konfigurálása
 
-Hozzunk létre egy Node.js projektet. A projekt gyökérkönyvtárában hozzunk létre bs-config.json néven egy fájlt. A tartalma:
+Hozzunk létre egy Node.js projektet. A projekt gyökérkönyvtárában hozzunk létre **bs-config.json** néven egy fájlt. A tartalma:
 
 bs-config.json:
 
 ```json
 {
   "server": ["src"],
-  "port": 3000
+  "port": 3000,
+  "watch": true
 }
 ```
 
@@ -317,15 +336,26 @@ bs-config.json:
     "src", 
     "node_modules/bootstrap/dist/css"
   ],
-  "port": 3000
+  "port": 3000,
+  "watch": true
 }
 ```
+
+A package.json fájlban, írjuk át a **start** scriptet:
+
+```json
+"start": "browser-sync start --config bs-config.json"
+```
+
+A projekt gyökérkönyvtárában hozzunk létre **src** nevű könyvtárat. Az index.html állományt mozgassuk az src nevű könyvtárba.
+
+Indítsuk újra a szervert. Végezzünk változtatásokat a weboldalon, majd figyeljük a változásokat a böngészőben.
 
 ## Git használata
 
 ### Bemutatkozás
 
-Használat előtt, először mutatkozzunk be a git számára. Adjuk meg a teljes nevünket és az e-mail címünket. Ezt kétféle módon tehetjük meg:
+Használat előtt, először **mutatkozzunk be** a git számára. Adjuk meg a teljes nevünket és az e-mail címünket. Ezt kétféle módon tehetjük meg:
 
 * lokálisan, csak az adott projekt számára
 * globálisan a felhasználói profilba (~/.gitconfig)
