@@ -61,6 +61,10 @@ Ne legyen lefordítva:
 
 Például: jobb egér gomb a weblapon, majd: "Fordítás magyar nyelvre"
 
+Több információ:
+
+* [https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes)
+
 ## Táblázat elemei
 
 A HTML táblázatot sorokkal, a sorokon belül adatcellákkal jelöljük. A táblázatot a **table** elemmel jelöljük, a sorokat a **tr** elemmel. A soron belül a fejrész cellákat **th**, az adatcellákat **td** elemmel jelöljük.
