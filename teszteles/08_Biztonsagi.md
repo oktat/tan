@@ -82,7 +82,7 @@ INSERT INTO users (username, password)
 VALUES ('admin', PASSWORD('admin_password'));
 
 INSERT INTO users (username, password) VALUES 
-('user', PASSWORD('user_password'));
+('mari', PASSWORD('titok'));
 
 grant all 
 on test_db.* 
