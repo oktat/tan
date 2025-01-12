@@ -75,7 +75,7 @@ Bontsuk ki a becsomagolt fájlt, majd a bin könyvtárba keressük meg az indít
 
 Windowson a jmeter.bat segítségével indítjuk.
 
-### Szálakcsoportok
+### Szálak
 
 Beállíthatjuk a szálak számát, és a lefutási időt.
 
