@@ -330,7 +330,7 @@ class Triangle:
 
 Nézzük meg mit lehet újraírni.
 
-A tesztet osztályba teehetjük. A Triangle oszhtályt egyszer készítjük elő a setup_class metódusban.
+A tesztet osztályba tehetjük. A Triangle osztályt egyszer készítjük elő a setup_class metódusban. Mivel @classmethod dekorátort használunk a triangle objektum csak egyszer jön létre.
 
 tests/test_triangle.py:
 
