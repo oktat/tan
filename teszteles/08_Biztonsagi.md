@@ -15,7 +15,7 @@
 
 ## A biztonsági tesztelésről
 
-A cél a szoftverek sérülékenységeinek feltárása, az érzékyen adatok megvédése.
+A cél a szoftverek sérülékenységeinek feltárása, az érzékeny adatok megvédése.
 
 ## Tesztelési módszertanok
 
@@ -35,7 +35,7 @@ A cél a szoftverek sérülékenységeinek feltárása, az érzékyen adatok meg
 
 ### Sebezhetőség vizsgálat
 
-* Zöld dobozs teszt.
+* Szürke dobozos teszt.
 * Biztonsági rések mintáit keresi egy automatizált szoftver.
 * Pl. Valamilyen bemenetre, érzékeny adatokat szolgáltat az alkalmazás.
 
