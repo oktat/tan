@@ -17,7 +17,7 @@
 
 ## A terheléses tesztelésről
 
-A terheléses teszt során a renszerre vagy az alkalmazásra egy növekvő terhelést helyezünk, hogy megvizságljuk a viselekdését. Tesztelhetjük a hálózati terhelés, vagy a memóriafogyasztást,  vagy valamilyen konkrét célt. A teljesítménytesztek a **nem funkcionális** tesztekhez tartoznak.
+A terheléses teszt során a rendszerre vagy az alkalmazásra egy növekvő terhelést helyezünk, hogy megvizságljuk a viselkedését. Tesztelhetjük a hálózati terhelést, vagy a memóriafogyasztást,  vagy valamilyen konkrét célt. A teljesítménytesztek a **nem funkcionális** tesztekhez tartoznak.
 
 Teljesítmény:
 
@@ -54,7 +54,7 @@ Terheléses tesztnek csak a saját gépeinket, szerverinket tegyük ki! Mások g
 
 ## JMeter
 
-A JMeter-ben teszterveket hozunk létre, azon belül szálcsoportokat (Thread Group). A szálcsoportok a minden tesztnek a kezdőpontjai.
+A JMeter-ben tesztterveket hozunk létre, azon belül szálcsoportokat (Thread Group). A szálcsoportok minden tesztnek a kezdőpontjai.
 
 ### A JMeter beszerzése
 
@@ -68,7 +68,7 @@ Letölthetjük a legújabb binárist:
 
 * apache-jmeter-x.y.z.zip
 
-Bontsuk ki a becsomagolt fájlt, majd a bin könyvtárba keressük meg az indítóscripteket:
+Bontsuk ki a becsomagolt fájlt, majd a bin könyvtárban keressük meg az indítóscripteket:
 
 * jmeter.bat
 * jmeter.sh
