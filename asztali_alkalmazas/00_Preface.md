@@ -9,6 +9,7 @@
 
 * [Tartalomjegyzék](#tartalomjegyzék)
 * [Chocolatey](#chocolatey)
+* [Gépelés 10 ujjal](#gépelés-10-ujjal)
 * [Java JDK](#java-jdk)
 * [Kódszerkesztők](#kódszerkesztők)
 * [Verziókövető](#verziókövető)
@@ -44,7 +45,7 @@ Telepítés általánosan:
 choco install <csomagnév>
 ```
 
-A telepítés végezhető **Command Prmpt** és **Power Shell** terminálban egyaránt, de **rendszergazdi jog** szükséges.
+A telepítés végezhető **Command Prompt** és **Power Shell** terminálban egyaránt, de **rendszergazdi jog** szükséges.
 
 A telepítés során még rákérdez, hogy biztosan szeretnénk-e telepíteni a csomagot. Ekkor az összes ilyen kérdés elfogadása az "a" beírásával lehetésges. Ha telepítő parancsnak adunk egy -y kapcsolót, a kérdés elmarad és azonnal telepíti a Chocolatey.
 
@@ -61,6 +62,19 @@ choco install googlechrome -y
 choco install geany -y
 choco install scenebuilder -y
 ```
+
+## Gépelés 10 ujjal
+
+A gépelés 10 ujjal megkönnyíti a szoftverfejlesztés egész folyamatát. A gépelés egy más érzés; könyedebb munka, gyorsabb javítás.
+
+A 10 ujjas gépelést úgy kezdjük, hogy megkeressük a billentyűzeten az ujjak helyét. Oda tesszük az ujjainkat és minden
+billentyűt ebből a pozícióból ütünk le.
+
+Oktató szoftver:
+
+![https://termih.github.io/jtpgt/index_hu.html](https://termih.github.io/jtpgt/index_hu.html)
+
+Tötsük le a szoftvert, csomagoljuk ki. Indítás után leckéket találunk benne, amiken haladva elsajátíthatjuk a gépelést.
 
 ## Java JDK
 
