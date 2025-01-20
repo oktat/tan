@@ -72,7 +72,7 @@ billentyűt ebből a pozícióból ütünk le.
 
 Oktató szoftver:
 
-![https://termih.github.io/jtpgt/index_hu.html](https://termih.github.io/jtpgt/index_hu.html)
+* [https://termih.github.io/jtpgt/index_hu.html](https://termih.github.io/jtpgt/index_hu.html)
 
 Tötsük le a szoftvert, csomagoljuk ki. Indítás után leckéket találunk benne, amiken haladva elsajátíthatjuk a gépelést.
 
