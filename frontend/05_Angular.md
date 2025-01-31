@@ -53,7 +53,7 @@ Ebben a leírásban az Angular 17-s verziójával dolgoztam.
 Célunk, hogy legyen egy **ng** nevű parancs. Ehhez az @angular/cli csomagot kell telepíteni:
 
 ```cmd
-npm install -g @angular/cli
+npm install -g @angular/cli@18.0.0
 ```
 
 ### Ellenőrzés
@@ -73,6 +73,8 @@ ng v
 Vegyük észre, hogy nem kellenek kötőjelek.
 
 ### Adott verzió beszerzése
+
+Érdemes mindig a legújabb verziót használni. Ha telepítéskor elhagyjuk a verziót, akkor a legújabb telepszik. Ez nem biztos, hogy megfelel.
 
 A legújabb verzió helyett használjuk mindig az **LTS** verziót. Az LTS verzió hosszú támogatási idővel rendelkezik. Keressük meg a legújabb LTS a következő helyen:
 
