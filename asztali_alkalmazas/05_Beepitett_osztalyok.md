@@ -10,7 +10,7 @@
 * [Tartalomjegyzék](#tartalomjegyzék)
 * [Matematikai osztály](#matematikai-osztály)
 * [Véletlen szám generálás](#véletlen-szám-generálás)
-* [Konvertlálás](#konvertlálás)
+* [Konvertálás](#konvertálás)
 * [Bevitel](#bevitel)
 * [Karakterláncok](#karakterláncok)
 
@@ -68,7 +68,7 @@ System.out.println(Math.cos(rad));
 import java.util.Random;
 //...
 Random random = new Random();
-int veletlenSzam.nextInt(3);
+int veletlenSzam = random.nextInt(3);
 ```
 
 Kockadobás:
@@ -80,15 +80,15 @@ Random random = new Random();
 int dobas = veletlen.nextInt(6) + 1;
 ```
 
-## Konvertlálás
+## Konvertálás
 
-### String egész számmá
+### Sztring egész számmá
 
 ```java
 System.out.println(Integer.parseInt("45"));
 ```
 
-### String valós számmáa
+### Sztring valós számmá
 
 ```java
 System.out.println(Double.parseDouble("45.1234567"));
