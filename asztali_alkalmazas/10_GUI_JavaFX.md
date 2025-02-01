@@ -4,7 +4,6 @@
 
 * [Tartalomjegyzék](#tartalomjegyzék)
 * [GUI programozási alapok](#gui-programozási-alapok)
-* [JavaFX telepítés](#javafx-telepítés)
 * [JavaFX projekt készítése](#javafx-projekt-készítése)
 * [JavaFX konténerek](#javafx-konténerek)
 * [Szöveg](#szöveg)
@@ -66,7 +65,7 @@ A Layout a GUI elemek szervezését, elrendezést határozzák meg.
 
 ### Scene Builder UI tervező
 
-A Scene Builder egy vizuális UI tervező eszköz. Lehetővé teszik JavaFX alapú felhasználói felületek gyors és intuitív létrehozását. A felhasznált elemek drag-and-drop módszerrel tehejtők a helyükre.
+A Scene Builder egy vizuális UI tervező eszköz. Lehetővé teszik JavaFX alapú felhasználói felületek gyors és intuitív létrehozását. A felhasznált elemek drag-and-drop módszerrel tehetők a helyükre.
 
 A Scene Builder FXML fájlokkal dolgozik, ami egy XML alapú leírónyelv. Az FXML a felhasználói felületeket deklaratív módon írja le. A program logikáját Java kóddal valósítjuk meg.
 
@@ -78,51 +77,27 @@ A Scene Builder a [Gluon weboldaláról tölthető](https://gluonhq.com/) le, va
 choco install scenebuilder
 ```
 
-## JavaFX telepítés
-
-Erre a lépésre nincs szükség, ha Maven vagy Gradle építőeszközt használunk.
-
-Töltsük le a JavaFX-t a következő helyről:
-
-* [https://gluonhq.com/products/javafx/](https://gluonhq.com/products/javafx/)
-
-| JavaFX verzió | Minimum Java JDK |
-|-|-|
-| 24 | 21 |
-| 23 | 21 |
-| 21 | 17 |
-| 17 | 11 |
-
-A weboldalon válasszuk ki számunkra megfelelő csomagot:
-
-* Window, macOS vagy Linux
-* Verzió kiválasztása
-* Architecture - a megfelelő processzor - valószínűleg: x64
-* Type - a típus legyen SDK
-
-A **Download** gombar kattintva indítsuk a letöltést.
-
-Csomagoljuk ki tetszőleges helyre. Kicsomagolni elég a **lib** könyvtár tartalmát, de ebből minden fájlra szükség van. Ajánlott hely:
-
-* ${userProfile}/Library/javafx
-
 ## JavaFX projekt készítése
 
 ### VSCode Maven használatával
 
 Indítsuk el a VSCode szerkesztőt. Kérjünk parancs panelt.
 
+Lépések:
+
 * F1
 * Create Java Project...
 * JavaFX - create from archetype
 * Aktiválódik a Java
-* Írjuk be a group Id: például: com.example
-* Írjuk be a artifact Id: példáu: app01
+* Írjuk be a group Id, vagy hagyjuk meg az alapértelmelzést: com.example
+* Írjuk be az artifact Id: például: app01
 * Válasszuk ki a projekt melyik könyvtárba készüljön el.
 * Terminálban: Fogadjuk el a verzió számot egy **Enter** lenyomásával.
-* Terminálban: 13 JavaFX helyett írjuk be a sajátot, vagy **Enter** lenyomásával lépjünk tovább
+* Terminálban: 13 JavaFX helyett írjuk be a sajátot, vagy **Enter** lenyomásával lépjünk tovább.
 * Terminálban: nyomjunk egy billentyűt.
 * Zárjuk be a VSCode-t, és nyissuk meg azzal a könyvtárral, ahol létrejött a projektünk.
+
+Nézzük meg némelyik lépést részletesebben.
 
 Generáláskor a terminálablakban rákérdez a verzióra, ehhez hasonlót kell lássunk:
 
@@ -130,12 +105,16 @@ Generáláskor a terminálablakban rákérdez a verzióra, ehhez hasonlót kell 
 Define value property 'version' 1.0-SNAPSHOT: :
 ```
 
+Hagyjuk alapértelmezetten vagy állítsuk be az általunk választott verzióra.
+
 A JavaFX verziójának beállítása:
 
 ```txt
 javafx-version: 13
 Y: :
 ```
+
+Ezt is hagyhatjuk alapértelmezetten.
 
 A VSCode végül feldob egy párbeszéd ablakot, ami tájékoztat, hogy elkészült a projekt.
 
@@ -145,7 +124,7 @@ A terminálban még egy billentyűnyomást vár:
 * Terminal will reused by tasks, press any key to close it.
 ```
 
-A projekt beállításait utólag annak gyökérkönyvtárában található **pom.xml** fájlban tehetjük meg.
+A projekt beállításait utólag is átírhatjuk, a gyökérkönyvtárában található **pom.xml** fájl szerkesztésével.
 
 ### Fájlok
 
@@ -171,7 +150,7 @@ app01/
 
 A Java 9-es verziójában bevezették a moduláris fejlesztési lehetőséget. Célja a szervezetebb, karbantarhatóbb, újrafelhasználható kód készítése.
 
-A modulokat a **module-info.java fájlban adjuk meg. Itt határozuk meg a modul nevét és a nyilvános API-kat, amelyeket más modulok elérhetnek.
+A modulokat a **module-info.java** fájlban adjuk meg. Itt határozuk meg a modul nevét és a nyilvános API-kat, amelyeket más modulok elérhetnek.
 
 Egyszerű példa:
 
@@ -200,7 +179,7 @@ A projekt belépési pontja az App.java fájl App osztálya. Ez ki van terjesztv
 
 Az **Application** osztály egy start(Stage stage) metódust ír elő. A JavaFX programok itt indulnak.
 
-A main() metódus nem kötelező de használható. A VSCode létrehozza a main() metódust is, mivel ezt keresi indításkor.
+A main() metódus nem kötelező, de használható. A VSCode létrehozza a main() metódust is, mivel ezt keresi indításkor.
 
 A **Stage** osztály jelképezi a program ablakát (színpad). Azon belül jeleneket hozhatunk létre a Scene osztállyal.
 
@@ -270,13 +249,14 @@ public class App extends Application {
 
 ![JavaFX App osztálya](images/javafx/javafx_app_class.png)
 
-Indítás után a start(Stage stage) metódusban aláhúzza a **Stage** osztályt. Ha az egeret a név felé visszük a következőt kapjuk:
+A projekt létrehozása után a VSCode kódszerkesztő egy figyelmeztetést jelenít meg.
+A start(Stage stage) metódusban aláhúzza a **Stage** osztályt. Ha az egeret a név felé visszük a következőt kapjuk:
 
 ```txt
 The type Stage from module javafx.graphics may not be accessible to clients due to missing 'requires transitive'
 ```
 
-A figyelmeztetés megszüntetéséhez transitive módosítóval importálni kell a a javafx.graphics csomagot:
+A figyelmeztetés megszüntetéséhez transitive módosítóval importálni kell a javafx.graphics csomagot:
 
 module-info.java:
 
@@ -299,7 +279,7 @@ A JavaFX számos konténert kínál használatra. Vannak fixméretű és rugalma
 
 ### A Pane konténer
 
-A Pane a legegyszerűbb konténer, ami felhasználói felület elemeinek csoportosításra használható. A Pane nem rendelkezik előre definiált elrendezéssel, az elredezést a fejlesztő határozza meg.
+A **Pane** a legegyszerűbb konténer, ami felhasználói felület elemeinek csoportosításra használható. A Pane nem rendelkezik előre definiált elrendezéssel, az elredezést a fejlesztő határozza meg.
 
 A Pane gyermekei számára szabad elhelyezés biztosít, x, y koordinátákon. A Pane konténer gyermekit a getChildren() metódussal érhetjük el.
 
@@ -312,15 +292,15 @@ Az AnchorPane lehetővé teszi a gyermek elemek rögzített pozicionálását. M
 Vegyünk egy Pane konténert, majd tegyük rá szöveget.
 
 * Készítsük el a projektet, például **szoveg** néven.
-* Készítsünk a egy mainScene.fxml nevű állományt.
-* Nyissuk meg a Scene Builder segítségével.
+* Készítsünk egy mainScene.fxml nevű állományt.
+* Nyissuk meg a **Scene Builder** segítségével.
 * Tegyünk fel egy Pane konténet.
 * Tegyük fel a Text komponenst.
   * Text értéke: "Helló Világ"
   * fx:id : helloText
 * Állítsuk be kontrollert: MainController
 
-Ha group Id **com.example** akkor a kontroller beállítása:
+Ha group Id **com.example** értékre volt állítva, akkor a kontroller beállítása:
 
 ```txt
 com.example.MainController
