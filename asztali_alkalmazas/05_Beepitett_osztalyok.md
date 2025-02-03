@@ -289,6 +289,43 @@ String[] szavak = szoveg.split(":");
 System.out.printf("Név: %s\n", szavak[1]);
 ```
 
+#### Darabolás gyakorlat
+
+```java
+String line = "Erős István:Szeged:385";
+String[] parts = line.split(":");
+System.out.println(Arrays.toString(parts)); 
+// [Erős István, Szeged, 385]
+```
+
+```java
+String line = "Erős István : Szeged : 385";
+String[] parts = line.split(" *: *");
+System.out.println(Arrays.toString(parts));
+//[Erős István, Szeged, 385]
+```
+
+```java
+String line = "Erős István; Szeged : 385";
+String[] parts = line.split("[;: ]+");
+System.out.println(Arrays.toString(parts));
+//[Erős, István, Szeged, 385]
+```
+
+```java
+String line = "   Erős István   :   Szeged   :   385   ";
+String[] parts = line.trim().split(" *: *");
+System.out.println(Arrays.toString(parts)); 
+// [Erős István, Szeged, 385]
+```
+
+```java
+String line = "Erős István;Szeged:385";
+String[] parts = line.split("[;:]");
+System.out.println(Arrays.toString(parts)); 
+// [Erős István, Szeged, 385]
+```
+
 ### A StringBuilder és a StringBuffer
 
 A StringBuilder módosítható objektumot biztosít a porgramozó számára.
