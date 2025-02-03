@@ -13,7 +13,7 @@
 
 ## Tömbök
 
-A tömbökben azonos típusokat tárolhatunk. A tömbök létrehozása során meg kell adni hány elemet szeretnénk tárolni. Bármely típusból készíthetünk tömböt. A tömbök méret fix.
+A tömbökben azonos típusokat tárolhatunk. A tömbök létrehozása során, meg kell adni hány elemet szeretnénk tárolni. Bármely típusból készíthetünk tömböt. A tömbök mérete fix.
 
 Néhány ötelemű tömb:
 
@@ -98,9 +98,11 @@ int[] szamok = { 37, 42, 18, 31 };
 System.out.println(szamok.length)
 ```
 
+Vegyük észre, hogy ez nem metódus, mint a sztringeknél.
+
 ## Listák
 
-A listák tulajdonképpen dinamikus tömbök, ami azt jelenti a méretük automatikusan változik. Listát szoktunk létrehozni ArrayList, Vector, LinkedList stb. elemekkel.
+A listák tulajdonképpen dinamikus tömbök, ami azt jelenti a méretük automatikusan változik. Listát szoktunk létrehozni ArrayList, Vector, LinkedList típusokkal.
 
 Ha elemet adunk egy listához, annak mérete automatikusan növekszik.
 
