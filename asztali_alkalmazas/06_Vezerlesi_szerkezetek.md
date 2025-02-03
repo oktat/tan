@@ -31,6 +31,52 @@ if (num > 30) {
 }
 ```
 
+```java
+int num = 30;
+if (num > 0) {
+    System.out.println("pozitív");
+}else if(num < 0){
+    System.out.println("negatív");
+}else{
+    System.out.println("nulla");
+}
+```
+
+### switch
+
+```java
+int num = 1;
+switch (num) {
+    case 1:
+        System.out.println("egy");
+        break;
+    case 2:
+        System.out.println("ketto");
+        break;        
+    default:
+        System.out.println("nem ismert");
+        break;
+}
+```
+
+Sztring vizsgálata a Java 7-s verziójától lehetséges:
+
+```java
+String numStr = "egy";
+switch (numStr) {
+    case "egy":
+        System.out.println("1");
+        break;
+    case "kettő":
+        System.out.println("2");
+        break;
+    case "három":
+        System.out.println("3");
+        break;
+
+}
+```
+
 ## Iteráció
 
 ### for
@@ -38,6 +84,20 @@ if (num > 30) {
 ```java
 for(int i=0; i<5; i++) {
     System.out.println(i);
+}
+```
+
+Végetelen ciklus:
+
+```java
+for(int i=0; ; i++) {
+    System.out.println(i);
+}
+```
+
+```java
+for(;;){
+    System.out.println("Végtelen...");
 }
 ```
 
