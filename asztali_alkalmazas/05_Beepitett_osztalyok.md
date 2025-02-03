@@ -173,16 +173,16 @@ char ch = gyumolcs.charAt(2); // eredménye m betű
 
 ### Karakterlánc összehasonlítása
 
-Karakterláncot az equals() metódussal hasonlítunk össze, eredménye egy logikai típus. Az "==" operátor nem vezet eredményre, mert a két objektum címét hasonlítja össze.
+Karakterláncot az equals() metódussal hasonlítunk össze, aminek eredménye egy logikai típus. Az "==" operátor nem vezet eredményre, mert a két objektum címét hasonlítja össze.
 
 ```java
-String gyumolcs1 = "alma";
+String gyumolcs = "alma";
 boolean eredmeny = gyumolcs.equals("alma");
 ```
 
 ### Karakterláncok tartalma
 
-A contains() metódussal megvizsgálhatjuk, hogy egy sztring objektum tartalma-e egy bizonyos karakterláncot.
+A contains() metódussal megvizsgálhatjuk, hogy egy sztring objektum tartalmaz egy bizonyos karakterláncot vagy nem.
 
 ```java
 String gyumolcsok = "alma körte barack";
