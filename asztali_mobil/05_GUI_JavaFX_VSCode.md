@@ -892,3 +892,130 @@ void initialize() {
     empTable.setItems(empList);
 }
 ```
+
+### Feltöltés ArrayListből
+
+ArrayList-ből közvetlenűl a táblázatba:
+
+```java
+package com.example;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+public class MainController {
+
+    @FXML
+    private TableColumn<Employee, LocalDate> birthCol;
+
+    @FXML
+    private TableColumn<Employee, String> cityCol;
+
+    @FXML
+    private TableColumn<Employee, Integer> idCol;
+
+    @FXML
+    private TableColumn<Employee, String> nameCol;
+
+    @FXML
+    private TableColumn<Employee, Double> salaryCol;
+
+    @FXML
+    private TableView<Employee> table;
+
+
+    @FXML
+    void initialize() {
+        idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        cityCol.setCellValueFactory(new PropertyValueFactory<>("city"));
+        salaryCol.setCellValueFactory(new PropertyValueFactory<>("salary"));
+        birthCol.setCellValueFactory(new PropertyValueFactory<>("birth"));
+
+        ArrayList<Employee> employees = new ArrayList<>();
+        employees.add(new Employee(1, "Erős István", "Szeged",
+         395, LocalDate.parse("1990-01-01")));
+        employees.add(new Employee(2, "Pete Árpád", "Pécs",
+         392, LocalDate.parse("1995-01-01")));
+        employees.add(new Employee(3, "Puha Lajos", "Szeged",
+         397, LocalDate.parse("1990-01-01")));
+        employees.add(new Employee(4, "Fém Bálint", "Szeged",
+         398, LocalDate.parse("1995-01-01")));
+        employees.add(new Employee(5, "Csoda Irén", "Pécs",
+         395, LocalDate.parse("1990-01-01")));
+
+        table.getItems().addAll(employees);
+    }
+}
+```
+
+ArrayList-ből ObservableList:
+
+```java
+package com.example;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+public class MainController {
+
+    @FXML
+    private TableColumn<Employee, LocalDate> birthCol;
+
+    @FXML
+    private TableColumn<Employee, String> cityCol;
+
+    @FXML
+    private TableColumn<Employee, Integer> idCol;
+
+    @FXML
+    private TableColumn<Employee, String> nameCol;
+
+    @FXML
+    private TableColumn<Employee, Double> salaryCol;
+
+    @FXML
+    private TableView<Employee> table;
+
+
+    @FXML
+    void initialize() {
+        idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        cityCol.setCellValueFactory(new PropertyValueFactory<>("city"));
+        salaryCol.setCellValueFactory(new PropertyValueFactory<>("salary"));
+        birthCol.setCellValueFactory(new PropertyValueFactory<>("birth"));
+
+        ArrayList<Employee> employees = new ArrayList<>();
+        employees.add(new Employee(1, "Erős István", "Szeged",
+         395, LocalDate.parse("1990-01-01")));
+        employees.add(new Employee(2, "Pete Árpád", "Pécs",
+         392, LocalDate.parse("1995-01-01")));
+        employees.add(new Employee(3, "Puha Lajos", "Szeged",
+         397, LocalDate.parse("1990-01-01")));
+        employees.add(new Employee(4, "Fém Bálint", "Szeged",
+         398, LocalDate.parse("1995-01-01")));
+        employees.add(new Employee(5, "Csoda Irén", "Pécs",
+         395, LocalDate.parse("1990-01-01")));
+
+        ObservableList<Employee> observableList = FXCollections.observableArrayList(employees);
+
+        table.getItems().addAll(observableList);
+    }
+
+}
+```
