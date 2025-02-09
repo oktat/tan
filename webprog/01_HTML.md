@@ -548,9 +548,9 @@ Milyen tartalmat adhatunk meg az aside elemmel?
 
 #### Feladat 01
 
-Készítsen Node.js projektet, amelyben egy src könyvtárban létrehoz egy index.html nevű fájlt. Az index.html oldalon három nyelven kell megjelenítenie tartalmat.
+Készítsen Node.js projektet, amelyben egy **src** könyvtárban létrehoz egy **index.html** nevű fájlt. Az index.html oldalon három nyelven kell megjelenítenie tartalmat.
 
-A "Totál gáz" című film történetét kell megjelenítenie magyarul, spanyolul és németül.
+A "Totál gáz" című film történetét kell megjelenítenie **magyarul**, **spanyolul** és **németül**.
 
 Magyar szöveg.
 
@@ -586,14 +586,14 @@ Noch bevor das Rennen beginnt, wird ein blauhaariges, per Anhalter fahrendes Mä
 Am Ende kann nur ein Hubschrauber die Passagiere aus dem rasenden Auto retten.
 ```
 
-* Minden szöveg több részből áll. Egy nyelvi részt tegyen szekcióba.
-* Minden nyelvri rész egy kettes szintű fejezetcímmel kezdődjön, ahol a nyelv neve szerepel.
+* Minden szöveg több részből áll. Egy nyelvi részt tegye **szekciókba**.
+* Minden nyelvi rész egy **kettes szintű fejezetcímmel** kezdődjön, ahol a nyelv neve szerepel.
 * Minden szekciónál jelölje megfelelő HTML attribútummal a nyelvet. Magyar nyelvet a "hu" kulccsal jelöljük.
-* Használja az Internetet annak kiderítésére, hogyan jelöljük a spanyol és a német nyelvet.
-* Írja le, milyen szabvány írja le a rövidítéseket, a weboldal forráskódjában megjegyésben.
-* Egy style.css fájlba állítson be 4%-os margót az egész oldal számára.
-* Az egész oldal számára állítson be talpatlan betűtípust.
-* Az oldalnak legyen egy fejrésze, aminek a magasságát állítsa 120 pixelre.
-* A fejrész háttérszíne antiquewhite legyen.
+* Használja az **Internetet** annak kiderítésére, hogyan jelöljük a spanyol és a német nyelvet.
+* Írja le, milyen **szabvány** írja le a rövidítéseket, a weboldal forráskódjában megjegyzésben.
+* Egy style.css fájlba állítson be **4%-os margót** az egész oldal számára.
+* Az egész oldal számára állítson be **talpatlan betűtípust**.
+* Az oldalnak legyen egy fejrésze, aminek a **magasságát** állítsa **120 pixelre**.
+* A fejrész háttérszíne **antiquewhite** legyen.
 * A fejrészben egyes fejezetcímmel szerepeljen a "Totál gáz" szöveg.
 * A fejrész egyes szintű fejezetcímének állítsa be a szöveg középreigazítását.
