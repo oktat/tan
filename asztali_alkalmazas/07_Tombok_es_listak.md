@@ -100,6 +100,49 @@ System.out.println(szamok.length)
 
 Vegyük észre, hogy ez nem metódus, mint a sztringeknél.
 
+### Két dimenziós tömbök
+
+A két dimenziós tömböket szokás mátrixnak is nevezni.
+
+```java
+int[][] matrix = = new int[3][4];
+```
+
+A mátrix elemei:
+
+| 0 | 1 | 2 | 3 |
+|-|-|-|-|
+| 0 | 0 | 0 | 0 |
+| 0 | 0 | 0 | 0 |
+| 0 | 0 | 0 | 0 |
+
+A mátrix elemei átírhatók:
+
+```java
+matrix[0][0] = 1;
+matrix[1][2] = 2;
+matrix[2][3] = 3;
+```
+
+A mátrix elemei:
+
+| 0 | 1 | 2 | 3 |
+|-|-|-|-|
+| 1 | 0 | 0 | 0 |
+| 0 | 0 | 2 | 0 |
+
+Kétdimenziós tömbök kezdőértékkel.
+
+Egy 3x4-s mátrix:
+
+```java
+int[][] matrix = {
+    {3, 8, 0, 7},
+    {5, 3, 4, 7},
+    {2, 8, 0, 2}
+};
+```
+
 ## Listák
 
 A listák tulajdonképpen dinamikus tömbök, ami azt jelenti a méretük automatikusan változik. Listát szoktunk létrehozni ArrayList, Vector, LinkedList típusokkal.
