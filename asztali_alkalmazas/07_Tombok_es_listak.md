@@ -211,3 +211,28 @@ Integer[] szamok = { 35, 29, 17, 48, 12 };
 ArrayList<Integer> szamLista = new ArrayList<>(Arrays.asList(szamok));
 System.out.println(szamLista.size());
 ```
+
+### Tárolóosztály listában
+
+```java
+class Dolgozo {
+    int id;
+    String nev;
+    String telepules;
+    double fizetes;
+}
+
+public class App {
+    public static void main(String[] args) {
+        ArrayList<Dolgozo> dolgozoLista = new ArrayList<>();
+        Dolgozo dolgozo1 = new Dolgozo();
+        dolgozo1.id = 1;
+        dolgozo1.nev = "Pali";
+        dolgozo1.telepules = "Budapest";
+        dolgozo1.fizetes = 250000;
+
+        dolgozoLista.add(dolgozo1);
+        System.out.println(dolgozoLista.get(0).nev);
+    }
+}
+```
