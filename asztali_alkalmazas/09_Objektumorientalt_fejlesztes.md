@@ -39,7 +39,7 @@ A kattintás hatására megnyílik egy bevitelimező, ahol beírhatjuk az osztá
 
 A név megadása után ki kell választanunk mit szeretnénk:
 
-* osztály
+* class
 * interface
 * enum
 * abstract
