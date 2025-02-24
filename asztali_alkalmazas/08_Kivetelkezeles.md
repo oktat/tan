@@ -16,6 +16,7 @@
 * [Több kivétel elkapása egyszerre](#több-kivétel-elkapása-egyszerre)
 * [Beépített kivételek](#beépített-kivételek)
 * [Automatikusan lezárt erőforrások](#automatikusan-lezárt-erőforrások)
+* [Kivételkezelés gyakorlatai](#kivételkezelés-gyakorlatai)
 
 ## Kivételkezelés
 
@@ -563,3 +564,39 @@ public class Store {
 ```
 
 A try_catch szerkezetben felesleges a finally blokk is. A tryStoreFile() metódusban felesleges a close() metódus hívása.
+
+## Kivételkezelés gyakorlatai
+
+1.)
+Írjon programot, amely bekéri barátok neveit. A program egy 5 elemű tömbbel dolgozzon. Írja le milyen egy meres.txt fájlba, milyen kivételt dob, ha egy 6-dik bartátot is felvenne a felhasználó. Kezelje a kivételt. Írjon saját üzenetet a képernyőre.
+
+Mentés: maxbarat
+
+2.)
+Írjon kalkulátor programot. Valósítsa meg az alapműveleteket. O-val való osztás esetén dobjon AritmeticException kivételt.
+
+Mentés: osztakal
+
+3.)
+Írjon programot, ami ArrayIndexOutOfBoundsException kivételt dob. Ki kell derítenie, mikor és hogyan dob ilyen kivételt egy program.
+
+Mentés: outbound
+
+4.)
+Írjon programot, amely beolvassa egy fájl tartalmát, majd megszámolja a szavak számát. Ha fellép valamilyen fájlkezelési probléma kezelje az IOException kivételt. Ha a fájl nem található, akkor kezelje a FileNotFoundException kivételt. Ügyeljen arra, hogy mindkét kivétel külön legyen kezelve,
+saját üzenettel.
+
+Mentés: szamolos
+
+5.)
+Írjon programot, amely bekér egy jelszót, ellenőrzi, hogy megfelelő-e. Ha nem megfelelő dobjon InvalidPasswrodException kivételt.
+
+Mentés: valpass
+
+6.)
+Írjon programot, ami nyilvántartja a mennyi pénzünk van. Lehessen pénzt utalni, amivel csökkentjük az egyenleget. Ha Nincs elég pénz, dobjon egy saját kivételt, például InsufficientFundsException-t.
+
+Ha egy ügyfél negatív összeget próbál meg utalni, dobjunk
+például InvalidAmountexception-t.
+
+Mentés: penztar
