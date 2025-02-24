@@ -124,6 +124,54 @@ Emplyoee employee = new Emplyoee();
 Emplyoee employee = new Emplyoee("Tenge Albert");
 ```
 
+### Konstruktorok gyakorlat
+
+1.)
+Készítsen egy Szemely nevű osztályt, amely képes tárolni a következőket:
+
+* név
+* életkor
+* cím
+
+Az osztálynak legyen egy konstruktora, amely beállítja ezeket az attribútumokat.
+
+Írjon programot, amely két Szemely objektumot, majd kiírja az adattagokat konzolra.
+
+2.)
+Írjon Teglalap nevű osztályt. Tárolja a téglalap szélességét és magasságát.
+
+Az osztálynak legyen egy konstruktora az attribútumokat.
+
+Írjon programot, amely létrehoz egy téglalapot, beállítja az adatagokat, kiszámolja a kerületet és területet, majd a képernyőre írja az eredményt.
+
+3.)
+Készítsen egy Auto nevű osztályt. Tárolja a márkát, típust, színt és az árat. Írja meg azt a konstruktort, ami beállítja az összes adattagot.
+
+Írjon programot, ami létrehoz egy Auto objektumot, majd kiírja az adatait.
+
+4.)
+Készítsen Konyv osztályt. Tárolja a következő tulajdonságokat:
+
+* cím
+* szerző
+* kiadó
+* ISBN száma
+
+Valósítsa meg azt a konstruktort, ami beállítja az összes adattagot. Írjon konstruktort, ami beállítja a címet és a szerzőt a kiadó és az ISBN szám nélkül.
+
+Írjon programot ami felvesz két könyvet, majd kiírja az adatatit.
+
+5.)
+Írjon Tanulo nevű osztályt. Tárolja a következőket:
+
+* név
+* osztály
+* tanulmányi átlag
+
+Készítse el azt a konstruktort, amely beállítja az összes adattagot. Készítsen egy konstruktort, amely beállítja a nevet és az osztályt.
+
+Írjon programot, amelyben felvesz két tanulót, majd kiírja az adatait.
+
 ## Öröklés
 
 Az öröklés segítségével a már elkészült osztályokat újrafelhasználhatjuk és bővíthetjük. A következő példában készítünk egy Employee osztályt, aminek két adattagja van, a **name** és a **city**. Ha most szükségünk van egy Engineer osztályra, amiben szintén van name és city adattag, nem kell újra felvenem ezeket a mezőket, egyszerűen átörökítem azokat az extends utasítással:
@@ -139,7 +187,7 @@ class Engineer extends Emplyee {
 }
 ```
 
-A metódusok szintén öröklödnek.
+A metódusok szintén öröklődnek.
 
 Employee.java
 
