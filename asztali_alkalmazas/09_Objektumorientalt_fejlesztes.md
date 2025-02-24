@@ -245,6 +245,56 @@ Névtelen
 prrrr
 ```
 
+### Öröklés gyakorlat
+
+1.)
+Készítsen egy Allat nevű osztályt. Tárolja ell az állat nevét, életkorát és fajtáját. Készítsen konstruktort, amely beállítja ezeket az adattagokat.
+
+Készítsen egy Kutya és egy Macska osztályt, amelyek öröklik az Allat osztályt.
+
+Írjon metódust, amiben a kutya ugat. Az ugatást képernyőreírással szimulálja.
+
+Írjon metódust, amiben a macska nyávog. A nyávogást képernyőreírással szimulálja.
+
+Írjon programot, amely példányosítja Kutya és a Macska osztályt.
+
+Mentés: allatok
+
+2.)
+Készítsen egy Jarmu nevű osztályt. Tárolja benne a márkát, típust, színt és az árat. Készítsen az osztálynak konstruktort, amely beállítja az összes adattagot.
+
+Készítsen Auto, Motor és Kerekpar osztályt.
+
+Az Auto osztálynak legyen egy saját adattagja, ami tárolja az ajtók számát.
+
+A Motor osztálynak legyen egy adattagja, ami a teljesítményét tárolja.
+
+A Kerekpar osztálynak legyen egy adattagja, ami tárolja, hogy van-e csomagtartó felszerelve.
+
+Írjon programot, amely példányosítja az Auto, Motor és Kerekpar osztályokat. Írassa ki, mindegyik objektum összes tulajdonságát.
+
+Mentés: jarmuvek
+
+3.)
+Készítsen Alakzat nevű osztályt. Tárolja az alakzat területét és színét. Az osztálynak legyen egy konstruktora, ami beállítja a az osztály összes adattagját.
+
+Készítsen egy Teglalap egy Kor osztályt. A Teglalap osztálynak legyen szélesség és magasság adattagja. A Kor osztálytnak vegyen fel egy sugár tulajdonságot.
+
+Írjon programot, amely példányosít egy Teglalap és egy Kor osztályt. A progam írassa ki az alakzatok összes tulajdonságát.
+
+Mentés: alakzatok
+
+4.)
+Készítsen Termek nevű osztályt. Tárolja benne a nevet, árat és leírást. Az osztálynak készítsen egy konstruktort, amely beállítja az összes adattagot.
+
+Készítse el a következő osztályokat: Elelmiszer, Ruhazat.
+
+Az Elelmiszer osztálynak vegyen fel egy lejárati dátum adattagot. A Ruhazat osztálynak vegyen fel egy méretet tároló adattagot.
+
+Írjon programot, amely példányosítja az Elelmiszer és a Ruhazat osztályokat, majd kiírja az összes tulajdonságot.
+
+Mentés: termekek
+
 ## Beállító lekérdező metódusok
 
 Az osztályok adattagjait nem szokás nyilvánossá tenni. Helyette beállító lekérdező metódusokat használunk:
