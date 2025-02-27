@@ -16,7 +16,9 @@
 
 ## Matematikai osztály
 
-A Math osztály matematikai kifejezések írását segíti.
+A Math osztály matematikai kifejezések írását segíti. Készítsünk egy új Java alkalmazást a gyakorláshoz. Lehet a nevek például "matek".
+
+A Math osztály a java.lang csomagból érhető el, így nem szükséges importálni.
 
 ### A pí értéke
 
@@ -26,7 +28,11 @@ A PI értékét példáu így kapjuk meg:
 System.out.println(Math.PI);
 ```
 
+Egyszerűen leírjuk a Math osztály nevét, majd utána írjuk mit szeretnénk. A PI egy osztályállandó, ami tartalmazza PI érétéket. A kiírtáshoz csak leírjuk: Math.PI formában. Írjuk az utasítást az alkalmazásunkba, majd nézzük meg a futtatás eredményét.
+
 ### A gyökvonás
+
+A gyökvonásnál ugyanígy használjuk a Math osztály. Az sqrt() viszont egy függvény, ezért kisbetűvel írjuk, a név után pedig kell a szokásos zárójel. A példánkban 9 gyökét szeretnénk megtudni.
 
 ```java
 System.out.println(Math.sqrt(9));
@@ -64,6 +70,28 @@ System.out.println(Math.cos(rad));
 
 ## Véletlen szám generálás
 
+Véletlen számot létrehozhatunk a Math osztállyal és a Random osztállya. Itt most a Random osztályt fogjuk használni. A Random osztály a java.util csomagban. A java.util osztályai nem használhatók csak importálás után. Ezért használat előtt importálni kell. Az importálás a fájl elején egy ilyen sort jelent:
+
+```java
+import java.util.Random;
+```
+
+A Random osztályt használat előtt példányosítani kell. A példányosításra példa:
+
+```java
+Random random = new Random();
+```
+
+A példányosítással létrehoztunk egy **random** nevű objektumot. Ezen az objektumon futtathatjuk a véletlenszámot generáló metódusokat. Egész szám generálása például:
+
+```java
+int veletlenSzam = random.nextInt(3);
+```
+
+Egész szám generáláshoz a 3-as értéket adtuk meg paraméterként. Ebben az esetben a következő számok jelenhetnek meg a **veletlenSzam** változóban: 0, 1, 2. Ha **nextInt(5)** formában hívom akkor a 0, 1, 2, 3, 4 számok valamelyikét kapjuk.
+
+Foglaljuk össze mit kellett csinálni a véletlenszám generáláshoz:
+
 ```java
 import java.util.Random;
 //...
@@ -71,30 +99,104 @@ Random random = new Random();
 int veletlenSzam = random.nextInt(3);
 ```
 
-Kockadobás:
+Importáltuk a Random osztályt. Valahol egy metódusban példányosítottuk a Random osztályt random néven. Ezt követően a nextInt(3) hívással generáltunk egy véletlenszámot, majd tároltuk a veletlenSzam nevű változóban.
+
+Lehetséges teljes kód, kiíratással:
+
+```java
+import java.util.Random;
+public class App {
+  public static void main(String[] args) {
+    Random random = new Random();
+    int veletlenSzam = random.nextInt(3);
+    System.out.println("Véletlen szám: " + veletlenSzam);
+  }
+}
+```
+
+Írjuk meg a programot, majd ellenőrizzük, milyen számokat kapunk.
+
+### Kockadobás
+
+Kockadobás szimulációban 1, 2, 3, 4, 5, 6-os számokat várunk. Ha nextInt() függvényt 6-os értékkel hívjuk akkor 0, 1, 2, 3, 4, 5 számokat kapjuk. Ha azonban a kapott számhoz mindig hozzáadunk 1-t, akkor a kapott számok: 1, 2, 3, 4, 5, 6, vagyis megkapjuk a kockadobásokat.
+
+Készítsünk egy Java alkalmazást például **kocka** néven, majd írjuk meg azt a programot, ami egy kockadobást szimulál.
 
 ```java
 import java.util.Random;
 //...
 Random random = new Random();
-int dobas = veletlen.nextInt(6) + 1;
+int dobas = random.nextInt(6) + 1;
+```
+
+A programot egészítsük kiíratással.
+
+A lehetséges teljes kód:
+
+```java
+import java.util.Random;
+public class App {
+  public static void main(String[] args) {
+    Random random = new Random();
+    int dobas = random.nextInt(6) + 1;
+    System.out.println("Kockadobás: " + dobas);
+  }
+}
 ```
 
 ## Konvertálás
 
+Az alkalmazások írása során sokszor karakterláncként (sztringként) kapjunk valamilyen számot. Ha ezzek az értékekkel számolni szeretnénk át kell alakítanunk valamilyen szám típussá.
+
+Készítsünk egy **konvert** nevű alkalmazast ahol kipróbálhatjuk a következő fejezetek utasításait.
+
 ### Sztring egész számmá
+
+Ha a 45 értéket idézőjelbe tesszük, akkor az sztring lesz. Egész szám típusú változoba ha szeretnénk tárolni az Integer osztállyal konvertálhatjuk. Az Integer osztály a java.lang csomagban van, így használat előtt nem szükséges importálni. Az importálást a parseInt() függvénnyel lehet megtenni, ami egy paraméterként egy sztringet vár. Nézzük meg a következő programot:
 
 ```java
 System.out.println(Integer.parseInt("45"));
 ```
 
+Vegyünk fel például egy **szoveg** nevű változót, tegyük ebbe a számot sztringként, majd tároljuk egy **szam** nevű változóban:
+
+```java
+String szoveg = "45";
+int szam = Integer.parseInt(szoveg);
+System.out.println(szam);
+```
+
 ### Sztring valós számmá
+
+Valós szám esetén használhatjuk a Double osztály, parseDouble() metódusát. Mivel a Double osztály is a java.lang változóban van, ezt sem kell importálni. Próbáljuk meg a következő kódot:
 
 ```java
 System.out.println(Double.parseDouble("45.1234567"));
 ```
 
+Írjuk át a programot, használjunk változókat:
+
+```java
+String szoveg = "45.1234567";
+double szam = Double.parseDouble(szoveg);
+System.out.println(szam);
+```
+
+### Szám konvertálása szöveggé
+
+Nézzük meg a konvertálást visszafelé. Számból szeretnénk szöveget. A String osztály valueOf() metódusát fogjuk használni.
+
+```java
+int szam = 30;
+String szoveg = String.valueOf(szam);
+System.out.println(szoveg);
+```
+
+Próbáljuk ki a programrészletet. Valós számok esetén ugyanez az eljárás.
+
 ## Bevitel
+
+A bevitel sokkféleképpen meg lehet valósítani Java nyelven. Ebben a leírásban a Scanner osztályt fogjuk használni. a Scanner osztály a java.util csomagvan, ezért először importálni kell. Az importálást követően egy metódusban hozzunk létre egy példányt. A bekéréshez a nextLine() metódust fogjuk használni.
 
 ```java
 import java.util.Scanner;
@@ -104,7 +206,8 @@ Scanner scanner = new Scanner(System.in);
 String nev = scanner.nextLine();
 ```
 
-Ajánlott a számok bekérése inkább szövegként, a nextInt() vagy a nextDouble() metódus helyett.
+A nextLine() metódus egy szöveget vár, amit egy Enter billenytűvel fejezünk be.
+Ajánlott a számok bekérése is szövegként, a nextInt() vagy a nextDouble() metódus helyett, mivel így könnyen ellenőrizhetjük a bevitel helyességét később.
 
 Egész számok bekérése:
 
@@ -126,7 +229,7 @@ double kor = Double.parseDouble(hoStr);
 
 ### A karakterláncokról
 
-A karakterlácok, angolul string néven ismert. A magyar nyelvben is kezd meghonosodni a "sztring" megfelelője. A Java nyelvben nincs string primitív típus, azt csak a String osztállyal hozható létre. Mivel gyakran használt osztály, ezért new hívása nélkül is létrehozható String objektum, a konstruktor ilyenkor automatikusan hívódik. A String objektumokat úgy hozhatunk létre mint primitív típusokat.
+A karakterlácok, angolul **string** néven ismert. A magyar nyelvben is kezd meghonosodni a "sztring" megfelelője. A Java nyelvben nincs string primitív típus, így karakterlánc csak a String osztállyal hozható létre. Mivel gyakran használt osztály, ezért new hívása nélkül is létrehozható String objektum, a konstruktor ilyenkor automatikusan hívódik. Ebből következik, hogy a String objektumokat úgy hozhatunk létre mint primitív típusokat.
 
 ```java
 String szoveg;
