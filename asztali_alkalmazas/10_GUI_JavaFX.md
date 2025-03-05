@@ -79,6 +79,11 @@ choco install scenebuilder
 
 ## JavaFX projekt készítése
 
+API dokumentáció:
+
+* [https://openjfx.io/](https://openjfx.io/) (2025)
+* [https://docs.gluonhq.com/](https://docs.gluonhq.com/) (2025)
+
 ### VSCode Maven használatával
 
 Indítsuk el a VSCode szerkesztőt. Kérjünk parancs panelt.
