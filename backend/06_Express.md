@@ -26,12 +26,12 @@ mkdir hello
 cd hello
 npm init -y
 npm install express
-mkdir src
+mkdir app
 ```
 
 ### Az első index.js
 
-Készítsünk egy **index.js** nevű fájlt az src könyvtárban. Tartalma:
+Készítsünk egy **index.js** nevű fájlt az app könyvtárban. Tartalma:
 
 ```javascript
 console.log('Helló Világ');
@@ -40,7 +40,7 @@ console.log('Helló Világ');
 Futtatás:
 
 ```cmd
-node src
+node app
 ```
 
 ## Végpontok
@@ -54,10 +54,10 @@ mkdir veges
 cd veges
 npm init -y
 npm install express
-mkdir src
+mkdir app
 ```
 
-Az src könyvtárban készítsünk egy index.js fájlt, a következő tartalommal:
+Az app könyvtárban készítsünk egy index.js fájlt, a következő tartalommal:
 
 ```javascript
 
@@ -82,7 +82,7 @@ Ez a kis program a kezdetleges REST API szerverünk, futtassuk azt.
 Futtatás:
 
 ```cmd
-node src
+node app
 ```
 
 A futtatás eredményeként, elindul a szerver és megjelenik a terminálban a "listening on port: 8000" szöveg. A szerver az előtérben fut, így nem adja vissza a várakozási jelet.
@@ -97,6 +97,12 @@ Használhatjuk a HTTPie alkalmazás http parancsát is:
 
 ```cmd
 http localhost:8000/msg
+```
+
+A resen csomaggal:
+
+```cmd
+res localhost:8000/msg
 ```
 
 Nézzük meg az eredményt az Insomnia vagy Insomnium alkalmazásban is.
@@ -239,7 +245,7 @@ Készítsünk egy **utas** nevű projektet.
 
 A Router használatával az alkalmazás egyes részei szétválaszthatók, és végpontot is bővíthetjük.
 
-Először lássuk egyetlen fájlban a használatát. Készítsünk egy index.js fájlt az src könyvtárban:
+Először lássuk egyetlen fájlban a használatát. Készítsünk egy index.js fájlt az app könyvtárban:
 
 ```javascript
 const express = require('express');
@@ -271,7 +277,7 @@ http localhost:8000/api/products
 
 ### Az Express router szétbontva
 
-Készítsünk két külön állományt egy routes.js és egy index.js fájlt, az src könyvtárban.
+Készítsünk két külön állományt egy routes.js és egy index.js fájlt, az app könyvtárban.
 
 routers.js:
 
@@ -307,7 +313,7 @@ app.listen(8000, () => {
 Indítsuk el az alkalmazást:
 
 ```cmd
-node src
+node app
 ```
 
 ### Express gyakorlat
@@ -334,7 +340,7 @@ Készítsünk egy új projektet **empapi** néven. Node.js projekt:
 ```cmd
 mkdir empapi
 cd empapi
-pnpm init
+npm init -y
 ```
 
 A következő könyvtárszerkezetet hozzuk létre:
@@ -342,14 +348,14 @@ A következő könyvtárszerkezetet hozzuk létre:
 ```txt
 empapi/
   |-node_modules/
-  |-src/
+  |-app/
   |   |-controllers/
   |   |  `-employeeController.js
   |   |-routes/
   |   |  `-api.js
   |   `-index.js
-  |-package.json
-  `-pnpm-lock.yaml
+  |-package-lock.json
+  `-package.json
 ```
 
 Függőségek telepítése:
@@ -365,7 +371,7 @@ A package.json fájlban az indító script:
 
 ```json
   "scripts": {
-    "start": "nodemon src --watch src"
+    "start": "nodemon app --watch app"
   },
 ```
 
@@ -414,7 +420,7 @@ http localhost:8000/api/employees
 
 ### Kontroller
 
-Készítsünk egy employeeController.js fájlt,
+Készítsünk egy **employeeController.js** fájlt,
 a controllers könyvtárban, a következő tartalommal:
 
 ```javascript
@@ -429,19 +435,19 @@ module.exports = EmployeeController
 
 ### Kontroller hívása az útválasztóból
 
-Készítsünk az src könyvtárban egy routes nevű könyvtárat. Hozzunk benne létre egy api.js fájt.
+Készítsünk az app könyvtárban egy routes nevű könyvtárat. Hozzunk benne létre egy api.js fájt.
 
 ```txt
 empapi/
   |-node_modules/
-  |-src/
+  |-app/
   |   |-controllers/
   |   |  `-employeeController.js
   |   |-routes/
   |   |  `-api.js
   |   `-index.js
-  |-package.json
-  `-pnpm-lock.yaml
+  |-package-lock.json
+  `-package.json
 ```
 
 A routes/api.js fájlban hozzunk létre egy útválasztást, ahol használjuk az EmployeeController-t:
@@ -469,7 +475,7 @@ Valami%
 
 Valósítsuk meg az összes metódust.
 
-_src/controllers/employee.controller.js_:
+_app/controllers/employee.controller.js_:
 
 ```javascript
 const EmployeeController = {
@@ -490,7 +496,7 @@ const EmployeeController = {
 module.exports = EmployeeController
 ```
 
-_src/routes/api.js_:
+_app/routes/api.js_:
 
 ```javascript
 const Router = require('express');
@@ -569,7 +575,7 @@ Készítsünk egy egyszerű Express REST API-t, ami read művelet tud /msg végp
 
 ```txt
 fogadas/
-  |-src/
+  |-app/
   |  |-index.js
   `-package.json
 ```
@@ -580,7 +586,7 @@ Telepítsük az express-t:
 npm install express
 ```
 
-_src/index.js_:
+_app/index.js_:
 
 ```javascript
 const express = require('express');
@@ -633,16 +639,16 @@ app.listen(8000, () => {
 
 ```
 
-Indítsuk el a szervert. Ha az index.js fájl egy src könyvtárban van, akkor:
+Indítsuk el a szervert. Ha az index.js fájl egy app könyvtárban van, akkor:
 
 ```cmd
-node src
+node app
 ```
 
 vagy
 
 ```javascript
-node src/index.js
+node app/index.js
 ```
 
 Ha fut a szerver, akkor teszteljük egy HTTP klienssel. Például HTTPie:
@@ -674,7 +680,7 @@ Vegyük elő a **empapi** projektünket vagy készítsünk egy másikat, ha az n
 
 ```txt
 fogadas/
-  |-src/
+  |-app/
   |  |-controllers/
   |  |  `-employeeController.js
   |  |-routes/
@@ -692,7 +698,7 @@ app.use(express.json());
 Használjuk a **morgan** naplózót:
 
 ```cmd
-pnpm install morgan
+npm install morgan
 ```
 
 ```javascript
@@ -988,7 +994,7 @@ DB_PASS=titok
 
 ### Adatbázis elérés
 
-Készítsünk egy **src/database/mariadb.js** fájlt:
+Készítsünk egy **app/database/mariadb.js** fájlt:
 
 ```javascript
 const Sequalize = require('sequelize')
@@ -1010,7 +1016,7 @@ module.exports = sequalize
 
 ### Model készítése
 
-Készítsünk egy **src/models/employee.js** fájlt:
+Készítsünk egy **app/models/employee.js** fájlt:
 
 ```javascript
 const { DataTypes } = require('sequelize')
@@ -1198,7 +1204,7 @@ module.exports = User
 
 ### AuthController készítése
 
-Készítsünk az **src/controllers/authController.js** fájlban egy AuthController-t:
+Készítsünk az **app/controllers/authController.js** fájlban egy AuthController-t:
 
 ```javascript
 const bcrypt = require('bcryptjs')
@@ -1276,7 +1282,7 @@ const AuthController = require('../controllers/authcontroller')
 router.post('/register', AuthController.register)
 ```
 
-Az **src/routes/api.js** teljes tartalma:
+Az **app/routes/api.js** teljes tartalma:
 
 ```javascript
 const Router = require('express');
@@ -1373,7 +1379,7 @@ router.post('/login', AuthController.login)
 
 ### Tokenek ellenőrzse
 
-A tokenek ellenőrzését egy köztes szoftverben végezzük. Hozzuk létre az **src/middleware/authjwt.js** fájlban a következőt:
+A tokenek ellenőrzését egy köztes szoftverben végezzük. Hozzuk létre az **app/middleware/authjwt.js** fájlban a következőt:
 
 ```javascript
 const jwt = require("jsonwebtoken");
