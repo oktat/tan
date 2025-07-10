@@ -313,6 +313,24 @@ Korlátozott elérésű, nyílt komponenseket használó API tervező, fejleszt�
 
 * [https://www.postman.com/](https://www.postman.com/)
 
+### Parancssoros kliensek
+
+* curl
+* httpie
+* resen
+
+A resen telepíthető a következő paranccsal:
+
+```cmd
+npm install -g resen
+```
+
+Használata például:
+
+```cmd
+res http://localhost:8000/msg
+```
+
 ## Csomagkezelő - composer, npm
 
 ### A composer

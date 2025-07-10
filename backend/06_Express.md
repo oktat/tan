@@ -17,7 +17,7 @@ Az Express minimalista, rugalmas webes keretrendszer, ami Node.js-sel van megval
 
 Sok népszerű keretrendszer alapszik az Expressen.
 
-A Sequelize egy ORM rendszer, amit a modelleket leképezi adatbázisra.
+A Sequelize egy ORM rendszer, ami a modelleket leképezi adatbázisra.
 
 ## Első Express projekt
 
@@ -77,7 +77,7 @@ app.listen(8000, () => {
 });
 ```
 
-Ha elkszítettük a szerverünket, futtassuk a szervert.
+Ez a kis program a kezdetleges REST API szerverünk, futtassuk azt.
 
 Futtatás:
 
@@ -99,7 +99,7 @@ Használhatjuk a HTTPie alkalmazás http parancsát is:
 http localhost:8000/msg
 ```
 
-Nézzük meg az eredményt az Insomnia alkalmazásban is.
+Nézzük meg az eredményt az Insomnia vagy Insomnium alkalmazásban is.
 
 A futó szervert állítsuk le a Ctrl + C billentyűkombinációval.
 
@@ -136,7 +136,7 @@ Futtassuk a szervert, és teszteljük curl vagy http paranccsal.
 
 ### Express több végponttal
 
-Készítsünk egy **pcshop** nevű projektet.
+Készítsünk egy **pcshop** nevű projektet. Az adatokat egyenlőre nem adatbázisból vesszük, helyette beépítjük az adatokat a kódba, tömb formájában.
 
 Készítsük el a következő **index.js** állományt:
 
@@ -190,7 +190,7 @@ app.listen(8000, () => {
 });
 ```
 
-Teszteljük mindkettőt. Használjuk a HTTPie, http parancsát:
+Teszteljük mindkettőt. Használjuk a HTTPie, http vagy más parancsot:
 
 ```cmd
 http localhost:8000/msg
@@ -231,7 +231,7 @@ app.listen(8000, () => {
 });
 ```
 
-Teszteljük az alkalmazást a HTTPie vagy a curl paranccsal vagy az Insomnia segítségével.
+Teszteljük az alkalmazást valamilyen HTTP klienssel.
 
 ### Express router
 
@@ -355,8 +355,8 @@ empapi/
 Függőségek telepítése:
 
 ```cmd
-pnpm install express sequelize mariadb
-pnpm install --save-dev nodemon
+npm install express sequelize mariadb
+npm install --save-dev nodemon
 ```
 
 A **nodemon** lehetővé teszi számunkra, hogy az alkalmazás fejlesztése során minden egyes mentéskor azonnal legyen aktuális a fejlesztett rész.
@@ -406,7 +406,7 @@ Indítsuk el az alkalmazást:
 npm start
 ```
 
-Teszteljünk egy HTTP klienssel. Például HTTPie http parancsa:
+Teszteljünk egy HTTP klienssel.
 
 ```cmd
 http localhost:8000/api/employees
