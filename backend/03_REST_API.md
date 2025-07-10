@@ -7,7 +7,7 @@
 
 ## REST
 
-A **REST** a **Representational State Transfer** rövidítése, ami elosztott alkalmazásrendszert jelent, webes alapú alkalmazások számára. A REST API-k jellemzően HTTP protokollt használnak, többféle művelettel. A műveleteket a metódusok határozzák meg: GET, POST, PUT, DELETE stb. Ezek lehetővé teszik szövegek, képek lekérését, frissítését, törlését, létrehozását. 
+A **REST** a **Representational State Transfer** rövidítése, ami elosztott alkalmazásrendszert jelent, webes alapú alkalmazások számára. A REST API-k jellemzően HTTP protokollt használnak, többféle művelettel. A műveleteket a metódusok határozzák meg: GET, POST, PUT, DELETE stb. Ezek lehetővé teszik szövegek, képek lekérését, frissítését, törlését, létrehozását.
 
 A REST architektúra jellemzői:
 
@@ -45,10 +45,10 @@ A HTTP kérések állapotmentesek, vagyis mindenegyes kérsének az összes szü
 
 A CRUD műveletek:
 
-* create
-* read
-* update
-* delete
+* create - elem létrehozása
+* read - elem/elemek olvasása
+* update - elem frissítése
+* delete - elem törlése
 
 ## REST kontrollerek
 

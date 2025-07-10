@@ -81,15 +81,17 @@ class UserService
 
 A példában a UserRepository osztály végzi az adatelérést. A UserService osztály közvetít a vezérlő (kontroller) és a UserRepository között.
 
-## ORM - Eloquent
+## ORM
 
 Az ORM az "Object-Relational Mapping" rövidítése, ami egy programozási paradigma, amely lehetővé teszi objektumok és az adatbázis relációs tábláinak kapcsolatát. ORM használata esetén az alkalmazás fejlesztője csak objektumokkal dolgozik, ami automatikusan leképeződik táblázatokra.
 
 Az ORM előnye az adatbázis-rendszertől való függetlenség, könnyen, hatékonyan kezelhető adatok. Az ORM használható, Java, C#, Ruby, PHP, JavaScript, Python stb. nyelvekhez.
 
+### Eloquent
+
 A Laravel ORM rendszere az Eloquent. Az Eloquent kifejezetten PHP-ban írt alkalmazások számára készült. A Laravel adatbázis-kapcsolati rétegeként működik. SQL utasítások nélkül elérhetővé teszi az adatbázist.
 
-## Kapcsolatbeállítások
+#### Kapcsolatbeállítások
 
 A Laravel a lehetséges kapcsolatbeállításai a **config/database.php** vannak tárolva. A konkrét beállítást a gyökér könyvtárban a **.env** nevű fájlban tehetjük meg.
 
@@ -101,6 +103,10 @@ DB_DATABASE=laravel
 DB_USERNAME=root
 DB_PASSWORD=
 ```
+
+### Sequelize
+
+Az Express esetén tetszőleges ORM válaszható, amiből itt a Sequelize-t fogjuk használni. Mivel a Sequelize nincs beépítve az Express-be, ezért tetszőleges felépítésű beállítófájlt használhatunk. A lekérdezéseket nem szükséges SQL nyelven, az ORM rendelkezik beépített lehetőségekkel. Az ORM rendszereke azonban megengedik egyedi lekérdezések írását.
 
 ## Entity
 

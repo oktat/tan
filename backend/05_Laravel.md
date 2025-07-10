@@ -79,7 +79,7 @@ A böngészőbe írjuk be a következő címet:
 http://127.0.0.1:8000/
 ```
 
-A laravel alapértelmezett oldalát látjuk.
+A Laravel alapértelmezett oldalát látjuk.
 
 ### Az alapértelmezett weblap cseréje
 
