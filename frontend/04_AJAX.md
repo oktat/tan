@@ -23,7 +23,7 @@ Készítsünk egy gyors helyettesítő REST API-t, majd indítsuk el:
 mkdir api
 cd api
 sin api
-pnpm i
+npm i
 npm start
 ```
 
@@ -323,7 +323,7 @@ Vegyünk egy hír API szolgáltatót:
 
 * [https://newsapi.org/](https://newsapi.org/)
 
-Regisztráljunk. A regisztráció elinudl a "Get API Key ->" feliratú gombra kattintva is.
+Regisztráljunk. A regisztráció elindul a "Get API Key ->" feliratú gombra kattintva is.
 
 A főoldalon találunk egy mintát, hogyan hívhatjuk.
 
