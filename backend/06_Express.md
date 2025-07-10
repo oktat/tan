@@ -444,7 +444,7 @@ empapi/
   `-pnpm-lock.yaml
 ```
 
-Az routes/api.js fájlban hozzunk létre egy útválasztást, ahol használjuk az EmployeeController-t:
+A routes/api.js fájlban hozzunk létre egy útválasztást, ahol használjuk az EmployeeController-t:
 
 ```javascript
 const Router = require('express');
@@ -458,7 +458,7 @@ module.exports = router
 
 Teszteljük újból. Most már a kontrollerből jön a válasz.
 
-A teszte végezhetjük curl, http paranccsal vagy az Insomnia alkalmazással.
+Teszteljün valamilyen HTTP klienssel.
 
 ```cmd
 curl http://localhost:8000/api/employees
@@ -519,7 +519,7 @@ res.json({
     });
 ```
 
-A példában egy success és egy msg tulajdonságot adunk vissza. A success megmutatja az üzenet sikeress vagy nem, az msg magát az üzenetet.
+A példában egy success és egy msg tulajdonságot adunk vissza. A success megmutatja az üzenet sikeres vagy nem, az msg magát az üzenetet tartalmazza.
 
 _employee.controller.js_:
 
@@ -574,10 +574,10 @@ fogadas/
   `-package.json
 ```
 
-Telepítsük a express-t:
+Telepítsük az express-t:
 
 ```cmd
-pnpm install express
+npm install express
 ```
 
 _src/index.js_:
@@ -595,7 +595,7 @@ app.listen(8000, () => {
 });
 ```
 
-Mondjuk meg, hogy szeretnénk JSON adatot fogadni. Ez az Express beépített json() nevű köztes szoftverével valósítjuk meg:
+Mondjuk meg, hogy szeretnénk JSON adatot fogadni. Ezt az Express beépített json() nevű köztes szoftverével valósítjuk meg:
 
 ```javascript
 app.use(express.json());
@@ -900,13 +900,13 @@ X-Powered-By: Express
 30
 ```
 
-Most már tudunk adatokat és paramétert átvenni, dogozhatunk adatbázissal.
+Most már tudunk adatokat és paramétert átvenni, dolgozhatunk adatbázissal.
 
 ## ORM használata
 
 ### Adatbázis előkészítése
 
-Hozzuk létre az adatbázis és hozzá egy felhasználót:
+Hozzuk létre az adatbázist és hozzá egy felhasználót:
 
 ```sql
 create database emp
@@ -926,7 +926,7 @@ A példában egy emp nevű adatbázis hoztunk létre, és egy emp nevű felhaszn
 Telepítsük a dotenv csomagot:
 
 ```cmd
-pnpm install dotenv
+npm install dotenv
 ```
 
 Hozzunk létre a projekt gyökérkönyvtárában egy .env nevű fájlt
@@ -988,7 +988,7 @@ DB_PASS=titok
 
 ### Adatbázis elérés
 
-Készítsünk egy egy **src/database/mariadb.js** fájlt:
+Készítsünk egy **src/database/mariadb.js** fájlt:
 
 ```javascript
 const Sequalize = require('sequelize')
@@ -1010,7 +1010,7 @@ module.exports = sequalize
 
 ### Model készítése
 
-Készítsünk egy **src/models/employee.js fájlt:
+Készítsünk egy **src/models/employee.js** fájlt:
 
 ```javascript
 const { DataTypes } = require('sequelize')
@@ -1027,7 +1027,10 @@ const Employee = sequelize.define('Employee', {
     salary: { type: DataTypes.DOUBLE , defaultValue: 0 }
 })
  
-//A model és az adatbázis szinkronizálása, nem erőltetve.
+/*
+A model és az adatbázis 
+szinkronizálása, nem erőltetve. 
+*/
 sequelize.sync({
     force: false
 })
@@ -1183,7 +1186,10 @@ const User = sequelize.define('User', {
     password: { type: DataTypes.STRING , allowNull: false }
 })
  
-//A model és az adatbázis szinkronizálása, nem erőltetve.
+/*
+A model és az adatbázis 
+szinkronizálása, nem erőltetve. 
+*/
 sequelize.sync({
     force: false
 })
@@ -1192,7 +1198,7 @@ module.exports = User
 
 ### AuthController készítése
 
-Készítsünk az **src/controllers/authController.js fájlban egy AuthController-t:
+Készítsünk az **src/controllers/authController.js** fájlban egy AuthController-t:
 
 ```javascript
 const bcrypt = require('bcryptjs')
@@ -1549,7 +1555,7 @@ A helmet egy nyílt forráskódú JavaScript-könyvtár. HTTP fejlécek beállí
 
 A helmet nélkül az Express bizalmas információkat tesz közzé, így sebezhető lesz.
 
-A Helmetet köztes szoftverknt használjuk az Expressben.
+A Helmetet köztes szoftverként használjuk az Expressben.
 
 Írjunk egy egyszerű Express szervert:
 
