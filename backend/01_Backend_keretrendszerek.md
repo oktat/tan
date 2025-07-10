@@ -7,7 +7,7 @@
 
 ## A HTTP kérés felépítése
 
-A HTTP kérése egy meghatározott szerkezetű szöveges információ.
+A HTTP kérés egy meghatározott szerkezetű szöveges információ.
 
 Első sora tartalmazza a kérés módját, a kért tartalmat és a HTTP verziószámát. A következő sorok fejlécsorok tetszőleges számban. A fejlécsorokat egy üres sor követi, ami után jöhet az üzenet teste.
 
@@ -88,7 +88,7 @@ Az az idő másodpercekben, ameddig az objektum a proxy gyorsítótárban volt.
 
 Expires
 
-Az a dátum/idő, amely uátn a válasz elavultnak minősül.
+Az a dátum/idő, amely után a válasz elavultnak minősül.
 
 ### Feltételek
 
@@ -301,6 +301,12 @@ Nyílt forráskódú, gyors, fejlesztőbarát API tervező és csoportmunka alka
 * [https://github.com/Kong/insomnia](https://github.com/Kong/insomnia)
 * [https://docs.insomnia.rest/](https://docs.insomnia.rest/)
 
+### Insomnium
+
+Az Insomnium egy 100%-ban helyi és biztonság központú API kliens tesztelő. Használható GraphQL, REST, WebSockets, Server-sent események és gRPC kapcsolatok tesztelésére.
+
+[https://github.com/ArchGPT/insomnium](https://github.com/ArchGPT/insomnium)
+
 ### Postman
 
 Korlátozott elérésű, nyílt komponenseket használó API tervező, fejlesztő és tesztelő eszköz. Fejlesztője Postman Inc. A fejlesztést 2012-ben kezdték. Elérhető macOS, Windows és Linux rendszereken.
@@ -386,7 +392,7 @@ A vezérlő fogadja a felhasználói bemenetet és utasítja az objektumok és n
 
 A kontrollerek kezelik a HTTP kéréseket, amelyek az útválasztótól jönnek. Elkérik az adatokat az adatbázistól, általában egy ORM segítségével.
 
-A kontrollerben szokás beállítani az érvényesség ellenőrzését. 
+A kontrollerben szokás beállítani az érvényesség ellenőrzését.
 
 ## URL-paraméterek
 
@@ -441,7 +447,7 @@ Post body tartalmát általában JSON formátumban utaztatjuk, régebben XML vol
 
 ## Server Side Rendering - Blade
 
-A **Server Side Rendering**, vagy röviden **SSR** során a weboldalakt a szerveroldalon generáljuk. Ezeket nevezzük monolitikus programnak.
+A **Server Side Rendering**, vagy röviden **SSR** során a weboldalakat a szerveroldalon generáljuk. Ezeket nevezzük monolitikus programnak.
 
 A Laravel keretrendszer az SSR-t a Blade sablonmotorral valósítja meg. A Blade egy PHP alapú sablonmotor, ami lehetővé teszi a dinamikus és moduláris HTML oldalak generálását.
 
