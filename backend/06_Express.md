@@ -2,6 +2,7 @@
 
 * **Szerző:** Sallai András
 * Copyright (c) 2023, Sallai András
+* Szerkesztve: 2025
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
@@ -9,7 +10,7 @@
 
 * Node.js
 * VSCode
-* Insomnia
+* Insomnia vagy Insomnium és a resen
 
 ## Express és a Sequelize
 
@@ -28,6 +29,8 @@ npm init -y
 npm install express
 mkdir app
 ```
+
+Az alkalmazást egy **app** nevű könyvtárban fogjuk fejleszteni.
 
 ### Az első index.js
 
@@ -57,23 +60,32 @@ npm install express
 mkdir app
 ```
 
+A package.json fájlban írjuk át a type kulcs tartalmát "module" értékre.
+
+```json
+{
+    "type": "module"
+}
+```
+
 Az app könyvtárban készítsünk egy index.js fájlt, a következő tartalommal:
 
+app/index.js:
+
 ```javascript
+import express from 'express';
 
-const express = require('express');
-
-// Express alkalmazás létrehozása:
+// Express alkalmazás létrehozása
 const app = express();
 
-// Egy /msg nevű végpont beállítása:
+//egy /msg nevű végpont beállítása:
 app.get('/msg', (req, res) => {
-    res.send('Helló üzenet'); // Üzenet visszaküldése
+  res.send('Helló üzenet'); // Üzenet visszaküldése
 });
 
-// A REST API szerver a 8000-s porton figyeljen:
+// A REST API szerver fusson a 8000-s porton:
 app.listen(8000, () => {
-    console.log('listening on port: 8000');
+  console.log('Server is running on port 8000');
 });
 ```
 
@@ -99,7 +111,7 @@ Használhatjuk a HTTPie alkalmazás http parancsát is:
 http localhost:8000/msg
 ```
 
-A resen csomaggal:
+A resen csomag res parancsával:
 
 ```cmd
 res localhost:8000/msg
@@ -122,32 +134,35 @@ const data = [
 Teljes kód:
 
 ```javascript
-const express = require('express');
+import express from 'express';
 const app = express();
 
 const data = [
-    { title: 'Helló Express'}
+  { title: 'Helló Express' }
 ];
 
 app.get('/msg', (req, res) => {
-    res.send(data);
+  res.send(data);
 });
 
 app.listen(8000, () => {
-    console.log('listening on port 8000');
+  console.log('Server is running on port 8000');
 });
 ```
 
-Futtassuk a szervert, és teszteljük curl vagy http paranccsal.
+Futtassuk a szervert, és teszteljük res, curl vagy http paranccsal.
 
 ### Express több végponttal
 
-Készítsünk egy **pcshop** nevű projektet. Az adatokat egyenlőre nem adatbázisból vesszük, helyette beépítjük az adatokat a kódba, tömb formájában.
+Készítsünk egy **pcshop** nevű projektet. Az alkalmazást az **app** könyvtárban hozzuk létre.
+A projekt értelemszerűen legyen Node.js projekt. A package.json fájlban állítsuk be ES szabványt,
+vagyis a type kulcs értéke legyen "module". Telepítsük a az Express csomagot.
+Az adatokat egyenlőre nem adatbázisból vesszük, helyette beépítjük az adatokat a kódba, tömb formájában.
 
-Készítsük el a következő **index.js** állományt:
+Készítsük el a következő **app/index.js** állományt:
 
 ```javascript
-const express = require('express');
+import express from 'express';
 const app = express();
 
 const products = [
@@ -177,10 +192,17 @@ app.listen(8000, () => {
 
 ### Metódusok
 
+Nézzük meg, hogyan használunk egyetlen végponton több metódust. A végpont
+neve ebben az esetben nem változik.
+
+Készítsünk egy új **metod** nevű projektet. A projekt ES modulokat használjon.
+Az alkalmazást az **app** könyvtárban fejlesszük. A belépésipont az index.js fájl.
+Telepítsük az express csomagot.
+
 Használjunk get és post metódust is:
 
 ```javascript
-const express = require('express');
+import express from 'express';
 const app = express();
 
 app.get('/msg', (req, res) => {
@@ -196,10 +218,10 @@ app.listen(8000, () => {
 });
 ```
 
-Teszteljük mindkettőt. Használjuk a HTTPie, http vagy más parancsot:
+Teszteljük mindkettőt. Használjuk a resen csomag **res** parancsát vagy a HTTPie csomag http parancsát:
 
 ```cmd
-http localhost:8000/msg
+res localhost:8000/msg
 ```
 
 ```cmd
@@ -209,7 +231,7 @@ http post localhost:8000/msg
 Fejlesszük tovább az alkalmazásunkat és valósítsunk meg minden metódust:
 
 ```javascript
-const express = require('express');
+import express from 'express';
 const app = express();
 
 app.get('/msg', (req, res) => {
@@ -243,25 +265,35 @@ Teszteljük az alkalmazást valamilyen HTTP klienssel.
 
 Készítsünk egy **utas** nevű projektet.
 
-A Router használatával az alkalmazás egyes részei szétválaszthatók, és végpontot is bővíthetjük.
+A **Router** függvény használatával az alkalmazás egyes részei szétválaszthatók, és a végpontok is külön kezelhetők.
 
 Először lássuk egyetlen fájlban a használatát. Készítsünk egy index.js fájlt az app könyvtárban:
 
 ```javascript
-const express = require('express');
-const app = express();
+import express from 'express';
+import Router from 'express';
 
-const Router = require('express');
+const app = express();
 const router = Router();
 
 const products = [
     { id: 1, name: 'CD-ROM', price: 34 }
 ];
 
+
+/* A routingot most a router objektumon
+   állítjuk be.
+*/
 router.get('/products', (req, res) => {
     res.send(products);
 });
 
+/* Első paraméterként megadunk egy 
+   alap útvonalt a /api 
+   A második paraméterben mondjuk meg, 
+   hogy a router objektumot szeretnénk 
+   használni.
+*/
 app.use('/api', router);
 
 app.listen(8000, () => {
@@ -272,17 +304,17 @@ app.listen(8000, () => {
 Indítsuk el a szervert és teszteljük:
 
 ```cmd
-http localhost:8000/api/products
+res localhost:8000/api/products
 ```
 
 ### Az Express router szétbontva
 
 Készítsünk két külön állományt egy routes.js és egy index.js fájlt, az app könyvtárban.
 
-routers.js:
+routes.js:
 
 ```javascript
-const Router = require('express');
+import Router from 'express';
 const router = Router();
 
 const products = [
@@ -293,15 +325,16 @@ router.get('/products', (req, res) => {
     res.send(products);
 });
 
-module.exports = router
+export default router
 ```
 
 index.js:
 
 ```javascript
-const express = require('express');
+import express from 'express';
+import router from './routes';
+
 const app = express();
-const router = require('./routes');
 
 app.use('/api', router);
 
@@ -320,9 +353,10 @@ node app
 
 Készítsen projektet **rendelo** néven.
 
+* Állítsa be az ECMAScript használatát.
 * Telepítése az Express szervert.
-* Hozzon létre egy **paciens** nevű végpontot.
-* A paciens végpont adjon vissza egy pac nevű JSON objektumot.
+* Hozzon létre egy **patients** nevű végpontot.
+* A patients végpont adjon vissza egy pac nevű JSON objektumot.
 * A pac objektumban tároljon nevet, kezelés dátumot, életkort.
 * A pac objektumban vegyen fel tetszőleges adatokat.
 * A szerver 16500 porton figyeljen.
@@ -331,7 +365,8 @@ Készítsen projektet **rendelo** néven.
 
 ## Kontrollerek
 
-A következő célunk, hogy a választ egy kontrollerből adjuk.
+A következő célunk, hogy a választ egy kontrollerben generáljuk,
+leválasztva azt az útválasztáról.
 
 ### Új projekt
 
@@ -367,27 +402,33 @@ npm install --save-dev nodemon
 
 A **nodemon** lehetővé teszi számunkra, hogy az alkalmazás fejlesztése során minden egyes mentéskor azonnal legyen aktuális a fejlesztett rész.
 
-A package.json fájlban az indító script:
+Írjunk egy indító scriptet és állítsuk be a package.json
+fájlban a type kulcsot "module" értékre.
+
+A package.json fájlban az indító script és a típus részlet:
 
 ```json
   "scripts": {
-    "start": "nodemon app --watch app"
+    "dev": "nodemon app --watch app"
   },
+  "type": "module"
 ```
 
 ### Útválasztás
 
 Hozzuk létre a routingot a **routes** könyvtárban **api.js** néven, a következő tartalommal:
 
+api.js:
+
 ```javascript
-const Router = require('express')
+import Router from 'express'
 const router = new Router()
 
 router.get('/employees', (req, res) => {
     res.json({msg: 'működik'})
 })
 
-module.exports = router
+export default router
 ```
 
 Jelenleg egyetlen JSON adatot adunk vissza egy "msg" tulajdonsággal, a json() függvénnyel. A json() függvény beállítja a HTTP fejlécet is.
@@ -395,9 +436,9 @@ Jelenleg egyetlen JSON adatot adunk vissza egy "msg" tulajdonsággal, a json() f
 ### Belépési pont
 
 ```javascript
-const express = require('express')
+import express from 'express'
+import router from './routes/api.js'
 const app = new express()
-const router = require('./routes/api')
 
 app.use('/api', router)
 
@@ -409,13 +450,13 @@ app.listen(8000, () => {
 Indítsuk el az alkalmazást:
 
 ```cmd
-npm start
+npm run dev
 ```
 
 Teszteljünk egy HTTP klienssel.
 
 ```cmd
-http localhost:8000/api/employees
+res localhost:8000/api/employees
 ```
 
 ### Kontroller
@@ -425,12 +466,12 @@ a controllers könyvtárban, a következő tartalommal:
 
 ```javascript
 const EmployeeController = {
-    index: (req, res, next) => {
+    index: (req, res) => {
         res.json({msg: 'Kontroller itt'});
     }
 }
 
-module.exports = EmployeeController
+export default EmployeeController
 ```
 
 ### Kontroller hívása az útválasztóból
@@ -453,13 +494,13 @@ empapi/
 A routes/api.js fájlban hozzunk létre egy útválasztást, ahol használjuk az EmployeeController-t:
 
 ```javascript
-const Router = require('express');
-const EmployeeController = require('../controllers/employeeController');
-const router = Router();
+import Router from 'express'
+import EmployeeController from '../controllers/employeeController.js'
+const router = new Router()
 
-router.get("/employees", EmployeeController.index);
+router.get('/employees', EmployeeController.index)
 
-module.exports = router
+export default router
 ```
 
 Teszteljük újból. Most már a kontrollerből jön a válasz.
@@ -468,7 +509,10 @@ Teszteljün valamilyen HTTP klienssel.
 
 ```cmd
 curl http://localhost:8000/api/employees
-Valami%
+```
+
+```cmd
+res http://localhost:8000/api/employees
 ```
 
 ### Az összes metódus megvalósítása
@@ -493,23 +537,22 @@ const EmployeeController = {
     }
 }
 
-module.exports = EmployeeController
+export default EmployeeController
 ```
 
 _app/routes/api.js_:
 
 ```javascript
-const Router = require('express');
-const EmployeeController = require('../controllers/employee.controller');
+import Router from 'express'
+import EmployeeController from '../controllers/employeeController.js'
+const router = new Router()
 
-const router = Router();
-
-router.get("/employees", EmployeeController.index);
+router.get('/employees', EmployeeController.index)
 router.post("/employees", EmployeeController.store);
 router.put("/employees", EmployeeController.update);
 router.delete("/employees", EmployeeController.destroy);
 
-module.exports = router
+export default router
 ```
 
 ## HTTP válaszok testreszabása
@@ -531,15 +574,15 @@ _employee.controller.js_:
 
 ```javascript
 const EmployeeController = {
-    index: (req, res, next) => {
+    index: (req, res) => {
         res.json({
             success: true,
-            msg: 'Valami'
+            msg: 'read művelet újra'
         });
     }
 }
 
-module.exports = EmployeeController
+export default EmployeeController
 ```
 
 ### HTTP válaszkód
@@ -576,7 +619,7 @@ Készítsünk egy egyszerű Express REST API-t, ami read művelet tud /msg végp
 ```txt
 fogadas/
   |-app/
-  |  |-index.js
+  |  `-index.js
   `-package.json
 ```
 
@@ -589,7 +632,7 @@ npm install express
 _app/index.js_:
 
 ```javascript
-const express = require('express');
+import express from 'express';
 const app = express();
 
 app.get('/msg', (req, res) => {
@@ -620,7 +663,7 @@ Korábban a body-parser csomag volt használatos, de az elavult lett. Az Express
 _index.js_:
 
 ```javascript
-const express = require('express');
+import express from 'express';
 const app = express();
 
 app.use(express.json());
@@ -643,12 +686,6 @@ Indítsuk el a szervert. Ha az index.js fájl egy app könyvtárban van, akkor:
 
 ```cmd
 node app
-```
-
-vagy
-
-```javascript
-node app/index.js
 ```
 
 Ha fut a szerver, akkor teszteljük egy HTTP klienssel. Például HTTPie:
@@ -685,7 +722,7 @@ fogadas/
   |  |  `-employeeController.js
   |  |-routes/
   |  |  `-api.js
-  |  |-index.js
+  |  `-index.js
   `-package.json
 ```
 
@@ -702,7 +739,7 @@ npm install morgan
 ```
 
 ```javascript
-const morgan = require('morgan');
+import morgan from 'morgan';
 //...
 app.use(morgan('tiny'));
 ```
@@ -710,19 +747,19 @@ app.use(morgan('tiny'));
 A szerver belépési pontja, a teljes index.js:
 
 ```javascript
-const express = require('express');
-const app = express();
-const morgan = require('morgan');
+import express from 'express';
+import morgan from 'morgan';
+import router from './routes/api.js';
 
-const router = require('./routes/api');
+const app = express();
 
 app.use(morgan('tiny'));
 app.use(express.json());
 app.use('/api', router);
 
 app.listen(8000, () => {
-    console.log('port: 8000')
-})
+    console.log('port: 8000');
+});
 ```
 
 Fontos az app.use(express.json()); hívás. Ez meg kell előzze az app.use('/api', router); sort.
@@ -739,7 +776,7 @@ const router = Router();
 router.get('/employees', EmployeeController.index);
 router.post('/employees', EmployeeController.store);
 
-module.exports = router
+exports default = router
 ```
 
 Ha előző munkánkból megmaradt a többi útvonal nyugodtan ott hagyhatjuk.
@@ -764,7 +801,7 @@ const EmployeeController = {
     }
 }
 
-module.exports = EmployeeController
+exports default EmployeeController
 ```
 
 Teszteljük a végpontot POST metódussal. A http paranccsal például:
@@ -927,51 +964,58 @@ identified by 'titok';
 
 A példában egy emp nevű adatbázis hoztunk létre, és egy emp nevű felhasználó érheti azt el a titok jelszóval.
 
-### A dotenv használata
+### Beállítások tárolása
 
-Telepítsük a dotenv csomagot:
-
-```cmd
-npm install dotenv
-```
-
-Hozzunk létre a projekt gyökérkönyvtárában egy .env nevű fájlt
+Hozzuk létre egy config/default.json fájlt.
 
 #### Port beállítása
 
-```bash
-PORT=8000
+config/default.json:
+
+```json
+{
+  "app": {
+    "port": 3000
+  }
+}
 ```
 
 A projekt belépési pontját, az index.js fájlt egészítsük ki a következőkkel:
 
 ```javascript
-require('dotenv').config()
+import { readFileSync } from 'fs'
+const fileUrl = new URL('config.json', import.meta.url)
+const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
+
 //...
-app.listen(process.env.APP_PORT, () => {
-    console.log(`Port: ${process.env.APP_PORT}`)
+app.listen(config.app.port, () => {
+    console.log(`Port: ${config.app.port}`)
 })
 ```
 
 A teljes index.js fájl:
 
 ```javascript
-const express = require('express')
+import express from 'express'
+import morgan from 'morgan'
+import router from './routes/api'
+import { readFileSync } from 'fs'
+
+const fileUrl = new URL('config.json', import.meta.url)
+const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
+
 const app = new express()
-const morgan = require('morgan')
-const router = require('./routes/api')
-require('dotenv').config()
 
 app.use(morgan('tiny'))
 app.use(express.json())
 app.use('/api', router)
 
-app.listen(process.env.APP_PORT, () => {
-    console.log(`Port: ${process.env.APP_PORT}`)
+app.listen(config.app.port, () => {
+    console.log(`Port: ${config.app.port}`)
 })
 ```
 
-Indítsuk újra a szervert. Most a .env fájlban megadott portot veszi fel a szerver. Ellenőrizzük, egy 3000-s port beállításával, majd a szerver újraindításával.
+Indítsuk újra a szervert. Most a default.json fájlban megadott portot veszi fel a szerver. Ellenőrizzük, egy 3000-s port beállításával, majd a szerver újraindításával.
 
 ### Adatbázis konfigurálása
 
@@ -983,13 +1027,20 @@ npm install mariadb
 
 Most vegyük fel a .env fájlban a MariaDB elérési adatait:
 
-```bash
-APP_PORT=8000
-
-DB_HOST=127.0.0.1
-DB_NAME=emp
-DB_USER=emp
-DB_PASS=titok
+```json
+{
+    "app": {
+        "port": 8000
+    },
+    "db": {
+        "dialect": "mariadb",
+        "host": "localhost",
+        "name": "emp",
+        "user": "emp",
+        "pass": "titok",
+        "path": ":memory:"
+    }
+}
 ```
 
 ### Adatbázis elérés
@@ -997,21 +1048,24 @@ DB_PASS=titok
 Készítsünk egy **app/database/mariadb.js** fájlt:
 
 ```javascript
-const Sequalize = require('sequelize')
-require('dotenv').config()
+import Sequalize from 'sequelize'
+import { readFileSync } from 'fs'
+
+const fileUrl = new URL('config.json', import.meta.url)
+const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
  
 const sequalize = new Sequalize(
-    process.env.DB_NAME,
-    process.env.DB_USER, 
-    process.env.DB_PASS,
+    config.db.name,
+    config.db.user, 
+    config.db.pass,
     {
-        host: process.env.DB_HOST,
+        host: config.db.host,
         dialect: 'mariadb',
         dialectOptions: {}
     }
 )
  
-module.exports = sequalize
+exports default sequalize
 ```
 
 ### Model készítése
@@ -1019,9 +1073,9 @@ module.exports = sequalize
 Készítsünk egy **app/models/employee.js** fájlt:
 
 ```javascript
-const { DataTypes } = require('sequelize')
-const sequelize = require('../database/mariadb')
- 
+import { DataTypes } from 'sequelize'
+import sequelize from '../database/mariadb.js'
+
 const Employee = sequelize.define('Employee', {
     id: { 
         type: DataTypes.INTEGER,
@@ -1040,7 +1094,7 @@ szinkronizálása, nem erőltetve.
 sequelize.sync({
     force: false
 })
-module.exports = Employee
+export default Employee
 ```
 
 |  Jelölés  |  Jelentés  |
@@ -1056,7 +1110,7 @@ module.exports = Employee
 ## Kontroller készítése
 
 ```javascript
-const Employee = require('../models/employee')
+import Employee from '../models/employee'
  
 const EmployeeController = {
     async index(req, res) {
@@ -1119,34 +1173,38 @@ const EmployeeController = {
     }
 }
  
-module.exports = EmployeeController
+export default EmployeeController
 ```
 
 ## Routing
 
 ```javascript
-const Router = require('express');
+import Router from 'express'
+import EmployeeController from '../controllers/employeecontroller.js'
 const router = Router();
- 
-const EmployeeController = require('../controllers/employeecontroller')
- 
+
 router.get('/employees', EmployeeController.index)
 router.post('/employees', EmployeeController.store)
 router.put('/employees/:id', EmployeeController.update)
 router.delete('/employees/:id', EmployeeController.destroy)
  
-module.exports = router
+export default router
 ```
 
 ## Végleges belépési pont
 
 ```javascript
-const express = require('express')
+import express from 'express'
+import router from './routes/api.js'
+import morgan from 'morgan'
+import { readFileSync } from 'fs'
+
+const fileUrl = new URL('config.json', import.meta.url)
+const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
+
 const app = new express()
-const router = require('./routes/api')
-const morgan = require('morgan')
-require('dotenv').config()
-const PORT = process.env.APP_PORT || 8000
+
+const PORT = config.app.port || 8000
  
 app.use(morgan('combined'))
 app.use(express.json())
@@ -1160,13 +1218,13 @@ app.listen(PORT, () => {
 Futtatás:
 
 ```cmd
-npm start
+npm run dev
 ```
 
-Tesztelés HTTPie paranccsal:
+Tesztelés resen csomag res parancsával:
 
 ```cmd
-http localhost:8000/api/employees
+res localhost:8000/api/employees
 ```
 
 ## Azonosítás
@@ -1178,8 +1236,8 @@ Az útvonalak védelméhez szükség van felhasználókra. Az útvonalakat JWT t
 Készítsünk egy User modellt az **src/models/user.js** fájlban:
 
 ```javascript
-const { DataTypes } = require('sequelize')
-const sequelize = require('../database/mariadb')
+import { DataTypes } from 'sequelize'
+import sequelize from '../database/mariadb.js'
  
 const User = sequelize.define('User', {
     id: { 
@@ -1199,7 +1257,7 @@ szinkronizálása, nem erőltetve.
 sequelize.sync({
     force: false
 })
-module.exports = User
+export default User
 ```
 
 ### AuthController készítése
@@ -1207,9 +1265,8 @@ module.exports = User
 Készítsünk az **app/controllers/authController.js** fájlban egy AuthController-t:
 
 ```javascript
-const bcrypt = require('bcryptjs')
- 
-const User = require('../models/user')
+import bcrypt from 'bcryptjs'
+import User from '../models/user.js'
  
 const AuthController = {
     async register(req, res) {
@@ -1271,13 +1328,13 @@ const AuthController = {
     }
 }
  
-module.exports = AuthController
+export default AuthController
 ```
 
 ### Útválasztás a regiszterhez
 
 ```javascript
-const AuthController = require('../controllers/authcontroller')
+import AuthController from '../controllers/authcontroller.js'
 //...
 router.post('/register', AuthController.register)
 ```
@@ -1285,11 +1342,11 @@ router.post('/register', AuthController.register)
 Az **app/routes/api.js** teljes tartalma:
 
 ```javascript
-const Router = require('express');
+import Router from 'express';
 const router = Router();
- 
-const EmployeeController = require('../controllers/employeecontroller')
-const AuthController = require('../controllers/authcontroller')
+
+import EmployeeController from '../controllers/employeecontroller.js'
+import AuthController from '../controllers/authcontroller.js'
  
 router.get('/employees', EmployeeController.index)
 router.post('/employees', EmployeeController.store)
@@ -1298,31 +1355,40 @@ router.delete('/employees/:id', EmployeeController.destroy)
  
 router.post('/register', AuthController.register)
  
-module.exports = router
+export default router
 ```
 
 ## Bejelentkezés
 
 ### Az APP_KEY
 
-Hozzunk létre egy alkalmazáskulcsot a .env fájlban.
+Hozzunk létre egy alkalmazáskulcsot a config/default.json fájlban.
 
-```bash
-APP_KEY=3434384383343
+```json
+{
+    "app": {
+        "key":"434384383343"
+    }    
+}
 ```
 
-A számok véletlenszerűen megadott számok.
+A számok véletlenszerűen megadott számok, legalább 32 darab.
 
-A teljes .env fájl:
+A teljes config/default.json fájl:
 
-```bash
-APP_PORT=8000
-APP_KEY=3434384383343
-
-DB_HOST=127.0.0.1
-DB_NAME=emp
-DB_USER=emp
-DB_PASS=titok
+```json
+{
+    "app": {
+        "port": 8000,
+        "key": ""
+    },
+    "db": {
+        "host": "127.0.0.1",
+        "name": "",
+        "user": "",
+        "pass": ""
+    }
+}
 ```
 
 ### A login() függvény az authcontroller.js-ben
@@ -1382,8 +1448,11 @@ router.post('/login', AuthController.login)
 A tokenek ellenőrzését egy köztes szoftverben végezzük. Hozzuk létre az **app/middleware/authjwt.js** fájlban a következőt:
 
 ```javascript
-const jwt = require("jsonwebtoken");
-require('dotenv').config()
+import jwt from 'jsonwebtoken'
+import { readFileSync } from 'fs'
+
+const fileUrl = new URL('config.json', import.meta.url)
+const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
  
 exports.verifyToken = (req, res, next) => {
     let authData = req.headers.authorization;
@@ -1394,7 +1463,7 @@ exports.verifyToken = (req, res, next) => {
     }
     let token = authData.split(' ')[1];
  
-    jwt.verify(token, process.env.APP_KEY, (err, decoded) => {
+    jwt.verify(token, config.app.key, (err, decoded) => {
         if(err) {
             return res.status(401).send({
                 message: "Unauthorized!"
@@ -1409,15 +1478,15 @@ exports.verifyToken = (req, res, next) => {
 ### Útvonal védelme
 
 ```javascript
-const { verifyToken } = require('../middleware/authjwt');
+import { verifyToken } from '../middleware/authjwt.js'
 //...
 router.post('/employees', [verifyToken], EmployeeController.store)
 ```
 
-Ellenőrizzük például a HTTPie http parancsával:
+Ellenőrizzük például a resen res parancsával:
 
 ```cmd
-http post localhost:8000/api/employees 
+res post localhost:8000/api/employees 
 name='Verdi Ernő' city='Szeged' 
 -A bearer -a eyJhbG
 ```
@@ -1455,7 +1524,7 @@ npm install cors
 Használat:
 
 ```javascript
-const cors = require('cors');
+import cors from 'cors'
 //...
 app.use(cors())
 ```
@@ -1471,7 +1540,7 @@ app.get('/valami', cors(), (req, res, next) => {})
 A CORS beállítása:
 
 ```javascript
-const cors = require('cors');
+import cors from 'cors'
 //...
 
 const corsOption = {
@@ -1485,7 +1554,7 @@ app.get('/valami', cors(corsOpton), (req, res, next) => {})
 Csak a localhost:4200 címről fogadunk hívásokat.
 
 ```javascript
-const cors = require('cors');
+import cors from 'cors'
 //...
 
 const corsOption = {
@@ -1498,7 +1567,7 @@ app.use(cors(corsOption))
 De be is építhetjük:
 
 ```javascript
-const cors = require('cors');
+import cors from 'cors'
 //...
 
 app.use(cors({
@@ -1509,7 +1578,7 @@ app.use(cors({
 Tömbben több hely is megadható:
 
 ```javascript
-const cors = require('cors');
+import cors from 'cors'
 app.use(cors({
     origin: [
         'http://localhost:4200',
@@ -1533,7 +1602,7 @@ app.use(cors({
 
 A CORS teszteléséhez készítsünk egy weblapot, amit egy szerverről futtatunk. Lehet például a lite-server.
 
-src/index.html
+src/index.html:
 
 ```html
 <html>
@@ -1566,7 +1635,7 @@ A Helmetet köztes szoftverként használjuk az Expressben.
 Írjunk egy egyszerű Express szervert:
 
 ```javascript
-const express = require('express');
+import express from 'express';
 const app = express();
 
 app.get('/msg', (req, res) => {
@@ -1619,8 +1688,8 @@ X-Powered-By: Express
 Most használjuk a Helmetet:
 
 ```javascript
-const express = require('express');
-const helmet = require('helmet');
+import express from 'express';
+import helmet from 'helmet';
 const app = express();
 
 app.use(helmet());
