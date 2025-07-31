@@ -15,38 +15,12 @@
 ## Express és a Sequelize
 
 Az Express minimalista, rugalmas webes keretrendszer, ami Node.js-sel van megvalósítva.
-
 Sok népszerű keretrendszer alapszik az Expressen.
 
-A Sequelize egy ORM rendszer, ami a modelleket leképezi adatbázisra.
+A Sequelize egy ORM rendszer, ami a modelleket leképezi adatbázisra. Ebben a leírásban ezt fogjuk
+használni az Express mellett.
 
 ## Első Express projekt
-
-```cmd
-mkdir hello
-cd hello
-npm init -y
-npm install express
-mkdir app
-```
-
-Az alkalmazást egy **app** nevű könyvtárban fogjuk fejleszteni.
-
-### Az első index.js
-
-Készítsünk egy **index.js** nevű fájlt az app könyvtárban. Tartalma:
-
-```javascript
-console.log('Helló Világ');
-```
-
-Futtatás:
-
-```cmd
-node app
-```
-
-## Végpontok
 
 ### Az index.js végponttal
 
