@@ -24,11 +24,11 @@ használni az Express mellett.
 
 ### Az index.js végponttal
 
-Készítsünk egy új projektet **veges** néven:
+Készítsünk egy új projektet **hello** néven:
 
 ```cmd
-mkdir veges
-cd veges
+mkdir hello
+cd hello
 npm init -y
 npm install express
 mkdir app
@@ -96,6 +96,8 @@ Nézzük meg az eredményt az Insomnia vagy Insomnium alkalmazásban is.
 A futó szervert állítsuk le a Ctrl + C billentyűkombinációval.
 
 ### JSON válasz
+
+Készítsünk egy újabb projektet például **jes** néven.
 
 JSON válaszhoz készítsünk például egy tömböt, aminek most egyetlen eleme van:
 
