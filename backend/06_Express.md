@@ -144,13 +144,13 @@ const app = express();
 const products = [
     { id: 1, name: 'CD-ROM', price: 34 },
     { id: 2, name: 'CPU',  price: 38 },
-    { id: 2, name: 'RAM', price: 27 }
+    { id: 3, name: 'RAM', price: 27 }
 ];
 
 const customers = [
     { id: 1, name: 'Varga Béla', email: 'varga@kek.lan' },
     { id: 2, name: 'Dante Irén',  email: 'dante@kek.lan' },
-    { id: 2, name: 'Lant Ferenc', email: 'lant@kek.lan' }
+    { id: 3, name: 'Lant Ferenc', email: 'lant@kek.lan' }
 ];
 
 app.get('/products', (req, res) => {
