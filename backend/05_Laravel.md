@@ -259,7 +259,7 @@ Dolgozó azonosító: 35%
 ### Request függőség befecskendezése
 
 ```php
-Route::get('employees/{id}', function(string $id) {
+Route::get('employees/{id}', function(Request $request, string $id) {
     return 'A kérés: '.$request;
 });
 ```
@@ -267,7 +267,7 @@ Route::get('employees/{id}', function(string $id) {
 Teszteljük:
 
 ```cmd
-curl http://localhost:8000/api/employees/35
+curl http://localhost:8000/api/employees/35?name=Valaki
 A kérés: GET /api/employees/35 HTTP/1.1
 Accept:     */*
 Host:       localhost:8000
@@ -400,13 +400,13 @@ Térjünk vissza egy névvel:
     }
 ```
 
-Készítsünk hozzá útvonalat. Ehhez először a routes/api.php fájlban vegy használatba az EmployeeController osztályt:
+Készítsünk hozzá útvonalat. Ehhez először a routes/api.php fájlban használjuk az EmployeeController osztályt:
 
 ```php
 use App\Http\Controllers\EmployeeController;
 ```
 
-Útvonalban jelöljük mega a kontroller index metódusát:
+Útvonalban jelöljük meg a kontroller index metódusát:
 
 ```php
 Route::get('/employees', [EmployeeController::class, 'index']);
