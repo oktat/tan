@@ -5,51 +5,34 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
-## Mocking
+## Tesztkészítés
 
-### Mockery
-
-* [https://docs.mockery.io/](https://docs.mockery.io/)
-
-Használat a projektben:
-
-```cmd
-composer require --dev mockery/mockery
+```bash
+php artisan make:test EmpTest
 ```
-
-A következőt kapjuk:
-
-```txt
-app01/
-  |-vendor/
-  |  |-composer/
-  |  |-hamcrest/
-  |  |-mockery/
-  |  `-autoload.php
-  |-composer.json
-  `-composer.lock
-```
-
-### Lásd még
-
-* [https://laravel.com/docs/9.x/mocking](https://laravel.com/docs/9.x/mocking)
-
-## HTTP kérés indítása tesztből
-
-A Laravel tesztek futtatásához az általános gyakorlat az, hogy a **TestCase** osztályból származtatjuk az összes tesztesetünket. Az **Illuminate\Foundation\Testing\Concerns\MakesHttpRequests** trait használatával lehetőségünk van különféle HTTP kéréseket indítani, például GET, POST, PUT, DELETE stb.
-
-A következő példában egy GET kérés indítása látható egy tesztesetben:
 
 ```php
-use Illuminate\Foundation\Testing\Concerns\MakesHttpRequests;
+<?php
 
-class ExampleTest extends TestCase
+namespace Tests\Feature;
+
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
+
+class EmpTest extends TestCase
 {
-    use MakesHttpRequests;
-
-    public function test_example()
+    /**
+     * The employees endpont test
+     */
+    public function test_getEmps(): void
     {
-        $response = $this->get('/example-route');
+        $response = $this->get('/api/employees');
+        $response->assertStatus(200);
+    }
+    public function test_postEmps(): void
+    {
+        $response = $this->post('/api/employees');
         $response->assertStatus(200);
     }
 }
@@ -90,3 +73,7 @@ public function test_example()
 * vizságljuk a kérés működik-e
 * megfelelő kérés esetén válasz rendben van-e
 * az visszaadott adatok megfelelők
+
+## Lásd még
+
+* [https://laravel.com/docs/9.x/mocking](https://laravel.com/docs/9.x/mocking)
