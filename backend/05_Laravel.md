@@ -291,7 +291,7 @@ Az alma nevű végpont adja vissza az alma szót, és 150 értéket egy sorban.
 
 Az korte nevű végpont adja vissza az alma szót, és 180 értéket egy sorban.
 
-Az barack nevű végpont adja vissza az alma szót, és 210 értéket egy sorban.
+A barack nevű végpont adja vissza az alma szót, és 210 értéket egy sorban.
 
 ### Response használata
 
