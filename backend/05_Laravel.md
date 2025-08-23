@@ -66,10 +66,11 @@ Hozzuk létre egy hello nevű projektet.
 composer create-project laravel/laravel hello
 ```
 
-Lépjünk be a létrejött hello nevű könyvtárba, majd indítsuk el a beépített fejlesztői szerverrel az alkalmazást:
+### Fejlesztői szerver
+
+Léjünk be a hello nevű könyvtárba, indítsuk el a beépített fejlesztői szerverrel az alkalmazást:
 
 ```cmd
-cd hello
 php artisan serve
 ```
 
@@ -145,7 +146,14 @@ Mentsük a fájlt, majd frissítsük a weboldalt.
 
 * [https://laravel.com/docs/10.x/structure](https://laravel.com/docs/10.x/structure)
 
-## Útválasztás
+## API útválasztás
+
+Lépjünk be a hello nevű könyvtárba, majd telepítsük az API részt.
+
+```cmd
+cd hello
+php artisan install:api
+```
 
 REST API esetén az útvonalakat a következő helyen állítjuk:
 
@@ -165,20 +173,9 @@ Nyissuk meg a routes/api.php fájlt:
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::get('/user', function (Request $request) {
     return $request->user();
-});
+})->middleware('auth:sanctum');
 ```
 
 Találunk egy alapértelmezett mintát. Töröljük vagy tegyük megjegyzésbe.
@@ -203,6 +200,8 @@ Listázzuk az útvonalakat:
 php artisan route:list
 ```
 
+A routes/web.php útvonalait törölhetjük is.
+
 ### Tesztelés - egyszerű végpont
 
 curl:
@@ -211,7 +210,7 @@ curl:
 curl http://localhost:8000/api/uzenet
 ```
 
-Indítsuk el az Insomnia-t és teszeljük a végpontot.
+Indítsuk el az Insomnia-t, vagy az Insomniumt és teszeljük a végpontot. De használhatunk más HTTP klienst is.
 
 ### Tömb átadása
 
@@ -233,7 +232,7 @@ Route::get('employees/{id}', function($id) {
 });
 ```
 
-Teszteljük a curl paranccsal:
+Teszteljük a curl paranccsal, vagy más HTTP klienssel:
 
 ```cmd
 curl http://localhost:8000/api/employees/35
@@ -260,7 +259,7 @@ Dolgozó azonosító: 35%
 ### Request függőség befecskendezése
 
 ```php
-Route::get('employees/{id}', function(Request $request, string $id) {
+Route::get('employees/{id}', function(string $id) {
     return 'A kérés: '.$request;
 });
 ```
