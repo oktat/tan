@@ -5,7 +5,9 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
-## Tesztkészítés
+## Laravel tesztelése
+
+### Tesztkészítés
 
 ```bash
 php artisan make:test EmpTest
@@ -42,7 +44,7 @@ Ahhoz, hogy másféle kéréseket indítsunk, csak a **get()** helyére kell ír
 
 * [https://laravel.com/docs/9.x/http-tests](https://laravel.com/docs/9.x/http-tests)
 
-## HTTP válasz validálása
+### HTTP válasz validálása
 
 A Laravel a PHPUnit assert metódusaira támaszkodik.
 
@@ -74,6 +76,51 @@ public function test_example()
 * megfelelő kérés esetén válasz rendben van-e
 * az visszaadott adatok megfelelők
 
-## Lásd még
+### Lásd még
 
 * [https://laravel.com/docs/9.x/mocking](https://laravel.com/docs/9.x/mocking)
+
+## Express tesztelése
+
+### Get kérés
+
+tests/app.test.js:
+
+```javascript
+import supertest from 'supertest'
+    
+const host = 'http://localhost:8000/api' 
+
+supertest(host)
+.get('/employees')
+.expect(200)
+.end((err, res) => {
+    if (err) {
+        console.log(err)
+    } else {
+        console.log('Ok')
+    }
+})
+```
+
+### Post kérés
+
+tests/app.test.js:
+
+```javascript
+import supertest from 'supertest'
+    
+const host = 'http://localhost:8000/api' 
+
+supertest(host)
+.post('/employees')
+.send('name=Valaki')
+.expect(200)
+.end((err, res) => {
+    if (err) {
+        console.log(err)
+    } else {
+        console.log(res.body)
+    }
+})
+```
