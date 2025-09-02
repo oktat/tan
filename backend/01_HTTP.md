@@ -24,9 +24,6 @@
 * [Kontrollerek](#kontrollerek)
 * [URL-paraméterek](#url-paraméterek)
 * [HTTP Post body](#http-post-body)
-* [Server Side Rendering - Blade](#server-side-rendering---blade)
-* [Alkalmazás hosztolása](#alkalmazás-hosztolása)
-* [Heroku](#heroku)
 
 ## A HTTP protokoll
 
@@ -523,42 +520,3 @@ HTTP metódusok:
 * DELETE - Adatok törlése body-ban utaztatva
 
 Post body tartalmát általában JSON formátumban utaztatjuk, régebben XML volt a népszerűbb.
-
-## Server Side Rendering - Blade
-
-A **Server Side Rendering**, vagy röviden **SSR** során a weboldalakat a szerveroldalon generáljuk. Ezeket nevezzük monolitikus programnak.
-
-A Laravel keretrendszer az SSR-t a Blade sablonmotorral valósítja meg. A Blade egy PHP alapú sablonmotor, ami lehetővé teszi a dinamikus és moduláris HTML oldalak generálását.
-
-## Alkalmazás hosztolása
-
-Hosztolásra alkalmas eszközök:
-
-* Heroku
-* Back4app
-* Elastic Beanstalk (AWS)
-* Google App Engine
-* Dokku on Digital Ocean etc.
-* Firebase
-* OpenShift
-* Engine Yard
-* Netlify
-* Docker
-* Kubernetes
-
-## Heroku
-
-### Parancssor telepítése
-
-```cmd
-npm install -g heroku
-```
-
-Telepítés után ellenőrizzük. A lehetséges kimenettel a parancs:
-
-```cmd
-heroku --version
- ›   Warning: Our terms of service have changed: 
- ›   https://dashboard.heroku.com/terms-of-service
-heroku/7.64.0 linux-x64 node-v16.17.1
-```
