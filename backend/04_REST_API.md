@@ -17,8 +17,6 @@
 * [REST kontrollerek](#rest-kontrollerek)
 * [JSON mapping](#json-mapping)
 * [DTO](#dto)
-* [URL-paraméterek](#url-paraméterek)
-* [HTTP body](#http-body)
 
 ## REST
 
@@ -76,17 +74,3 @@ Az objektumokat JSON formátumba és JSON formátumból objektummá alakítjuk. 
 ## DTO
 
 A **DTO** a **Data Transfer Object** rövidítése. Ez egy olyan objektum amely nem tartalmaz üzleti logikát, csak az adatok szállítására találták ki.
-
-## URL-paraméterek
-
-Az URL végpontjai tartalmazhatnak paramétereket is. A paramétereket egy "?" karakterrel kezdjük.
-
-## HTTP body
-
-A HTTP része a body, amely tartalmazza az átvitt adatokat szerver és kliens között.
-
-A HTTP kérésekben a body nem kötelező. A válaszban azonban kötelező, a HEAD kérések kivételével.
-
-A body szöveges vagy bináris formátumban tartalmazhat adatokat. Szöveges adatok esetén MIME típus és a karakterkódolásnak megfelelően van formázva. Ilyen például az XML, JSON, HTML, stb. Bináris adatok esetén a bájtfolyam van a body-ban, ami lehet kép, zenei fájl, vagy más.
-
-REST API-k esetén a body tartalma általában JSON formátumú.

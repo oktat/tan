@@ -16,6 +16,7 @@
 * [A HTTP válasz](#a-http-válasz)
 * [HTTP metódusok](#http-metódusok)
 * [HTTP fejlécek](#http-fejlécek)
+* [HTTP body](#http-body)
 * [HTTP kérés- és választípusok](#http-kérés--és-választípusok)
 
 ## URL
@@ -369,6 +370,16 @@ A fejlécben nem szereplő más tartományok nem olvashatják az erőforrást.
 További fejlécek
 
 * [https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
+
+## HTTP body
+
+A HTTP része a body, amely tartalmazza az átvitt adatokat szerver és kliens között.
+
+A HTTP kérésekben a body nem kötelező. A válaszban azonban kötelező, a HEAD kérések kivételével.
+
+A body szöveges vagy bináris formátumban tartalmazhat adatokat. Szöveges adatok esetén MIME típus és a karakterkódolásnak megfelelően van formázva. Ilyen például az XML, JSON, HTML, stb. Bináris adatok esetén a bájtfolyam van a body-ban, ami lehet kép, zenei fájl, vagy más.
+
+REST API-k esetén a body tartalma általában JSON formátumú.
 
 ## HTTP kérés- és választípusok
 
