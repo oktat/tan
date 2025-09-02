@@ -23,7 +23,6 @@
 * [MVC](#mvc)
 * [Kontrollerek](#kontrollerek)
 * [URL](#url)
-* [HTTP Post body](#http-post-body)
 
 ## A HTTP protokoll
 
@@ -522,18 +521,3 @@ Típusok:
 * Lekérdezők
 * Adatmódosítók
 * Oldalakra bontás
-
-## HTTP Post body
-
-A HTTP protokoll használatával az adatok utazhatnak a háttérben is. Ilyenkor az URL-ben nem látszik belőle semmit. A háttrében az adatok helyét nevezzük Post body-nak.
-
-A GET metóduson kívül a Post body-t használják a más metódusok.
-
-HTTP metódusok:
-
-* GET - adatok lekérdezése, küldése URL-ben
-* POST - Az adatokat a body-ban utaztatjuk
-* PUT - Adatok frissítése body-ban utaztatva
-* DELETE - Adatok törlése body-ban utaztatva
-
-Post body tartalmát általában JSON formátumban utaztatjuk, régebben XML volt a népszerűbb.
