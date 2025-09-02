@@ -6,6 +6,16 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Szükséges szoftverek](#szükséges-szoftverek)
+* [Chocolatey](#chocolatey)
+* [Telepítések](#telepítések)
+* [A Path környezeti változó](#a-path-környezeti-változó)
+* [Node.js alkalmazások](#nodejs-alkalmazások)
+* [Előzetes ismeretek](#előzetes-ismeretek)
+
 ## Szükséges szoftverek
 
 * Chocolatey

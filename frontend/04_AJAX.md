@@ -5,6 +5,19 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [AJAX](#ajax)
+* [XMLHttpRequest objektum](#xmlhttprequest-objektum)
+* [JSON konvertálás](#json-konvertálás)
+* [Fetch API](#fetch-api)
+* [Kliens készítése](#kliens-készítése)
+* [HTTP státuszkódok](#http-státuszkódok)
+* [HTTP metódusok kezelése](#http-metódusok-kezelése)
+* [API key használata](#api-key-használata)
+* [Források](#források)
+
 ## AJAX
 
 Az AJAX az Asynchronous JavaScript and XML  rövidítése. Adatok szállítás szerver és kliens között aszinkron kommunikációval, XML formátumban, JavaScript nyelven. Erre utalt az eredeti név. Gyakorlatilag azt jelenti, a weblap újra töltése nélkül mozgatunk adatokat. Az XML-t később felváltotta a JSON formátum.

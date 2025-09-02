@@ -5,6 +5,27 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [A TypeScript](#a-typescript)
+* [A tsc fordító](#a-tsc-fordító)
+* [Helló Világ](#helló-világ)
+* [A browser-sync szerver](#a-browser-sync-szerver)
+* [A sinto csomag](#a-sinto-csomag)
+* [TypeScript típusok](#typescript-típusok)
+* [Típuskényszerítés](#típuskényszerítés)
+* [Változók és állandók](#változók-és-állandók)
+* [Típuskövetkeztetés a TypeScritben](#típuskövetkeztetés-a-typescritben)
+* [Megjegyzések](#megjegyzések)
+* [Szelekció](#szelekció)
+* [Iteráció](#iteráció)
+* [Függvények](#függvények)
+* [Űrlap tartalma](#űrlap-tartalma)
+* [Osztály használata](#osztály-használata)
+* [Interfész](#interfész)
+* [Forrás](#forrás)
+
 ## A TypeScript
 
 A TypeScript a Microsoft egy nyílt forráskódú programozási nyelve, a JavaScript szuperhalmaza. Ahogy a neve is mutatja, leginkább típusokkal egészíti ki a JavaScript nyelvet. Úgy mondhatnánk: JavaScript típus szintaktikával.
