@@ -37,7 +37,7 @@ Olyan erőforrások letöltésére használjuk mint a HTML dokumentum, vagy egys
 
 ## HTTP kapcsolat
 
-Egy HTTP kapcsolat kérésből egy válaszból áll. Ezt követően a kapcsolat bontásra kerül.
+Egy HTTP kapcsolat egy kérésből és egy válaszból áll. Ezt követően a kapcsolat bontásra kerül.
 
 ![HTTP kapcsolat](images/http_connection.png)
 
