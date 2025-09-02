@@ -8,10 +8,21 @@
 ## Tartalomjegyzék
 
 * [Tartalomjegyzék](#tartalomjegyzék)
+* [Környezet felépítése](#környezet-felépítése)
 * [HTTP kliens teszteléshez](#http-kliens-teszteléshez)
 * [Csomagkezelő - composer, npm](#csomagkezelő---composer-npm)
-* [Környezet felépítése](#környezet-felépítése)
 * [Webes Helló Világ](#webes-helló-világ)
+
+## Környezet felépítése
+
+Szükségünk van egy operációs rendszerre és azon a következő eszközökre:
+
+* XAMPP
+  * PHP
+  * MariaDB (MySQL)
+* composer
+* Node.js
+* Visual Studio Code
 
 ## HTTP kliens teszteléshez
 
@@ -84,17 +95,6 @@ yarn --version
 ```
 
 A Laravel is használ Node.js csomagokat, így függőségkezelésnél az npm vagy a yarn parancsot is használjuk.
-
-## Környezet felépítése
-
-Szükségünk van egy operációs rendszerre és azon a következő eszközökre:
-
-* XAMPP
-  * PHP
-  * MariaDB (MySQL)
-* composer
-* Node.js
-* Visual Studio Code
 
 ## Webes Helló Világ
 
