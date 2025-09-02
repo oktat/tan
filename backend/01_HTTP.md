@@ -503,21 +503,13 @@ Példa paraméterek:
 
 ![URL paraméterek](images/url_parts_params.png)
 
-A legtöbb backend keretrendszer könnyen kezelhetővé teszi az URL-paramétereket.
+Ahogy az előbbi képen is látszik a port vagy az útvonal megadása nem kötelező, de paraméterek esetén is használhatjuk őket. A példában két paramétert adunk át:
 
-Példa Laravelben:
+* a=egy
+* b=ketto
 
-```php
-Route::get('/search', function () {
-    $query = request()->input('q');
-    $category = request()->input('category');
+Paraméterek átadhatók URL útvanalként is. Például szeretném a 25 azonosítójú felhasználó adatati lekérni:
 
-    // További feldolgozás
-});
+```url
+http://valahol.hu/users/25
 ```
-
-Típusok:
-
-* Lekérdezők
-* Adatmódosítók
-* Oldalakra bontás
