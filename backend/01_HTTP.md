@@ -22,7 +22,7 @@
 * [Webes Helló Világ](#webes-helló-világ)
 * [MVC](#mvc)
 * [Kontrollerek](#kontrollerek)
-* [URL-paraméterek](#url-paraméterek)
+* [URL](#url)
 * [HTTP Post body](#http-post-body)
 
 ## A HTTP protokoll
@@ -470,7 +470,20 @@ A kontrollerek kezelik a HTTP kéréseket, amelyek az útválasztótól jönnek.
 
 A kontrollerben szokás beállítani az érvényesség ellenőrzését.
 
-## URL-paraméterek
+## URL
+
+### Az URL
+
+Az URL a Uniform Resource Locator rövidítése. Az Interneten található erőforrások (például weboldalak, képek, videók) egyedi címe. Célja, hogy pontosan meghatározza, hol található egy tartalom, és hogyan lehet hozzáférni. Gyakran nevezik webcímnek is.
+
+Egy URL több részből áll:
+
+* protokoll: ez az URL első része. Pl.: https:// vagy http://
+* domainnév: a weboldal neve. Pl.: szit.hu
+* elérési út: könyvtár, fájl. Pl. /blog/valami.php
+* paraméterek: URL-paraméterek. Pl.: ?q=valami&category=másvalami
+
+### URL-paraméterek
 
 Az URL-paraméterek különféle paramétereket hordozhatnak a frontend és a backend között. Általában a lekérdezett adatok módosítására használjuk, például szűrésnél, keresésnél vagy oldalakra bontásnál.
 
