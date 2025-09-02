@@ -5,6 +5,21 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [REST](#rest)
+* [JSON](#json)
+* [URL-konvenciók](#url-konvenciók)
+* [Resource](#resource)
+* [Stateless](#stateless)
+* [CRUD](#crud)
+* [REST kontrollerek](#rest-kontrollerek)
+* [JSON mapping](#json-mapping)
+* [DTO](#dto)
+* [URL-paraméterek](#url-paraméterek)
+* [HTTP body](#http-body)
+
 ## REST
 
 A **REST** a **Representational State Transfer** rövidítése, ami elosztott alkalmazásrendszert jelent, webes alapú alkalmazások számára. A REST API-k jellemzően HTTP protokollt használnak, többféle művelettel. A műveleteket a metódusok határozzák meg: GET, POST, PUT, DELETE stb. Ezek lehetővé teszik szövegek, képek lekérését, frissítését, törlését, létrehozását.

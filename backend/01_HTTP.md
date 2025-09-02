@@ -1,9 +1,32 @@
-# Backend programozás - Backend keretrendszerek
+# Backend programozás - HTTP
 
 * **Szerző:** Sallai András
-* Copyright (c) 2022, Sallai András
+* Copyright (c) 2025, Sallai András
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
+
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [A HTTP protokoll](#a-http-protokoll)
+* [HTTP kapcsolat](#http-kapcsolat)
+* [A HTTP története](#a-http-története)
+* [A HTTP kérés felépítése](#a-http-kérés-felépítése)
+* [A HTTP válasz](#a-http-válasz)
+* [HTTP metódusok](#http-metódusok)
+* [HTTP fejlécek](#http-fejlécek)
+* [HTTP kérés- és választípusok](#http-kérés--és-választípusok)
+* [HTTP kliens teszteléshez](#http-kliens-teszteléshez)
+* [Csomagkezelő - composer, npm](#csomagkezelő---composer-npm)
+* [Környezet felépítése](#környezet-felépítése)
+* [Webes Helló Világ](#webes-helló-világ)
+* [MVC](#mvc)
+* [Kontrollerek](#kontrollerek)
+* [URL-paraméterek](#url-paraméterek)
+* [HTTP Post body](#http-post-body)
+* [Server Side Rendering - Blade](#server-side-rendering---blade)
+* [Alkalmazás hosztolása](#alkalmazás-hosztolása)
+* [Heroku](#heroku)
 
 ## A HTTP protokoll
 

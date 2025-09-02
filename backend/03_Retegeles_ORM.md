@@ -5,6 +5,14 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [ORM](#orm)
+* [Entity](#entity)
+* [Relációk](#relációk)
+* [Egyedi lekérdezések](#egyedi-lekérdezések)
+
 ## ORM
 
 Az ORM az "Object-Relational Mapping" rövidítése, ami egy programozási paradigma, amely lehetővé teszi objektumok és az adatbázis relációs tábláinak kapcsolatát. ORM használata esetén az alkalmazás fejlesztője csak objektumokkal dolgozik, ami automatikusan leképeződik táblázatokra.

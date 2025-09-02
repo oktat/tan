@@ -5,6 +5,26 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Szükséges](#szükséges)
+* [Első projekt](#első-projekt)
+* [Könyvtár struktúra](#könyvtár-struktúra)
+* [API útválasztás](#api-útválasztás)
+* [Kontrollerek használata](#kontrollerek-használata)
+* [Modellek](#modellek)
+* [ORM](#orm)
+* [A respons() függvény](#a-respons-függvény)
+* [Kivételkezelés a végpontokon](#kivételkezelés-a-végpontokon)
+* [Érvényesség ellenőrzése](#érvényesség-ellenőrzése)
+* [Felhasználók kezelése](#felhasználók-kezelése)
+* [Sanctum azonosítás](#sanctum-azonosítás)
+* [Képek tárolása](#képek-tárolása)
+* [Tesztelés](#tesztelés)
+* [Admin felhasználó](#admin-felhasználó)
+* [Deployment](#deployment)
+
 ## Szükséges
 
 A következő szoftverekre van szükség:

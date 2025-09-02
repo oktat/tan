@@ -5,6 +5,11 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Egy nagyobb projekt](#egy-nagyobb-projekt)
+
 ## Egy nagyobb projekt
 
 Ebben a részben egy projektet készítünk, amely Web API-t valósít meg, és az adatokat SQL adatbázisban tárolja. A feladatban 2-3 CRUD műveletet fogunk megvalósítani, amit a Frontend tantárggyal együtt valósítunk meg.
