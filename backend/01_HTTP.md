@@ -20,8 +20,6 @@
 * [Csomagkezelő - composer, npm](#csomagkezelő---composer-npm)
 * [Környezet felépítése](#környezet-felépítése)
 * [Webes Helló Világ](#webes-helló-világ)
-* [MVC](#mvc)
-* [Kontrollerek](#kontrollerek)
 * [URL](#url)
 
 ## A HTTP protokoll
@@ -440,34 +438,6 @@ composer create-project laravel/laravel app01
 ```
 
 A composer letölti az app01 könyvtárba az induló Laravel projektet.
-
-## MVC
-
-Az **MVC** a **Model View Controller** rövidítése. Az MVC egy szoftvertervezési minta, amely elválasztja az üzleti logikát a felhasználói felülettől. Az alkalmazást három részre bontjuk:
-
-* modell
-* nézet
-* vezérlés
-
-A Laravel nagyrészt MVC szerkezetű.
-
-### A modell
-
-Az alkalmazás adataiért, azok kezeléséért felel. Válaszolhat információkérésekre, állapotváltásokra. A modell kezeli az állományokat, az adatbázist.
-
-### A nézet
-
-A felhasználói felületért felel. A modellből érkező adatokat rendereli a felhasználói felületen.
-
-### A vezérlő
-
-A vezérlő fogadja a felhasználói bemenetet és utasítja az objektumok és nézetek megfelelő műveletek végrehajtására.
-
-## Kontrollerek
-
-A kontrollerek kezelik a HTTP kéréseket, amelyek az útválasztótól jönnek. Elkérik az adatokat az adatbázistól, általában egy ORM segítségével.
-
-A kontrollerben szokás beállítani az érvényesség ellenőrzését.
 
 ## URL
 

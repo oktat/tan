@@ -12,6 +12,7 @@
 * [A Backend](#a-backend)
 * [Backend keretrendszerek](#backend-keretrendszerek)
 * [Választás](#választás)
+* [MVC](#mvc)
 * [Server Side Rendering - Blade](#server-side-rendering---blade)
 * [Alkalmazás hosztolása](#alkalmazás-hosztolása)
 * [Heroku](#heroku)
@@ -41,6 +42,32 @@ Mi alapján válasszunk a backend keretrendszert?
 * Saját tudás
 * Közösség - legyen aktív közösség
 * Dokumentáció - legyen dokumentáció
+
+## MVC
+
+Az **MVC** a **Model View Controller** rövidítése. Az MVC egy szoftvertervezési minta, amely elválasztja az üzleti logikát a felhasználói felülettől. Az alkalmazást három részre bontjuk:
+
+* modell
+* nézet
+* vezérlés
+
+A Backend alkalmazásokat MVC szerint szokás kódolni. A nézetek Backend esetén egy-egy végpontot jelölnek.
+
+### A modell
+
+Az alkalmazás adataiért, azok kezeléséért felel. Válaszolhat információkérésekre, állapotváltásokra. A modell kezeli az állományokat, az adatbázist.
+
+### A nézet
+
+A felhasználói felületért felel. A modellből érkező adatokat rendereli a felhasználói felületen. Backend esetén ezek a végpontok.
+
+### A vezérlő
+
+A vezérlő vagy másnéven kontroller fogadja a felhasználói bemenetet és utasítja az objektumok és nézetek megfelelő műveletek végrehajtására.
+
+Backend esetén a kontrollerek kezelik a HTTP kéréseket, amelyek az útválasztótól jönnek. Elkérik az adatokat az adatbázistól, általában egy ORM segítségével.
+
+A kontrollerben szokás beállítani az érvényesség ellenőrzését.
 
 ## Server Side Rendering - Blade
 
