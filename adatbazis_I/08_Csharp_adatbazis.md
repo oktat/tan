@@ -5,6 +5,14 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Szükséges eszközök](#szükséges-eszközök)
+* [Adatbázis létrehozása](#adatbázis-létrehozása)
+* [MariaDB adatbázis elérése](#mariadb-adatbázis-elérése)
+* [Gyakorló feladatok](#gyakorló-feladatok)
+
 ## Szükséges eszközök
 
 * Illesztő program

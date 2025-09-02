@@ -5,6 +5,18 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Kiegészítő parancsok](#kiegészítő-parancsok)
+* [A select](#a-select)
+* [Feltételek](#feltételek)
+* [Aggregáló függvények](#aggregáló-függvények)
+* [Csoportosítás](#csoportosítás)
+* [Rendezés](#rendezés)
+* [Egyéb lekérdezőfüggvények](#egyéb-lekérdezőfüggvények)
+* [Lásd még](#lásd-még)
+
 ## Kiegészítő parancsok
 
 Az adatbázisok lekérdezése előtt tekintsünk meg néhány kiegészítő parancsot.

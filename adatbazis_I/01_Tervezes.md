@@ -5,6 +5,20 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Tervezés](#tervezés)
+* [A relációs adatbázis](#a-relációs-adatbázis)
+* [Kulcsok](#kulcsok)
+* [NULL érték](#null-érték)
+* [Kapcsolatok](#kapcsolatok)
+* [Adatbázis-diagramok](#adatbázis-diagramok)
+* [Anomáliák](#anomáliák)
+* [Normalizálás](#normalizálás)
+* [Fizikai tervezés](#fizikai-tervezés)
+* [Gyakorlás](#gyakorlás)
+
 ## Tervezés
 
 Az adatbázis az adatok rendszerezett gyűjteménye, amely valamilyen céllal történik.
@@ -40,7 +54,8 @@ Az oszlopokat mezőknek, a sorokat rekordoknak nevezzük. Az oszlopok neveire a 
 
 Minden táblázatban szükség van egy olyan mezőre, ami egyértelműen azonosítja a példányt. Legyen például dolgozókat tartalmazó tábla. Ha van két dolgozónk, és mindkettő neve Szabó János, nem tudhatjuk melyik dolgozóról van szó. Nézzük a következő táblazatot.
 
-Dolgozók
+Dolgozók tábla:
+
 | Név |
 |-|
 | Szabó János |
@@ -48,7 +63,8 @@ Dolgozók
 
 Szükség van egy olyan mezőre, ami egyértelműen azonosítja a dolgozókat. Lehet például a személyi számuk. Ekkor feleveszünk egy "Személyi szám" mezőt. A táblázatunk ekkor így néz ki:
 
-Dolgozók
+Dolgozók tábla:
+
 | Név | Személyi szám |
 |-|-|
 | Szabó János | 120050715-2324 |
@@ -63,7 +79,8 @@ Az egyedi azonosítók követelményei:
 
 Az is előfordulhat, hogy nem találunk alkalmas mezőt egyedi azonsítónak. Ilyenkor felveszünk egy újabb mezőt, ahol egyszerűen azonosítót rendelünk minden egyedhez. A dolgozók esetén például lehet a következő:
 
-Dolgozók
+Dolgozók tábla:
+
 | Név | Azonosító |
 |-|-|
 | Szabó János | 1 |
@@ -73,7 +90,8 @@ Az azonosító mezők kulcsfontosságú szerepet játszanaka a táblázatunkban,
 
 Tegyük fel, hogy dolgozóink projektekben vesznek részt. A **projekt** ezek szerint egy olyan egyed, amiről információt akarunk tárolni. Akkor készítünk egy Projektek nevű táblázatot.
 
-Projektek
+Projektek tábla:
+
 | Azonosító | Megnevezés | Befejezve |
 |-|-|-|
 | 1 | Számlázó program | igen |

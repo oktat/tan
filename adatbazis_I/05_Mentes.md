@@ -5,6 +5,13 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [A mysqldump](#a-mysqldump)
+* [A PhpMyAdmin](#a-phpmyadmin)
+* [Helyreállítás](#helyreállítás)
+
 ## A mysqldump
 
 Tegyük fel, hogy az XAMPP-t a C:\ gyökér könyvtárába telepítettük: C:\xampp. Ekkor a mysqldump parancs a következő helyen található:

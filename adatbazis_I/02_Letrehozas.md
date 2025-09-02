@@ -5,6 +5,25 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [A MariaDB](#a-mariadb)
+* [PhpMyAdmin](#phpmyadmin)
+* [MariaDB kliens](#mariadb-kliens)
+* [Adatbázis létrehozása](#adatbázis-létrehozása)
+* [Adatbázis felhasználó létrehozása](#adatbázis-felhasználó-létrehozása)
+* [Tábla létrehozása](#tábla-létrehozása)
+* [Tábla átnevezése](#tábla-átnevezése)
+* [Mező hozzáadása](#mező-hozzáadása)
+* [Mező törlése](#mező-törlése)
+* [Mező módosítás](#mező-módosítás)
+* [Elsődleges kulcs módosítása](#elsődleges-kulcs-módosítása)
+* [Mező átnevezése](#mező-átnevezése)
+* [Hivatkozási integritás](#hivatkozási-integritás)
+* [Kapcsolt frissítés](#kapcsolt-frissítés)
+* [Lásd még](#lásd-még)
+
 ## A MariaDB
 
 Az alkalmazások többsége manapság webes alkalmazásként készül. Webes alkalmazások legelterjedtebb adatbázis-kezelő rendszere a MariaDB, ami egy MySQL elágazásból jött létre.

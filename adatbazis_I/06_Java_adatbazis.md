@@ -5,6 +5,12 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Adatbázisok](#adatbázisok)
+* [Mariadb](#mariadb)
+
 ## Adatbázisok
 
 Általánosan használt adatbázis rendszer a MariaDB vagy MySQL. Ha csak egy kissebb adatmennyiségre számítunk, és nincs sok elvárás, az SQLite-tot szokás használni, ahol egy fájlban tároljuk a komplett adatbázist és az alkalmazásunk közvetlenül éri azt el, hálózati kapcsolat nélkül.

@@ -5,6 +5,16 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Kinduló adatbázis](#kinduló-adatbázis)
+* [Adatok beszúrása](#adatok-beszúrása)
+* [Adatok frissítése](#adatok-frissítése)
+* [Adatok törlése](#adatok-törlése)
+* [Tábla űrítése](#tábla-űrítése)
+* [Lásd még](#lásd-még)
+
 ## Kinduló adatbázis
 
 Készítsünk egy remek nevű adatbázist.

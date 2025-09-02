@@ -5,6 +5,18 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Szükséges eszközök](#szükséges-eszközök)
+* [SQLite adatbázis használata](#sqlite-adatbázis-használata)
+* [Projekt használata](#projekt-használata)
+* [Tábla létrehozása](#tábla-létrehozása)
+* [Adatok beszúrása](#adatok-beszúrása)
+* [Adatok olvasása](#adatok-olvasása)
+* [Adat módosítása](#adat-módosítása)
+* [Törlés](#törlés)
+
 ## Szükséges eszközök
 
 ### VSCode bővítmény
