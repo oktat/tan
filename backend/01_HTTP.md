@@ -513,3 +513,5 @@ Paraméterek átadhatók URL útvanalként is. Például szeretném a 25 azonos�
 ```url
 http://valahol.hu/users/25
 ```
+
+![URL paramétere útvonalban](images/url_params_in_path.png)
