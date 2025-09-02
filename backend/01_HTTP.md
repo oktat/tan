@@ -8,6 +8,7 @@
 ## Tartalomjegyzék
 
 * [Tartalomjegyzék](#tartalomjegyzék)
+* [URL](#url)
 * [A HTTP protokoll](#a-http-protokoll)
 * [HTTP kapcsolat](#http-kapcsolat)
 * [A HTTP története](#a-http-története)
@@ -16,7 +17,55 @@
 * [HTTP metódusok](#http-metódusok)
 * [HTTP fejlécek](#http-fejlécek)
 * [HTTP kérés- és választípusok](#http-kérés--és-választípusok)
-* [URL](#url)
+
+## URL
+
+A HTTP áttekintése előtt ismételjük át mit kell tudni az URL-ről.
+
+### Az URL
+
+Az URL a Uniform Resource Locator rövidítése. Az Interneten található erőforrások (például weboldalak, képek, videók) egyedi címe. Célja, hogy pontosan meghatározza, hol található egy tartalom, és hogyan lehet hozzáférni. Gyakran nevezik webcímnek is.
+
+Egy URL több részből áll:
+
+* protokoll: ez az URL első része. Pl.: https:// vagy http://
+* domainnév: a weboldal neve. Pl.: szit.hu
+* elérési út: könyvtár, fájl. Pl. /blog/valami.php
+* paraméterek: URL-paraméterek. Pl.: ?q=valami&category=másvalami
+
+![URL](images/url_parts.png)
+
+### URL-paraméterek
+
+Az URL-paraméterek különféle paramétereket hordozhatnak a frontend és a backend között. Általában a lekérdezett adatok módosítására használjuk, például szűrésnél, keresésnél vagy oldalakra bontásnál.
+
+Az URL-paraméterek a webhelye címe után kezdődnek (?) kérdőjelet követően. A paraméterek kulcs-érték pár formájában adjuk meg, amit (=) egyenlőségjel választ el. Ha több URL-paraméter adunk meg, azokat (&) karakterrel választjuk el.
+
+Példa:
+
+```url
+https://valahol.hu/search?q=valami&category=másvalami
+```
+
+Példa paraméterek:
+
+* q=valami
+* category=másvalami
+
+![URL paraméterek](images/url_parts_params.png)
+
+Ahogy az előbbi képen is látszik a port vagy az útvonal megadása nem kötelező, de paraméterek esetén is használhatjuk őket. A példában két paramétert adunk át:
+
+* a=egy
+* b=ketto
+
+Paraméterek átadhatók URL útvanalként is. Például szeretném a 25 azonosítójú felhasználó adatati lekérni:
+
+```url
+http://valahol.hu/users/25
+```
+
+![URL paramétere útvonalban](images/url_params_in_path.png)
 
 ## A HTTP protokoll
 
@@ -341,50 +390,3 @@ Lehetséges státuszkódok:
 * 3xx - átirányítás, további művelet szükséges
 * 4xx - kliens hiba, a kérés hibás
 * 5xx - szerver hiba, a válasz nem teljesíthető
-
-## URL
-
-### Az URL
-
-Az URL a Uniform Resource Locator rövidítése. Az Interneten található erőforrások (például weboldalak, képek, videók) egyedi címe. Célja, hogy pontosan meghatározza, hol található egy tartalom, és hogyan lehet hozzáférni. Gyakran nevezik webcímnek is.
-
-Egy URL több részből áll:
-
-* protokoll: ez az URL első része. Pl.: https:// vagy http://
-* domainnév: a weboldal neve. Pl.: szit.hu
-* elérési út: könyvtár, fájl. Pl. /blog/valami.php
-* paraméterek: URL-paraméterek. Pl.: ?q=valami&category=másvalami
-
-![URL](images/url_parts.png)
-
-### URL-paraméterek
-
-Az URL-paraméterek különféle paramétereket hordozhatnak a frontend és a backend között. Általában a lekérdezett adatok módosítására használjuk, például szűrésnél, keresésnél vagy oldalakra bontásnál.
-
-Az URL-paraméterek a webhelye címe után kezdődnek (?) kérdőjelet követően. A paraméterek kulcs-érték pár formájában adjuk meg, amit (=) egyenlőségjel választ el. Ha több URL-paraméter adunk meg, azokat (&) karakterrel választjuk el.
-
-Példa:
-
-```url
-https://valahol.hu/search?q=valami&category=másvalami
-```
-
-Példa paraméterek:
-
-* q=valami
-* category=másvalami
-
-![URL paraméterek](images/url_parts_params.png)
-
-Ahogy az előbbi képen is látszik a port vagy az útvonal megadása nem kötelező, de paraméterek esetén is használhatjuk őket. A példában két paramétert adunk át:
-
-* a=egy
-* b=ketto
-
-Paraméterek átadhatók URL útvanalként is. Például szeretném a 25 azonosítójú felhasználó adatati lekérni:
-
-```url
-http://valahol.hu/users/25
-```
-
-![URL paramétere útvonalban](images/url_params_in_path.png)
