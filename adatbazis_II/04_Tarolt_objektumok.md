@@ -5,6 +5,13 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Nézettáblák](#nézettáblák)
+* [Tárolt eljárások](#tárolt-eljárások)
+* [Triggerek](#triggerek)
+
 ## Nézettáblák
 
 Legyen egy bővebb dolgozok tábla:

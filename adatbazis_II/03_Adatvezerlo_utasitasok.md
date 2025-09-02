@@ -5,6 +5,19 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [ACID elvek](#acid-elvek)
+* [Tranzakciók](#tranzakciók)
+* [Izolációs szintek](#izolációs-szintek)
+* [Implicit végrehajtás](#implicit-végrehajtás)
+* [Zárolás](#zárolás)
+* [Beépített felhasználók](#beépített-felhasználók)
+* [Felhasználók](#felhasználók)
+* [Jogok](#jogok)
+* [ROLE-ok](#role-ok)
+
 ## ACID elvek
 
 * Atomicity - atomicitás - [ˌæ.təm.ˈɪ.sɪ.ti]
@@ -95,7 +108,7 @@ Az In_use mezőben ha 1 érték szerepel, akkor zárolva van a tábla. A szűré
 unlock table;
 ```
 
-| Kulcs | Leírás
+| Kulcs | Leírás |
 |-|-|
 | read | read lock; az olvasás engedélyezett, de módosítás nem |
 | wrtie | write lock; se írni, se olvasni nem lehet |

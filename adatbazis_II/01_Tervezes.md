@@ -5,6 +5,12 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Előzmények](#előzmények)
+* [ER-modell](#er-modell)
+
 ## Előzmények
 
 Legyen egy Tend Kft. nevű cég, aminek a dolgozóit, és a hozzájuk tartozó projekteket szeretnénk tárolni.

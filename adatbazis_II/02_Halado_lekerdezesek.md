@@ -5,6 +5,14 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Előzmények](#előzmények)
+* [Egymásba ágyazott lekérdezések](#egymásba-ágyazott-lekérdezések)
+* [Lekérdezések optimalizálása](#lekérdezések-optimalizálása)
+* [Indexelés](#indexelés)
+
 ## Előzmények
 
 Hozunk létre egy adatbázist a gyakorláshoz:

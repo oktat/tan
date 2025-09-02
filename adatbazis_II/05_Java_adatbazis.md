@@ -5,6 +5,16 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## Tartalomjegyzék
+
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [MariaDB driver](#mariadb-driver)
+* [Kapcsolat](#kapcsolat)
+* [Hibakezelés](#hibakezelés)
+* [Lekérdezések](#lekérdezések)
+* [Adatok megjelenítése](#adatok-megjelenítése)
+* [A komplett példa](#a-komplett-példa)
+
 ## MariaDB driver
 
 A MariaDB a MySQL egy elágazásából született. Vannak, akik úgy tudják MySQL-t használnak, de a háttérben MariaDB fut. A MariaDB gyakran használt megoldás webhelyek vagy asztali alkalmazások adattárolójaként.
