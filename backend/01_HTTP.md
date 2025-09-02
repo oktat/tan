@@ -483,6 +483,8 @@ Egy URL több részből áll:
 * elérési út: könyvtár, fájl. Pl. /blog/valami.php
 * paraméterek: URL-paraméterek. Pl.: ?q=valami&category=másvalami
 
+![URL](images/url_parts.png)
+
 ### URL-paraméterek
 
 Az URL-paraméterek különféle paramétereket hordozhatnak a frontend és a backend között. Általában a lekérdezett adatok módosítására használjuk, például szűrésnél, keresésnél vagy oldalakra bontásnál.
@@ -499,6 +501,8 @@ Példa paraméterek:
 
 * q=valami
 * category=másvalami
+
+![URL paraméterek](images/url_parts_params.png)
 
 A legtöbb backend keretrendszer könnyen kezelhetővé teszi az URL-paramétereket.
 
