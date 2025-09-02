@@ -5,9 +5,37 @@
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
+## A HTTP protokoll
+
+A HTTP egy protokoll, amit a kliens-szerver alapú webes rendszerek között adatok szállítására használjuk.
+
+![http](images/szerver-kliens-http.png)
+
+Olyan erőforrások letöltésére használjuk mint a HTML dokumentum, vagy egyszerűen csak adatok le- és feltöltésére.
+
+![HTM oldal letöltés](images/fetch_html_document.png)
+
+## HTTP kapcsolat
+
+Egy HTTP kapcsolat kérésből egy válaszból áll. Ezt követően a kapcsolat bontásra kerül.
+
+![HTTP kapcsolat](images/http_connection.png)
+
+## A HTTP története
+
+* HTTP 0.9 - 1991
+* HTTP 1.0 - 1996
+* HTTP 1.1 - 1997 és 1999
+* HTTP 2.0 - 2015
+* HTTP 3.0 - QUIC protokollon alapszik
+
+A QUIC egy szállítási protokoll UDP alapokon, amit a Google fejlesztett. A webszerverek jellemzően a HTTP 1.1-t ismerik, de beüzemelhető újabb verzió is.
+
 ## A HTTP kérés felépítése
 
 A HTTP kérés egy meghatározott szerkezetű szöveges információ.
+
+![HTTP kérés](images/http_req_message.png)
 
 Első sora tartalmazza a kérés módját, a kért tartalmat és a HTTP verziószámát. A következő sorok fejlécsorok tetszőleges számban. A fejlécsorokat egy üres sor követi, ami után jöhet az üzenet teste.
 
@@ -33,12 +61,22 @@ Host: szit.hu
 
 A kérés végét egy üres sorral jelezzük.
 
+## A HTTP válasz
+
+Egy HTTP válasz hasonlóan épül fel a kéréshez.
+
+![HTTP válasz](images/http_res_message.png)
+
 ## HTTP metódusok
 
 * GET - erőforrás letöltése
 * POST - adat feltöltése
 * PUT - adat feltöltése egy erőforrás számára
+* PATCH - adat feltöltése egy erőforrás számára
 * DELETE - erőforrás törlése
+
+További metódusok:
+
 * HEAD - mint a GET, de csak a válasz fejlécet kérjük
 * TRACE - a kérés vissza küldése
 * OPTIONS - a szerver által támogatott HTTP metódusok lekérése
