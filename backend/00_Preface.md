@@ -8,10 +8,25 @@
 ## Tartalomjegyzék
 
 * [Tartalomjegyzék](#tartalomjegyzék)
+* [A Backendről](#a-backendről)
 * [Környezet felépítése](#környezet-felépítése)
 * [HTTP kliens teszteléshez](#http-kliens-teszteléshez)
 * [Csomagkezelő - composer, npm](#csomagkezelő---composer-npm)
 * [Webes Helló Világ](#webes-helló-világ)
+
+## A Backendről
+
+A Backend a weboldalak és az alkalmazások hátterét szolgálja.
+
+![Backend és kliensek](images/backend-frontend-phone-desktop.png)
+
+Egy általános kapcsolódási lehetőséget nyújt a weboldalknak, telefonoknak és asztalai alkalmazásoknak. Az adatcsere formátumba általában JSON. Az adatokat HTTP csatornán küldjük és kezeljük.
+
+Előnyök:
+
+* többféle kliens csatlakozhat
+* lényegtelen, hogy milyen az adatbázis
+* az adatbázis könnyen cserélhető
 
 ## Környezet felépítése
 
