@@ -290,7 +290,7 @@ A weblap az **src/index.html** állományból indul:
 </html>
 ```
 
-Ez az alkalmazás váza. Tartózik hozzá egy globális stíluslap, az src/style.css fájl.
+Ez az alkalmazás váza. Tartozik hozzá egy globális stíluslap, az src/style.css fájl.
 
 A webhely komponensei az "app" könyvtárban találhatók. A webhely egy fő komponenssel indul. A fő komponens 4 darab állományból áll, mindegyik az "app" szóval kezdődik. Ez a komponens az alkalmazás gyökér (root) komponense.
 
