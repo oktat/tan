@@ -992,7 +992,7 @@ document.getElementById('changeColorBtn').onclick = function() {
 };
 ```
 
-### A quierSelector
+### A query szelektor
 
 ```html
 <p id="egy">Első szöveg</p>
