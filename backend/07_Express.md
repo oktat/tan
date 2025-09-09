@@ -975,11 +975,15 @@ A példában egy **emp** nevű adatbázis hoztunk létre, és egy emp nevű **fe
 
 ### Beállítások tárolása
 
-Hozzuk létre egy config/default.json fájlt.
+A beállítások tárolhatók .env nevű fájlban vagy tárolhatók JSON fájlban is. A JSON fájl szokásos neve config.json vagy a config/default.json. Mi az utóbbi fogjuk használni.
+
+Hozzuk létre egy **config/default.json** fájlt.
 
 #### Port beállítása
 
-_onfig/default.json_:
+Elsőként állítsuk be az alkalmazás portszámát.
+
+_config/default.json_:
 
 ```json
 {
@@ -989,7 +993,9 @@ _onfig/default.json_:
 }
 ```
 
-A projekt belépési pontját, az index.js fájlt egészítsük ki a következőkkel:
+Most be kell olvasni a default.json fáljt.
+
+A projekt belépési pontját, az index.js fájlt egészítsük ki a következő két sorral:
 
 ```javascript
 import { readFileSync } from 'fs'
@@ -1001,6 +1007,8 @@ app.listen(config.app.port, () => {
     console.log(`Port: ${config.app.port}`)
 })
 ```
+
+A beolvasás után a config objektumban érjük el beállításokat. A portbeállításnál ezt azonnal felhasználjuk.
 
 A teljes index.js fájl:
 
@@ -1030,15 +1038,253 @@ Indítsuk újra a szervert. Most a default.json fájlban megadott portot veszi f
 
 ### Adatbázis konfigurálása
 
+#### SQLite
+
+Hozzunk létre egy **lite** nevű projektet. Könyvtárszerkezet:
+
+```txt
+lite/
+  |-app/
+  |  `-database/
+  |     `-database.js
+  |-database.sqlite
+  `-package.json
+```
+
+```cmd
+mkdir lite
+cd lite
+npm init -y
+npm install express
+```
+
+Állítsuk be a **package.json** fájlban a type kulcs tartalmát module-ra.
+
+```json
+{
+    "type": "module"
+}
+
+Telepítsük az SQLite és Sequelize csomagokat:
+
+```cmd
+npm install sqlite3
+```
+
+A Sequelize() konstruktorban paraméterként megadva írjuk le az adatbázist. Jelen esetben ez SQLite adatbázis. Ehhez két kulcsot kell megadni, a dialect és a storage.
+
+_app/database/database.js_:
+
+```javascript
+import { Sequelize } from 'sequelize'
+
+const sequelize = new Sequelize({
+    dialect: 'sqlite',
+    storage: 'database.sqlite'
+})
+
+//Megnézzük, hogy elérhető az adatbázis:
+await sequelize.authenticate()
+```
+
+Futtassuk az alkalmazást:
+
+```cmd
+node app/database/database.js
+```
+
+A futtatás eredményeként létre kell jöjjön a projekt gyökérkönyvtárában egy **database.sqlite** fájl.
+
+A Sequelize() konstruktor lehetséges paraméterei:
+
+| Név | Típus | Tulajdonság | Leírás |
+| --- | --- | --- | --- |
+| database | sztirng | opcionális | Adatbázis neve |
+| username | sztring | opcionális | Adatbázis felhasználóneve |
+| password | sztring | opcionális | Adatbázis jelszava |
+| options | objektum | opcionális | Adatbázis konfiguráció objektum |
+| options.host | sztring | opcionális | Adatbázis elérési név |
+| options.port | szám | opcionális | Adatbázis port |
+| options.dialect | sztring | opcionális | Adatbázis tipus |
+| options.username | sztring | opcionális | Adatbázis felhasználóneve |
+| options.password | sztring | opcionális | Adatbázis jelszava |
+| options.database | sztring | opcionális | Adatbázis neve |
+| options.storage | sztring | opcionális | Adatbázis fájlnév |
+
+```javascript
+import { Sequelize } from 'sequelize'
+
+const sequelize = new Sequelize({
+    dialect: 'sqlite',
+    storage: 'database.sqlite'
+})
+
+//Hibakezelés:
+try {
+  await sequelize.authenticate()
+  console.log('Ok')
+}catch (err) {
+  console.error('Hiba!')
+  console.error(err)
+}
+```
+
+Futtassuk újra az alkalmazást.
+
+A sequelize objektummal létrehozhatunk modellt, amiből létrejön egy tábla.
+
+Tegyük fel, hogy dolgozók adatait szeretnénk tárolni.
+
+```javascript
+const Employee = new sequelize.define('employee', {
+    name: { type: DataTypes.STRING },
+    city: { type: DataTypes.STRING },
+    salary: { type: DataTypes.DOUBLE }
+})
+```
+
+Szükség van egy utasításra, ami leszinkronizálja az objektumot az adatbázisban.
+
+```javascript
+await sequelize.sync(
+    { force: true }
+)
+```
+
+Esetleg:
+
+```javascript
+await sequelize.sync(
+    { alter: true }
+)
+```
+
+A teljes kód:
+
+```javascript
+import { Sequelize } from "sequelize";
+
+const sequelize = new Sequelize({
+  dialect: "sqlite",
+  storage: "database.db"
+});
+
+const Employee = sequelize.define('employee', {
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  city: {
+    type: Sequelize.STRING,
+    allowNull: true
+  },
+  salary: {
+    type: Sequelize.DOUBLE,
+    allowNull: true
+  }
+});
+
+await sequelize.sync({
+    alter: true
+});
+
+await Employee.create({
+  name: 'Erős István',
+  city: 'Szeged',
+  salary: 392
+});
+```
+
+Az **id mezőt** nem adtuk meg, mivel automatikusan létrejön.
+
+Futtassuk az alkalmazhást.
+
+Az adatbázisban, most létre kell jöjjön egy employees tábla. Ellenőrizzük.
+
+#### SQLite beállításfájlból
+
+Vegyük fel a **config** nevű mappát, benne egy **default.json** fájlt.
+
+```txt
+lite/
+  |-app/
+  |  `-database/
+  |     `-database.js
+  |-config/
+  |  `-default.json
+  |-database.sqlite
+  `-package.json
+```
+
+Állítsuk be a **default.json** fájlban a SQLite elérési adatait. Vegyünk fel egy **db** kulcsot. Értéke egy objektum ami két újabb kulcsot tartalmaz: dialect és storage. A dialect kulcsban megadhatjuk az adatbázis típusát, a storage kulcsban megadhatjuk az adatbázis fájlt.
+
+```json
+{
+    "db": {
+        "dialect": "sqlite",
+        "storage": "database.sqlite"
+    }
+}
+```
+
+Most be kell olvasni a fájl tartalmát.
+
+```javascript
+import { readFileSync } from 'fs'
+const fileUrl = new URL('config.json', import.meta.url)
+const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
+```
+
+A beállíátsok a **config** objektmból érhetők el.
+
+```javascript
+import { Sequelize } from "sequelize";
+import { readFileSync } from 'fs'
+const fileUrl = new URL('config.json', import.meta.url)
+const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
+
+const sequelize = new Sequelize({
+  dialect: config.db.dialect,
+  storage: config.db.storage"
+});
+
+const Employee = sequelize.define('employee', {
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  city: {
+    type: Sequelize.STRING,
+    allowNull: true
+  },
+  salary: {
+    type: Sequelize.DOUBLE,
+    allowNull: true
+  }
+});
+
+await sequelize.sync({
+    alter: true
+});
+
+await Employee.create({
+  name: 'Erős István',
+  city: 'Szeged',
+  salary: 392
+});
+```
+
+Töröljük az adatbázisfájlt majd, futtassuk újra az alkalmazást és ellenőrizzük az adatbázist, benne a táblát.
+
 #### MariaDB
 
 ```cmd
 npm install mariadb
 ```
 
-Most vegyük fel a **.env** fájlban a MariaDB elérési adatait:
+Most vegyük fel a **default.json** fájlban a MariaDB elérési adatait:
 
-_.env_:
+_config/default.json_:
 
 ```json
 {
