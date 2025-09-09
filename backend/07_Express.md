@@ -325,7 +325,7 @@ index.js:
 
 ```javascript
 import express from 'express';
-import router from './routes';
+import router from './routes.js';
 
 const app = express();
 
@@ -389,7 +389,7 @@ empapi/
 Függőségek telepítése:
 
 ```cmd
-npm install express sequelize mariadb
+npm install express
 npm install --save-dev nodemon
 ```
 
@@ -411,7 +411,7 @@ A package.json fájlban az indító script és a típus részlet:
 
 Hozzuk létre a routingot a **routes** könyvtárban **api.js** néven, a következő tartalommal:
 
-api.js:
+routes/api.js:
 
 ```javascript
 import Router from 'express'
@@ -427,6 +427,8 @@ export default router
 Jelenleg egyetlen JSON adatot adunk vissza egy "msg" tulajdonsággal, a json() függvénnyel. A json() függvény beállítja a HTTP fejlécet is.
 
 ### Belépési pont
+
+index.js:
 
 ```javascript
 import express from 'express'
@@ -516,16 +518,16 @@ _app/controllers/employee.controller.js_:
 
 ```javascript
 const EmployeeController = {
-    index: (req, res, next) => {
+    index: (req, res) => {
         res.json({msg: 'read művelet'});
     },
-    store: (req, res, next) => {
+    store: (req, res) => {
         res.json({msg: 'create művelet'});
     },
-    update: (req, res, next) => {
+    update: (req, res) => {
         res.json({msg: 'update művelet'});
     },
-    destroy: (req, res, next) => {
+    destroy: (req, res) => {
         res.json({msg: 'delete művelet'});
     }
 }
@@ -597,7 +599,7 @@ _employee.controller.js_:
 
 ```javascript
 const EmployeeController = {
-    index: (req, res, next) => {
+    index: (req, res) => {
         res.status(200).json({msg: 'Valami'});
     }
 }
@@ -755,15 +757,15 @@ app.listen(8000, () => {
 });
 ```
 
-Fontos az app.use(express.json()); hívás. Ez meg kell előzze az app.use('/api', router); sort.
+Fontos az app.use(express.json()); hívás. Ezt meg kell előzze az app.use('/api', router); sort.
 
 Készítsünk egy útválasztó bejegyzést, ami POST metódust fogad és az EmployeeController, store() függvényét futtatja.
 
 Az api.js két bejegyzéssel:
 
 ```javascript
-const Router = require('express');
-const EmployeeController = require('../controllers/employee.controller');
+import Router from 'express';
+import EmployeeController from '../controllers/employee.controller';
 const router = Router();
 
 router.get('/employees', EmployeeController.index);
@@ -772,7 +774,7 @@ router.post('/employees', EmployeeController.store);
 exports default = router
 ```
 
-Ha előző munkánkból megmaradt a többi útvonal nyugodtan ott hagyhatjuk.
+Ha előző munkánkból megmaradt a többi útvonal, nyugodtan ott hagyhatjuk.
 
 Készítsük el a kontrollerben a store() függvényt:
 
@@ -893,7 +895,7 @@ X-Powered-By: Express
 Felvehetünk több tulajdonságot is:
 
 ```javascript
-store: (req, res, next) => {
+store: (req, res) => {
     if(!req.body.name || !req.body.city) {
         res.status(400);
         res.json({message: 'Bad Request'});
@@ -915,7 +917,7 @@ router.delete("/employees/:id", EmployeeController.destroy);
 A destroy() metódusban ezek után req.params.id tulajdonságban kapjuk meg az azonosítót:
 
 ```javascript
-    destroy: (req, res, next) => {        
+    destroy: (req, res) => {        
         res.send(req.params.id);
     }
 ```
