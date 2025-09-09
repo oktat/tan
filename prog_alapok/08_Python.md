@@ -816,9 +816,9 @@ import math
 
 szog = 1
 rad = szog * math.pi / 180
-print(sin(rad))
-print(cos(rad))
-print(tan(rad))
+print(math.sin(rad))
+print(math.cos(rad))
+print(math.tan(rad))
 ```
 
 Kerekítő függvények
@@ -826,8 +826,8 @@ Kerekítő függvények
 ```python
 import math
 
-print(ceil(4.1))
-print(floor(4.9))
+print(math.ceil(4.1))
+print(math.floor(4.9))
 ```
 
 Az egyes függvények statikusan is importálhatók:
@@ -838,7 +838,11 @@ from math import sqrt
 print(sqrt(9))
 ```
 
-Több függvény importálása statikusan.
+Ha statikusan importáltuk az sqrt() függvényt, nem szükséges elé írni a math. előtagot. Itt azonban csak egyetlen függvény lett importálva, a többi nem használható statikusan.
+
+Ha a math modul több tagját is szeretnénk importálni, egyszerűen vegyük fel őket vesszővel tagolva.
+
+Több függvény importálása statikusan:
 
 ```python
 from math import sqrt, sin, pi
