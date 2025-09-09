@@ -51,7 +51,7 @@ npm install express
 mkdir app
 ```
 
-A package.json fájlban írjuk át a type kulcs tartalmát "module" értékre.
+ECMASCript szabványt fogjuk használni, ezért a package.json fájlban írjuk át a type kulcs tartalmát "module" értékre.
 
 ```json
 {
@@ -61,7 +61,7 @@ A package.json fájlban írjuk át a type kulcs tartalmát "module" értékre.
 
 Az app könyvtárban készítsünk egy index.js fájlt, a következő tartalommal:
 
-app/index.js:
+_app/index.js:_
 
 ```javascript
 import express from 'express';
@@ -126,6 +126,8 @@ const data = [
 
 Teljes kód:
 
+_app/index.js_:
+
 ```javascript
 import express from 'express';
 const app = express();
@@ -149,10 +151,12 @@ Futtassuk a szervert, és teszteljük res, curl vagy http paranccsal.
 
 Készítsünk egy **pcshop** nevű projektet. Az alkalmazást az **app** könyvtárban hozzuk létre.
 A projekt értelemszerűen legyen Node.js projekt. A package.json fájlban állítsuk be ES szabványt,
-vagyis a type kulcs értéke legyen "module". Telepítsük a az Express csomagot.
+vagyis a type kulcs értéke legyen "module". Telepítsük az Express csomagot.
 Az adatokat egyenlőre nem adatbázisból vesszük, helyette beépítjük az adatokat a kódba, tömb formájában.
 
 Készítsük el a következő **app/index.js** állományt:
+
+_app/index.js_:
 
 ```javascript
 import express from 'express';
@@ -185,14 +189,13 @@ app.listen(8000, () => {
 
 ### Metódusok
 
-Nézzük meg, hogyan használunk egyetlen végponton több metódust. A végpont
-neve ebben az esetben nem változik.
+Nézzük meg, hogyan használunk egyetlen végponton több metódust. A végpont neve ebben az esetben nem változik.
 
-Készítsünk egy új **metod** nevű projektet. A projekt ES modulokat használjon.
-Az alkalmazást az **app** könyvtárban fejlesszük. A belépésipont az index.js fájl.
-Telepítsük az express csomagot.
+Készítsünk egy új **metod** nevű projektet. A projekt ES modulokat használjon. Az alkalmazást az **app** könyvtárban fejlesszük. A belépésipont az index.js fájl. Telepítsük az express csomagot.
 
 Használjunk get és post metódust is:
+
+_app/index.js:_
 
 ```javascript
 import express from 'express';
@@ -221,7 +224,9 @@ res localhost:8000/msg
 http post localhost:8000/msg
 ```
 
-Fejlesszük tovább az alkalmazásunkat és valósítsunk meg minden metódust:
+Fejlesszük tovább az alkalmazásunkat és valósítsunk meg minden metódust.
+
+_app/index.js:_
 
 ```javascript
 import express from 'express';
@@ -261,6 +266,8 @@ Készítsünk egy **utas** nevű projektet.
 A **Router** függvény használatával az alkalmazás egyes részei szétválaszthatók, és a végpontok is külön kezelhetők.
 
 Először lássuk egyetlen fájlban a használatát. Készítsünk egy index.js fájlt az app könyvtárban:
+
+_app/index.js:_
 
 ```javascript
 import express from 'express';
@@ -302,9 +309,9 @@ res localhost:8000/api/products
 
 ### Az Express router szétbontva
 
-Készítsünk két külön állományt egy routes.js és egy index.js fájlt, az app könyvtárban.
+Készítsünk két külön állományt egy **routes.js** és egy **index.js** fájlt, az app könyvtárban.
 
-routes.js:
+_app/routes.js:_
 
 ```javascript
 import Router from 'express';
@@ -321,7 +328,7 @@ router.get('/products', (req, res) => {
 export default router
 ```
 
-index.js:
+_app/index.js:_
 
 ```javascript
 import express from 'express';
@@ -358,8 +365,7 @@ Készítsen projektet **rendelo** néven.
 
 ## Kontrollerek
 
-A következő célunk, hogy a választ egy kontrollerben generáljuk,
-leválasztva azt az útválasztáról.
+A következő célunk, hogy a választ egy kontrollerben generáljuk, leválasztva azt az útválasztásról.
 
 ### Új projekt
 
@@ -395,8 +401,7 @@ npm install --save-dev nodemon
 
 A **nodemon** lehetővé teszi számunkra, hogy az alkalmazás fejlesztése során minden egyes mentéskor azonnal legyen aktuális a fejlesztett rész.
 
-Írjunk egy indító scriptet és állítsuk be a package.json
-fájlban a type kulcsot "module" értékre.
+Írjunk egy indító scriptet és állítsuk be a package.json fájlban a type kulcsot "module" értékre.
 
 A package.json fájlban az indító script és a típus részlet:
 
@@ -411,7 +416,7 @@ A package.json fájlban az indító script és a típus részlet:
 
 Hozzuk létre a routingot a **routes** könyvtárban **api.js** néven, a következő tartalommal:
 
-routes/api.js:
+_app/routes/api.js:_
 
 ```javascript
 import Router from 'express'
@@ -428,7 +433,7 @@ Jelenleg egyetlen JSON adatot adunk vissza egy "msg" tulajdonsággal, a json() f
 
 ### Belépési pont
 
-index.js:
+_app/index.js:_
 
 ```javascript
 import express from 'express'
@@ -456,8 +461,9 @@ res localhost:8000/api/employees
 
 ### Kontroller
 
-Készítsünk egy **employeeController.js** fájlt,
-a controllers könyvtárban, a következő tartalommal:
+Készítsünk egy **employeeController.js** fájlt, a controllers könyvtárban, az alábbi tartalommal:
+
+_app/controllers/employeeController.js_:
 
 ```javascript
 const EmployeeController = {
@@ -486,7 +492,9 @@ empapi/
   `-package.json
 ```
 
-A routes/api.js fájlban hozzunk létre egy útválasztást, ahol használjuk az EmployeeController-t:
+A routes/api.js fájlban hozzunk létre egy útválasztást, ahol használjuk az EmployeeController-t.
+
+_app/routes/api.js_:
 
 ```javascript
 import Router from 'express'
@@ -565,7 +573,7 @@ res.json({
 
 A példában egy success és egy msg tulajdonságot adunk vissza. A success megmutatja az üzenet sikeres vagy nem, az msg magát az üzenetet tartalmazza.
 
-_employee.controller.js_:
+_app/controllers/employee.controller.js_:
 
 ```javascript
 const EmployeeController = {
@@ -595,7 +603,7 @@ res.status(200)
 res.json({msg: 'Valami'});
 ```
 
-_employee.controller.js_:
+_api/controllers/employee.controller.js_:
 
 ```javascript
 const EmployeeController = {
@@ -655,7 +663,7 @@ app.post('/msg', (req, res) => {
 
 Korábban a body-parser csomag volt használatos, de az elavult lett. Az Express már köztes szoftver formájában tartalmazza JSON értelmezőt.
 
-_index.js_:
+_app/index.js_:
 
 ```javascript
 import express from 'express';
@@ -708,7 +716,7 @@ X-Powered-By: Express
 
 ### Adat fogadása kontrollerben
 
-Vegyük elő a **empapi** projektünket vagy készítsünk egy másikat, ha az nem áll rendelkezésre.
+Vegyük elő az **empapi** projektünket vagy készítsünk egy másikat, ha az nem áll rendelkezésre.
 
 ```txt
 fogadas/
@@ -741,6 +749,8 @@ app.use(morgan('tiny'));
 
 A szerver belépési pontja, a teljes index.js:
 
+_app/index.js_:
+
 ```javascript
 import express from 'express';
 import morgan from 'morgan';
@@ -762,6 +772,8 @@ Fontos az app.use(express.json()); hívás. Ezt meg kell előzze az app.use('/ap
 Készítsünk egy útválasztó bejegyzést, ami POST metódust fogad és az EmployeeController, store() függvényét futtatja.
 
 Az api.js két bejegyzéssel:
+
+_api/routes/api.js_:
 
 ```javascript
 import Router from 'express';
@@ -785,6 +797,8 @@ store: (req, res) => {
 ```
 
 A teljes kontroller, index és store függvényekkel:
+
+_api/controllers/employee.controller.js_:
 
 ```javascript
 const EmployeeController = {
@@ -851,7 +865,7 @@ store: (req, res) => {
 }
 ```
 
-A req.body.name tulajdonságban kellene megkapjunk egy "name" értéket. Ezt ellenőrizzük az if() utasításban. Ha nincs kérésben "name" tulajdonság, akkor a válaszkódot beállítjuk 400-ra, az üzenetet pedig "Bed Request"-re.
+A **req.body.name** tulajdonságban kellene megkapjunk egy "name" értéket. Ezt ellenőrizzük az if() utasításban. Ha nincs kérésben "name" tulajdonság, akkor a válaszkódot beállítjuk 400-ra, az üzenetet pedig "Bed Request"-re.
 
 Ellenőrizzük úgy, hogy nem küldünk adatot:
 
@@ -914,7 +928,7 @@ Elsőként jelezzük az api.js fájlban a útválasztásnál, hogy paramétert i
 router.delete("/employees/:id", EmployeeController.destroy);
 ```
 
-A destroy() metódusban ezek után req.params.id tulajdonságban kapjuk meg az azonosítót:
+A destroy() metódusban ezek után **req.params.id** tulajdonságban kapjuk meg az azonosítót:
 
 ```javascript
     destroy: (req, res) => {        
@@ -957,7 +971,7 @@ to emp@localhost
 identified by 'titok';
 ```
 
-A példában egy emp nevű adatbázis hoztunk létre, és egy emp nevű felhasználó érheti azt el a titok jelszóval.
+A példában egy **emp** nevű adatbázis hoztunk létre, és egy emp nevű **felhasználó** érheti azt el a **titok jelszóval**.
 
 ### Beállítások tárolása
 
@@ -965,7 +979,7 @@ Hozzuk létre egy config/default.json fájlt.
 
 #### Port beállítása
 
-config/default.json:
+_onfig/default.json_:
 
 ```json
 {
@@ -989,6 +1003,8 @@ app.listen(config.app.port, () => {
 ```
 
 A teljes index.js fájl:
+
+_app/index.js_:
 
 ```javascript
 import express from 'express'
@@ -1020,7 +1036,9 @@ Indítsuk újra a szervert. Most a default.json fájlban megadott portot veszi f
 npm install mariadb
 ```
 
-Most vegyük fel a .env fájlban a MariaDB elérési adatait:
+Most vegyük fel a **.env** fájlban a MariaDB elérési adatait:
+
+_.env_:
 
 ```json
 {
@@ -1040,7 +1058,9 @@ Most vegyük fel a .env fájlban a MariaDB elérési adatait:
 
 ### Adatbázis elérés
 
-Készítsünk egy **app/database/mariadb.js** fájlt:
+Készítsünk egy **app/database/mariadb.js** fájlt.
+
+_app/database/mariadb.js_:
 
 ```javascript
 import Sequalize from 'sequelize'
@@ -1065,7 +1085,9 @@ exports default sequalize
 
 ### Model készítése
 
-Készítsünk egy **app/models/employee.js** fájlt:
+Készítsünk egy **app/models/employee.js** fájlt.
+
+_app/models/employee.js_:
 
 ```javascript
 import { DataTypes } from 'sequelize'
@@ -1103,6 +1125,8 @@ export default Employee
 | DataTypes.BOOLEAN   | tinint(1) |
 
 ## Kontroller készítése
+
+_app/controllers/employeeController.js_:
 
 ```javascript
 import Employee from '../models/employee'
@@ -1173,6 +1197,8 @@ export default EmployeeController
 
 ## Routing
 
+_app/routes/api.js_:
+
 ```javascript
 import Router from 'express'
 import EmployeeController from '../controllers/employeecontroller.js'
@@ -1187,6 +1213,8 @@ export default router
 ```
 
 ## Végleges belépési pont
+
+_app/index.js_:
 
 ```javascript
 import express from 'express'
@@ -1230,6 +1258,8 @@ Az útvonalak védelméhez szükség van felhasználókra. Az útvonalakat JWT t
 
 Készítsünk egy User modellt az **src/models/user.js** fájlban:
 
+_src/models/user.js_:
+
 ```javascript
 import { DataTypes } from 'sequelize'
 import sequelize from '../database/mariadb.js'
@@ -1258,6 +1288,8 @@ export default User
 ### AuthController készítése
 
 Készítsünk az **app/controllers/authController.js** fájlban egy AuthController-t:
+
+_app/controllers/authController.js_:
 
 ```javascript
 import bcrypt from 'bcryptjs'
@@ -1336,6 +1368,8 @@ router.post('/register', AuthController.register)
 
 Az **app/routes/api.js** teljes tartalma:
 
+_app/routes/api.js_:
+
 ```javascript
 import Router from 'express';
 const router = Router();
@@ -1369,7 +1403,9 @@ Hozzunk létre egy alkalmazáskulcsot a config/default.json fájlban.
 
 A számok véletlenszerűen megadott számok, legalább 32 darab.
 
-A teljes config/default.json fájl:
+A teljes config/default.json fájl az alábbiakban láthatjuk.
+
+_config/default.json_:
 
 ```json
 {
@@ -1387,6 +1423,8 @@ A teljes config/default.json fájl:
 ```
 
 ### A login() függvény az authcontroller.js-ben
+
+_app/controllers/authcontroller.js_:
 
 ```javascript
     async login(req, res) {
@@ -1442,6 +1480,8 @@ router.post('/login', AuthController.login)
 
 A tokenek ellenőrzését egy köztes szoftverben végezzük. Hozzuk létre az **app/middleware/authjwt.js** fájlban a következőt:
 
+_app/middleware/authjwt.js_:
+
 ```javascript
 import jwt from 'jsonwebtoken'
 import { readFileSync } from 'fs'
@@ -1472,13 +1512,15 @@ exports.verifyToken = (req, res, next) => {
 
 ### Útvonal védelme
 
+Az útvonalak védelme get(), post(), put() és a delete() függvényhívásokban a második paraméter lesz. A példában szögletes zárójelben adtuk meg, ami tömb adatszerkezet. Vagyis több köztes szoftver is megadható.
+
 ```javascript
 import { verifyToken } from '../middleware/authjwt.js'
 //...
 router.post('/employees', [verifyToken], EmployeeController.store)
 ```
 
-Ellenőrizzük például a resen res parancsával:
+Ellenőrizzük például a resen csomag res parancsával:
 
 ```cmd
 res post localhost:8000/api/employees 
