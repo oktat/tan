@@ -1056,7 +1056,7 @@ _.env_:
 }
 ```
 
-### Adatbázis elérés
+### Adatbázis-elérés
 
 Készítsünk egy **app/database/mariadb.js** fájlt.
 
@@ -1471,6 +1471,8 @@ _app/controllers/authcontroller.js_:
 ```
 
 ### Útválasztás a login számára
+
+Hozzunk létre egy login nevű végpontot.
 
 ```javascript
 router.post('/login', AuthController.login)
