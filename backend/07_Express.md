@@ -1159,6 +1159,8 @@ await sequelize.sync(
 )
 ```
 
+Ha már léteznek a táblák a { force: true } kitörli és felülírja azt. Az { alter: true } meghadja az meglévő adatokat.
+
 A teljes kód:
 
 ```javascript
