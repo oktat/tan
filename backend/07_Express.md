@@ -1276,6 +1276,23 @@ await Employee.create({
 
 Töröljük az adatbázisfájlt majd, futtassuk újra az alkalmazást és ellenőrizzük az adatbázist, benne a táblát.
 
+Hosszú távon a modellt és a modellen a create() függvény futtatását kiemeljük más állományba. A modelt egy models nevű könyvtárba helyezzük, az új dolgozó létrehozását a controllers nevű könyvtár egy állományába.
+
+```txt
+lite/
+  |-app/
+  |  |-controllers/
+  |  |   `-employeeController.js
+  |  |-database/
+  |  |   `-database.js
+  |  `-models/
+  |      `-employee.js
+  |-config/
+  |  `-default.json
+  |-database.sqlite
+  `-package.json
+```
+
 #### MariaDB
 
 ```cmd
