@@ -15,7 +15,9 @@
 * [Kontrollerek](#kontrollerek)
 * [HTTP válaszok testreszabása](#http-válaszok-testreszabása)
 * [HTTP adat fogadása a klienstől](#http-adat-fogadása-a-klienstől)
+* [Beállítások tárolása](#beállítások-tárolása)
 * [ORM használata](#orm-használata)
+* [MariaDB](#mariadb)
 * [Kontroller készítése](#kontroller-készítése)
 * [Routing](#routing)
 * [Végleges belépési pont](#végleges-belépési-pont)
@@ -954,24 +956,7 @@ X-Powered-By: Express
 
 Most már tudunk adatokat és paramétert átvenni, dolgozhatunk adatbázissal.
 
-## ORM használata
-
-### Adatbázis előkészítése
-
-Hozzuk létre az adatbázist és hozzá egy felhasználót:
-
-```sql
-create database emp
-character set utf8
-collate utf8_hungarian_ci;
-
-grant all privileges
-on emp.*
-to emp@localhost
-identified by 'titok';
-```
-
-A példában egy **emp** nevű adatbázis hoztunk létre, és egy emp nevű **felhasználó** érheti azt el a **titok jelszóval**.
+## Beállítások tárolása
 
 ### Beállítások tárolása
 
@@ -979,7 +964,7 @@ A beállítások tárolhatók .env nevű fájlban vagy tárolhatók JSON fájlba
 
 Hozzuk létre egy **config/default.json** fájlt.
 
-#### Port beállítása
+### Port beállítása
 
 Elsőként állítsuk be az alkalmazás portszámát.
 
@@ -1036,9 +1021,9 @@ app.listen(config.app.port, () => {
 
 Indítsuk újra a szervert. Most a default.json fájlban megadott portot veszi fel a szerver. Ellenőrizzük, egy 3000-s port beállításával, majd a szerver újraindításával.
 
-### Adatbázis konfigurálása
+## ORM használata
 
-#### SQLite
+### SQLite használata
 
 Hozzunk létre egy **lite** nevű projektet. Könyvtárszerkezet:
 
@@ -1065,10 +1050,10 @@ npm install express
     "type": "module"
 }
 
-Telepítsük az SQLite és Sequelize csomagokat:
+Telepítsük az SQLite és Sequelize csomagjait:
 
 ```cmd
-npm install sqlite3
+npm install sqlite3 sequelize
 ```
 
 A Sequelize() konstruktorban paraméterként megadva írjuk le az adatbázist. Jelen esetben ez SQLite adatbázis. Ehhez két kulcsot kell megadni, a dialect és a storage.
@@ -1203,7 +1188,7 @@ Futtassuk az alkalmazhást.
 
 Az adatbázisban, most létre kell jöjjön egy employees tábla. Ellenőrizzük.
 
-#### SQLite beállításfájlból
+### SQLite beállításfájlból
 
 Vegyük fel a **config** nevű mappát, benne egy **default.json** fájlt.
 
@@ -1295,7 +1280,26 @@ lite/
   `-package.json
 ```
 
-#### MariaDB
+## MariaDB
+
+### Adatbázis előkészítése
+
+Hozzuk létre az adatbázist és hozzá egy felhasználót:
+
+```sql
+create database emp
+character set utf8
+collate utf8_hungarian_ci;
+
+grant all privileges
+on emp.*
+to emp@localhost
+identified by 'titok';
+```
+
+A példában egy **emp** nevű adatbázis hoztunk létre, és egy emp nevű **felhasználó** érheti azt el a **titok jelszóval**.
+
+### MariaDB használat
 
 ```cmd
 npm install mariadb
