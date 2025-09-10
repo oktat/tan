@@ -958,8 +958,6 @@ Most már tudunk adatokat és paramétert átvenni, dolgozhatunk adatbázissal.
 
 ## Beállítások tárolása
 
-### Beállítások tárolása
-
 A beállítások tárolhatók .env nevű fájlban vagy tárolhatók JSON fájlban is. A JSON fájl szokásos neve config.json vagy a config/default.json. Mi az utóbbi fogjuk használni.
 
 Hozzuk létre egy **config/default.json** fájlt.
