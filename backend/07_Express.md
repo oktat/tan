@@ -858,7 +858,7 @@ Ha http parancsot használjuk, tegyük állományba a küldendő adatokat, péld
 http POST http://localhost:8000/api/employees < adat.txt 
 ```
 
-### Érvényesség ellenőrzése
+### Egyszerű érvényesség-ellenőrzés
 
 ```javascript
 store: (req, res) => {
@@ -1023,6 +1023,10 @@ app.listen(config.app.port, () => {
 Indítsuk újra a szervert. Most a default.json fájlban megadott portot veszi fel a szerver. Ellenőrizzük, egy 3000-s port beállításával, majd a szerver újraindításával.
 
 ## ORM használata
+
+Az ORM az Object-relational mapping rövidítése, magyarul objektum relációs leképezésnek lehet fordítani. Adott programozási nyelven létrehozott objektum leképezése adatbázis tábláira.
+
+![ORM](images/orm_object_db-table.png)
 
 ORM-nek a Sequelize-t használjuk. ORM segítségével valósítjuk meg a backend azon részét, ami kapcoslódik az adatbázishoz és a modelleket.
 
