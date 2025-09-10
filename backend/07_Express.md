@@ -1329,6 +1329,8 @@ empy/
   |     `-database.js
   |-config/
   |  `-default.json
+  |-models/
+  |  `-employee.js
   `-package.json
 ```
 
@@ -1362,10 +1364,9 @@ _config/default.json_:
     "db": {
         "dialect": "mariadb",
         "host": "localhost",
-        "name": "emp",
-        "user": "emp",
-        "pass": "titok",
-        "path": ":memory:"
+        "name": "empy",
+        "user": "empy",
+        "pass": "titok"
     }
 }
 ```
@@ -1394,7 +1395,7 @@ const sequalize = new Sequalize(
     }
 )
  
-exports default sequalize
+export default sequalize
 ```
 
 ### Model készítése
@@ -1426,6 +1427,12 @@ sequelize.sync({
     force: false
 })
 export default Employee
+```
+
+Ellenőrizzük, futtassuk a modellt:
+
+```cmd
+node app/models/employee.js
 ```
 
 |  Jelölés  |  Jelentés  |
