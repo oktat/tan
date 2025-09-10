@@ -17,6 +17,8 @@
 * [HTTP adat fogadása a klienstől](#http-adat-fogadása-a-klienstől)
 * [Beállítások tárolása](#beállítások-tárolása)
 * [ORM használata](#orm-használata)
+* [SQLite használata](#sqlite-használata)
+* [SQLite beállításfájlból](#sqlite-beállításfájlból)
 * [MariaDB](#mariadb)
 * [Kontroller készítése](#kontroller-készítése)
 * [Routing](#routing)
@@ -1021,9 +1023,11 @@ Indítsuk újra a szervert. Most a default.json fájlban megadott portot veszi f
 
 ## ORM használata
 
+ORM-nek a Sequelize-t használjuk. ORM segítségével valósítjuk meg a backend azon részét, ami kapcoslódik az adatbázishoz és a modelleket.
+
 ![Backend szerkezet](images/backend_sources.png)
 
-### SQLite használata
+## SQLite használata
 
 Hozzunk létre egy **lite** nevű projektet. Könyvtárszerkezet:
 
@@ -1188,7 +1192,7 @@ Futtassuk az alkalmazhást.
 
 Az adatbázisban, most létre kell jöjjön egy employees tábla. Ellenőrizzük.
 
-### SQLite beállításfájlból
+## SQLite beállításfájlból
 
 Vegyük fel a **config** nevű mappát, benne egy **default.json** fájlt.
 
