@@ -620,6 +620,21 @@ const EmployeeController = {
 module.exports = EmployeeController
 ```
 
+Lehetséges válaszkódok:
+
+| Státuszkód | Jelentés |
+|---|---|
+| 200 | OK |
+| 201 | Created |
+| 204 | No Content |
+| 301 | Moved Permanently |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 500 | Internal Server Error |
+
 ## HTTP adat fogadása a klienstől
 
 Készítsünk egy egyszerű Express REST API-t, ami read művelet tud /msg végponttal. Készítsünk egy index.js fájlt:
