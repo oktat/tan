@@ -1447,6 +1447,22 @@ node app/models/employee.js
 
 ## Kontroller modell használattal
 
+```txt
+empy/
+  |-app/
+  |  `-database/
+  |     `-database.js
+  |-config/
+  |  `-default.json
+  |-controllers/
+  |  `-employeeController.js
+  |-models/
+  |  `-employee.js
+  `-package.json
+```
+
+Készítsük el a controllers könyvtárat benne a employeeController.js állománnyal.
+
 _app/controllers/employeeController.js_:
 
 ```javascript
