@@ -25,6 +25,7 @@
 * [Végleges belépési pont](#végleges-belépési-pont)
 * [Azonosítás](#azonosítás)
 * [Bejelentkezés](#bejelentkezés)
+* [Érvényesség](#érvényesség)
 * [Biztonság](#biztonság)
 
 ## Szükséges
@@ -1811,6 +1812,23 @@ A -a után a token írjuk, ami valójában jóval hosszabb.
 ```javascript
 router.delete('/employees/:id', [verifyToken], employees.destroy);
 router.put('/employees/:id', [verifyToken], employees.update);
+```
+
+## Érvényesség
+
+A kliensektől érkező adatokat ellenőrizzük, hogy megfeleljen az adatbázis számára.
+
+Az adatok fogadását a kontrollerben a modellen keresztül valósítjuk meg. A kontrollerben írhatunk az érvényesség ellenőrzésre kódot, de a Sequelize rendelkezik beépített érvényesség-kezeléssel. A modellek létrehozása során leírhatjuk az adatok érvényességét is.
+
+### A null érték vizsgálata
+
+```javascript
+const Employee = sequelize.define('employee', {
+    name: { 
+        type: DataTypes.STRING,
+        allowNull: false
+    }
+})
 ```
 
 ## Biztonság
