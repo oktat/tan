@@ -1095,13 +1095,16 @@ public class App {
 
 ### Argumentum beállítása VSCode-ban
 
-Ha parancssorban adjuk meg a paramétereket, ez kényelmetlen lehet. Használjuk ki a VSCode adata lehetőségeket. Készítsünk egy konfigurációt:
+Ha parancssorban adjuk meg a paramétereket, ez kényelmetlen lehet. Használjuk ki a VSCode adta lehetőségeket. 
+Ha lehet ne "No build tools" válasszuk. A No build tools projektnél kapnak egy azonosítót a projektek, ami miatt újra kell konfigurációt a projekthez adni. Maven projek esetén nincs ilyen.
+
+Készítsünk egy konfigurációt:
 
 * Run > Add configuration...
 
 Ha nincs megnyitva .java fájl, akkor rá kérdez, milyen debuger-t választunk. Válasszuk a **Java**-t.
 
-A menüt kiválasztva a .vscode könyvtárban elkészül egy launch.json nevű fájl. A tartalma ehhez hasonló:
+A menüt kiválasztva a .vscode könyvtárban elkészül egy launch.json nevű fájl. No build toolls esetén a tartalma ehhez hasonló:
 
 ```json
 {
@@ -1127,7 +1130,9 @@ A menüt kiválasztva a .vscode könyvtárban elkészül egy launch.json nevű f
 }
 ```
 
-Ha a "Prorject Manager for Java" bővítményt használjuk, akkor a .java fájl megnyitása esetén találunk egy lejátszógombot a jobb felső sarokban. De a main() függvény felett és megjelenik egy lebegő **Run** parancs. Ha ezt használjuk, akkor második konfigurációt fogja használni a VSCode. Ezért ezzel dolgozunk. Vegyünk fel egy args kulcsot:
+Ha a "Prorject Manager for Java" bővítményt használjuk, akkor a .java fájl megnyitása esetén találunk egy lejátszógombot a jobb felső sarokban. De a main() függvény felett és megjelenik egy lebegő **Run** parancs. Ezekben az esetekben mindig a második konfiguráció fut le.
+
+A "Current File" nevű konfiguráció akkor fut le ha az akciósávon megnyitjuk a Debug eszközt és onnan futtatjuk a programot.:
 
 ```json
 {
@@ -1146,6 +1151,34 @@ Ha a "Prorject Manager for Java" bővítményt használjuk, akkor a .java fájl 
 ```
 
 Így minden futtatásnál az adat.txt szöveg kerül átadásra, első paraméterként. Az args itt egy tömb, így vesszővel tagolva felvehetünk több paraméter is. Az első konfigurációt nem kell törölni, csak a rövidítés miatt nem szerepel a fenti példában.
+
+#### VSCode Maven esetén
+
+```json
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Current File",
+      "request": "launch",
+      "mainClass": "${file}",
+      "args": ["egy"]
+    },
+    {
+      "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "com.example.Main",
+      "projectName": "app01",
+      "args": ["kettő"]
+    }
+  ]
+}
+```
 
 ## Debug
 
