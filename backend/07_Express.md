@@ -1243,7 +1243,8 @@ Most be kell olvasni a fájl tartalmát.
 
 ```javascript
 import { readFileSync } from 'fs'
-const fileUrl = new URL('config.json', import.meta.url)
+const confPath = '../../config/default.json'
+const fileUrl = new URL(confPath, import.meta.url)
 const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
 ```
 
@@ -1252,7 +1253,8 @@ A beállíátsok a **config** objektmból érhetők el.
 ```javascript
 import { Sequelize } from "sequelize";
 import { readFileSync } from 'fs'
-const fileUrl = new URL('config.json', import.meta.url)
+const confPath = '../../config/default.json'
+const fileUrl = new URL(confPath, import.meta.url)
 const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
 
 const sequelize = new Sequelize({
