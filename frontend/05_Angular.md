@@ -519,12 +519,6 @@ Telepítés:
 npm install bootstrap
 ```
 
-vagy:
-
-```cmd
-pnpm install bootstrap
-```
-
 Vegyük fel az src/style.css fájlban a bootstrap-t.
 
 src/style.css:
@@ -548,6 +542,21 @@ angular.json:
     }
 }
 ```
+
+Ellenőrzéshez készíthetünk egy egyszerű HTML részletet:
+
+```html
+<button class="btn btn-primary"
+data-bs-toggle="collapse"
+data-bs-target="#aaa"
+>Mehet</button>
+
+<div class="collapse" id="aaa">
+  <div class="card card-body">doboz</div>  
+</div>
+```
+
+A gomb megnyomására meg kell jelenjen a doboz.
 
 ### Bootstrap ikonok
 
