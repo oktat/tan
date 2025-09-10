@@ -1372,9 +1372,9 @@ _config/default.json_:
 
 ### Adatbázis-elérés
 
-Készítsünk egy **app/database/mariadb.js** fájlt.
+Készítsünk egy **app/database/database.js** fájlt.
 
-_app/database/mariadb.js_:
+_app/database/database.js_:
 
 ```javascript
 import Sequalize from 'sequelize'
@@ -1405,7 +1405,7 @@ _app/models/employee.js_:
 
 ```javascript
 import { DataTypes } from 'sequelize'
-import sequelize from '../database/mariadb.js'
+import sequelize from '../database/database.js'
 
 const Employee = sequelize.define('employee', {
     id: { 
@@ -1443,7 +1443,7 @@ export default Employee
 _app/controllers/employeeController.js_:
 
 ```javascript
-import Employee from '../models/employee'
+import Employee from '../models/employee.js'
  
 const EmployeeController = {
     async index(req, res) {
@@ -1515,7 +1515,7 @@ _app/routes/api.js_:
 
 ```javascript
 import Router from 'express'
-import EmployeeController from '../controllers/employeecontroller.js'
+import EmployeeController from '../controllers/employeeController.js'
 const router = Router();
 
 router.get('/employees', EmployeeController.index)
