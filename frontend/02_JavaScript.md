@@ -25,6 +25,7 @@
 * [DOM](#dom)
 * [Aszinkron futtatás](#aszinkron-futtatás)
 * [Promise-ok](#promise-ok)
+* [A map() függvény](#a-map-függvény)
 
 ## Típusok és kifejezések
 
@@ -1359,4 +1360,29 @@ myPromise
   .catch(error => {
       console.error(error); // Ez akkor fut le, ha a Promise elutasításra került
   });
+```
+
+## A map() függvény
+
+A map() függvény segítségével bejárhatunk egy tömböt és megváltoztathatjuk az elemek indexét vagy a tartalmát.
+
+```javascript
+const nameList = [
+  'Árpád',
+  'Ernő',
+  'Ferenc',
+  'Gyula',
+  'József',
+  'Katalin',
+  'Lajos']
+
+
+const names = nameList.map((name, index) => {
+  return {
+    id: index + 1,
+    name: name + "-"
+  }
+})
+
+console.log(names)
 ```
