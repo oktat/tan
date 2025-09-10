@@ -1021,6 +1021,8 @@ Indítsuk újra a szervert. Most a default.json fájlban megadott portot veszi f
 
 ## ORM használata
 
+![Backend szerkezet](images/backend_sources.png)
+
 ### SQLite használata
 
 Hozzunk létre egy **lite** nevű projektet. Könyvtárszerkezet:
