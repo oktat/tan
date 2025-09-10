@@ -1053,6 +1053,7 @@ npm install express
 {
     "type": "module"
 }
+```
 
 Telepítsük az SQLite és Sequelize csomagjait:
 
