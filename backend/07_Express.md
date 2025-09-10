@@ -20,7 +20,7 @@
 * [SQLite használata](#sqlite-használata)
 * [SQLite beállításfájlból](#sqlite-beállításfájlból)
 * [MariaDB](#mariadb)
-* [Kontroller készítése](#kontroller-készítése)
+* [Kontroller modell használattal](#kontroller-modell-használattal)
 * [Routing](#routing)
 * [Végleges belépési pont](#végleges-belépési-pont)
 * [Azonosítás](#azonosítás)
@@ -1182,18 +1182,9 @@ const sequelize = new Sequelize({
 });
 
 const Employee = sequelize.define('employee', {
-  name: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  city: {
-    type: Sequelize.STRING,
-    allowNull: true
-  },
-  salary: {
-    type: Sequelize.DOUBLE,
-    allowNull: true
-  }
+  name: { type: Sequelize.STRING },
+  city: { type: Sequelize.STRING },
+  salary: { type: Sequelize.DOUBLE }
 });
 
 await sequelize.sync({
@@ -1207,7 +1198,17 @@ await Employee.create({
 });
 ```
 
-Az **id mezőt** nem adtuk meg, mivel automatikusan létrejön.
+Az **id mezőt** nem adtuk meg, mivel automatikusan létrejön. A mezők értékét nem kötelező elküldeni a kliensnek, mivel alapértelmezetten ez nincs megkövetelve. Az allowNull: false beállítássall adhatjuk meg, hogy ezek kötelezőek legyenek.
+
+Például:
+```javascript
+name: { 
+    type: Sequelize.STRING,
+    allowNull: false
+    }
+```
+
+De ez már az érvényesség vizsgálat témaköre.
 
 Futtassuk az alkalmazhást.
 
@@ -1263,18 +1264,9 @@ const sequelize = new Sequelize({
 });
 
 const Employee = sequelize.define('employee', {
-  name: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  city: {
-    type: Sequelize.STRING,
-    allowNull: true
-  },
-  salary: {
-    type: Sequelize.DOUBLE,
-    allowNull: true
-  }
+  name: { type: Sequelize.STRING },
+  city: { type: Sequelize.STRING },
+  salary: { type: Sequelize.DOUBLE }
 });
 
 await sequelize.sync({
@@ -1314,22 +1306,48 @@ lite/
 Hozzuk létre az adatbázist és hozzá egy felhasználót:
 
 ```sql
-create database emp
+create database empy
 character set utf8
 collate utf8_hungarian_ci;
 
 grant all privileges
-on emp.*
-to emp@localhost
+on empy.*
+to empy@localhost
 identified by 'titok';
 ```
 
-A példában egy **emp** nevű adatbázis hoztunk létre, és egy emp nevű **felhasználó** érheti azt el a **titok jelszóval**.
+A példában egy **empy** nevű adatbázis hoztunk létre, és egy empy nevű **felhasználó** érheti azt el a **titok jelszóval**.
 
 ### MariaDB használat
 
+Hozzunk létre egy **empy** nevű projektet.
+
+```txt
+empy/
+  |-app/
+  |  `-database/
+  |     `-database.js
+  |-config/
+  |  `-default.json
+  `-package.json
+```
+
+
 ```cmd
+mkdir empy
+cd empy
+npm init -y
+npm install express
+npm install sequelize
 npm install mariadb
+```
+
+A package.json **type** értéke legyen **module**.
+
+```json
+{
+    "type": "module"
+}
 ```
 
 Most vegyük fel a **default.json** fájlban a MariaDB elérési adatait:
@@ -1361,8 +1379,8 @@ _app/database/mariadb.js_:
 ```javascript
 import Sequalize from 'sequelize'
 import { readFileSync } from 'fs'
-
-const fileUrl = new URL('config.json', import.meta.url)
+const confPath = '../../config/default.json'
+const fileUrl = new URL(confPath, import.meta.url)
 const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
  
 const sequalize = new Sequalize(
@@ -1389,7 +1407,7 @@ _app/models/employee.js_:
 import { DataTypes } from 'sequelize'
 import sequelize from '../database/mariadb.js'
 
-const Employee = sequelize.define('Employee', {
+const Employee = sequelize.define('employee', {
     id: { 
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -1420,7 +1438,7 @@ export default Employee
 | DataTypes.DECIMAL   | decimális |
 | DataTypes.BOOLEAN   | tinint(1) |
 
-## Kontroller készítése
+## Kontroller modell használattal
 
 _app/controllers/employeeController.js_:
 
