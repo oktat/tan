@@ -1162,7 +1162,7 @@ Az src/app/app.component.html fájl tartalma:
 
 ## Sablon-vezérelt űrlapok
 
-Az űrlapok segítségéve kérhetünk be a felhasználóktól különböző adatokat. Hozzunk létre egy új Angular projektet.
+Az űrlapok segítségével kérhetünk be a felhasználóktól különböző adatokat. Hozzunk létre egy új Angular projektet.
 
 ### Űrlap tartalmának elérése
 
