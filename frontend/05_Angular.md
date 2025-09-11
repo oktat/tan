@@ -2590,7 +2590,7 @@ Az src/app/app.component.html tartalma legyen:
 <router-outlet></router-outlet>
 ```
 
-### Az útvláasztás elkészítése
+### Az útválasztás elkészítése
 
 ```typescript
 import { Routes } from '@angular/router';
