@@ -26,6 +26,7 @@
 * [Azonosítás](#azonosítás)
 * [Bejelentkezés](#bejelentkezés)
 * [Érvényesség](#érvényesség)
+* [Biztonság](#biztonság)
 
 ## Szükséges
 
@@ -1952,6 +1953,7 @@ const Employee = sequelize.define('employee', {
         }
     }
 })
+```
 
 > [!NOTE]
 > A validate: { notNull: true } csak az allowNull: false mellett használható.
