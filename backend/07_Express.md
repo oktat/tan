@@ -26,7 +26,6 @@
 * [Azonosítás](#azonosítás)
 * [Bejelentkezés](#bejelentkezés)
 * [Érvényesség](#érvényesség)
-* [Biztonság](#biztonság)
 
 ## Szükséges
 
@@ -1892,6 +1891,70 @@ const Employee = sequelize.define('employee', {
     }
 })
 ```
+
+### A validate kulcs
+
+A **validate** kulcs összetettebb ellenőrzési lehetőségeket biztosít. Segítségével megvizsgálhatjuk, hogy a modellhez rendelt adatok megfelelnek-e a definiált szabályoknak, még mielőtt az adat az adatbázisba kerülne.
+
+Az **allowNull** egy adatbázis szintű korlátozást. Az **allowNull: false** beállítása a tábla létrehozásakor egy NOT NULL korlátozást állít be az adott mezőhöz.
+
+A **validate: { notNull: true }** egy Sequelize szintű érvényeségi szabály. Ellenőrzi, hogy a mező értéke nem null, még az adatbázisba való rögzítés előtt.
+
+A két beállítás együttesen a legjobb módja annak, hogy a mező ne lehessen null.
+
+Vegyük most az employee modell name mezőjét:
+
+```javascript
+const Employee = sequelize.define('employee', {
+    name: { 
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notNull: true
+        }
+    }
+})
+```
+
+### Üres sztring vizsgálata
+
+A **validate: { notNull: true }** lehetővé tesi üres sztring küldését. A **validate: { notEmpty: true }** azt is megköveteljük, hogy a **name** mező ne legyen üres sztring.
+
+```javascript
+const Employee = sequelize.define('employee', {
+    name: { 
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notNull: true,
+            notEmpty: true
+        }
+    }
+})
+```
+
+### Üzenetek beállítása
+
+Az egyes szabályokhoz saját üzenet is meghatározható.
+
+```javascript
+const Employee = sequelize.define('employee', {
+    name: { 
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notNull: {
+                msg: 'A nev meg kell adni!'
+            },
+            notEmpty: {
+                msg: 'A nev meg kell adni!'
+            }
+        }
+    }
+})
+
+> [!NOTE]
+> A validate: { notNull: true } csak az allowNull: false mellett használható.
 
 ## Biztonság
 
