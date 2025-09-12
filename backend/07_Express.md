@@ -1201,6 +1201,7 @@ await Employee.create({
 Az **id mezőt** nem adtuk meg, mivel automatikusan létrejön. A mezők értékét nem kötelező elküldeni a kliensnek, mivel alapértelmezetten ez nincs megkövetelve. Az allowNull: false beállítássall adhatjuk meg, hogy ezek kötelezőek legyenek.
 
 Például:
+
 ```javascript
 name: { 
     type: Sequelize.STRING,
@@ -1333,7 +1334,6 @@ empy/
   |  `-employee.js
   `-package.json
 ```
-
 
 ```cmd
 mkdir empy
@@ -1956,13 +1956,136 @@ const Employee = sequelize.define('employee', {
 ```
 
 > [!NOTE]
-> A validate: { notNull: true } csak az allowNull: false mellett használható.
+> A **validate: { notNull: true }** csak az allowNull: false mellett használható.
+
+<!---->
+
+> [!NOTE]
+> A **validate: { notEmpty: true }** önmagában megengedi, hogy ne adjuk meg az adott mezőt, de ha megadjuk nem lehet üres sztring, például **""**.
+
+### Betűk és számok
+
+A **validate: { isAlphanumberic: true }** egy olyan szabály, ami megköveteli egy mezőben betűk vagy számok jelenlétét.
+
+```javascript
+const Employee = sequelize.define('employee', {
+    name: { 
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notNull: true,
+            notEmpty: true,
+            isLowercase: true,
+            isAlphanumberic: true,
+            
+        }
+    }
+})
+```
+
+Betűák és számok, de betűkből csak kisbetűs alak megkövetelése:
+
+```javascript
+const Employee = sequelize.define('employee', {
+    name: { 
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notNull: true,
+            notEmpty: true,
+            isLowercase: true,
+            isAlphanumberic: true,
+            isLowercase: true
+        }
+    }
+})
+```
+
+### Hossz meghatározása
+
+Szeretnék meghatározni, hogy a megadott név minimum 2 és maximum 10 karakter hosszú lehet.
+
+```javascript
+const Employee = sequelize.define('employee', {
+    name: { 
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notNull: true,
+            notEmpty: true,
+            isLowercase: true,
+            isAlphanumberic: true,
+            isLowercase: true,
+            len: [3, 10]
+        }
+    }
+})
+```
+
+### Beépített érvényesítők
+
+```javascript
+sequelize.define('foo', {
+  bar: {
+    type: DataTypes.STRING,
+    validate: {
+      is: /^[a-z]+$/i,          // RegEx egyezés
+      is: ["^[a-z]+$",'i'],     // Mint a fenti, csak a RegEx karakterláncból áll
+      not: /^[a-z]+$/i,         // RegEx nem egyezés
+      not: ["^[a-z]+$",'i'],    // Mint a fenti, csak a RegEx karakterláncból áll
+      isEmail: true,            // email cím (foo@bar.com)
+      isUrl: true,              // URL elfogadása (https://foo.com)
+      isIP: true,               // IPv4 (129.89.23.1) vagy IPv6 formátum
+      isIPv4: true,             // IPv4 (129.89.23.1) cím
+      isIPv6: true,             // IPv6 cím
+      isAlpha: true,            // csak betűk az elfogadottak
+      isAlphanumeric: true,     // betűk és számok; ez nem érvényes: "_abc"
+      isNumeric: true,          // csak szám
+      isInt: true,              // csak egész
+      isFloat: true,            // csak valós szám
+      isDecimal: true,          // csak szám
+      isLowercase: true,        // csak kisbetűs
+      isUppercase: true,        // csak nagybetűs
+      notNull: true,            // a null nem megengedett
+      isNull: true,             // csak null a megengedett
+      notEmpty: true,           // nem lehet üres sztirng
+      equals: 'specific value', // csak a megadott érték lehet
+      contains: 'foo',          // benne kell legyen ez a sztring rész
+      notIn: [['foo', 'bar']],  // ezek az értékek nem lehetnek
+      isIn: [['foo', 'bar']],   // csak ezek az értékek lehetnek
+      notContains: 'bar',       // csak ha nem tartalmazza ezt rész sztringet
+      len: [2,10],              // az érték hossza 2 és 10 között lehet
+      isUUID: 4,                // csak uuid a megengedett
+      isDate: true,             // csak dátum sztring lehet
+      isAfter: "2025-04-23",    // csak az adott dátum után dátum
+      isBefore: "2025-04-23",   // csak az adott dátum előtt dátum
+      max: 23,                  // az érték <= 23
+      min: 23,                  // az érétk >= 23
+      isCreditCard: true,       // csak valós credit card számok
+
+    }
+  }
+});
+```
 
 ## Biztonság
 
 ### CORS
 
+A **CORS** a **Cross-Origin Resource Sharing** rövidítése. A CORS egy biztonsági mechanizmus, amely lehetővé teszi, hogy egy weboldalon futó JavaScript kód lekérjen erőforrásokat egy másik domainről.
+
+A böngészők alapértelmezetten tiltják a különböző eredető (cross origin) kéréseket. A szerver jelezheti a HTTP válasz fejlécében egy **Access-Control-Allow-Origin** mezőben, hogy az adatok lekérhetők.
+
+Ha a fejlécben nincs ilyen mező vagy annak tartalmában nem szerepel kérést végző domain, a böngésző a kérést visszautasítja.
+
+A **Access-Control-Allow-Origin** értéke lehet:
+
+* (*) (csillag)
+* URL - Például: `https://example.com`
+
 #### A set() függvény
+
+A set() függvény segítségével a HTTP válaszban fejlécet állítunk be.
 
 ```javascript
 app.get('/msg', (req, res) => {
@@ -1971,7 +2094,11 @@ app.get('/msg', (req, res) => {
 });
 ```
 
+A példában beállítottuk, hogy bármilyen domain lekérheti az /msg végpontról az adatokat.
+
 #### Node.js cors csomagja
+
+A CORS kezelésére a Node.js **cors** csomagot is használhatjuk. Telepítsük, majd használjuk köztes szoftverként.
 
 Telepítés:
 
