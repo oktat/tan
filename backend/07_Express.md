@@ -566,6 +566,10 @@ export default router
 
 ## Táblák közötti kapcsolatok
 
+A táblák közötti kapcsolatok áttekintéséhez nézzünk egy adatbáistervet.
+
+![relations adatbázisterv](images/relations_db.png)
+
 ### Egy a többhöz kapcsolat
 
 Legyen egy SQLite kapcsolat.
@@ -779,6 +783,8 @@ Célszerű létrehozni egy külön fájlt az app/models könyvtárban a követke
 * models.js
 
 Mi a realations.js nevet választjuk. A relations.js fájlban importáljuk a modelleket, majd egy **db** nevű objektumba tesszük őket, így könnyebben kezelhetők az importálás helyén.
+
+_app/models/relations.js_:
 
 ```javascript
 import Employee from '../models/employee.js'
