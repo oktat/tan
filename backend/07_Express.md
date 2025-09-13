@@ -13,6 +13,7 @@
 * [Express és a Sequelize](#express-és-a-sequelize)
 * [Első Express projekt](#első-express-projekt)
 * [Kontrollerek](#kontrollerek)
+* [Táblák közötti kapcsolatok](#táblák-közötti-kapcsolatok)
 * [HTTP válaszok testreszabása](#http-válaszok-testreszabása)
 * [HTTP adat fogadása a klienstől](#http-adat-fogadása-a-klienstől)
 * [Beállítások tárolása](#beállítások-tárolása)
@@ -464,7 +465,7 @@ Teszteljünk egy HTTP klienssel.
 res localhost:8000/api/employees
 ```
 
-### Kontroller
+### Kontroller elkészítése
 
 Készítsünk egy **employeeController.js** fájlt, a controllers könyvtárban, az alábbi tartalommal:
 
@@ -561,6 +562,279 @@ router.put("/employees", EmployeeController.update);
 router.delete("/employees", EmployeeController.destroy);
 
 export default router
+```
+
+## Táblák közötti kapcsolatok
+
+### Egy a többhöz kapcsolat
+
+Legyen egy SQLite kapcsolat.
+
+_app/database/database.js_:
+
+```javascript
+import { Sequelize } from 'sequelize';
+
+const sequelize = new Sequelize({
+    dialect: 'sqlite',
+    storage: 'database.sqlite'
+});
+
+export default sequelize;
+```
+
+Beosztásokat a rank modellben tároljuk:
+
+_app/models/rank.js_:
+
+```javascript
+import sequelize from '../database/database.js';
+import { DataTypes } from 'sequelize';
+
+const Rank = sequelize.define('rank', {
+    name: { type: DataTypes.STRING } 
+})
+
+export default Rank
+```
+
+_app/models/employee.js_:
+
+```javascript
+import sequelize from "../database/database.js";
+import { DataTypes } from 'sequelize';
+import Rank from "./rank.js";
+
+const Employee = sequelize.define('employee', {
+    name: { type: DataTypes.STRING } 
+})
+
+Employee.belongsTo(Rank)
+Rank.hasMany(Employee)
+
+export default Employee
+```
+
+_app/index.js_:
+
+```javascript
+import sequelize from "./database/database.js";
+import Employee from "./models/employee.js";
+import express from "express";
+
+const app = express();
+
+await sequelize.sync();
+
+app.listen(8000, () => {
+    console.log("Server started on port 8000");
+});
+```
+
+Az Employee modellt csak azért kell importálni, hogy fusson le a kód egyszer.
+
+A kapcsolatot a következő utasíátssla állítotuk be az **app/models/employee.js** fájlban:
+
+```javascript
+Employee.belongsTo(Rank)
+Rank.hasMany(Employee)
+```
+
+Ez a következő táblákat hozza létre:
+
+* employee(id, name, createdAt, updatedAt, rankId)
+* rank(id, name, createdAt, updatedAt)
+
+### Több a többhöz kapcsolat
+
+A következő modellt tervezzük:
+
+* employees(name)
+* employee_project(employeeId, projectId)
+* projects(name)
+
+Egy dolgozó több projekthez is tartozhat, és egy projektben több dolgozó is részt vehet. A táblákhoz kapcsolótábla szükséges.
+
+Nézzük meg, hogyan állítható be.
+
+```javascript
+Employee.belongsToMany(Project, { through: 'employee_project' });
+Project.belongsToMany(Employee, { through: 'employee_project' });
+```
+
+A kapcsolatbeállítás a következő kapcsolótáblát hozza létre:
+
+* employee_project(createdAt, updatedAt, employeeId, projectId)
+
+Hogyan vegyünk fel bejegyzést a kapcsolótáblába?
+
+Routing lehetséges végpontjai:
+
+```javascript
+router.post('/emp/:empId/proj/:projId', 
+    EmployeeController.addProject);
+router.delete('/emp/:empId/proj/:projId', 
+    EmployeeController.delProject);
+```
+
+A project rövidítve lett proj, az employee emp-re. A végponton két azonosítót adok át. Az egyik annak a dolgozónak a neve akihez szeretnék projektet felvenni, a másik pedig a projekt azonosítója.
+
+Léterhozhatunk EmployeeProjectController-t is, vagy elhelyezhetjük az EmployeeControler-ben a függvényeket. A példánkban meg van valósítva az dolgozók kezeléséhez tartozó index() és store() függvények is.
+
+A kontrollerben ezek után:
+
+```javascript
+import Employee from '../models/employee.js';
+
+const EmployeeController = {
+    async index(req, res) {
+        const employees = await Employee.findAll();
+        res.json(employees);
+    },
+
+    async store(req, res) {
+        const employee = await Employee.create(req.body);
+        res.json(employee);
+    },
+    async addProject(req, res) {
+        const employee = await Employee.findByPk(req.params.empId);
+        const empProj = await employee.addProject(req.params.projId);
+        res.json(empProj);
+    },
+    async delProject(req, res) {
+        const employee = await Employee.findByPk(req.params.empId);
+        const empProj = await employee.removeProject(req.params.projId);
+        res.json(empProj);
+    }
+}
+
+export default EmployeeController
+```
+
+### Kapcsolótáblában tárolt adat
+
+Szeretnénk tudni egy dolgozó aktív státuszú-e egy projektben. Legyen egy **active** mező. Ilyen esetek lehetnek még, mikor lépet be, mikor hagyta el a projektet, ez esetben lehetne startedAt vagy startedOn és egy endedAt mező, de most maradjunk az active státusz mellett.
+
+Ha a kapcsolótáblában szeretnénk valamit tárolni, létre kell hozni egy modellt. A modell neve például **employee_project**.
+
+Modell lehetséges részlet:
+
+```javascript
+const EmployeeProject = sequelize.define('employee_project', {
+    active: { type: DataTypes.BOOLEAN }
+}, {
+    //tábla többesszámának megakadályozása
+    freezeTableName: true
+})
+```
+
+A kapcsolásnál a through kulcs értékének az importált modell nevét kell megadni.
+
+Kapcsolás javítása:
+
+```javascript
+Employee.belongsToMany(Project, { 
+    through: EmployeeProject
+    });
+
+Project.belongsToMany(Employee, { 
+    through: EmployeeProject
+    });
+```
+
+Így használjuk egy kontrollerben:
+
+```javascript
+import Employee from '../models/employee.js';
+import Project from '../models/project.js';
+
+const EmployeeController = {
+    async addProject(req, res) {
+        const employee = await Employee.findByPk(req.params.empId);
+        const project = await Project.findByPk(req.params.projId);
+        const empProj = await employee.addProject(project, {
+            through: { active: true }
+        });
+        res.json(empProj);
+    },
+    async delProject(req, res) {
+        const employee = await Employee.findByPk(req.params.empId);
+        const empProj = await employee.removeProject(req.params.projId);
+        res.json(empProj);
+    }
+}
+
+export default EmployeeController
+```
+
+### Kapcsolatok külön fájlban
+
+Az előző verzióban a kapcsolatokat az employee.js fájlban állítottuk be.
+
+Célszerű létrehozni egy külön fájlt az app/models könyvtárban a következő nevek egyikén:
+
+* index.js
+* associations.js
+* relations.js
+* models.js
+
+Mi a realations.js nevet választjuk. A relations.js fájlban importáljuk a modelleket, majd egy **db** nevű objektumba tesszük őket, így könnyebben kezelhetők az importálás helyén.
+
+```javascript
+import Employee from '../models/employee.js'
+import Rank from '../models/rank.js'
+import Project from '../models/project.js'
+import EmployeeProject from '../models/employeeProject.js'
+
+const db = {}
+
+db.Employee = Employee
+db.Rank = Rank
+db.Project = Project
+db.EmployeeProject = EmployeeProject
+
+db.Employee.belongsTo(db.Rank)
+db.Rank.hasMany(db.Employee)
+
+db.Employee.belongsToMany(db.Project, { 
+    through: db.EmployeeProject
+});
+db.Project.belongsToMany(db.Employee, { 
+    through: db.EmployeeProject
+});
+
+export default db
+```
+
+A relations.js fájl utasításainak le kell futnia a szerver indításakor. Helyezzük el a belépésipontot jelképező fájlban. Esetünkben ez **app/index.js**.
+
+```javascript
+import db from "./models/relations.js";
+//...
+```
+
+Használni nem fogjuk az index.js fájlban, a célja csak az utasítások lefuttatása.
+
+A modellekből kivehetjük a modellek és a táblák szinkronizálását is. Helyezzük el az előbbi import sor után. Egy lehetséges index.js:
+
+_app/index.js_:
+
+```javascript
+import sequelize from "./database/database.js";
+import express from "express";
+import routes from "./routes/api.js";
+import db from "./models/relations.js";
+
+const app = express();
+
+await sequelize.sync({ alter: true});
+
+app.use(express.json());
+app.use('/api', routes);
+
+app.listen(8000, () => {
+    console.log("Server started on port 8000");
+});
 ```
 
 ## HTTP válaszok testreszabása
