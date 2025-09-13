@@ -837,6 +837,12 @@ app.listen(8000, () => {
 });
 ```
 
+### Példa
+
+A kapcsolatok használatáról teljes példát találunk:
+
+[https://github.com/oktat/relations.git](https://github.com/oktat/relations.git)
+
 ## HTTP válaszok testreszabása
 
 ### JSON válasz a kontrollerben
