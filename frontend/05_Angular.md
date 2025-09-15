@@ -290,7 +290,7 @@ A weblap az **src/index.html** állományból indul:
 </html>
 ```
 
-Ez az alkalmazás váza. Tartozik hozzá egy globális stíluslap, az src/style.css fájl.
+Ez az alkalmazás váza. Tartozik hozzá egy globális stíluslap, az _src/style.css_ fájl.
 
 A webhely komponensei az "app" könyvtárban találhatók. A webhely egy fő komponenssel indul. A fő komponens 4 darab állományból áll, mindegyik az "app" szóval kezdődik. Ez a komponens az alkalmazás gyökér (root) komponense.
 
@@ -300,14 +300,14 @@ A projekt gyökérkönyvtárában még sok más állomány is található, amely
 
 ### A fő komponens állományai
 
-* app.component.css - üres állomány
-* app.component.html - tartalmát törölni fogjuk
-* app.component.ts - a fő komponens TypeScript állománya
-* app.component.spec.ts - tesztállomány
+* _app.component.css_ - üres állomány
+* _app.component.html_ - tartalmát törölni fogjuk
+* _app.component.ts_ - a fő komponens TypeScript állománya
+* _app.component.spec.ts_ - tesztállomány
 
-Az app.component.ts állománnyal fogunk dolgozni.
+Az _app.component.ts_ állománnyal fogunk dolgozni.
 
-Az app.component.ts tartalma:
+Az _app.component.ts_ tartalma:
 
 ```typescript
 import { Component } from '@angular/core';
@@ -325,7 +325,7 @@ export class AppComponent {
 }
 ```
 
-* app.config.ts - az alkalmazás konfigurációs állományának kezdeti tartalma:
+Az _app.config.ts_ - az alkalmazás konfigurációs állományának kezdeti tartalma:
 
 ```typescript
 import { ApplicationConfig } from '@angular/core';
@@ -338,7 +338,7 @@ export const appConfig: ApplicationConfig = {
 };
 ```
 
-Az app.routes.ts tartalma:
+Az _app.routes.ts_ tartalma:
 
 ```typescript
 import { Routes } from '@angular/router';
@@ -408,7 +408,7 @@ A komponensek két főbb részből állnak. A TypeScript fájl és a HTML sablon
 
 Az adatokat a TypeScript fájlba érkeznek meg, de a HTML sablonban szeretnék azokat megjeleníteni. Ezért a TypeScript fájlban lévő adatokat a HTML sablonfájlba kötni kell, ilyen esetben adatkötésről beszélhetünk.
 
-Töröljük üresre az app.component.html fájlt. Az app.component.ts fájlban már van egy adat title néven. Alapértelmezetten a projekt nevét találjuk itt:
+Töröljük üresre az _app.component.html_ fájlt. Az app.component.ts fájlban már van egy adat title néven. Alapértelmezetten a projekt nevét találjuk itt:
 
 ```typescript
 import { Component } from '@angular/core';
@@ -521,7 +521,7 @@ npm install bootstrap
 
 Vegyük fel az src/style.css fájlban a bootstrap-t.
 
-src/style.css:
+_src/style.css_:
 
 ```css
 @import "bootstrap";
@@ -531,7 +531,7 @@ src/style.css:
 
 Az angular.json fájlba írjuk be bootstrap.js helyét.
 
-angular.json:
+_angular.json_:
 
 ```json
 "build": {
@@ -604,7 +604,7 @@ Tegyük a kiválasztott képet a public könyvtárba. Például:
 public/tatra_hegy.jpg
 ```
 
-Az app.component.html fájlba ekkor
+Az _app.component.html_ fájlba ekkor
 
 ```html
 <img 
@@ -741,7 +741,7 @@ export class AppComponent {
 
 Ezt a tömböt szeretnék megjeleníteni egy listában.
 
-Az itárlás:
+Az iterálás:
 
 ```html
 <ul>
@@ -853,7 +853,7 @@ Mindig van egy fő komponens (app), amibe a többit illesztjük. Az útválaszt�
 
 Az **app.component.html** állomány tartalma egy alapértelmezett tartalom, amit üresre törlünk, majd:
 
-app.component.html:
+_app.component.html_:
 
 ```html
 <app-comp1></app-comp1>
@@ -939,7 +939,7 @@ Az Angular **Dependency Injection**, röviden **DI**, lehetővé teszi a direkt�
 
 ### Az example szolgáltatás használata
 
-Készítünk az src/app/app.component.ts fájlban egy konstructort:
+Készítünk az _src/app/app.component.ts_ fájlban egy konstructort:
 
 ```typecript
 //src/app/app.component.ts
@@ -996,7 +996,7 @@ Most adjunk egy új elemet a kiíratás előtt a tömbhöz:
   }
 ```
 
-Az app.component.ts teljes kódja:
+Az _app.component.ts_ teljes kódja:
 
 ```typescript
 //src/app/app.component.ts
@@ -1034,7 +1034,7 @@ ng generate service shared/greeting
 
 A tartalom a következő legyen:
 
-src/app/shared/GreetingService.ts:
+_src/app/shared/GreetingService.ts_:
 
 ```javascript
 import { Injectable } from '@angular/core';
@@ -1060,7 +1060,7 @@ Készítsünk egy komponenst, amely függőségként befecskendezi az előbbi sz
 ng generate component greet
 ```
 
-A greet.component.html fájlban kössük be a greeting változót:
+A _greet.component.html_ fájlban kössük be a greeting változót:
 
 ```html
 <p>{{ greeting }}</p>
@@ -1086,7 +1086,7 @@ this.greeting = greetingService.greet('Tibor');
 
 A teljes tartalom:
 
-src/app/greet/greet.component.ts:
+_src/app/greet/greet.component.ts_:
 
 ```typescript
 import { Component } from '@angular/core';
@@ -1131,7 +1131,7 @@ imports: [CommonModule, RouterOutlet, RouterLink, GreetComponent],
 
 A teljes src/app/app.component.ts fájl tartalma:
 
-src/app/app.component.ts:
+_src/app/app.component.ts_:
 
 ```typescript
 import { Component } from '@angular/core';
@@ -1162,17 +1162,30 @@ Az src/app/app.component.html fájl tartalma:
 
 ## Sablon-vezérelt űrlapok
 
-Az űrlapok segítségével kérhetünk be a felhasználóktól különböző adatokat. Hozzunk létre egy új Angular projektet.
+Az űrlapok segítségével kérhetünk be a felhasználóktól különböző adatokat.
+
+Az Angular keretrendszerben alapvetően kétféle űralap létezik:
+
+* sablon-vezérelt
+* reaktív
+
+A reaktív űrlapokat három osztállyal is használhatjuk. Ezek: FormControl, FormGroup és FormBuilder.
+
+![Angular űrlapok](images/angular/angular_forms.png)
+
+Ebben a fejezetben a sablon-vezérlet űrlapokkal foglalkozunk. Hozzunk létre egy új Angular projektet, például **urlap** néven.
 
 ### Űrlap tartalmának elérése
 
-Komponens létrehozása:
+Legyen egy komponens ahol bekérünk egy számot. Komponens létrehozása:
 
 ```cmd
 ng generate component num
 ```
 
-src/app/num/num.component.ts:
+Szükségünk van egy **num** adattagra és egy onStart() metódust fogunk létrehozni, amivel feldolgozzuk a számot.
+
+_src/app/num/num.component.ts_:
 
 ```typescript
 import { Component } from '@angular/core';
@@ -1194,7 +1207,7 @@ export class NumComponent {
 }
 ```
 
-src/app/num/num.component.html:
+_src/app/num/num.component.html_:
 
 ```html
 
@@ -1215,7 +1228,7 @@ src/app/num/num.component.html:
 
 Vegyük fel a főkomponensbe a num komponenst.
 
-src/app/app.component.ts:
+_src/app/app.component.ts_:
 
 ```typescript
 import { NumComponent } from './num/num.component';
@@ -1223,7 +1236,7 @@ import { NumComponent } from './num/num.component';
   imports: [RouterOutlet, NumComponent],
 ```
 
-src/app/app.component.html:
+_src/app/app.component.html_:
 
 ```html
 <div class="container">
@@ -1253,7 +1266,7 @@ import { FormsModule } from '@angular/forms';
   imports: [FormsModule],
 ```
 
-A teljes signup.component.ts tartalma:
+A teljes _signup.component.ts_ tartalma:
 
 ```typescript
 import { Component } from '@angular/core';
@@ -1273,7 +1286,7 @@ export class SignupComponent {
 
 #### Űrlap elkészítése
 
-Az src/app/signup/signup.component.html fájl tartalma kezdetben:
+Az _src/app/signup/signup.component.html_ fájl tartalma kezdetben:
 
 ```html
 <form #userForm="ngForm">
@@ -1320,7 +1333,7 @@ Importáljuk az NgForm osztályt, amit típusként fogunk használni. A dekorát
 import { FormsModule, NgForm } from '@angular/forms';
 ```
 
-A teljes TypeScript az src/app/signup/signup.component.ts fájl:
+A teljes TypeScript az _src/app/signup/signup.component.ts_ fájl:
 
 ```typescript
 import { Component } from '@angular/core';
@@ -1352,7 +1365,7 @@ export class SignupComponent {
 
 Építsük a komponenst a főkomponensbe.
 
-Az src/app/app.component.ts fájlba:
+Az _src/app/app.component.ts_ fájlba:
 
 ```typescript
 import { SignupComponent } from './signup/signup.component';
@@ -1360,7 +1373,7 @@ import { SignupComponent } from './signup/signup.component';
   imports: [RouterOutlet, SignupComponent],
 ```
 
-Az src/app/app.component.html fájlba:
+Az _src/app/app.component.html_ fájlba:
 
 ```html
 <div class="container">
@@ -1571,7 +1584,7 @@ ng g c tri
 
 Építsük be a főkomponensbe.
 
-A tri.component.ts fájlban állítsuk be a szüksége komponenseket. A ReactiveFormsModule, FormControl és a FormGroup osztályokra lesz szükség:
+A _tri.component.ts_ fájlban állítsuk be a szüksége komponenseket. A ReactiveFormsModule, FormControl és a FormGroup osztályokra lesz szükség:
 
 ```typescript
 import { 
@@ -1881,7 +1894,7 @@ ng generate service api
 
 Az injektálás megoldható az inject() függvénnyel is. De itt most a konstruktort fogjuk erre a célra használni.
 
-Az src/app/shared/api.service.ts fájlba:
+Az _src/app/shared/api.service.ts fájlba_:
 
 ```javascript
 //src/app/shared/api.service.ts
@@ -1964,7 +1977,7 @@ A következő teendők vannak.
 
 ### A HttpClientModule használata
 
-Szerkesszük az src/app/app.config.ts fájlt:
+Szerkesszük az _src/app/app.config.ts_ fájlt:
 
 ```typescript
 import { provideHttpClient } from '@angular/common/http';
@@ -2023,7 +2036,7 @@ export class ApiService {
 ng generate component emp
 ```
 
-Jelenítsük meg a komponenst a főkomponensben. Ehhez szerkesszük a src/app/app.component.ts fájlt. Importáljuk az Emp komponenst:
+Jelenítsük meg a komponenst a főkomponensben. Ehhez szerkesszük a _src/app/app.component.ts_ fájlt. Importáljuk az Emp komponenst:
 
 ```typescript
 import { EmpComponent } from './emp/emp.component';
@@ -2055,7 +2068,7 @@ export class AppComponent {
 }
 ```
 
-Az app.component.html fájl tartalma a következő legyen:
+Az _app.component.html_ fájl tartalma a következő legyen:
 
 ```html
 <app-emp></app-emp>
@@ -2094,7 +2107,7 @@ export class EmpComponent {
 }
 ```
 
-Az src/app/emp/emp.component.html
+Az _src/app/emp/emp.component.html_
 
 ```html
 
@@ -2125,7 +2138,7 @@ Az src/app/emp/emp.component.html
 
 Szükségünk lesz a Bootstrap JavaScript részére:
 
-angular.json:
+_angular.json_:
 
 ```json
 "build": {
@@ -2241,7 +2254,7 @@ saveEmployee() {
 
 #### Teljes TypeScript
 
-src/app/emp/emp.component.ts:
+_src/app/emp/emp.component.ts_:
 
 ```typescript
 import { Component } from '@angular/core';
@@ -2552,7 +2565,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 
 A teljes kód:
 
-src/app/app.component.ts:
+_src/app/app.component.ts_:
 
 ```typescript
 import { Component } from '@angular/core';
@@ -2573,7 +2586,7 @@ export class AppComponent {
 
 ### Menü készítése
 
-Az src/app/app.component.html tartalma legyen:
+Az _src/app/app.component.html_ tartalma legyen:
 
 ```html
 <nav>
@@ -2636,7 +2649,7 @@ Az útválasztás során a komponenseket a főkomponensebe töltjük be, ami ál
 
 A következő példában az **admin** komponensbe útválasztással **login** és a **products** gyermekkomponenst töltöm.
 
-src/app/app.routes.ts:
+_src/app/app.routes.ts_:
 
 ```typescript
 //...
@@ -2658,13 +2671,13 @@ const routes: Routes = [
 ];
 ```
 
-src/app/admin/admin.component.html:
+_src/app/admin/admin.component.html_:
 
 ```html
 <router-outlet></router-outlet>
 ```
 
-src/app/buy/buy.component.html:
+_src/app/buy/buy.component.html_:
 
 ```html
 <router-outlet></router-outlet>
@@ -2719,7 +2732,7 @@ A következő állományok jönnek létre:
 * src/app/shared/auth.guard.spec.ts
 * src/app/shared/auth.guard.ts
 
-Az auth.guard.ts tartalma:
+Az _auth.guard.ts_ tartalma:
 
 ```typescript
 //src/app/shared/auth.guard.ts
@@ -2881,7 +2894,7 @@ Kapunk két fájlt:
 
 Nézzük a salaryhuf.pipe.ts fájlt tartalmát.
 
-salaryhuf.pipe.ts:
+_salaryhuf.pipe.ts_:
 
 ```typescript
 import { Pipe, PipeTransform } from '@angular/core';
@@ -2943,7 +2956,7 @@ export class AppComponent {
 }
 ```
 
-A főkomponens esetén a src/app/app.component.ts fájl teljes tartalma:
+A főkomponens esetén a _src/app/app.component.ts_ fájl teljes tartalma:
 
 ```typescript
 import { Component } from '@angular/core';
@@ -2963,7 +2976,7 @@ export class AppComponent {
 }
 ```
 
-Ezt követően az src/app/app.component.html fájlban, használjuk a pipe-t:
+Ezt követően az _src/app/app.component.html_ fájlban, használjuk a pipe-t:
 
 ```html
 <p>
@@ -3014,7 +3027,7 @@ import { EmpComponent } from './emp/emp.component';
   ],
 ```
 
-Az src/app/app.component.html fájl tartalma a következő legyen:
+Az _src/app/app.component.html_ fájl tartalma a következő legyen:
 
 ```html
 <div class="container">  
@@ -3026,7 +3039,7 @@ Az src/app/app.component.html fájl tartalma a következő legyen:
 
 Az adatok most az emp komponensben lesznek, egy objektumokat tartalmazó tömbben.
 
-Az src/app/emp/emp.component.ts fájlban vegyük fel:
+Az _src/app/emp/emp.component.ts_ fájlban vegyük fel:
 
 ```typescript
 export class EmpComponent {
@@ -3067,7 +3080,7 @@ Jelenítsük meg a HTML oldalon:
 
 ### Szűrőmező létrehozása
 
-Űrlap elemet szeretnénk az emp komponensben kötni. Ehhez sablonvezérelt űrlapot fogunk használni. Az src/app/emp/emp.component.ts fájlban importáljuk:
+Űrlap elemet szeretnénk az emp komponensben kötni. Ehhez sablonvezérelt űrlapot fogunk használni. Az _src/app/emp/emp.component.ts_ fájlban importáljuk:
 
 ```typescript
 import { FormsModule } from '@angular/forms';
@@ -3085,7 +3098,7 @@ export class EmpComponent {
 }
 ```
 
-Az src/app/emp/emp.component.ts fájlban a táblázat felett vegyünk fel egy beviteli mezőt. Ez lesz a szűrőmezőnk.
+Az _src/app/emp/emp.component.ts_ fájlban a táblázat felett vegyünk fel egy beviteli mezőt. Ez lesz a szűrőmezőnk.
 
 ```html
 <input 
@@ -3171,7 +3184,7 @@ code .
 
 Szükségünk lesz a RouterLink osztályra.
 
-src/app/app.component.ts:
+_src/app/app.component.ts_:
 
 ```typescript
 import { RouterLink } from '@angular/router';
@@ -3183,7 +3196,7 @@ import { RouterLink } from '@angular/router';
 
 Készítsük a főkomponensben egy navigációt, és egy **logedIn** nevű változót, amiben nyilvántartjuk, hogy be vagyunk-e jelentkezve.
 
-src/app/app.component.ts:
+_src/app/app.component.ts_:
 
 ```typescript
 export class AppComponent {
@@ -3193,7 +3206,7 @@ export class AppComponent {
 
 Készítsük el a navigációt.
 
-src/app/app.component.html:
+_src/app/app.component.html_:
 
 ```html
 <nav>
@@ -3245,7 +3258,7 @@ ng generate component logout
 
 ### Útválasztás
 
-src/app/app.routes.ts:
+_src/app/app.routes.ts_:
 
 ```typescript
 import { Routes } from '@angular/router';
@@ -3309,7 +3322,7 @@ export class EmitterService {
 
 ### A login komponens
 
-src/app/login/login.component.ts:
+_src/app/login/login.component.ts_:
 
 ```typescript
 import { Component } from '@angular/core';
@@ -3351,7 +3364,7 @@ export class LoginComponent {
 }
 ```
 
-src/app/login/login.component.html:
+_src/app/login/login.component.html_:
 
 ```html
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
@@ -3485,9 +3498,9 @@ ng build --base-href=/alkonyvtárnév/
 
 ### A providerRouter paraméterezése
 
-Az src/app/app.config.ts fájlban találjuk a **providers tömböt**, benne a provideRouter() függvényt. Ennek egy paramétere van a routes objektum, amiban az útválasztási információk találhatók. Ha szerveren alkönyvtárat használunk a második paraméterként hívjuk meg a **withHashLocation() függvényt. Az útválasztás nélküle is működik. Azonban ha egy ilyen weboldon frissítjük a weblapot, az oldal nem található üzenetet kapjuk.
+Az **src/app/app.config.ts** fájlban találjuk a **providers tömböt**, benne a provideRouter() függvényt. Ennek egy paramétere van a routes objektum, amiban az útválasztási információk találhatók. Ha szerveren alkönyvtárat használunk a második paraméterként hívjuk meg a **withHashLocation() függvényt. Az útválasztás nélküle is működik. Azonban ha egy ilyen weboldon frissítjük a weblapot, az oldal nem található üzenetet kapjuk.
 
-src/app/app.config.ts:
+_src/app/app.config.ts_:
 
 ```typescript
 import { ApplicationConfig } from '@angular/core';
@@ -3581,7 +3594,7 @@ Szükségünk van még egy **visible** változóra és egy toggle() metódusra.
 
 A teljes kód:
 
-src/app/app.component.ts:
+_src/app/app.component.ts_:
 
 ```javascript
 import { animate, state, style, transition, trigger } from '@angular/animations';
