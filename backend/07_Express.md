@@ -1873,6 +1873,11 @@ A kapcsolatok használatáról teljes példát találunk:
 
 [https://github.com/oktat/relations.git](https://github.com/oktat/relations.git)
 
+### Kapcsolatok gyakorlása
+
+* Vegyük elő az empy projektet és építtsük be a kapcsolatokat a projektbe.
+* Hozzunk létre egy projektet **tishop** néven, ahol termékeket, számlákat és a számla tételeit tároljuk. Készítsünk hozzá beckendet végpontokkal, kapcsolatokkal.
+
 ## Azonosítás
 
 Az útvonalak védelméhez szükség van felhasználókra. Az útvonalakat JWT tokennel fogjuk biztosítani.
