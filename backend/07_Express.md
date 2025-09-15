@@ -1589,7 +1589,7 @@ app.listen(PORT, () => {
 })
 ```
 
-A futtatáshoz írjunk egy **dev** nevű scriptet, ami használja a nodemon csomaogt. 
+A futtatáshoz írjunk egy **dev** nevű scriptet, ami használja a nodemon csomaogt.
 
 ```bash
 npm install --save-dev nodemon
@@ -1598,10 +1598,12 @@ npm install --save-dev nodemon
 A package.json részlet, ekkor:
 
 ```json
+{
   "scripts": {
     "dev": "nodemon app --watch app"
   },
   "type": "module"
+}
 ```
 
 Futtatás:
