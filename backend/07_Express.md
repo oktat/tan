@@ -1620,7 +1620,7 @@ res localhost:8000/api/employees
 
 ## Táblák közötti kapcsolatok
 
-A táblák közötti kapcsolatok áttekintéséhez nézzünk egy adatbáistervet.
+A táblák közötti kapcsolatok áttekintéséhez nézzünk egy adatbáistervet. Hozzunk létre egy porjektet **empkap** néven.
 
 ![relations adatbázisterv](images/relations_db.png)
 
