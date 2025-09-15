@@ -1535,6 +1535,8 @@ export default EmployeeController
 
 ## Routing
 
+Az **empy** projekt útválasztása most ehhez hasonló kell legyen.
+
 _app/routes/api.js_:
 
 ```javascript
@@ -1552,6 +1554,17 @@ export default router
 
 ## Végleges belépési pont
 
+Az **empy** projekt belépési pontja az index.js. Egészítsük ki naplózással. Ehhez használhatjuk a **morgan** csomagot.
+
+A morgan lehetséges paraméterei:
+
+* combined
+* dev
+* short
+* tiny
+
+Egészítsük ki beállításokat beolvasó résszel, és a portszámomt vegyük a beállítások fájlból.
+
 _app/index.js_:
 
 ```javascript
@@ -1560,7 +1573,7 @@ import router from './routes/api.js'
 import morgan from 'morgan'
 import { readFileSync } from 'fs'
 
-const fileUrl = new URL('config.json', import.meta.url)
+const fileUrl = new URL('../config/default.json', import.meta.url)
 const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
 
 const app = new express()
@@ -1575,6 +1588,8 @@ app.listen(PORT, () => {
     console.log(`Listening localhost: ${PORT}`)
 })
 ```
+
+A futtatáshoz írjunk egy **dev** nevű scriptet, ami használja a nodemon csomaogt.
 
 Futtatás:
 
