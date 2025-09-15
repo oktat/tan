@@ -21,8 +21,6 @@
 * [SQLite beállításfájlból](#sqlite-beállításfájlból)
 * [MariaDB](#mariadb)
 * [Kontroller modell használattal](#kontroller-modell-használattal)
-* [Routing](#routing)
-* [Végleges belépési pont](#végleges-belépési-pont)
 * [Táblák közötti kapcsolatok](#táblák-közötti-kapcsolatok)
 * [Azonosítás](#azonosítás)
 * [Bejelentkezés](#bejelentkezés)
@@ -1533,7 +1531,7 @@ const EmployeeController = {
 export default EmployeeController
 ```
 
-## Routing
+### Az empy útválasztása
 
 Az **empy** projekt útválasztása most ehhez hasonló kell legyen.
 
@@ -1552,7 +1550,7 @@ router.delete('/employees/:id', EmployeeController.destroy)
 export default router
 ```
 
-## Végleges belépési pont
+### Végleges belépési pont
 
 Az **empy** projekt belépési pontja az index.js. Egészítsük ki naplózással. Ehhez használhatjuk a **morgan** csomagot.
 
@@ -1617,6 +1615,10 @@ Tesztelés resen csomag res parancsával:
 ```cmd
 res localhost:8000/api/employees
 ```
+
+Az empy projekt elérhető a következő helyen:
+
+* [https://github.com/oktat/empy_kezdes.git](https://github.com/oktat/empy_kezdes.git)
 
 ## Táblák közötti kapcsolatok
 
@@ -1905,7 +1907,7 @@ A kapcsolatok használatáról teljes példát találunk:
 
 ### Kapcsolatok gyakorlása
 
-* Vegyük elő az empy projektet és építtsük be a kapcsolatokat a projektbe.
+* Vegyük elő az empy projektet és építtsük be a kapcsolatokat a projektbe. Az empy projekt letöltehőt a következő helyről: [https://github.com/oktat/empy_kezdes.git](https://github.com/oktat/empy_kezdes.git)
 * Hozzunk létre egy projektet **tishop** néven, ahol termékeket, számlákat és a számla tételeit tároljuk. Készítsünk hozzá beckendet végpontokkal, kapcsolatokkal.
 
 ## Azonosítás
