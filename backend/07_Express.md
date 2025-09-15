@@ -21,6 +21,7 @@
 * [SQLite beállításfájlból](#sqlite-beállításfájlból)
 * [MariaDB](#mariadb)
 * [Kontroller modell használattal](#kontroller-modell-használattal)
+* [Több adatbázis használata](#több-adatbázis-használata)
 * [Táblák közötti kapcsolatok](#táblák-közötti-kapcsolatok)
 * [Azonosítás](#azonosítás)
 * [Bejelentkezés](#bejelentkezés)
@@ -1449,14 +1450,14 @@ node app/models/employee.js
 ```txt
 empy/
   |-app/
-  |  `-database/
-  |     `-database.js
+  |  |-controllers/
+  |  |   `-employeeController.js
+  |  |-database/
+  |  |   `-database.js
+  |  `-models/
+  |      `-employee.js
   |-config/
   |  `-default.json
-  |-controllers/
-  |  `-employeeController.js
-  |-models/
-  |  `-employee.js
   `-package.json
 ```
 
@@ -1620,27 +1621,204 @@ Az empy projekt elérhető a következő helyen:
 
 * [https://github.com/oktat/empy_kezdes.git](https://github.com/oktat/empy_kezdes.git)
 
+### Kontrolelr gyakorlatok
+
+* Az empy projektben készítsük el a rank model-t, a rank kontroller-t és ahozzátartozó útválasztást is.
+
+## Több adatbázis használata
+
+Szeretnénk az adatbáis kódját úgy megírni, hogy az használhasson SQLite-t vagy MySQL-t, attól függően mit szeretnénk.
+
+Töltsük le ehhez az **empdat** nevű projektet. A projekt az előz fejezetek alapján elkészített empy adatbázis, a gyakorlatok elvégzése után. A projekt elérhető itt:
+
+* [https://github.com/oktat/empdat.git](https://github.com/oktat/empdat.git)
+
+_config/default.json_:
+
+```json
+{
+    "app": {
+        "port": 8000
+    },
+    "db": {
+        "dialect": "sqlite",
+        "host": "localhost",
+        "name": "empy",
+        "user": "empy",
+        "pass": "titok",
+        "storage": "database.sqlite"
+    }
+}
+```
+
+Olvassuk a beállításfájlból a **dialect** kulcs és a **storage** kulcsok értékét.
+
+_app/database/database.js_:
+
+```javascript
+import Sequalize from 'sequelize'
+
+import { readFileSync } from 'fs'
+const confPath = '../../config/default.json'
+const fileUrl = new URL(confPath, import.meta.url)
+const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
+
+const sequalize = new Sequalize(
+    config.db.name,
+    config.db.user, 
+    config.db.pass,
+    {
+        host: config.db.host,
+        dialect: config.db.dialect,
+        dialectOptions: {},
+        storage: config.db.storage
+    }
+)
+
+export default sequalize
+```
+
+Ezt követően a config/default.json fájlban állítható be a **dialect** kulccsal, hogy milyen adatbáist szeretnénk használni. Ha csak SQLite adatbázist szeretnénk haszhálni, a MySQL beállításait nem kell kitörölni, elég a dialektus bállítása.
+
+Ügyeljünk arra, hogy minden adatbázishoz legyen telepítve csomag:
+
+```bash
+npm install mariadb sqlite3
+```
+
+Az SQLite  esetén használhatunk memória-adatbázist is. Memória-adatbázis minden szerverindításkor újra létrejön, vagyis az adatok csak addig vannak meg, amíg fut a szerver. Tesztelésre kiváló.
+
+```json
+{
+    "app": {
+        "port": 8000
+    },
+    "db": {
+        "dialect": "sqlite",
+        "host": "localhost",
+        "name": "empy",
+        "user": "empy",
+        "pass": "titok",
+        "storage": ":memory:"
+    }
+}
+```
+
 ## Táblák közötti kapcsolatok
 
-A táblák közötti kapcsolatok áttekintéséhez nézzünk egy adatbáistervet. Hozzunk létre egy porjektet **empkap** néven.
+### Az empkap projekt
+
+Az empkap projekt az empy projekt egy egyszerűsített változata. A táblákban az egyszerűség kedvéért csak neveket tárolunk, de van már project és rank tábla is.
+
+Hozzunk létre egy porjektet **empkap** néven.
+
+```txt
+empkap/
+  |-app/
+  |  |-controllers/
+  |  |   |-employeeController.js
+  |  |   |-projectController.js
+  |  |   `-rankController.js
+  |  |-database/
+  |  |   `-database.js
+  |  |-models/
+  |  |   |-employee.js
+  |  |   |-project.js
+  |  |   `-rank.js
+  |  |-routes/
+  |  |   `-api.js
+  |  `-index.js
+  |-database.sqlite
+  `-package.json
+```
 
 ![relations adatbázisterv](images/relations_db.png)
+
+A kezdő projekt letölthető a következő helyről:
+
+* [https://github.com/oktat/empkap_start.git](https://github.com/oktat/empkap_start.git)
+
+### Szinkronizálás optimalizáslása
+
+A szinkronizálást vegyük ki a modellekből, mivel elég egyszer végrehajtani. Legyen az **app/index.js** fájlban.
+
+Ehhez importálni kell a database.js fájlból a sequeliez objektumot, majd mehet a szinkronizálás.
+
+```javascript
+import sequalize from './database/database.js'
+
+await sequalize.sync()
+```
+
+Az await a Node.js 14 verziótól használható függvényen kívül is. A sequelize.sync() parancs legyen az app objektum beállítása előtt.
+
+Írjunk beállítást is.
+
+```javascript
+sequelize.sync({
+    alter: true
+})
+```
+
+Az alter: true beállítás létrehozza a változtatásokat az adatbázis tábláiban, ha a modellben változtatjuk a mezőket.
+
+A másik lehetőség az erőltetés, de az töröl minden táblatartalmat.
+
+```javascript
+sequelize.sync({
+    force: true
+})
+```
+
+Teljes kód:
+
+```javascript
+import express from 'express'
+import router from './routes/api.js'
+import morgan from 'morgan'
+import { readFileSync } from 'fs'
+import sequalize from './database/database.js'
+
+const fileUrl = new URL('../config/default.json', import.meta.url)
+const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
+
+await sequalize.sync()
+
+const app = express()
+const PORT = config.app.port || 8000
+
+app.use(morgan('tiny'))
+app.use(express.json())
+
+app.use('/api', router)
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`)
+})
+```
+
+A modellekből ne felejtsük el kivenni a szinkronizálást. Teszteljük a működést. Töröljük az adatbázist, majd nézzük meg, hogyan jönnek létre a tblák.
 
 ### Egy a többhöz kapcsolat
 
 Legyen egy SQLite kapcsolat.
 
-_app/database/database.js_:
+_config/default.json_:
 
 ```javascript
-import { Sequelize } from 'sequelize';
-
-const sequelize = new Sequelize({
-    dialect: 'sqlite',
-    storage: 'database.sqlite'
-});
-
-export default sequelize;
+{
+    "app": {
+        "port": 8000
+    },
+    "db": {
+        "dialect": "sqlite",
+        "host": "localhost",
+        "name": "empy",
+        "user": "empy",
+        "pass": "titok",
+        "storage": "database.sqlite"
+    }
+}
 ```
 
 Beosztásokat a rank modellben tároljuk:
@@ -1675,25 +1853,7 @@ Rank.hasMany(Employee)
 export default Employee
 ```
 
-_app/index.js_:
-
-```javascript
-import sequelize from "./database/database.js";
-import Employee from "./models/employee.js";
-import express from "express";
-
-const app = express();
-
-await sequelize.sync();
-
-app.listen(8000, () => {
-    console.log("Server started on port 8000");
-});
-```
-
-Az Employee modellt csak azért kell importálni, hogy fusson le a kód egyszer.
-
-A kapcsolatot a következő utasíátssla állítotuk be az **app/models/employee.js** fájlban:
+A kapcsolatot a következő utasíátssal állítottuk be az **app/models/employee.js** fájlban:
 
 ```javascript
 Employee.belongsTo(Rank)
@@ -1705,6 +1865,8 @@ Ez a következő táblákat hozza létre:
 * employee(id, name, createdAt, updatedAt, rankId)
 * rank(id, name, createdAt, updatedAt)
 
+Nézzük meg, valóban létrehoza-e a megadott táblákat és mezőket.
+
 ### Több a többhöz kapcsolat
 
 A következő modellt tervezzük:
@@ -1715,12 +1877,29 @@ A következő modellt tervezzük:
 
 Egy dolgozó több projekthez is tartozhat, és egy projektben több dolgozó is részt vehet. A táblákhoz kapcsolótábla szükséges.
 
+Hozzuk létre a prject modellt:
+
+_app/models/project.js_:
+
+```javascript
+import sequelize from '../database/database.js';
+import { DataTypes } from 'sequelize';
+
+const Project = sequelize.define('project', {
+    name: { type: DataTypes.STRING } 
+})
+
+export default Project
+```
+
 Nézzük meg, hogyan állítható be.
 
 ```javascript
 Employee.belongsToMany(Project, { through: 'employee_project' });
 Project.belongsToMany(Employee, { through: 'employee_project' });
 ```
+
+Az két sort újra az employee modellbe helyezzük.
 
 A kapcsolatbeállítás a következő kapcsolótáblát hozza létre:
 
@@ -1740,6 +1919,37 @@ router.delete('/emp/:empId/proj/:projId',
 A project rövidítve lett proj, az employee emp-re. A végponton két azonosítót adok át. Az egyik annak a dolgozónak a neve akihez szeretnék projektet felvenni, a másik pedig a projekt azonosítója.
 
 Léterhozhatunk EmployeeProjectController-t is, vagy elhelyezhetjük az EmployeeControler-ben a függvényeket. A példánkban meg van valósítva az dolgozók kezeléséhez tartozó index() és store() függvények is.
+
+A teszteléshez szükségünk lesz dolgozókra és projektekre, ezért megvalósítunk egy read és egy create műveletet is.
+
+```javascript
+router.get('/projects', EmployeeController.index);
+router.post('/projects', EmployeeController.create);
+
+```
+
+A teljes routing most így nézhet ki:
+
+```javascript
+import Roter from "express";
+import EmployeeController from "../controllers/employeeController";
+
+const router = Roter();
+
+router.get('/ranks', EmployeeController.index);
+router.post('/ranks', EmployeeController.create);
+
+router.get('/employees', EmployeeController.index);
+router.post('/employees', EmployeeController.create);
+
+router.get('/projects', EmployeeController.index);
+router.post('/projects', EmployeeController.create);
+
+router.post('/emp/:empId/proj/:projId', EmployeeController.addProject);
+router.delete('/emp/:empId/proj/:projId', EmployeeController.delProject);
+
+export default router
+```
 
 A kontrollerben ezek után:
 
