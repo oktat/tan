@@ -2173,6 +2173,10 @@ A kimenet ehhez hasonló lehet:
 }
 ```
 
+Az eddigiek elérhetők a következő helyen:
+
+* [https://github.com/oktat/empkap_egytobbkesz.git](https://github.com/oktat/empkap_egytobbkesz.git)
+
 ### Több a többhöz kapcsolat
 
 A következő modellt tervezzük:
