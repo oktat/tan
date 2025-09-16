@@ -877,7 +877,9 @@ Küldjünk több adatot:
 http POST http://localhost:8000/api/employees name='Pártus László' city='Szeged' salary=358
 ```
 
-Ha http parancsot használjuk, tegyük állományba a küldendő adatokat, például adat.txt:
+Ha http parancsot használjuk, tegyük állományba a küldendő adatokat, például adat.txt.
+
+_adat.txt_:
 
 ```json
 {
