@@ -1673,7 +1673,7 @@ Az empy projekt elérhető a következő helyen:
 
 ### Kontroller gyakorlatok
 
-* Az empy projektben készítsük el a rank model-t, a rank kontroller-t és ahozzátartozó útválasztást is.
+* Az empy projektben készítsük el a rank model-t, a rank kontroller-t és a hozzátartozó útválasztást is.
 
 ## Több adatbázis használata
 
@@ -1728,7 +1728,7 @@ const sequalize = new Sequalize(
 export default sequalize
 ```
 
-Ezt követően a config/default.json fájlban állítható be a **dialect** kulccsal, hogy milyen adatbáist szeretnénk használni. Ha csak SQLite adatbázist szeretnénk haszhálni, a MySQL beállításait nem kell kitörölni, elég a dialektus bállítása.
+Ezt követően a _config/default.json_ fájlban állítható be a **dialect** kulccsal, hogy milyen adatbáist szeretnénk használni. Ha csak SQLite adatbázist szeretnénk haszhálni, a MySQL beállításait nem kell kitörölni, elég a dialektus bállítása.
 
 Ügyeljünk arra, hogy minden adatbázishoz legyen telepítve csomag:
 
@@ -1758,7 +1758,7 @@ Az SQLite  esetén használhatunk memória-adatbázist is. Memória-adatbázis m
 
 ### Az empkap projekt
 
-Az empkap projekt az empy projekt egy egyszerűsített változata. A táblákban az egyszerűség kedvéért csak neveket tárolunk, de van már project és rank tábla is.
+Az empkap projekt az empy projekt egy egyszerűsített változata. A táblákban az egyszerűség kedvéért csak neveket tárolunk, de van már project és rank modell is.
 
 Hozzunk létre egy porjektet **empkap** néven.
 
@@ -1784,7 +1784,7 @@ empkap/
 
 ![relations adatbázisterv](images/relations_db.png)
 
-A kezdő projekt letölthető a következő helyről:
+A projektet az elkészítés helyett le is tölthetjük a következő helyről:
 
 * [https://github.com/oktat/empkap_start.git](https://github.com/oktat/empkap_start.git)
 
@@ -1792,15 +1792,20 @@ A kezdő projekt letölthető a következő helyről:
 
 A szinkronizálást vegyük ki a modellekből, mivel elég egyszer végrehajtani. Legyen az **app/index.js** fájlban.
 
-Ehhez importálni kell a database.js fájlból a sequeliez objektumot, majd mehet a szinkronizálás.
+Ehhez importálni kell az _app/database/database.js_ fájlból a sequelize objektumot, majd mehet a szinkronizálás.
+
+_app/index.js_:
 
 ```javascript
+//...
 import sequalize from './database/database.js'
 
 await sequalize.sync()
+
+//...
 ```
 
-Az await a Node.js 14 verziótól használható függvényen kívül is. A sequelize.sync() parancs legyen az app objektum beállítása előtt.
+Az **await** a **Node.js 14** verziótól használható függvényen kívül is. A sequelize.sync() parancs legyen az app objektum beállítása előtt.
 
 Írjunk beállítást is.
 
@@ -1810,7 +1815,7 @@ sequelize.sync({
 })
 ```
 
-Az alter: true beállítás létrehozza a változtatásokat az adatbázis tábláiban, ha a modellben változtatjuk a mezőket.
+Az **alter: true** beállítás létrehozza a változtatásokat az adatbázis tábláiban, ha a modellben változtatjuk a mezőket.
 
 A másik lehetőség az erőltetés, de az töröl minden táblatartalmat.
 
@@ -1851,7 +1856,7 @@ A modellekből ne felejtsük el kivenni a szinkronizálást. Teszteljük a műk�
 
 ### Egy a többhöz kapcsolat
 
-Legyen egy SQLite kapcsolat.
+Ellenőrizzük, legyen egy SQLite kapcsolat beállítva.
 
 _config/default.json_:
 
@@ -1871,7 +1876,7 @@ _config/default.json_:
 }
 ```
 
-Beosztásokat a rank modellben tároljuk:
+Beosztásokat a **rank modellben** tároljuk:
 
 _app/models/rank.js_:
 
@@ -1885,6 +1890,122 @@ const Rank = sequelize.define('rank', {
 
 export default Rank
 ```
+
+Az **employee modell** így néz ki:
+
+_app/models/employee.js_:
+
+```javascript
+import sequelize from "../database/database.js";
+import { DataTypes } from 'sequelize';
+
+const Employee = sequelize.define('employee', {
+    name: { type: DataTypes.STRING } 
+})
+
+export default Employee
+```
+
+Telepítsük a függőségeket, ha szükséges, majd indítsuk el az alkalmazást.
+
+```bash
+npm install
+npm run dev
+```
+
+Nézzük meg a táblákat a database.sqlite állományban. Vegyük észre, hogy nem adtunk meg **id** mezőket, azonban azok automatikusan létrejöttek.
+
+Vegyünk fel legalább egy beosztást és legalább egy vagy két dolgozót. Például:
+
+```bash
+res post localhost:8000/api/ranks name=fejlesztő
+res post localhost:8000/api/ranks name=tesztelő
+res post localhost:8000/api/employees name=Irén
+res post localhost:8000/api/employees name=Ferenc
+```
+
+Kérjük le a dolgozókat:
+
+```bash
+res get localhost:8000/api/employees
+```
+
+Az eredmény ehhez hasonló lehet:
+
+```txt
+res localhost:8000/api/employees
+200 OK
+Content-Type: application/json; charset=utf-8
+Date: Tue, 16 Sep 2025 16:25:18 GMT
+X-Powered-By: Express
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "name": "Irén",
+      "createdAt": "2025-09-16T16:14:48.970Z",
+      "updatedAt": "2025-09-16T16:14:48.970Z"
+    },
+    {
+      "id": 2,
+      "name": "Ferenc",
+      "createdAt": "2025-09-16T16:14:53.076Z",
+      "updatedAt": "2025-09-16T16:14:53.076Z"
+    }
+  ]
+}
+```
+
+Kérjük le a beosztásokat:
+
+```bash
+res get localhost:8000/api/ranks
+```
+
+Az eredmény ehhez hasonló lehet:
+
+```txt
+res localhost:8000/api/ranks
+200 OK
+Content-Type: application/json; charset=utf-8
+Date: Tue, 16 Sep 2025 16:26:45 GMT
+X-Powered-By: Express
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "name": "fejlesztő",
+      "createdAt": "2025-09-16T16:15:09.081Z",
+      "updatedAt": "2025-09-16T16:15:09.081Z"
+    },
+    {
+      "id": 2,
+      "name": "tesztelő",
+      "createdAt": "2025-09-16T16:15:18.630Z",
+      "updatedAt": "2025-09-16T16:15:18.630Z"
+    }
+  ]
+}
+```
+
+Most létre kell hozni a kapcsolatot. Az employee modellben szükség lesz a rank modellre, ezért importáljuk azt.
+
+```javascript
+//...
+import Rank from './rank.js'
+//...
+```
+
+A kapcsolatot a következő utasítással állítjuk be az **app/models/employee.js** fájlban:
+
+```javascript
+Employee.belongsTo(Rank)
+Rank.hasMany(Employee)
+```
+
+Változtatás után az employee modell teljes kódja:
 
 _app/models/employee.js_:
 
@@ -1903,19 +2024,154 @@ Rank.hasMany(Employee)
 export default Employee
 ```
 
-A kapcsolatot a következő utasíátssal állítottuk be az **app/models/employee.js** fájlban:
-
-```javascript
-Employee.belongsTo(Rank)
-Rank.hasMany(Employee)
-```
-
 Ez a következő táblákat hozza létre:
 
-* employee(id, name, createdAt, updatedAt, rankId)
-* rank(id, name, createdAt, updatedAt)
+* employees(id, name, createdAt, updatedAt, rankId)
+* ranks(id, name, createdAt, updatedAt)
 
-Nézzük meg, valóban létrehoza-e a megadott táblákat és mezőket.
+Nézzük meg, valóban létrehoza-e a megadott táblákat és mezőket. Vegyük észre a rankId mezőt az employees táblában.
+
+Most állítsuk be a két dolgozónak beosztást:
+
+```bash
+res put localhost:8000/api/employees/1 rankId=1
+res put localhost:8000/api/employees/2 rankId=2
+```
+
+Ha most lekérdezzük a dolgozókat ehhez hasonló lehet az adatrész:
+
+```txt
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "name": "Irén",
+      "createdAt": "2025-09-16T16:14:48.970Z",
+      "updatedAt": "2025-09-16T16:34:16.845Z",
+      "rankId": 1
+    },
+    {
+      "id": 2,
+      "name": "Ferenc",
+      "createdAt": "2025-09-16T16:14:53.076Z",
+      "updatedAt": "2025-09-16T16:34:21.308Z",
+      "rankId": 2
+    }
+  ]
+}
+```
+
+Mivel adhat többet az összekötött tábla?
+
+Töröljük a táblák tartalmát. Ideiglenesen állítsuk az alter értéket force-ra az index.js fájlban.
+
+```javascript
+sequelize.sync({
+    force: true
+})
+```
+
+Vegyük az EmployeeController.index metódust. A dolgozókat a következő utasítással kérem le:
+
+```javascript
+const emps = await Employee.findAll()
+```
+
+Az összekötés lehetővé teszi, hogy a dolgozókkal együtt lekérdezzük a beosztásokat névvel együtt.
+
+```javascript
+const emps = await Employee.findAll({
+    include: ['rank']
+})
+```
+
+Vegyük fel újra az adatokat:
+
+```bash
+res post localhost:8000/api/ranks name=fejlesztő
+res post localhost:8000/api/ranks name=tesztelő
+res post localhost:8000/api/employees name=Irén rankId=1
+res post localhost:8000/api/employees name=Ferenc rankId=2
+```
+
+Kérjük le újból a dolgozókat:
+
+```bash
+res get localhost:8000/api/employees
+```
+
+Az eredmény ehhez hasonló lehet:
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "name": "Irén",
+      "createdAt": "2025-09-16T16:46:58.656Z",
+      "updatedAt": "2025-09-16T16:48:40.740Z",
+      "rankId": 1,
+      "rank": {
+        "id": 1,
+        "name": "fejlesztő",
+        "createdAt": "2025-09-16T16:46:58.375Z",
+        "updatedAt": "2025-09-16T16:46:58.375Z"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Ferenc",
+      "createdAt": "2025-09-16T16:47:18.040Z",
+      "updatedAt": "2025-09-16T16:48:49.806Z",
+      "rankId": 2,
+      "rank": {
+        "id": 2,
+        "name": "tesztelő",
+        "createdAt": "2025-09-16T16:46:58.510Z",
+        "updatedAt": "2025-09-16T16:46:58.510Z"
+      }
+    }
+  ]
+}
+```
+
+### A visszaadott mezők szabályozása
+
+```javascript
+      const emps = await Employee.findAll({
+        attributes: ['id', 'name'],
+        include: {
+          model: Rank,
+          attributes: ['name']
+        }
+      })
+```
+
+A kimenet ehhez hasonló lehet:
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "name": "Irén",
+      "rank": {
+        "name": "fejlesztő"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Ferenc",
+      "rank": {
+        "name": "tesztelő"
+      }
+    }
+  ]
+}
+```
 
 ### Több a többhöz kapcsolat
 
