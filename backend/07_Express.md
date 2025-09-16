@@ -992,7 +992,7 @@ X-Powered-By: Express
 
 Most már tudunk adatokat és paramétert átvenni, dolgozhatunk adatbázissal.
 
-### Query sztirng
+### Query sztirng olvasása
 
 A query sztringek vagy lekérdező karakterláncokra példa:
 
