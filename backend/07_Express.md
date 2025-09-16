@@ -992,9 +992,37 @@ X-Powered-By: Express
 
 Most már tudunk adatokat és paramétert átvenni, dolgozhatunk adatbázissal.
 
+### Query sztirng
+
+A query sztringek vagy lekérdező karakterláncokra példa:
+
+```javascript
+localhost:8000/msg?name=Ferenc
+```
+
+Az erőforrás neve után (?) kérdjel, majd paraméterek (&) ampersand-dal elválasztva.
+
+```javascript
+localhost:8000/msg?name=Ferenc&city=Szolnok
+```
+
+A query sztring paraméter átvétele:
+
+```javascript
+    destroy: (req, res) => {        
+        res.send(req.query.name);
+    }
+```
+
+Teszt:
+
+```bash
+res localhost:8000/msg?name=Ferenc
+```
+
 ## Beállítások tárolása
 
-A beállítások tárolhatók .env nevű fájlban vagy tárolhatók JSON fájlban is. A JSON fájl szokásos neve config.json vagy a config/default.json. Mi az utóbbi fogjuk használni.
+A beállítások tárolhatók **.env** nevű fájlban vagy tárolhatók JSON fájlban is. A JSON fájl szokásos neve **config.json** vagy a **config/default.json**. Mi az utóbbit fogjuk használni.
 
 Hozzuk létre egy **config/default.json** fájlt.
 
