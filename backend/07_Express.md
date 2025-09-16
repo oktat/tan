@@ -1671,7 +1671,7 @@ Az empy projekt elérhető a következő helyen:
 
 * [https://github.com/oktat/empy_kezdes.git](https://github.com/oktat/empy_kezdes.git)
 
-### Kontrolelr gyakorlatok
+### Kontroller gyakorlatok
 
 * Az empy projektben készítsük el a rank model-t, a rank kontroller-t és ahozzátartozó útválasztást is.
 
