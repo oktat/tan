@@ -891,7 +891,7 @@ Ha http parancsot használjuk, tegyük állományba a küldendő adatokat, péld
 http POST http://localhost:8000/api/employees < adat.txt 
 ```
 
-### Egyszerű érvényesség-ellenőrzés
+### Adatellenőrzés
 
 ```javascript
 store: (req, res) => {
@@ -956,7 +956,7 @@ store: (req, res) => {
 }
 ```
 
-### Paraméterek átvétele
+### Paraméterek fogadása
 
 A paraméter átvételére az update és delete műveletnél szükséges. Nézzük meg a delete műveletnél a paraméter átvételét.
 
@@ -992,7 +992,7 @@ X-Powered-By: Express
 
 Most már tudunk adatokat és paramétert átvenni, dolgozhatunk adatbázissal.
 
-### Query sztirng olvasása
+### Query sztring olvasása
 
 A query sztringek vagy lekérdező karakterláncokra példa:
 
@@ -1000,13 +1000,13 @@ A query sztringek vagy lekérdező karakterláncokra példa:
 localhost:8000/msg?name=Ferenc
 ```
 
-Az erőforrás neve után (?) kérdjel, majd paraméterek (&) ampersand-dal elválasztva.
+Az erőforrás neve után (?) kérdjel, majd az adatok (&) ampersand-dal elválasztva. A fenti példában csak egyetlen adat szerepel. A következő URL-ben már nevet és településnevet is átveszünk:
 
 ```javascript
 localhost:8000/msg?name=Ferenc&city=Szolnok
 ```
 
-A query sztring paraméter átvétele:
+A query sztring adatainak átvétele:
 
 ```javascript
     destroy: (req, res) => {        
@@ -1014,7 +1014,9 @@ A query sztring paraméter átvétele:
     }
 ```
 
-Teszt:
+A req.query objektumot használhatjuk a megadott kulccsal.
+
+Teszteljük a működést:
 
 ```bash
 res localhost:8000/msg?name=Ferenc
