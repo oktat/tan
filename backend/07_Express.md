@@ -578,7 +578,7 @@ res.json({
 
 A példában egy success és egy msg tulajdonságot adunk vissza. A success megmutatja az üzenet sikeres vagy nem, az msg magát az üzenetet tartalmazza.
 
-_app/controllers/employee.controller.js_:
+_app/controllers/employeeController.js_:
 
 ```javascript
 const EmployeeController = {
@@ -608,7 +608,7 @@ res.status(200)
 res.json({msg: 'Valami'});
 ```
 
-_api/controllers/employee.controller.js_:
+_api/controllers/employeeController.js_:
 
 ```javascript
 const EmployeeController = {
@@ -620,7 +620,7 @@ const EmployeeController = {
 module.exports = EmployeeController
 ```
 
-Lehetséges válaszkódok:
+Néhány lehetséges válaszkód:
 
 | Státuszkód | Jelentés |
 |---|---|
@@ -635,9 +635,15 @@ Lehetséges válaszkódok:
 | 405 | Method Not Allowed |
 | 500 | Internal Server Error |
 
+Az **empapi** elérhető a következő helyen:
+
+* [https://github.com/oktat/empapi_elso.git](https://github.com/oktat/empapi_elso.git)
+
 ## HTTP adat fogadása a klienstől
 
-Készítsünk egy egyszerű Express REST API-t, ami read művelet tud /msg végponttal. Készítsünk egy index.js fájlt:
+Készítsünk egy egyszerű Express REST API-t, ami read művelet tud /msg végponttal. A neve legyen **fogadas**.
+
+Készítsünk a projektet az alábbiak szerint:
 
 ```txt
 fogadas/
@@ -646,11 +652,27 @@ fogadas/
   `-package.json
 ```
 
+```bash
+mkdir fogadas
+cd fogadas
+npm init -y
+```
+
 Telepítsük az express-t:
 
-```cmd
+```bash
 npm install express
 ```
+
+Állítsuk be a package.json fájlt:
+
+```json
+{
+    "type": "module"
+}
+```
+
+Írjuk meg a belépésipontot. Jelenleg ez lesz az egyetlen állományunk.
 
 _app/index.js_:
 
@@ -673,7 +695,7 @@ Mondjuk meg, hogy szeretnénk JSON adatot fogadni. Ezt az Express beépített js
 app.use(express.json());
 ```
 
-Egészítsük ki az útválasztást egy POST metódussal, ami szintén a /msg végponton működik, fogadja a kérséssel érkező adatokat, és visszaküldi változatlanul:
+Egészítsük ki az útválasztást egy POST metódussal, ami szintén a /msg végponton működik, fogadja a kéréssel érkező adatokat, és visszaküldi változatlanul:
 
 ```javascript
 app.post('/msg', (req, res) => {
@@ -681,7 +703,7 @@ app.post('/msg', (req, res) => {
 });
 ```
 
-Korábban a body-parser csomag volt használatos, de az elavult lett. Az Express már köztes szoftver formájában tartalmazza JSON értelmezőt.
+Szemben az **express.json()** függvénnyel, korábban a **body-parser** csomag volt használatos, de az **elavult** lett. Az Express már köztes szoftver formájában tartalmazza JSON értelmezőt.
 
 _app/index.js_:
 
@@ -702,7 +724,6 @@ app.post('/msg', (req, res) => {
 app.listen(8000, () => {
     console.log('listening on port 8000');
 });
-
 ```
 
 Indítsuk el a szervert. Ha az index.js fájl egy app könyvtárban van, akkor:
@@ -714,23 +735,18 @@ node app
 Ha fut a szerver, akkor teszteljük egy HTTP klienssel. Például HTTPie:
 
 ```cmd
-http POST http://localhost:8000/msg name=Valaki
+res POST http://localhost:8000/msg name=Valaki
 ```
 
-A http parancs a "name" kulcsot, a "Valaki" értékkel JSON formátumban küldi el. Helyes műkdöés esetén ehhez hasonló választ kell kapjunk:
+A res parancs a "name" kulcsot, a "Valaki" értékkel JSON formátumban küldi el. Helyes műkdöés esetén ehhez hasonló választ kell kapjunk:
 
 ```txt
-HTTP/1.1 200 OK
-Connection: keep-alive
-Content-Length: 17
+200 OK
 Content-Type: application/json; charset=utf-8
-Date: Sun, 21 May 2023 19:50:05 GMT
-ETag: W/"11-kQ7bwC4zF281UBKjv6iRM9EYyd4"
-Keep-Alive: timeout=5
+Date: Tue, 16 Sep 2025 12:13:16 GMT
 X-Powered-By: Express
-
 {
-    "name": "Valaki"
+  "name": "Valaki"
 }
 ```
 
@@ -739,7 +755,7 @@ X-Powered-By: Express
 Vegyük elő az **empapi** projektünket vagy készítsünk egy másikat, ha az nem áll rendelkezésre.
 
 ```txt
-fogadas/
+empapi/
   |-app/
   |  |-controllers/
   |  |  `-employeeController.js
@@ -790,6 +806,8 @@ app.listen(8000, () => {
 Fontos az app.use(express.json()); hívás. Ezt meg kell előzze az app.use('/api', router); sort.
 
 Készítsünk egy útválasztó bejegyzést, ami POST metódust fogad és az EmployeeController, store() függvényét futtatja.
+
+> Ha az előző empapi projektet használja, akkor ez már készen van.
 
 Az api.js két bejegyzéssel:
 
