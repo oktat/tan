@@ -1101,6 +1101,10 @@ ORM-nek a Sequelize-t használjuk. ORM segítségével valósítjuk meg a backen
 
 ![Backend szerkezet](images/backend_sources.png)
 
+A backend és a frontend együtt ezek után.
+
+![Frontend és Backend](images/frontend_backend.png)
+
 ## SQLite használata
 
 Hozzunk létre egy **lite** nevű projektet. Könyvtárszerkezet:
