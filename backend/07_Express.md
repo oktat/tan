@@ -754,6 +754,10 @@ X-Powered-By: Express
 
 Vegyük elő az **empapi** projektünket vagy készítsünk egy másikat, ha az nem áll rendelkezésre.
 
+Az eddigiekben létrehoztunk egy belépési pont, egy útválasztót és egy kontrollert.
+
+![Adatok fogadása kontrollerben](images/receive_data_in_controller.png)
+
 ```txt
 empapi/
   |-app/
