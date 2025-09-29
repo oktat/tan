@@ -869,6 +869,12 @@ exports default EmployeeController
 
 Teszteljük a végpontot POST metódussal. A http paranccsal például:
 
+```bash
+http POST http://localhost:8000/api/employees name=Valaki
+```
+
+A lehetséges kimenet:
+
 ```txt
 http POST http://localhost:8000/api/employees name=Valaki 
 HTTP/1.1 200 OK
