@@ -641,6 +641,10 @@ Az **empapi** elérhető a következő helyen:
 
 ## HTTP adat fogadása a klienstől
 
+HTTP adatokat szeretnénk fogadni, egyelőre a belépésiponton, ez az index.js állomány lesz.
+
+![HTTP adatok fogadása](images/receive_data.png)
+
 Készítsünk egy egyszerű Express REST API-t, ami read művelet tud /msg végponttal. A neve legyen **fogadas**.
 
 Készítsünk a projektet az alábbiak szerint:
@@ -732,7 +736,7 @@ Indítsuk el a szervert. Ha az index.js fájl egy app könyvtárban van, akkor:
 node app
 ```
 
-Ha fut a szerver, akkor teszteljük egy HTTP klienssel. Például HTTPie:
+Ha fut a szerver, akkor teszteljük egy HTTP klienssel. Például resen csomag res parancsa:
 
 ```cmd
 res POST http://localhost:8000/msg name=Valaki
@@ -840,7 +844,7 @@ store: (req, res) => {
 
 A teljes kontroller, index és store függvényekkel:
 
-_api/controllers/employee.controller.js_:
+_api/controllers/employeeController.js_:
 
 ```javascript
 const EmployeeController = {
@@ -898,6 +902,8 @@ http POST http://localhost:8000/api/employees < adat.txt
 ```
 
 ### Adatellenőrzés
+
+Ha a _api/controllers/employeeController.js_ fájlban fogadjuk az adatokat, érdemes ellenőrizni azok léteznek-e. Ha várunk például egy **name** mezőt, de az nem érkezik meg, azonnal küldhetünk hibakódot.
 
 ```javascript
 store: (req, res) => {
