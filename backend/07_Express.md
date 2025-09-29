@@ -773,17 +773,25 @@ empapi/
   `-package.json
 ```
 
+Az Express szerverünk nem képes JSON adatokat fogadni alapértelmezetten. Ahhoz, hogy értelmezni tudja a JSON adatokat, kell egy értelmező. Az express egy json() függvényt tesz elérhetővé az értelmezéshez, amit köztes szoftverként tudunk használni.
+
 Az index.js-ben adjuk hozzá az express.json() köztes szoftvert:
 
 ```javascript
 app.use(express.json());
 ```
 
-Használjuk a **morgan** naplózót:
+A köztes szoftvereket több módon is használhatjuk. Az egyik lehetőség a use() függvény.
+
+Egy szerver írása során, egy idő után szeretnénk naplózást is szabályozni. Erre külső csomagot használunk, például a **morgan**.
+
+Telepítsük a **morgan** naplózót:
 
 ```cmd
 npm install morgan
 ```
+
+A használathoz köztes szoftverként regisztráljuk:
 
 ```javascript
 import morgan from 'morgan';
@@ -834,7 +842,7 @@ exports default = router
 
 Ha előző munkánkból megmaradt a többi útvonal, nyugodtan ott hagyhatjuk.
 
-Készítsük el a kontrollerben a store() függvényt:
+Készítsük el a kontrollerben a **store()** függvényt:
 
 ```javascript
 store: (req, res) => {
@@ -885,7 +893,7 @@ Küldjünk több adatot:
 http POST http://localhost:8000/api/employees name='Pártus László' city='Szeged' salary=358
 ```
 
-Ha http parancsot használjuk, tegyük állományba a küldendő adatokat, például adat.txt.
+Ha http parancsot használjuk, lehetőség van arra, hogy az adatokat egy .txt vagy .json fájlba tegyük:
 
 _adat.txt_:
 
@@ -896,6 +904,8 @@ _adat.txt_:
     "salary": 387
 }
 ```
+
+Ezek után az adat.txt állományt egyszerűen irányítsuk a http parancsra:
 
 ```cmd
 http POST http://localhost:8000/api/employees < adat.txt 
@@ -915,11 +925,17 @@ store: (req, res) => {
 }
 ```
 
-A **req.body.name** tulajdonságban kellene megkapjunk egy "name" értéket. Ezt ellenőrizzük az if() utasításban. Ha nincs kérésben "name" tulajdonság, akkor a válaszkódot beállítjuk 400-ra, az üzenetet pedig "Bed Request"-re.
+A **req.body.name** tulajdonságban kellene megkapjunk egy "name" értéket. Ezt ellenőrizzük az if() utasításban. Ha nincs a kérésben "name" tulajdonság, akkor a válaszkódot beállítjuk 400-ra, az üzenetet pedig "Bed Request"-re.
 
 Ellenőrizzük úgy, hogy nem küldünk adatot:
 
-```javascript
+```bash
+http post localhost:8000/api/employees
+```
+
+A lehetséges kimenet:
+
+```bash
 http post localhost:8000/api/employees
 HTTP/1.1 400 Bad Request
 Connection: keep-alive
@@ -937,7 +953,13 @@ X-Powered-By: Express
 
 Most küldjünk egy name tulajdonságot tetszőleges értékkel:
 
-```javascript
+```bash
+http post localhost:8000/api/employees name='Béla'
+```
+
+A lehetséges kimenet:
+
+```bash
 http post localhost:8000/api/employees name='Béla'
 HTTP/1.1 201 Created
 Connection: keep-alive
@@ -953,10 +975,9 @@ X-Powered-By: Express
         "name": "Béla"
     }
 }
-
 ```
 
-Felvehetünk több tulajdonságot is:
+Felvehetünk több tulajdonságot is. A következő példában elvárjuk a **name** és a **city** mezőt is. Ha az egyik hiányzik hibakód a válaszunk:
 
 ```javascript
 store: (req, res) => {
@@ -970,9 +991,31 @@ store: (req, res) => {
 
 ### Paraméterek fogadása
 
-A paraméter átvételére az update és delete műveletnél szükséges. Nézzük meg a delete műveletnél a paraméter átvételét.
+Egy HTTP kommunikációban az adatokat adhatunk át az URL-ben is. Az URL-ben egyszerű paraméterként is küldhetünk adatokat.
 
-Elsőként jelezzük az api.js fájlban a útválasztásnál, hogy paramétert is érkezik:
+![HTTP esetén hol utazhatnak adatok](images/http_req_res_msg.png)
+
+Ezt általában a domain név után **/** jellel elválasztva tesszük. Böngészőbe, vagy HTTP klienshívásban például beírhatom:
+
+```url
+valahol.hu/api/employees/1
+```
+
+A példában átküldtem egy **1** értéket.
+
+A következő példában átküldünk egy 23-as és egy 45-ös értéket:
+
+```url
+valahol.hu/api/employees/23/45
+```
+
+A paraméter átvételére általában az update és delete műveletnél szükséges. Szeretnénk megmondani, melyik elemet kell törölni, vagy melyik elemet kell frissíteni.
+
+A read műveletnél is előfordulhat, ha olyan végpontot szeretnék írni, ami a sokaságból egyetlen elemet ad vissza. Paraméterként megmondjuk melyik elemet szeretnénk megjeleníteni.
+
+Nézzük meg a delete műveletnél a paraméter átvételét.
+
+Elsőként jelezzük az api.js fájlban az útválasztásnál, hogy paramétert is érkezik:
 
 ```javascript
 router.delete("/employees/:id", EmployeeController.destroy);
@@ -988,7 +1031,13 @@ A destroy() metódusban ezek után **req.params.id** tulajdonságban kapjuk meg 
 
 A példában rögtön vissza is küldtük, így a tesztelésnél meg kell kapjuk az azonosítót. Teszteljük:
 
-```cmd
+```bash
+http delete localhost:8000/api/employees/30
+```
+
+A lehetséges kimenet:
+
+```bash
 http delete localhost:8000/api/employees/30
 HTTP/1.1 200 OK
 Connection: keep-alive
@@ -1005,6 +1054,10 @@ X-Powered-By: Express
 Most már tudunk adatokat és paramétert átvenni, dolgozhatunk adatbázissal.
 
 ### Query sztring olvasása
+
+Egy URL végén átadhatunk Query sztirngeket is.
+
+![HTTP esetén hol utazhatnak adatok](images/http_req_res_msg.png)
 
 A query sztringek vagy lekérdező karakterláncokra példa:
 
@@ -1056,7 +1109,7 @@ _config/default.json_:
 
 Most be kell olvasni a default.json fáljt.
 
-A projekt belépési pontját, az index.js fájlt egészítsük ki a következő két sorral:
+A projekt belépési pontját, az _index.js_ fájlt egészítsük ki a következő két sorral:
 
 ```javascript
 import { readFileSync } from 'fs'
@@ -1099,11 +1152,11 @@ Indítsuk újra a szervert. Most a default.json fájlban megadott portot veszi f
 
 ## ORM használata
 
-Az ORM az Object-relational mapping rövidítése, magyarul objektum relációs leképezésnek lehet fordítani. Adott programozási nyelven létrehozott objektum leképezése adatbázis tábláira.
+Az **ORM** az **Object-relational mapping** rövidítése, magyarul **objektum relációs leképezésnek** lehet fordítani. Adott programozási nyelven létrehozott objektum leképezése adatbázis tábláira.
 
 ![ORM](images/orm_object_db-table.png)
 
-ORM-nek a Sequelize-t használjuk. ORM segítségével valósítjuk meg a backend azon részét, ami kapcoslódik az adatbázishoz és a modelleket.
+ORM-nek a **Sequelize**-t használjuk. ORM segítségével valósítjuk meg a backend azon részét, ami kapcsolódik az adatbázishoz és a modelleket.
 
 ![Backend szerkezet](images/backend_sources.png)
 
@@ -1124,6 +1177,8 @@ lite/
   `-package.json
 ```
 
+A parancsok:
+
 ```cmd
 mkdir lite
 cd lite
@@ -1139,7 +1194,7 @@ npm install express
 }
 ```
 
-Telepítsük az SQLite és Sequelize csomagjait:
+Telepítsük az **SQLite** és **Sequelize** csomagjait:
 
 ```cmd
 npm install sqlite3 sequelize
