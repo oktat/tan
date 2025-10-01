@@ -1103,8 +1103,7 @@ public class App {
 
 ### Argumentum beállítása VSCode-ban
 
-Ha parancssorban adjuk meg a paramétereket, ez kényelmetlen lehet. Használjuk ki a VSCode adta lehetőségeket. 
-Ha lehet ne "No build tools" válasszuk. A No build tools projektnél kapnak egy azonosítót a projektek, ami miatt újra kell konfigurációt a projekthez adni. Maven projek esetén nincs ilyen.
+Ha parancssorban adjuk meg a paramétereket, ez kényelmetlen lehet. Használjuk ki a VSCode adta lehetőségeket. Ha lehet ne "No build tools" válasszuk. A No build tools projektnél kapnak egy azonosítót a projektek, ami miatt újra kell konfigurációt a projekthez adni. Maven projek esetén nincs ilyen.
 
 Készítsünk egy konfigurációt:
 
