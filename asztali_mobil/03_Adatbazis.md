@@ -219,6 +219,8 @@ public class Sqlite {
 }
 ```
 
+Ha futtatjuk a programot automatikusan létrehoz egy állományt _database.sqlite_ állományt, ami egy üres adatbázis.
+
 ## Adatbázis tábláinak létrehozása
 
 Az adatbázist kiegészítjük táblákkal. Dolgozók adatait fogjuk tárolni. Az adatbázis létrehozása táblákkal:
@@ -251,6 +253,7 @@ SQLite adatbázisban is használunk, ezért lássuk az SQLite adatbázisban hogy
 _database/sqlite_create.sql_:
 
 ```sql
+-- SQLite tábla
 create table employees (
     id integer not null primary key autoincrement,
     name text,
@@ -274,6 +277,8 @@ values
 ('Endő Lajos', 'Miskolc', 334),
 ('Tengi Mária', 'Szolnok', 329);
 ```
+
+Az utasítást illeszzük be egy SQL beviteli felületen.
 
 ## Lekérdezés adatbázisból
 
