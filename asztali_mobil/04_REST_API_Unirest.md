@@ -23,11 +23,11 @@
 
 ### A REST API
 
-A REST A Representational State Trasfer, az API az Application Programming Interface rövidíétse. A webszolgáltatások fejlesztéséhez fejlesztett architektúra. A REST API használata során URL-ek és HTTP protokollokkal (GET, POST, PUT, DELETE) dolgozunk.
+A **REST** A **Representational State Trasfer**, az **API** az **Application Programming Interface** rövidíétse. A webszolgáltatások megvalósításához fejlesztett architektúra. A REST API használata során URL-ek és HTTP protokollokkal (GET, POST, PUT, DELETE) dolgozunk.
 
 Errőforrások:
 
-A REST API-t erőforrásokba szervezzük, amelyek egyedi URL-en keresztül érhetők el. A felhasználók például a /users címen érhetők el.Egyetlen felhasználó /users/{id} címen érhető el.
+A REST API-t erőforrásokba szervezzük, amelyek egyedi URL-en keresztül érhetők el. A felhasználók például a **/users** címen érhetők el. Egyetlen felhasználó **/users/{id}** címen érhető el.
 
 A HTTP metódusok:
 
@@ -64,7 +64,7 @@ HTTP státuszkódok:
 
 Kliens-szerver felépítés:
 
-A REST API általában kliens-szerver felépításű. A kliens lehet:
+A REST API általában kliens-szerver felépítésű. A kliens lehet:
 
 * web
 * mobil
@@ -207,6 +207,8 @@ dependencies {
 
 ### Egyszerű GET kérés
 
+_UnirestExample.java_:
+
 ```java
 import unirest.HttpResponse;
 import unirest.Unirest;
@@ -225,6 +227,8 @@ public class UnirestExample {
 ```
 
 ### A POST kérés
+
+_App.java_:
 
 ```java
 import kong.unirest.HttpResponse;
@@ -258,6 +262,8 @@ public class App {
 
 ### A PUT kérés
 
+_App.java_:
+
 ```java
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
@@ -289,6 +295,8 @@ public class App {
 ```
 
 ### A DELETE kérés
+
+_App.java_:
 
 ```java
 import kong.unirest.HttpResponse;
@@ -324,7 +332,7 @@ Jellemzők:
 
 ### Gson telepítése
 
-A pom.xml fájlba:
+A _pom.xml_ fájlba:
 
 ```xml
 <dependencies>
@@ -353,7 +361,7 @@ Kézi telepítés esetén a **gson** csomagot használja, a com.googele.code.gso
 
 ### A GET kérés átalakítása Java objektummá
 
-Employee.java:
+_Employee.java_:
 
 ```java
 public class Employee {
@@ -364,7 +372,7 @@ public class Employee {
 }
 ```
 
-App.java:
+_App.java_:
 
 ```java
 import kong.unirest.HttpResponse;
@@ -388,6 +396,8 @@ public class App {
 ```
 
 ### A GET kérés átalakítása objektumtömbbé
+
+_App.java_:
 
 ```java
 import java.util.ArrayList;
@@ -414,6 +424,8 @@ public class App {
 ```
 
 ### A POST kérés objektumból
+
+_App.java_:
 
 ```java
 import com.google.gson.JsonObject;
@@ -448,6 +460,8 @@ public class App {
 
 ### PUT kérés objektummal
 
+_App.java_:
+
 ```java
 import com.google.gson.JsonObject;
 
@@ -481,7 +495,7 @@ public class App {
 
 ## Gyakorlás 1
 
-Employee.java:
+_Employee.java_:
 
 ```java
 public class Employee {
@@ -506,7 +520,7 @@ public class Employee {
 }
 ```
 
-EmployeeApi.java:
+_EmployeeApi.java_:
 
 ```java
 import java.util.ArrayList;
@@ -557,7 +571,7 @@ public class EmployeeApi {
 }
 ```
 
-App.java:
+_App.java_:
 
 ```java
 import java.util.ArrayList;
@@ -608,6 +622,8 @@ public class App {
 
 ### Java objektum JSON formátumba alakítása
 
+_GsonExample.java_:
+
 ```java
 import com.google.gson.Gson;
 
@@ -638,6 +654,8 @@ public class GsonExample {
 
 ### JSON objektum Java objektumra alakítása
 
+_GsonExample.java_:
+
 ```java
 import com.google.gson.Gson;
 
@@ -662,6 +680,8 @@ public class GsonExample {
 ```
 
 ## Azonosítás
+
+_App.java_:
 
 ```java
 import kong.unirest.HttpResponse;
@@ -738,6 +758,8 @@ public class App {
 ## Hibakezelés
 
 ### A HTTP válaszkódok kezelése
+
+_App.java_:
 
 ```java
 import kong.unirest.HttpResponse;
