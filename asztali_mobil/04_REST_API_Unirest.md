@@ -21,6 +21,8 @@
 
 ## Bevezetés
 
+> A 04_REST_API_Unirest fejezet és a 05_REST_API_Resclient fejezetből elég az egyiket feldolgozni.
+
 ### A REST API
 
 A **REST** A **Representational State Trasfer**, az **API** az **Application Programming Interface** rövidíétse. A webszolgáltatások megvalósításához fejlesztett architektúra. A REST API használata során URL-ek és HTTP protokollokkal (GET, POST, PUT, DELETE) dolgozunk.
