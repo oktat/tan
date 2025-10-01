@@ -221,6 +221,13 @@ public interface iDatabase {
 }
 ```
 
+Egyéb lehetséges interfész nevek:
+
+* DatabaseConnector
+* ConnectionProvider
+* ConnectionManager
+* DatabaseConnectionManager
+
 MariaDB kapcsolathoz, hozzunk létre egy Mariadb osztályt.
 
 src/Mariadb.java:
