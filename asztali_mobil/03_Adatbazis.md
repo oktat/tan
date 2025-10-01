@@ -54,6 +54,44 @@ to test01@localhost
 identified by 'titok';
 ```
 
+Futtassuk az adatbázisrendszeren, MariaDB esetén használhatjuk a PhpMyAdmin-t. Ha el van indítva az adatbáizs és az Apache webszerever (például: XAMPP rendszeren), a PhpMyAdmin elérése:
+
+* `http://localhost/phpmyadmin/`
+
+Készítsünk egy Java projektet, például **dbcon** néven. Ajánlott projekt típus például **Maven**.
+
+A JDBC driver beszerzéséhez látogassuk meg a következő webhelyet:
+
+* [https://central.sonatype.com/](https://central.sonatype.com/)
+
+A keresőbe írjuk be:
+
+* **mariadb-java-client**
+
+Ellenőrizzük, hogy a megtalált csomag a **org.mariadb.jdbc** szervezethez tartozzon. Ha kattintunk a **mariadb-java-client** találatra, az áttekintő fülön találunk egy XML bejegyzést:
+
+```xml
+<dependency>
+    <groupId>org.mariadb.jdbc</groupId>
+    <artifactId>mariadb-java-client</artifactId>
+    <version>3.5.6</version>
+</dependency>
+```
+
+Ezt másoljuk a projekt **pom.xml** állományába.
+
+Ha nincs benne <dependencies> bejegyzés vegyük fel, és másoljuk ebbe az illesztő program adatatit.
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.mariadb.jdbc</groupId>
+        <artifactId>mariadb-java-client</artifactId>
+        <version>3.5.6</version>
+    </dependency>
+</dependencies>
+```
+
 Ezt követően írjunk egy **Database** nevű osztályt, ami kapcsolódik a MariaDB adatbázishoz. Három osztályra lesz szükségünk:
 
 * Connection
