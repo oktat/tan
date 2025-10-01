@@ -9,8 +9,9 @@
 
 * [Tartalomjegyzék](#tartalomjegyzék)
 * [Bevezetés](#bevezetés)
-* [Adatbázis elérése](#adatbázis-elérése)
-* [Adatbázis létrehozása](#adatbázis-létrehozása)
+* [MariaDB adatbázis elérése](#mariadb-adatbázis-elérése)
+* [SQLite adatbázis elérése](#sqlite-adatbázis-elérése)
+* [Adatbázis tábláinak létrehozása](#adatbázis-tábláinak-létrehozása)
 * [Lekérdezés adatbázisból](#lekérdezés-adatbázisból)
 * [Beszúrás adatbázisba](#beszúrás-adatbázisba)
 * [Modell osztály](#modell-osztály)
@@ -37,7 +38,7 @@ A JDBC segítségével ugyanazt a kódot használhatjuk különböző adatbázis
 
 A tényleges adatbázis-specifikus kommunikációt a JDBC illesztő program (driver) végzi. Mivel minden adatbázisrendszerhez más illesztő program szükséges, ezek nem részei a Java platformnak.
 
-## Adatbázis elérése
+## MariaDB adatbázis elérése
 
 ### Kezdeti adatbázis
 
@@ -170,7 +171,55 @@ public class Database {
 
 A példánkban az **OK** szöveg csakk sikeres kapcsolódás során íródik ki a konzolra.
 
-## Adatbázis létrehozása
+## SQLite adatbázis elérése
+
+Az SQLite adatbázis csak egy fájl.
+
+Készítsünk egy projektet **scon** néven.
+
+Szerezzük be az illesztőprogramot:
+
+* [https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc](https://central.sonatype.com/artifact/org.xerial/sqlite-jdbc)
+
+```xml
+<dependency>
+    <groupId>org.xerial</groupId>
+    <artifactId>sqlite-jdbc</artifactId>
+    <version>3.50.3.0</version>
+</dependency>  
+```
+
+### SQLite kapcsolat létrehozása
+
+_src/main/java/com/example/Sqlite.java_:
+
+```java
+package com.example;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class Sqlite {
+
+    public static void startConnect() {
+        try {
+            tryStartConnect();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }    
+    }
+
+    private static void tryStartConnect() throws SQLException {
+        String url = "jdbc:sqlite:database.sqlite";
+        Connection conn = DriverManager.getConnection(url);
+        System.out.println("OK");
+        conn.close();        
+    }
+}
+```
+
+## Adatbázis tábláinak létrehozása
 
 Az adatbázist kiegészítjük táblákkal. Dolgozók adatait fogjuk tárolni. Az adatbázis létrehozása táblákkal:
 
