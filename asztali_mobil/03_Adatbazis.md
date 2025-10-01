@@ -8,6 +8,7 @@
 ## Tartalomjegyzék
 
 * [Tartalomjegyzék](#tartalomjegyzék)
+* [Bevezetés](#bevezetés)
 * [Adatbázis elérése](#adatbázis-elérése)
 * [Adatbázis létrehozása](#adatbázis-létrehozása)
 * [Lekérdezés adatbázisból](#lekérdezés-adatbázisból)
@@ -15,9 +16,34 @@
 * [Modell osztály](#modell-osztály)
 * [Példa](#példa)
 
+## Bevezetés
+
+A tartós tárolás biztosítására többféle megoldás is van, például a fájlba írhatjuk az adatokat. Nagy mennyiségű adatok strukturált tárolására és kapcsolatok kezelésére legmegfelelőbb a relációs adatbázis. Olyan adatbázis rendszereket szokás használni mint:
+
+* MariaDB (MySQL)
+* PostgreSQL
+* Oracle Database
+
+A relációs adatbázisok megfelelő struktúrát biztosítanak az adatok tárolására, lekérdezésére, felhasználókezelésre, tranzakciókra.
+
+A Java alkalmazások és az adatbázisok között a kapcsolatot (hidat) a JDBC API szolgáltatja. A JDBC a Java platform része. Szabványos osztályokat és interfészeket biztosít az adatbázissal való kommunikációhoz. Például:
+
+* Connection
+* Statement
+* PreparedStatement
+* ResultSet
+
+A JDBC segítségével ugyanazt a kódot használhatjuk különböző adatbázisrendszerekhez.
+
+A tényleges adatbázis-specifikus kommunikációt a JDBC illesztő program (driver) végzi. Mivel minden adatbázisrendszerhez más illesztő program szükséges, ezek nem részei a Java platformnak.
+
 ## Adatbázis elérése
 
-Adatbázis és felhasználó létrehozása:
+Kétféle adatbázist fogunk használni: SQLite és MariaDB. Hozzuk létre ezeket az adatbázisokat.
+
+Adatbázis és felhasználó létrehozása MariaDB-ben:
+
+_database/mariadb_database.sql_:
 
 ```sql
 create database test01;
@@ -27,6 +53,14 @@ on test01.*
 to test01@localhost
 identified by 'titok';
 ```
+
+Ezt követően írjunk egy **Database** nevű osztályt, ami kapcsolódik a MariaDB adatbázishoz. Három osztályra lesz szükségünk:
+
+* Connection
+* DriverManager
+* SQLException
+
+A szöveges változóban feljegyzünk egy URL-t, amiben leírjuk az adatbáziskapcsolatot. A kapcsolatot egy **conn** nevű objektumban fogjuk tárolni. A kapcsolatot a **DriverManager.getConnection** metódussal építjük ki. A kapcsolatot egy try..catch szerkezetbe ágyazzuk, így reagálhatunk a kapcsolódás során fellépő hibákra.
 
 Database.java:
 
@@ -52,11 +86,13 @@ public class Database {
 }
 ```
 
+A példánkban az **OK** szöveg csakk sikeres kapcsolódás során íródik ki a konzolra.
+
 ## Adatbázis létrehozása
 
-Adatbázis létrehozása táblákkal:
+Az adatbázist kiegészítjük táblákkal. Dolgozók adatait fogjuk tárolni. Az adatbázis létrehozása táblákkal:
 
-database/mariadb_create.sql:
+_database/mariadb_create.sql_:
 
 ```sql
 create database surubt
@@ -70,6 +106,7 @@ identified by 'titok';
 
 use surubt;
 
+-- A dolgozók táblája
 create table employees(
     id int not null primary key auto_increment,
     name varchar(50),
@@ -78,7 +115,9 @@ create table employees(
 );
 ```
 
-database/sqlite_create.sql:
+SQLite adatbázisban is használunk, ezért lássuk az SQLite adatbázisban hogyan hozzuk létre a táblát:
+
+_database/sqlite_create.sql_:
 
 ```sql
 create table employees (
@@ -89,7 +128,9 @@ create table employees (
 );
 ```
 
-database/insert.sql:
+Mindkét adatbázisba beszúrhatunk dolgozókat, a következő utasítással:
+
+_database/insert.sql_:
 
 ```sql
 insert into employees
@@ -105,7 +146,9 @@ values
 
 ## Lekérdezés adatbázisból
 
-Database.java:
+Ha már vannak adatok az adatbázisban, nézzünk egy lekérdezést. Kezdetnek a lekérdezést a **Database** osztályban fogjuk elvégezni. A lekérdezéshez szükség lesz a **conn** objektumra, a **Statement** osztályra, a **ResultSet**-re.
+
+_Database.java_:
 
 ```java
 package lan.zold;
@@ -140,9 +183,13 @@ public class Database {
 }
 ```
 
+A lekérdezés eredményeként a dolgozói nevei a képernyőre íródnak.
+
 ## Beszúrás adatbázisba
 
-Database.java:
+Az adatoka eddig egy SQL utasítással vittük be az adatbázisba. Nézzük meg, hogyan tudjuk ezt programozottan megtenni.
+
+_Database.java_:
 
 ```java
 package lan.zold;
@@ -181,9 +228,11 @@ public class Database {
 
 ## Modell osztály
 
+A további munkához modelleket fogunk használni.
+
 Adatok tárolásához hozzuk létre az Employee osztályt.
 
-src/Employee.java:
+_src/Employee.java_:
 
 ```java
 public class Employee {
@@ -210,7 +259,7 @@ public class Employee {
 
 Hozzunk létre egy interfészt, ami megmondja mit kell tudni adatbázishoz kapcsolódás esetén.
 
-src/iDatabase.java:
+_src/iDatabase.java_:
 
 ```java
 import java.sql.Connection;
@@ -230,7 +279,7 @@ Egyéb lehetséges interfész nevek:
 
 MariaDB kapcsolathoz, hozzunk létre egy Mariadb osztályt.
 
-src/Mariadb.java:
+_src/Mariadb.java_:
 
 ```java
 import java.sql.Connection;
@@ -272,7 +321,7 @@ public class Mariadb implements iDatabase {
 
 SQLite adatbázis eléréshez hozzunk létre egy Sqlite osztályt:
 
-src/Sqlite.java:
+_src/Sqlite.java_:
 
 ```java
 import java.sql.Connection;
@@ -313,7 +362,7 @@ public class Sqlite implements iDatabase {
 
 A lekérdezéseket a DataSource osztályban fogjuk megvalósítani.
 
-src/DataSource.java:
+_src/DataSource.java_:
 
 ```java
 import java.sql.Connection;
@@ -454,7 +503,7 @@ public class DataSource {
 }
 ```
 
-src/App.java:
+_src/App.java_:
 
 ```java
 public class App {
