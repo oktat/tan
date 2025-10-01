@@ -39,6 +39,8 @@ A tényleges adatbázis-specifikus kommunikációt a JDBC illesztő program (dri
 
 ## Adatbázis elérése
 
+### Kezdeti adatbázis
+
 Kétféle adatbázist fogunk használni: SQLite és MariaDB. Hozzuk létre ezeket az adatbázisokat.
 
 Adatbázis és felhasználó létrehozása MariaDB-ben:
@@ -54,11 +56,22 @@ to test01@localhost
 identified by 'titok';
 ```
 
-Futtassuk az adatbázisrendszeren, MariaDB esetén használhatjuk a PhpMyAdmin-t. Ha el van indítva az adatbáizs és az Apache webszerever (például: XAMPP rendszeren), a PhpMyAdmin elérése:
+Futtassuk az adatbázisrendszeren, MariaDB esetén használhatjuk a PhpMyAdmin-t. Ha el van indítva az adatbázis és az Apache webszerever (például: XAMPP rendszeren), a PhpMyAdmin elérése:
 
 * `http://localhost/phpmyadmin/`
 
+### Projekt létrehozása
+
 Készítsünk egy Java projektet, például **dbcon** néven. Ajánlott projekt típus például **Maven**.
+
+VSCode esetén:
+
+* F1 > Java: Create Java Project
+* Maven > No archetype
+* com.example
+* dbcon
+
+### Illesztőprogram beszerzése
 
 A JDBC driver beszerzéséhez látogassuk meg a következő webhelyet:
 
@@ -92,6 +105,37 @@ Ha nincs benne <dependencies> bejegyzés vegyük fel, és másoljuk ebbe az ille
 </dependencies>
 ```
 
+A teljes kód így nézhet ki:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>dbcon</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>3.5.6</version>
+        </dependency>        
+    </dependencies>
+
+</project>
+```
+
+### Az osztály elkészítése
+
 Ezt követően írjunk egy **Database** nevű osztályt, ami kapcsolódik a MariaDB adatbázishoz. Három osztályra lesz szükségünk:
 
 * Connection
@@ -116,8 +160,8 @@ public class Database {
       System.out.println("OK");  
       conn.close();
     }catch (SQLException e) {
-     System.err.println("Hiba! A kapcsolódás sikertelen!");
-     System.err.println(e.getMessage());
+      System.err.println("Hiba! A kapcsolódás sikertelen!");
+      System.err.println(e.getMessage());
     }
 
   }
