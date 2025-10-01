@@ -25,7 +25,7 @@
 
 ### A REST API
 
-A **REST** A **Representational State Trasfer**, az **API** az **Application Programming Interface** rövidíétse. A webszolgáltatások megvalósításához fejlesztett architektúra. A REST API használata során URL-ek és HTTP protokollokkal (GET, POST, PUT, DELETE) dolgozunk.
+A **REST** A **Representational State Trasfer**, az **API** az **Application Programming Interface** rövidíétse. A webszolgáltatások megvalósításához fejlesztett architektúra. A REST API használata során URL-ek és HTTP protokollokkal (GET, POST, PUT, PATCHDELETE) dolgozunk.
 
 Errőforrások:
 
@@ -47,7 +47,7 @@ A REST API állapotmentes, ezért minden kérés tartalmazza minden egyes kéré
 
 Adatformátumok:
 
-A REST API különböző formában dolgozat adatokkal:
+A REST API háromféle fomárában küld adatokat. Ezek:
 
 * JSON
 * XML
@@ -55,7 +55,9 @@ A REST API különböző formában dolgozat adatokkal:
 
 Leggyakrabban JSON formátumot használjuk, mivel könnyen olvasható, és kevésbé terheli a hálózatot.
 
-HTTP státuszkódok:
+A szerverek egy HTTP státusz kóddal jeleznek vissza a válasz állapotáról.
+
+Néhány HTTP státuszkódok:
 
 * 200 OK: Kérés sikeres
 * 201 Created: Új elem létrehozva

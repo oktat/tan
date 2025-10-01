@@ -35,7 +35,7 @@
 
 ## Java fejlesztés
 
-A Java nyelvet a **Sun Microsystem** programozói kezdték fejleszteni, 1991-ben. Később az Oracle felvásárolta a céget, így a Java most az ő tulajdona.
+A Java nyelvet a **Sun Microsystem** programozói kezdték fejleszteni, 1991-ben. Később az **Oracle** felvásárolta a céget, így a Java most az ő tulajdona.
 
 A Java nyelv még mindig az 1-es fő verziószámnál tart. Az egyes Java verziók:
 
@@ -365,6 +365,14 @@ Kifejezések:
 int i = 1;
 double d = 1.0 + i;
 float f = 1.0f + i + (float) d;
+```
+
+A Java 10-től nem kötelező megadni a típust. Használhatjuk helyette a **var** kulcsszót:
+
+```java
+var a = 35;
+var b = 1.4;
+var c = "alma";
 ```
 
 ## Formázott kivitel

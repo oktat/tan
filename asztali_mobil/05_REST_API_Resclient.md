@@ -69,8 +69,9 @@ A REST API általában kliens-szerver felépítésű. A kliens lehet:
 A Resclient egy egyszerűen használható REST API kliens könyvtár.
 
 * egyszerű beépítés
-* egyszerű használat
+* egyszerű néhány soros használat
 * beépített Gson támogatás
+* aszinkron működés
 
 ## A Resclient beállítása
 
