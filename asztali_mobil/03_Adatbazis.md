@@ -14,7 +14,7 @@
 * [Adatbázis tábláinak létrehozása](#adatbázis-tábláinak-létrehozása)
 * [Lekérdezés adatbázisból](#lekérdezés-adatbázisból)
 * [Beszúrás adatbázisba](#beszúrás-adatbázisba)
-* [Modell osztály](#modell-osztály)
+* [Az alkalmazás részekre bontása](#az-alkalmazás-részekre-bontása)
 * [Példa](#példa)
 
 ## Bevezetés
@@ -323,7 +323,9 @@ A lekérdezés eredményeként a dolgozói nevei a képernyőre íródnak.
 
 ## Beszúrás adatbázisba
 
-Az adatoka eddig egy SQL utasítással vittük be az adatbázisba. Nézzük meg, hogyan tudjuk ezt programozottan megtenni.
+Az adatokat eddig egy SQL utasítással vittük be az adatbázisba. Nézzük meg, hogyan tudjuk ezt programozottan megtenni.
+
+A beszúráshoz a **PreparedStatement** osztályt használjuk.
 
 _Database.java_:
 
@@ -362,7 +364,11 @@ public class Database {
 }
 ```
 
-## Modell osztály
+## Az alkalmazás részekre bontása
+
+A következő részekben az alkalmazást több részre bontjuk, különböző fájlokba, és két adatbázis használatát is lehetővé tesszük.
+
+### Modell osztály
 
 A további munkához modelleket fogunk használni.
 
@@ -393,6 +399,8 @@ public class Employee {
 }
 ```
 
+### Interfész használata
+
 Hozzunk létre egy interfészt, ami megmondja mit kell tudni adatbázishoz kapcsolódás esetén.
 
 _src/iDatabase.java_:
@@ -412,6 +420,8 @@ Egyéb lehetséges interfész nevek:
 * ConnectionProvider
 * ConnectionManager
 * DatabaseConnectionManager
+
+### Az interfész megvalósítása
 
 MariaDB kapcsolathoz, hozzunk létre egy Mariadb osztályt.
 
@@ -495,6 +505,8 @@ public class Sqlite implements iDatabase {
 
 }
 ```
+
+### Adatok lekérdezése
 
 A lekérdezéseket a DataSource osztályban fogjuk megvalósítani.
 
@@ -639,6 +651,8 @@ public class DataSource {
 }
 ```
 
+### A belépési pont
+
 _src/App.java_:
 
 ```java
@@ -664,5 +678,7 @@ public class App {
 ```
 
 ## Példa
+
+Az alábbi linken találunk egy példát a fentiek megvalósíátásra.
 
 * [https://github.com/oktat/jemp_moredb](https://github.com/oktat/jemp_moredb)
