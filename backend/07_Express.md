@@ -2538,7 +2538,14 @@ const User = sequelize.define('User', {
 export default User
 ```
 
+A felhaszálóhoz nem kötelező email cím, de fordítva is előfordulhat, hogy az email cím kötelező de a név mező nincs vagy nem kötelező. A jelszavakat mindenképpen titkosítva tároljuk a password mezőben.
+
 ### AuthController készítése
+
+Egy felhasználó két módon kerülehet a felhasználói táblába. Vagy lehetőség van a regisztrációra, vagy egy adminisztrátor felveszi.
+Ha regisztrálási lehetőség van, ez általában nem nem védett /register nevű végponton történik. Az adminisztrátor általában egy /users végponton veszi fel a felhasználókat, amit csak azonosítás után lehet elérni.
+
+Itt most szabad regisztrációt fogunk használni, egy /register nevű végponttal. A jelszavak titkosításához a bcryptjs csomagot használjuk. A jelszót kétszer is bekérjük, amit ellenőrzünk, hogy egyeznek-e. A megadott felhasználónvet ellenőrzizzük, hogy létezik-e. Ha létezik hibát adunk vissza.
 
 Készítsünk az **app/controllers/authController.js** fájlban egy AuthController-t:
 
