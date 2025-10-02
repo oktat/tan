@@ -2940,10 +2940,10 @@ const Employee = sequelize.define('employee', {
         allowNull: false,
         validate: {
             notNull: {
-                msg: 'A nev meg kell adni!'
+                msg: 'A név mező megadása kötelező!'
             },
             notEmpty: {
-                msg: 'A nev meg kell adni!'
+                msg: 'A név mező nem lehet üres!'
             }
         }
     }
@@ -2970,7 +2970,6 @@ const Employee = sequelize.define('employee', {
         validate: {
             notNull: true,
             notEmpty: true,
-            isLowercase: true,
             isAlphanumberic: true,
             
         }
@@ -2988,7 +2987,6 @@ const Employee = sequelize.define('employee', {
         validate: {
             notNull: true,
             notEmpty: true,
-            isLowercase: true,
             isAlphanumberic: true,
             isLowercase: true
         }
@@ -3018,6 +3016,8 @@ const Employee = sequelize.define('employee', {
 ```
 
 ### Beépített érvényesítők
+
+További beépített érvényesítőt láthatunk a következő definícióban:
 
 ```javascript
 sequelize.define('foo', {
@@ -3069,7 +3069,7 @@ sequelize.define('foo', {
 
 A **CORS** a **Cross-Origin Resource Sharing** rövidítése. A CORS egy biztonsági mechanizmus, amely lehetővé teszi, hogy egy weboldalon futó JavaScript kód lekérjen erőforrásokat egy másik domainről.
 
-A böngészők alapértelmezetten tiltják a különböző eredető (cross origin) kéréseket. A szerver jelezheti a HTTP válasz fejlécében egy **Access-Control-Allow-Origin** mezőben, hogy az adatok lekérhetők.
+A böngészők alapértelmezetten tiltják a különböző eredetű (cross origin) kéréseket. A szerver jelezheti a HTTP válasz fejlécében egy **Access-Control-Allow-Origin** mezőben, hogy az adatok lekérhetők.
 
 Ha a fejlécben nincs ilyen mező vagy annak tartalmában nem szerepel kérést végző domain, a böngésző a kérést visszautasítja.
 
