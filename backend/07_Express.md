@@ -2514,6 +2514,7 @@ A kapcsolatok használatáról teljes példát találunk:
 
 * Vegyük elő az empy projektet és építtsük be a kapcsolatokat a projektbe. Az empy projekt letöltehőt a következő helyről: [https://github.com/oktat/empy_kezdes.git](https://github.com/oktat/empy_kezdes.git)
 * Hozzunk létre egy projektet **tishop** néven, ahol termékeket, számlákat és a számla tételeit tároljuk. Készítsünk hozzá beckendet végpontokkal, kapcsolatokkal.
+* Vegye elő az utolsó empkap névvel kezdetű projektet, és egészítse ki a employee modellt.
 
 ## Azonosítás
 
