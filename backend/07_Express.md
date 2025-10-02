@@ -2426,6 +2426,8 @@ const EmployeeController = {
 export default EmployeeController
 ```
 
+* [https://github.com/oktat/empkap_plus_adat.git](https://github.com/oktat/empkap_plus_adat.git)
+
 ### Kapcsolatok külön fájlban
 
 Az előző verzióban a kapcsolatokat az employee.js fájlban állítottuk be.
