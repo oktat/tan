@@ -7,9 +7,16 @@
 
 ## Tartalomjegyzék
 
-> A 04_REST_API_Unirest fejezet és a 04_REST_API_Resclient fejezetből elég az egyiket feldolgozni.
+* [Tartalomjegyzék](#tartalomjegyzék)
+* [Bevezetés](#bevezetés)
+* [A Resclient](#a-resclient)
+* [A Resclient beállítása](#a-resclient-beállítása)
+* [A Resclient használata](#a-resclient-használata)
+* [JSON konvertálás](#json-konvertálás)
 
 ## Bevezetés
+
+> A 04_REST_API_Unirest fejezet és a 04_REST_API_Resclient fejezetből elég az egyiket feldolgozni.
 
 ### A REST API
 
@@ -95,7 +102,9 @@ Ehhez hasonlót találunk:
 
 Illesszük be a **pom.xml** fájlba.
 
-## Egyszerű GET kérés
+## A Resclient használata
+
+### Egyszerű GET kérés
 
 Tegyük fel, hogy van localhost:8000/api/employees címen egy REST API, ami dolgozók adatati szolgáltatja. Lekérdezés:
 
@@ -125,7 +134,7 @@ public class ResclientExample {
 }
 ```
 
-## Új elem felvétele
+### Új elem felvétele
 
 ```java
 public static void createEmployee() {
@@ -137,7 +146,7 @@ public static void createEmployee() {
 }
 ```
 
-## Elem frissítése
+### Elem frissítése
 
 ```java
 public static void updateEmployee() {
@@ -149,7 +158,7 @@ public static void updateEmployee() {
 }
 ```
 
-## Elem törlése
+### Elem törlése
 
 ```java
 public static void deleteEmployee() {
@@ -158,4 +167,141 @@ public static void deleteEmployee() {
     String result = client.delete(url);
     System.out.println(result);
 }
+```
+
+## JSON konvertálás
+
+### JSON tömbök átalakítása Java objektumokra
+
+Konvertálásnál nézzük meg milyen formában kapjuk az adatokat.
+
+Kaphatunk szimpla tömböt:
+
+```json
+[
+    {
+      "id": 1,
+      "name": "Erős István",
+      "city": "Szeged",
+      "salary": 395
+    },
+    {
+      "id": 2,
+      "name": "Sikeres Lajos",
+      "city": "Szolnok",
+      "salary": 392.4
+    },
+    {
+      "id": 3,
+      "name": "Para Irén",
+      "city": "Szeged",
+      "salary": 394.9
+    }
+]
+```
+
+Kaphatunk objektumot, és a tömb az objektum egyik tagjaként szerepel:
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "name": "Erős István",
+      "city": "Szeged",
+      "salary": 395
+    },
+    {
+      "id": 2,
+      "name": "Sikeres Lajos",
+      "city": "Szolnok",
+      "salary": 392.4
+    },
+    {
+      "id": 3,
+      "name": "Para Irén",
+      "city": "Szeged",
+      "salary": 394.9
+    }
+  ]
+}
+```
+
+Feltételezzük az utóbbit.
+
+Készítenünk kell egy Java osztályt, amiben ezt tárolhatjuk.
+
+Először készítsünk tárolót a dolgozóknak.
+
+_Employee.java_:
+
+```java
+package com.example;
+
+import java.math.BigDecimal;
+
+public class Employee {
+  String name;
+  String city;
+  BigDecimal salary;
+
+  public String getName() {
+    return name;
+  }
+  public void setName(String name) {
+    this.name = name;
+  }
+  public String getCity() {
+    return city;
+  }
+  public void setCity(String city) {
+    this.city = city;
+  }
+  public BigDecimal getSalary() {
+    return salary;
+  }
+  public void setSalary(BigDecimal salary) {
+    this.salary = salary;
+  }
+}
+```
+
+Most készítsük olyan objektumot, ami képes tárolni a REST API által küldött teljes választ.
+
+_Result.java_:
+
+```java
+package com.example;
+
+import java.util.ArrayList;
+
+public class Result {  
+  boolean success;
+  ArrayList<Employee> data;
+}
+```
+
+A REST API-tól kapott szöveges választ objektummá kell alakítanunk, ezért a **toObject()** metódust használjjuk.
+
+_ResclientExample.java_ részlet:
+
+```java
+  public static void getEmployees() {
+    ResClientAsync client = new ResClientAsync();
+    String res = client.get(url).join();
+    System.out.println(res);
+    
+    // A válasz konvertálása:
+    Result result = ResConvert.toObject(res, Result.class);
+
+    // A result.data egy ArrayList, amiben dolgozók vannak.
+    for(Employee e : result.data) {
+        System.out.println(
+            e.getName() + " " + 
+            e.getCity() + " " + 
+            e.getSalary()
+        );
+    }
+  }
 ```
