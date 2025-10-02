@@ -2702,49 +2702,63 @@ A key kulcs értéke egy saját véletlenszám sorozat legyen.
 
 ### A login() függvény az authController.js-ben
 
+Szükségünk lesz egy token készítő csomagra. A jsonwebtoken csomagot fogjuk használni. Telepítsük:
+
+```bash
+npm install jsonwebtoken
+```
+
+Az authoController.js fájlban importálni kell a csomagot, és szükség lesz a konfigurációs állományra is.
+
+_app/controllers/authController.js_:
+
+```javascript
+//...
+import jwt from 'jsonwebtoken';
+import { readFileSync } from 'fs'
+
+const confPath = '../../config/default.json'
+const fileUrl = new URL(confPath, import.meta.url)
+const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
+//...
+```
+
+Az authoController.js fájl login része:
+
 _app/controllers/authController.js_:
 
 ```javascript
     async login(req, res) {
-        if(!req.body.name || !req.body.password) {
-            res.status(400).send({
-                message: "Hiba! A felhasználónév vagy jelszó hibás!"
-            })
-            return
-        }
-        const user = {
-            name: req.body.name,
-            password: bcrypt.hashSync(req.body.password)
-        }
-        User.findOne({
-            where: {
-                name: req.body.name
-            }
-        })
-        .then(user => {
-            if(!user) {
-                return res.status(404).send({ message: "User not found."})
-            }
-            var passwordIsValid = bcrypt.compareSync(
-                req.body.password,
-                user.password
-            );
-            if(!passwordIsValid) {
-                res.status(401).send({
-                    accessToken: null,
-                    message: "Invalid password!"
-                });
-            }
-            var token = jwt.sign({ id: user.id }, process.env.APP_KEY, {
-                expiresIn: 86400 //24 óra
+        if(!req.body.name || 
+            !req.body.password
+        ) {
+            return res.status(400).json({
+                success: false,
+                message: 'name and password are required'
             });
-            res.status(200).send({
-                id: user.id,
-                name: user.name,
-                email: user.email,
-                accessToken: token
+        }
+        const user = await User.findOne({ where: { name: req.body.name } });
+        if(!user) {
+            return res.status(400).json({
+                success: false,
+                message: 'user does not exist'
             });
-        })        
+        }
+        if(!bcrypt.compareSync(req.body.password, user.password)) {
+            return res.status(400).json({
+                success: false,
+                message: 'wrong password'
+            });
+        }
+        const token = jwt.sign({ id: user.id }, config.app.key, {
+            expiresIn: '24h'
+        });
+        res.json({ 
+            success: true,
+            id: user.id,
+            name: user.name,
+            accessToken: token
+        });
     }
 ```
 
@@ -2756,9 +2770,39 @@ Hozzunk létre egy login nevű végpontot.
 router.post('/login', AuthController.login)
 ```
 
+Vegyünk fel egy felhasználót, például janos, titok jelszóval, ha még nem tettük volna meg:
+
+```bash
+res localhost:8000/api/auth/register 
+name=janos password=titok
+password_confirmation=titok
+```
+
+Jelentkezzünk be:
+
+```bash
+res localhost:8000/api/auth/login 
+name=janos password=titok
+```
+
+Amit visszakapunk ehhez hasonló kell legyen:
+
+```json
+{
+  "success": true,
+  "id": 1,
+  "name": "janos",
+  "accessToken": "eyJhbGciOi..."
+}
+```
+
+Az accessToken kulcs értéke egy hosszú token.
+
 ### Tokenek ellenőrzse
 
-A tokenek ellenőrzését egy köztes szoftverben végezzük. Hozzuk létre az **app/middleware/authjwt.js** fájlban a következőt:
+Az útvonalak védelméhez ellenőrznünk kell a kliens által visszaadott tokeneket.
+
+Az ellenőrzését egy köztes szoftverben végezzük. Hozzuk létre az **app/middleware/authjwt.js** fájlban a következőt:
 
 _app/middleware/authjwt.js_:
 
@@ -2838,7 +2882,7 @@ const Employee = sequelize.define('employee', {
 
 A **validate** kulcs összetettebb ellenőrzési lehetőségeket biztosít. Segítségével megvizsgálhatjuk, hogy a modellhez rendelt adatok megfelelnek-e a definiált szabályoknak, még mielőtt az adat az adatbázisba kerülne.
 
-Az **allowNull** egy adatbázis szintű korlátozást. Az **allowNull: false** beállítása a tábla létrehozásakor egy NOT NULL korlátozást állít be az adott mezőhöz.
+Az **allowNull** egy adatbázis szintű korlátozás. Az **allowNull: false** beállítása a tábla létrehozásakor egy NOT NULL korlátozást állít be az adott mezőhöz.
 
 A **validate: { notNull: true }** egy Sequelize szintű érvényeségi szabály. Ellenőrzi, hogy a mező értéke nem null, még az adatbázisba való rögzítés előtt.
 
@@ -2858,9 +2902,11 @@ const Employee = sequelize.define('employee', {
 })
 ```
 
+A name mező létrehozásánál megmondtuk, hogy az adatbázis táblában nem fogadunk el null értéket, a validate: { notNull: true } beállítással pedig megmondtuk, hogy már az adatküldésekor sem lehet null a name mező.
+
 ### Üres sztring vizsgálata
 
-A **validate: { notNull: true }** lehetővé tesi üres sztring küldését. A **validate: { notEmpty: true }** azt is megköveteljük, hogy a **name** mező ne legyen üres sztring.
+A **validate: { notNull: true }** megtiltja üres sztring küldését. A **validate: { notEmpty: true }** azt is megköveteljük, hogy a **name** mező ne legyen üres sztring.
 
 ```javascript
 const Employee = sequelize.define('employee', {
@@ -2873,6 +2919,14 @@ const Employee = sequelize.define('employee', {
         }
     }
 })
+```
+
+Üres sztring például:
+
+```json
+{
+    "name": ""
+}
 ```
 
 ### Üzenetek beállítása
