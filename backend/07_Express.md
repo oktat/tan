@@ -2438,16 +2438,18 @@ Célszerű létrehozni egy külön fájlt az app/models könyvtárban a követke
 * associations.js
 * relations.js
 * models.js
+* modrels.js
 
-Mi a realations.js nevet választjuk. A relations.js fájlban importáljuk a modelleket, majd egy **db** nevű objektumba tesszük őket, így könnyebben kezelhetők az importálás helyén.
+Mi a realations.js nevet választjuk. A modrels.js fájlban importáljuk a modelleket, majd egy **db** nevű objektumba tesszük őket, így könnyebben kezelhetők az importálás helyén.
 
-_app/models/relations.js_:
+_app/models/modrels.js_:
 
 ```javascript
 import Employee from '../models/employee.js'
 import Rank from '../models/rank.js'
 import Project from '../models/project.js'
 import EmployeeProject from '../models/employeeProject.js'
+import sequelize from "./database/database.js";
 
 const db = {}
 
@@ -2466,13 +2468,18 @@ db.Project.belongsToMany(db.Employee, {
     through: db.EmployeeProject
 });
 
+/* { alter: true } vagy { force: true } 
+Csak az egyik kulcs szerepeljen ture 
+vagy false értékkel */
+await sequelize.sync({ alter: true});
+
 export default db
 ```
 
-A relations.js fájl utasításainak le kell futnia a szerver indításakor. Helyezzük el a belépésipontot jelképező fájlban. Esetünkben ez **app/index.js**.
+A modrels.js fájl utasításainak le kell futnia a szerver indításakor. Helyezzük el a belépésipontot jelképező fájlban. Esetünkben ez **app/index.js**.
 
 ```javascript
-import db from "./models/relations.js";
+import "./models/relations.js";
 //...
 ```
 
@@ -2483,14 +2490,11 @@ A modellekből kivehetjük a modellek és a táblák szinkronizálását is. Hel
 _app/index.js_:
 
 ```javascript
-import sequelize from "./database/database.js";
 import express from "express";
 import routes from "./routes/api.js";
-import db from "./models/relations.js";
+import db from "./models/modrels.js";
 
 const app = express();
-
-await sequelize.sync({ alter: true});
 
 app.use(express.json());
 app.use('/api', routes);
