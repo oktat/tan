@@ -2539,7 +2539,7 @@ const User = sequelize.define('User', {
 export default User
 ```
 
-A felhaszálóhoz nem kötelező email cím, de fordítva is előfordulhat, hogy az email cím kötelező de a név mező nincs vagy nem kötelező. A jelszavakat mindenképpen titkosítva tároljuk a password mezőben.
+A felhaszálóhoz nem kötelező email cím, de fordítva is előfordulhat, hogy az email cím kötelező de a név mező nincs vagy nem kötelező. Kötelezővé tehetjük mindkettőt. A jelszavakat mindenképpen titkosítva tároljuk a password mezőben.
 
 A name és az email mezők esetén megkövetelhetjük az egyediséget adatbázis szintjén. Ha több felhasználói szerep is lesz, érdems felvenni egy mezőt, ahol tároljuk az aktuális felhasználó szerepét.
 
@@ -2563,7 +2563,7 @@ const User = sequelize.define('user', {
   },
   email: { type: DataTypes.STRING, allowNull: false, unique: true },
   password: { type: DataTypes.STRING, allowNull: false },
-  role: { type: DataTypes.STRING, allowNull: false, defaultValue: 'user' },
+  role: { type: DataTypes.STRING, allowNull: true, defaultValue: 'user' },
   active: { type: DataTypes.BOOLEAN, defaultValue: true }
 })
 ```
