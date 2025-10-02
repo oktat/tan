@@ -2708,7 +2708,7 @@ Szükségünk lesz egy token készítő csomagra. A jsonwebtoken csomagot fogjuk
 npm install jsonwebtoken
 ```
 
-Az authoController.js fájlban importálni kell a csomagot, és szükség lesz a konfigurációs állományra is.
+Az authController.js fájlban importálni kell a csomagot, és szükség lesz a konfigurációs állományra is.
 
 _app/controllers/authController.js_:
 
@@ -2723,7 +2723,7 @@ const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
 //...
 ```
 
-Az authoController.js fájl login része:
+Az authController.js fájl login része:
 
 _app/controllers/authController.js_:
 
