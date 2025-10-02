@@ -305,3 +305,24 @@ _ResclientExample.java_ részlet:
     }
   }
 ```
+
+### Java objektumból JSON sztring
+
+Készítünk egy createEmployee() metódust, amivel felvehetünk egy új dolgozót. A Java objektum a neve: **emp**. A RestConvert.toJson() metódust fogjuk használni konvertálásra.
+
+```java
+  public static void createEmployee() {
+
+    Employee emp = new Employee();
+    emp.setName("Erős István");
+    emp.setCity("Szeged");
+    emp.setSalary(new BigDecimal(395.8));
+
+    String empStr = ResConvert.toJson(emp);
+    System.out.println(empStr);
+
+    ResClientAsync client = new ResClientAsync();
+    String res = client.post(url, empStr).join();
+    System.out.println(res);
+  }
+```
