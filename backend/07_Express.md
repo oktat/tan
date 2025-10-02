@@ -2700,9 +2700,9 @@ _config/default.json_:
 
 A key kulcs értéke egy saját véletlenszám sorozat legyen.
 
-### A login() függvény az authcontroller.js-ben
+### A login() függvény az authController.js-ben
 
-_app/controllers/authcontroller.js_:
+_app/controllers/authController.js_:
 
 ```javascript
     async login(req, res) {
