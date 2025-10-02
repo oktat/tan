@@ -2366,6 +2366,10 @@ const EmployeeController = {
 export default EmployeeController
 ```
 
+A REST API eddig:
+
+* [https://github.com/oktat/empkap_tobbtobb.git](https://github.com/oktat/empkap_tobbtobb.git)
+
 ### Kapcsolótáblában tárolt adat
 
 Szeretnénk tudni egy dolgozó aktív státuszú-e egy projektben. Legyen egy **active** mező. Ilyen esetek lehetnek még, mikor lépet be, mikor hagyta el a projektet, ez esetben lehetne startedAt vagy startedOn és egy endedAt mező, de most maradjunk az active státusz mellett.
