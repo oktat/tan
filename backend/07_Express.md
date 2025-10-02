@@ -2586,69 +2586,48 @@ Készítsünk az **app/controllers/authController.js** fájlban egy AuthControll
 _app/controllers/authController.js_:
 
 ```javascript
-import bcrypt from 'bcryptjs'
-import User from '../models/user.js'
- 
+import User from '../models/user.js';
+import bcrypt from 'bcryptjs';
+
 const AuthController = {
     async register(req, res) {
- 
-        if(!req.body.name ||
+        if(!req.body.name || 
             !req.body.password ||
-            !req.body.password_confirmation) {
-            res.status(400)
-            res.json({
+            !req.body.password_confirmation
+        ) {
+            return res.status(400).json({
                 success: false,
-                message: 'Hiba! A bejövő adatok hibásak!'
-            })
+                message: 'name and password are required'
+            });
         }
- 
-        if(req.body.password != req.body.password_confirmation) {
-            res.status(400).send({
+        if(req.body.password !== req.body.password_confirmation) {
+            return res.status(400).json({
                 success: false,
-                message: "A jelszavak nem egyeznek!"
-            })
-        }        
- 
-        try {
-            User.findOne({
-                where: {
-                    name: req.body.name
-                }
-            })
-            .then(user => {
-                if(user) {
-                    res.status(400)
-                    res.json({ 
-                        message: "A felhasználó már létezik: " + user.name
-                    })
-                }else {
-                    const user = {
-                        name: req.body.name,
-                        email: req.body.email,
-                        password: bcrypt.hashSync(req.body.password)
-                    }
-                    User.create(user)
-                    .then( result => {
-                        res.status(201)
-                        res.json({
-                            succes: true,
-                            data: result
-                        })
-                    })
- 
-                }
-            })
-        } catch (error) {
-            res.status(500)
-            res.json({
-                success: true,
-                message: 'Hiba! A felhasználó létrehozása sikertelen'
-            })
-        }        
+                message: 'passwords do not match'
+            });
+        }
+        const user = await User.findOne({ where: { name: req.body.name } });
+        if(user) {
+            return res.status(400).json({
+                success: false,
+                message: 'user already exists'
+            });
+        }
+        const hashedPassword = bcrypt.hashSync(req.body.password);
+        const newUser = {
+            name: req.body.name,
+            password: hashedPassword
+        }
+        const storedUser = await User.create(newUser);
+        res.json({ 
+            success: true,
+            data: storedUser
+        });
     }
 }
- 
+
 export default AuthController
+
 ```
 
 ### Útválasztás a regiszterhez
@@ -2669,7 +2648,9 @@ const router = Router();
 
 import EmployeeController from '../controllers/employeecontroller.js'
 import AuthController from '../controllers/authcontroller.js'
- 
+
+//...
+
 router.get('/employees', EmployeeController.index)
 router.post('/employees', EmployeeController.store)
 router.put('/employees/:id', EmployeeController.update)
@@ -2704,16 +2685,20 @@ _config/default.json_:
 {
     "app": {
         "port": 8000,
-        "key": ""
+        "key": "43438438334398248341276598348249"
     },
     "db": {
-        "host": "127.0.0.1",
-        "name": "",
-        "user": "",
-        "pass": ""
+        "dialect": "sqlite",
+        "host": "localhost",
+        "name": "empy",
+        "user": "empy",
+        "pass": "titok",
+        "storage": "database.sqlite"
     }
 }
 ```
+
+A key kulcs értéke egy saját véletlenszám sorozat legyen.
 
 ### A login() függvény az authcontroller.js-ben
 
