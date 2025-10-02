@@ -2670,7 +2670,7 @@ Hozzunk létre egy alkalmazáskulcsot a config/default.json fájlban.
 ```json
 {
     "app": {
-        "key":"434384383343"
+        "key":"43438438334398248341276598348249"
     }    
 }
 ```
