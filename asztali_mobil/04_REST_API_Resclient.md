@@ -7,6 +7,8 @@
 
 ## Tartalomjegyzék
 
+> A 04_REST_API_Unirest fejezet és a 04_REST_API_Resclient fejezetből elég az egyiket feldolgozni.
+
 ## Bevezetés
 
 ### A REST API

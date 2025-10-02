@@ -21,7 +21,7 @@
 
 ## Bevezetés
 
-> A 04_REST_API_Unirest fejezet és a 05_REST_API_Resclient fejezetből elég az egyiket feldolgozni.
+> A 04_REST_API_Unirest fejezet és a 04_REST_API_Resclient fejezetből elég az egyiket feldolgozni.
 
 ### A REST API
 
