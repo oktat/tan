@@ -2479,7 +2479,7 @@ export default db
 A modrels.js fájl utasításainak le kell futnia a szerver indításakor. Helyezzük el a belépésipontot jelképező fájlban. Esetünkben ez **app/index.js**.
 
 ```javascript
-import "./models/relations.js";
+import "./models/modrels.js";
 //...
 ```
 
@@ -2492,7 +2492,7 @@ _app/index.js_:
 ```javascript
 import express from "express";
 import routes from "./routes/api.js";
-import db from "./models/modrels.js";
+import "./models/modrels.js";
 
 const app = express();
 
@@ -2540,12 +2540,45 @@ export default User
 
 A felhaszálóhoz nem kötelező email cím, de fordítva is előfordulhat, hogy az email cím kötelező de a név mező nincs vagy nem kötelező. A jelszavakat mindenképpen titkosítva tároljuk a password mezőben.
 
+A name és az email mezők esetén megkövetelhetjük az egyediséget adatbázis szintjén. Ha több felhasználói szerep is lesz, érdems felvenni egy mezőt, ahol tároljuk az aktuális felhasználó szerepét.
+
+Tárolhatjuk szövegként:
+
+* user
+* admin
+* superadmin
+* stb.
+
+Ha a felhasználót inaktív állapotba szeretnénk helyezni készíthetünk egy actiev nevű mezőt, ahol tároljuk, hogy aktív vagy nem.
+
+A felhasználó modell kiegészítsékkel:
+
+```javascript
+const User = sequelize.define('user', {
+  name: { 
+    type: DataTypes.STRING, 
+    allowNull: false, 
+    unique: true 
+  },
+  email: { type: DataTypes.STRING, allowNull: false, unique: true },
+  password: { type: DataTypes.STRING, allowNull: false },
+  role: { type: DataTypes.STRING, allowNull: false, defaultValue: 'user' },
+  active: { type: DataTypes.BOOLEAN, defaultValue: true }
+})
+```
+
 ### AuthController készítése
 
 Egy felhasználó két módon kerülehet a felhasználói táblába. Vagy lehetőség van a regisztrációra, vagy egy adminisztrátor felveszi.
 Ha regisztrálási lehetőség van, ez általában nem nem védett /register nevű végponton történik. Az adminisztrátor általában egy /users végponton veszi fel a felhasználókat, amit csak azonosítás után lehet elérni.
 
 Itt most szabad regisztrációt fogunk használni, egy /register nevű végponttal. A jelszavak titkosításához a bcryptjs csomagot használjuk. A jelszót kétszer is bekérjük, amit ellenőrzünk, hogy egyeznek-e. A megadott felhasználónvet ellenőrzizzük, hogy létezik-e. Ha létezik hibát adunk vissza.
+
+Telepítsük a projektbe a bcryptjs csomagot:
+
+```bash
+npm install bcryptjs
+```
 
 Készítsünk az **app/controllers/authController.js** fájlban egy AuthController-t:
 
@@ -2559,7 +2592,6 @@ const AuthController = {
     async register(req, res) {
  
         if(!req.body.name ||
-            !req.body.email ||
             !req.body.password ||
             !req.body.password_confirmation) {
             res.status(400)
