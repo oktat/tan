@@ -2571,12 +2571,14 @@ const User = sequelize.define('user', {
     allowNull: false, 
     unique: true 
   },
-  email: { type: DataTypes.STRING, allowNull: false, unique: true },
+  email: { type: DataTypes.STRING, allowNull: true },
   password: { type: DataTypes.STRING, allowNull: false },
   role: { type: DataTypes.STRING, allowNull: true, defaultValue: 'user' },
   active: { type: DataTypes.BOOLEAN, defaultValue: true }
 })
 ```
+
+Az email mezőt szükség esetén állítsuk egyedire, és tegyük kötelezővé.
 
 ### AuthController készítése
 
@@ -2673,6 +2675,16 @@ router.post('/register', AuthController.register)
 export default router
 ```
 
+### Regisztráció tesztelése
+
+```bash
+res post localhost:8000/api/register 
+name=imre password=titok
+password_confirmation=titok
+```
+
+Nézzük meg az adatábzis users tábláját, létre jött-e a felhasználó.
+
 ## Bejelentkezés
 
 ### Az APP_KEY
@@ -2687,7 +2699,7 @@ Hozzunk létre egy alkalmazáskulcsot a config/default.json fájlban.
 }
 ```
 
-A számok véletlenszerűen megadott számok, legalább 32 darab.
+Az érték egy véletlenszerűen megadott karaktersorozat legyen, ami legalább 32 darab.
 
 A teljes config/default.json fájl az alábbiakban láthatjuk.
 
@@ -2785,7 +2797,7 @@ router.post('/login', AuthController.login)
 Vegyünk fel egy felhasználót, például janos, titok jelszóval, ha még nem tettük volna meg:
 
 ```bash
-res localhost:8000/api/register 
+res post localhost:8000/api/register 
 name=janos password=titok
 password_confirmation=titok
 ```
@@ -2793,11 +2805,11 @@ password_confirmation=titok
 Jelentkezzünk be:
 
 ```bash
-res localhost:8000/api/login 
+res post localhost:8000/api/login 
 name=janos password=titok
 ```
 
-Amit visszakapunk ehhez hasonló kell legyen:
+Amit visszakapunk ehhez hasonló kell lehet:
 
 ```json
 {
@@ -2808,13 +2820,13 @@ Amit visszakapunk ehhez hasonló kell legyen:
 }
 ```
 
-Az accessToken kulcs értéke egy hosszú token.
+Az accessToken kulcs értéke egy hosszú karakterlánc.
 
 ### Tokenek ellenőrzse
 
 Az útvonalak védelméhez ellenőrznünk kell a kliens által visszaadott tokeneket.
 
-Az ellenőrzését egy köztes szoftverben végezzük. Hozzuk létre az **app/middleware/authjwt.js** fájlban a következőt:
+Az ellenőrzést egy köztes szoftverben végezzük. Hozzuk létre az **app/middleware/authjwt.js** fájlban a következőt:
 
 _app/middleware/authjwt.js_:
 
@@ -2822,10 +2834,10 @@ _app/middleware/authjwt.js_:
 import jwt from 'jsonwebtoken'
 import { readFileSync } from 'fs'
 
-const fileUrl = new URL('config.json', import.meta.url)
+const fileUrl = new URL('../../config/default.json', import.meta.url)
 const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
  
-exports.verifyToken = (req, res, next) => {
+const verifyToken = (req, res, next) => {
     let authData = req.headers.authorization;
     if(!authData) {
         return res.status(403).send({
@@ -2844,6 +2856,8 @@ exports.verifyToken = (req, res, next) => {
         next()
     })
 };
+
+export default verifyToken
 ```
 
 ### Útvonal védelme
@@ -2851,7 +2865,7 @@ exports.verifyToken = (req, res, next) => {
 Az útvonalak védelme get(), post(), put() és a delete() függvényhívásokban a második paraméter lesz. A példában szögletes zárójelben adtuk meg, ami tömb adatszerkezet. Vagyis több köztes szoftver is megadható.
 
 ```javascript
-import { verifyToken } from '../middleware/authjwt.js'
+import verifyToken from '../middleware/authjwt.js'
 //...
 router.post('/employees', [verifyToken], EmployeeController.store)
 ```
