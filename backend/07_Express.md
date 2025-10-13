@@ -2530,7 +2530,11 @@ Minden újabb kéréshez, ha az útvonal védett a kliensnek vissza kell külden
 
 A kliens minden védett útvonalhoz újra el kell küldenie a tokent.
 
-### User model készítése
+### User modell készítése
+
+A továbbiakhoz használhatjuk a következő elkezdett projektet:
+
+* [https://github.com/oktat/relations.git](https://github.com/oktat/relations.git)
 
 Készítsünk egy User modellt az **src/models/user.js** fájlban:
 
@@ -2549,7 +2553,7 @@ const User = sequelize.define('User', {
 export default User
 ```
 
-A felhaszálóhoz nem kötelező email cím, de fordítva is előfordulhat, hogy az email cím kötelező de a név mező nincs vagy nem kötelező. Kötelezővé tehetjük mindkettőt. A jelszavakat mindenképpen titkosítva tároljuk a password mezőben.
+A felhaszálóhoz nem kötelező email cím, de fordítva is előfordulhat, hogy az email cím kötelező de a név mező nincs vagy nem kötelező. Kötelezővé tehetjük mindkettőt. A jelszavakat mindenképpen titkosítva tároljuk a password mezőben. A **name** helyett használhatunk **username** mezőnevet.
 
 A name és az email mezők esetén megkövetelhetjük az egyediséget adatbázis szintjén. Ha több felhasználói szerep is lesz, érdems felvenni egy mezőt, ahol tároljuk az aktuális felhasználó szerepét.
 
