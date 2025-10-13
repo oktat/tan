@@ -2542,9 +2542,9 @@ _src/models/user.js_:
 
 ```javascript
 import { DataTypes } from 'sequelize'
-import sequelize from '../database/mariadb.js'
+import sequelize from '../database/database.js'
  
-const User = sequelize.define('User', {
+const User = sequelize.define('user', {
     name: { type: DataTypes.STRING,  allowNull: false  },
     email: { type: DataTypes.STRING,  allowNull: true  },
     password: { type: DataTypes.STRING , allowNull: false }
