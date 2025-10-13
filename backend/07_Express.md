@@ -1393,7 +1393,7 @@ const fileUrl = new URL(confPath, import.meta.url)
 const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
 ```
 
-A beállítások a **config** objektmból érhetők el.
+A beállítások a **config** objektumból érhetők el.
 
 ```javascript
 import { Sequelize } from "sequelize";
