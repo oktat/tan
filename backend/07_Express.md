@@ -25,6 +25,7 @@
 * [Táblák közötti kapcsolatok](#táblák-közötti-kapcsolatok)
 * [Azonosítás](#azonosítás)
 * [Bejelentkezés](#bejelentkezés)
+* [Tokenek ellenőrzse](#tokenek-ellenőrzse)
 * [Érvényesség](#érvényesség)
 * [Biztonság](#biztonság)
 
@@ -2830,7 +2831,7 @@ A kész változat:
 
 * [https://github.com/oktat/empkap_authentication.git](https://github.com/oktat/empkap_authentication.git)
 
-### Tokenek ellenőrzse
+## Tokenek ellenőrzse
 
 Folytathatjuk a következő projekttel:
 
