@@ -2520,6 +2520,16 @@ A kapcsolatok használatáról teljes példát találunk:
 
 Az útvonalak védelméhez szükség van felhasználókra. Az útvonalakat JWT tokennel fogjuk biztosítani.
 
+A felhasználó azonosítja magát, elküdli a felhasználónevet és a jelszót. A szerver egy titkos kulcs alapján (APP_KEY) készít egy tokent, amit visszaküld a kliensnek. A kliens eltárolja cookie vagy localStorage módszerrel a böngészőben.
+
+![azonosítás](images/authentication.png)
+
+Minden újabb kéréshez, ha az útvonal védett a kliensnek vissza kell küldenie a tokent. A szerver a titkos kulcs alapján ellenőrzi a token érvényességét. Ha token érvényes kiszolgálja a végponthoz tartozó adatokat.
+
+![jogosultság](images/authorisation.png)
+
+A kliens minden védett útvonalhoz újra el kell küldenie a tokent.
+
 ### User model készítése
 
 Készítsünk egy User modellt az **src/models/user.js** fájlban:
