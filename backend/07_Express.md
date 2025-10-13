@@ -2785,7 +2785,7 @@ router.post('/login', AuthController.login)
 Vegyünk fel egy felhasználót, például janos, titok jelszóval, ha még nem tettük volna meg:
 
 ```bash
-res localhost:8000/api/auth/register 
+res localhost:8000/api/register 
 name=janos password=titok
 password_confirmation=titok
 ```
@@ -2793,7 +2793,7 @@ password_confirmation=titok
 Jelentkezzünk be:
 
 ```bash
-res localhost:8000/api/auth/login 
+res localhost:8000/api/login 
 name=janos password=titok
 ```
 
