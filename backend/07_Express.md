@@ -2560,7 +2560,7 @@ Tárolhatjuk szövegként:
 * superadmin
 * stb.
 
-Ha a felhasználót inaktív állapotba szeretnénk helyezni készíthetünk egy actiev nevű mezőt, ahol tároljuk, hogy aktív vagy nem.
+Ha a felhasználót inaktív állapotba szeretnénk helyezni készíthetünk egy **active** nevű mezőt, ahol tároljuk, hogy aktív vagy nem.
 
 A felhasználó modell kiegészítsékkel:
 
@@ -2582,6 +2582,8 @@ const User = sequelize.define('user', {
 
 Egy felhasználó két módon kerülehet a felhasználói táblába. Vagy lehetőség van a regisztrációra, vagy egy adminisztrátor felveszi.
 Ha regisztrálási lehetőség van, ez általában nem nem védett /register nevű végponton történik. Az adminisztrátor általában egy /users végponton veszi fel a felhasználókat, amit csak azonosítás után lehet elérni.
+
+![felhasználó felvétele](images/user_creation.png)
 
 Itt most szabad regisztrációt fogunk használni, egy /register nevű végponttal. A jelszavak titkosításához a bcryptjs csomagot használjuk. A jelszót kétszer is bekérjük, amit ellenőrzünk, hogy egyeznek-e. A megadott felhasználónvet ellenőrzizzük, hogy létezik-e. Ha létezik hibát adunk vissza.
 
