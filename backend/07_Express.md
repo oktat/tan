@@ -2826,7 +2826,15 @@ Amit visszakapunk ehhez hasonló kell lehet:
 
 Az accessToken kulcs értéke egy hosszú karakterlánc.
 
+A kész változat:
+
+* [https://github.com/oktat/empkap_authentication.git](https://github.com/oktat/empkap_authentication.git)
+
 ### Tokenek ellenőrzse
+
+Folytathatjuk a következő projekttel:
+
+* [https://github.com/oktat/empkap_authentication.git](https://github.com/oktat/empkap_authentication.git)
 
 Az útvonalak védelméhez ellenőrznünk kell a kliens által visszaadott tokeneket.
 
