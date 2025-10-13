@@ -1190,7 +1190,6 @@ A parancsok:
 mkdir lite
 cd lite
 npm init -y
-npm install express
 ```
 
 Állítsuk be a **package.json** fájlban a type kulcs tartalmát module-ra.
@@ -1272,11 +1271,25 @@ A sequelize objektummal létrehozhatunk modellt, amiből létrejön egy tábla.
 Tegyük fel, hogy dolgozók adatait szeretnénk tárolni.
 
 ```javascript
-const Employee = new sequelize.define('employee', {
+import { Sequelize, DataTypes } from 'sequelize'
+
+//...
+
+const Employee = sequelize.define('employee', {
     name: { type: DataTypes.STRING },
     city: { type: DataTypes.STRING },
-    salary: { type: DataTypes.DOUBLE }
+    salary: { type: DataTypes.DECIMAL }
 })
+```
+
+A mezők típusa megadható a Sequelize statikus tagjaként is:
+
+```javascript
+const Employee = sequelize.define('employee', {
+  name: { type: Sequelize.STRING },
+  city: { type: Sequelize.STRING },
+  salary: { type: Sequelize.DECIMAL }
+});
 ```
 
 Szükség van egy utasításra, ami leszinkronizálja az objektumot az adatbázisban.
@@ -1295,12 +1308,12 @@ await sequelize.sync(
 )
 ```
 
-Ha már léteznek a táblák a { force: true } kitörli és felülírja azt. Az { alter: true } meghadja az meglévő adatokat.
+Ha már léteznek a táblák a { force: true } kitörli és felülírja azt. Az { alter: true } meghagyja a meglévő adatokat, és a táblaszerkezetet is. Ha újabb mezőket adunk a táblához, azok a jelenlegi mezők végén jelennek meg.
 
 A teljes kód:
 
 ```javascript
-import { Sequelize } from "sequelize";
+import { Sequelize, DataTypes } from "sequelize";
 
 const sequelize = new Sequelize({
   dialect: "sqlite",
@@ -1308,9 +1321,9 @@ const sequelize = new Sequelize({
 });
 
 const Employee = sequelize.define('employee', {
-  name: { type: Sequelize.STRING },
-  city: { type: Sequelize.STRING },
-  salary: { type: Sequelize.DOUBLE }
+  name: { type: DataTypes.STRING },
+  city: { type: DataTypes.STRING },
+  salary: { type: DataTypes.DECIMAL }
 });
 
 await sequelize.sync({
@@ -1324,7 +1337,7 @@ await Employee.create({
 });
 ```
 
-Az **id mezőt** nem adtuk meg, mivel automatikusan létrejön. A mezők értékét nem kötelező elküldeni a kliensnek, mivel alapértelmezetten ez nincs megkövetelve. Az allowNull: false beállítássall adhatjuk meg, hogy ezek kötelezőek legyenek.
+Az **id mezőt** nem adtuk meg, mivel automatikusan létrejön. A mezők értékét nem kötelező elküldeni a kliensnek, mivel alapértelmezetten ez nincs megkövetelve. Az allowNull: false beállítással adhatjuk meg, hogy ezek kötelezőek legyenek.
 
 Például:
 
@@ -1335,11 +1348,15 @@ name: {
     }
 ```
 
-De ez már az érvényesség vizsgálat témaköre.
+Az { allowNull: false } hatására az adatbázisban a tábla megkötései közé lesz bejegyzve, hogy az adott mező nem lehet NULL érték.
 
 Futtassuk az alkalmazhást.
 
 Az adatbázisban, most létre kell jöjjön egy employees tábla. Ellenőrizzük.
+
+```bash
+node app/database/database.js
+```
 
 ## SQLite beállításfájlból
 
@@ -1376,7 +1393,7 @@ const fileUrl = new URL(confPath, import.meta.url)
 const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
 ```
 
-A beállíátsok a **config** objektmból érhetők el.
+A beállítások a **config** objektmból érhetők el.
 
 ```javascript
 import { Sequelize } from "sequelize";
@@ -1393,7 +1410,7 @@ const sequelize = new Sequelize({
 const Employee = sequelize.define('employee', {
   name: { type: Sequelize.STRING },
   city: { type: Sequelize.STRING },
-  salary: { type: Sequelize.DOUBLE }
+  salary: { type: Sequelize.DECIMAL }
 });
 
 await sequelize.sync({
