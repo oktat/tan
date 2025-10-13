@@ -2900,6 +2900,10 @@ router.delete('/employees/:id', [verifyToken], employees.destroy);
 router.put('/employees/:id', [verifyToken], employees.update);
 ```
 
+Az eddig kész projekt:
+
+* [https://github.com/oktat/empkap_authorization.git](https://github.com/oktat/empkap_authorization.git)
+
 ## Érvényesség
 
 A kliensektől érkező adatokat ellenőrizzük, hogy megfeleljen az adatbázis számára.
