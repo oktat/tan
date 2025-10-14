@@ -28,6 +28,7 @@
 * [Tokenek ellenőrzse](#tokenek-ellenőrzse)
 * [Érvényesség](#érvényesség)
 * [Biztonság](#biztonság)
+* [Tesztelés](#tesztelés)
 
 ## Szükséges
 
@@ -1139,21 +1140,22 @@ _app/index.js_:
 
 ```javascript
 import express from 'express'
-import morgan from 'morgan'
-import router from './routes/api'
-import { readFileSync } from 'fs'
 
+//Konfigurációs fájl olvasása:
+import { readFileSync } from 'fs'
 const fileUrl = new URL('config.json', import.meta.url)
 const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
 
 const app = new express()
 
-app.use(morgan('tiny'))
-app.use(express.json())
-app.use('/api', router)
+app.get('/valami', (req, res) => {
+    res.send('Figyeljük a portot')
+})
 
-app.listen(config.app.port, () => {
-    console.log(`Port: ${config.app.port}`)
+const PORT = config.app.port
+
+app.listen(PORT, () => {
+    console.log(`Listening on port: ${PORT}`)
 })
 ```
 
@@ -1161,7 +1163,7 @@ Indítsuk újra a szervert. Most a default.json fájlban megadott portot veszi f
 
 ### A .env fájl használata
 
-Készítsün egy .env nevű fájlt.
+Készítsün egy .env nevű fájlt. A változó érték párokat adhatunk meg benne, egyenlőség jellel tagolva. Legyen a példa kedvéért az alkalmazás portja:
 
 _.env_:
 
@@ -1169,7 +1171,7 @@ _.env_:
 APP_PORT=8000
 ```
 
-A használatra több lehetőségünk van.
+Az alkalmazásban több módon is elérhetjük a fájl tartalmát.
 
 * node --env-file kapcsoló használata
 * dotenv csomag használata
@@ -1177,10 +1179,10 @@ A használatra több lehetőségünk van.
 
 #### A node --env-file kapcsoló használata
 
-A kapcsoló a Node.js 20.6.0 verzótól áll rendelkezésre.
+A kapcsoló a Node.js 20.6.0 verzótól áll rendelkezésre. Segítségével megadható a változókat tartalmazó fájl neve:
 
 ```bash
-node --env-file .env index.js app
+node --env-file=.env app
 ```
 
 Ahol használni akarjuk semmit nem kell importálni.
@@ -1191,15 +1193,12 @@ _app/index.js_:
 
 ```javascript
 import express from 'express'
-import morgan from 'morgan'
-import router from './routes/api'
 
 const app = new express()
 
-app.use(morgan('tiny'))
-app.use(express.json())
-app.use('/api', router)
-
+app.get('/valami', (req, res) => {
+    res.send('Figyeljük a portot')
+})
 
 const PORT = process.env.APP_PORT || 8000
 app.listen(PORT, () => {
@@ -1207,38 +1206,39 @@ app.listen(PORT, () => {
 })
 ```
 
-#### A dotenv csomag használata
+#### A dotenv-flow csomag használata
 
 Telepítsük:
 
 ```bash
-npm install dotenv
+npm install dotenv-flow
 ```
 
 ```javascript
-import dotenv from 'dotenv'
-dotenv.config()
+import dotenvFlow from 'dotenv-flow'
+dotenvFlow.config()
 ```
 
-Csendes kimenet:
+Teljes kód:
+
+_app/index.js_:
 
 ```javascript
-import dotenv from 'dotenv'
-dotenv.config({ quiet: true })
-//...
-```
+import express from 'express'
 
-#### A dotenvx csomag használata
+import dotenvFlow from 'dotenv-flow'
+dotenvFlow.config()
 
-Telepítsük:
+const app = new express()
 
-```bash
-npm install dotenv
-```
+app.get('/valami', (req, res) => {
+    res.send('valami')
+})
 
-```javascript
-import dotenv from '@dotenvx/dotenvx'
-dotenv.config()
+const PORT = process.env.APP_PORT || 3000
+app.listen(PORT, () => {
+    console.log(`Listening on port: ${PORT}`)
+})
 ```
 
 ## ORM használata
@@ -1366,7 +1366,7 @@ const Employee = sequelize.define('employee', {
 })
 ```
 
-A mezők típusa megadható a Sequelize statikus tagjaként is, Sequeleiz.STRING formában.
+A mezők típusa megadható a Sequelize statikus tagjaként is, Sequelize.STRING formában.
 
 Szükség van egy utasításra, ami leszinkronizálja az objektumot az adatbázisban.
 
@@ -1436,91 +1436,6 @@ node app/database/database.js
 
 ## SQLite beállításfájlból
 
-### Adatbázis a config/default.json fájlban
-
-Vegyük fel a **config** nevű mappát, benne egy **default.json** fájlt.
-
-```txt
-lite/
-  |-app/
-  |  `-database/
-  |     `-database.js
-  |-config/
-  |  `-default.json
-  |-database.sqlite
-  `-package.json
-```
-
-Állítsuk be a **default.json** fájlban a SQLite elérési adatait. Vegyünk fel egy **db** kulcsot. Értéke egy objektum ami két újabb kulcsot tartalmaz: dialect és storage. A dialect kulcsban megadhatjuk az adatbázis típusát, a storage kulcsban megadhatjuk az adatbázis fájlt.
-
-```json
-{
-    "db": {
-        "dialect": "sqlite",
-        "storage": "database.sqlite"
-    }
-}
-```
-
-Most be kell olvasni a fájl tartalmát.
-
-```javascript
-import { readFileSync } from 'fs'
-const confPath = '../../config/default.json'
-const fileUrl = new URL(confPath, import.meta.url)
-const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
-```
-
-A beállítások a **config** objektumból érhetők el.
-
-```javascript
-import { Sequelize } from "sequelize";
-import { readFileSync } from 'fs'
-const confPath = '../../config/default.json'
-const fileUrl = new URL(confPath, import.meta.url)
-const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
-
-const sequelize = new Sequelize({
-  dialect: config.db.dialect,
-  storage: config.db.storage"
-});
-
-const Employee = sequelize.define('employee', {
-  name: { type: Sequelize.STRING },
-  city: { type: Sequelize.STRING },
-  salary: { type: Sequelize.DECIMAL }
-});
-
-await sequelize.sync({
-    alter: true
-});
-
-await Employee.create({
-  name: 'Erős István',
-  city: 'Szeged',
-  salary: 392
-});
-```
-
-Töröljük az adatbázisfájlt majd, futtassuk újra az alkalmazást és ellenőrizzük az adatbázist, benne a táblát.
-
-Hosszú távon a modellt és a modellen a create() függvény futtatását kiemeljük más állományba. A modelt egy models nevű könyvtárba helyezzük, az új dolgozó létrehozását a controllers nevű könyvtár egy állományába.
-
-```txt
-lite/
-  |-app/
-  |  |-controllers/
-  |  |   `-employeeController.js
-  |  |-database/
-  |  |   `-database.js
-  |  `-models/
-  |      `-employee.js
-  |-config/
-  |  `-default.json
-  |-database.sqlite
-  `-package.json
-```
-
 ### Adatbázis a .env fájlban
 
 Az alkalmazás beállításait egy .env nevű fájlba helyezzük el. Lásd a következő könyvtárszerkezetet:
@@ -1548,23 +1463,23 @@ DB_DIALECT=sqlite
 DB_STORAGE=database.sqlite
 ```
 
-A .env fájl tartalmának olvasásához szükségünk van a **dotenv** csomagra. Telepítsük:
+A .env fájl tartalmának olvasásához szükségünk van a **dotenv-flow** csomagra. Telepítsük:
 
 ```bash
-npm install dotenv
+npm install dotenv-flow
 ```
 
 Importálni kell, majd futtatni a config() függvényt:
 
 ```javascript
-import dotenv from "dotenv";
-dotenv.config();
+import dotenvFlow from "dotenv-flow";
+dotenvFlow.config();
 ```
 
 ```javascript
 import { Sequelize } from "sequelize";
-import dotenv from "dotenv";
-dotenv.config();
+import dotenvFlow from "dotenv-flow";
+dotenvFlow.config();
 
 const sequelize = new Sequelize({
   dialect: process.env.DB_DIALECT,
@@ -1614,12 +1529,11 @@ Hozzunk létre egy **empy** nevű projektet.
 ```txt
 empy/
   |-app/
-  |  `-database/
-  |     `-database.js
-  |-config/
-  |  `-default.json
-  |-models/
-  |  `-employee.js
+  |  |-database/
+  |  |   `-database.js
+  |  `-models/
+  |      `-employee.js
+  |-.env
   `-package.json
 ```
 
@@ -1640,23 +1554,17 @@ A package.json **type** értéke legyen **module**.
 }
 ```
 
-Most vegyük fel a **default.json** fájlban a MariaDB elérési adatait:
+Most vegyük fel a **.env** fájlban a MariaDB elérési adatait:
 
-_config/default.json_:
+_.env_:
 
-```json
-{
-    "app": {
-        "port": 8000
-    },
-    "db": {
-        "dialect": "mariadb",
-        "host": "localhost",
-        "name": "empy",
-        "user": "empy",
-        "pass": "titok"
-    }
-}
+```ini
+APP_PORT=8000
+DB_DIALECT=mariadb
+DB_HOST=localhost
+DB_NAME=empy
+DB_USER=empy
+DB_PASS=titok
 ```
 
 ### Adatbázis-elérés
@@ -1667,18 +1575,16 @@ _app/database/database.js_:
 
 ```javascript
 import Sequalize from 'sequelize'
-import { readFileSync } from 'fs'
-const confPath = '../../config/default.json'
-const fileUrl = new URL(confPath, import.meta.url)
-const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
+import dotenvFlow from 'dotenv-flow'
+dotenvFlow.config()
  
 const sequalize = new Sequalize(
-    config.db.name,
-    config.db.user, 
-    config.db.pass,
+    process.env.DB_NAME,
+    process.env.DB_USER, 
+    process.env.DB_PASS,
     {
-        host: config.db.host,
-        dialect: 'mariadb',
+        dialect: process.env.DB_DIALECT,
+        host: process.env.DB_HOST,
         dialectOptions: {}
     }
 )
@@ -1744,8 +1650,7 @@ empy/
   |  |   `-database.js
   |  `-models/
   |      `-employee.js
-  |-config/
-  |  `-default.json
+  |-.env
   `-package.json
 ```
 
@@ -1858,14 +1763,12 @@ _app/index.js_:
 import express from 'express'
 import router from './routes/api.js'
 import morgan from 'morgan'
-import { readFileSync } from 'fs'
-
-const fileUrl = new URL('../config/default.json', import.meta.url)
-const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
+import dotenvFlow from 'dotenv-flow'
+dotenvFlow.config()
 
 const app = new express()
 
-const PORT = config.app.port || 8000
+const PORT = process.env.APP_PORT || 8000
  
 app.use(morgan('combined'))
 app.use(express.json())
@@ -1917,26 +1820,20 @@ Az empy projekt elérhető a következő helyen:
 
 Szeretnénk az adatbáis kódját úgy megírni, hogy az használhasson SQLite-t vagy MySQL-t, attól függően mit szeretnénk.
 
-Töltsük le ehhez az **empdat** nevű projektet. A projekt az előz fejezetek alapján elkészített empy adatbázis, a gyakorlatok elvégzése után. A projekt elérhető itt:
+Töltsük le ehhez az **empdat** nevű projektet. A projekt az előző fejezetek alapján elkészített empy adatbázis, a gyakorlatok elvégzése után. A projekt elérhető itt:
 
 * [https://github.com/oktat/empdat.git](https://github.com/oktat/empdat.git)
 
-_config/default.json_:
+_.env_:
 
-```json
-{
-    "app": {
-        "port": 8000
-    },
-    "db": {
-        "dialect": "sqlite",
-        "host": "localhost",
-        "name": "empy",
-        "user": "empy",
-        "pass": "titok",
-        "storage": "database.sqlite"
-    }
-}
+```ini
+APP_PORT=8000
+DB_DIALECT=sqlite
+DB_HOST=localhost
+DB_NAME=empy
+DB_USER=empy
+DB_PASS=titok
+DB_STORAGE=database.sqlite
 ```
 
 Olvassuk a beállításfájlból a **dialect** kulcs és a **storage** kulcsok értékét.
@@ -1945,28 +1842,25 @@ _app/database/database.js_:
 
 ```javascript
 import Sequalize from 'sequelize'
-
-import { readFileSync } from 'fs'
-const confPath = '../../config/default.json'
-const fileUrl = new URL(confPath, import.meta.url)
-const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
+import dotenvFlow from 'dotenv-flow'
+dotenvFlow.config()
 
 const sequalize = new Sequalize(
-    config.db.name,
-    config.db.user, 
-    config.db.pass,
+    process.env.DB_NAME,
+    process.env.DB_USER,
+    process.env.DB_PASS,
     {
-        host: config.db.host,
-        dialect: config.db.dialect,
+        dialect: process.env.DB_DIALECT,
+        host: process.env.DB_HOST,
+        storage: process.env.DB_STORAGE
         dialectOptions: {},
-        storage: config.db.storage
     }
 )
 
 export default sequalize
 ```
 
-Ezt követően a _config/default.json_ fájlban állítható be a **dialect** kulccsal, hogy milyen adatbáist szeretnénk használni. Ha csak SQLite adatbázist szeretnénk haszhálni, a MySQL beállításait nem kell kitörölni, elég a dialektus bállítása.
+Ezt követően a _.env_ fájlban állítható be a **dialect** kulccsal, hogy milyen adatbáist szeretnénk használni. Ha csak SQLite adatbázist szeretnénk haszhálni, a MySQL beállításait nem kell kitörölni, elég a dialektus bállítása.
 
 Ügyeljünk arra, hogy minden adatbázishoz legyen telepítve csomag:
 
@@ -1976,20 +1870,14 @@ npm install mariadb sqlite3
 
 Az SQLite  esetén használhatunk memória-adatbázist is. Memória-adatbázis minden szerverindításkor újra létrejön, vagyis az adatok csak addig vannak meg, amíg fut a szerver. Tesztelésre kiváló.
 
-```json
-{
-    "app": {
-        "port": 8000
-    },
-    "db": {
-        "dialect": "sqlite",
-        "host": "localhost",
-        "name": "empy",
-        "user": "empy",
-        "pass": "titok",
-        "storage": ":memory:"
-    }
-}
+```ini
+APP_PORT=8000
+DB_DIALECT=sqlite
+DB_HOST=localhost
+DB_NAME=empy
+DB_USER=empy
+DB_PASS=titok
+DB_STORAGE=:memory:
 ```
 
 ## Táblák közötti kapcsolatok
@@ -2016,6 +1904,7 @@ empkap/
   |  |-routes/
   |  |   `-api.js
   |  `-index.js
+  |-.env
   |-database.sqlite
   `-package.json
 ```
@@ -2069,16 +1958,15 @@ Teljes kód:
 import express from 'express'
 import router from './routes/api.js'
 import morgan from 'morgan'
-import { readFileSync } from 'fs'
+import dotenvFlow from 'dotenv-flow'
 import sequalize from './database/database.js'
 
-const fileUrl = new URL('../config/default.json', import.meta.url)
-const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
+dotenvFlow.config()
 
 await sequalize.sync()
 
 const app = express()
-const PORT = config.app.port || 8000
+const PORT = process.env.APP_PORT || 8000
 
 app.use(morgan('tiny'))
 app.use(express.json())
@@ -2096,22 +1984,16 @@ A modellekből ne felejtsük el kivenni a szinkronizálást. Teszteljük a műk�
 
 Ellenőrizzük, legyen egy SQLite kapcsolat beállítva.
 
-_config/default.json_:
+_.env_:
 
-```javascript
-{
-    "app": {
-        "port": 8000
-    },
-    "db": {
-        "dialect": "sqlite",
-        "host": "localhost",
-        "name": "empy",
-        "user": "empy",
-        "pass": "titok",
-        "storage": "database.sqlite"
-    }
-}
+```ini
+APP_PORT=8000
+DB_DIALECT=sqlite
+DB_HOST=localhost
+DB_NAME=empy
+DB_USER=empy
+DB_PASS=titok
+DB_STORAGE=database.sqlite
 ```
 
 Beosztásokat a **rank modellben** tároljuk:
@@ -2856,37 +2738,29 @@ Nézzük meg az adatábzis users tábláját, létre jött-e a felhasználó.
 
 ### Az APP_KEY
 
-Hozzunk létre egy alkalmazáskulcsot a config/default.json fájlban.
+Hozzunk létre egy alkalmazáskulcsot a _.env_ fájlban.
 
-```json
-{
-    "app": {
-        "key":"43438438334398248341276598348249"
-    }    
-}
+```ini
+#...
+APP_KEY=43438438334398248341276598348249
+#...
 ```
 
 Az érték egy véletlenszerűen megadott karaktersorozat legyen, ami legalább 32 darab.
 
 A teljes config/default.json fájl az alábbiakban láthatjuk.
 
-_config/default.json_:
+_.env_:
 
-```json
-{
-    "app": {
-        "port": 8000,
-        "key": "43438438334398248341276598348249"
-    },
-    "db": {
-        "dialect": "sqlite",
-        "host": "localhost",
-        "name": "empy",
-        "user": "empy",
-        "pass": "titok",
-        "storage": "database.sqlite"
-    }
-}
+```ini
+APP_PORT=8000
+APP_KEY=43438438334398248341276598348249
+DB_DIALECT=sqlite
+DB_HOST=localhost
+DB_NAME=empy
+DB_USER=empy
+DB_PASS=titok
+DB_STORAGE=database.sqlite
 ```
 
 A key kulcs értéke egy saját véletlenszám sorozat legyen.
@@ -3045,7 +2919,7 @@ import verifyToken from '../middleware/authjwt.js'
 router.post('/employees', [verifyToken], EmployeeController.store)
 ```
 
-Ellenőrizzük például a resen csomag res parancsával:
+Ellenőrizzük például a resen csomag **res** parancsával:
 
 ```cmd
 res post localhost:8000/api/employees 
@@ -3489,3 +3363,73 @@ app.listen(8000, () => {
 ```
 
 Most készítsünk újra riportot a Wapitivel, illetve nézzük meg a http vagy curl paranccsal.
+
+## Tesztelés
+
+A teszteléshez válasszuk szét a belépési pontot két részre:
+
+* app.js
+* index.js
+
+A belépési pont továbbra is az index.js fájl lesz de abban csak a listen() függvényt futtatjuk. Minden mást átteszünk az app.js fájlba. Erre azért van szükség, hogy a teszt ne indítsa el a szervert hálózati programként. A tesztelés során nem használjuk a hálózati réteget, ami gyorsabb futást eredményez.
+
+_app/index.js_:
+
+```javascript
+import dotenvFlow from 'dotenv-flow'
+dotenvFlow.config()
+
+const PORT = process.env.APP_PORT || 3000
+app.listen(PORT, () => {
+    console.log(`Listening on port: ${PORT}`)
+})
+
+```
+
+_app/app.js_:
+
+```javascript
+import express from 'express'
+
+const app = new express()
+
+app.get('/valami', (req, res) => {
+    res.send('valami')
+})
+```
+
+Teszteléshez használjuk a supertest, mocha és chai csomagokat.
+
+```bash
+npm install --save-dev supertest mocha chai
+```
+
+A testeket egy **test** nevű fájlba tesszük. Készítsünk egy **testa** nevű projektet.
+
+```txt
+testa/
+  |-app/
+  |   |-app.js
+  |   `-index.js
+  |-test/
+  |   |-employee.spec.js
+  |-.env
+  `-package.json
+```
+
+Lehetséges rövid teszt:
+
+```javascript
+import request from 'supertest';
+import expect from 'chai';
+
+import app from './app.js';
+
+describe('GET /', () => {
+    it('respond with a 200 status code', async () => {
+        const response = await request(app)
+        .get('/');
+        expect(response.status).toBe(200);
+    });
+});
+```
