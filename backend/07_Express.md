@@ -1282,15 +1282,7 @@ const Employee = sequelize.define('employee', {
 })
 ```
 
-A mezők típusa megadható a Sequelize statikus tagjaként is:
-
-```javascript
-const Employee = sequelize.define('employee', {
-  name: { type: Sequelize.STRING },
-  city: { type: Sequelize.STRING },
-  salary: { type: Sequelize.DECIMAL }
-});
-```
+A mezők típusa megadható a Sequelize statikus tagjaként is, Sequeleiz.STRING formában.
 
 Szükség van egy utasításra, ami leszinkronizálja az objektumot az adatbázisban.
 
@@ -1359,6 +1351,8 @@ node app/database/database.js
 ```
 
 ## SQLite beállításfájlból
+
+### A config/default.json fájl használata
 
 Vegyük fel a **config** nevű mappát, benne egy **default.json** fájlt.
 
@@ -1441,6 +1435,73 @@ lite/
   |  `-default.json
   |-database.sqlite
   `-package.json
+```
+
+### A .env fájl használata
+
+Az alkalmazás beállításait egy .env nevű fájlba helyezzük el. Lásd a következő könyvtárszerkezetet:
+
+```txt
+lite/
+  |-app/
+  |  |-controllers/
+  |  |   `-employeeController.js
+  |  |-database/
+  |  |   `-database.js
+  |  `-models/
+  |      `-employee.js
+  |-.env
+  |-database.sqlite
+  `-package.json
+```
+
+Készítsük el a .env nevű állományt.
+
+_.env_:
+
+```ini
+DB_DIALECT=sqlite
+DB_STORAGE=database.sqlite
+```
+
+A .env fájl tartalmának olvasásához szükségünk van a **dotenv** csomagra. Telepítsük:
+
+```bash
+npm install dotenv
+```
+
+Importálni kell, majd futtatni a config() függvényt:
+
+```javascript
+import dotenv from "dotenv";
+dotenv.config();
+```
+
+```javascript
+import { Sequelize } from "sequelize";
+import dotenv from "dotenv";
+dotenv.config();
+
+const sequelize = new Sequelize({
+  dialect: process.env.DB_DIALECT,
+  storage: process.env.DB_STORAGE
+});
+
+const Employee = sequelize.define('employee', {
+  name: { type: Sequelize.STRING },
+  city: { type: Sequelize.STRING },
+  salary: { type: Sequelize.DECIMAL }
+});
+
+await sequelize.sync({
+    alter: true
+});
+
+await Employee.create({
+  name: 'Erős István',
+  city: 'Szeged',
+  salary: 392
+});
 ```
 
 ## MariaDB
