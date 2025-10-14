@@ -3440,7 +3440,7 @@ testa/
   |   |-app.js
   |   `-index.js
   |-test/
-  |   |-employee.spec.js
+  |   `-employee.spec.js
   |-.env
   `-package.json
 ```
