@@ -1097,9 +1097,117 @@ res localhost:8000/msg?name=Ferenc
 
 ## Beállítások tárolása
 
-A beállítások tárolhatók **.env** nevű fájlban vagy tárolhatók JSON fájlban is. A JSON fájl szokásos neve **config.json** vagy a **config/default.json**. Mi az utóbbit fogjuk használni.
+Készítsünk egy egyszerű **seti** nevű projektet.
+
+```txt
+seti/
+  |-app/
+  |  `-index.js
+  `-package.json
+```
+
+A beállítások tárolhatók **.env** nevű fájlban vagy tárolhatók JSON fájlban is. A JSON fájl szokásos neve **config.json** vagy a **config/default.json**. Mi itt .env fájlt fogjuk használni.
+
+### A .env fájl használata
+
+```txt
+seti/
+  |-app/
+  |  `-index.js
+  |-.env
+  `-package.json
+```
+
+Készítsün egy .env nevű fájlt. A változó érték párokat adhatunk meg benne, egyenlőség jellel tagolva. Legyen a példa kedvéért az alkalmazás portja:
+
+_.env_:
+
+```ini
+APP_PORT=8000
+```
+
+Az alkalmazásban több módon is elérhetjük a fájl tartalmát.
+
+* node --env-file kapcsoló használata
+* dotenv csomag használata
+* dotenvx csomag használata
+
+#### A node --env-file kapcsoló használata
+
+A kapcsoló a Node.js **20.6.0** verzótól áll rendelkezésre. Segítségével megadható a változókat tartalmazó fájl neve:
+
+```bash
+node --env-file=.env app
+```
+
+A használat során semmit nem kell importálni.
+
+A teljes index.js fájl:
+
+_app/index.js_:
+
+```javascript
+import express from 'express'
+
+const app = new express()
+
+app.get('/valami', (req, res) => {
+    res.send('Figyeljük a portot')
+})
+
+const PORT = process.env.APP_PORT || 8000
+app.listen(PORT, () => {
+    console.log(`Listening on port: ${PORT}`)
+})
+```
+
+#### A dotenv-flow csomag használata
+
+Telepítsük:
+
+```bash
+npm install dotenv-flow
+```
+
+```javascript
+import dotenvFlow from 'dotenv-flow'
+dotenvFlow.config()
+```
+
+Teljes kód:
+
+_app/index.js_:
+
+```javascript
+import express from 'express'
+
+import dotenvFlow from 'dotenv-flow'
+dotenvFlow.config()
+
+const app = new express()
+
+app.get('/valami', (req, res) => {
+    res.send('valami')
+})
+
+const PORT = process.env.APP_PORT || 3000
+app.listen(PORT, () => {
+    console.log(`Listening on port: ${PORT}`)
+})
+```
 
 ### A config/default.json fájl használata
+
+> Olvasmány
+
+```txt
+seti/
+  |-app/
+  |  `-index.js
+  |-config/
+  |   `-default.json
+  `-package.json
+```
 
 Hozzuk létre egy **config/default.json** fájlt.
 
@@ -1160,86 +1268,6 @@ app.listen(PORT, () => {
 ```
 
 Indítsuk újra a szervert. Most a default.json fájlban megadott portot veszi fel a szerver. Ellenőrizzük, egy 3000-s port beállításával, majd a szerver újraindításával.
-
-### A .env fájl használata
-
-Készítsün egy .env nevű fájlt. A változó érték párokat adhatunk meg benne, egyenlőség jellel tagolva. Legyen a példa kedvéért az alkalmazás portja:
-
-_.env_:
-
-```ini
-APP_PORT=8000
-```
-
-Az alkalmazásban több módon is elérhetjük a fájl tartalmát.
-
-* node --env-file kapcsoló használata
-* dotenv csomag használata
-* dotenvx csomag használata
-
-#### A node --env-file kapcsoló használata
-
-A kapcsoló a Node.js 20.6.0 verzótól áll rendelkezésre. Segítségével megadható a változókat tartalmazó fájl neve:
-
-```bash
-node --env-file=.env app
-```
-
-Ahol használni akarjuk semmit nem kell importálni.
-
-A teljes index.js fájl:
-
-_app/index.js_:
-
-```javascript
-import express from 'express'
-
-const app = new express()
-
-app.get('/valami', (req, res) => {
-    res.send('Figyeljük a portot')
-})
-
-const PORT = process.env.APP_PORT || 8000
-app.listen(PORT, () => {
-    console.log(`Listening on port: ${PORT}`)
-})
-```
-
-#### A dotenv-flow csomag használata
-
-Telepítsük:
-
-```bash
-npm install dotenv-flow
-```
-
-```javascript
-import dotenvFlow from 'dotenv-flow'
-dotenvFlow.config()
-```
-
-Teljes kód:
-
-_app/index.js_:
-
-```javascript
-import express from 'express'
-
-import dotenvFlow from 'dotenv-flow'
-dotenvFlow.config()
-
-const app = new express()
-
-app.get('/valami', (req, res) => {
-    res.send('valami')
-})
-
-const PORT = process.env.APP_PORT || 3000
-app.listen(PORT, () => {
-    console.log(`Listening on port: ${PORT}`)
-})
-```
 
 ## ORM használata
 
