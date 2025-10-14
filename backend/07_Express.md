@@ -1098,9 +1098,11 @@ res localhost:8000/msg?name=Ferenc
 
 A beállítások tárolhatók **.env** nevű fájlban vagy tárolhatók JSON fájlban is. A JSON fájl szokásos neve **config.json** vagy a **config/default.json**. Mi az utóbbit fogjuk használni.
 
+### A config/default.json fájl használata
+
 Hozzuk létre egy **config/default.json** fájlt.
 
-### Port beállítása
+#### Port beállítása
 
 Elsőként állítsuk be az alkalmazás portszámát.
 
@@ -1114,7 +1116,7 @@ _config/default.json_:
 }
 ```
 
-Most be kell olvasni a default.json fáljt.
+Most be kell olvasni a default.json fájlt.
 
 A projekt belépési pontját, az _index.js_ fájlt egészítsük ki a következő két sorral:
 
@@ -1156,6 +1158,88 @@ app.listen(config.app.port, () => {
 ```
 
 Indítsuk újra a szervert. Most a default.json fájlban megadott portot veszi fel a szerver. Ellenőrizzük, egy 3000-s port beállításával, majd a szerver újraindításával.
+
+### A .env fájl használata
+
+Készítsün egy .env nevű fájlt.
+
+_.env_:
+
+```ini
+APP_PORT=8000
+```
+
+A használatra több lehetőségünk van.
+
+* node --env-file kapcsoló használata
+* dotenv csomag használata
+* dotenvx csomag használata
+
+#### A node --env-file kapcsoló használata
+
+A kapcsoló a Node.js 20.6.0 verzótól áll rendelkezésre.
+
+```bash
+node --env-file .env index.js app
+```
+
+Ahol használni akarjuk semmit nem kell importálni.
+
+A teljes index.js fájl:
+
+_app/index.js_:
+
+```javascript
+import express from 'express'
+import morgan from 'morgan'
+import router from './routes/api'
+
+const app = new express()
+
+app.use(morgan('tiny'))
+app.use(express.json())
+app.use('/api', router)
+
+
+const PORT = process.env.APP_PORT || 8000
+app.listen(PORT, () => {
+    console.log(`Listening on port: ${PORT}`)
+})
+```
+
+#### A dotenv csomag használata
+
+Telepítsük:
+
+```bash
+npm install dotenv
+```
+
+```javascript
+import dotenv from 'dotenv'
+dotenv.config()
+```
+
+Csendes kimenet:
+
+```javascript
+import dotenv from 'dotenv'
+dotenv.config({ quiet: true })
+//...
+```
+
+#### A dotenvx csomag használata
+
+Telepítsük:
+
+```bash
+npm install dotenv
+```
+
+```javascript
+import dotenv from '@dotenvx/dotenvx'
+dotenv.config()
+```
 
 ## ORM használata
 
@@ -1352,7 +1436,7 @@ node app/database/database.js
 
 ## SQLite beállításfájlból
 
-### A config/default.json fájl használata
+### Adatbázis a config/default.json fájlban
 
 Vegyük fel a **config** nevű mappát, benne egy **default.json** fájlt.
 
@@ -1437,7 +1521,7 @@ lite/
   `-package.json
 ```
 
-### A .env fájl használata
+### Adatbázis a .env fájlban
 
 Az alkalmazás beállításait egy .env nevű fájlba helyezzük el. Lásd a következő könyvtárszerkezetet:
 
