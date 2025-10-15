@@ -1870,7 +1870,7 @@ app.listen(PORT, () => {
 })
 ```
 
-A futtatáshoz írjunk egy **dev** nevű scriptet, ami használja a nodemon csomaogt.
+A futtatáshoz írjunk egy **dev** nevű scriptet, ami használja a nodemon csomagot.
 
 ```bash
 npm install --save-dev nodemon
@@ -2017,7 +2017,7 @@ A projektet az elkészítés helyett le is tölthetjük a következő helyről:
 
 * [https://github.com/oktat/empkap_start.git](https://github.com/oktat/empkap_start.git)
 
-### Szinkronizálás optimalizáslása
+### Szinkronizálás optimalizálása
 
 A szinkronizálást vegyük ki a modellekből, mivel elég egyszer végrehajtani. Legyen az **app/index.js** fájlban.
 
@@ -2080,7 +2080,7 @@ app.listen(PORT, () => {
 })
 ```
 
-A modellekből ne felejtsük el kivenni a szinkronizálást. Teszteljük a működést. Töröljük az adatbázist, majd nézzük meg, hogyan jönnek létre a tblák.
+A modellekből ne felejtsük el kivenni a szinkronizálást. Teszteljük a működést. Töröljük az adatbázist, majd nézzük meg, hogyan jönnek létre a táblák.
 
 ### Egy a többhöz kapcsolat
 
@@ -2725,7 +2725,7 @@ const User = sequelize.define('user', {
   email: { type: DataTypes.STRING, allowNull: true },
   password: { type: DataTypes.STRING, allowNull: false },
   role: { type: DataTypes.STRING, allowNull: true, defaultValue: 'user' },
-  active: { type: DataTypes.BOOLEAN, defaultValue: true }
+  enabled: { type: DataTypes.BOOLEAN, defaultValue: true }
 })
 ```
 
@@ -2857,6 +2857,7 @@ _.env_:
 ```ini
 APP_PORT=8000
 APP_KEY=43438438334398248341276598348249
+
 DB_DIALECT=sqlite
 DB_HOST=localhost
 DB_NAME=empy
@@ -2949,7 +2950,7 @@ res post localhost:8000/api/login
 name=janos password=titok
 ```
 
-Amit visszakapunk ehhez hasonló kell lehet:
+Amit visszakapunk ehhez hasonló lehet:
 
 ```json
 {
@@ -3022,6 +3023,12 @@ Ellenőrizzük például a resen csomag **res** parancsával:
 res post localhost:8000/api/employees 
 name='Verdi Ernő' city='Szeged' 
 -A bearer -a eyJhbG
+```
+
+```cmd
+res post localhost:8000/api/employees 
+name='Erős István' city='Szeged' 
+--auth-type bearer --auth eyJhbG...
 ```
 
 A -a után a token írjuk, ami valójában jóval hosszabb.
