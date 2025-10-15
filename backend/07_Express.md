@@ -2882,11 +2882,8 @@ _app/controllers/authController.js_:
 ```javascript
 //...
 import jwt from 'jsonwebtoken';
-import { readFileSync } from 'fs'
-
-const confPath = '../../config/default.json'
-const fileUrl = new URL(confPath, import.meta.url)
-const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
+import dotenvFlow from 'dotenv-flow';
+const config = dotenvFlow.config();
 //...
 ```
 
@@ -2917,7 +2914,7 @@ _app/controllers/authController.js_:
                 message: 'wrong password'
             });
         }
-        const token = jwt.sign({ id: user.id }, config.app.key, {
+        const token = jwt.sign({ id: user.id }, process.env.APP_KEY, {
             expiresIn: '24h'
         });
         res.json({ 
@@ -2983,10 +2980,8 @@ _app/middleware/authjwt.js_:
 
 ```javascript
 import jwt from 'jsonwebtoken'
-import { readFileSync } from 'fs'
-
-const fileUrl = new URL('../../config/default.json', import.meta.url)
-const config = JSON.parse(readFileSync(fileUrl, 'utf-8'))
+import dotenvFlow from 'dotenv-flow'
+const config = dotenvFlow.config();
  
 const verifyToken = (req, res, next) => {
     let authData = req.headers.authorization;
@@ -2997,7 +2992,7 @@ const verifyToken = (req, res, next) => {
     }
     let token = authData.split(' ')[1];
  
-    jwt.verify(token, config.app.key, (err, decoded) => {
+    jwt.verify(token, process.env.APP_KEY, (err, decoded) => {
         if(err) {
             return res.status(401).send({
                 message: "Unauthorized!"
