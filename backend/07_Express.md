@@ -1605,6 +1605,8 @@ npm install sequelize
 npm install mariadb
 ```
 
+> Ha MySQL meghajtót szeretnék használni, a mysql2 csomagot telepítsük.
+
 A package.json **type** értéke legyen **module**.
 
 ```json
