@@ -1126,11 +1126,20 @@ _.env_:
 APP_PORT=8000
 ```
 
+A package.json fájlban állítsuk be a ECMAScript szabványt:
+
+_package.json_:
+
+```json
+{
+    "type": "module",
+}
+```
+
 Az alkalmazásban több módon is elérhetjük a fájl tartalmát.
 
-* node --env-file kapcsoló használata
-* dotenv csomag használata
-* dotenvx csomag használata
+* node --env-file kapcsoló használata (Node.js 20.6.0+)
+* dotenv-flow csomag használata
 
 #### A node --env-file kapcsoló használata
 
@@ -1159,6 +1168,28 @@ const PORT = process.env.APP_PORT || 8000
 app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`)
 })
+```
+
+Futtassuk az alkalmazást.
+
+```bash
+node --env-file=.env app
+```
+
+Írhatunk start scriptet is:
+
+```json
+{
+    "scripts": {
+        "start": "node --env-file=.env app"
+    }
+}
+```
+
+Futtassuk újból:
+
+```bash
+npm start
 ```
 
 #### A dotenv-flow csomag használata
