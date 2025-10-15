@@ -1502,12 +1502,8 @@ Az alkalmazás beállításait egy .env nevű fájlba helyezzük el. Lásd a kö
 ```txt
 lite/
   |-app/
-  |  |-controllers/
-  |  |   `-employeeController.js
-  |  |-database/
-  |  |   `-database.js
-  |  `-models/
-  |      `-employee.js
+  |  `-database/
+  |      `-database.js
   |-.env
   |-database.sqlite
   `-package.json
@@ -1535,6 +1531,10 @@ import dotenvFlow from "dotenv-flow";
 dotenvFlow.config();
 ```
 
+Ezek után vegyük fel a database.js fájlban:
+
+_app/database/database.js_:
+
 ```javascript
 import { Sequelize } from "sequelize";
 import dotenvFlow from "dotenv-flow";
@@ -1560,6 +1560,12 @@ await Employee.create({
   city: 'Szeged',
   salary: 392
 });
+```
+
+Futtassuk az alkalmazást:
+
+```bash
+node app/database/database.js
 ```
 
 ## MariaDB
@@ -1653,6 +1659,22 @@ const sequalize = new Sequalize(
 export default sequalize
 ```
 
+A dialectOptions: {} mindig üres, de ide jöhet például az SSL beállítások.
+
+```javascript
+{
+    dialect: 'mysql',
+    host: process.env.DB_HOST,
+    dialectOptions: {
+        ssl: {
+            // A dialektushoz kötött SSL beállítások
+            require: true,
+            rejectUnauthorized: false
+        }
+    }
+}
+```
+
 ### Model készítése
 
 Készítsünk egy **app/models/employee.js** fájlt.
@@ -1699,6 +1721,9 @@ node app/models/employee.js
 | DataTypes.FLOAT     | float  |
 | DataTypes.DECIMAL   | decimális |
 | DataTypes.BOOLEAN   | tinint(1) |
+| DataTypes.DATE      | dátum |
+| DataTypes.TIME      | idő |
+| DataTypes.DATEONLY  | dátum |
 
 ## Kontroller modell használattal
 
@@ -1709,8 +1734,11 @@ empy/
   |  |   `-employeeController.js
   |  |-database/
   |  |   `-database.js
-  |  `-models/
-  |      `-employee.js
+  |  |-models/
+  |  |    `-employee.js
+  |  |-routes/
+  |  |    `-api.js
+  |  `-index.js
   |-.env
   `-package.json
 ```
@@ -1807,6 +1835,8 @@ export default router
 
 ### Végleges belépési pont
 
+> Új anyag
+
 Az **empy** projekt belépési pontja az index.js. Egészítsük ki naplózással. Ehhez használhatjuk a **morgan** csomagot.
 
 A morgan lehetséges paraméterei:
@@ -1851,7 +1881,7 @@ A package.json részlet, ekkor:
 ```json
 {
   "scripts": {
-    "dev": "nodemon app --watch app"
+    "dev": "nodemon app"
   },
   "type": "module"
 }
@@ -1868,6 +1898,17 @@ Tesztelés resen csomag res parancsával:
 ```cmd
 res localhost:8000/api/employees
 ```
+
+Vegyünk fel új dolgozót:
+
+```bash
+res post localhost:8000/api/employees 
+name="Erős István"
+city=Szeged
+slary=395.8
+```
+
+Próbáljuk ki az update és delete műveleteket is.
 
 Az empy projekt elérhető a következő helyen:
 
