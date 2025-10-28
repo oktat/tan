@@ -3166,6 +3166,10 @@ A tényleges szűrés beállítása a HTML fájlban:
 
 ## Komponensek kommunikációja
 
+Néha szükséges lehet a komponensek közötti kommunikációra. Például: egy beléptető felületen, egy login komponensben elvégezzük a beléptetést, és a főkomponens navigációs sávjában szükségvan erre az információra, mivel ettől függ például a **Logout** gomb megjelenítése.
+
+![angular navigációs sáv és komponensek](images/angular/angular_nav_routing.png)
+
 A komponensek közötti kommunikációra a BehaviorSubject osztályt fogjuk használni.
 
 Adott egy Angular alkalmazás ahol el van kezdve egy alkalmazás, beléptetési felülettel.
