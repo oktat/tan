@@ -1853,6 +1853,8 @@ A hasError() használata:
 
 A REST API szerverrel való kommunikációra használhatjuk a JavaScript fetch() függvényét. Az Angular azonban saját megoldsát kínál erre a célra a HttpClient modult.
 
+Készítsünk egy **todoclient** nevű projektet.
+
 ### A HttpClientModule importálása
 
 Ha a komponenseink standalone módban használjuk, akkor a modult az app.config.ts fájlban kell felvennünk. Ha az Angular 16 vagy korábbi verzióját használjuk, vagy a projektet úgy hoztuk létre, hogy nem standalone módban fusson, akkor az app.module.ts fájlban kell felvenni a függőségként.
@@ -1888,11 +1890,15 @@ A providers tömbben lehetnek más elemek is.
 
 ### Api szolgáltatás készítése
 
+Készítsünk egy szolgáltatást, amivel elérjük a backend-t.
+
 ```cmd
-ng generate service api
+ng generate service shared/api
 ```
 
-Az injektálás megoldható az inject() függvénnyel is. De itt most a konstruktort fogjuk erre a célra használni.
+Az injektálás megoldható az **inject()** függvénnyel is. De itt most a konstruktort fogjuk erre a célra használni.
+
+Használjuk a [https://jsonplaceholder.typicode.com/todos](https://jsonplaceholder.typicode.com/todos) hamis REST API szervert.
 
 Az _src/app/shared/api.service.ts fájlba_:
 
@@ -1906,38 +1912,32 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
 
-  host = 'http://localhost:8000';
+  host = 'https://jsonplaceholder.typicode.com';
 
   constructor(private http: HttpClient) { }
 
-  getEmployees() {
-    let url = this.host + '/employees';
+  getTodos() {
+    let url = this.host + '/todos';
     return this.http.get(url);
   }
 }
 ```
 
-Ezek uátn használhatjuk a get(), post(), put(), delete() stb. metódust.
-
-Példa:
-
-```javascript
-this.http.get('https://jsonplaceholder.typicode.com/todos').subscribe(data => {
-   console.log(data);
-});
-```
+A **http** objektumon futtathatjuk a get(), post(), put(), delete() stb. függvényt.
 
 A http.get() metódus elküldi a kérést az URL-re, majd kapunk egy Observable objektumot, ahol a subscribe() metódussal kapjuk meg a választ.
 
-A HttpClient aszinkron kommunikációt tesz lehetővé a szerverrel, így nem kell várakoznunk a szerver válaszára.
-
 ### A szolgátatás használta
 
-Készítsünk egy emp nevű komponenst:
+Készítsünk egy todo nevű komponenst:
 
 ```cmd
-ng generate component emp
+ng generate component todo
 ```
+
+A szolgáltatásunkat injektáljuk a konstruktorban a komponensbe. Hozzunk létre egy getTodos() függvényt, amivel használjuk a szolgáltatást.
+
+_src/app/todo/todo.component.ts_:
 
 ```typescript
 import { Component } from '@angular/core';
@@ -1950,7 +1950,7 @@ import { ApiService } from '../shared/api.service';
   templateUrl: './emp.component.html',
   styleUrl: './emp.component.css'
 })
-export class EmpComponent {
+export class TodoComponent {
 
   constructor(private api: ApiService) { }
 
@@ -1958,21 +1958,31 @@ export class EmpComponent {
     this.getEmployees();
   }
 
-  getEmployees() {
-    this.api.getEmployees().subscribe((data) => {
+  getTodos() {
+    this.api.getTodos().subscribe((data) => {
       console.log('Adat: ', data);
     });
   }
 }
 ```
 
+A böngésző fejlesztő felületén nézzük meg az eredményt.
+
 ## Táblázatok
+
+Szükségünk lesz egy REST API szerverre:
+
+* [https://github.com/oktat/empjs.git](https://github.com/oktat/empjs.git)
+
+Töltsük le és üzemeljük be.
+
+Készítsünk egy új projektet **empclient** néven.
 
 A következő teendők vannak.
 
 * HttpClientModule használatbavétele
-* api szolgáltatás
-* emp komponens
+* api szolgáltatás készítése
+* emp komponens készítése
 * CRUD műveletek megvalósítása
 
 ### A HttpClientModule használata
@@ -1990,6 +2000,8 @@ import { provideHttpClient } from '@angular/common/http';
 ```
 
 A teljeskód:
+
+ _src/app/app.config.ts_:
 
 ```typescript
 import { ApplicationConfig } from '@angular/core';
@@ -2112,7 +2124,7 @@ Az _src/app/emp/emp.component.html_
 ```html
 
 <table class="table table-striped">
-    <legend>Dologzók</legend>
+    <legend>Dolgozók</legend>
     <thead>
         <tr>
             <th>ID</th>
@@ -2152,7 +2164,7 @@ _angular.json_:
 
 Indítsuk újra az Angular fejlesztői szerverét és már kész is.
 
-Vegyünk a Bootstrapből egy modális ablakot, és egy űrlapot.
+Vegyünk a Bootstrap-ből egy modális ablakot, és egy űrlapot.
 
 ```html
 <!-- Button trigger modal -->
