@@ -44,13 +44,13 @@ Az Angular a Google **TypeScript** alapú, népszerű keretrendszere. Az első A
 
 Az Angular szabad és nyílt forráskódú _single-page_ webalkalmazások létrehozására használható keretrendszer.
 
-Ebben a leírásban az Angular 17-s verziójával dolgoztam.
+Ebben a leírásban az Angular 18-s verziójával dolgoztam.
 
 ## Az Angular telepítése
 
 ### Telepítés
 
-Célunk, hogy legyen egy **ng** nevű parancs. Ehhez az @angular/cli csomagot kell telepíteni:
+Célunk, hogy legyen egy **ng** nevű parancs. Ehhez az @angular/cli csomagot kell telepíteni. Verzió megadásával együtt:
 
 ```cmd
 npm install -g @angular/cli@18.0.0
@@ -74,9 +74,9 @@ Vegyük észre, hogy nem kellenek kötőjelek.
 
 ### Adott verzió beszerzése
 
-Érdemes mindig a legújabb verziót használni. Ha telepítéskor elhagyjuk a verziót, akkor a legújabb telepszik. Ez nem biztos, hogy megfelel.
+Ha telepítéskor elhagyjuk a verziót, akkor a legújabb telepszik. Ez nem biztos, hogy megfelel.
 
-A legújabb verzió helyett használjuk mindig az **LTS** verziót. Az LTS verzió hosszú támogatási idővel rendelkezik. Keressük meg a legújabb LTS a következő helyen:
+A legújabb verzió helyett használjuk mindig az **LTS** verziót vagy azt amit követelnek az iskolában vagy a munkahelyen. Az LTS verzió hosszú támogatási idővel rendelkezik. Keressük meg a legújabb LTS a következő helyen:
 
 * [https://angular.dev/reference/releases](https://angular.dev/reference/releases)
 
@@ -85,7 +85,7 @@ A legújabb verzió helyett használjuk mindig az **LTS** verziót. Az LTS verzi
 Telepítése:
 
 ```cmd
-npm install -g @angular/cli@17.0.0
+npm install -g @angular/cli@18.0.0
 ```
 
 Ha valahol egy képzésen veszel részt, vedd figyelembe a képzés helyén milyen verziót használsz, és azt telepítsd.
@@ -397,7 +397,7 @@ Az Angular a routing segítségével képes választani a betöltendő nézetek 
 
 ### Modulok
 
-Számtalan előre legyáratott Angular modult használhatunk. Az Angular modulok az ES2015 JavaScript szabvány szerint készültek. Ilyen modul például a HttpClientModule, ami lehetővé teszi, az Angular saját HTTP kliense.
+Számtalan előre legyártott Angular modult használhatunk. Az Angular modulok az ES2015 JavaScript szabvány szerint készültek. Ilyen modul például a HttpClientModule, ami lehetővé teszi, az Angular saját HTTP kliense.
 
 ## Kötések
 
