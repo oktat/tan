@@ -632,7 +632,7 @@ A média fájlok helye, az angular.json fájlban van beállítva:
 
 ## Eseménykezelő
 
-Webes alkalmazások esetén egyik alapvető esemény amit figyelni szoktunk a kattintás. Az Angular ehhez HTML attribútumokat használ. Az attribútum értéket a hívott függvény neve, zárójelekkel együtt.
+Webes alkalmazások esetén egyik alapvető esemény, amit figyelni szoktunk a kattintás. Az Angular ehhez HTML attribútumokat használ. Az attribútum értéket a hívott függvény neve, zárójelekkel együtt.
 
 ```html
 <p>{{name}}</p>
@@ -656,7 +656,7 @@ export class AppComponent {
 
 ## Szelekció
 
-A HTML sablonfájlokban egy elemek megjelenését feltételhez köthetjük. A megjeleníthetőséget a TypeScript fájlban egy logikai típusú változó tartalmazza.
+A HTML sablonfájlokban egy elem megjelenését feltételhez köthetjük. A megjeleníthetőséget a TypeScript fájlban egy logikai típusú változó tartalmazza.
 
 ### Az @if használata
 
@@ -823,7 +823,7 @@ Akár több komponenst is cserélgethetünk egymással.
 
 ### Komponens létrehozása
 
-A komponenseket a **ng generate component kompnensnév** utasítással generálhatunk.
+A komponenseket az **ng generate component kompnensnév** utasítással generálhatunk.
 
 ```cmd
 ng generate component comp1
