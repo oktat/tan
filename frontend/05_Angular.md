@@ -3166,168 +3166,75 @@ A tényleges szűrés beállítása a HTML fájlban:
 
 ## Komponensek kommunikációja
 
-A komponensek kommunikációjára az egyik lehetőség az **EventEmitter** használata. Itt most úgy fogjuk használni, hogy szolgáltatást készítünk belőle.
+A komponensek közötti kommunikációra a BehaviorSubject osztályt fogjuk használni.
 
-Legyen egy webhely, ahol van egy be- és kilépési lehetőség, navigációval.
+Adott egy Angular alkalmazás ahol el van kezdve egy alkalmazás, beléptetési felülettel.
 
-![Weboldal belépési lehetőséggel](images/angular/angular_nav_routing.png)
+* [https://github.com/oktat/ang-comp-comm-start.git](https://github.com/oktat/ang-comp-comm-start.git)
 
-A belépés után a navigációról el kellene tűnnie a **Belépés** linknek, és megjelennie a **Kilépés** linknek.
+Három komponens van:
 
-Készítsünk egy Angular alkalmazást:
+* home
+* login
+* employee
 
-```cmd
-ng new app01
-cd app01
-code .
-```
+Az útválasztás be van állítva, kezdetben a home komponens jelenik meg. Navigációból választható a login komponens. A login komponens beléptető gombja jelenleg csak egy szöveget ír a konzolra.
 
-Szükségünk lesz a RouterLink osztályra.
+Klónozzuk az alkalmazást és fejlesszük tovább. A login komponensben, bejelentkezés tényéről át kell adni az információt a főkomponens számára. Ezt **BehaviorSubject** osztállyal fogjuk megvalósítani.
 
-_src/app/app.component.ts_:
-
-```typescript
-import { RouterLink } from '@angular/router';
-//...
-@Component({
-  imports: [RouterLink],
-})
-```
-
-Készítsük a főkomponensben egy navigációt, és egy **logedIn** nevű változót, amiben nyilvántartjuk, hogy be vagyunk-e jelentkezve.
-
-_src/app/app.component.ts_:
-
-```typescript
-export class AppComponent {
-  logedIn = false;
-}
-```
-
-Készítsük el a navigációt.
-
-_src/app/app.component.html_:
-
-```html
-<nav>
-  <ul class="nav">
-    <li class="nav-item">
-      <a routerLink="/"
-      class="nav-link">Főoldal</a>
-    </li>
-    @if (logedIn) {
-      <li class="nav-item">
-        <a routerLink="/logout"
-        class="nav-link">Kilépés</a>
-      </li>
-    }@else {        
-      <li class="nav-item">
-        <a routerLink="/login"
-        class="nav-link">Belépés</a>
-      </li>      
-    }
-  </ul>
-</nav>
-
-<router-outlet></router-outlet>
-```
-
-### A home, login, result és a logout komponensek
-
-```cmd
-ng generate component home
-```
-
-Belépési felület számára:
-
-```cmd
-ng generate component login
-```
-
-Belépés után ez látható:
-
-```cmd
-ng generate component result
-```
-
-Kilépéshez:
-
-```cmd
-ng generate component logout
-```
-
-### Útválasztás
-
-_src/app/app.routes.ts_:
-
-```typescript
-import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { ResultComponent } from './result/result.component';
-import { LogoutComponent } from './logout/logout.component';
-
-export const routes: Routes = [
-    {
-        path: '',
-        redirectTo: 'home',
-        pathMatch: 'full'
-    },
-    {
-        path: 'home',
-        component: HomeComponent
-    },
-    {
-        path: 'login',
-        component: LoginComponent
-    },
-    {
-        path: 'logout',
-        component: LogoutComponent
-    },
-    {
-        path: 'result',
-        component: ResultComponent
-    }
-];
-```
-
-### Az Emitter szolgáltatás
-
-Hozzuk létre a szolgáltatást:
+Készítsünk egy szolgáltatás auth néven:
 
 ```bash
-ng generate service shared/emmiter
+ng generate service shared/auth
 ```
 
-Tartalma:
+_src/app/shared/auth.service.ts_:
 
 ```typescript
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EmitterService {
+export class AuthService {
+  private _isAuthenticated = new BehaviorSubject(false);
+  isAuthenticated$ = this._isAuthenticated.asObservable();
 
-  event = new EventEmitter();
+  constructor(private router: Router) { }
 
-  constructor() { }
+  loginSuccess() {
+    this._isAuthenticated.next(true);
+  }
 
-  setLogedIn(logedIn: boolean) {
-    this.event.emit(logedIn);
+  logout() {
+    this._isAuthenticated.next(false);
+    this.router.navigate(['home']);
   }
 }
 ```
 
-### A login komponens
+A _login.component.ts_ fájlban az **onLogin()** komponenst
+valósítsuk meg:
+
+```typescript
+  onLogin() {
+    if (this.loginForm.valid) {
+      this.auth.loginSuccess();
+      this.router.navigate(['employee']);
+    }
+  }
+```
+
+Teljes kód:
 
 _src/app/login/login.component.ts_:
 
 ```typescript
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { EmitterService } from '../shared/emitter.service';
+import { AuthService } from '../shared/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -3339,97 +3246,59 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  loginForm: any;
+  loginForm = this.builder.group({
+    username: ['admin'],
+    password: ['titok']
+  });
 
   constructor(
     private builder: FormBuilder,
-    private emitter: EmitterService,
+    private auth: AuthService,
     private router: Router
-  ) {}
-  
-  ngOnInit() {
-    this.loginForm = this.builder.group({
-      username: '',
-      password: ''
-    })
-  }
+  ) { }
 
-  onSubmit() {
-    console.log(this.loginForm.value);
-    //Ide jön az azonosítás
-    this.emitter.setLogedIn(true);
-    this.router.navigate(['result']);
+  onLogin() {
+    if (this.loginForm.valid) {
+      this.auth.loginSuccess();
+      this.router.navigate(['employee']);
+    }
   }
 
 }
 ```
 
-_src/app/login/login.component.html_:
+A főkomponensben iratkozzunk fel a szolgáltatás isAuthenticated értékére:
 
-```html
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-
-    <div class="form-group">
-        <label for="username">Felhasználónév</label>
-        <input type="text" 
-        class="form-control" 
-        id="username" 
-        formControlName="username">
-    </div>
-
-    <div class="form-group">
-        <label for="password">Jelszó</label>
-        <input type="password" 
-        class="form-control" 
-        id="password" 
-        formControlName="password">   
-    </div>
-
-    <button type="submit" 
-    class="btn btn-primary mt-3">
-    Bejelentkezés</button>
-</form>
-```
-
-### A főkomponens
+_src/app/app.component.ts_:
 
 ```typescript
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { EmitterService } from './shared/emitter.service';
+import { AuthService } from './shared/auth.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink],
+  imports: [RouterOutlet, RouterLink],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
-  logedIn = false;
+  isLoggedIn = false;
 
-  constructor(
-    private emitter: EmitterService
-  ) {}
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
-    this.emitter.event.subscribe((logedIn) => {
-      this.logedIn = logedIn;
-    });
+    this.auth.isAuthenticated$.subscribe(isAuthenticated => {
+      this.isLoggedIn = isAuthenticated
+    })
+  }
+
+  logout() {
+    this.auth.logout();
   }
 }
 ```
-
-### Emitter példa
-
-Forráskód:
-
-* [https://github.com/oktat/angular_emitter.git](https://github.com/oktat/angular_emitter.git)
-
-Élő példa:
-
-* [https://szit.hu/m/angular_emitter](https://szit.hu/m/angular_emitter)
 
 ## Tesztelés
 
