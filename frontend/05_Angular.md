@@ -3300,6 +3300,10 @@ export class AppComponent {
 }
 ```
 
+A jelenlegi alkalmazás:
+
+* [https://github.com/oktat/ang-comp-comm-ready.git](https://github.com/oktat/ang-comp-comm-ready.git)
+
 ## Tesztelés
 
 ### Egységtesztelés
