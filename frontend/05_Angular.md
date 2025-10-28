@@ -3224,6 +3224,10 @@ A jelenlegi alkalmazás:
 
 * [https://github.com/oktat/ang-comp-comm-ready.git](https://github.com/oktat/ang-comp-comm-ready.git)
 
+Működés közben:
+
+* [https://szit.hu/m/angcompcomm/](https://szit.hu/m/angcompcomm/)
+
 ## Tesztelés
 
 ### Egységtesztelés
