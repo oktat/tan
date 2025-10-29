@@ -80,16 +80,6 @@ A legújabb verzió helyett használjuk mindig az **LTS** verziót vagy azt amit
 
 * [https://angular.dev/reference/releases](https://angular.dev/reference/releases)
 
-2024-07-17-én a legújabb LTS verzió a 17.0.0, ami 2025-05-15 jár le.
-
-Telepítése:
-
-```cmd
-npm install -g @angular/cli@18.0.0
-```
-
-Ha valahol egy képzésen veszel részt, vedd figyelembe a képzés helyén milyen verziót használsz, és azt telepítsd.
-
 ### Windowson
 
 Windowson útvonalba kell tenni a következő könyvtárat:
