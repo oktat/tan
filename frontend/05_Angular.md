@@ -2440,7 +2440,7 @@ Fel kell vennünk egy gombot a törléshez a táblázat sorainak a végén:
 
 #### Példa a GitHubon és képen
 
-* [https://github.com/oktat/angular_emps_crud.git](https://github.com/oktat/angular_emps_crud.git)
+* [](https://github.com/oktat/human_17_crud.git)
 
 ![Dolgozók táblázatban](images/table_crud_example.png)
 
