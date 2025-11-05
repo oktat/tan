@@ -2734,8 +2734,12 @@ nyito_htmltag {{ valtozonev | pipenev [:paraméterek] }} zaro_htmltag
 Legyen egy felirat, amit szeretnénk nagybetűssé alakítani.
 
 ```typescript
+import { UpperCasePipe } from '@angular/common';
 //...
-
+@Component({
+  import: [UpperCasePipe]
+})
+//...
 export class AppComponent {
   title = 'app01';  
 }
@@ -2778,6 +2782,26 @@ A 'short' paraméter által a dátum röviden jelenik meg. Most alakítsuk át k
 ```
 
 Gyakorlásként készítsünk egy új Angular alkalmazást és probáljuk ki a leírtakat a fő vagy egy alkomponensben.
+
+|  Név  |  Leírás  |
+| --- | --- |
+| AsyncPipe | Érték olvasása egy Promise-ből vagy RxJS Observable-ből. |
+| CurrencyPipe | Szám átalakítása pénznemre. |
+| DatePipe | Egy Date érték formázása locale szabályai szerint. |
+| DecimalPipe | Szám átalakítása szöveggé, decimális ponttal \\ a locale szabályai szerint.  |
+| I18nPluralPipe | Érték leképezése többesszámba, a locale szabályai szerint. |
+| I18nSelectPipe | Egy kulcs egyéni szektorhoz rendelése, amely a kívánt értéket adja. |
+| JsonPipe | Objetum átalakítása szöveggé JSON.stringify-on keresztül, ami hibakeresésre szolgál.  |
+| KeyValuePipe | Objektum vagy Map leképezése egy tömbbe, kulcs értékpárként. |
+| LowerCasePipe | Átalakítás kiseetűssé. |
+| PercentPipe | Szám átalakítása százalékos szöveggé, a locale szabályai szerint formázva. |
+| SlicePipe | Új tömb létrehozása vagy karakterláncot, amely az elemek egy részhalmazát (szeletét) tartalmazzák. |
+| TitleCasePipe | Átalakítés címmé. |
+| UpperCasePipe | Átalakítás nagybetűssé. |
+
+Hivatalos dokumentáció a pipe-król (2025):
+
+* [https://angular.dev/guide/templates/pipes](https://angular.dev/guide/templates/pipes)
 
 ### Saját pipe készítése
 
