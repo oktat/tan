@@ -2756,7 +2756,7 @@ HTML oldalon:
 Az uppercase pipe nagybetűssé alakítja a title változó tartalmát. A "|" karakter az _AltGr+W_ beírásával írható be.
 
 ```html
-{{ isAdmin ? 'Welcome, Admin!' : 'Welcome, User!' | uppercase }}
+{{ (isAdmin ? 'Welcome, Admin!' : 'Welcome, User!') | uppercase }}
 ```
 
 ```html
