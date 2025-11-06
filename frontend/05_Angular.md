@@ -2781,7 +2781,26 @@ HTML oldalon:
 </p>
 ```
 
-A 'short' paraméter által a dátum röviden jelenik meg. Most alakítsuk át konkrét formára:
+A 'short' paraméter által a dátum röviden jelenik meg.
+
+A következő táblázat a lehetséges paramétereket mutatja:
+
+|  Paraméter  |  Példa minta  |
+| --- | --- |
+|  short  | 11/6/25, 4:03 PM |
+|  medium  | Nov 6, 2025, 4:03:28 PM |
+|  long  | November 6, 2025 at 4:03:45 PM GMT+1 |
+|  full  | Thursday, November 6, 2025 at 4:04:02 PM GMT+01:00 |
+|  shortDate  | 11/6/2025 |
+|  mediumDate  | Nov 6, 2025 |
+|  longDate  | November 6, 2025 |
+|  fullDate  |  Thursday, November 6, 2025 |
+|  shortTime  | 4:00 PM |
+|  mediumTime  | 4:02:05 PM |
+|  longTime | 4:08:00 PM GMT+1 |
+|  fullTime  | 4:08:19 PM GMT+01:00 |
+
+Most alakítsuk át konkrét formára:
 
 ```html
 <p>
@@ -2789,7 +2808,40 @@ A 'short' paraméter által a dátum röviden jelenik meg. Most alakítsuk át k
 </p>
 ```
 
+Idővel együtt:
+
+```html
+<p>
+  {{ date | date: 'yyyy-MM-dd HH:mm' }}
+</p>
+```
+
+Részletek megadása:
+
+| Formátum |  Leírás  | Példa |
+| --- | --- | --- |
+| yyyy | 4 jegyű év | 2025 |
+| MM | 2 jegyű hónap (01-12) | 07 |
+| MMM | rövid hónapnév | Jul |
+| MMMM | teljes hónapnév | July |
+| dd | 2 jegyű nap | 06 |
+| HH | 2 jegyű idö | 16 |
+| h | 1 jegyű idö | 4 |
+| mm | 2 jegyű percek | 02 |
+| a | AM vagy PM | PM |
+
 Gyakorlásként készítsünk egy új Angular alkalmazást és probáljuk ki a leírtakat a fő vagy egy alkomponensben.
+
+Pénznemek:
+
+```html
+<div>{{ar | currency}}</div><!-- $395.00-->
+<div>{{ar | currency:'EUR'}}</div><!-- €395.00 -->
+<div>{{ar | currency:'HUF'}}</div><!-- HUF395.00 -->
+<div>{{ar | currency:'USD'}}</div><!-- $395.00>
+```
+
+Az alábbi táblázatban további pipe-okat találunk.
 
 |  Név  |  Leírás  |
 | --- | --- |
