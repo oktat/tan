@@ -49,15 +49,16 @@ A Java nyelv még mindig az 1-es fő verziószámnál tart. Az egyes Java verzi�
 * 1.18
 * 1.19
 * 1.20
-* 1.21
-* 1.22
+* ...
+* 1.25
 
 Az egyes verziókra azonban a főverzió nélkül szokás hivatkozni. Az 1.17-es verzióra például csak 17-s verzióként hivatkozunk.
 
-Java technológiák:
+Java környezet:
 
-* Java JRE - csak futtatásra alkalmas
-* Java JDK - fejlesztésre és futtatásra egyaránt alkalmas
+* JVM - Java Virtual Machine - futtatás
+* JRE - csak futtatáshoz könyvtárak
+* JDK - fejlesztésre és futtatásra könyvtárak
 
 Dokumentáció:
 
@@ -98,6 +99,8 @@ javac -encoding utf8 App.java
 ```
 
 Megfelelő az utf8, utf-8, UTF8 és az UTF-8 is.
+
+![Java futtatás](images/java/java_run.png)
 
 ## Megjegyzések a Java nyelvben
 
