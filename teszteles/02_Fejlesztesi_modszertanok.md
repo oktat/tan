@@ -118,6 +118,8 @@ A sprinteket mindig megelőzi egy Sprint Planning, ahol megbeszéljük mit fogun
 
 A backlog-t a Product Owner írja. Leírja mit kell megvalósítani, ami felhasználói tevékenységeket, történeteket jelent.
 
+![Backlog](images/scrum/backlog_pelda.png)
+
 A fejelsztők ehhez igazodva készítenek maguknak feladatlistát.
 
 ## DevOps
