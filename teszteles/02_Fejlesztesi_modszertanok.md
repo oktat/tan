@@ -122,11 +122,23 @@ A backlog-t a Product Owner írja. Leírja mit kell megvalósítani, ami felhasz
 
 A fejelsztők ehhez igazodva készítenek maguknak feladatlistát.
 
+A backlogban a becslést nem a termék tulajdonosa (product owner)
+írja be. Azt a fejlesztők közlik. A becslést a megbeszélések
+során írják be.
+
+A megbeszélések során változhat a prioritási sorrend. Kiderült, hogy
+valamit hamarabb meg lehet csinálni, előre veszik.
+
+Szerepkörök:
+
+* Product owner: azt tudja mit kell csinálni.
+* Fejlesztő csapt: azt tudja hogyan kell.
+
 ## DevOps
 
 A fejlesztési és üzemeltetési folyamatokat integráljuk. Gyorsabb és hatékony szoftverszállítás.
 
-Az automatikus tesztek és a folyamatos integráció hangsúlyosak.
+Az automatikus tesztek és a folyamatos integrációk hangsúlyosak.
 
 ## Extrém programozás
 
@@ -137,6 +149,9 @@ Jellemzők:
 * párban programozás
 * folyamatos integráció
 * TDD
+
+A folyamatos integráció alatt a fejlesztő ha lehet naponta többször
+de legalább naponta egyszer a közösbe tolja a kódját (commit/push).
 
 ## Lean szoftverfejlesztés
 
