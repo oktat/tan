@@ -140,6 +140,8 @@ A fejlesztési és üzemeltetési folyamatokat integráljuk. Gyorsabb és haték
 
 Az automatikus tesztek és a folyamatos integrációk hangsúlyosak.
 
+![DevOps folyamat](images/devops/devops_01.png)
+
 ## Extrém programozás
 
 Angolul: Extreme Programming, röviden XP.
