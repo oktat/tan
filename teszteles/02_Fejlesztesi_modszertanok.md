@@ -102,6 +102,8 @@ Ciklusok:
 * heti ciklus - sprint - lehet 1 vagy több hetes
 * havi ciklus
 
+![Scrum fejlesztési modell](images/scrum/scrum_01.png)
+
 #### Napi ciklus
 
 A reggeli napindító megbeszélést állva kell tartani, amin csak a fejlesztők vesznek részt elsősorban, másodsorban a vezetőség is részt vehet. Ezt nevezik **daily standup** meetingnek.
