@@ -122,9 +122,9 @@ A fejelsztők ehhez igazodva készítenek maguknak feladatlistát.
 
 ## DevOps
 
-A fejlesztési és üzemeltetési folyamatokat integráljuk. Gyorsabb és hatékony szoftver szállítás.
+A fejlesztési és üzemeltetési folyamatokat integráljuk. Gyorsabb és hatékony szoftverszállítás.
 
-Az automatikusa tesztek és a folyamatos integráció a hangsúlyosak.
+Az automatikus tesztek és a folyamatos integráció hangsúlyosak.
 
 ## Extrém programozás
 
