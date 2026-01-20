@@ -294,7 +294,7 @@ Azt is vizsgáljuk milyen hibát dob:
 
 ### Feladat
 
-Oldjunk meg egy feladatot szit.hu webhelyről, amely adatokat kér be, számítást elvégezi, majd az eredményt kiírja. A feladatok közül 0301-től 0400-ig jöhet szóba.
+Oldjunk meg egy feladatot szit.hu webhelyről, amely adatokat kér be, a számítást elvégezi, majd az eredményt kiírja. A feladatok közül 0301-től 0400-ig jöhet szóba.
 
 Legyen a 0312-s feladat. A projekt neve "tombsug".
 
@@ -306,7 +306,7 @@ cd tombsug
 code .
 ```
 
-Hozzunk létre egy Node.js projektet. Használjuk a sin parancsot:
+Hozzunk létre egy Node.js projektet. Használjuk a **sin** parancsot:
 
 ```bash
 sin init
@@ -422,9 +422,9 @@ export {calcRadius, isValidInput}
 
 ### Tesztesetek felvétele
 
-Szükségünk van tesztestekre. Vegyünk egy számológépet és nézzük meg, adott bemenetre mit kell kapnunk.
+Szükségünk van tesztesetekre. Vegyünk egy számológépet és nézzük meg, adott bemenetre mit kell kapnunk.
 
-Használjuk a Node.js node parancsát, például:
+Használjuk a Node.js, **node** parancsát, például:
 
 ```javascript
 node
