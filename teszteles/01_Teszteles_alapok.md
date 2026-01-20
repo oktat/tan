@@ -17,11 +17,11 @@
 ### Fogalmak
 
 * Verifikáció:
-  * Ami elkészült terv, az jó lesz?
+  * A terv vagy ami készül, megfelel a követelményeknek?
   * Dokumentumok, követelmények, kód ellenőrzése.
   * Unit tesztek, integrációs tesztek.
 * Validáció:
-  * Amit készítünk, megfelel az ügyfél elvárásainak?
+  * Amit **elkészült** szoftver, megfelel az ügyfél elvárásainak?
   * Funkcionális tesztelés, elfogadási teszt, rendszer teszt stb.
 
 #### Automatikus és kézi
@@ -348,18 +348,18 @@ Mi a verifikáció?
 * ami elkészült az megfelel az ügyfélnek?
 * amit tervezünk az megfelel az ügyfélnek?
 * az adatbázis vizsgálata
-* ami elkészült, az jól működik?
+* ami készül, megfelel a követelményeknek?
 
 21.)
 Mi a validáció?
 
 * ami elkészült az megfelel az ügyfélnek?
-* amit tervezünk az megfelel az ügyfélnek?
+* amit tervezünk az megfelel a leírásokank?
 * az adatbázis vizsgálata
-* ami elkészült, az jól működik?
+* ami készült, az megfelel a követelményeknek?
 
 22.)
-Melyik tesztelési típus?
+Melyik szó ír le egy tesztelési típust?
 
 * emberközpontú
 * sebezhető
@@ -385,9 +385,9 @@ Mi a fehér dobozos tesztelés?
 25.)
 Melyik funkcionális teszt?
 
-* A weblapon megjelenik-e a "számít gomb".
-* A program mekkora bemenő adat esetén működésképtelen.
-* A program kiszámítja a területet.
+* A weblapon megjelenik a "számít" gomb?
+* A program mekkora bemenő adat esetén működésképtelen?
+* A program kiszámítja a területet?
 * Újra vizsgáljuk, látszik-e már a számít gomb.
 
 26.)
