@@ -74,16 +74,16 @@ A szoftver életciklusa egy verzión belül:
 
 A változatok számmal megadása:
 
-* 0.01
-* 0.1
-* 0.3
+* 0.0.1
+* 0.1.0
+* 0.3.0
 * ...
-* 0.5
-* 0.9
+* 0.5.0
+* 0.9.0
 * 0.9.1
-* 1.0 első kiadás
-* 1.01 hibajavítás
-* 2.0 második kiadás
+* 1.0.0 első kiadás
+* 1.0.1 hibajavítás
+* 2.0.0 második kiadás
 
 A szoftverek sorsa:
 
@@ -148,6 +148,10 @@ def add(a, b):
     return a + b
 ```
 
+Telepítsük a pytest csomagot:
+
+  pip install pytest
+
 test_calculator.py:
 
 ```python
@@ -161,16 +165,31 @@ def test_add():
     assert add(0, 0) == 0
 ```
 
+Nézzük meg, hogy van-e pytest parancsunk:
+  pytest --version
+
+A teszt futtatása:
+  pytest
+
+> Ha a tesztfájlok és a tesztelendő fájlok
+> alkönyvtárkban vannak elhelyezve beállító fájlra
+> is szükség van!
+
 ### Integrációs teszt példa
 
 calculator.py:
 
 ```python
 # A tesztelendő kód (calculator.py)
+def add(a, b):
+    return a + b
+
 def subtract(a, b):
     return a - b
 
 def calculate(a, b):
+    # Két értékkel térünk vissza.
+    # Az összeadás és a kivonsá eredményével is.
     return add(a, b), subtract(a, b)
 ```
 
@@ -185,6 +204,8 @@ def test_calculate():
     result = calculate(3, 2)
     
     # add(3, 2) == 5 és subtract(3, 2) == 1
+    # Tuple-ben megkapom az összeadás 
+    # és a kivonás eredményét.
     assert result == (5, 1)  
 ```
 
