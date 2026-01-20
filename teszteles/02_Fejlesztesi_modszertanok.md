@@ -163,7 +163,7 @@ Jellemzők:
 
 * tisztázzuk a követelményeket
 * összedolgozás
-* adjun ki kódot minél előbb
+* adjunk ki kódot minél előbb
 * dolgozzunk csapatban
 * nézzük távolról az egészet
 * döntsünk olyan későn amennyire csak lehet
