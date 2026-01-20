@@ -177,6 +177,10 @@ function sub(num1, num2) {
 export {add, sub};
 ```
 
+A függvények használatára példa:
+
+* [https://github.com/tanrepos/aritmetika.git](https://github.com/tanrepos/aritmetika.git)
+
 Írjunk hozzá tesztet, **toolsTest.js** nevű fájlba.
 
 test/toolsTest.js:
