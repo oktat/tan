@@ -174,7 +174,7 @@ def test_multiple_borrowing():
     assert book2 in user.borrowed_books
 ```
 
-Évrénytelen könyv vázsgálata:
+Érvénytelen könyv vázsgálata:
 
 ```python
 def test_borrowing_invalid_book():
