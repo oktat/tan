@@ -1035,14 +1035,13 @@ A parancs a képernyőre listázza az aktuális könyvtár tartalmát, és náh�
 dir dev
 ```
 
-A **dev** egy paraméter. Azt közöljük a dir paranccsal, hogy a dev könyvtáron hajtsa végre a parancsot.
+A **dev** egy paraméter. Azt közöljük a dir paranccsal, hogy a dev könyvtáron hajtsa végre a parancsot. Most nézzünk egy kapcsolót.
 
 ```cmd
 dir /?
 ```
 
-A /? egy kapcsoló. Módosítja a parancsot. Már nem valamely könyvtár tartalmát mutatja meg, hanem egy segítséget ír a
-képernyőre.
+A /? egy kapcsoló. Módosítja a parancsot. Már nem valamely könyvtár tartalmát mutatja meg, hanem egy segítséget ír a képernyőre. Most nézzük meg egyszerre egy kapcsolót és egy paramétert is:
 
 ```cmd
 dir /b dev
