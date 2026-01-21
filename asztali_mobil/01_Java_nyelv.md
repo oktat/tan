@@ -1037,6 +1037,22 @@ dir dev
 
 A **dev** egy paraméter. Azt közöljük a dir paranccsal, hogy a dev könyvtáron hajtsa végre a parancsot.
 
+```cmd
+dir /?
+```
+
+A /? egy kapcsoló. Módosítja a parancsot. Már nem valamely könyvtár tartalmát mutatja meg, hanem egy segítséget ír a
+képernyőre.
+
+```cmd
+dir /b dev
+```
+
+Egyszere használunk kapcsolót és paramétert is. A /b
+kapcsoló például úgy módosítja a dir parancsot, hogy
+a kimenetben, már csak a "csupasz (bare)" fájlok és
+könyvtárnevek szerepelnek, szemben az eredeti működéssel.
+
 ### Az argumentokhoz példa
 
 Legyen egy App osztály:
