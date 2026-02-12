@@ -201,20 +201,15 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Sqlite {
-
-    public static void startConnect() {
+    public void solution() {        
         try {
-            tryStartConnect();
+            String url = "jdbc:sqlite:database.sqlite";
+            Connection conn = DriverManager.getConnection(url);
+            System.out.println("Ok");
+            conn.close();
         } catch (SQLException e) {
             System.err.println(e.getMessage());
-        }    
-    }
-
-    private static void tryStartConnect() throws SQLException {
-        String url = "jdbc:sqlite:database.sqlite";
-        Connection conn = DriverManager.getConnection(url);
-        System.out.println("OK");
-        conn.close();        
+        }
     }
 }
 ```
@@ -222,6 +217,9 @@ public class Sqlite {
 Ha futtatjuk a programot automatikusan létrehoz egy állományt _database.sqlite_ állományt, ami egy üres adatbázis.
 
 ## Adatbázis tábláinak létrehozása
+
+Készítsünk egy új projektet **surubt** néven. Dolgozók adatait fogjuk
+tárolni adatbázisban.
 
 Az adatbázist kiegészítjük táblákkal. Dolgozók adatait fogjuk tárolni. Az adatbázis létrehozása táblákkal:
 
@@ -244,11 +242,11 @@ create table employees(
     id int not null primary key auto_increment,
     name varchar(50),
     city varchar(50),
-    salary double
+    salary int
 );
 ```
 
-SQLite adatbázisban is használunk, ezért lássuk az SQLite adatbázisban hogyan hozzuk létre a táblát:
+SQLite adatbázist is használunk, ezért lássuk az SQLite adatbázisban hogyan hozzuk létre a táblát:
 
 _database/sqlite_create.sql_:
 
@@ -258,7 +256,7 @@ create table employees (
     id integer not null primary key autoincrement,
     name text,
     city text,
-    salary real
+    salary integer
 );
 ```
 
@@ -287,7 +285,7 @@ Ha már vannak adatok az adatbázisban, nézzünk egy lekérdezést. Kezdetnek a
 _Database.java_:
 
 ```java
-package lan.zold;
+package com.example;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -330,7 +328,7 @@ A beszúráshoz a **PreparedStatement** osztályt használjuk.
 _Database.java_:
 
 ```java
-package lan.zold;
+package com.example;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
