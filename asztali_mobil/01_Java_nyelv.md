@@ -161,30 +161,30 @@ A % operátor a számok osztása során a maradékot adja.
 ### Egyoperandusú operátorok
 
 | Operátor | Leírás |
-|-|-|
+| - | - |
 | + | Az értéket adja |
 | - | Előjelet vált |
 | ++ | Inkrementálás |
 | -- | Dekrementálás |
-| !  | Negálás |
+| ! | Negálás |
 
 A + operátor csak a szimetria kedvéért jött létre még a C nyelvben.
 
 ### Összehasonlító operátor
 
 | Operátor | Leírás |
-|-|-|
+| - | - |
 | == | egyenlő |
 | != | nem egyenlő |
-| >  | nagyobb mint |
+| > | nagyobb mint |
 | >= | nagyobb vagy egyenlő |
-| <  | kisebb mint |
+| < | kisebb mint |
 | <= | kisebb vagy egyenlő |
 
 ### Feltételes operátorok
 
 | Operátor | Leírás |
-|-|-|
+| - | - |
 | && | ÉS művelet |
 | \|\| | VAGY művelet |
 | ?: | Hármas operátor |
@@ -192,7 +192,7 @@ A + operátor csak a szimetria kedvéért jött létre még a C nyelvben.
 ### Bitenkénti operátorok
 
 | Operátor | Leírás |
-|-|-|
+| - | - |
 | ~ | Komplemensképzés |
 | << | előjeles balra mozgatás |
 | >> | előjeles jobbra mozgatás |
@@ -204,7 +204,7 @@ A + operátor csak a szimetria kedvéért jött létre még a C nyelvben.
 ### Precedencia
 
 | Operátorok | Leírás |
-|-|-|
+| - | - |
 | ++, --, !, ~ | Inkrementálás, dekrementálás, logikai és bitenkénti negálás |
 | * / % | szorzás, osztás, moduló |
 | + - | összeadás, kivonás |
@@ -264,7 +264,7 @@ Azokat a karaktereket, amelyeknek speciális jelentést adhatunk, **escape szekv
 A következő táblázat bemutatja az escape szekvenciákat.
 
 | Karakter | Jelentés |
-|-|-|
+| - | - |
 | \n | új sor |
 | \t | tabulátor |
 | \' | felsővessző kiíratása |
@@ -280,7 +280,7 @@ A következő táblázat bemutatja az escape szekvenciákat.
 ### Egész számok
 
 | Típus | Szám | Tartomány |
-|-|-|-|
+| - | - | - |
 | byte | 1 byte | -128 - 127 |
 | short | 2 bytes | -32 768 - 32 767 |
 | int | 4 bytes | -2 147 483 648 - 2 147 483 647 |
@@ -289,14 +289,14 @@ A következő táblázat bemutatja az escape szekvenciákat.
 ### Valós számok
 
 | Típus | Szám | Tartomány |
-|-|-|-|
+| - | - | - |
 | double | 8 bytes | 4.9e-324 - 1.7976931348623157e+308 |
 | float | 4 bytes | 1.4e-45 - 3.4028235e+38 |
 
 ### Logikai típus
 
 | Típus | Szám | Tartomány |
-|-|-|-|
+| - | - | - |
 | boolean | 1 byte | false vagy true |
 
 ```java
@@ -306,7 +306,7 @@ boolean igaz = true;
 ### Karakter típus
 
 | Típus | Szám | Tartomány |
-|-|-|-|
+| - | - | - |
 | char | 2 bytes | 0 - 65535 |
 
 ```java
@@ -319,7 +319,7 @@ System.out.println(karakter);
 Primitív típusok burkolóosztályai
 
 | Típus | Érték | csomagoló osztály | Tartomány |
-|-|-|-|-|
+| - | - | - | - |
 | boolean | ture, false | Boolean | true vagy false |
 | char | karakter | Character | 0 - 65535 |
 | byte | byte | Byte | -128 - 127 |
@@ -419,7 +419,7 @@ System.out.printf("%,f\n", 1234567812345.12345678);
 Jelzők
 
 | Jel | Leírás |
-|-|-|
+| - | - |
 | + | előjel |
 | - | balra igazítás (szélesség meghatározással együtt) |
 | 0 | vezető nullák megjelenítése |
@@ -431,7 +431,7 @@ Jelzők
 Konverziós karakterek
 
 | Konverziós karakter | Leírás |
-|-|-|
+| - | - |
 | 's', 'S' | Karaktersorozat |
 | 'd' | egész szám |
 | 'f' | valós szám |
