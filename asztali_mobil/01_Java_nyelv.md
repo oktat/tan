@@ -1010,6 +1010,32 @@ public class App {
 }
 ```
 
+### Szöveg bekérése és fájlbaírása Windowson
+
+```java
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.util.Scanner;
+
+public class Solution {
+    public static void task01() throws IOException {
+        //Windowson magyar környezetben: 852
+        Scanner sc = new Scanner(System.in, "852");
+        System.out.print("Gyümölcs: ");
+        String fruit = sc.nextLine();
+        sc.close();
+        FileWriter fileWriter = new FileWriter(
+            "adat.txt", 
+            Charset.forName("utf-8"), 
+            true
+        );
+        fileWriter.write(fruit + "\n");
+        fileWriter.close();
+    }
+}
+```
+
 ## Argumentmok olvasása
 
 ### Az argumentumokról
