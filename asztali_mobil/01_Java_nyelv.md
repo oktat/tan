@@ -1078,7 +1078,7 @@ kapcsoló például úgy módosítja a dir parancsot, hogy
 a kimenetben, már csak a "csupasz (bare)" fájlok és
 könyvtárnevek szerepelnek, szemben az eredeti működéssel.
 
-### Az argumentokhoz példa
+### Az argumentumokhoz példa
 
 Legyen egy App osztály:
 
