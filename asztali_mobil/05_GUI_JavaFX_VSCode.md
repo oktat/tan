@@ -285,6 +285,9 @@ Néhány komponens, amiket érintei fogunk:
 
 ## Button
 
+Hozzunk létre egy új projektet például **eventy** néven.
+Csoport azonosítónak maradhat a **com.example**.
+
 A Button egy általános nyomógomb a JavaFX-ben.
 
 ![Két nyomógomb a pane konténeren](images/javafx/sc_two_button_on-pane.png)
