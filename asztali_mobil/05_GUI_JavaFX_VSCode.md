@@ -48,7 +48,7 @@ Látogassuk meg a következő weboldalt:
 Ügyeljünk arra, hogy a 21-s JavaFX-nek, minimum 17-s Java szükséges. Használjunk LTS verziót.
 
 | JavaFX | Minium JDK |
-|-|-|
+| - | - |
 | JavaFX 24 | JDK 21 |
 | JavaFX 23 | JDK 21 |
 | JavaFX 21 | JDK 17 |
@@ -244,6 +244,8 @@ module com.example {
 
 Tegyünk a Scene Builder-ben egy Panel konténert középre.
 
+![SceneBuilder Pane hozzáadása](images/javafx/sb_add_panel.png)
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -284,6 +286,16 @@ Néhány komponens, amiket érintei fogunk:
 ## Button
 
 A Button egy általános nyomógomb a JavaFX-ben.
+
+![Két nyomógomb a pane konténeren](images/javafx/sc_two_button_on-pane.png)
+
+A képen két gombot láthatunk a egy Pane konténeren. Vegyük
+észre, hogy az egyik ki van jelölve. Mindig van egy aktuális
+komponens vagy konténere ami ki van jelölve. Ha kattintok a
+gombok mellé az ablakra, akkor a Pane konténer lesz kijelölve.
+Jobboldalon az **Inspector** részen, mindig a kijelölt
+konténer vagy komponens tulajdonságait, elrendezését és
+eseménykezelését látjuk.
 
 ### Beállítások
 
