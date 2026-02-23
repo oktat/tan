@@ -411,9 +411,34 @@ Jobboldali harmonikasáv **Code** szakaszában állítsunk be egy azonosítót. 
 
 Hozzuk létre a MainControllerben a megfelelő adattagot.
 
+Nézzük hogyan írhatjuk felül egy kontrollerben belül egy szöveges mező tartalmát:
+
+```java
+package com.example;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+
+public class MainController {
+
+    @FXML
+    private TextField field1;
+
+    @FXML
+    void onClickButton1(ActionEvent event) {
+        field1.setText("Helló Világ!");
+    }
+
+}
+```
+
 ### PasswordField
 
 A PasswordField segítségével olyan bevitelimező hozható létre, ahol a gépelés során csak pontok jelennek meg.
+
+Készítsünk egy alkalmazást, ami bekér egy felhasználónevet és egy jelszót,
+majd egyszerű ellenőrzést végez.
 
 ## Alert
 
