@@ -306,7 +306,7 @@ Mint például:
 
 Tudjuk, hogy a table elemben táblázatot teszünk, a form elembe űrlapot, a figure elembe valamilyen doboz feliratát, az img elemmel képet jelenítünk meg, az article elembe valamilyen cikk tartalmát rakjuk.
 
-### Oldalszerkezet meghatározók
+### Oldalszerkezet-meghatározók
 
 Az oldal szerkezetét meghatározó szemantikus elemek a következők:
 
@@ -327,6 +327,54 @@ Lássuk mire valók:
 * **section**: Összetartozó tartalmakat jelölünk vele, mint a div elemmel.
 * **article**: Cikkek
 * **aside**: Érintőlegesen kapcsolódó tartalom, amely általában bal vagy jobb oldalon helyezkedik el. Ha valami a fő tartalom bal vagy jobb oldalán helyezkedik el, az még nem elegendő ok arra, hogy aside elembe helyezzük. Tegye fel magának a kérdést. Ha törlöm a félreeső tartalmat, a fő tartalom jelentése változik? Ha nem változik meg, akkor a megfelelő módon használjuk.
+
+Oldalszerkezet-meghatározó szematikus elemek használata:
+
+```html
+<nav>
+  Navigáció
+</nav>
+<header>
+  Fejléc
+</header>
+<main>
+  Főrész
+</main>
+<footer>
+  Lábrész
+</footer>
+```
+
+Ebben a példában nem használjuk az oldalszerkezet-meghatározó
+szemantius elemeket.
+
+```html
+<div class="nav">
+  Navigáció
+</div>
+<div class="header">
+  Fejléc
+</div>
+<div class="main">
+Főrész
+</div>
+<div class="footer">
+  Lábrész
+</div>
+```
+
+Szekciók használata:
+
+```html
+<section>
+  <h1>Cím 1</h1>
+  <p>Bekezdés 1 ...</p>
+</section>
+<section>
+  <h1>Cím 2</h1>
+  <p>Bekezdés 2 ...</p>
+</section>
+```
 
 * [http://szit.hu/doku.php?id=oktatas:web:html:html5_nyelv#szemantikus_elemek](http://szit.hu/doku.php?id=oktatas:web:html:html5_nyelv#szemantikus_elemek)
 
