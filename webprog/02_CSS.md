@@ -750,6 +750,7 @@ Ebben a rövid feladatban a változókat használtunk Sass nyelven.
 * Választunk: <link> vagy @import
 * A fejlécbe másoljuk a beépített kódot.
 * A stíluslap fájlba másoljuk a CSS-t.
+* Végül: Az osztályjelölőt beállítjuk a kívánt HTML elemre.
 
 ## Gyakorlás
 
