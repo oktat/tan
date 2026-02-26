@@ -690,8 +690,8 @@ A Sass két szintaxissal használható:
 
 A különbség a tagolásban van. A behúzott szintaxisnál a behúzásokból ered a tagolás, míg a SCSS esetén a {} kapcsos zárójelekből.
 
-|  Szintaxis | Kiterjesztés |
-|-|-|
+| Szintaxis | Kiterjesztés |
+| - | - |
 | behúzott | .sass |
 | SCSS (Sassy CSS) | .scss |
 
@@ -741,6 +741,15 @@ Ebben a rövid feladatban a változókat használtunk Sass nyelven.
 
 * [https://fonts.google.com/](https://fonts.google.com/)
 * [https://fontawesome.com/](https://fontawesome.com/)
+
+### Google fontok
+
+* Ki kell választani a kívánt fontot.
+* **Get embed code** vagy **Download all**
+* Kiválasztjuk mire kell: Web, Android, iOS, Flutter
+* Választunk: <link> vagy @import
+* A fejlécbe másoljuk a beépített kódot.
+* A stíluslap fájlba másoljuk a CSS-t.
 
 ## Gyakorlás
 
