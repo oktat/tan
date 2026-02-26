@@ -16,7 +16,7 @@
 * [Button](#button)
 * [Szöveges komponensek](#szöveges-komponensek)
 * [Alert](#alert)
-* [Az initilize metódus](#az-initilize-metódus)
+* [Az initialize metódus](#az-initialize-metódus)
 * [CheckBox](#checkbox)
 * [RadioButton](#radiobutton)
 * [ChoiceBox](#choicebox)
@@ -453,7 +453,7 @@ alert.setContentText("Hello World!");
 alert.showAndWait();
 ```
 
-## Az initilize metódus
+## Az initialize metódus
 
 Készíts egy mainScene.fxml fájlt. Tégy fel egy Panel tárolót. Erre tegyünk például egy Label komponenst, legyen a neve például label1.
 
@@ -479,9 +479,9 @@ public class MainController {
 }
 ```
 
-Vegyük észre az initilize() metódus előtt az @FXML annotációt.
+Vegyük észre az initialize() metódus előtt az @FXML annotációt.
 
-Másik lehetőség az Initilizable használata:
+Másik lehetőség az Initializable használata:
 
 ```java
 package com.example;
@@ -504,6 +504,12 @@ public class MainController implements Initializable {
     }
 }
 ```
+
+Implementáljuk az Initializable itnerfészt. Ebben az esetben kötelező két
+praméter:
+
+* url (URL)
+* resourceBundle (ResourceBundle)
 
 ## CheckBox
 
