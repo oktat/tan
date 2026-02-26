@@ -66,7 +66,7 @@ Van bootstrap csomag, telepítsük:
 npm install bootstrap
 ```
 
-A bs-config.json fájban vegyük fel a bootstrap útvonalát:
+A bs-config.json fájlban vegyük fel a bootstrap útvonalát:
 
 ```json
 {
@@ -153,7 +153,7 @@ A böngészőben mindkét oldalon 1.5 rem margó jelenik meg, az első töréspo
 Töréspontok:
 
 | Töréspont | Infix osztály | Dimenzió |
-|-|-|-|
+| - | - | - |
 | extra-small | nincs | <576px |
 | Small | sm | >=576px |
 | Medium | md | >=768px |
