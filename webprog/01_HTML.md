@@ -2,6 +2,7 @@
 
 * **Szerző:** Sallai András
 * Copyright (c) Sallai András, 2022
+* Szerkesztve: 2026
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
@@ -21,7 +22,7 @@
 A globális attribútumok az összes HTML elemhez hozzárendelhetők.
 
 | Attribútum | Leírás |
-|-|-|
+| - | - |
 | accesskey | Billentyűkombináció megadása, amivel egy elem fókuszba kerülhet. Egy karaktert kell megadni. Chrome böngészőben az Alt billentyűvel működik. Firefoxban Alt+Shift mellett működik. &lt;input accesskey="c"&gt; esetén: alt+c |
 | class | Egy vagy több osztálynév adható egy elemnek. Ezekre hivatkozhatunk a stíluslapokban. |
 | contenteditable | Az elem tartalma szerkeszthető vagy nem. |
