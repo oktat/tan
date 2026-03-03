@@ -604,6 +604,9 @@ public class MainController {
 
 ### CheckBox GridPane rácsban
 
+Készítsünk egy alkalmazást, amely rácsokban tárolj CheckBoxokat.
+A projekt neve legyen **racsos**.
+
 Tegyük fel a Scene Builder-ben a következőket:
 
 ```txt
@@ -611,6 +614,19 @@ Pane
   |-GridPane  gridPane
   `-Button    onClickSendButton()
 ```
+
+A SceneBuilderben egy GridPane alapértelmezetten
+2x3-as formában jelenik meg:
+
+![GridPane](images/javafx/gridpane_checkboxes.png)
+
+Ha kattintunk a GridPane konténeren **jobb egér**
+gombbal, törölhetünk vagy hozzáadhatunk
+sorokat/cellákat.
+
+Alakítsunk ki, például egy 3x4-es rácsot.
+
+![3x4-s GridPane kialakítva](images/javafx/pane_gridpane_checkbox.png)
 
 MainController.java:
 
@@ -665,6 +681,12 @@ public class MainController {
     }
 }
 ```
+
+Ha 3x4-s elrendezést választunk, még az sem
+probléma, ha 4 oszlopot rakok egymás mellé. Az
+ötödik oszlop is megjelenik, de már nem megfelelő elrendezésben.
+
+![CheckBoxok GridPane-ben](images/javafx/pane_gridpane_checkbox_running.png)
 
 ## RadioButton
 
