@@ -19,7 +19,7 @@
 * [Az initialize metódus](#az-initialize-metódus)
 * [CheckBox](#checkbox)
 * [RadioButton](#radiobutton)
-* [ChoiceBox](#choicebox)
+* [ChoiceBox és ComboBox](#choicebox-és-combobox)
 * [ListView](#listview)
 * [TableView](#tableview)
 
@@ -732,12 +732,20 @@ public class MainController {
 * Minden kép alatt legyen egy rádiógomb.
 * Legyn egy nyomógomb, amivel elküldjük a választást.
 
-## ChoiceBox
+## ChoiceBox és ComboBox
+
+A ChoiceBox és a ComboBox hasonló legördülő listadbozot hoz létre.
+A ChoiceBox egyszerűbb, kevés elemszámú választási lehetőséghez
+megfelelő. Körülbelül maximum 10 elem. A ComboBox sok elemszám esetén
+görgetősávot biztosít. A ComboBox ugyanakkor a listában nem szereplő
+elem beírását is lehetővé teszi, esetleg keresés is megvalósítható.
+
+Készítsünk JavaFX alkalmazást **gyumolcs** néven.
 
 ```txt
 Pane
-  |-ComboBox               comboBox
-  `-Button      Küldés     onClickSEndButton
+  |-ChoiceBox               choiceBox
+  `-Button      Küldés     onClickSendButton
 ```
 
 MainController.java:
@@ -767,6 +775,8 @@ public class MainController {
     }
 }
 ```
+
+![ChoiceBox példa](images/javafx/pane_choicebox_button.png)
 
 ### ChoiceBox azonosítóval
 
