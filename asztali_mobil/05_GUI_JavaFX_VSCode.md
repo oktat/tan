@@ -553,6 +553,8 @@ Pane
   `-ListView  listView
 ```
 
+![CheckBox listában](images/javafx/checkbox_listban_scenebuilder.png)
+
 ```java
 package com.example;
 
@@ -597,6 +599,8 @@ public class MainController {
     }
 }
 ```
+
+![CheckBox ListView-ban](images/javafx/checkbox_listaban.png)
 
 ### CheckBox GridPane rácsban
 
