@@ -15,7 +15,7 @@
 * [JSON](#json)
 * [REST API](#rest-api)
 * [AJAX](#ajax)
-* [CRUD műveletrek fetch függvénnyel](#crud-műveletrek-fetch-függvénnyel)
+* [CRUD műveletek fetch függvénnyel](#crud-műveletek-fetch-függvénnyel)
 * [Az async használata](#az-async-használata)
 
 ## Objektumok és tömbök kezelése ES6
@@ -540,7 +540,7 @@ A fetch() függvényről lásd tovább:
 
 * [https://szit.hu/doku.php?id=oktatas:web:javascript:javascript_fetch:egyszeru_lancolt](https://szit.hu/doku.php?id=oktatas:web:javascript:javascript_fetch:egyszeru_lancolt)
 
-## CRUD műveletrek fetch függvénnyel
+## CRUD műveletek fetch függvénnyel
 
 ### Create művelet
 
