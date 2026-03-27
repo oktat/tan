@@ -15,6 +15,8 @@
 * [JSON](#json)
 * [REST API](#rest-api)
 * [AJAX](#ajax)
+* [CRUD műveletrek fetch függvénnyel](#crud-műveletrek-fetch-függvénnyel)
+* [Az async használata](#az-async-használata)
 
 ## Objektumok és tömbök kezelése ES6
 
@@ -537,3 +539,184 @@ Az async és await használatával:
 A fetch() függvényről lásd tovább:
 
 * [https://szit.hu/doku.php?id=oktatas:web:javascript:javascript_fetch:egyszeru_lancolt](https://szit.hu/doku.php?id=oktatas:web:javascript:javascript_fetch:egyszeru_lancolt)
+
+## CRUD műveletrek fetch függvénnyel
+
+### Create művelet
+
+A fetch() függvény első paramétere az url, a második parméter egy objektum.
+Szükséges kulcsok:
+
+* method
+* headers
+* body
+
+A body-ban sztringesítve utaztatjuk a dolgozó adatait.
+
+```javascript
+const host = 'http://localhost:3000/'
+
+function createEmployee() {
+    const url = host + 'employees'
+    const employee = {        
+        name: 'Pontos Péter',
+        city: 'Hatvan',
+        salary: 393,
+        positionId: 1
+    }
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(employee)
+    })
+    .then(response => response.json())
+    .then(result => console.log(result))
+    .catch(err => console.log(err))
+}
+```
+
+### Read művelet
+
+```javascript
+function getEmployees() {
+    const url = host + 'employees'
+    fetch(url)
+    .then(response => response.json())
+    .then(result => console.log(result))
+    .catch(err => console.log(err))
+}
+```
+
+### Update művelete
+
+```javascript
+function updateEmployee() {
+    const url = host + 'employees/JDkmrybJgWw'
+    const employee = {        
+        name: 'Ron Irén',
+        city: 'Zalaegerszeg',
+        salary: 398,
+        positionId: 1
+    }
+    fetch(url, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(employee)
+    })
+    .then(response => response.json())
+    .then(result => console.log(result))
+    .catch(err => console.log(err))
+}
+```
+
+### Delete művelete
+
+```javascript
+function deleteEmployee() {
+    const url = host + 'employees/JDkmrybJgWw'
+    fetch(url, {
+        method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(result => console.log(result))
+    .catch(err => console.log(err))
+}
+```
+
+## Az async használata
+
+### Az async create művelet
+
+```javascript
+const host = 'http://localhost:3000/'
+```
+
+```javascript
+async function createEmployee() {
+    const url = host + 'employees'
+    const employee = {
+        name: 'Pontos Péter',
+        city: 'Hatvan',
+        salary: 393,
+        positionId: 1
+    }
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(employee)
+        })
+        const result = await response.json()
+        console.log(result)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+```
+
+### Az async read művelet
+
+```javascript
+async function getEmployees() {
+    const url = host + 'employees'
+    try {
+        const response = await fetch(url);
+        const result = await response.json();
+        console.log(result)
+    } catch (error) {
+        console.log(error)
+    }
+}
+```
+
+### Az async update művelet
+
+```javascript
+async function updateEmployee() {
+    const url = host + 'employees/2cOhFYAUkfs'
+    const employee = {
+        name: 'Ron Irén',
+        city: 'Zalaegerszeg',
+        salary: 398,
+        positionId: 1
+    }
+    try {
+        const response = await fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(employee)
+        })
+        const result = await response.json()
+        console.log(result)
+    } catch (error) {
+        console.log(error)
+    }
+
+}
+```
+
+### Az async delete művelet
+
+```javascript
+async function deleteEmployee() {
+    const url = host + 'employees/2cOhFYAUkfs'
+    try {
+        const response = await fetch(url, {
+            method: 'DELETE'
+        })
+        const result = await response.json()
+        console.log(result)
+    } catch (error) {
+        console.log(error)
+    }
+}
+```
