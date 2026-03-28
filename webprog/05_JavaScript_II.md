@@ -19,6 +19,7 @@
 * [CRUD műveletek fetch függvénnyel](#crud-műveletek-fetch-függvénnyel)
 * [Az async használata](#az-async-használata)
 * [Tömbök](#tömbök)
+* [Beépített objektumok](#beépített-objektumok)
 
 ## Objektumok és tömbök kezelése ES6
 
@@ -865,3 +866,160 @@ hívás **currentValue** értéke lesz.
 Az initialValue lesz az accumulator első értéke.
 Ha nincs megadva initialValue, akkor a tömb első
 eleme lesz a kezdőérték.
+
+## Beépített objektumok
+
+### Map
+
+```javascript
+const map = new Map();
+map.set('a', 1);
+map.set('b', 2);
+map.set('c', 3);
+console.log(map);
+console.log(map.get('b'));
+
+```
+
+### Math
+
+A Math egy névtérobjektum, ami statikus mezőket és metódusokat tartalmaz,
+matematikai állandókkal és függvényekkel.
+
+* Math.PI
+* Math.abs()
+* Math.ceil()
+* Math.cos()
+* Math.floor()
+* Math.pow()
+* Math.random()
+* Math.round()
+* Math.sin()
+* Math.sqrt()
+* Math.tan()
+
+```javascript
+console.log(Math.PI); // 3.141592653589793
+console.log(Math.abs(-5)); // 5
+console.log(Math.ceil(2.1)); // 3
+
+const rad = 30 * Math.PI / 180;
+console.log(Math.cos(rad)); // 0.8660254037844387
+
+console.log(Math.floor(2.9)); // 2
+
+console.log(Math.pow(2, 8)); // 256
+
+console.log(Math.random()); // 0 és 1 közötti szám
+```
+
+### JSON objektum
+
+Egy névtérobjektum, amely statikus metódusokat tartalmaz
+JavaScript objektumok JSON típusra alakaításához és vissza.
+
+```javascript
+JSON.parse()
+JSON.stringify()
+```
+
+```javascript
+const obj = {
+    id: 1,
+    name: 'Elemér'
+}
+const str = JSON.stringify(obj);
+console.log(str); // {"id":1,"name":"Elemér"}
+
+const obj2 = JSON.parse(str);
+console.log(obj2); // { id: 1, name: 'Elemér' }
+```
+
+### Set objektum
+
+A Set objektumok értékeinek gyűjteménye.
+
+```javascript
+const set1 = new Set();
+
+set1.add(5); // Set(1) { 5 }
+set1.add(3); // Set(2) { 5, 3 }
+set1.add(3); // Set(2) { 5, 3 }
+set1.add('alma'); // Set(3) { 5, 3, 'alma' }
+const o = { a: 1, b: 2 }
+set1.add(o)
+
+set1.has(o); // true
+set1.has(5); // true
+set1.size; //4
+set1.delete(3); // a 3-s törlése
+set1.has(3); // false
+```
+
+Bejárás:
+
+```javascript
+for(const item of set1) {
+    console.log(item)
+}
+```
+
+Több információ:
+
+* [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
+
+### Date objektum
+
+A JavaSCript Date objektumai egyetlen időpillanatot ábrázolnak
+platformfüggetlen formátumban. A dátumobjektumok egy egész
+számot tartalmaznak, amely ezeredmásodperceket jelent.
+1970 január 1 óta eltelt ezredmásodpercek száma.
+Ezt epoch-nak is hívjuk.
+
+```javascript
+const date = Date.now()
+console.log(date) // 1774728656026
+```
+
+```javascript
+const now = new Date()
+console.log(now) // 2026-03-28T20:10:56.029Z
+```
+
+```javascript
+const now = new Date("2026-03-28T12:00:00")
+const [month, day, year] = [
+    now.getMonth(), 
+    now.getDate(), 
+    now.getFullYear()
+]
+
+now.setMinutes(5)
+
+const [hour, minute, second] = [
+    now.getHours(), 
+    now.getMinutes(), 
+    now.getSeconds()
+]
+
+
+console.log(month, day, year) // 2 28 2026
+console.log(hour, minute, second) // 12 0 0
+```
+
+```javascript
+
+const now = new Date("2026-03-28T12:00:00")
+
+now.setMinutes(5)
+
+const [hour, minute, second] = [
+    now.getHours(), 
+    now.getMinutes(), 
+    now.getSeconds()
+]
+
+console.log(hour, minute, second) // 12 5 0
+```
+
+* [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
