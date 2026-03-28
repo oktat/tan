@@ -20,6 +20,8 @@
 * [Az async használata](#az-async-használata)
 * [Tömbök](#tömbök)
 * [Beépített objektumok](#beépített-objektumok)
+* [Build művelet](#build-művelet)
+* [TypeScript](#typescript)
 
 ## Objektumok és tömbök kezelése ES6
 
@@ -1023,3 +1025,104 @@ console.log(hour, minute, second) // 12 5 0
 ```
 
 * [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+## Build művelet
+
+A fejlesztés során az emberbarát kódot átalakítjuk a böngésző számára,
+gyorsan futtatható kóddá.
+
+Fogalmak:
+
+* Transzpillálás: Újabb JavaScript átalakítása régebbi verzióra. Erre jó pl. Babel.
+* Bundling (csomagolás): Több különálló fájl (.js, .css) összevonása egyetlen fájlba.
+* Minifikálás: Felesleges whitespace karakterek, kommentek eltávolítása.
+* Asset Management: Képek optimalizálása. SASS/LESS fájlok CSS-re alakítása.
+
+### A build folyamat eszközei
+
+| Típus | Eszközök | Feladat |
+| - | - | - |
+| Csomagekezelő | npm, yarn, pnpm | Külső könyvtárak (függőségek) letöltése. |
+| Task Runnerek | Gulp, Grunt | Ismétlődő feladatok automatizálása. |
+| Bundlerek | Webpack, Vite, esbuild, Rollup | A teljes alkalmazás összefogása. |
+
+### A buildfolyamat
+
+1.) fejlesztés
+
+```bash
+npm run dev
+```
+
+2.) build
+
+```bash
+npm run build
+```
+
+A build folyamat létrehoz egy **dist** könyvtárat. Ebben a mappában egy
+tömörített változatát találjuk a webes alkalmazásunknak.
+
+### Projekt létrehozása build folyamathoz
+
+```bash
+npm create sip@latest
+```
+
+```bash
+npm create vite@latest
+```
+
+## TypeScript
+
+A TypeScript a JavaScript kiegészítve típusokkal.
+
+Nézzük meg a következő kódot:
+
+_app.js_:
+
+```javascript
+const employee = {
+    firstName: 'Árpád',
+    lastName: 'Tona',
+    age: 22
+}
+
+console.log(employee.name);
+```
+
+A kódszerkesztő nem ad hibát, pedig hibás.
+
+Ha ugyanezt TypeScriptben írjuk, hibát kapunk.
+
+_app.ts_:
+
+```javascript
+const employee = {
+    firstName: 'Árpád',
+    lastName: 'Tona',
+    age: 22
+}
+
+console.log(employee.name);
+```
+
+A TypeScript nyelvet nem ismerik a böngészők, ezért azt le kell fordítani
+JavaScriptre.
+
+A fordításhoz a typescript nevű csomagot használjuk.
+Telepítés projektben:
+
+```bash
+npm install typescript --save-dev
+```
+
+```bash
+npx tsc
+```
+
+Globális telepítés:
+
+```bash
+npm install --global typescript
+```
