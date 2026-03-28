@@ -44,7 +44,7 @@ Manapság GUI programokat is írunk JavaScriptben.
 
 ### ECMA szabvány
 
-A JavaScript szabványt az ECMA szabványügyi szervezet tartja karban. Az ECMAScript szabványt a JavaScript (Netscape) és a JScript (Microsoft) nyelvek alapján hozták létre. A szabványosítást a Netscape vállalat kezdeményezte. Az első szabvány **1997**-ben jelent meg. 1998-ban és 1999-ben újabb verziója jelent meg a szabványnak. A következő, a negyedik szabványig hosszabb idő telt el, de nem készült el. Az ötödik szabvány 2011-ben jelent meg 5.1 verziószámmal. A hatódik szabvány 2016-ban jelent meg. Ettől a szabványtól évente jelent meg újabb [szabvány](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/).
+A JavaScript szabványt az ECMA szabványügyi szervezet tartja karban. Az ECMAScript szabványt a JavaScript (Netscape) és a JScript (Microsoft) nyelvek alapján hozták létre. A szabványosítást a Netscape vállalat kezdeményezte. Az első szabvány **1997**-ben jelent meg. 1998-ban és 1999-ben újabb verziója jelent meg a szabványnak. A következő, a negyedik szabványig hosszabb idő telt el, de nem készült el. Az ötödik szabvány 2011-ben jelent meg 5.1 verziószámmal. A hatodik szabvány 2016-ban jelent meg. Ettől a szabványtól évente jelent meg újabb [szabvány](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/).
 
 * 1 - 1997
 * 2 - 1998
@@ -61,11 +61,12 @@ A JavaScript szabványt az ECMA szabványügyi szervezet tartja karban. Az ECMAS
 * 12 - 2021
 * 13 - 2022
 * 14 - 2023
+* 15 - 2024
 
 A szabványokra rövidítéssel szokás hivatkozni. Például:
 
 | Verzió | Kiadás dátuma | Rövidítés |
-|-|-|-|
+| - | - | - |
 | 6 | 2015 | ES6 |
 | 7 | 2016 | ES7 |
 | 8 | 2017 | ES8 |
