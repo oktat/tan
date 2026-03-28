@@ -15,8 +15,10 @@
 * [JSON](#json)
 * [REST API](#rest-api)
 * [AJAX](#ajax)
+* [CRUD műveletek XMLHttpRequest-tel](#crud-műveletek-xmlhttprequest-tel)
 * [CRUD műveletek fetch függvénnyel](#crud-műveletek-fetch-függvénnyel)
 * [Az async használata](#az-async-használata)
+* [Tömbök](#tömbök)
 
 ## Objektumok és tömbök kezelése ES6
 
@@ -540,6 +542,53 @@ A fetch() függvényről lásd tovább:
 
 * [https://szit.hu/doku.php?id=oktatas:web:javascript:javascript_fetch:egyszeru_lancolt](https://szit.hu/doku.php?id=oktatas:web:javascript:javascript_fetch:egyszeru_lancolt)
 
+## CRUD műveletek XMLHttpRequest-tel
+
+### Create művelet xhr
+
+```javascript
+const host = 'http://localhost:3000/';
+
+function createEmployee() {
+    const url = host + 'employees';
+    const employee = {        
+        name: 'Pontos Péter',
+        city: 'Hatvan',
+        salary: 393,
+        positionId: 1
+    };
+
+    // 1. Új XMLHttpRequest objektum létrehozása
+    const xhr = new XMLHttpRequest();
+
+    // 2. Kapcsolat megnyitása (Metódus, URL, Aszinkron-e)
+    xhr.open('POST', url, true);
+
+    // 3. Fejlécek beállítása (Fontos a JSON küldéséhez!)
+    xhr.setRequestHeader('Content-Type', 'application/json');
+
+    // 4. Eseménykezelő a válasz feldolgozásához
+    xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            // Siker esetén a választ JSON-ná alakítjuk
+            const result = JSON.parse(xhr.responseText);
+            console.log(result);
+        } else {
+            // Szerveroldali hiba (pl. 404, 500)
+            console.error('Hiba történt a kérés során: ' + xhr.status);
+        }
+    };
+
+    // 5. Hálózati hiba kezelése
+    xhr.onerror = function() {
+        console.error('Hálózati hiba történt.');
+    };
+
+    // 6. Az adat elküldése JSON formátumban
+    xhr.send(JSON.stringify(employee));
+}
+```
+
 ## CRUD műveletek fetch függvénnyel
 
 ### Create művelet
@@ -720,3 +769,99 @@ async function deleteEmployee() {
     }
 }
 ```
+
+## Tömbök
+
+### Szűrés
+
+```javascript
+const szavak = ['alma', 'körte', 'barack', 'szilva', 'málna']
+
+const result = szavak.filter((szo) => szo.length < 5)
+
+console.log(result)
+```
+
+```javascript
+const szavak = ['alma', 'körte', 'barack', 'szilva', 'málna']
+
+const result = szavak.filter(rovidek)
+
+function rovidek(szo) {
+    return szo.length < 5
+}
+console.log(result)
+```
+
+### Tartalmazás
+
+```javascript
+const gyumolcsok = ['alma', 'körte', 'barack', 'szilva', 'málna']
+
+console.log(gyumolcsok.includes('málna'))
+//A futtatás eredménye: true
+```
+
+### Összekapcsolás
+
+Tömbből sztirng.
+
+```javascript
+const elemek = ['tűz', 'levegő', 'víz']
+
+console.log(elemek.join())
+//A futtatás eredménye: 'tűz, levegő, víz'
+
+console.log(elemek.join('-'))
+//A futtatás eredménye: 'tűz-levegő-víz'
+
+```
+
+### Tömb leképezése
+
+Fogunk egy tömböt, csinálunk vele valamit, majd kapunk egy újabb tömböt.
+
+```javascript
+const szamok = [2, 8, 3, 9]
+
+const lekepezett = szamok.map((x) => x * 2)
+
+console.log(lekepezett)
+//A futtatás eredménye: Array [4, 16, 6, 18]
+```
+
+### Redukálás egyetlen értékre
+
+Valamilyen szempont alapján egyetlen értékre redukálunk egy tömböt.
+
+```javascript
+const szamok = [1, 2, 3, 4]
+
+// 0 + 1 + 2 + 3 + 4
+const initialValue = 0
+const sum = szamok.reduce(
+    (accumulator, currentValue) => accumulator + currentValue, 
+    initialValue
+)
+console.log(sum)
+//A futtatás eredménye: 10
+```
+
+Szintaxis:
+
+```javascript
+reduce(callbackFn)
+reduce(callbackFn, initialValue)
+```
+
+* callbackFn
+
+A callbackFn egy függény amit minden elemre végre kell hajtani.
+A visszatérési értéke bekerül az accumulator-ba, ami a következő
+hívás **currentValue** értéke lesz.
+
+* initialValue
+
+Az initialValue lesz az accumulator első értéke.
+Ha nincs megadva initialValue, akkor a tömb első
+eleme lesz a kezdőérték.
