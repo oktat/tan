@@ -1304,3 +1304,22 @@ pack.add('alma');
 pack.add('körte');
 console.log(pack.get()); //körte
 ```
+
+### Szerkezeti típusok
+
+```typescript
+
+interface Employee {
+    name: string;
+    city: string;
+    salary: number;
+}
+
+function printEmployee(employee: Employee) {
+    console.log(`Name: ${employee.name}`);
+    console.log(`City: ${employee.city}`);
+    console.log(`Salary: ${employee.salary}`);
+}
+
+printEmployee({name: "Erős István", city: "Szeged", salary: 395});
+```
