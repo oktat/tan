@@ -1126,3 +1126,181 @@ Globális telepítés:
 ```bash
 npm install --global typescript
 ```
+
+A TypeScript szokatlan kapcsolatban áll a JavaScripttel.
+A JavaScripthez egy újabb réteget biztosít. Ez azt jelenti,
+hogy a meglévő JavaScript kódod egyben TypeScript kód is.
+
+### Típusok következtetés alapján
+
+```typescript
+let name = 'Pala Ferenc';
+let age = 35;
+```
+
+A TypeScript tudja, hogy a _name_ egy **string**, az _age_ pedig **number**.
+
+### Típus létrehozása
+
+Objektumok esetén érdemes létrehozni az objektumhoz egy típust.
+Vegyük például az person objektumot:
+
+```typescript
+const person = {
+    name: "Ernő",
+    age: 35
+}
+```
+
+Hozzunk létre egy típust az interface segítségével:
+
+```typescript
+interface Person = {
+    name: string;
+    age: number;
+}
+```
+
+Ezt követően megkövetelheted a név és az életkort sztirngként és számként:
+
+```typescript
+const person: Person = {
+    name: 'Ernő',
+    age: 35
+}
+```
+
+Ha nem megfelelő objektumot adunk meg, figyelmeztetést kapunk:
+
+```typescript
+const person: Person = {
+    username: 'Ernő',
+    age: 35
+}
+```
+
+### Osztályok támogatása
+
+```typescript
+interface Person {
+    name: string;
+    age: number;
+}
+
+class PersonPart {
+    name: string;
+    age: number;
+    constructor(name: string, age: number) {
+        this.name = name;
+        this.age = age;
+    }
+}
+
+const person: Person = new PersonPart('Ernő', 35);
+```
+
+### Saját típusok
+
+```typescript
+type SajatBool = true | false;
+type PositiveOddNumbersUnderTen = 1 | 3 | 5 | 7 | 9;
+type TicketStates = 'open' | 'closed' | 'process';
+```
+
+### A típus vizsgálata
+
+| Típus | Utasítás |
+| - | - |
+| string | typeof s === "string" |
+| number | typeof n === "number" |
+| boolean | typeof b === "boolean" |
+| undefined | typeof undefined === "undefined" |
+| function | typeof f === "function" |
+| array | Array.isArray(a) |
+
+Létrehozhatsz olyan függvényeket, amelyek típustól
+függően más ereményt adnak.
+
+```typescript
+function valami(obj: string | string[]) {
+    if(obj === "string) {
+        console.log('sztirng érkezett')
+        return
+    }
+    console.log('sztirng tömb érkezett')
+}
+```
+
+### Generikusok
+
+> Olvasmány
+
+Létrehozhatunk saját generikus típusokat tömbként:
+
+```typescript
+type StringArray = Array<string>;
+type NumberArray = Array<number>;
+type ObjectWithNameArray = Array<{ name: string }>;
+
+const arr1: StringArray = ['a', 'b', 'c'];
+const arr2: NumberArray = [1, 2, 3];
+const arr3: ObjectWithNameArray = [
+    { name: 'a' }, 
+    { name: 'b' }, 
+    { name: 'c' }
+];
+console.log(arr1);
+console.log(arr2);
+console.log(arr3);
+```
+
+Saját generikus típus:
+
+```typescript
+interface Pack<Type> {
+    contents: Type | undefined;
+    add: (obj: Type) => void;
+    get: () => Type| undefined;
+}
+
+const pack: Pack<string> = {
+    contents: "",
+    add(obj) {
+        this.contents += obj;
+    },
+    get() {
+        return this.contents;
+    }
+};
+
+pack.add('alma');
+pack.add('körte');
+const object = pack.get();
+
+console.log(object); //almakörte
+
+```
+
+Használat osztállyal:
+
+```javascript
+interface Pack<Type> {
+    add: (obj: Type) => void;
+    get: () => Type| undefined;
+}
+
+class StringPack implements Pack<string> {
+    private contents?: string;
+    add(obj: string) {
+        this.contents = obj;
+    }
+    get() {
+        return this.contents;
+    }
+}
+
+const pack = new StringPack();
+pack.add('alma');
+pack.add('körte');
+console.log(pack.get()); //körte
+```
