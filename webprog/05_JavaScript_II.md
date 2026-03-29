@@ -1077,6 +1077,10 @@ npm create vite@latest
 
 A TypeScript a JavaScript kiegészítve típusokkal.
 
+Webhely:
+
+* [https://www.typescriptlang.org/](https://www.typescriptlang.org/)
+
 Nézzük meg a következő kódot:
 
 _app.js_:
