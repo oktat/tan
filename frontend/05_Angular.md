@@ -3,13 +3,14 @@
 
 * **Szerző:** Sallai András
 * Copyright (c) 2022, Sallai András
-* Szerkesztve: 2022, 2023, 2024, 2025
+* Szerkesztve: 2022, 2023, 2024, 2025, 2026
 * Licenc: [CC Attribution-Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 * Web: [https://szit.hu](https://szit.hu)
 
 ## Tartalomjegyzék
 
 * [Tartalomjegyzék](#tartalomjegyzék)
+* [A könyv használatához](#a-könyv-használatához)
 * [Az Angular](#az-angular)
 * [Az Angular telepítése](#az-angular-telepítése)
 * [Új projekt](#új-projekt)
@@ -38,13 +39,26 @@
 * [Tömb lapozása](#tömb-lapozása)
 * [Angular animáció](#angular-animáció)
 
+## A könyv használatához
+
+A könyvben használt szimbólumok:
+
+* 🕮 - olvasmány
+* ✍ - gyakorlat
+
+A könyv szimbólummal (🕮) jelölt rész kihagyható olvasmány.
+
+Az író kéz szimbólummal (✍) a gyakorlatra utal. Végrahajtandó, kipróbálandó.
+
+Ha mindkét szimbólum szerepel, a gyakorlat kihagyható. Ez általában régebbi Angular verziók/technikák használatát írják le.
+
 ## Az Angular
 
 Az Angular a Google **TypeScript** alapú, népszerű keretrendszere. Az első Angular neve AngularJS volt, mivel JavaScript alapú volt, és 2010-ben adták ki. Az Angular 2.0-nak nevezett kiadás 2016-ban lett kiadva, és már TypeScript alapokon működött.
 
 Az Angular szabad és nyílt forráskódú _single-page_ webalkalmazások létrehozására használható keretrendszer.
 
-Ebben a leírásban az Angular 18-s verziójával dolgoztam.
+Ebben a leírásban az Angular 20-s verziójával dolgoztam.
 
 ## Az Angular telepítése
 
@@ -53,7 +67,7 @@ Ebben a leírásban az Angular 18-s verziójával dolgoztam.
 Célunk, hogy legyen egy **ng** nevű parancs. Ehhez az @angular/cli csomagot kell telepíteni. Verzió megadásával együtt:
 
 ```cmd
-npm install -g @angular/cli@18.0.0
+npm install -g @angular/cli@20.3.10
 ```
 
 ### Ellenőrzés
@@ -109,11 +123,17 @@ Az első kérdés konkrét példa:
 
 ```cmd
 ng new app01
-? Which stylesheet format would you like to use? (Use arrow keys)
-❯ CSS 
-  SCSS   [ https://sass-lang.com/documentation/syntax#scss                ] 
-  Sass   [ https://sass-lang.com/documentation/syntax#the-indented-syntax ] 
-  Less   [ http://lesscss.org 
+? Which stylesheet format would you like to use?
+❯ CSS             [ https://developer.mozilla.org/docs/Web/CSS                  
+   ]
+  Sass (SCSS)     [ https://sass-lang.com/documentation/syntax#scss
+   ]
+  Sass (Indented) [
+https://sass-lang.com/documentation/syntax#the-indented-syntax ]
+  Less            [ http://lesscss.org
+
+↑↓ navigate • ⏎ select
+
 ```
 
 Az első projektnél megfelelő a CSS választása, amihez csak egy "Enter" billentyű leütése szükséges.
@@ -127,45 +147,63 @@ and Static Site Generation
 
 Kezdetnek válasszuk "N" lehetőséget, egy "Enter" nyomásával.
 
+Újabb "N" lehetőséggel menjünk tovább:
+
+```cmd
+? Do you want to create a 'zoneless' application without zone.js? (y/N)
+```
+
+Szóközzel válasszuk ki a használt nyelvi modellt:
+
+```cmd
+? Which AI tools do you want to configure with Angular best practices? 
+https://angular.dev/ai/develop-with-ai
+❯◉ None
+ ◯ Claude         [ https://docs.anthropic.com/en/docs/claude-code/memory
+           ]
+ ◯ Cursor         [ https://docs.cursor.com/en/context/rules
+           ]
+ ◯ Gemini         [ https://ai.google.dev/gemini-api/docs
+           ]
+
+↑↓ navigate • space select • a all • i invert • ⏎ submit
+```
+
 Ezt követően elindul a projekt létrehozása, ahol hasonló sorokat látunk:
 
 ```cmd
-ng new app01
-? Which stylesheet format would you like to use? CSS
-? Do you want to enable Server-Side Rendering (SSR) and Static Site Generation 
-(SSG/Prerendering)? No
-CREATE app01/README.md (1059 bytes)
-CREATE app01/.editorconfig (274 bytes)
-CREATE app01/.gitignore (548 bytes)
-CREATE app01/angular.json (2587 bytes)
-CREATE app01/package.json (1036 bytes)
-CREATE app01/tsconfig.json (903 bytes)
-CREATE app01/tsconfig.app.json (263 bytes)
-CREATE app01/tsconfig.spec.json (273 bytes)
+CREATE app01/README.md (1469 bytes)
+CREATE app01/.editorconfig (314 bytes)
+CREATE app01/.gitignore (604 bytes)
+CREATE app01/angular.json (2393 bytes)
+CREATE app01/package.json (1130 bytes)
+CREATE app01/tsconfig.json (992 bytes)
+CREATE app01/tsconfig.app.json (429 bytes)
+CREATE app01/tsconfig.spec.json (434 bytes)
 CREATE app01/.vscode/extensions.json (130 bytes)
 CREATE app01/.vscode/launch.json (470 bytes)
 CREATE app01/.vscode/tasks.json (938 bytes)
-CREATE app01/src/main.ts (250 bytes)
-CREATE app01/src/favicon.ico (15086 bytes)
+CREATE app01/src/main.ts (222 bytes)
 CREATE app01/src/index.html (291 bytes)
 CREATE app01/src/styles.css (80 bytes)
-CREATE app01/src/app/app.component.css (0 bytes)
-CREATE app01/src/app/app.component.html (19903 bytes)
-CREATE app01/src/app/app.component.spec.ts (913 bytes)
-CREATE app01/src/app/app.component.ts (301 bytes)
-CREATE app01/src/app/app.config.ts (227 bytes)
+CREATE app01/src/app/app.css (0 bytes)
+CREATE app01/src/app/app.spec.ts (663 bytes)
+CREATE app01/src/app/app.ts (287 bytes)
+CREATE app01/src/app/app.html (20122 bytes)
+CREATE app01/src/app/app.config.ts (400 bytes)
 CREATE app01/src/app/app.routes.ts (77 bytes)
-CREATE app01/src/assets/.gitkeep (0 bytes)
+CREATE app01/public/favicon.ico (15086 bytes)
+CREATE app01/.windsurf/rules/guidelines.md (1936 bytes)
 ✔ Packages installed successfully.
 hint: Using 'master' as the name for the initial branch. This default branch name
 hint: is subject to change. To configure the initial branch name to use in all
 hint: of your new repositories, which will suppress this warning, call:
-hint: 
+hint:
 hint:   git config --global init.defaultBranch <name>
-hint: 
+hint:
 hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
 hint: 'development'. The just-created branch can be renamed via this command:
-hint: 
+hint:
 hint:   git branch -m <name>
     Successfully initialized git.
 ```
@@ -236,18 +274,20 @@ A böngészőben megnyíló ablak:
 
 ```cmd
 projetk01/
+  |-.angular/
   |-.vscode/
+  |-.windsurf/
   |-node_modules/
   |-public/
   |  `-favicon.ico
   |-src/
   |  |-app/
-  |  |  |-app.components.css
-  |  |  |-app.component.html
-  |  |  |-app.component.spec.ts
-  |  |  |-app.components.ts
   |  |  |-app.config.ts
-  |  |  `-app.routes.ts
+  |  |  |-app.css
+  |  |  |-app.html
+  |  |  |-app.routes.ts
+  |  |  |-app.spec.ts
+  |  |  `-app.ts
   |  |-index.html
   |  |-main.ts
   |  `-style.css
@@ -290,41 +330,44 @@ A projekt gyökérkönyvtárában még sok más állomány is található, amely
 
 ### A fő komponens állományai
 
-* _app.component.css_ - üres állomány
-* _app.component.html_ - tartalmát törölni fogjuk
-* _app.component.ts_ - a fő komponens TypeScript állománya
-* _app.component.spec.ts_ - tesztállomány
+* _app.css_ - üres állomány
+* _app.html_ - tartalmát törölni fogjuk
+* _app.ts_ - a fő komponens TypeScript állománya
+* _app.spec.ts_ - tesztállomány
 
-Az _app.component.ts_ állománnyal fogunk dolgozni.
+Az _app.ts_ állománnyal fogunk dolgozni.
 
-Az _app.component.ts_ tartalma:
+Az _app.ts_ tartalma:
 
 ```typescript
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  templateUrl: './app.html',
+  styleUrl: './app.css'
 })
-export class AppComponent {
-  title = 'app01';
+export class App {
+  protected readonly title = signal('app01');
 }
 ```
 
 Az _app.config.ts_ - az alkalmazás konfigurációs állományának kezdeti tartalma:
 
 ```typescript
-import { ApplicationConfig } from '@angular/core';
+import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes)]
+  providers: [
+    provideBrowserGlobalErrorListeners(),
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes)
+  ]
 };
 ```
 
@@ -340,7 +383,7 @@ export const routes: Routes = [];
 
 A csomagkezelőt ne állítgassuk osztott felhasználású gépen. Csak az otthoni saját gépen állítsuk át.
 
-Az Angular számára az alapértelmezett csomagkezelő a npm.
+Az Angular számára az alapértelmezett csomagkezelő az npm.
 
 A következő parancs segítségével beállíthatjuk, például a pnpm parancsot:
 
@@ -393,30 +436,29 @@ Számtalan előre legyártott Angular modult használhatunk. Az Angular modulok 
 
 A komponensek két főbb részből állnak. A TypeScript fájl és a HTML sablon. A főkomponens állományai például:
 
-* app.component.ts
-* app.component.html
+* app.ts
+* app.html
 
 Az adatokat a TypeScript fájlba érkeznek meg, de a HTML sablonban szeretnék azokat megjeleníteni. Ezért a TypeScript fájlban lévő adatokat a HTML sablonfájlba kötni kell, ilyen esetben adatkötésről beszélhetünk.
 
-Töröljük üresre az _app.component.html_ fájlt. Az app.component.ts fájlban már van egy adat title néven. Alapértelmezetten a projekt nevét találjuk itt:
+Töröljük üresre az _app.html_ fájlt. Az app.ts fájlban már van egy adat title néven. Alapértelmezetten a projekt nevét találjuk itt:
 
 ```typescript
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  templateUrl: './app.html',
+  styleUrl: './app.css'
 })
-export class AppComponent {
-  title = 'app01';
+export class App {
+  protected readonly title = signal('app01');
 }
 ```
 
-A fő komponensosztály neve AppComponent. Benne egy "title" nevű adattag. Most kössük a title változót a HTML állományhoz. A app.component.html fájlban:
+A fő komponensosztály neve App. Benne egy "title" nevű adattag. Most kössük a title változót a HTML állományhoz. A _app.html_ fájlban:
 
 ```html
 <h1>{{title}}</h1>
@@ -442,6 +484,9 @@ A következő függvények állnak rendelkezésre:
 * ngAfterContentChecked()
 * ngAfterViewInit()
 * ngAfterViewChecked()
+
+A függvényeket bármely komponensbe létrehozhatjuk és használhatjuk.
+A függvények kipróbálására, használatára később kerül sor.
 
 ### ngOnInit() függvény
 
@@ -506,8 +551,10 @@ export class ExampleComponent {
 Telepítés:
 
 ```cmd
-npm install bootstrap
+ng add bootstrap
 ```
+
+Kérdésre nyomjunk Enter-t.
 
 Vegyük fel az src/style.css fájlban a bootstrap-t.
 
@@ -519,7 +566,8 @@ _src/style.css_:
 
 ### Bootstrap JavaScript
 
-Az angular.json fájlba írjuk be bootstrap.js helyét.
+Az angular.json fájlba írjuk be bootstrap.js helyét. Fel kell vennünk egy
+_scripts_ nevű kulcsot az _options_ kulcson belül.
 
 _angular.json_:
 
@@ -635,7 +683,8 @@ Webes alkalmazások esetén egyik alapvető esemény, amit figyelni szoktunk a k
 A TypeScript tartalma:
 
 ```typescript
-export class AppComponent {
+//...
+export class App {
   name = 'Ernő';
 
   changeName() {
@@ -741,7 +790,7 @@ Az iterálás:
 </ul>
 ```
 
-### Az Angular 16 *ngFor direktívája
+### 🕮 Az Angular 16 *ngFor direktívája
 
 Az Angular 16 és korábbi verzióiban *ngFor direktíva volt használatos a sablon fájlokban iterálásra. Az újabb Angular verziókban is használhatók, de importálni kell a **CommonModule** modult.
 
@@ -814,15 +863,16 @@ Akár több komponenst is cserélgethetünk egymással.
 ### Komponens létrehozása
 
 A komponenseket az **ng generate component kompnensnév** utasítással generálhatunk.
+Az Angular 20-s verziójától ajánlott a _type_ kapcsoló használata.
 
 ```cmd
-ng generate component comp1
+ng generate component comp1 --type component
 ```
 
 Rövidítve:
 
 ```cmd
-ng g c comp1
+ng g c comp1 --type component
 ```
 
 Ami létrejön:
@@ -906,19 +956,19 @@ export class ExampleService {
 Szolgáltatás létrehozása:
 
 ```cmd
-ng generate service example
+ng generate service example --type service
 ```
 
 Röviden használva:
 
 ```cmd
-ng g s example
+ng g s example --type service
 ```
 
 Ajánlott külön könyvtárba elhelyezni a szolgáltatásokat:
 
 ```cmd
-ng generate service shared/example
+ng generate service shared/example --type service
 ```
 
 Ebben az esetben a szolgáltatás a **shared** könyvtáron belül jön létre. Eltérő könyvtárnevet is használhatunk.
@@ -927,31 +977,75 @@ Ebben az esetben a szolgáltatás a **shared** könyvtáron belül jön létre. 
 
 Az Angular **Dependency Injection**, röviden **DI**, lehetővé teszi a direktívák, szolgáltatások, komponensek számára, hogy egyik a másikra támaszkodjon.
 
-### Az example szolgáltatás használata
+### A logger szolgáltatás használata
 
-Készítünk az _src/app/app.component.ts_ fájlban egy konstructort:
+Készítsünk egy logger nevű szolgáltatást:
 
-```typecript
-//src/app/app.component.ts
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+```bash
+ng generate service shared/logger --type service
+```
+
+Készítsünk egy log() függvényt:
+
+```typescript
+  log(message: string) {
+    console.log(message);
+  }
+```
+
+A teljes kód:
+
+```typescript
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class LoggerService {
+  log(message: string) {
+    console.log(message);
+  }
+}
+```
+
+Az _src/app/app.ts_ fájlban fecskendezzük be függőségként:
+
+```typescript
+logger = inject(LoggerService);
+```
+
+A teljes kód:
+
+_src/app/app.ts_:
+
+```typescript
+import { Component, inject } from '@angular/core';
+import { LoggerService } from './shared/logger.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [],
+  templateUrl: './app.html',
+  styleUrl: './app.css'
 })
-export class AppComponent {
-  title = 'app07';
-
-  constructor() {}
+export class App {
+  logger = inject(LoggerService);
 }
-
 ```
 
-A konstruktorban private bejövő paraméterként fogadjuk egy ExampleService típustú objektumot:
+Vegyük észre a két első sorban az importálást. Az inject függvényt és a LoggerService-t is be kell
+importálni.
+
+```typescript
+ngOnInit() {
+  console.log(this.logger.log());
+}
+```
+
+🕮 ✍
+
+Az inject függvény használata előtt a konstruktort használtuk a függőség befecskendezésre. Próbáljuk ki az előző fejezet example szolgáltatásával.
 
 ```typescript
 import { ExampleService } from './shared/example.service';
@@ -986,10 +1080,11 @@ Most adjunk egy új elemet a kiíratás előtt a tömbhöz:
   }
 ```
 
-Az _app.component.ts_ teljes kódja:
+Az _app.ts_ teljes kódja:
+
+_src/app/app.component.ts_:
 
 ```typescript
-//src/app/app.component.ts
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ExampleService } from './shared/example.service';
@@ -998,10 +1093,10 @@ import { ExampleService } from './shared/example.service';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  templateUrl: './app.html',
+  styleUrl: './app.css'
 })
-export class AppComponent {
+export class App {
   title = 'app01';
 
   constructor(private example: ExampleService) {}
@@ -1019,7 +1114,7 @@ export class AppComponent {
 A példa kedvéért készítsünk egy egyszerű szolgáltatást:
 
 ```cmd
-ng generate service shared/greeting
+ng generate service shared/greeting --type service
 ```
 
 A tartalom a következő legyen:
@@ -1047,7 +1142,7 @@ export class GreetingService {
 Készítsünk egy komponenst, amely függőségként befecskendezi az előbbi szolgáltatást:
 
 ```cmd
-ng generate component greet
+ng generate component greet --type component
 ```
 
 A _greet.component.html_ fájlban kössük be a greeting változót:
@@ -1235,6 +1330,8 @@ _src/app/app.component.html_:
 ```
 
 ### Signup űrlap
+
+✍
 
 Gyakoroljunk és nézzük meg az űrlap érvényességének vizsgálatát is. Készítsünk egy **signup** nevű projektet.
 
@@ -1476,7 +1573,7 @@ Készítsünk egy új projektet, például **empha** néven.
 Vegyünk fel egy emp nevű komponenst.
 
 ```cmd
-ng g c emp
+ng g c emp --type component
 ```
 
 Építsük be a fő komponensbe:
@@ -1497,7 +1594,7 @@ import {
   } from '@angular/forms';
 ```
 
-A @Component dekorátorban fel kell venni a ReactiveFormsModule osztályt:
+A @Component dekorátorban fel kell venni a **ReactiveFormsModule** osztályt:
 
 ```typescript
   imports: [ReactiveFormsModule],
@@ -1673,10 +1770,11 @@ Szükségünk van egy userForm változóra:
 userForm: any;
 ```
 
-Injektáljuk a FormBuilder osztályt:
+Injektáljuk a FormBuilder osztályt az inject függvénnyel vagy a komponens
+konstruktorának használatával:
 
 ```typescript
-constructor(public builder: FormBuilder) { }
+builder = inject(FormBuilder)
 ```
 
 Készítsük el az ngOnInit() metódust:
@@ -1762,7 +1860,7 @@ ngOnInit(): void {
 A következő táblázatban a Validators osztály néhány tagját láthatjuk:
 
 | Függvény | Leírás |
-|-|-|
+| - | - |
 | min() | A kontroll értékének minimuma |
 | max() | A kontroll értékének maximuma |
 | required | Kötelező megadni |
@@ -1771,7 +1869,7 @@ A következő táblázatban a Validators osztály néhány tagját láthatjuk:
 | minLength | Minimum ennyi karakter a kontroll értéke |
 | maxLength | Maximum ennyi karakter a kontroll értéke |
 | pattern | A megadott regexnek megfelel a kontroll értéke |
-| nullValidator | Semmit sem vizsgálunk  |
+| nullValidator | Semmit sem vizsgálunk |
 | compose | Több érvényesítő összefogása, egy függvénybe |
 | composeAsync | Több aszinkron érvényesítő összefogása |
 
@@ -1841,7 +1939,7 @@ A hasError() használata:
 
 ## HttpClient
 
-A REST API szerverrel való kommunikációra használhatjuk a JavaScript fetch() függvényét. Az Angular azonban saját megoldsát kínál erre a célra a HttpClient modult.
+A REST API szerverrel (backend) való kommunikációra használhatjuk a JavaScript fetch() függvényét. Az Angular azonban saját megoldsát kínál erre a célra a HttpClient modult.
 
 Készítsünk egy **todoclient** nevű projektet.
 
@@ -1859,8 +1957,9 @@ providers: [
 
 A teljes kód:
 
+_src/app/app.config.ts_:
+
 ```typescript
-//src/app/app.config.ts
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
@@ -1883,7 +1982,7 @@ A providers tömbben lehetnek más elemek is.
 Készítsünk egy szolgáltatást, amivel elérjük a backend-t.
 
 ```cmd
-ng generate service shared/api
+ng generate service shared/api --type service
 ```
 
 Az injektálás megoldható az **inject()** függvénnyel is. De itt most a konstruktort fogjuk erre a célra használni.
@@ -1922,7 +2021,7 @@ A http.get() metódus elküldi a kérést az URL-re, majd kapunk egy Observable 
 Készítsünk egy todo nevű komponenst:
 
 ```cmd
-ng generate component todo
+ng generate component todo --type component
 ```
 
 A szolgáltatásunkat injektáljuk a konstruktorban a komponensbe. Hozzunk létre egy getTodos() függvényt, amivel használjuk a szolgáltatást.
@@ -1960,7 +2059,7 @@ A böngésző fejlesztő felületén nézzük meg az eredményt.
 
 ## Táblázatok
 
-Szükségünk lesz egy REST API szerverre:
+Szükségünk lesz egy REST API szerverre (backend):
 
 * [https://github.com/oktat/empjs.git](https://github.com/oktat/empjs.git)
 
@@ -2012,7 +2111,7 @@ export const appConfig: ApplicationConfig = {
 ### Szolgáltatás elkészítése
 
 ```cmd
-ng generate service api
+ng generate service api --type service
 ```
 
 ```typescript
@@ -2035,7 +2134,7 @@ export class ApiService {
 ### Emp komponens készítése
 
 ```cmd
-ng generate component emp
+ng generate component emp --type component
 ```
 
 Jelenítsük meg a komponenst a főkomponensben. Ehhez szerkesszük a _src/app/app.component.ts_ fájlt. Importáljuk az Emp komponenst:
@@ -2077,6 +2176,8 @@ Az _app.component.html_ fájl tartalma a következő legyen:
 ```
 
 ### A komponens használata
+
+_src/app/emp.component.ts_:
 
 ```typescript
 import { Component } from '@angular/core';
@@ -2370,7 +2471,7 @@ A mentésgombra hogyan regáljun TypeScript oldalon? Írjuk át a saveEmployee()
   }
 ```
 
-Létrehozunk egy addEmployee() metódust, ahova bekerül az előzőleg saveEmplyoee() metódusban található tartalom:
+Létrehozunk egy _addEmployee()_ metódust, ahova bekerül az előzőleg _saveEmplyoee()_ metódusban található tartalom:
 
 ```typescript
   addEmployee() {
@@ -2384,7 +2485,7 @@ Létrehozunk egy addEmployee() metódust, ahova bekerül az előzőleg saveEmply
   }
 ```
 
-Végül szükségünk van egy updateEmployee() metódusra, ami a módosítást elküldi a szolgáltatásnak.
+Végül szükségünk van egy _updateEmployee()_ metódusra, ami a módosítást elküldi a szolgáltatásnak.
 
 ```typescript
   updateEmployee(emp: any) {
@@ -2640,8 +2741,9 @@ A következő állományok jönnek létre:
 
 Az _auth.guard.ts_ tartalma:
 
+_src/app/shared/auth.guard.ts_:
+
 ```typescript
-//src/app/shared/auth.guard.ts
 import { CanActivateFn } from '@angular/router';
 
 export const authGuard: CanActivateFn = (route, state) => {
@@ -2696,8 +2798,9 @@ Felvettük a **canActivate** kulcsot és **[authGuard]** értéket.
 
 Teljes kód:
 
+_src/app/app.routes.ts_:
+
 ```typescript
-//src/app/app.routes.ts
 import { Routes } from '@angular/router';
 import { EmpComponent } from './emp/emp.component';
 import { authGuard } from './shared/auth.guard';
@@ -2785,20 +2888,20 @@ A 'short' paraméter által a dátum röviden jelenik meg.
 
 A következő táblázat a lehetséges paramétereket mutatja:
 
-|  Paraméter  |  Példa minta  |
-| --- | --- |
-|  short  | 11/6/25, 4:03 PM |
-|  medium  | Nov 6, 2025, 4:03:28 PM |
-|  long  | November 6, 2025 at 4:03:45 PM GMT+1 |
-|  full  | Thursday, November 6, 2025 at 4:04:02 PM GMT+01:00 |
-|  shortDate  | 11/6/2025 |
-|  mediumDate  | Nov 6, 2025 |
-|  longDate  | November 6, 2025 |
-|  fullDate  |  Thursday, November 6, 2025 |
-|  shortTime  | 4:00 PM |
-|  mediumTime  | 4:02:05 PM |
-|  longTime | 4:08:00 PM GMT+1 |
-|  fullTime  | 4:08:19 PM GMT+01:00 |
+| Paraméter | Példa minta |
+| - | - |
+| short | 11/6/25, 4:03 PM |
+| medium | Nov 6, 2025, 4:03:28 PM |
+| long | November 6, 2025 at 4:03:45 PM GMT+1 |
+| full | Thursday, November 6, 2025 at 4:04:02 PM GMT+01:00 |
+| shortDate | 11/6/2025 |
+| mediumDate | Nov 6, 2025 |
+| longDate | November 6, 2025 |
+| fullDate | Thursday, November 6, 2025 |
+| shortTime | 4:00 PM |
+| mediumTime | 4:02:05 PM |
+| longTime | 4:08:00 PM GMT+1 |
+| fullTime | 4:08:19 PM GMT+01:00 |
 
 Most alakítsuk át konkrét formára:
 
@@ -2818,7 +2921,7 @@ Idővel együtt:
 
 Részletek megadása:
 
-| Formátum |  Leírás  | Példa |
+| Formátum | Leírás | Példa |
 | --- | --- | --- |
 | yyyy | 4 jegyű év | 2025 |
 | MM | 2 jegyű hónap (01-12) | 07 |
@@ -2829,6 +2932,8 @@ Részletek megadása:
 | h | 1 jegyű idö | 4 |
 | mm | 2 jegyű percek | 02 |
 | a | AM vagy PM | PM |
+
+✍
 
 Gyakorlásként készítsünk egy új Angular alkalmazást és probáljuk ki a leírtakat a fő vagy egy alkomponensben.
 
@@ -2843,15 +2948,15 @@ Pénznemek:
 
 Az alábbi táblázatban további pipe-okat találunk.
 
-|  Név  |  Leírás  |
+| Név | Leírás |
 | --- | --- |
 | AsyncPipe | Érték olvasása egy Promise-ből vagy RxJS Observable-ből. |
 | CurrencyPipe | Szám átalakítása pénznemre. |
 | DatePipe | Egy Date érték formázása locale szabályai szerint. |
-| DecimalPipe | Szám átalakítása szöveggé, decimális ponttal \\ a locale szabályai szerint.  |
+| DecimalPipe | Szám átalakítása szöveggé, decimális ponttal \\ a locale szabályai szerint. |
 | I18nPluralPipe | Érték leképezése többesszámba, a locale szabályai szerint. |
 | I18nSelectPipe | Egy kulcs egyéni szektorhoz rendelése, amely a kívánt értéket adja. |
-| JsonPipe | Objetum átalakítása szöveggé JSON.stringify-on keresztül, ami hibakeresésre szolgál.  |
+| JsonPipe | Objetum átalakítása szöveggé JSON.stringify-on keresztül, ami hibakeresésre szolgál. |
 | KeyValuePipe | Objektum vagy Map leképezése egy tömbbe, kulcs értékpárként. |
 | LowerCasePipe | Átalakítás kiseetűssé. |
 | PercentPipe | Szám átalakítása százalékos szöveggé, a locale szabályai szerint formázva. |
@@ -3160,7 +3265,7 @@ A tényleges szűrés beállítása a HTML fájlban:
 
 ## Komponensek kommunikációja
 
-Néha szükséges lehet a komponensek közötti kommunikációra. Például: egy beléptető felületen, egy login komponensben elvégezzük a beléptetést, és a főkomponens navigációs sávjában szükségvan erre az információra, mivel ettől függ például a **Logout** gomb megjelenítése.
+Néha szükséges lehet a komponensek közötti kommunikációra. Például: egy beléptető felületen, egy login komponensben elvégezzük a beléptetést, és a főkomponens navigációs sávjában szükség van erre az információra, mivel ettől függ például a **Logout** gomb megjelenítése.
 
 ![angular navigációs sáv és komponensek](images/angular/angular_nav_routing.png)
 
@@ -3180,10 +3285,157 @@ Az útválasztás be van állítva, kezdetben a home komponens jelenik meg. Navi
 
 Klónozzuk az alkalmazást és fejlesszük tovább. A login komponensben, bejelentkezés tényéről át kell adni az információt a főkomponens számára. Ezt **BehaviorSubject** osztállyal fogjuk megvalósítani.
 
+### Frissítés újabb verzióra
+
+A fenti alkalmazás Angular 18-ban készült. Frissítsük az alkalmazást:
+
+Telepítsük a függőségeket, majd Git segítségével tároljuk az állapotot.
+
+```bash
+npm install
+git add .
+git commit -m "Start update"
+```
+
+Készítsünk elágazást:
+
+```bash
+git checkout -b update-to-v20
+```
+
+Mindig csak egy főverziót frissítsünk. 18-ról 20-ra például:
+
+Először 19-re:
+
+```bash
+ng update @angular/core@19 @angular/cli@19
+```
+
+Majd 20-ra:
+
+```bash
+ng update @angular/core@20 @angular/cli@20
+```
+
+### signal használata
+
+Ebben a fejezetben a signal() függvény használata mellett,
+az függőségbefecskendezést az inject függvénnyel valósítjuk meg.
+
 Készítsünk egy szolgáltatás auth néven:
 
 ```bash
-ng generate service shared/auth
+ng generate service shared/auth --type service
+```
+
+_src/app/shared/auth.service.ts_:
+
+```typescript
+import { inject, Injectable, signal } from '@angular/core';
+import { Router } from '@angular/router';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class AuthService {
+  private _isLoggedIn = signal(false)
+  readonly isLoggedIn = this._isLoggedIn.asReadonly()
+  
+  router = inject(Router)
+  
+  loginSuccess() {
+    this._isLoggedIn.set(true)    
+  }
+  
+  logout() {
+    this._isLoggedIn.set(false)
+    this.router.navigate(['login'])
+  }
+}
+```
+
+A _login.component.ts_ fájlban az **onLogin()** komponenst
+valósítsuk meg:
+
+```typescript
+  onLogin() {
+    if (this.loginForm.valid) {
+      this.auth.loginSuccess();
+      this.router.navigate(['employee']);
+    }
+  }
+```
+
+Teljes kód:
+
+_src/app/login/login.component.ts_:
+
+```typescript
+import { Component, inject } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from '../shared/auth.service';
+import { Router } from '@angular/router';
+
+@Component({
+    selector: 'app-login',
+    imports: [ReactiveFormsModule],
+    templateUrl: './login.component.html',
+    styleUrl: './login.component.css'
+})
+export class LoginComponent {
+
+  auth = inject(AuthService)
+  router = inject(Router)
+  builder = inject(FormBuilder)
+
+  loginForm = this.builder.group({
+    username: ['admin'],
+    password: ['titok']
+  });
+
+  onLogin() {
+    console.log('Bejelentkezés árnyékeljárás...');
+    if(this.loginForm.valid) {
+      this.auth.loginSuccess()
+      this.router.navigate(['employee'])
+    }
+  }
+
+}
+```
+
+A főkomponensben iratkozzunk fel a szolgáltatás isAuthenticated értékére:
+
+_src/app/app.component.ts_:
+
+```typescript
+import { Component, inject } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { AuthService } from './shared/auth.service';
+
+@Component({
+    selector: 'app-root',
+    imports: [RouterOutlet, RouterLink],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css'
+})
+export class AppComponent {
+  
+  auth = inject(AuthService)
+
+  logout() {
+    console.log('Kilépés árnyékeljárás...');
+    this.auth.logout()
+  }
+}
+```
+
+### 🕮 BehaviorSubject használata
+
+Készítsünk egy szolgáltatás auth néven:
+
+```bash
+ng generate service shared/auth --type service
 ```
 
 _src/app/shared/auth.service.ts_:
