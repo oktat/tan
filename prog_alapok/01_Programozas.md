@@ -264,7 +264,24 @@ A végrehajtás közben fellépő hibák angol neve: **Run-time error**. Ehhez a
 
 ### Hibakeresés
 
-Debugolásnak is hívjuk.
+A hibakeresés (debugging) a programozási folyamat elengedhetetlen része,
+amelynek a során kód (bugjait) azonosítod, elemzed. A fejlesztés jelentős
+része a hibák keresésével telik.
+
+### A nyelv elemei
+
+Nézzünk meg egy programozási nyelv alapvető elemeit a következő táblázatban.
+
+| Fogalom | Leírás |
+| --- | --- |
+| típusok | egész, valós, karakterlánc, logikai |
+| azonosító | a b abc valami egy ketto |
+| változó | (valami azonosító) |
+| operátor | + - * / |
+| literálisok | 1 0 45 -23 2.0 1.0e-18 True False 'alma' |
+| kifejezés | elso + (masodik * harmadik) |
+
+A kifejezések célja egy adattípus értékének meghatározása.
 
 ## Python Shell
 
