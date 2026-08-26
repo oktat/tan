@@ -252,17 +252,17 @@ Az "n" betű már nem íródik ki képernyőre. Helyette valami más történik.
 Ha egy karakternek ilyen speciális jelentést adunk, akkor escape szekvenciának hívjuk. Az alábbi táblázat escape szekvenciákat tartalmaz, amely használható Python nyelvben.
 
 | Escape szekvencia | Jelentés |
-|-------------------|----------|
+| - | - |
 | \\\\ | vissza-perjel megjelenítése |
-| \\'  | aposztróf megjelenítése |
-| \\"  | idézőjel megjelenítése |
-| \a  | ASCII csengőhang |
-| \b  | ASCII visszatörlés - Backspace (BS) |
-| \f  | ASCII lapdobás (FF) |
-| \n  | ASCII soremelés (LF) |
-| \r  | ASCII kocsi vissza (CR) |
-| \t  | ASCII vízszintes tabulátor (TAB) |
-| \v  | ASCII függőleges tabulátor (VT) |
+| \\' | aposztróf megjelenítése |
+| \\" | idézőjel megjelenítése |
+| \a | ASCII csengőhang |
+| \b | ASCII visszatörlés - Backspace (BS) |
+| \f | ASCII lapdobás (FF) |
+| \n | ASCII soremelés (LF) |
+| \r | ASCII kocsi vissza (CR) |
+| \t | ASCII vízszintes tabulátor (TAB) |
+| \v | ASCII függőleges tabulátor (VT) |
 | \ooo | oktális érték |
 | \xhh | hexadecimális érték |
 | \uxxxx | karakter kiírása Unicode alapján |
@@ -903,19 +903,19 @@ print(random.randint(1,6))
 ### Aritmetikai operátorok
 
 | Operátor | Leírás |
-|-|-|
+| - | - |
 | + | összeadás |
 | - | kivonás |
 | * | szorzás |
 | / | valós osztás |
 | // | egész osztás |
 | % | maradékképzés (moduló) |
-| ** | hatványozás  |
+| ** | hatványozás |
 
 ### Logikai operátorok
 
 | Operátor | Leírás |
-|-|-|
+| - | - |
 | not | tagadás |
 | and | és művelet |
 | or | vagy művelet |
@@ -923,7 +923,7 @@ print(random.randint(1,6))
 ### Relációs operátorok
 
 | Operátor | Leírás |
-|-|-|
+| - | - |
 | > | nagyobb mint |
 | < | kisebb mint |
 | >= | nagyobb vagy egyenlő |
@@ -936,7 +936,7 @@ print(random.randint(1,6))
 Egy precedencia táblával leírható, melyik operátor értékelődik ki előbb:
 
 | Operátor | Leírás |
-|-|-|
+| - | - |
 | () | zárójelek |
 | ** | hatványozás |
 | +x, -x, ~x | unary plusz és mínusz, bitenkénti nem |
@@ -2044,7 +2044,7 @@ print(haromszogTerulet(magassag=35, alap=30))
 ## Fájlkezelés
 
 | Betű | Jelentés |
-|-|-|
+| - | - |
 | r | Megnyitás olvasásra |
 | a | Megnyitás hozzáfűzésre |
 | w | Megnyitás írásra (felülírja a meglévőt) |

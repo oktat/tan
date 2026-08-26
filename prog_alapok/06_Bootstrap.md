@@ -105,7 +105,7 @@ Vezető szöveg rész, ami elkülönül a több bekezdéstől.
 Kiemelések:
 
 | Mit helyettesítünk | Mivel |
-|-|-|
+| - | - |
 | &lt;mark&gt; | .mark |
 | &lt;small&gt; | .small |
 | &lt;u&gt; | .text-decoration-underline |

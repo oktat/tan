@@ -306,7 +306,7 @@ Beállítható fontcsalád, vagy konkrét font. Ehhez a **font-family** tulajdon
 A következő táblázat tartalmazza a fontcsaládokat:
 
 | Fontcsalád | Leírás |
-|-|-|
+| - | - |
 | serif | talapas betűk |
 | sans-serif | talpatlan betűk |
 | monospace | fix betűszéless |
@@ -1202,7 +1202,7 @@ A z-index változtatása:
 ### Relatív hosszmértékek
 
 | Mértékegység | Leírás |
-|-|-|
+| - | - |
 | em | A releváns karakter mérete |
 | ex | A releváns karakter x-magassága |
 | % | Százalék |
@@ -1214,13 +1214,13 @@ A z-index változtatása:
 Abszolút és mégis relatív hosszmértékek
 
 | Mértékegység | Leírás |
-|-|-|
+| - | - |
 | px | képpont; eszközfüggő |
 
 ### Abszolút hosszmértékek
 
 | Mértékegység | Leírás |
-|-|-|
+| - | - |
 | in | inch; hüvelyk; 25,4 mm |
 | cm | centiméter |
 | mm | milliméter |
@@ -1228,7 +1228,7 @@ Abszolút és mégis relatív hosszmértékek
 | pc | pica; 12 pont, 3/18 hüvelyk; kb.: 4,23 mm |
 
 | Mértékegység | Leírás |
-|-|-|
+| - | - |
 | px | képpont; eszközfüggő |
 
 ## Színek

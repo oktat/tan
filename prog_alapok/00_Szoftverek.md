@@ -49,9 +49,11 @@ Opcionális:
 
 ```cmd
 choco install pycharm-community
+choco install brave
+choco install vscodium
 ```
 
-A programok telepíthetők a webhelyükről is, a choco parancs nélkül is.
+A programok telepíthetők a webhelyükről is, a choco parancs nélkül.
 
 ### Node.js csomag
 

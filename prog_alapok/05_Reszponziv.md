@@ -265,8 +265,8 @@ Kétféle mértékegység van:
 
 ### Realatív hosszmértékek
 
-| Mértékegység | Leírás  |
-|--------------|---------|
+| Mértékegység | Leírás |
+| - | - |
 | em | A releváns karakter mérete |
 | px | képpont; eszközfüggő |
 | ex | A releváns karakter x-magassága |
@@ -280,8 +280,8 @@ Kétféle mértékegység van:
 
 ### Abszolút hosszmértékek
 
-| Mértékegység | Leírás  |
-|--------------|---------|
+| Mértékegység | Leírás |
+| - | - |
 | in | inch; hüvelyk; 25,4 mm |
 | cm | centiméter |
 | mm | milliméter |
@@ -291,7 +291,7 @@ Kétféle mértékegység van:
 ### Mit mikor ajánlott használni?
 
 | Média | Ajánlott | Alkalmanként | Nem ajánlott |
-|-------|----------|--------------|--------------|
+| - | - | - | - |
 | Képernyő | px, em, % | ex | mm, cm, in, pt, pc |
 | Nyomtatott | mm, cm, in, pt, pc, em, % | px, ex, | |
 

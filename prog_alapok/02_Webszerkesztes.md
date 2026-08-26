@@ -532,7 +532,7 @@ A kiemelésekre többféle HTML elem áll rendelkezésre. A következő három f
 ### Szövegek kiemelése
 
 | Tag | Leírás |
-|-|-|
+| - | - |
 | &lt;b&gt; | félkövér szöveg |
 | &lt;em&gt; | kiemelt szöveg  |
 | &lt;i&gt; | dőlt szöveg |
@@ -566,7 +566,7 @@ A böngészőben ehhez hasonlóan jelenik meg:
 ### Számítógépes kiemelések
 
 | Tag | Leírás |
-|-|-|
+| - | - |
 | &lt;code&gt; | számítógépes kód |
 | &lt;kbd&gt; | billentyűzet |
 | &lt;samp&gt; | mintakód |
@@ -596,7 +596,7 @@ Bönégészőben:
 ### Idézetek és definíciók
 
 | Tag | Leírás |
-|-|-|
+| - | - |
 | &lt;abbr&gt; | egy rövidítés |
 | &lt;address&gt; | cím |
 | &lt;bdo&gt; | szöveg iránya |
@@ -759,8 +759,8 @@ Böngészőben:
 
 Használható fájltípusok:
 
-|  Rövidítés  |  Formátum  | Kiterjesztés |
-|-|-|-|
+| Rövidítés | Formátum | Kiterjesztés |
+| - | - | - |
 | JPEG | Joint Photographics Expert Group | .jpg, .jpeg |
 | GIF | Graphics Interchange Format | .gif |
 | PNG | Portable Network Graphics | .png |

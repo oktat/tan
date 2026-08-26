@@ -8,16 +8,30 @@
 ## Tartalomjegyzék
 
 * [Tartalomjegyzék](#tartalomjegyzék)
-* [Játékos programozás](#játékos-programozás)
-* [Oktatási portálok](#oktatási-portálok)
+* [A könyv használata](#a-könyv-használata)
+* [🕮 Játékos programozás](#-játékos-programozás)
+* [🕮 Oktatási portálok](#-oktatási-portálok)
 * [Fordítás és értelmezés](#fordítás-és-értelmezés)
 * [Tevékenységek](#tevékenységek)
 * [Algoritmus](#algoritmus)
 * [Fejlesztés](#fejlesztés)
-* [Python Shell](#python-shell)
-* [Gyakorlat](#gyakorlat)
+* [✍ Python Shell](#-python-shell)
+* [✍ Gyakorlat](#-gyakorlat)
 
-## Játékos programozás
+## A könyv használata
+
+A könyvben használt szimbólumok:
+
+* 🕮 - olvasmány
+* ✍ - gyakorlat
+
+A könyv szimbólummal (🕮) jelölt rész kihagyható olvasmány.
+
+Az író kéz szimbólummal (✍) a gyakorlatra utal. Végrahajtandó, kipróbálandó.
+
+Ha mindkét szimbólum szerepel, a gyakorlat kihagyható. Ez általában régebbi Angular verziók/technikák használatát írják le.
+
+## 🕮 Játékos programozás
 
 A játékos programozás növelheti a lelkesedésünket a programozást iránt. Többféle online megoldás is létezik erre a célra. Egyik ajánlott hely a lightbot.hu, ahol egy kis robotot irányíthatunk, az általunk összerakott programjainkkal.
 
@@ -29,7 +43,7 @@ Játékos programozáshoz ajánlott webhely:
 * [https://lab.reaal.me/jsrobot/#level=1&language=en](https://lab.reaal.me/jsrobot/#level=1&language=en)
 * [https://codecombat.com/play/level/dungeons-of-kithgard?](https://codecombat.com/play/level/dungeons-of-kithgard?)
 
-## Oktatási portálok
+## 🕮 Oktatási portálok
 
 Önálló tanuláshoz ajánlott webhelyek:
 
@@ -218,7 +232,7 @@ Ki "Terület: ", terulet
 Vége
 ```
 
-### Folyamatábra
+### 🕮 Folyamatábra
 
 Az algoritmust alakzatokban írom le
 
@@ -283,7 +297,7 @@ Nézzünk meg egy programozási nyelv alapvető elemeit a következő táblázat
 
 A kifejezések célja egy adattípus értékének meghatározása.
 
-## Python Shell
+## ✍ Python Shell
 
 A Python önmagában is indítható. A 2-s vagy 3 verziótól függően:
 
@@ -388,7 +402,7 @@ Hatvány:
 256
 ```
 
-## Gyakorlat
+## ✍ Gyakorlat
 
 ### Feleletválasztós gyakorlat
 
