@@ -106,7 +106,19 @@ Az útvonalba állításról Windowson itt olvashat:
 
 * [https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:utvonalak#gui_felueleten](https://szit.hu/doku.php?id=oktatas:operacios_rendszerek:windows:utvonalak#gui_felueleten)
 
-Ha lokálisan telepítjük megadhatjuk az útvonlat vagy használhatjuk az npx parancsot a projekt gyökérkönyvtárában:
+Globálisan telepített browser-sync indítása:
+
+```cmd
+browser-sync start --server
+```
+
+Lokálisan telepített browser-sync indítása a projekt gyökérkönyvtárából megadásával:
+
+```cmd
+node_modules/.bin/browser-sync start --server
+```
+
+Az npx parancs használata a projekt gyökérkönyvtárában:
 
 ```cmd
 npx browser-sync start --server
