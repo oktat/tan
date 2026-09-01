@@ -297,7 +297,7 @@ pnpm install
 A következő típusokat használhatjuk:
 
 | Típus |
-|-|
+| - |
 | number |
 | string |
 | boolean |
@@ -529,7 +529,7 @@ string
 Háromféle kulcsszóval hozható létre változó:
 
 | Kulcsszó | Leírás |
-|-|-|
+| - | - |
 | var | Globális hatókörű |
 | let | Blokk szintű használat |
 | const | Értéke nem változtatható meg |
