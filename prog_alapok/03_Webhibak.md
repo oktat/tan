@@ -46,6 +46,100 @@ Lehetőségek:
 * Console - JavaScript konzolja
 * stb.
 
+### Fejlesztőeszköz gyakorlat
+
+Készítsük el a következő kartya.html állományt:
+
+_kartya.html_:
+
+```html5
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>DevTools Bemutató</title>
+</head>
+<body>
+
+    <main>
+        <h1>Diák Profilkártya</h1>
+        
+        <div id="profil-kartya">
+            <h2 id="nev">Minta Péter</h2>
+            <p>Foglalkozás: <span id="szerep">Szoftverfejlesztő tanuló</span></p>
+            <p>Kedvenc tantárgy: <strong id="tantargy">Programozás alapok</strong></p>
+            <p hidden id="titkos-uzenet">Gratulálunk, megtaláltad a rejtett üzenetet!</p>
+        </div>
+    </main>
+
+</body>
+</html>
+```
+
+Nyissuk meg a fejlesztőieszközt.
+
+#### 1. Elem-kijelölő nyíl
+
+A fejlesztőeszköz bal felső sarkában kattintsuk a kis nyílra vagy használjuk a Ctrl + Shift + C billentyűkombinációt. Vigyük az egeret a weboldalon a **Minta Péter** névre.
+
+Tapasztalat: A fejlesztőeszköz automatikusan kijelöli a fa-struktúrában sort:
+
+```html
+<h2 id="nev">
+```
+
+#### 2. A szöveg élő átírása
+
+A kódstruktúrában kattintsunk a "Minta Péter" szövegre. Írjuk át másik névre.
+
+Tapasztalat: A név azonnal megváltozik.
+
+#### 3. Elem törlése a DOM-ból
+
+Jelöljük ki a fa-struktúrában a következő sort:
+
+```html
+<h1>Diák Profilkártya</h1>
+```
+
+Nyomjuk meg a **Delete** gombot.
+
+Tapasztalat: A főcím azonnal eltűnik.
+
+#### 4. Rejtett elem felfedése
+
+Keressük meg a következő sort:
+
+```html
+<p hidden id="titkos-uzenet">
+```
+
+Kattintsunk duplán a **hidden** szóra, majd töröljük ki.
+
+Tapasztalat: A rejtett bekezdés azonnal megjelenik.
+
+#### 5. HTML elem hozzáadása
+
+Keressük meg a következő sort:
+
+```html
+<div id="profil-kartya">
+```
+
+Kattintsunk rá jobb egér gombbal. Válasszuk a **Edit as HTML** lehetőséget, majd illesszünk be egy új sort. Például:
+
+```html
+<p>Klub: fejlesztők</p>
+```
+
+Tapasztalat: Az új elem azonnal megjelenik.
+
+#### Következtetés
+
+* A HTML nem egy statikus kép, hanem elemek fája, amiket a böngésző élőben értelmez.
+* A hiba kereshető kódszerkesztő és böngésző közötti váltogatás nélkül.
+* Láthatóvá vált az egymásbaágyazott elemek kapcsolata.
+
 ## Git
 
 A Git egy verziókövető rendszer. Segítségével visszaállítható egy korábbi állapot hiba esetén. A fejlesztés több különálló ágra osztható, amit később összefésülhetünk.
