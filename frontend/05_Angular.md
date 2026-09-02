@@ -630,7 +630,7 @@ Használat:
 
 ## Képek megjelenítése
 
-Képeket az public könyvtárba kell elhelyezni. A public nem csak a képek, de minden médiafájl helye is. Tehetünk ide videókat, hangfájlokat. Korábbi Angular verzókban a médiák helye az src/assets könyvtár volt.
+Képeket a public könyvtárba kell elhelyezni. A public nem csak a képek, de minden médiafájl helye is. Tehetünk ide videókat, hangfájlokat. Korábbi Angular verzókban a médiák helye az src/assets könyvtár volt.
 
 Töltsük le egy képet például a következő helyről:
 
