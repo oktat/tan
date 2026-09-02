@@ -406,7 +406,7 @@ A beállítás után, egy ilyen tulajdonságot találunk:
 }
 ```
 
-Ezt követően az angular a pnpm csomagkezelő használja.
+Ezt követően az Angular a pnpm csomagkezelő használja.
 
 ## Angular koncepció
 
@@ -461,7 +461,7 @@ export class App {
 A fő komponensosztály neve App. Benne egy "title" nevű adattag. Most kössük a title változót a HTML állományhoz. A _app.html_ fájlban:
 
 ```html
-<h1>{{title}}</h1>
+<h1>{{title()}}</h1>
 ```
 
 A változó nevét beírtuk dupla kapcsoszárójelek közé. Így létrehoztuk a kötést. Nézzük meg a weblapon. Ha közben leállítottuk a szervert a beépített szervert, indítsuk el:
