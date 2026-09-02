@@ -507,7 +507,7 @@ Eredmény a böngészőben:
 
 ![sortörés a bekezdésben](images/html/bekezdesben_sortores.png)
 
-Egyetlen sorban jelenik meg a böngészőben. Így önmagában, hiába teszek sortöréseket, a weblapon az nem látszik. Használjunk helyette br elemet:
+Egyetlen sorban jelenik meg a böngészőben. Így önmagában, hiába teszek sortöréseket, a weblapon az nem látszik. Használjunk helyette **br** elemet:
 
 ```html
 <p>
@@ -534,7 +534,7 @@ A kiemelésekre többféle HTML elem áll rendelkezésre. A következő három f
 | Tag | Leírás |
 | - | - |
 | &lt;b&gt; | félkövér szöveg |
-| &lt;em&gt; | kiemelt szöveg  |
+| &lt;em&gt; | kiemelt szöveg |
 | &lt;i&gt; | dőlt szöveg |
 | &lt;small&gt; | kis szöveg |
 | &lt;strong&gt; | erős szöveg |
