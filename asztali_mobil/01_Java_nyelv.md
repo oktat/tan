@@ -252,6 +252,33 @@ A + operátor csak a szimetria kedvéért jött létre még a C nyelvben.
 | \| | bitenkénti VAGY |
 | ^ | bitenkénti Kizáró VAGY |
 
+#### Bitenkénti operátorok gyakorlat
+
+Szeretnénk olvasási, írási és törlési jogot egyetlen számban (1 byte) tárolni.
+
+Írjunk **jog** nevű programot, ahol egyetlen egész számban tárolunk jogokat.
+
+```java
+public class App {
+    public static void main(String[] args) throws Exception {
+        System.out.println("Jogok");
+
+        final int READ = 1;
+        final int WRITE = 2;
+        final int DELETE = 4;
+
+        int jog = 0b0001|0b0010;
+
+        String bit4 = "%4s".formatted(Integer.toBinaryString(jog)).replace(' ', '0');
+        System.out.println(bit4);
+        System.out.println((jog & READ) != 0 ? "van" : "nincs");
+        System.out.println((jog & WRITE) != 0 ? "van" : "nincs");
+        System.out.println((jog & DELETE) != 0 ? "van" : "nincs");
+    }
+}
+
+```
+
 ### Precedencia
 
 | Operátorok | Leírás |
