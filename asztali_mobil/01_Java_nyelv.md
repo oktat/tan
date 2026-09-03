@@ -274,10 +274,24 @@ public class App {
         System.out.println((jog & READ) != 0 ? "van" : "nincs");
         System.out.println((jog & WRITE) != 0 ? "van" : "nincs");
         System.out.println((jog & DELETE) != 0 ? "van" : "nincs");
+
+        //Törlés jog hozzáadása
+        jog = jog | 0b0100;
+        System.out.println("%4s".formatted(Integer.toBinaryString(jog)).replace(' ', '0'));
+
+        //Írási jog elvétele
+        jog = jog & ~WRITE;
+        System.out.println("%4s".formatted(Integer.toBinaryString(jog)).replace(' ', '0'));        
     }
 }
 
 ```
+
+Műveletek jelentése:
+
+* | (OR): bitek bekapcsolása - jogosultság megadása
+* & (AND): bitek tesztelése - ellenőrzés
+* ~ (NOT): bitek kikapcsolása - jogosultság elvétele
 
 ### Precedencia
 
