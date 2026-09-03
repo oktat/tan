@@ -141,6 +141,57 @@ Mi a különbség? A println() egy sortörést is a képernyőre ír. A printf()
 System.out.print("Kiíratás sortörés nélkül");
 ```
 
+### Kivitel gyakorlat
+
+#### 1. kivitel feladat
+
+Írassa a képernyőre a következő szöveget:
+
+* "Ez egy normál kiíratás." (normál kimenet)
+* "Ez egy hibaüzenet." (hibaüzenet)
+
+#### 2. kivitel feladat
+
+Írjon programot **mehet** néven, amely a következőket írja a képernyőre:
+
+* "Első rendben" (normál kimenet)
+* "Második rendben" (normál kimenet)
+* "Harmadik hibás" (hibakimenet)
+* "Negyedik rendben" (nomrál kimenet)
+* "Ötödik hibás" (hibakimenet)
+
+Készítsen JAR fájlt a programjából.
+
+Futassa a programot a következő módon:
+
+```cmd
+java -jar mehet.jar > NUL
+```
+
+```cmd
+java -jar mehet.jar 2> NUL
+```
+
+```cmd
+java -jar mehet.jar > normal.txt 2> hibak.txt
+```
+
+#### 3. kivitel feladat
+
+Keresse meg a Launch4j programot. Töltse le.
+
+Készítsen az előző feladat programjából JAR fájlt ha még nem lenne meg.
+
+Állítsa be a Launch4j felületén a következőket:
+
+* Basic (fül): Output file: mehet.exe (útvonalat is adjon meg, tallózással)
+* Basic (fül): Jar (tallózással vállassza ki a JAR fájlt)
+* Header (fül): (o) Console (Állítsa be a konzolos alkalmazást)
+
+Az eszköztáron a fogaskerék ikonnal készítse el a mehet.exe fájlt.
+
+Tesztelje a programot a 2. feladatban megadott átirányításokkal.
+
 ## Operátorok
 
 ### Aritmetikai operátorok
