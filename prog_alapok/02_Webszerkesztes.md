@@ -374,7 +374,7 @@ Hogy lássuk a div boboz kiterjedését, adjunk háttérszint a doboznak:
 </body>
 ```
 
-A doboznak a style attribútummal állítottunk be kék háttérszint.
+A doboznak a style attribútummal állítottunk be kék háttérszínt.
 
 ![blokk elem](images/block_element.png)
 
