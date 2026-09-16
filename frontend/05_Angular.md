@@ -642,7 +642,7 @@ Tegyük a kiválasztott képet a public könyvtárba. Például:
 public/tatra_hegy.jpg
 ```
 
-Az _app.component.html_ fájlba ekkor
+Az _app.html_ fájlba ekkor
 
 ```html
 <img 
@@ -891,9 +891,9 @@ app01/
 
 Mindig van egy fő komponens (app), amibe a többit illesztjük. Az útválasztásról későbbi fejezetben fogunk beszélni. Nézzük meg, hogyan illesztjük a fő komponensbe a comp1 nevű komponenst.
 
-Az **app.component.html** állomány tartalma egy alapértelmezett tartalom, amit üresre törlünk, majd:
+Az **app.html** állomány tartalma egy alapértelmezett tartalom, amit üresre törlünk, majd:
 
-_app.component.html_:
+_app.html_:
 
 ```html
 <app-comp1></app-comp1>
@@ -901,7 +901,7 @@ _app.component.html_:
 
 Mivel ez a fő komponens, ide tehetjük Bootstrap használata esetén a .container osztályjelölővel ellátott div elemet, ha használunk ilyet.
 
-app.component.html:
+app.html:
 
 ```html
 <div class="container">
@@ -1082,7 +1082,7 @@ Most adjunk egy új elemet a kiíratás előtt a tömbhöz:
 
 Az _app.ts_ teljes kódja:
 
-_src/app/app.component.ts_:
+_src/app/app.ts_:
 
 ```typescript
 import { Component } from '@angular/core';
@@ -1202,7 +1202,7 @@ Vegyük észre, hogy a @Component dekorátorban nem kellett felvenni a szolgált
 
 #### A greeting megjelenítése
 
-A greeting komponenst láthatóvá kell tenni. Ha nincs routing, akkor egyszerűen helyezzük el a főkomponensben. Ehhez importáljuk az src/app/app.component.ts fájlba.
+A greeting komponenst láthatóvá kell tenni. Ha nincs routing, akkor egyszerűen helyezzük el a főkomponensben. Ehhez importáljuk az src/app/app.ts fájlba.
 
 ```typescript
 import { GreetComponent } from './greet/greet.component';
@@ -1214,9 +1214,9 @@ Vegyük fel a **Component** dekorátor paraméterében is:
 imports: [CommonModule, RouterOutlet, RouterLink, GreetComponent],
 ```
 
-A teljes src/app/app.component.ts fájl tartalma:
+A teljes src/app/app.ts fájl tartalma:
 
-_src/app/app.component.ts_:
+_src/app/app.ts_:
 
 ```typescript
 import { Component } from '@angular/core';
@@ -1229,17 +1229,17 @@ import { GreetComponent } from './greet/greet.component';
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet, RouterLink, GreetComponent],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.html',
+  styleUrls: ['./app.css']
 })
-export class AppComponent {
+export class App {
 
 }
 ```
 
 Ezt követően hivatkozzunk a HTML állományban a greeting komponensre:
 
-Az src/app/app.component.html fájl tartalma:
+Az src/app/app.html fájl tartalma:
 
 ```html
 <app-greet></app-greet>
@@ -1265,7 +1265,7 @@ Ebben a fejezetben a sablon-vezérlet űrlapokkal foglalkozunk. Hozzunk létre e
 Legyen egy komponens ahol bekérünk egy számot. Komponens létrehozása:
 
 ```cmd
-ng generate component num
+ng generate component num --type component
 ```
 
 Szükségünk van egy **num** adattagra és egy onStart() metódust fogunk létrehozni, amivel feldolgozzuk a számot.
@@ -1313,7 +1313,7 @@ _src/app/num/num.component.html_:
 
 Vegyük fel a főkomponensbe a num komponenst.
 
-_src/app/app.component.ts_:
+_src/app/app.ts_:
 
 ```typescript
 import { NumComponent } from './num/num.component';
@@ -1321,7 +1321,7 @@ import { NumComponent } from './num/num.component';
   imports: [RouterOutlet, NumComponent],
 ```
 
-_src/app/app.component.html_:
+_src/app/app.html_:
 
 ```html
 <div class="container">
@@ -1340,7 +1340,7 @@ Gyakoroljunk és nézzük meg az űrlap érvényességének vizsgálatát is. K�
 Készítsünk egy komponenst, signup néven.
 
 ```cmd
-ng generate component signup
+ng generate component signup --type component
 ```
 
 #### Az űrlapok direktívái
@@ -1452,7 +1452,7 @@ export class SignupComponent {
 
 Építsük a komponenst a főkomponensbe.
 
-Az _src/app/app.component.ts_ fájlba:
+Az _src/app/app.ts_ fájlba:
 
 ```typescript
 import { SignupComponent } from './signup/signup.component';
@@ -1460,7 +1460,7 @@ import { SignupComponent } from './signup/signup.component';
   imports: [RouterOutlet, SignupComponent],
 ```
 
-Az _src/app/app.component.html_ fájlba:
+Az _src/app/app.html_ fájlba:
 
 ```html
 <div class="container">
@@ -1579,7 +1579,7 @@ ng g c emp --type component
 Építsük be a fő komponensbe:
 
 ```html
-<!-- src/app/app.component.html -->
+<!-- src/app/app.html -->
 <app-emp />
 ```
 
@@ -2137,7 +2137,7 @@ export class ApiService {
 ng generate component emp --type component
 ```
 
-Jelenítsük meg a komponenst a főkomponensben. Ehhez szerkesszük a _src/app/app.component.ts_ fájlt. Importáljuk az Emp komponenst:
+Jelenítsük meg a komponenst a főkomponensben. Ehhez szerkesszük a _src/app/app.ts_ fájlt. Importáljuk az Emp komponenst:
 
 ```typescript
 import { EmpComponent } from './emp/emp.component';
@@ -2161,15 +2161,15 @@ import { EmpComponent } from './emp/emp.component';
   imports: [CommonModule, RouterOutlet,
     EmpComponent
   ],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.html',
+  styleUrls: ['./app.css']
 })
-export class AppComponent {
+export class App {
   title = 'app01';
 }
 ```
 
-Az _app.component.html_ fájl tartalma a következő legyen:
+Az _app.html_ fájl tartalma a következő legyen:
 
 ```html
 <app-emp></app-emp>
@@ -2572,7 +2572,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 
 A teljes kód:
 
-_src/app/app.component.ts_:
+_src/app/app.ts_:
 
 ```typescript
 import { Component } from '@angular/core';
@@ -2583,17 +2583,17 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet, RouterLink],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.html',
+  styleUrls: ['./app.css']
 })
-export class AppComponent {
+export class App {
 
 }
 ```
 
 ### Navigáció készítése
 
-Az _src/app/app.component.html_ tartalma legyen:
+Az _src/app/app.html_ tartalma legyen:
 
 ```html
 <nav>
@@ -3055,7 +3055,7 @@ export class AppComponent {
 }
 ```
 
-A főkomponens esetén a _src/app/app.component.ts_ fájl teljes tartalma:
+A főkomponens esetén a _src/app/app.ts_ fájl teljes tartalma:
 
 ```typescript
 import { Component } from '@angular/core';
@@ -3067,15 +3067,15 @@ import { SalaryhufPipe } from './shared/pipe/salaryhuf.pipe';
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet, SalaryhufPipe],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.html',
+  styleUrls: ['./app.css']
 })
-export class AppComponent {
+export class App {
   salary = 780000;
 }
 ```
 
-Ezt követően az _src/app/app.component.html_ fájlban, használjuk a pipe-t:
+Ezt követően az _src/app/app.html_ fájlban, használjuk a pipe-t:
 
 ```html
 <p>
@@ -3126,7 +3126,7 @@ import { EmpComponent } from './emp/emp.component';
   ],
 ```
 
-Az _src/app/app.component.html_ fájl tartalma a következő legyen:
+Az _src/app/app.html_ fájl tartalma a következő legyen:
 
 ```html
 <div class="container">  
@@ -3406,7 +3406,7 @@ export class LoginComponent {
 
 A főkomponensben iratkozzunk fel a szolgáltatás isAuthenticated értékére:
 
-_src/app/app.component.ts_:
+_src/app/app.ts_:
 
 ```typescript
 import { Component, inject } from '@angular/core';
@@ -3416,10 +3416,10 @@ import { AuthService } from './shared/auth.service';
 @Component({
     selector: 'app-root',
     imports: [RouterOutlet, RouterLink],
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.css'
+    templateUrl: './app.html',
+    styleUrl: './app.css'
 })
-export class AppComponent {
+export class App {
   
   auth = inject(AuthService)
 
@@ -3519,7 +3519,7 @@ export class LoginComponent {
 
 A főkomponensben iratkozzunk fel a szolgáltatás isAuthenticated értékére:
 
-_src/app/app.component.ts_:
+_src/app/app.ts_:
 
 ```typescript
 import { Component } from '@angular/core';
@@ -3530,10 +3530,10 @@ import { AuthService } from './shared/auth.service';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, RouterLink],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  templateUrl: './app.html',
+  styleUrl: './app.css'
 })
-export class AppComponent {
+export class App {
   isLoggedIn = false;
 
   constructor(private auth: AuthService) { }
@@ -3817,7 +3817,7 @@ Szükségünk van még egy **visible** változóra és egy toggle() metódusra.
 
 A teljes kód:
 
-_src/app/app.component.ts_:
+_src/app/app.ts_:
 
 ```javascript
 import { animate, state, style, transition, trigger } from '@angular/animations';
@@ -3828,8 +3828,8 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   standalone: true,
   imports: [],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  templateUrl: './app.html',
+  styleUrl: './app.css',
   animations: [
     trigger('fadeInOut', [
       state('void1', style({ opacity: 0 })),
@@ -3839,7 +3839,7 @@ import { Component } from '@angular/core';
     ])
   ],
 })
-export class AppComponent {
+export class App {
   visible = false;
 
   toggle() {
