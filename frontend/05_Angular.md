@@ -1386,21 +1386,21 @@ Az űrlap fejlesztve:
 ```html
 <form #userForm="ngForm" (ngSubmit)="submitForm(userForm)">
     <div class="input">
-        <label for="name" class="form-label">Név</label>
-        <input type="text" id="name"
+        <label for="username" class="form-label">Név</label>
+        <input type="text" id="username"
         class="form-control" 
         name="username"
         [(ngModel)]="user.name">
     </div>
     <div class="input">
         <label for="email" class="form-label">E-mail</label>
-        <input type="text" id="name"
+        <input type="text" id="email"
         class="form-control" [(ngModel)]="user.email"
         name="email">
     </div>
     <div class="input">
-        <label for="name" class="form-label">Jelszó</label>
-        <input type="text" id="name"
+        <label for="password" class="form-label">Jelszó</label>
+        <input type="text" id="password"
         class="form-control" [(ngModel)]="user.password"
         name="password">
     </div>
@@ -1437,7 +1437,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 export class SignupComponent {
 
   user: any = {
-    name: '',
+    username: '',
     email: '',
     password: ''
   }
@@ -1481,7 +1481,7 @@ import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 
 interface User {
-  name: string;
+  username: string;
   email: string;
   password: string;
 }
@@ -1496,7 +1496,7 @@ interface User {
 export class SignupComponent {
 
   user: User = {
-    name: '',
+    username: '',
     email: '',
     password: ''
   }
@@ -1514,8 +1514,8 @@ Az input elembe vezessük be a **require** attribútumot.
 
 ```html
 <div class="input">
-    <label for="name" class="form-label">Név</label>
-    <input type="text" id="name"
+    <label for="username" class="form-label">Név</label>
+    <input type="text" id="username"
     class="form-control" 
     name="username"
     [(ngModel)]="user.name"
