@@ -1390,7 +1390,7 @@ Az űrlap fejlesztve:
         <input type="text" id="username"
         class="form-control" 
         name="username"
-        [(ngModel)]="user.name">
+        [(ngModel)]="user.username">
     </div>
     <div class="input">
         <label for="email" class="form-label">E-mail</label>
