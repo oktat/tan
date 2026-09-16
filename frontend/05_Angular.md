@@ -1471,7 +1471,7 @@ Az _src/app/app.html_ fájlba:
 Indítsuk el a szervert:
 
 ```bash
-ng serve -o
+ng serve --open
 ```
 
 #### Interface használata
