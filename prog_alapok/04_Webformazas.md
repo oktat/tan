@@ -24,6 +24,7 @@
 * [Lebegtetés](#lebegtetés)
 * [Blokkelemek igazítása](#blokkelemek-igazítása)
 * [Ál-osztályok](#ál-osztályok)
+* [Ál-elemek](#ál-elemek)
 * [Átlátszatlanság](#átlátszatlanság)
 * [Táblázatok](#táblázatok)
 * [Z-index](#z-index)
@@ -1052,7 +1053,7 @@ A blokk elemek a böngésző bal szélétől a jobb széléig érnek. Ha beáll�
 
 ## Ál-osztályok
 
-Az ál-osztályok speciális szelektorok. Például ál-osztállyal állíthatjuk be a, linkeket, az aktivált linkek, a már meglátogatott linkeket stb.
+Az ál-osztályok egy elem állapotához vagy helyzetéhez köthetők.
 
 ```css
 a:link {color:#FF0000;}      /* még nem látogatott linkek */
@@ -1060,6 +1061,20 @@ a:visited {color:#00FF00;}  /* látogatott linkek */
 a:hover {color:#FF00FF;}  /* ha az egér felé megy */
 a:active {color:#0000FF;}  /* aktuális linkek */
 ```
+
+* [https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Pseudo-classes)
+
+## Ál-elemek
+
+Az ál-elemek az elemek virtuális részét célozzák meg.
+Az ál-elemeket általánban két kettősponttal kezdjük.
+
+```css
+div::before { content: "alma" }
+div::after { content: "körte" }
+```
+
+* [https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Pseudo-elements](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Pseudo-elements)
 
 ## Átlátszatlanság
 
