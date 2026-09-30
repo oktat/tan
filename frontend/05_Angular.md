@@ -1620,7 +1620,7 @@ Kattintásra szeretnék ezeket lekérdezni, konzolra írni:
   }
 ```
 
-Nézzük meg, hogya állítunk be értéket. Lehessen alapértelmezett értéket beállítani a beviteli mezőkben:
+Nézzük meg, hogyan állítunk be értéket. Lehessen alapértelmezett értéket beállítani a beviteli mezőkben:
 
 ```typescript
   setDefault() {
@@ -1809,7 +1809,7 @@ A **[formGroup]** és a **formControlName** attirbútum továbbra is szükséges
 
 ```html
 
-<form [formGroup]="userForm">
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
 
     <div class="form-group">
         <label for="name">Name</label>
@@ -1838,7 +1838,7 @@ A **[formGroup]** és a **formControlName** attirbútum továbbra is szükséges
         />
     </div>
 
-    <button (click)="onSubmit()" type="submit">Submit</button>
+    <button>Submit</button>
 
 </form>
 ```
@@ -1994,11 +1994,9 @@ Az _src/app/shared/api.service.ts fájlba_:
 ```javascript
 //src/app/shared/api.service.ts
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Service } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Service()
 export class ApiService {
 
   host = 'https://jsonplaceholder.typicode.com';
@@ -2116,14 +2114,14 @@ ng generate service api --type service
 
 ```typescript
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Service } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Service()
 export class ApiService {
+  
   host = 'http://localhost:8000';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
+
   getEmployees() {
     let url = `${this.host}/employees`;
     return this.http.get(url);
@@ -2175,7 +2173,7 @@ Az _app.html_ fájl tartalma a következő legyen:
 <app-emp></app-emp>
 ```
 
-### A komponens használata
+### A komponens fejlesztése
 
 _src/app/emp.component.ts_:
 
@@ -2193,8 +2191,7 @@ import { ApiService } from '../shared/api.service';
 export class EmpComponent {
 
   employees: any[] = [];
-  constructor(private api: ApiService) {
-  }
+  constructor(private api: ApiService) {}
 
   ngOnInit() {
     this.showEmployees();
@@ -2225,7 +2222,7 @@ Az _src/app/emp/emp.component.html_
         </tr>
     </thead>
     <tbody>
-        @for (emp of employees; track emp) {
+        @for (emp of employees; track emp.id) {
             <tr>
                 <td>{{emp.id}}</td>
                 <td>{{emp.name}}</td>
@@ -2238,6 +2235,132 @@ Az _src/app/emp/emp.component.html_
 ```
 
 ### Új elem felvétele
+
+#### A signal használata a komponensbe
+
+A Bootstrap JavaScript része összeakad az Angular DOM frissítésével.
+A Bootstrap JavaSCript részének használatbavétele és egy modálisablak
+beillesztése után a táblázat tartalma nem biztos, hogy renderelésre kerül.
+
+Erre két megoldás jön szóba:
+
+* singal használata
+* ChangeDetectorRef használata
+
+```typescript
+//signal használata
+//...
+employees = signal<any[]>([])
+//..
+this.employees.set(res.data)
+```
+
+A sablonban:
+
+```html
+<!-- a signalal előkészített employees használata -->
+@for(emp of employees() ; track emp.id) {}
+```
+
+A másik lehetőség a ChangeDetector használata:
+
+```typescript
+import { ChangeDetectorRef } from '@angular/core';
+//...
+cdr = inject(ChangeDetectorRef)
+//...
+this.employees = res.data
+this.cdr.detectChanges()
+```
+
+_emp.component.ts_:
+
+```typescript
+import { Component, signal } from '@angular/core';
+import { ApiService } from '../shared/api.service';
+
+@Component({
+  imports: [],
+  selector: 'app-emp',
+  styleUrl: './emp.component.css',
+  templateUrl: './emp.component.html',
+})
+export class EmpComponent {
+
+  employees = signal<any[]>([])
+
+  constructor(private api: ApiService) {}
+
+  ngOnInit() {
+    this.showEmployees()
+  }
+  showEmployees() {
+    this.api.getEmployees().subscribe({
+      next: (res:any) => {
+        console.log(res.data)
+        this.employees.set(res.data)
+      },
+      error: () => {}
+    })
+  }
+}
+
+```
+
+_emp.component.html_:
+
+```html
+<h2>Dolgozók</h2>
+
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Név</th>
+                <th>Település</th>
+                <th>Fizetés</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for( emp of employees() ; track emp.id ) {
+                <tr>
+                    <td>{{emp.id}}</td>
+                    <td>{{emp.name}}</td>
+                    <td>{{emp.city}}</td>
+                    <td>{{emp.salary}}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+```
+
+#### A modális ablak
 
 Szükségünk lesz a Bootstrap JavaScript részére:
 
@@ -2438,7 +2561,7 @@ Szükségünk lesz minden sorban egy szerkesztésgombra, és egy metódusra, ami
   }
 ```
 
-A táblázatban a sorok végére vegyük fela szerkesztőgombot:
+A táblázatban a sorok végére vegyük fel a szerkesztőgombot:
 
 ```html
 <td>
