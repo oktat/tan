@@ -2044,7 +2044,7 @@ export class TodoComponent {
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    this.getEmployees();
+    this.getTodos();
   }
 
   getTodos() {
