@@ -172,6 +172,11 @@ h1 {
 }
 ```
 
+* [https://szit.hu/doku.php?id=oktatas:web:css:css_nyelv#kep_beallitasa](https://szit.hu/doku.php?id=oktatas:web:css:css_nyelv#kep_beallitasa)
+
+* [https://szit.hu/download/images/](https://szit.hu/download/images/)
+* [https://szit.hu/download/peldak/css](https://szit.hu/download/peldak/css)
+
 ### A háttérkép ismétlése
 
 A háttérkép ismétlését a background-repeat tulajdonsággal állítjuk.
