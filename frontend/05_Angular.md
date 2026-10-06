@@ -31,6 +31,8 @@
 * [HttpClient](#httpclient)
 * [Táblázatok](#táblázatok)
 * [Routing és navigáció](#routing-és-navigáció)
+* [Azonosítás](#azonosítás)
+* [Útvonalak védelme](#útvonalak-védelme)
 * [Pipe](#pipe)
 * [Filter](#filter)
 * [Komponensek kommunikációja](#komponensek-kommunikációja)
@@ -2824,9 +2826,241 @@ _src/app/buy/buy.component.html_:
 
 ![A Website komponensben újabb komponensek](images/angular/routing_website_admin_child_02.png)
 
-### Útvonalak védelme
+## Azonosítás
 
-#### Az isLoggedIn() metódus
+### Szolgáltatás azonosításhoz
+
+Hozzunk létre egy szolgáltatást az azonosításhoz:
+
+```bash
+ng generate service auth-service
+```
+
+Kezdetben:
+
+_auth-service.ts_:
+
+```typescript
+import { Service } from '@angular/core';
+
+@Service()
+export class AuthService {}
+```
+
+Függőségek injektálása:
+
+```typescript
+import { HttpClient } from '@angular/common/http';
+import { inject, Service } from '@angular/core';
+import { Router } from '@angular/router';
+
+@Service()
+export class AuthService {
+  private readonly http = inject(HttpClient);
+  private readonly router = inject(Router);
+}
+```
+
+Jegyezzük fel, hogy be vagyunk-e jelentkezve:
+
+```typescript
+private _isAuthenticated = signal<boolean>(!!localStorage.getItem('token'))
+readonly isAuthenticated = this._isAuthenticated.asReadonly()
+```
+
+Jegyezzük el a hosztot:
+
+```typescript
+readonly host = 'http://localhost:8000/api/'
+```
+
+Készítsünk login(), loginSuccess() és egy logout() függvényt:
+
+```typescript
+login(user: any) {
+    const url = this.host + 'login'
+    return this.http.post(url, user)
+  }
+ 
+  loginSuccess() {
+    this._isAuthenticated.set(true)
+  }
+ 
+  logout() {
+    localStorage.removeItem('token')
+    this._isAuthenticated.set(false)
+    this.router.navigate(['/login'])
+  }
+```
+
+A teljes fájl:
+
+_shared/auth-service.ts_:
+
+```typescript
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable, signal } from '@angular/core';
+import { Router } from '@angular/router';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class AuthService {
+  private readonly http = inject(HttpClient);
+  private readonly router = inject(Router);
+
+  private _isAuthenticated = signal<boolean>(!!localStorage.getItem('token'))
+  readonly isAuthenticated = this._isAuthenticated.asReadonly()
+
+  readonly host = 'http://localhost:8000/api/'
+
+  login(user: any) {
+    const url = this.host + 'login'
+    return this.http.post(url, user)
+  }
+
+  loginSuccess() {
+    this._isAuthenticated.set(true)
+  }
+
+  logout() {
+    localStorage.removeItem('token')
+    this._isAuthenticated.set(false)
+    this.router.navigate(['/login'])
+  }
+}
+```
+
+### Login komponens készítése
+
+```bash
+ng g c login-component
+```
+
+Kezdetben:
+
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  imports: [],
+  selector: 'app-login-component',
+  styleUrl: './login-component.css',
+  templateUrl: './login-component.html',
+})
+export class LoginComponent {}
+```
+
+Készen:
+
+_login-component.ts_:
+
+```typescript
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../shared/auth-service';
+import { Router } from '@angular/router';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+
+@Component({
+  imports: [ReactiveFormsModule],
+  selector: 'app-login-component',
+  styleUrl: './login-component.css',
+  templateUrl: './login-component.html',
+})
+export class LoginComponent {
+  private readonly auth = inject(AuthService)
+  private readonly router = inject(Router)
+  private readonly builder = inject(FormBuilder)
+
+  protected readonly loginForm = this.builder.group({
+    username: this.builder.control('mari'),
+    password: this.builder.control('titok'),
+  })
+
+  login() {
+    console.log('belépés...');
+    console.log(this.loginForm.value);
+    this.auth.login(this.loginForm.value).subscribe({
+      next: (res:any) => this.auth.loginSuccess(res.accessToken),
+      error: () => this.router.navigate(['login']),
+    })
+  }
+}
+
+```
+
+A HTML fájl:
+
+```html5
+<h2>Bejelentkezés</h2>
+
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+
+    <div>
+        <label for="username" class="form-label">
+            Felhasználónév
+        </label>
+        <input type="text" class="form-control"
+        id="username" formControlName="username">
+    </div>
+    <div>
+        <label for="password" class="form-label">
+            Jelszó
+        </label>
+        <input type="text" class="form-control"
+        id="password" formControlName="password">
+    </div>
+
+    <button type="submit"
+    class="btn btn-primary mt-3">Belépés</button>
+</form>
+
+```
+
+Az auth.service javítása:
+
+_auth-service.ts_:
+
+```typescript
+import { HttpClient } from '@angular/common/http';
+import { inject, Service, signal } from '@angular/core';
+import { Router } from '@angular/router';
+
+@Service()
+export class AuthService {
+  private readonly http = inject(HttpClient);
+  private readonly router = inject(Router);
+
+  private _isAuthenticated = signal<boolean>(!!localStorage.getItem('token'));
+  readonly isAuthenticated = this._isAuthenticated.asReadonly();
+
+  readonly host = 'http://localhost:8000/api/';
+
+  login(user: any) {
+    const url = this.host + 'login';
+    const userForCreate = {
+      name: user.username,
+      password: user.password,
+    };
+    return this.http.post(url, userForCreate);
+  }
+
+  loginSuccess(token: string) {
+    localStorage.setItem('token', token);
+    this._isAuthenticated.set(true);
+    this.router.navigate(['solution']);
+  }
+  logout() {
+    localStorage.removeItem('token');
+    this._isAuthenticated.set(false);
+    this.router.navigate(['login']);
+  }
+}
+```
+
+## Útvonalak védelme
+
+### Az isLoggedIn() metódus
 
 Feltételezzük, hogy az azonosítás az AuthService nevű szolgáltatásban van leírva.
 
@@ -2841,7 +3075,7 @@ Az auth.services.ts fájlban, az AuthService könyvtárban hozzuk létre egy isL
   }
 ```
 
-#### Guard használata
+### Guard használata
 
 ```cmd
 ng generate guard shared/auth
@@ -2881,7 +3115,7 @@ export const authGuard: CanActivateFn = (route, state) => {
 };
 ```
 
-#### Injektálás függvénybe
+### Injektálás függvénybe
 
 Szükségünk van az AuthService szolgáltatásra. Be kell injektálni a függvénybe. Mivel függvényt használunk, nincs konstruktor, így az inject() nevű függvényt fogjuk használni:
 
@@ -2908,7 +3142,7 @@ export const authGuard: CanActivateFn = (route, state) => {
 };
 ```
 
-#### Guard használata az útvonalon
+### Guard használata az útvonalon
 
 Ha sikerült megvalósítani az authGurad védelmet, a használat már egyszerű. Az útvonalhoz egyszerűen adjunk meg egy újabb kulcs-érték párt.
 
