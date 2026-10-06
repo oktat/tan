@@ -2670,67 +2670,24 @@ Fel kell vennünk egy gombot a törléshez a táblázat sorainak a végén:
 
 ## Routing és navigáció
 
-Az Angular keretrendszer lehetővé teszi, hogy egyszerűen kezeljük az alkalmazásunk navigációját és az útvonalakat. A routing használatához a Router modult kell használnunk.
+Az Angular keretrendszer lehetővé teszi, hogy egyszerűen kezeljük az alkalmazásunk navigációját és az útvonalakat. A routing használatához a Router modult kell használnunk, de ez alapértelmezetten be van állítva a providers tömbben:
+
+```typescript
+  providers: [
+    //...
+    provideRouter(routes)
+  ]
+```
 
 Az útvonalak beállításával megadhatjuk, hogy a felhasználó hogyan jusson el egyik oldalról a másikra, és milyen komponens töltődjön be.
 
-### Két komponens elkészítése
+### Komponens elkészítése
 
 Hozzunk létre két komponenst: home és about.
 
 ```cmd
-ng generate component home
-ng generate component about
-```
-
-### A RouterLink importálása
-
-Vegyük fel a **Component** dekoráció paramétereként, az imports részhez a **RouterLink** és a RouterOutlet osztályt. Ugyanezt tegyük meg a dekorátoban is.
-
-```typescript
-import { RouterLink, RouterOutlet } from '@angular/router';
-//...
-  imports: [RouterOutlet, RouterLink],
-```
-
-A teljes kód:
-
-_src/app/app.ts_:
-
-```typescript
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterLink, RouterOutlet } from '@angular/router';
-
-@Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink],
-  templateUrl: './app.html',
-  styleUrls: ['./app.css']
-})
-export class App {
-
-}
-```
-
-### Navigáció készítése
-
-Az _src/app/app.html_ tartalma legyen:
-
-```html
-<nav>
-  <ul>
-    <li>
-      <a routerLink="/">Főoldal</a>
-    </li>
-    <li>
-      <a routerLink="/about">Rólunk</a>
-    </li>
-  </ul>
-</nav>
-
-<router-outlet></router-outlet>
+ng generate component home-component
+ng generate component about-component
 ```
 
 ### Az útválasztás elkészítése
@@ -2752,11 +2709,61 @@ Mindkét útvonal egy-egy komponenshez van rendelve. A path: '' az üres útvona
 
 ![A Home és About kompones az App komponensben](images/angular/routing_home_about.png)
 
+### A RouterLink importálása
+
+Vegyük fel a **Component** dekoráció paramétereként, az imports részhez a **RouterLink** és a RouterOutlet osztályt. Ugyanezt tegyük meg a dekorátoban is.
+
+```typescript
+import { RouterLink, RouterOutlet } from '@angular/router';
+//...
+  imports: [RouterOutlet, RouterLink],
+```
+
+A teljes kód:
+
+_src/app/app.ts_:
+
+```typescript
+import { Component } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, RouterLink],
+  templateUrl: './app.html',
+  styleUrls: ['./app.css']
+})
+export class App {}
+```
+
+### Navigáció készítése
+
+Az _src/app/app.html_ tartalma legyen:
+
+```html
+<nav>
+  <ul>
+    <li>
+      <a routerLink="/">Főoldal</a>
+    </li>
+    <li>
+      <a routerLink="/about">Rólunk</a>
+    </li>
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>
+```
+
 Az **a** elemben, a routerLink attribútum használata szükséges az SPA viselkedéshez. Ha href attribútumot használunk az oldal újratöltéssel navigál.
 
 A router-outlet direktíva azt jelzi, hogy ide kell behelyettesíteni az aktuális komponenst.
 
 ### Komplexebb megoldás
+
+Az útválasztás tartalmazhat átirányításokat,
+alapértelmezett útvonalakat, paramétereket.
 
 ```typescript
 const routes: Routes = [
