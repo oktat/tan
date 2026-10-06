@@ -3058,6 +3058,8 @@ export class AuthService {
 }
 ```
 
+* [https://github.com/tanrepos/route.git](https://github.com/tanrepos/route.git)
+
 ## Útvonalak védelme
 
 ### Az isLoggedIn() metódus
