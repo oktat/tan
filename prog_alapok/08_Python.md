@@ -1969,6 +1969,22 @@ print(tuple1[:5]) # 5-ig
 print(tuple1[2:]) # 2-től
 ```
 
+Ugyanazon a néven létrehozhatunk új Tuple-t:
+
+```python
+tuple1 = ()
+
+tuple1 = (45,)
+
+tuple1 = (35, 22, 47, 92)
+
+print(len(tuple1))
+
+# Ez már hibát ad:
+# tuple1[0] = 100
+
+```
+
 ## Függvények
 
 A függvények segítségével az utasításokat csoportosítjuk, elnevezzük, így azok újra hasznosíthatók és átláthatók lesznek.
