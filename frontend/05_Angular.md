@@ -2240,9 +2240,7 @@ Az _src/app/emp/emp.component.html_
 
 #### A signal használata a komponensbe
 
-A Bootstrap JavaScript része összeakad az Angular DOM frissítésével.
-A Bootstrap JavaSCript részének használatbavétele és egy modálisablak
-beillesztése után a táblázat tartalma nem biztos, hogy renderelésre kerül.
+A Bootstrap JavaScript része összeakad az Angular DOM frissítésével. A Bootstrap JavaSCript részének használatbavétele és egy modálisablak beillesztése után a táblázat tartalma nem biztos, hogy renderelésre kerül.
 
 Erre két megoldás jön szóba:
 
@@ -3062,11 +3060,14 @@ export class AuthService {
 
 ## Útvonalak védelme
 
-### Az isLoggedIn() metódus
+### Az isAuthenticated() metódus
 
 Feltételezzük, hogy az azonosítás az AuthService nevű szolgáltatásban van leírva.
 
-Az auth.services.ts fájlban, az AuthService könyvtárban hozzuk létre egy isLoggedIn() nevű metódust.
+Az auth-services.ts fájlban, szükségünk van egy metódusra amivel lekérdezhető a bejelentkezés állapota. Ha a signal() függvényt használtuk az isAuthenticated létrehozására, nincs több teendőnk. 
+
+Ha nincs ilyen függvény, készíthetünk egy isLoggedIn() nevű függvényt is, amiben megvizsgáljuk, hogy el van-e
+tárolva a token, currentUser nevű érték:
 
 ```typescrpit
   isLoggedIn() {
@@ -3137,7 +3138,7 @@ import { AuthService } from './auth.service';
 export const authGuard: CanActivateFn = (route, state) => {
   const auth = inject(AuthService);
 
-  if (!auth.isLoggedIn()) {
+  if (!auth.isAuthenticated()) {
     return false;
   }
   return true;
