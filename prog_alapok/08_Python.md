@@ -2092,7 +2092,7 @@ for line in lines:
 fp.close()
 ```
 
-### Hozzűfűzés a fájlhoz
+### Hozzáfűzés a fájlhoz
 
 ```Python
 f = open('adat2.txt', 'a', encoding='utf-8')
