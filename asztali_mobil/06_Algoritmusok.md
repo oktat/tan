@@ -257,6 +257,8 @@ Törli az adott indexű elemet, majd visszatér az elemmel.
 
 A HashMap kulcs-értékpárok tárolására alkalmas lista.
 
+_Program3_:
+
 ```java
 import java.util.HashMap;
 import java.util.Map;
@@ -309,6 +311,43 @@ class Program03
 }
 ```
 
+Szavak megszámolása:
+
+_App.java_:
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+public class App {
+    public static void main(String[] args) {
+        String[] words = {
+                "alma",
+                "körte",
+                "alma",
+                "barack",
+                "alma",
+                "alma"
+        };
+
+        Map<String, Integer> wordCounts = new HashMap<>();
+
+        for (String word : words) {
+            wordCounts.put(word, wordCounts.getOrDefault(word, 0) + 1);
+        }
+
+        System.out.println(wordCounts);
+    }
+}
+```
+
+A `getOrDefault` metódus a következő módon működik:
+
+* Ha a kulcs létezik, akkor visszaadja az értéket.
+* Ha a kulcs nem létezik, akkor visszaadja az alapértelmezett értéket
+
+Több információ a HasMap-ről:
+
 * [https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html)
 
 ## Rekurzió
@@ -319,38 +358,58 @@ A következő példa visszafele írja ki a számokat 9-től, és minden szám ut
 
 ```java
 class Program {
-    static void ki(int i) {
+    static void kiirTizszer(int i) {
         System.out.println(i + " Joe");     
  
-        if(i>0)
-            ki(i-1);
+        if(i<10)
+            kiirTizszer(i+1);
     }   
  
     public static void main(String args[]) {
-        ki(9);
+        kiirTizszer(1);
     }
 }
 ```
 
 A rekurzió megszakításáról az if állítás gondoskodik.
 
-A következő program bekéri a számokat 0 végjelig:
+Visszaszámláló rekurzió:
 
 ```java
-import java.util.Scanner;
- 
-class Program { 
-    static void szamok() {
-        Scanner input = new Scanner(System.in); 
-        System.out.print("Szam: ");
-        int szam = input.nextInt();
-        input = null;
-        if(szam != 0)
-            szamok();
-    }   
- 
-    public static void main(String args[]) {
-        szamok();
+public class RekurzioPelda {
+
+    public static void visszaszamlalas(int n) {
+        if (n <= 0) {
+            System.out.println("Rajt!");
+            return;
+        }
+
+        System.out.println(n);
+        visszaszamlalas(n - 1);
+    }
+
+    public static void main(String[] args) {
+        visszaszamlalas(3);
+    }
+}
+```
+
+Összegző függvény rekurzióval:
+
+```java
+public class OsszegRekurzio {
+
+    public static int osszead(int n) {
+        if (n <= 1) {
+            return n;
+        }
+
+        return n + osszead(n - 1);
+    }
+
+    public static void main(String[] args) {
+        int eredmeny = osszead(4);
+        System.out.println("Összeg: " + eredmeny);
     }
 }
 ```
