@@ -3064,7 +3064,7 @@ export class AuthService {
 
 Feltételezzük, hogy az azonosítás az AuthService nevű szolgáltatásban van leírva.
 
-Az auth-services.ts fájlban, szükségünk van egy metódusra amivel lekérdezhető a bejelentkezés állapota. Ha a signal() függvényt használtuk az isAuthenticated létrehozására, nincs több teendőnk. 
+Az auth-services.ts fájlban, szükségünk van egy metódusra amivel lekérdezhető a bejelentkezés állapota. Ha a signal() függvényt használtuk az isAuthenticated létrehozására, nincs több teendőnk.
 
 Ha nincs ilyen függvény, készíthetünk egy isLoggedIn() nevű függvényt is, amiben megvizsgáljuk, hogy el van-e
 tárolva a token, currentUser nevű érték:

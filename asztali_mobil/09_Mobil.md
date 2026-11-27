@@ -58,6 +58,12 @@ $ npx create-expo-app@latest hello2 --template
     Blank (Bare)
 ```
 
+Előre megadhatjuk a sablont:
+
+```cmd
+npx create-expo-app hello --template blank
+```
+
 Lépjünk be a könyvtárba:
 
 ```cmd
@@ -67,8 +73,18 @@ cd hello
 Webes előnézetet fogunk használni, ezért telepítsük a webes felülethez tartozó függőségeket. Győződjünk meg arról, hogy a projekt könyvtárában állunk, majd a függőségek telepítése:
 
 ```cmd
-npx expo install react-dom react-native-web @expo/metro-runtime
+npx expo install react-dom react-native-web
 ```
+
+Indíthatjuk azonnal webes felületen:
+
+```cmd
+npm run web
+```
+
+### Metro Bunlder
+
+Ha nem azonnal a webes felülete indítjuk, csak a Metro Bunldler indul.
 
 A Metro Bundler indítása:
 
@@ -166,7 +182,7 @@ const styles = StyleSheet.create({
 
 Az App.js két import kezdetű sort tartalmaz, majd egy App() nevű függvény és egy styles objektum.
 
-A függvény visszatérési értéke JSX tartalom, ami a JavaScript kiterjesztése. A JSX a JavaScript Syntax Extendsion rövidítése. A JSX hasonló az XML-hez vagy a HTML-hez. Tageket használunk a telefonos felület leírására. A kezdeti tagek:
+A függvény visszatérési értéke **JSX** tartalom, ami a JavaScript kiterjesztése. A JSX a JavaScript Syntax Extendsion rövidítése. A JSX hasonló az XML-hez vagy a HTML-hez. Tageket használunk a telefonos felület leírására. A kezdeti tagek:
 
 * View
 * Text
@@ -174,7 +190,7 @@ A függvény visszatérési értéke JSX tartalom, ami a JavaScript kiterjeszté
 
 A szabály szerint a JSX egy konténer taggel kezdődik, amely újab konténereket vagy más elemeket tartalmazhat.
 
-A példában a View tag a legkülső tag, amelyben két elem található, a Text és a StatusBar. A Text elemben, ahogy neve is mutatja szöveget lehet megjeleníteni. A StatusBar a telefon képernyőjének felső részén jelenít értesítéseket, állapotokat. Ez a navigációs sáv webes előnézetben nem látható.
+A példában a View tag a legkülső tag, amelyben két elem található, a Text és a StatusBar. A Text elemben, ahogy neve is mutatja szöveget lehet megjeleníteni. A StatusBar a telefon képernyőjének felső részén jelenít értesítéseket, állapotokat. Ez az információs sáv webes előnézetben nem látható.
 
 A View tag tartalmaz egy style attribútumot, amellyel megadhatjuk az elem tartalmának stílusát. Az attribútum értékét idézőjelek helyett kapcsoszárójelbe kell tenni.
 
@@ -195,6 +211,7 @@ A StatusBar elem mérete:
 * Android - 24 pixel
 
 A StatusBar közepán előfordulhat egy előlapi kamera is.
+ Ezért érdemes legalább 36 pixel felső margót is megadni, mert a kamera is belóghat.
 
 ## Alapvető stílusok
 
@@ -338,9 +355,14 @@ const styles = StyleSheet.create({
 
 ```
 
-Az alignItems és justifyContent justifyContent tulajdonságok nem működnek a ScrollView-on.
+Az **alignItems** és **justifyContent** tulajdonságok nem működnek a **ScrollView**-on.
 
 ## Képek megjelenítése
+
+Képeket az **Image** elemmel jeleníthetünk meg.
+A képeket helyben az **assets** könyvtárban tartjuk.
+A React Native alkalmalzás alapból tartalmaz néhány
+képet. Pórbáljuk ki ezekkel a képek megjelenítését.
 
 ```javascript
 import { Image } from 'react-native';
@@ -368,7 +390,60 @@ Kép az Internetről
 }}>
 ```
 
+Használhatjuk a következő URL
+
+* [https://picsum.photos/200/300](https://picsum.photos/200/300)
+
 ## Bevitel
+
+```jsx
+const [name, setName] = React.useState('');
+{/*...*/}
+<TextInput 
+  style={styles.input} 
+  onChangeText={text => setName(text)}
+  />
+```
+
+Szám esetén célszerű a keyboardType használata:
+
+```jsx
+const [num, setNum] = React.useState('');
+{/*...*/}
+<TextInput 
+  style={styles.input} 
+  onChangeText={text => setNum(text)}
+  keyboardType="numeric"
+  />
+```
+
+Használhatunk "placeholder"-t:
+
+```jsx
+const [num, setNum] = React.useState('');
+{/*...*/}
+<TextInput 
+  style={styles.input} 
+  onChangeText={text => setNum(text)}
+  keyboardType="numeric"
+  placeholder='egész szám'
+  />
+```
+
+Ha nem szerkeszthető mezőt szeretnénk:
+
+```jsx
+const [result, setResult] = React.useState('');
+{/*...*/}
+<TextInput 
+  style={styles.input}   
+  value={result}
+  editable={false}
+  placeholder='egész szám'
+  />
+```
+
+Nézzünk egy teljes példát:
 
 ```javascript
 import React from 'react';
@@ -431,6 +506,28 @@ Esemény kezelése:
 title='Nyomd meg'
 onPress={() => alert('Működik')}
 />
+```
+
+A gombokat érdemes egy tárolóban tennünk:
+
+```jsx
+<View style={styles.buttonWrapper}>
+  <Button
+    title="Mehet"
+    onPress={startCalc}
+    style={{width: '100%',}}
+  />
+</View>
+```
+
+Hozzátartozó beállítás:
+
+```javascript
+  buttonWrapper: {
+    width: '90%',
+    marginTop: 20,
+    marginBottom: 20,
+  }
 ```
 
 ## Saját gombok

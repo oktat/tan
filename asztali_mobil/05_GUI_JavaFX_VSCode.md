@@ -786,6 +786,8 @@ Pane
   `-Button      Küldés     onClickStartButton
 ```
 
+![ChiceBox újabb példa](images/javafx/choicebox_example.png)
+
 MainController.java:
 
 ```java
